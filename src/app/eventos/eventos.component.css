@@ -1,0 +1,7 @@
+.contenedor2:hover p{
+    display:initial ;
+
+}
+.contenedor2 p {
+    display: none;
+}

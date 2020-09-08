@@ -1,0 +1,53 @@
+<section class="container mt-5">
+    <button class="btn btn-success" routerLink="/administradores/admin/eventos/lista/localidades/{{miId}}">Atras</button>
+    <h1>Boletas del Evento {{miId}} en la localidad {{nombre}}</h1>
+    <small>Boletas totales {{numeroDeBoletas}}</small> <br>
+    <small>Boletas vendidas {{numeroDeBoletasVendidas}}</small> <br>
+    <small>Boletas por vender {{numeroDeBoletasPorVender}}</small> <br>
+    <button class="btn btn-success" routerLink= "agregar"> Agregar Boletas</button>
+
+    <table class="table mt-3">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                
+                <th>seccion y silla</th>
+                <th>Precio</th>
+                <th>Vendida</th>
+                <th>Utilizada</th>
+                <th>Reservada</th>
+                <th>Servicio</th>
+                <th>Localidad</th>
+                <th>Modificar</th>
+                <th>Borrar</th>
+                
+            </tr>
+    
+    
+    
+        </thead>
+        <tbody>
+          
+            <tr *ngFor = "let boleta of boletas">
+                <td>{{boleta?.id}}</td>
+                
+                <td>{{boleta?.seccionSilla}}</td>
+                <td>{{boleta?.precio | currency: 'COP'}}</td>
+                <td>{{boleta?.vendida |booleans}}</td>
+                <td>{{boleta?.utilizada |booleans}}</td>
+                <td>{{boleta?.reservado|booleans}}</td>
+                <td>{{boleta?.servicio}}%</td>
+                <td>{{boleta?.localidadNombre}}</td>
+                
+                <td><button class="btn btn-warning"> Modificar</button></td>
+                <td><button  class="btn btn-danger" (click)="borrarBoleta(boleta?.id)"> Delete</button></td>
+    
+            </tr>
+    
+    
+        </tbody>
+    
+    </table>
+    
+</section>

@@ -1,0 +1,26 @@
+.ng-invalid:not(form){
+    border-left:2px solid black ;
+}
+
+.ng-valid:not(form){
+    border-left:2px solid black  ;
+}
+.fondoBlanco{
+    background-color: white;
+}
+.fondoLogin{
+    background: linear-gradient(#666, #333); 
+    color: white;
+    width: 100%;
+}
+.contenederoLogin:hover .fondoLogin{ 
+    background: linear-gradient(#F9B84A, #ed701c); 
+}
+
+p{
+    font-size: 18px;
+}
+
+
+
+

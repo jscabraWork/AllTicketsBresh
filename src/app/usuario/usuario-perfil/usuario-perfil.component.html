@@ -1,0 +1,55 @@
+
+        <div id="prueba">
+            
+            
+            <h1><strong>Bienvendio a AllTickets {{usuario.nombre}}</strong></h1>
+           
+           <h1 style="font-size: 20px;"><strong> Mis Datos</strong></h1>
+           <small>Documento numero: {{usuario.numeroDocumento}}</small>
+            
+        </div>
+        
+        
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 border rounded p-4 fondoNegro" style="text-align: center;" >
+                    
+                    <form (ngSubmit)="!todoForm.invalid && saveUsuario()" #todoForm="ngForm">
+                       
+        
+                        <fieldset class="form-group">
+                            <label for="contrasena">Contraseña</label>
+                            <input type="password" class= "form-control "name ="contrasena" required="required"  [(ngModel)]="usuario.contrasena">
+                        </fieldset>
+        
+        
+                        <fieldset class="form-group">
+                            <label for="celular">Celular</label>
+                            <input type="number"  class= "form-control "name ="celular" required="required"  [(ngModel)]="usuario.celular">
+                        </fieldset>
+        
+                        <fieldset class="form-group">
+                            <label for="correo">Correo</label>
+                            <input type="email" class= "form-control "name ="correo" required="required"  [(ngModel)]="usuario.correo">
+                        </fieldset>
+        
+        
+                        <fieldset class="form-group">
+                            <label for="direccion">Dirección</label>
+                            <input type="text" class= "form-control "name ="direccion" required="required"  [(ngModel)]="usuario.direccion">
+                        </fieldset>
+        
+                       
+                        <div style="text-align: center;">
+                            <button class="btn action_button mt-2" type="submit">Guardar</button>
+                        </div>    
+                    </form>
+                </div>   
+                <div class="col-12 mt-3" style="text-align: center;">
+                    <button class="btn action_button mt-2" routerLink="misTickets" >Ver Todos Mis Tickets</button>
+                </div> 
+            </div>
+        </div>
+
+   

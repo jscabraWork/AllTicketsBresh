@@ -1,0 +1,44 @@
+<section class="container mt-5">
+    <h2>Todas las ciudades</h2>
+    <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
+    <div class="container">
+    <table class="table mt-3">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Temperatura</th>
+              
+                <th>Modificar</th>
+                <th>Borrar</th>
+                
+            </tr>
+    
+    
+    
+        </thead>
+        <tbody>
+          
+            <tr *ngFor = "let ciudad of ciudades">
+                <td>{{ciudad?.id}}</td>
+                <td>{{ciudad?.nombre }}</td>
+                <td>{{ciudad?.temperatura}}</td>
+            
+                <td><button routerLink="update/{{ciudad.id}}" class="btn btn-warning">  Modificar</button></td>
+                <td><button  class="btn btn-danger" (click)="deleteCiudad(ciudad.id)" > Delete</button></td>
+    
+            </tr>
+    
+    
+        </tbody>
+    
+    </table>
+</div>
+<div class="row">
+    <div class="col-12 mt-5" style="text-align: center;">
+<button  routerLink="agregar" class="btn btn-success">Agregar Ciudad</button>
+
+</div>
+</div>
+</section>

@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h1>Organizador</h1>
+<form (ngSubmit)="!todoForm.invalid &&saveOrganizador()" #todoForm="ngForm">
+    <fieldset class="form-group">
+        <label for="id">Numero Documento</label>
+        <input type="text" class= "form-control"name ="id" required="required"  [(ngModel)]="organizador.numeroDocumento">
+    </fieldset>    
+<fieldset class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="organizador.nombre">
+</fieldset>
+
+<fieldset class="form-group">
+    <label for="tipo">Tipo de Documento</label>
+    <input type="text" class= "form-control"name ="tipo" required="required"  [(ngModel)]="organizador.tipoDocumento">
+</fieldset>
+
+<fieldset class="form-group">
+    <label for="nombre">Usuario</label>
+    <input type="text" class= "form-control"name ="usuario" required="required"  [(ngModel)]="organizador.usuario">
+</fieldset>
+
+<fieldset class="form-group">
+    <label for="nombre">Contraseña</label>
+    <input type="text" class= "form-control"name ="contrasena" required="required"  [(ngModel)]="organizador.contrasena">
+</fieldset>
+
+<button class="btn btn-success" type="submit">Guardar</button>
+</form> 
+</div>

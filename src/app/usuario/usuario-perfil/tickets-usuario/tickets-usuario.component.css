@@ -1,0 +1,11 @@
+.tituloLocalidad{
+    background: linear-gradient(#666, #333); 
+    color:#FFF;
+    padding: 3%;
+    width: 100%;
+    
+}
+.eventoFondo{
+    background-color: white;
+    text-align: center;
+}

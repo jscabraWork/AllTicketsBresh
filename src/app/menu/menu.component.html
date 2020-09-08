@@ -1,0 +1,85 @@
+<header class="barra">
+	<section class="  fixed-top"   >
+		<!-- Header desktop -->							
+					<!-- Menu -->
+			
+			<div class="row">
+			
+			<div class="col">
+					<nav class="navbar navbar-expand-lg navbar-dark  sticky-top barra" >
+						
+						<a routerLink='/home'>
+							<img class="navbar-brand" src="../assets/images/img/logo2.png" style="width:200px" >
+						</a>
+
+
+							<div >
+								<button class="navbar-toggler " type= "button" data-toggle="collapse" data-target="#uno"  >
+									<span class="navbar-toggler-icon "></span>
+								</button>
+							</div>	
+							
+
+
+							<div class="collapse navbar-collapse justify-content-md-end" id="uno">
+								<ul class="navbar-nav">
+	
+									<li routerLinkActive="active " class=" m-lg-3">
+										<a routerLink='/home' class="nav-link">Home</a>
+									</li>
+			
+									<li routerLinkActive="active" class=" m-lg-3">
+										<a routerLink='/ciudades' class="nav-link">Ciudades</a>
+									</li>
+
+									<li routerLinkActive="active" class=" m-lg-3">
+										<a routerLink='/eventos' class="nav-link">Eventos</a>
+									</li>
+
+									<li routerLinkActive="active" class=" m-lg-3">
+										<a routerLink='/sePromotor' class="nav-link">Promotor</a>
+									</li>
+
+									<li routerLinkActive="active" class=" m-lg-3">
+										<a routerLink='/blog' class="nav-link">Blog</a>
+									</li>
+								
+									<li routerLinkActive="active" class=" m-lg-3">
+										<a routerLink='/nosotros' class="nav-link">Nosotros</a>
+									</li>
+								
+									<li routerLinkActive="active" class=" m-lg-3">
+										<a routerLink='/contactanos' class="nav-link">Contactanos</a>
+									</li>
+
+									<li routerLinkActive="active" class=" m-lg-3">
+										<a *ngIf="!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin()" routerLink='/login' class="nav-link " style="color:#ed701c;">Iniciar Sesión</a>
+										<a  *ngIf="autenticacion.usuarioLoggin()" routerLink='/usuarios/usuario/{{usuario}}' class="nav-link " (click)="cargarUsuario()" style="color:#ed701c;">Perfil</a>
+										<a  *ngIf="autenticacion.adminLoggin()" routerLink='/administradores/admin/{{usuario}}' class="nav-link " (click)="cargarAdmin()" style="color:#ed701c;">Perfil</a>
+										<a  *ngIf="autenticacion.organizadorLoggin()" routerLink='organizadores/organizador/{{usuario}}' class="nav-link " (click)="cargarOrganizador()" style="color:#ed701c;">Perfil</a>
+									</li>
+									<li routerLinkActive="active" class=" m-lg-3" *ngIf="!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin()">
+										<a  routerLink='/registrarse' class="nav-link " style="color:#ed701c;">Registrate</a>
+										
+									</li>
+
+								
+									<li routerLinkActive="active" class=" m-lg-3">
+										<a *ngIf="autenticacion.usuarioLoggin()" routerLink='/logout' class="nav-link" style="color:#ed701c;">Cerrar Sesión</a>
+										<a *ngIf="autenticacion.adminLoggin()" routerLink='/logoutA' class="nav-link"style="color:#ed701c;">Cerrar Sesión</a>
+										<a *ngIf="autenticacion.organizadorLoggin()" routerLink='/logoutO' class="nav-link" style="color:#ed701c;">Cerrar Sesión</a>
+									</li>
+
+									<li class="mt-4 mt-lg-0 mr-lg-3">
+									<input type="text" placeholder="Buscar" class="form-control rounded-pill  m-lg-1 m-lg-3" >
+								</li>
+								<li class=" mt-4 mt-lg-0">
+									<button class=" botonBarra btn m-lg-3 rounded border-dark shadow-sm" type="submit" >Buscar</button>
+								</li>
+							</ul>			
+						</div>				
+					</nav>			
+				</div>
+			</div>
+		</section>
+</header>

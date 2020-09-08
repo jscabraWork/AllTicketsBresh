@@ -1,0 +1,39 @@
+
+
+
+    <section class="container mt-5">
+        <h2>Todos los usuarios</h2>
+        
+        <div class="container">
+        <table class="table mt-3">
+    
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                   <th>Usuario</th>
+                   <th>Contraseña</th>
+                   <th>Borrar</th>
+                    
+                </tr>
+        
+        
+        
+            </thead>
+            <tbody>
+              
+                <tr *ngFor = "let usuario of usuarios">
+                    <td>{{usuario?.numeroDocumento}}</td>
+                    <td> {{usuario?.nombre }}</td> 
+                    <td> {{usuario?.usuario }}</td>
+                    <td>{{usuario?.contrasena}}</td>
+                    <td><button  class="btn btn-danger" (click)="deleteUsuario(usuario?.numeroDocumento)" > Delete</button></td>
+                </tr>
+        
+        
+            </tbody>
+        
+        </table>
+    </div>
+    
+    </section>

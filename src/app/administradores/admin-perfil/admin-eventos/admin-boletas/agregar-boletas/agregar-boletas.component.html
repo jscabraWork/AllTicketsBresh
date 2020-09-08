@@ -1,0 +1,31 @@
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1>Agregar Boletas al evento con PullEp: {{miId}} en la localidad {{nombre}} con Id: {{idLocalidad}}</h1>
+         
+        </div>
+
+<div class="col-12">
+        <form (ngSubmit)="!todoForm.invalid && agregarBoletas()" #todoForm="ngForm">
+    
+            <fieldset class="form-group">
+                <label for="nombre">Cantidad</label>
+                <input type="number" class= "form-control"name ="cantidad" required="required"  [(ngModel)]="cantidad">
+            </fieldset>
+
+    
+        <fieldset class="form-group">
+            <label for="nombre">SeccionSilla</label>
+            <input type="text" class= "form-control"name ="seccionSilla" [(ngModel)]="boleta.seccionSilla">
+        </fieldset>
+   
+        
+     
+        
+    
+        
+        <button class="btn btn-success" type="submit">Guardar</button>
+        </form> 
+    </div>
+    </div>
+</section>

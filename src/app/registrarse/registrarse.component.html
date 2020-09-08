@@ -1,0 +1,74 @@
+<div id="prueba">
+        
+        
+    <h1 class="centrado4 rounded" ><strong>Registrate con nosotros</strong></h1>
+    
+    
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 border rounded p-4 fondoNegro" >
+            <form (ngSubmit)="!todoForm.invalid && saveUsuario()" #todoForm="ngForm">
+                <fieldset class="form-group">
+                    <label for="id">Numero Documento</label>
+                    <input type="number" class= "form-control "name ="id" required="required"  [(ngModel)]="usuario.numeroDocumento">
+                </fieldset>    
+                
+                <fieldset class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class= "form-control "name ="nombre" required="required"  [(ngModel)]="usuario.nombre">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="tipo">Tipo de Documento</label>
+                    <select type="text" class= "form-control "name ="tipo" required="required"  [(ngModel)]="usuario.tipoDocumento">
+                        <option value="Cedula">Cedula</option>
+                        <option value="TarjetaIdentidad">Tarjeta de Identidad</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                    </select>    
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" class= "form-control "name ="usuario" required="required"  [(ngModel)]="usuario.usuario">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" class= "form-control "name ="contrasena" required="required"  [(ngModel)]="usuario.contrasena">
+                </fieldset>
+
+
+                <fieldset class="form-group">
+                    <label for="celular">Celular</label>
+                    <input type="number"  class= "form-control "name ="celular" required="required"  [(ngModel)]="usuario.celular">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="correo">Correo</label>
+                    <input type="email" class= "form-control "name ="correo" required="required"  [(ngModel)]="usuario.correo">
+                </fieldset>
+
+
+                <fieldset class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" class= "form-control "name ="direccion" required="required"  [(ngModel)]="usuario.direccion">
+                </fieldset>
+
+                <fieldset class="form-group pl-4" >
+                    <input type="checkbox" class="form-check-input" id="publicidad" (click)="publicidad()" >
+                    <label class="form-check-label " for="publicidad">Acepto que me envien publicidad </label>
+                </fieldset>
+
+                <fieldset class="form-group pl-4">
+                    <input type="checkbox" class="form-check-input" id="terminos" required="required">
+                    <label class="form-check-label " for="terminos">Acepto Terminos y Condiciones</label>
+                </fieldset>
+                <div style="text-align: center;">
+                    <button class="btn action_button mt-2" type="submit">Registrarse</button>
+                </div>    
+            </form>
+        </div>    
+    </div>
+</div>

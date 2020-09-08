@@ -1,0 +1,26 @@
+
+<div class="container mt-5">
+    <h1>Ciudad de {{ciudad.nombre}}</h1>
+<form (ngSubmit)="!todoForm.invalid && saveCiudad()" #todoForm="ngForm">
+    <fieldset class="form-group">
+        <label for="id">ID</label>
+        <input type="text" class= "form-control"name ="id" required="required"  [(ngModel)]="ciudad.id">
+    </fieldset>    
+<fieldset class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="ciudad.nombre">
+</fieldset>
+
+<fieldset class="form-group">
+    <label for="nombre">Imagen</label>  
+    <input type="file" class= "form-control"name ="imagen" required="required" (change)="onFileSelected($event)" >
+</fieldset>
+
+<fieldset class="form-group">
+    <label for="nombre">Temperatura</label>
+    <input type="text" class= "form-control"name ="temperatura" required="required"  [(ngModel)]="ciudad.temperatura">
+</fieldset>
+
+<button class="btn btn-success" type="submit">Guardar</button>
+</form> 
+</div>

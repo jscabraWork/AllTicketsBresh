@@ -1,0 +1,126 @@
+
+
+        .ubicaciones {
+            text-align: center; 
+            
+            
+        }
+        .contenederoBlanco{
+            background-color: white;
+        }
+        h3{
+            font-size: 30px;
+        }
+
+        .Ahr{
+            width: 100%;
+        }
+
+        .localidades{
+            background-color: white;
+        }
+        .divisionLocalidad
+        {
+         
+            
+            text-align: right;
+            width: 600px;
+            text-align: center;
+            transition: all 1s; 
+            position: relative; 
+            width: 100%;
+        }
+        .eventoFondo{
+            background-color: white;
+            text-align: center;
+        }
+    
+        .eventoFondo2{
+            background-color: white;
+            text-align: center;
+        }
+            .tituloLocalidad{
+                background: linear-gradient(#666, #333); 
+                color:#FFF;
+                padding: 3%;
+                width: 100%;
+                
+            }
+
+            .precioLocalidades{
+                font-size:25px;
+                color:#ed701c;
+            }
+         p{
+             font-size: 19px;
+         }
+         .aaaa{
+            
+                border: 2.5px solid #ed701c;;
+                
+                height: 0px;
+                width: 200px;
+                text-align: center;
+              }
+         
+
+            .divisionLocalidad:hover{
+                
+                transform: scale(1.01) translateY(-5px); 
+                z-index: 1; 
+                border-bottom: 0 none;
+
+            }
+    
+            .divisionLocalidad:hover .tituloLocalidad{
+                background: linear-gradient(rgba(236, 158, 40, 0.87), rgba(255, 80, 28, 0.87)); 
+                
+            }
+       
+            .action_button:hover{
+                background: linear-gradient(rgba(236, 158, 40, 0.87), rgba(255, 80, 28, 0.87)); 
+            }
+
+
+            .tamañoLetra{
+                font-size: 13px ;
+            }
+            .action_button {
+                text-decoration: none; 
+                color: #fff; 
+                font-weight: bold; 
+                border-radius: 5px; 
+                background: linear-gradient(#666, #333); 
+               
+                font-size: 11px; 
+                text-transform: uppercase;
+            }
+
+
+
+            .localidadMapa{
+                height: 800px;
+                background-color: white;
+                
+                
+            }
+
+
+            .zonablanca40{
+                height: 40%;
+            }
+           
+            .zonablanca15{
+                height: 5%;
+            }
+
+            .zonablanca25{
+                height: 15%;
+            }
+
+
+
+            
+
+          
+

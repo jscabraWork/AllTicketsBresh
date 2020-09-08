@@ -1,0 +1,61 @@
+<section class="container mt-5">
+
+    <div class="row">
+        <div class="col-12"  style="text-align: center;">
+    <h2>Todos los Palcos del evento {{evento.nombre}}</h2>
+    <button class="btn btn-success" routerLink="/administradores/admin/eventos/lista">Atras</button>
+    <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
+    <div class="container">
+    <table class="table mt-3">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad Pagada</th>
+                <th>Servicio</th>
+                <th>Personas Adentro</th>
+                <th>Personas Maximas</th>
+                <th>Vendido</th>
+                <th>Reservado</th>
+                <th>Modificar</th>
+                <th>Borrar</th>
+                
+            </tr>
+    
+    
+    
+        </thead>
+        <tbody>
+          
+            <tr *ngFor = "let palco of evento.palcos">
+                <td>{{palco?.id}}</td>
+                <td>{{palco?.nombre }}</td>
+                <td>{{palco?.precio}}</td>
+                <td>{{palco?.precioParcialPagado}}</td>
+                <td>{{palco?.servicio}}%</td>
+                <td>{{palco?.personasAdentro}}</td>
+                <td>{{palco?.personasMaximas}}</td>
+                <td>{{palco?.vendido  |booleans}}</td>
+                <td>{{palco?.reservado  |booleans}}</td>
+                <td><button class="btn btn-warning" > Modificar</button></td>
+                <td><button (click) ="borrarPalco(palco.id)" class="btn btn-danger"> Delete</button></td>
+    
+            </tr>
+    
+    
+        </tbody>
+    
+    </table>
+</div>
+<div class="row">
+    <div class="col-12 mt-5" style="text-align: center;">
+<button  routerLink="agregar" class="btn btn-success">Agregar Palco</button>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+

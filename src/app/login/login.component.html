@@ -1,0 +1,41 @@
+<div id="prueba">
+    <h1 class="centrado4 rounded" ><strong>Login</strong></h1>
+</div>
+<section>
+   
+
+    <section class="container mt-5">
+        <div class="row">
+            <div class="col-9 col-xl-3"></div>
+        <div class ="col-12 login col-xl-6 p-4 contenederoLogin">
+            <div class="fondoBlanco rounded border">
+                <div class="fondoLogin p-3">
+                    <h2><strong>All Tickets</strong></h2>
+                </div>
+                <form (ngSubmit)="handleLogin()">
+                    <div class="mt-3 ">
+                        <p>Usuario</p>
+                        <input type="text" name= "username" class="rounded"  [(ngModel)]="username" >
+                    </div>
+
+                    <hr>
+
+                    <div class="mt-3 ">
+                        <p>Contraseña</p>
+                        <input type="password" name="password" class="rounded" [(ngModel)]="password">
+                    </div>
+                    
+                    <hr>
+                
+                    <div class="mt-3 mb-3 ">
+                        <small *ngIf ='invalidLogin' class="text-danger" >{{errorMessage}}</small>
+                        <br *ngIf ='invalidLogin'>
+                        <button class="btn action_button mt-3"  type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-9 col-xl-3"></div>
+    </div>
+    </section>
+</section>    
