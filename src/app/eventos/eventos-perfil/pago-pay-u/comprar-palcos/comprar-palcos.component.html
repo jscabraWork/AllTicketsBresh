@@ -65,9 +65,11 @@
       <div class="row border rounded shadow" style="background-color: white;">
         <h4 class="p-3"><strong>Selección de Palcos</strong></h4>
         <p class="pl-3 pr-3 pb-4">Por favor, indica los palcos que deseas añadir a tu pedido. Ten en cuenta que para comprar un palco debes reservarlo minimo con un 10% del valor y pagarlo en el plazo de una semana, en caso dado que no se logre pagar se penalizara con una multa equivalente al servicio + 10% del valor de Palco.</p>
-      
+        <div class="col-12 mb-5" *ngIf="palcos.length==0" style="text-align: center;">
+            <h3><strong>No hay Palcos disponibles, vuelve más tarde</strong></h3>
+        </div>
         <div class="col-12">
-          <table class="table mt-2 tabla border shadow-xs p-3" style="text-align: center;" >
+          <table *ngIf="palcos.length>0" class="table mt-2 tabla border shadow-xs p-3" style="text-align: center;" >
             <thead>
                 <tr >
                     <th >Nombre</th>
@@ -97,11 +99,11 @@
            
            
          </div>
-         <div>
+         <div *ngIf="palcos.length>0">
             <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
             <h5><strong>Palcos: </strong> {{palcosLista.length}}</h5>
           </div>
-          <button style="font-size: 12px;" class="action_button float-right mr-1 mt-2 mb-3 p-3" (click) ="agregarAlCarrito()"> Agregar al carrito</button>
+          <button *ngIf="palcos.length>0" style="font-size: 12px;" class="action_button float-right mr-1 mt-2 mb-3 p-3" (click) ="agregarAlCarrito()"> Agregar al carrito</button>
         </div>
       </div>
     </div>
