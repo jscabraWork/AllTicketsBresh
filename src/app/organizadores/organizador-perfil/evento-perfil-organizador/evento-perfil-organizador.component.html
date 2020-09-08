@@ -35,7 +35,8 @@
                             <th class="border ">Boletas por vender</th>
                             <th class="border ">Boletas totales</th>
                             <th class="border">Dinero Recaudado</th>
-                            <th class="border">Boletas Patrocinios</th>                
+                            <th class="border">Boletas Patrocinios</th>   
+                            <th class="border">Palcos</th>             
                         </tr>
                 
                 
@@ -51,6 +52,7 @@
                             <td class="border">{{localidad?.boletas?.length}}</td> 
                             <td class="border">{{dineroVendido(localidad)|currency:'COP'}}</td>
                             <td class="border"><button class="btn action_button float-right" routerLink="patrocinio/{{localidad?.id}}">Boletas patrocinio</button></td>
+                            <td class="border"><button class="btn action_button float-right">Ver Palcos</button></td>
                         </tr>
                         
                 
