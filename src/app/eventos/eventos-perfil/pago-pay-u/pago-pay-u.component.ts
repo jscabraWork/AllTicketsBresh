@@ -162,7 +162,7 @@ boletaBoolean:boolean=false
     this.router.navigate(['/login'])
   }
 
-  else if(this.usuarioEntidad.boletas.length+ this.boletas.length==6 ){
+  else if(this.boletas.length==6 ){
     alert("Solo puedes comprar 6 boletas máximo por Evento")
   }
     

@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { RegalarBoletaComponent } from './eventos-perfil/pago-pay-u/regalar-boleta/regalar-boleta.component';
+import { ComprarPalcosComponent } from './eventos-perfil/pago-pay-u/comprar-palcos/comprar-palcos.component';
 
 
 
@@ -38,6 +39,10 @@ const routes: Routes=[
           component: PagoPayUComponent
         },
         {
+          path:'evento/:id/pago/palco',
+          component: ComprarPalcosComponent
+        },
+        {
           path:'evento/:id/pago/regalar',
           component: RegalarBoletaComponent
         }
@@ -49,7 +54,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ],
+    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent, ],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 
