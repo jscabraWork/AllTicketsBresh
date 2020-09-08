@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {Md5} from 'ts-md5/dist/md5'
 
+
 @Component({
   selector: 'app-pago-pay-u',
   templateUrl: './pago-pay-u.component.html',
@@ -20,17 +21,18 @@ import {Md5} from 'ts-md5/dist/md5'
 export class PagoPayUComponent implements OnInit {
 miId;
 valorTotal:number=0
-usuarioA
+usuarioA:string
 usuarioEntidad: Cliente
 evento:Evento;
 boletas:Boleta[]=[]
-boletasNumero:Boleta[]=[]
+localidadesCompradas:Localidad[]=[]
 usuarioBoolean:boolean=true;
 merchantId:number
 accountId:number
 referenceCode:string="PAGO: "
 signature:string
 ApiKey:string
+valorLocalidadAgregada:number =0
 
 boletaBoolean:boolean=false
   constructor(private route: ActivatedRoute, private service:EventoDataService, private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
@@ -127,7 +129,7 @@ boletaBoolean:boolean=false
   }
 
 
-  reservarBoletas(localidad:Localidad){
+  reservarBoletasSillasExactas(localidad:Localidad){
 
 
     var lista:Boleta[]=[];
@@ -141,7 +143,7 @@ boletaBoolean:boolean=false
       
         this.referenceCode = this.referenceCode +lista[0].localidadNombre+":"+lista[0].id+"/";
       
-        this.servicioBoletas.reservarBoleta(this.evento.id, localidad.id, lista[0]).subscribe(data=>  {data;
+        this.servicioBoletas.reservarBoletaIndividual(this.evento.id, localidad.id, lista[0]).subscribe(data=>  {data;
           this.valorTotal=this.valorTotal+ localidad.precio  +localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800;
           var md5 = new Md5()
 
@@ -165,9 +167,107 @@ boletaBoolean:boolean=false
   else if(this.boletas.length==6 ){
     alert("Solo puedes comprar 6 boletas máximo por Evento")
   }
-    
-  var lista:Boleta[]=[];
   }
+
+
+
+  reservarBoletasPorLocalidad(localidad:Localidad){
+
+
+    var lista:Boleta[]=[];
+
+    if(this.localidadesCompradas.length<6 && !this.usuarioBoolean)
+    {
+      this.localidadesCompradas.push(localidad);
+      this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800;
+
+   }
+  
+  else if(this.usuarioBoolean){
+    alert("Entra a tu cuenta AllTickets")
+    this.router.navigate(['/login'])
+  }
+
+  else if(this.localidadesCompradas.length==6 ){
+    alert("Solo puedes comprar 6 boletas máximo por Evento")
+  }
+  }
+
+
+
+  reservarBoletasLocalidad(){
+
+
+  var boleta:Boleta;
+  if(this.localidadesCompradas.length + this.boletas.length<7 && !this.usuarioBoolean)
+    {
+
+      for(var i =0; i < this.localidadesCompradas.length; i=i+1){
+
+        var localidad = this.localidadesCompradas[i]
+        this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, localidad.id).subscribe(response=>{
+          boleta= response
+          if(boleta!=null){ 
+            this.boletas.push(boleta)
+            this.referenceCode = this.referenceCode +boleta.localidadNombre+":"+boleta.id+"/";
+            this.valorTotal=this.valorTotal+ localidad.precio  +localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800;
+            var md5 = new Md5()
+            this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
+
+        }
+
+          else {
+            alert("No quedan boletas en esta localidad, prueba más tarde")
+          }
+          
+        })
+      }
+      this.localidadesCompradas =[];
+      this.valorLocalidadAgregada =0;
+  }
+  else if(this.localidadesCompradas.length + this.boletas.length>6){
+    alert("Solo puedes comprar 6 boletas máximo por Evento")
+  }
+  
+  else if(this.usuarioBoolean){
+    alert("Entra a tu cuenta AllTickets")
+    this.router.navigate(['/login'])
+  }
+
+  else if(this.boletas.length ==6 ){
+    alert("Solo puedes comprar 6 boletas máximo por Evento")
+  }
+}
+
+quitaBoletaLocalidad(localidad:Localidad){
+  if(this.localidadesCompradas.length >0){
+    var terminado =false;
+    for(var i =0 ; i <this.localidadesCompradas.length && !terminado;i=i+1){
+      if(this.localidadesCompradas [i].id==localidad.id){
+        this.localidadesCompradas.splice(i,1)
+        this.valorLocalidadAgregada = this.valorLocalidadAgregada - (localidad.precio  +localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800);
+        terminado = true;
+      }
+    }
+
+  }
+  else{
+    alert("No tienes Tickets seleccionados")
+  }
+}
+
+boletasLocalidadCantidadSeleccionada(localidad:Localidad){
+  var cantidad =0;
+  for(var i =0; i < this.localidadesCompradas.length; i=i+1){
+    if(this.localidadesCompradas[i].id ==localidad.id){
+      
+      cantidad = cantidad +1;
+    }
+  }
+  return cantidad;
+}
+
+
 comprarBoletas(){
 
 

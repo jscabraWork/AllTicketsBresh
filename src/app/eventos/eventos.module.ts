@@ -39,7 +39,7 @@ const routes: Routes=[
           component: PagoPayUComponent
         },
         {
-          path:'evento/:id/pago/palco',
+          path:'evento/:id/pago/palcos',
           component: ComprarPalcosComponent
         },
         {

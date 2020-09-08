@@ -44,9 +44,14 @@ export class BoletasDataService {
 
   
 
-  reservarBoleta(pEvento:string, pIdLocalidad:number , pBoleta:Boleta){
+  reservarBoletaIndividual(pEvento:string, pIdLocalidad:number , pBoleta:Boleta){
 
     return this.http.put(this.url+ `${pEvento}/boletas/${pIdLocalidad}/reservar`, pBoleta);
+  }
+
+  reservarBoletaLocalidad(pEvento:string, pIdLocalidad:number ){
+
+    return this.http.put <Boleta>(this.url+ `${pEvento}/boletas/${pIdLocalidad}/reservarLocalidad`,null);
   }
 
 

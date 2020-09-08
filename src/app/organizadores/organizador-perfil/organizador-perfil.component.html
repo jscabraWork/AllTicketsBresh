@@ -14,39 +14,27 @@
 <section class="container mt-5">
 
     <div class="container">
-    
-
-    <table class="table mt-3 border rounded tabla" >
-
-        <thead>
-            <tr class="border ">
-                <th class="border ">PullEp</th>
-                <th class="border ">Nombre</th>
-                <th class="border ">Fecha</th>
-                <th class="border ">Lugar</th>               
-                
-                <th class="border ">Ver Perfil</th>
-                
-            </tr>
-    
-    
-    
-        </thead>
-        <tbody>
-            <tr class="border"*ngFor = "let evento of organizador?.eventos" >
-                <td class="border"><strong>{{evento?.id}}</strong></td>
-                <td class="border"> <strong>{{evento?.nombre }}</strong></td> 
-                <td class="border"> <strong>{{evento?.fecha }}</strong></td> 
-                <td class="border"> <strong>{{evento?.lugar }}</strong></td> 
-                
-                <td class="border"> <button class="btn action_button" routerLink="/organizadores/organizador/eventos/{{evento?.id}}">Ver Perfil</button></td> 
-            </tr>
-            
-    
-    
-        </tbody>
-    
-    </table>
-</div>
-
+        <table class="table mt-3 border rounded tabla" >
+            <thead>
+                <tr class="border ">
+                    <th class="border ">PullEp</th>
+                    <th class="border ">Nombre</th>
+                    <th class="border ">Fecha</th>
+                    <th class="border ">Lugar</th>               
+                    
+                    <th class="border ">Ver Perfil</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border"*ngFor = "let evento of organizador?.eventos" >
+                    <td class="border"><strong>{{evento?.id}}</strong></td>
+                    <td class="border"> <strong>{{evento?.nombre }}</strong></td> 
+                    <td class="border"> <strong>{{evento?.fecha }}</strong></td> 
+                    <td class="border"> <strong>{{evento?.lugar }}</strong></td> 
+                    <td class="border"> <button class="btn action_button" routerLink="/organizadores/organizador/eventos/{{evento?.id}}">Ver Perfil</button></td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </section>

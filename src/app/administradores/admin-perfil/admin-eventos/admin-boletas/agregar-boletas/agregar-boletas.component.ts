@@ -43,8 +43,8 @@ export class AgregarBoletasComponent implements OnInit {
 
 
   agregarBoletas(){
-    this.servicio.addMultiplesBoletas(this.miId,this.boleta, this.idLocalidad,this.cantidad).subscribe(data=>console.log(data))
-    console.log(this.boleta)
+    this.servicio.addMultiplesBoletas(this.miId,this.boleta, this.idLocalidad,this.cantidad).subscribe(data=>data)
+    
     this.router.navigate(['/administradores/admin/eventos/lista/localidad/boletas/'+this.miId+'/'+this.idLocalidad+'/'+this.nombre]);
     
   }

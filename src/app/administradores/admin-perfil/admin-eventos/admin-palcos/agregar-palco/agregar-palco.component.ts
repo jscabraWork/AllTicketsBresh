@@ -21,6 +21,7 @@ export class AgregarPalcoComponent implements OnInit {
 })
 
 this.palco={
+  id:null,
     precio:null,
 	  precioParcialPagado:null,
 	  servicio:null,

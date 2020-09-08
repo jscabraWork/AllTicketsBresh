@@ -15,6 +15,9 @@ export class PalcosDataService {
 
   }
 
+  getAllPalcosVendidosDeUnEvento(pIdEvento, pVendido){
+    return this.http.get<Palco[]>(`${API_URL}/eventos/${pIdEvento}/palcos/vendido/${pVendido}`)
+  }
   agregarPalcoAUnEvento(pIdEvento:string, palco:Palco){
     return this.http.post(`${API_URL}/eventos/${pIdEvento}/palcos`,palco)
   }

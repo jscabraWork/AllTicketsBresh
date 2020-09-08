@@ -45,7 +45,7 @@ export class AdminBoletasComponent implements OnInit {
 
       if(this.boletas[i].vendida == false)
       {
-        console.log("aca");
+     
         this.numeroDeBoletasPorVender =this.numeroDeBoletasPorVender+1;
       }
       else{

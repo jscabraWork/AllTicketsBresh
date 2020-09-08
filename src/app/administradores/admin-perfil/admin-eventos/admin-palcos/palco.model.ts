@@ -1,5 +1,6 @@
 export interface Palco {
 
+	id:number,
       precio:number,
 	
 	  precioParcialPagado:number

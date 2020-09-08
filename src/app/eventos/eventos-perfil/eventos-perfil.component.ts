@@ -44,7 +44,7 @@ export class EventosPerfilComponent implements OnInit {
       this.miId =params.get('id');
      
       this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
-        console.log("A")
+        
       
       
       });
