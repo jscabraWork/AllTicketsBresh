@@ -56,8 +56,8 @@ export class AdminBoletasComponent implements OnInit {
       })
   }
   borrarBoleta(id:number){
-    this.servicio.deleteEvento(this.miId,this.idLocalidad,id).subscribe(data=>data);
-    this.refrescar()
+    this.servicio.deleteEvento(this.miId,this.idLocalidad,id).subscribe(data=>{data; this.refrescar()});
+    
 
   }
 
