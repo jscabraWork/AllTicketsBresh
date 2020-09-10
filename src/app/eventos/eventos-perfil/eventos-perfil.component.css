@@ -1,5 +1,47 @@
 
 
+
+
+#prueba9
+{
+	
+
+    padding: 35px;
+    text-align: center;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+
+}
+
+
+#prueba9:before {
+	content:'';
+	position: absolute;
+        top: 0;
+	bottom: 0;
+	left: 0;
+    right: 0;
+    background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
+	
+}
+
+#prueba9 h1 {
+	font-size: 35px;
+	color: white;
+	position: relative
+}
+
+
+
+
+
+
+
+
+
+
         .ubicaciones {
             text-align: center; 
             
@@ -51,7 +93,7 @@
             border: 2px solid #ed701c;
     
             height: 0px;
-            width: 100px;
+            width: 70px;
            
               }
          
