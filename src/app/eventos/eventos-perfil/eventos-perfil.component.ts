@@ -37,7 +37,9 @@ export class EventosPerfilComponent implements OnInit {
       fechaFin:null,
       mapa:null,
       localidades:[],
-      palcos:[]
+      palcos:[],
+      horaInicio:"",
+      horaFin:""
     }
     
     this.route.paramMap.subscribe( params =>{

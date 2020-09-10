@@ -1,3 +1,4 @@
+import { HoraPipe } from './../pipes/horas.pipe';
 import { RespuestaComponent } from './eventos-perfil/pago-pay-u/respuesta/respuesta.component';
 import { ConfirmacionComponent } from './eventos-perfil/pago-pay-u/confirmacion/confirmacion.component';
 import { PagoPayUComponent } from './eventos-perfil/pago-pay-u/pago-pay-u.component';
@@ -54,7 +55,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent, ],
+    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent,HoraPipe ],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

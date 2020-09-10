@@ -18,6 +18,8 @@ export interface Evento {
     fechaFin:Date,
     mapa: string,
     localidades:Localidad[],
-    palcos:Palco[]
+    palcos:Palco[],
+    horaInicio:string,
+    horaFin:string
 
 }

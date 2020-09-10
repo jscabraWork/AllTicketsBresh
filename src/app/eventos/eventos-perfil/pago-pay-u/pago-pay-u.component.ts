@@ -59,7 +59,9 @@ boletaBoolean:boolean=false
       fechaFin:null,
       mapa:null,
       localidades:[],
-      palcos:[]
+      palcos:[],
+      horaInicio:null,
+      horaFin:null
     }
 
     this.usuarioEntidad= {

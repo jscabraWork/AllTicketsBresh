@@ -89,10 +89,10 @@
           <tbody>
               <tr  *ngFor ="let localidad of evento?.localidades" >
                   <td><strong>{{localidad?.nombre }}</strong></td> 
-                  <td>
-                   <button class="action_button" (click)= "quitaBoletaLocalidad(localidad)">-</button>
+                  <td >
+                   <button class="pr-2 pl-2 rounded-circle" (click)= "quitaBoletaLocalidad(localidad)">-</button>
                    {{boletasLocalidadCantidadSeleccionada(localidad)}}
-                   <button class="action_button" (click)= "reservarBoletasPorLocalidad(localidad)">+</button>
+                   <button class=" rounded-circle" (click)= "reservarBoletasPorLocalidad(localidad)">+</button>
                   </td>
                   <td>{{numeroBoletasPorVenderYNoReservadas(localidad)}}</td>
                   <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>COP{{localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800 | number:'1.0-0'}}.00 </strong></td> 

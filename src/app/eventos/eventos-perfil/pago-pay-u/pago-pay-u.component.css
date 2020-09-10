@@ -41,7 +41,11 @@
 
 
 
-            
+            .boton{
+                background: linear-gradient(#666, #333); 
+                color:white;
+     
+            }
 
 
 

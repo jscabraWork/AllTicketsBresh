@@ -2,6 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EventoDataService } from './../../../service/data/evento-data.service';
 import { Evento } from './../../../eventos/evento.model';
 import { Component, OnInit } from '@angular/core';
+import { getAttrsForDirectiveMatching } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-agregar-evento',
@@ -13,6 +14,7 @@ export class AgregarEventoComponent implements OnInit {
   constructor(private servicio: EventoDataService, private route: Router) { }
   selectedFile:File=null;
   evento:Evento;
+  horaInicio
   ngOnInit(): void {
 
     this.evento ={
@@ -32,7 +34,9 @@ export class AgregarEventoComponent implements OnInit {
       fechaFin:null,
       mapa:null,
       localidades:[],
-      palcos:[]
+      palcos:[],
+      horaInicio:null,
+      horaFin:null
     }
 
     
@@ -46,7 +50,10 @@ export class AgregarEventoComponent implements OnInit {
 
   }
 
+  seleccionarHora(){
 
+    this.evento.fecha.setHours(this.horaInicio)
+  }
 
 
   onFileSelected1(event){

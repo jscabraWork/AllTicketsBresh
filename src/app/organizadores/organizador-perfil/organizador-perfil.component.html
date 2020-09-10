@@ -30,7 +30,7 @@
                 <tr class="border"*ngFor = "let evento of organizador?.eventos" >
                     <td class="border"><strong>{{evento?.id}}</strong></td>
                     <td class="border"> <strong>{{evento?.nombre }}</strong></td> 
-                    <td class="border"> <strong>{{evento?.fecha }}</strong></td> 
+                    <td class="border"> <strong>{{evento?.fecha }} Hora: {{evento?.fecha.horaInicio}}</strong></td> 
                     <td class="border"> <strong>{{evento?.lugar }}</strong></td> 
                     <td class="border"> <button class="btn action_button" routerLink="/organizadores/organizador/eventos/{{evento?.id}}">Ver Perfil</button></td> 
                 </tr>

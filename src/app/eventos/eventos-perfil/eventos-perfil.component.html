@@ -87,8 +87,8 @@
 	</div>	
 		
 	
-		<p><strong>Fecha de Inicio:</strong> {{evento?.fecha}}</p>
-		<p><strong>Fecha de Fin:</strong> {{evento?.fechaFin}}</p>
+		<p><strong>Fecha de Inicio:</strong> {{evento?.fecha|date}} <strong>Hora: </strong>{{evento?.horaInicio| horas}}</p>
+		<p><strong>Fecha de Fin:</strong> {{evento?.fechaFin|date}} <strong>Hora Finalización: </strong>{{evento?.horaFin | horas}}</p>
 		<p><strong>Artistas:</strong> {{evento?.artistas}}</p>
 		<p><strong>Recomendaciones:</strong> {{evento?.recomendaciones}}</p>
 		<p><strong>Lugar:</strong> {{evento?.lugar}}</p>
