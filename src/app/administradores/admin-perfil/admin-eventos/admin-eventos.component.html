@@ -13,7 +13,7 @@
                 <th>Nombre</th>
                 <th>Fecha</th>
                 <th>Organizador</th>
-                <th>Localidades</th>
+                <th>Etapas</th>
                 <th>Palcos</th>
                 <th>Modificar</th>
                 <th>Borrar</th>
@@ -30,7 +30,7 @@
                 <td>{{evento?.nombre }}</td>
                 <td>{{evento?.fecha| date}}</td>
                 <td>{{evento.organizadorid}}</td>
-                <td><button class="btn btn-success" routerLink="localidades/{{evento.id}}"> Localidades</button></td>
+                <td><button class="btn btn-success" routerLink="etapas/{{evento.id}}"> Etapas</button></td>
                 <td><button class="btn btn-success" routerLink="{{evento.id}}/palcos">Palcos</button></td>
                 <td><button (click)="updateEvento(evento.id)" class="btn btn-warning" routerLink="update/{{evento.id}}"> Modificar</button></td>
                 <td><button (click)="deleteEvento(evento.id)" class="btn btn-danger"> Delete</button></td>

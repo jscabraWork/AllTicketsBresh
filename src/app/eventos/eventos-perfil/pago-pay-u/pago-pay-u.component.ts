@@ -1,3 +1,4 @@
+import { EtapasDataService } from './../../../service/data/etapas-data.service';
 
 
 import { Cliente } from './../../../usuario/cliente.model';
@@ -11,6 +12,7 @@ import { Evento } from './../../evento.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {Md5} from 'ts-md5/dist/md5'
+import { Etapa } from '../etapa.model';
 
 
 @Component({
@@ -33,9 +35,9 @@ referenceCode:string="PAGO: "
 signature:string
 ApiKey:string
 valorLocalidadAgregada:number =0
-
+etapa:Etapa
 boletaBoolean:boolean=false
-  constructor(private route: ActivatedRoute, private service:EventoDataService, private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
+  constructor(private route: ActivatedRoute, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
 
@@ -61,7 +63,8 @@ boletaBoolean:boolean=false
       localidades:[],
       palcos:[],
       horaInicio:null,
-      horaFin:null
+      horaFin:null,
+      etapas:[]
     }
 
     this.usuarioEntidad= {
@@ -77,7 +80,13 @@ boletaBoolean:boolean=false
       boletas:[],
       palcos:[]
         }
- 
+        this.etapa={
+          evento:null,
+          id:null,
+          localidades:[],
+          nombre:"PRUEBA",
+          visible:null    
+        }
 
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
@@ -99,7 +108,7 @@ boletaBoolean:boolean=false
 
       
       });
-     
+      this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);})
   })
   }
 
@@ -130,7 +139,9 @@ boletaBoolean:boolean=false
  
   }
 
-
+  manejar(response){
+    this.etapa =response;
+  }
   reservarBoletasSillasExactas(localidad:Localidad){
 
 

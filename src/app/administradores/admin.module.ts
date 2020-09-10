@@ -33,6 +33,8 @@ import { UpdateLocalidadComponent } from './admin-perfil/admin-eventos/admin-loc
 import { MapasComponent } from './admin-perfil/mapas/mapas.component';
 import { AdminPalcosComponent } from './admin-perfil/admin-eventos/admin-palcos/admin-palcos.component';
 import { AgregarPalcoComponent } from './admin-perfil/admin-eventos/admin-palcos/agregar-palco/agregar-palco.component';
+import { AdminEtapasComponent } from './admin-perfil/admin-eventos/admin-etapas/admin-etapas.component';
+import { AgregarEtapaComponent } from './admin-perfil/admin-eventos/admin-etapas/agregar-etapa/agregar-etapa.component';
 
 
 const routes: Routes=[
@@ -69,6 +71,16 @@ const routes: Routes=[
         },
 
         {
+          path: 'admin/eventos/lista/etapas/:id',
+          component: AdminEtapasComponent
+        },
+
+        {
+          path: 'admin/eventos/lista/etapas/:id/agregar',
+          component: AgregarEtapaComponent
+        },
+
+        {
           path: 'admin/eventos/lista/:id/palcos',
           component: AdminPalcosComponent
         },
@@ -89,17 +101,17 @@ const routes: Routes=[
         },
         
         {
-          path: 'admin/eventos/lista/localidades/:id',
+          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa', 
           component: AdminLocalidadesComponent
         },
 
         {
-          path: 'admin/eventos/lista/localidades/:id/localidad/:idLocalidad',
+          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/localidad/:idLocalidad',
           component: UpdateLocalidadComponent
         },
 
         {
-          path: 'admin/eventos/lista/localidades/:id/agregar',
+          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/agregar',
           component: AgregarLocalidadComponent
         },
 
@@ -164,7 +176,9 @@ const routes: Routes=[
       UpdateLocalidadComponent,
       MapasComponent,
       AdminPalcosComponent,
-      AgregarPalcoComponent
+      AgregarPalcoComponent,
+      AdminEtapasComponent,
+      AgregarEtapaComponent
     ],
     imports:[
         CommonModule,

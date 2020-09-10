@@ -13,7 +13,7 @@ export class UpdateLocalidadComponent implements OnInit {
   miId
   idLocalidad
   localidad:Localidad;
-
+  idEtapa
   constructor(private route: ActivatedRoute,private router: Router,private servicio: LocalidadesDataService) { }
 
   ngOnInit(): void {
@@ -22,7 +22,8 @@ export class UpdateLocalidadComponent implements OnInit {
       nombre: "",
       precio:null,
       boletas:[],
-      servicio:null
+      servicio:null,
+      nombreEtapa:null
     }
 
     this.route.paramMap.subscribe( params =>{
@@ -35,7 +36,7 @@ export class UpdateLocalidadComponent implements OnInit {
 
   
   saveLocalidad(){
-    this.servicio.modificarLocalidad(this.localidad,this.miId, this.idLocalidad).subscribe(data=>{data
+    this.servicio.modificarLocalidad(this.localidad,this.miId, this.idLocalidad, this.idEtapa).subscribe(data=>{data
        alert("Se modificio la localidad " + this.localidad.nombre)
        this.router.navigate(['/administradores/admin/eventos/lista/localidades/'+this.miId])
       })

@@ -40,7 +40,8 @@ this.evento ={
   localidades:[],
   palcos:[],
   horaInicio:null,
-  horaFin:null
+  horaFin:null,
+  etapas:[]
 }
 this.servicio.getEventoId(this.miId).subscribe( response => this.handleGetSuccesfull(response));
   }

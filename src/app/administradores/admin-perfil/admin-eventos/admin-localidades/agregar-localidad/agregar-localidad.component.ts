@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarLocalidadComponent implements OnInit {
   miId
+  idEtapa
   constructor(private servicio: LocalidadesDataService, private route: ActivatedRoute, private router: Router) { }
 
   localidad:Localidad;
@@ -20,19 +21,21 @@ export class AgregarLocalidadComponent implements OnInit {
       nombre: "",
       precio:null,
       boletas:[],
-      servicio:null
+      servicio:null,
+      nombreEtapa:null
     }
 
     this.route.paramMap.subscribe( params =>{
-      this.miId =params.get('id');})
+      this.miId =params.get('id');
+    this.idEtapa = params.get('idEtapa')})
   }
 
 
   saveLocalidad(){
-    this.servicio.addLocalidadAEvento(this.localidad, this.miId).subscribe(data=> data)
+    this.servicio.addLocalidadAEvento(this.localidad, this.miId, this.  idEtapa).subscribe(data=> data)
     alert('Se creo la localidad ' + this.localidad.nombre)
-    this.router.navigate(['/administradores/admin/eventos/lista/localidades/'+this.miId])
+    this.router.navigate(['/administradores/admin/eventos/lista/etapas/'+this.miId+ '/localidades/' +this.idEtapa])
 
   }
-
+  
 }

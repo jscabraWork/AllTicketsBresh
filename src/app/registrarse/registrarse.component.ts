@@ -23,7 +23,7 @@ export class RegistrarseComponent implements OnInit {
       celular:null,
       correo:null,
         direccion:null,
-        publicidad:false,
+        publicidad:true,
         boletas:[],
         palcos:[]
     }

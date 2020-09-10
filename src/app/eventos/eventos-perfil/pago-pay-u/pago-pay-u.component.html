@@ -54,6 +54,7 @@
 </section>
 
 <div id="prueba">
+  <h1><strong>{{etapa?.nombre}} de</strong></h1>
   <h1><strong> {{evento?.nombre}}</strong></h1> 
   <h1 style="font-size: 25px;"><strong>Hola {{usuarioEntidad?.nombre}}</strong></h1>
   <small class="float-right pt-4"><strong>Pulep:</strong> {{evento?.id}}</small>
@@ -68,7 +69,9 @@
 
 <section class="container-fluid mt-5" >
   <div class="row " >
-
+    <div class="col-12">
+      
+    </div>
   <div class="col-12 col-xl-9 pl-5 pr-5" *ngIf="!evento?.mapa">
     <div class="row border rounded shadow" style="background-color: white;">
       <h4 class="p-3"><strong>Selección de Tickets por cada Localidad</strong></h4>
@@ -87,7 +90,7 @@
               </tr>
           </thead>
           <tbody>
-              <tr  *ngFor ="let localidad of evento?.localidades" >
+              <tr  *ngFor ="let localidad of etapa?.localidades" >
                   <td><strong>{{localidad?.nombre }}</strong></td> 
                   <td >
                    <button class="pr-2 pl-2 rounded-circle" (click)= "quitaBoletaLocalidad(localidad)">-</button>

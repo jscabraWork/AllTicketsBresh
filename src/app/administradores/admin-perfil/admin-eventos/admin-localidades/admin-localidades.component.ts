@@ -1,7 +1,9 @@
+import { EtapasDataService } from './../../../../service/data/etapas-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Localidad } from './localidad.model';
 import { LocalidadesDataService } from './../../../../service/data/localidades-data.service';
 import { Component, OnInit } from '@angular/core';
+import { Etapa } from 'src/app/eventos/eventos-perfil/etapa.model';
 
 @Component({
   selector: 'app-admin-localidades',
@@ -12,14 +14,24 @@ export class AdminLocalidadesComponent implements OnInit {
 
   message:string
   miId
-  localidades:Localidad[]=[];
-  constructor(private servicio:LocalidadesDataService, private route: ActivatedRoute) { }
+
+  idEtapa
+  etapa:Etapa
+  constructor(private servicio:LocalidadesDataService, private service: EtapasDataService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
+      this,this.idEtapa =params.get('idEtapa')
     this.refrescar()
     })
+    this.etapa={
+      evento:null,
+      id:null,
+      localidades:[],
+      nombre:null,
+      visible:null
+    }
   }
 
 
@@ -31,6 +43,6 @@ export class AdminLocalidadesComponent implements OnInit {
   }
 
   refrescar(){
-    this.servicio.getAllLocalidadesDeEvento(this.miId).subscribe(response=> this.localidades= response)
+    this.service.getEtapaPorId(this.idEtapa).subscribe(response => {this.etapa= response})
   }
 }

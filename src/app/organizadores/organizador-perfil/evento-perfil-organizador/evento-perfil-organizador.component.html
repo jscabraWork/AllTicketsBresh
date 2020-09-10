@@ -29,6 +29,7 @@
                     <thead>
                         <tr class="border ">
                             <th class="border ">ID</th>
+                            <th class="border">Etapa de Venta</th>
                             <th class="border ">Nombre</th>
                             <th class="border ">Precio</th>
                             <th class="border ">Boletas vendidas</th>               
@@ -45,6 +46,7 @@
                     <tbody>
                         <tr *ngFor="let localidad of evento?.localidades" >
                             <td class="border"><strong>{{localidad?.id}}</strong></td>
+                            <td class="border"><strong>{{localidad?.nombreEtapa}}</strong></td>
                             <td class="border"> <strong>{{localidad?.nombre }}</strong></td> 
                             <td class="border"> <strong>{{localidad?.precio| currency:'COP'}}</strong></td> 
                             <td class="border"> <strong>{{numeroBoletasPorVender(localidad,true)}}</strong></td> 

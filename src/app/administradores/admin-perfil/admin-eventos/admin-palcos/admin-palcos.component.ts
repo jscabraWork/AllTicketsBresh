@@ -43,7 +43,8 @@ this.evento ={
   localidades:[],
   palcos:[],
   horaInicio:null,
-  horaFin:null
+  horaFin:null,
+  etapas:[]
 }
 this.refrescar();
 

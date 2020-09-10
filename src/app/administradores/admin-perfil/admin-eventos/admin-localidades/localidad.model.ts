@@ -4,6 +4,7 @@ export interface Localidad {
     nombre: string,
     precio:number,
     boletas:Boleta[],
-    servicio:number
+    servicio:number,
+    nombreEtapa:string
    
 }

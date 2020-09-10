@@ -72,7 +72,8 @@ ApiKey:string
           localidades:[],
           palcos:[],
           horaInicio:null,
-          horaFin:null
+          horaFin:null,
+          etapas:[]
         }
         
     this.route.paramMap.subscribe( params =>{

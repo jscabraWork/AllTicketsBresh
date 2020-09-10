@@ -26,7 +26,8 @@ export class BoletasPatrocinioComponent implements OnInit {
       nombre: "",
       precio:null,
       boletas:[],
-      servicio:null
+      servicio:null,
+      nombreEtapa:null
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');

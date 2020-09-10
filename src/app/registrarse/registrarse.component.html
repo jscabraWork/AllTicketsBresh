@@ -55,10 +55,9 @@
                     <label for="direccion">Dirección</label>
                     <input type="text" class= "form-control "name ="direccion" required="required"  [(ngModel)]="usuario.direccion">
                 </fieldset>
-
-                <fieldset class="form-group pl-4" >
-                    <input type="checkbox" class="form-check-input" id="publicidad" (click)="publicidad()" >
-                    <label class="form-check-label " for="publicidad">Acepto que me envien publicidad </label>
+                <fieldset class="form-group pl-4">
+                    <input type="checkbox" class="form-check-input" id="public" required="required">
+                    <label class="form-check-label " (change) ="publicidad()" for="public">Acepto que me envien publicidad</label>
                 </fieldset>
 
                 <fieldset class="form-group pl-4">

@@ -1,3 +1,4 @@
+import { Etapa } from './eventos-perfil/etapa.model';
 import { Palco } from './../administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
 import { Localidad } from './../administradores/admin-perfil/admin-eventos/admin-localidades/localidad.model';
 
@@ -20,6 +21,7 @@ export interface Evento {
     localidades:Localidad[],
     palcos:Palco[],
     horaInicio:string,
-    horaFin:string
+    horaFin:string,
+    etapas:Etapa[]
 
 }

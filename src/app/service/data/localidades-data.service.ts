@@ -20,9 +20,9 @@ export class LocalidadesDataService {
     return this.http.get<Localidad> (`${API_URL}/eventos/${pEvento}/localidades/localidad/${pIdLocalidad}`)
   }
 
-  addLocalidadAEvento( localidad, pEvento:string){
+  addLocalidadAEvento( localidad, pEvento:string, pIdEtapa:number){
     
-    return this.http.post(`${API_URL}/eventos/${pEvento}/localidades`,localidad); 
+    return this.http.post(`${API_URL}/eventos/${pEvento}/localidades/etapas/${pIdEtapa}`,localidad); 
   }
 
 
@@ -35,7 +35,7 @@ export class LocalidadesDataService {
     return this.http.get<Localidad[]>(`${API_URL}/eventos/nombre/${pEvento}/localidades`);
   }
 
-  modificarLocalidad(localidad:Localidad, pEvento, pIdLocalidad){
-    return this.http.put(`${API_URL}/eventos/${pEvento}/localidades/${pIdLocalidad}`, localidad);
+  modificarLocalidad(localidad:Localidad, pEvento, pIdLocalidad, pIdEtapa:number){
+    return this.http.put(`${API_URL}/eventos/${pEvento}/localidades/${pIdLocalidad}/etapa/${pIdEtapa}`, localidad);
   }
 }

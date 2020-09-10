@@ -4,7 +4,7 @@
         <br>
         
         <div class="col-12" style="text-align: center;">
-            <button class="btn btn-success" routerLink="/administradores/admin/eventos/lista">Atras</button>
+            <button class="btn btn-success" routerLink="/administradores/admin/eventos/lista/etapas/{{miId}}">Atras</button>
           
             <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
             <table class="table mt-3">
@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                   
-                    <tr *ngFor = "let localidad of localidades">
+                    <tr *ngFor = "let localidad of etapa.localidades">
                         <td>{{localidad?.id}}</td>
                         <td>{{localidad?.nombre }}</td>
                         <td>{{localidad?.precio| currency: 'COP'}}</td>
