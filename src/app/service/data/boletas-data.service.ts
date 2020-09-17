@@ -74,6 +74,8 @@ export class BoletasDataService {
 
   }
 
-  
+  addMultiplesBoletasPatrocinio(pEvento,  pIdLocalidad:number,cantidad:number, correoPatrocinio:string, nombrePatrocinador:string){
+    return this.http.post(this.url+`${pEvento}/localidades/${pIdLocalidad}/boletas/${cantidad}/patrocinio/${correoPatrocinio}/${nombrePatrocinador}`, null); 
+  }
   
 }

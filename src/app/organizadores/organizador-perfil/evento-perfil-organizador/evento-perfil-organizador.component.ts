@@ -91,6 +91,22 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   }
 
 
+  numeroBoletasUtilizadas(localidad:Localidad){
+
+    var contador =0;
+    for(var i =0; i< localidad.boletas.length;i++)
+  
+    {
+      if(  localidad.boletas[i].utilizada== true){
+        contador = contador+1;
+      }
+    }
+   
+    return contador;
+  
+  }
+
+
   dineroVendido(localidad:Localidad){
 
     var contador =0;

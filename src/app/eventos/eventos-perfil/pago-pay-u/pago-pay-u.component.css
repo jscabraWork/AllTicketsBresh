@@ -24,11 +24,22 @@
                 
             }
 
+            .tituloLocalidad2{
+                background: linear-gradient(#666, #333); 
+                color:#FFF;
+                padding: 3%;
+                width: 100%;
+                
+            }
+
             .action_button:hover{
                 background: linear-gradient(rgba(236, 158, 40, 0.87), rgba(255, 80, 28, 0.87)); 
             }
 
-            
+            .precioLocalidades{
+                font-size:22px;
+                color:#ed701c;
+            }
             .action_button {
                 text-decoration: none; 
                 color: #fff; 
@@ -46,6 +57,15 @@
                 color:white;
      
             }
+
+            .aaaa{
+            
+                border: 2px solid #ed701c;
+        
+                height: 0px;
+                width: 70px;
+               
+                  }
 
 
 

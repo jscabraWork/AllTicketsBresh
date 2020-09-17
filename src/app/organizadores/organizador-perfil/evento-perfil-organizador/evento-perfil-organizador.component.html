@@ -19,42 +19,46 @@
 
 
 
-<section class="container mt-5">
+<section class="container-fluid mt-5">
   
     
-    <div class="container">
+
         <div class="row">
             <div class="col-12">
-                <table class="table mt-3 border rounded tabla" >
+                <table class="table mt-3 border rounded tabla"  style="text-align: center;">
                     <thead>
                         <tr class="border ">
                             <th class="border ">ID</th>
                             <th class="border">Etapa de Venta</th>
                             <th class="border ">Nombre</th>
                             <th class="border ">Precio</th>
-                            <th class="border ">Boletas vendidas</th>               
-                            <th class="border ">Boletas por vender</th>
-                            <th class="border ">Boletas totales</th>
+                            <th class="border ">Tickets vendidas</th>               
+                            <th class="border ">Tickets por vender</th>
+                            <th class="border"> Personas que han entrado</th>
+                            <th class="border ">Tickets totales</th>
                             <th class="border">Dinero Recaudado</th>
-                            <th class="border">Boletas Patrocinios</th>   
-                            <th class="border">Palcos</th>             
+                            <th class="border">Numero Tickets Patrocinados</th>
+                            <th class="border">Tickets Patrocinios</th>   
+                                 
                         </tr>
                 
                 
                 
                     </thead>
                     <tbody>
-                        <tr *ngFor="let localidad of evento?.localidades" >
+                        <tr *ngFor="let localidad of evento?.localidades"  >
                             <td class="border"><strong>{{localidad?.id}}</strong></td>
                             <td class="border"><strong>{{localidad?.nombreEtapa}}</strong></td>
                             <td class="border"> <strong>{{localidad?.nombre }}</strong></td> 
                             <td class="border"> <strong>{{localidad?.precio| currency:'COP'}}</strong></td> 
                             <td class="border"> <strong>{{numeroBoletasPorVender(localidad,true)}}</strong></td> 
                             <td class="border"> <strong>{{numeroBoletasPorVender(localidad,false)}}</strong></td> 
+                            <td class="border"><strong>{{numeroBoletasUtilizadas(localidad)}}</strong></td>
                             <td class="border">{{localidad?.boletas?.length}}</td> 
                             <td class="border">{{dineroVendido(localidad)|currency:'COP'}}</td>
-                            <td class="border"><button class="btn action_button float-right" routerLink="patrocinio/{{localidad?.id}}">Boletas patrocinio</button></td>
-                            <td class="border"><button class="btn action_button float-right">Ver Palcos</button></td>
+                            <td class="border">{{localidad?.boletasPatrocinio.length}}</td>
+                            <td class="border"><a class=" action_button m-5" routerLink="patrocinio/{{localidad?.id}}">Tickets patrocinio</a></td>
+                           
                         </tr>
                         
                 
@@ -67,6 +71,6 @@
             <p class="border p-3" style="background-color: white;"><strong>Dinero Total Recaudado: {{dineroRecaudado |currency:'COP'}} </strong></p>
         </div>
     </div>    
-</div>
+
 
 </section>

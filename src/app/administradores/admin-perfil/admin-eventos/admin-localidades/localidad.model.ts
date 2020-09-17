@@ -5,6 +5,7 @@ export interface Localidad {
     precio:number,
     boletas:Boleta[],
     servicio:number,
-    nombreEtapa:string
+    nombreEtapa:string,
+    boletasPatrocinio:Boleta[]
    
 }

@@ -1,6 +1,7 @@
+import { BoletasDataService } from 'src/app/service/data/boletas-data.service';
 import { Boleta } from './../../../../eventos/boleta.model';
 import { LocalidadesDataService } from './../../../../service/data/localidades-data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Localidad } from './../../../../administradores/admin-perfil/admin-eventos/admin-localidades/localidad.model';
 import { Component, OnInit } from '@angular/core';
 
@@ -17,7 +18,8 @@ export class BoletasPatrocinioComponent implements OnInit {
   localidadId
   cantidad
   correo
-  constructor(private route: ActivatedRoute, private servicio :LocalidadesDataService) { }
+  nombre
+  constructor(private route: ActivatedRoute, private servicio :LocalidadesDataService, private servicioBoletas:BoletasDataService,private router:Router) { }
 
   ngOnInit(): void {
     this.localidad =
@@ -27,7 +29,8 @@ export class BoletasPatrocinioComponent implements OnInit {
       precio:null,
       boletas:[],
       servicio:null,
-      nombreEtapa:null
+      nombreEtapa:null,
+      boletasPatrocinio:[]
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
@@ -39,6 +42,10 @@ export class BoletasPatrocinioComponent implements OnInit {
   }
 
   agregarBoletas(){
+    this.servicioBoletas.addMultiplesBoletasPatrocinio(this.miId,this.localidad.id,this.cantidad,this.correo, this.nombre).subscribe(response=> {response
+      alert('Se mandaron las boletas al patrocinador ' + this.nombre)
+      this.router.navigate(['/organizadores/organizador/eventos/'+this.miId])
+    });
 
   }
 

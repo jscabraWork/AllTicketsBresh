@@ -7,6 +7,7 @@ import { HardcodedAutheticationService } from './../../../../service/hardcoded-a
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsuariosDataService } from './../../../../service/data/usuarios-data.service';
 import { Component, OnInit } from '@angular/core';
+import { updateFor } from 'typescript';
 
 @Component({
   selector: 'app-comprar-palcos',
@@ -87,7 +88,7 @@ ApiKey:string
           
           
           this.dataServicio.getCliente(this.usuarioA).subscribe(response => {this.usuarioEntidad=response
-            this.usuarioBoolean=false;
+            this.usuarioBoolean=true;
             
           })
 
@@ -107,6 +108,7 @@ ApiKey:string
 
   agregarALaLista(palco:Palco){
 
+    if(this.usuarioBoolean){
     var terminado =false;
     for(var i =0; i < this.palcosLista.length && !terminado; i++){
       if(this.palcosLista[i].id == palco.id ){
@@ -128,10 +130,16 @@ ApiKey:string
     this.valorLocalidadAgregada = this.valorLocalidadAgregada+ palco.precio + palco.precio*palco.servicio*0.01 +(palco.precio+palco.precio*palco.servicio*0.01)*0.0279+800 ;
     this.palcosLista.push(palco);
   }
+
+}
+else{
+  alert("Entra a tu cuenta AllTickets")
+  this.router.navigate(['/login'])
+}
   }
 
   quitarDeLaLista(palco:Palco){
-
+    if(this.usuarioBoolean){
     var terminado = false;
     for(var i =0; i < this.palcosLista.length && !terminado; i++){
       if(this.palcosLista[i].id == palco.id){
@@ -141,12 +149,43 @@ ApiKey:string
       }
     }
   }
+  else{
+    alert("Entra a tu cuenta AllTickets")
+    this.router.navigate(['/login'])
+  }
+  }
 
   agregarAlCarrito(){
+
+    if(this.usuarioBoolean){
     for(var i =0; i < this.palcosLista.length; i++){
       this.palcosCarrito.push(this.palcosLista[i])
     }
     this.valorLocalidadAgregada =0;
     this.palcosLista=[];
   }
+  else{
+    alert("Entra a tu cuenta AllTickets")
+    this.router.navigate(['/login'])
+  }
+
+}
+
+pagar(){
+  if(this.usuarioBoolean){
+    if(this.palcosCarrito.length>0){
+
+    }
+    else{
+      alert("Agrega algún Palco al Carrito")
+    }
+
+  }
+  else{
+    alert("Entra a tu cuenta AllTickets")
+    this.router.navigate(['/login'])
+  }
+}
+  
+
 }
