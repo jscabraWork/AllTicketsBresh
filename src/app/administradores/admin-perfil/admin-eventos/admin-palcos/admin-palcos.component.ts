@@ -1,9 +1,11 @@
+import { Localidad } from './../admin-localidades/localidad.model';
 import { PalcosDataService } from './../../../../service/data/palcos-data.service';
-import { EventoDataService } from './../../../../service/data/evento-data.service';
+
 import { ActivatedRoute, Router } from '@angular/router';
-import { Evento } from './../../../../eventos/evento.model';
+
 
 import { Component, OnInit } from '@angular/core';
+import { LocalidadesDataService } from 'src/app/service/data/localidades-data.service';
 
 @Component({
   selector: 'app-admin-palcos',
@@ -11,47 +13,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-palcos.component.css']
 })
 export class AdminPalcosComponent implements OnInit {
-evento:Evento
+localidad:Localidad
 miId
 message
-  constructor(private route: ActivatedRoute,private servicio: EventoDataService, private router: Router, private servicioPalco:PalcosDataService) { }
+miIdEvento
+palcosVendidos= 0;
+palcosPorVender=0;
+dineroRecaudado=1;
+  constructor(private route: ActivatedRoute,private servicio: LocalidadesDataService, private router: Router, private servicioPalco:PalcosDataService) { }
 
   
   ngOnInit(): void {
     this.route.paramMap.subscribe( params =>{
-      this.miId =params.get('id');
-     
+      this.miId =params.get('idLocalidad');
+      this.miIdEvento =params.get('id');
+
+      this.localidad={
+        boletas:[],
+        boletasPatrocinio:[],
+        id:null,
+        nombre:null,
+        nombreEtapa:null,
+        palcos:[],
+        precio:null,
+        servicio:null
+      }
+      this.refrescar();
 })
 
 
-this.evento ={
-  id: "",
-  nombre:"",
-  fecha:null,
-  descripcion:"",
-  lugar:"",
-  video:"",
-  terminosYCondiciones:"",
-  recomendaciones:"",
-  ciudadIdTexto:null,
-  organizadorid:null,
-  imagen:"",
-  imagenes:[],
-  artistas:"",
-  fechaFin:null,
-  mapa:null,
-  localidades:[],
-  palcos:[],
-  horaInicio:null,
-  horaFin:null,
-  etapas:[]
-}
-this.refrescar();
+
 
   }
 
   handleGetSuccesfull(response){
-    this.evento=response;
+    this.localidad=response;
   }
 
   borrarPalco(idPalco:number){
@@ -62,7 +58,21 @@ this.refrescar();
   }
 
   refrescar(){
-    this.servicio.getEventoId(this.miId).subscribe( response => this.handleGetSuccesfull(response));
+    this.servicio.getLocaliddadPorId(this.miId, this.miIdEvento).subscribe( response => {this.handleGetSuccesfull(response);
+      var i =0;
+      while(i < this.localidad.palcos.length){
+        if(this.localidad.palcos[i].vendido==true){
+          this.palcosVendidos = this.palcosVendidos+1;
+        }
+        else{
+          this.palcosPorVender = this.palcosPorVender+1;
+        }
+        i=i+1;
+      }
+      this.dineroRecaudado = 1*this.palcosVendidos*this.localidad.precio;
+    
+    });
+    
   }
 
 }

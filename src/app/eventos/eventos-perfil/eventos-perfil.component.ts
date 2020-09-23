@@ -18,7 +18,8 @@ export class EventosPerfilComponent implements OnInit {
   miId:string;
   evento:Evento;
   etapa:Etapa;
-
+localidadesPalcos:Localidad[]=[];
+localidadesBoletas:Localidad[]=[];
   
 
   constructor(private route: ActivatedRoute, private service:EventoDataService, private _sanitizer: DomSanitizer, private etapaServicio:EtapasDataService) { }
@@ -42,7 +43,6 @@ export class EventosPerfilComponent implements OnInit {
       fechaFin:null,
       mapa:null,
       localidades:[],
-      palcos:[],
       horaInicio:"",
       horaFin:"",
       etapas:[]
@@ -64,7 +64,24 @@ export class EventosPerfilComponent implements OnInit {
       
       
       });
-      this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);})
+      this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
+      var i =0;
+      while(i < this.etapa.localidades.length){
+        if(this.etapa.localidades[i].boletas.length>0){
+          this.localidadesBoletas.push(this.etapa.localidades[i])
+        }
+        else if(this.etapa.localidades[i].palcos.length>0){
+          this.localidadesPalcos.push(this.etapa.localidades[i])
+        }
+        
+        i=i+1;
+      }
+      
+      
+      
+      
+      
+      })
      
   })
 }
@@ -101,6 +118,18 @@ numeroBoletasPorVenderYNoReservadas(localidad:Localidad){
  
   return contador;
 
+}
+
+
+darCantidadDePalcos(localidad:Localidad){
+  var contador =0;
+  for(var i =0; i < localidad.palcos.length; i=i+1){
+    if(localidad.palcos[i].vendido==false){
+
+      contador = contador+1;
+    }
+  }
+  return contador;
 }
 
 }

@@ -38,7 +38,7 @@ this.evento ={
   fechaFin:null,
   mapa:null,
   localidades:[],
-  palcos:[],
+  
   horaInicio:null,
   horaFin:null,
   etapas:[]

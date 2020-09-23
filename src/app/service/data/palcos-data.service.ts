@@ -18,8 +18,11 @@ export class PalcosDataService {
   getAllPalcosVendidosDeUnEvento(pIdEvento, pVendido){
     return this.http.get<Palco[]>(`${API_URL}/eventos/${pIdEvento}/palcos/vendido/${pVendido}`)
   }
-  agregarPalcoAUnEvento(pIdEvento:string, palco:Palco){
-    return this.http.post(`${API_URL}/eventos/${pIdEvento}/palcos`,palco)
+  agregarPalcosALocalidad(pIdLocalidad:number, palco:Palco, cantidad:number){
+    return this.http.post(`${API_URL}/localidad/${pIdLocalidad}/palcos/${cantidad}`,palco)
+
+
+
   }
   borrarPalco(pIdPalco, pIdEvento){
     return this.http.delete(`${API_URL}/eventos/${pIdEvento}/palcos/${pIdPalco}`)

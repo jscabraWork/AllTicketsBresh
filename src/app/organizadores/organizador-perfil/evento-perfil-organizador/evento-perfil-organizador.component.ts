@@ -37,7 +37,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
       fechaFin:null,
       mapa:null,
       localidades:[],
-      palcos:[],
+      
       horaInicio:null,
       horaFin:null,
       etapas:[]

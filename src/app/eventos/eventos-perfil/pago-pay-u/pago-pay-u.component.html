@@ -188,7 +188,7 @@
 
 
 
-<section *ngIf="evento?.palcos?.length>0 &&!evento?.mapa">
+<section *ngIf="!evento?.mapa">
 	<div class="mt-5  container ">
 		<div class="row">
 			
@@ -208,7 +208,7 @@
 
 </div>
 
-<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3 mb-3 divisionLocalidad "  *ngFor ="let palco of evento?.palcos" style="text-align: center;">
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3 mb-3 divisionLocalidad "  *ngFor ="let palco of localidadesPalcos" style="text-align: center;">
 	
 	<div class="localidades border rounded">
 		<div class="pt-2 ">

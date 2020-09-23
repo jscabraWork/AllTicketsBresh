@@ -146,7 +146,7 @@
 </div>
 
 
-<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad "  *ngFor ="let localidad of etapa?.localidades" style="text-align: center;">
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad "  *ngFor ="let localidad of localidadesBoletas" style="text-align: center;">
 	
 	<div class="localidades border rounded">
 		<div class="pt-2 ">
@@ -171,7 +171,7 @@
 	
 </section>
 
-<section *ngIf="evento?.palcos?.length>0">
+<section >
 	<div class="mt-5  container ">
 		<div class="row">
 			
@@ -189,25 +189,35 @@
 
 </div>
 
-<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3 mb-3 divisionLocalidad "  *ngFor ="let palco of evento?.palcos" style="text-align: center;">
+
+<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad "  *ngFor ="let localidad of localidadesPalcos" style="text-align: center;">
 	
-	<div class="localidades border rounded">
+	<div class="localidades border rounded" >
+		<div class="pt-2 ">
+			<h5><strong>Aforo</strong></h5>
+			
+			<p class="precioLocalidades"> <strong> {{ darCantidadDePalcos(localidad)}}</strong></p>
+		</div>
+		<hr>
+
 		<div class="pt-2 ">
 			<h5><strong>Personas Por Palco</strong></h5>
-			<p class="precioLocalidades"><strong> {{palco.personasMaximas}}</strong></p>
-		
+			
+			<p class="precioLocalidades"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
 		</div>
 		<hr>
 		<div class="p-3 ">
 			
 			<h5><strong>Precio + Servicio</strong></h5>
-			<p class="precioLocalidades"> <strong> {{palco.precio | currency: 'COP'}}</strong> + <strong>COP{{palco.precio*palco.servicio*0.01 +(palco.precio+palco.precio*palco.servicio*0.01)*0.0279+800 | number:'1.0-0'}} </strong></p>
+			<p class="precioLocalidades"> <strong> {{localidad.precio | currency: 'COP'}}</strong> + <strong>COP{{localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800 | number:'1.0-0'}} </strong></p>
 		</div>
 		<div class="tituloLocalidad">
-			<h3><strong> {{palco.nombre}} </strong></h3>
+			<h3><strong> {{localidad.nombre}} </strong></h3>
 		</div>
 	</div>	
 </div>
+
+
 
 <div class="col-12  mt-5" style="text-align: center;">
 	<a class="action_button rounded mt-5 shadow " routerLink="pago">Comprar Tickets</a>

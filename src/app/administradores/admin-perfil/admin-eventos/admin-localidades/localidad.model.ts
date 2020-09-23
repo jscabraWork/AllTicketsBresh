@@ -1,3 +1,4 @@
+import { Palco } from './../admin-palcos/palco.model';
 import { Boleta } from './../../../../eventos/boleta.model';
 export interface Localidad {
     id:number,
@@ -6,6 +7,7 @@ export interface Localidad {
     boletas:Boleta[],
     servicio:number,
     nombreEtapa:string,
-    boletasPatrocinio:Boleta[]
+    boletasPatrocinio:Boleta[],
+    palcos:Palco[]
    
 }

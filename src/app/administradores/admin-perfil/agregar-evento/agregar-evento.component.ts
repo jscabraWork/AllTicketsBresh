@@ -34,7 +34,7 @@ export class AgregarEventoComponent implements OnInit {
       fechaFin:null,
       mapa:null,
       localidades:[],
-      palcos:[],
+      
       horaInicio:null,
       horaFin:null,
       etapas:[]

@@ -12,11 +12,17 @@ export class AgregarPalcoComponent implements OnInit {
 
   miId
   palco:Palco
+  idLocalidad
+  idEtapa
+  cantidad
+ 
   constructor(private route: ActivatedRoute,private servicio: PalcosDataService, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
+      this.idLocalidad =params.get('idLocalidad');
+      this.idEtapa =params.get('idEtapa');
      
 })
 
@@ -36,9 +42,9 @@ this.palco={
   }
 
   agregarPalco(){
-    this.servicio.agregarPalcoAUnEvento(this.miId,this.palco).subscribe(response=>{response; alert("Agregado el palco "+ this.palco.nombre)
+    this.servicio.agregarPalcosALocalidad(this.idLocalidad,this.palco, this.cantidad).subscribe(response=>{response; alert("Agregados "+this.cantidad+ " Palcos a la localidad")
     
-    this.router.navigate([`/administradores/admin/eventos/lista/${this.miId}/palcos`]);
+    this.router.navigate([`/administradores/admin/eventos/lista/etapas/${this.miId}/localidades/${this.idEtapa}/${this.idLocalidad}/palcos`]);
   
   },
   error=> alert(error)

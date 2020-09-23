@@ -19,6 +19,7 @@ export class AdminBoletasComponent implements OnInit {
   numeroDeBoletas:number;
   numeroDeBoletasVendidas:number=0;
   numeroDeBoletasPorVender:number=0;
+  dineroRecaudado=0;
 
   ngOnInit(): void {
 
@@ -53,6 +54,7 @@ export class AdminBoletasComponent implements OnInit {
       }
       i++;
       }
+      this.dineroRecaudado= this.numeroDeBoletasVendidas*this.boletas[0].precio;
       })
   }
   borrarBoleta(id:number){

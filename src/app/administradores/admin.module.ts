@@ -81,12 +81,12 @@ const routes: Routes=[
         },
 
         {
-          path: 'admin/eventos/lista/:id/palcos',
+          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos', 
           component: AdminPalcosComponent
         },
 
         {
-          path: 'admin/eventos/lista/:id/palcos/agregar',
+          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos/agregar',
           component: AgregarPalcoComponent
         },
 

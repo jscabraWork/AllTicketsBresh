@@ -37,6 +37,7 @@ ApiKey:string
 valorLocalidadAgregada:number =0
 etapa:Etapa
 boletaBoolean:boolean=false
+localidadesPalcos:Localidad[]=[]
   constructor(private route: ActivatedRoute, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
@@ -61,7 +62,7 @@ boletaBoolean:boolean=false
       fechaFin:null,
       mapa:null,
       localidades:[],
-      palcos:[],
+      
       horaInicio:null,
       horaFin:null,
       etapas:[]
@@ -108,7 +109,19 @@ boletaBoolean:boolean=false
 
       
       });
-      this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);})
+      this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
+        var i =0;
+        while(i < this.etapa.localidades.length){
+        
+          if(this.etapa.localidades[i].palcos.length>0){
+            this.localidadesPalcos.push(this.etapa.localidades[i])
+          }
+          
+          i=i+1;
+        }
+      
+      
+      })
   })
   }
 

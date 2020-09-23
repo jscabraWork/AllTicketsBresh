@@ -24,7 +24,8 @@ export class UpdateLocalidadComponent implements OnInit {
       boletas:[],
       servicio:null,
       nombreEtapa:null,
-      boletasPatrocinio:[]
+      boletasPatrocinio:[],
+      palcos:[]
     }
 
     this.route.paramMap.subscribe( params =>{

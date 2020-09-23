@@ -7,17 +7,6 @@
 
 <div class="col-12">
         <form (ngSubmit)="!todoForm.invalid && agregarPalco()" #todoForm="ngForm">
-    
-            <fieldset class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="palco.nombre">
-            </fieldset>
-
-    
-        <fieldset class="form-group">
-            <label for="precio">Precio</label>
-            <input type="number" class= "form-control"name ="precio" required="required"  [(ngModel)]="palco.precio">
-        </fieldset>
 
         <fieldset class="form-group">
             <label for="servicio">Personas Por Palco</label>
@@ -27,6 +16,11 @@
         <fieldset class="form-group">
             <label for="servicio">Servicio</label>
             <input type="number" class= "form-control"name ="servicio" required="required"  [(ngModel)]="palco.servicio">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="servicio">Cantidad</label>
+            <input type="number" class= "form-control"name ="servicio" required="required"  [(ngModel)]="cantidad">
         </fieldset>
    
         

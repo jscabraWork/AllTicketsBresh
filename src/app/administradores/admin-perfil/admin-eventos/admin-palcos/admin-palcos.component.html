@@ -2,8 +2,16 @@
 
     <div class="row">
         <div class="col-12"  style="text-align: center;">
-    <h2>Todos los Palcos del evento {{evento.nombre}}</h2>
+    <h2>Todos los Palcos de la localidad {{localidad?.nombre}}</h2>
+
+    
     <button class="btn btn-success" routerLink="/administradores/admin/eventos/lista">Atras</button>
+    <br>
+    <br>
+    <button  routerLink="agregar" class="btn btn-success">Agregar Palco</button>
+    <p>Palcos Vendidos: {{palcosVendidos}} </p>
+    <p>Palcos Por Vender: {{palcosPorVender}}</p>
+    <p>Dinero Recaudado: {{dineroRecaudado}}</p>
     <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
     <div class="container">
     <table class="table mt-3">
@@ -29,7 +37,7 @@
         </thead>
         <tbody>
           
-            <tr *ngFor = "let palco of evento.palcos">
+            <tr *ngFor = "let palco of localidad?.palcos">
                 <td>{{palco?.id}}</td>
                 <td>{{palco?.nombre }}</td>
                 <td>{{palco?.precio | currency :'COP'}}</td>
@@ -51,7 +59,7 @@
 </div>
 <div class="row">
     <div class="col-12 mt-5" style="text-align: center;">
-<button  routerLink="agregar" class="btn btn-success">Agregar Palco</button>
+
 
 </div>
 </div>
