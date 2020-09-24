@@ -32,7 +32,7 @@
                         <td>{{localidad?.nombre }}</td>
                         <td>{{localidad?.precio| currency: 'COP'}}</td>
                         
-                        <td>{{localidad?.servicio}}%</td>
+                        <td>{{localidad?.servicio|currency:'COP'}}</td>
                         <td><button class="btn btn-success" routerLink="/administradores/admin/eventos/lista/localidad/boletas/{{miId}}/{{localidad?.id}}/{{localidad?.nombre}}"> Boletas</button></td>
                         <td><button class="btn btn-success" routerLink="{{localidad.id}}/palcos"> Palcos</button></td>
                         <td><button class="btn btn-warning" routerLink="localidad/{{localidad.id}}"> Modificar</button> </td>

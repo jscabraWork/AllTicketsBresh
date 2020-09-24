@@ -31,13 +31,14 @@ localidadesCompradas:Localidad[]=[]
 usuarioBoolean:boolean=true;
 merchantId:number
 accountId:number
-referenceCode:string="PAGO: "
+referenceCode:string="TICKET: "
 signature:string
 ApiKey:string
 valorLocalidadAgregada:number =0
 etapa:Etapa
 boletaBoolean:boolean=false
 localidadesPalcos:Localidad[]=[]
+localidadesBoletas:Localidad[]=[];
   constructor(private route: ActivatedRoute, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
@@ -112,8 +113,10 @@ localidadesPalcos:Localidad[]=[]
       this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
         var i =0;
         while(i < this.etapa.localidades.length){
-        
-          if(this.etapa.localidades[i].palcos.length>0){
+          if(this.etapa.localidades[i].boletas.length>0){
+            this.localidadesBoletas.push(this.etapa.localidades[i])
+          }
+          else if(this.etapa.localidades[i].palcos.length>0){
             this.localidadesPalcos.push(this.etapa.localidades[i])
           }
           
@@ -170,7 +173,7 @@ localidadesPalcos:Localidad[]=[]
         this.referenceCode = this.referenceCode +lista[0].localidadNombre+":"+lista[0].id+"/";
       
         this.servicioBoletas.reservarBoletaIndividual(this.evento.id, localidad.id, lista[0]).subscribe(data=>  {data;
-          this.valorTotal=this.valorTotal+ localidad.precio  +localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800;
+          this.valorTotal=this.valorTotal+ localidad.precio  + localidad.servicio
           var md5 = new Md5()
 
 
@@ -205,7 +208,7 @@ localidadesPalcos:Localidad[]=[]
     if(this.localidadesCompradas.length<6 && !this.usuarioBoolean)
     {
       this.localidadesCompradas.push(localidad);
-      this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800;
+      this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.servicio + localidad.servicio*0.19;
 
    }
   
@@ -236,7 +239,7 @@ localidadesPalcos:Localidad[]=[]
           if(boleta!=null){ 
             this.boletas.push(boleta)
             this.referenceCode = this.referenceCode +boleta.localidadNombre+":"+boleta.id+"/";
-            this.valorTotal=this.valorTotal+ localidad.precio  +localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800;
+            this.valorTotal=this.valorTotal+ localidad.precio  +localidad.servicio +localidad.servicio*0.19
             var md5 = new Md5()
             this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
 
@@ -271,7 +274,7 @@ quitaBoletaLocalidad(localidad:Localidad){
     for(var i =0 ; i <this.localidadesCompradas.length && !terminado;i=i+1){
       if(this.localidadesCompradas [i].id==localidad.id){
         this.localidadesCompradas.splice(i,1)
-        this.valorLocalidadAgregada = this.valorLocalidadAgregada - (localidad.precio  +localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800);
+        this.valorLocalidadAgregada = this.valorLocalidadAgregada - (localidad.precio  +localidad.servicio +localidad.servicio*0.19) ;
         terminado = true;
       }
     }
@@ -319,5 +322,16 @@ comprarBoletas(){
 }
  
 
+
+darCantidadDePalcos(localidad:Localidad){
+  var contador =0;
+  for(var i =0; i < localidad.palcos.length; i=i+1){
+    if(localidad.palcos[i].vendido==false && localidad.palcos[i].reservado==false){
+
+      contador = contador+1;
+    }
+  }
+  return contador;
+}
 
 }

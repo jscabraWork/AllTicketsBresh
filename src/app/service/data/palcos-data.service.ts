@@ -15,8 +15,8 @@ export class PalcosDataService {
 
   }
 
-  getAllPalcosVendidosDeUnEvento(pIdEvento, pVendido){
-    return this.http.get<Palco[]>(`${API_URL}/eventos/${pIdEvento}/palcos/vendido/${pVendido}`)
+  getAllPalcosVendidosDeUnaLocalidad(pIdLocalidad, pVendido){
+    return this.http.get<Palco[]>(`${API_URL}/localidad/${pIdLocalidad}/palcos/vendido/${pVendido}}`)
   }
   agregarPalcosALocalidad(pIdLocalidad:number, palco:Palco, cantidad:number){
     return this.http.post(`${API_URL}/localidad/${pIdLocalidad}/palcos/${cantidad}`,palco)
@@ -26,5 +26,15 @@ export class PalcosDataService {
   }
   borrarPalco(pIdPalco, pIdEvento){
     return this.http.delete(`${API_URL}/eventos/${pIdEvento}/palcos/${pIdPalco}`)
+  }
+
+
+  comprarPalco(idPalco,pIdCliente,valorPagado){
+    return this.http.put(`${API_URL}/palcos/${idPalco}/comprar/${pIdCliente}/${valorPagado}`, null)
+  }
+
+
+  reservarPalco(idLocalidad){
+    return this.http.put<Palco>(`${API_URL}/palcos/localidad/${idLocalidad}/reservar`,null)
   }
 }

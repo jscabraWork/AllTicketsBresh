@@ -157,8 +157,8 @@
 		
 		<div class="p-3 border">
 			
-			<h5><strong>Precio + Servicio</strong></h5>
-			<p class="precioLocalidades"> <strong> {{localidad.precio | currency: 'COP'}}</strong> + <strong>COP{{localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800 | number:'1.0-0'}} </strong></p>
+			<h5><strong>Precio + Servicio +IVA</strong></h5>
+			<p class="precioLocalidades"> <strong> {{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio|currency:'COP'}} </strong>+ <strong>{{localidad.servicio*0.19 |currency:'COP'}}</strong></p>
 		</div>
 		<div class="tituloLocalidad">
 			<h3><strong> {{localidad.nombre}} </strong></h3>
@@ -208,8 +208,8 @@
 		<hr>
 		<div class="p-3 ">
 			
-			<h5><strong>Precio + Servicio</strong></h5>
-			<p class="precioLocalidades"> <strong> {{localidad.precio | currency: 'COP'}}</strong> + <strong>COP{{localidad.precio*localidad.servicio*0.01 +(localidad.precio+localidad.precio*localidad.servicio*0.01)*0.0279+800 | number:'1.0-0'}} </strong></p>
+			<h5><strong>Precio + Servicio +IVA</strong></h5>
+			<p class="precioLocalidades"> <strong> {{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio|currency:'COP'}}  </strong>+<strong>{{localidad.servicio*0.19 |currency:'COP'}}</strong> </p>
 		</div>
 		<div class="tituloLocalidad">
 			<h3><strong> {{localidad.nombre}} </strong></h3>

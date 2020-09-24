@@ -1,3 +1,5 @@
+import { EtapasDataService } from './../../../../service/data/etapas-data.service';
+import { Localidad } from './../../../../administradores/admin-perfil/admin-eventos/admin-localidades/localidad.model';
 import { Evento } from './../../../evento.model';
 import { EventoDataService } from './../../../../service/data/evento-data.service';
 import { Palco } from './../../../../administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
@@ -8,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UsuariosDataService } from './../../../../service/data/usuarios-data.service';
 import { Component, OnInit } from '@angular/core';
 import { updateFor } from 'typescript';
+import { Etapa } from '../../etapa.model';
 
 @Component({
   selector: 'app-comprar-palcos',
@@ -16,28 +19,47 @@ import { updateFor } from 'typescript';
 })
 export class ComprarPalcosComponent implements OnInit {
 
+  miId;
+  valorTotal:number=0
+  usuarioA:string
+  usuarioEntidad: Cliente
+  evento:Evento;
+  
+  
+  usuarioBoolean:boolean=true;
   merchantId:number
-accountId:number
-referenceCode:string="PAGO: "
-signature:string
-ApiKey:string
-  usuarioEntidad:Cliente
-  miId
-  palcos:Palco[]=[]
-  evento:Evento
-  usuarioA
-  palcosCarrito:Palco[]=[]
-  usuarioBoolean
-  valorTotal=0;
-  palcosLista:Palco[]=[]
-  valorLocalidadAgregada=0;
-  constructor(private route: ActivatedRoute, private service:EventoDataService, private palcoServicio:PalcosDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
+  accountId:number
+  referenceCode:string="PALCO: "
+  signature:string
+  ApiKey:string
+  valorLocalidadAgregada:number =0
+  etapa:Etapa
+  boletaBoolean:boolean=false
+  localidadesPalcos:Localidad[]=[]
+
+  palco:Palco
+  localidad:Localidad
+  valorBoletas=0
+  constructor(private route: ActivatedRoute, private service:EventoDataService, private palcoServicio:PalcosDataService,private etapaServicio:EtapasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
 
     this.merchantId=703263  // 508029
     this.accountId=706326 //  512321
     this.ApiKey="tyrs5RFaKLs72kHWaZW3WB91B0"
+
+    this.palco={
+      id:null,
+      nombre:null,
+      nombreEvento:null,
+      personasAdentro:null,
+      personasMaximas:null,
+      precio:null,
+      precioParcialPagado:null,
+      reservado:null,
+      servicio:null,
+      vendido:null
+    }
 
     this.usuarioEntidad= {
       nombre: "",
@@ -77,104 +99,79 @@ ApiKey:string
           etapas:[]
         }
         
-    this.route.paramMap.subscribe( params =>{
-      this.miId =params.get('id');
-      this.palcoServicio.getAllPalcosVendidosDeUnEvento(this.miId,false).subscribe(response=>(this.palcos = response))
-      this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
-        if(this.autenticador.getUsuario()!=null ){
-        
-          this.usuarioA= this.autenticador.getUsuario(); 
-         this.referenceCode = this.referenceCode + this.usuarioA+': ';
-          
-          
-          this.dataServicio.getCliente(this.usuarioA).subscribe(response => {this.usuarioEntidad=response
-            this.usuarioBoolean=true;
+        this.route.paramMap.subscribe( params =>{
+          this.miId =params.get('id');
+         
+          this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
+            if(this.autenticador.getUsuario()!=null ){
             
+              this.usuarioA= this.autenticador.getUsuario(); 
+             this.referenceCode = this.referenceCode + this.usuarioA+': ';
+              
+              
+              this.dataServicio.getCliente(this.usuarioA).subscribe(response => {this.usuarioEntidad=response
+                this.usuarioBoolean=false;
+                
+              })
+    
+            }
+    
+    
+          
+          });
+          this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
+            var i =0;
+            while(i < this.etapa.localidades.length){
+            if(this.etapa.localidades[i].palcos.length>0){
+                this.localidadesPalcos.push(this.etapa.localidades[i])
+              }
+              
+              i=i+1;
+            }
+          
+          
           })
-
-        }
-      
-      
       })
     }
       
       
-      )
-  }
+      
+  
 
   handleGetSuccesfull(response){
     this.evento =response;
   }
 
-  agregarALaLista(palco:Palco){
+  agregarALaLista(localidad:Localidad){
 
-    if(this.usuarioBoolean){
-    var terminado =false;
-    for(var i =0; i < this.palcosLista.length && !terminado; i++){
-      if(this.palcosLista[i].id == palco.id ){
-    
-        terminado = true;
-      }
-      
-    }
-    for(var i =0; i < this.palcosCarrito.length && !terminado;i++){
-      if( this.palcosCarrito[i].id == palco.id){
-        terminado =true
-      }
-    }
-
-    if(terminado){
-      alert("Ya agregase este palco")
-    }
-    else{
-    this.valorLocalidadAgregada = this.valorLocalidadAgregada+ palco.precio + palco.precio*palco.servicio*0.01 +(palco.precio+palco.precio*palco.servicio*0.01)*0.0279+800 ;
-    this.palcosLista.push(palco);
+   this.localidad =localidad;
+   this.valorLocalidadAgregada = localidad.precio +localidad.servicio+ localidad.servicio*0.19;
+   this.valorBoletas = 1;
   }
 
-}
-else{
-  alert("Entra a tu cuenta AllTickets")
-  this.router.navigate(['/login'])
-}
-  }
-
-  quitarDeLaLista(palco:Palco){
-    if(this.usuarioBoolean){
-    var terminado = false;
-    for(var i =0; i < this.palcosLista.length && !terminado; i++){
-      if(this.palcosLista[i].id == palco.id){
-        this.valorLocalidadAgregada = this.valorLocalidadAgregada- (palco.precio + palco.precio*palco.servicio*0.01 +(palco.precio+palco.precio*palco.servicio*0.01)*0.0279+800) ;
-        this.palcosLista.splice(i,1);
-        terminado = true;
-      }
-    }
-  }
-  else{
-    alert("Entra a tu cuenta AllTickets")
-    this.router.navigate(['/login'])
-  }
-  }
 
   agregarAlCarrito(){
 
-    if(this.usuarioBoolean){
-    for(var i =0; i < this.palcosLista.length; i++){
-      this.palcosCarrito.push(this.palcosLista[i])
+    if(this.localidad==null){
+      alert("Agregar un Palco para continuar")
     }
-    this.valorLocalidadAgregada =0;
-    this.palcosLista=[];
-  }
-  else{
-    alert("Entra a tu cuenta AllTickets")
-    this.router.navigate(['/login'])
-  }
+    else{
+      this.palcoServicio.reservarPalco(this.localidad.id).subscribe(response=>{ this.palco =response;
+      this.valorTotal = this.palco.precio +this.palco.servicio+this.palco.servicio*0.19;
+      })
+    }
+
 
 }
 
-pagar(){
-  if(this.usuarioBoolean){
-    if(this.palcosCarrito.length>0){
+manejar(response){
+  this.etapa =response;
+}
 
+pagar(){
+  if(!this.usuarioBoolean){
+    if(this.palco.id!=null){
+      this.palcoServicio.comprarPalco(this.palco.id,this.usuarioEntidad.numeroDocumento,this.valorTotal).subscribe(response=>response)
     }
     else{
       alert("Agrega algún Palco al Carrito")
@@ -186,6 +183,18 @@ pagar(){
     this.router.navigate(['/login'])
   }
 }
+
+darCantidadDePalcos(localidad:Localidad){
+  var contador =0;
+  for(var i =0; i < localidad.palcos.length; i=i+1){
+    if(localidad.palcos[i].vendido==false &&localidad.palcos[i].reservado==false){
+
+      contador = contador+1;
+    }
+  }
+  return contador;
+}
   
+
 
 }
