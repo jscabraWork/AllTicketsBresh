@@ -32,11 +32,11 @@ export class CiudadesUpdateComponent implements OnInit {
     this.selectedFile = event.target.files[0];
  
     this.ciudad.imagen ="../../assets/images/img/" +event.target.files[0].name;
- console.log(this.ciudad.imagen)
+ 
 
   }
   saveCiudad(){
-    this.servicio.updateCiudad(this.id,this.ciudad).subscribe(data=>console.log(data));
+    this.servicio.updateCiudad(this.id,this.ciudad).subscribe(data=>data);
     this.router.navigate(['/administradores/admin/ciudades/lista'])
     alert('Se ha modificado la ciudad de ' +this.ciudad.nombre)
   }

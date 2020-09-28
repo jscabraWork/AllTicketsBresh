@@ -42,12 +42,12 @@
                 <td>{{palco?.nombre }}</td>
                 <td>{{palco?.precio +palco?.servicio +palco?.servicio*0.19 | currency :'COP'}}</td>
                 <td>{{palco?.precioParcialPagado|currency:'COP'}}</td>
-                <td>{{palco?.servicio}}</td>
+                <td>{{palco?.servicio | currency :'COP'}}</td>
                 <td>{{palco?.personasAdentro}}</td>
                 <td>{{palco?.personasMaximas}}</td>
                 <td>{{palco?.vendido  |booleans}}</td>
                 <td>{{palco?.reservado  |booleans}}</td>
-                <td><button class="btn btn-warning" > Modificar</button></td>
+                <td><button class="btn btn-warning" routerLink="update/{{palco.id}}"> Modificar</button></td>
                 <td><button (click) ="borrarPalco(palco.id)" class="btn btn-danger"> Delete</button></td>
     
             </tr>

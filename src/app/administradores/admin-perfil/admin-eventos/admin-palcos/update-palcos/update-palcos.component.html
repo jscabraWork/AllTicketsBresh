@@ -6,7 +6,7 @@
         </div>
 
 <div class="col-12">
-        <form (ngSubmit)="!todoForm.invalid && agregarPalco()" #todoForm="ngForm">
+        <form (ngSubmit)="!todoForm.invalid && modificarPalco()" #todoForm="ngForm">
 
         <fieldset class="form-group">
             <label for="servicio">Personas Por Palco</label>
@@ -14,10 +14,6 @@
         </fieldset>
 
 
-        <fieldset class="form-group">
-            <label for="servicio">Cantidad</label>
-            <input type="number" class= "form-control"name ="servicio" required="required"  [(ngModel)]="cantidad">
-        </fieldset>
 
         
         <button class="btn btn-success" type="submit">Guardar</button>

@@ -10,10 +10,16 @@
     <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="organizador.nombre">
 </fieldset>
 
+
 <fieldset class="form-group">
     <label for="tipo">Tipo de Documento</label>
-    <input type="text" class= "form-control"name ="tipo" required="required"  [(ngModel)]="organizador.tipoDocumento">
+    <select type="text" class= "form-control "name ="tipo" required="required"  [(ngModel)]="organizador.tipoDocumento">
+        <option value="Cedula">Cedula</option>
+        <option value="TarjetaIdentidad">Tarjeta de Identidad</option>
+        <option value="Pasaporte">Pasaporte</option>
+    </select>    
 </fieldset>
+
 
 <fieldset class="form-group">
     <label for="nombre">Usuario</label>

@@ -1,1 +1,74 @@
-<p>se-promotor works!</p>
+<div id="prueba">
+        
+        
+    <h1 class="centrado4 rounded" ><strong>Trabaja con nosostros como promotor</strong></h1>
+    <h1 class="centrado4 rounded" ><strong>Manda tu solicitud!</strong></h1>
+    <h1 style="font-size: 25px;"><strong>Pronto te contactaremos</strong></h1>
+    
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 border rounded p-4 fondoNegro" >
+            <form (ngSubmit)="!todoForm.invalid" #todoForm="ngForm">
+                <fieldset class="form-group">
+                    <label for="id">Numero Documento</label>
+                    <input type="number" class= "form-control "name ="id" required="required" >
+                </fieldset>    
+                
+                <fieldset class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class= "form-control "name ="nombre" required="required"  >
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="tipo">Tipo de Documento</label>
+                    <select type="text" class= "form-control "name ="tipo" required="required" >
+                        <option value="Cedula">Cedula</option>
+                        <option value="TarjetaIdentidad">Tarjeta de Identidad</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                    </select>    
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" class= "form-control "name ="usuario" required="required" >
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" class= "form-control "name ="contrasena" required="required">
+                </fieldset>
+
+
+                <fieldset class="form-group">
+                    <label for="celular">Celular</label>
+                    <input type="number"  class= "form-control "name ="celular" required="required" >
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="correo">Correo</label>
+                    <input type="email" class= "form-control "name ="correo" required="required">
+                </fieldset>
+
+
+                <fieldset class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" class= "form-control "name ="direccion" required="required">
+                </fieldset>
+                <fieldset class="form-group pl-4">
+                    <input type="checkbox" class="form-check-input" id="public" required="required">
+                    <label class="form-check-label "  for="public">Acepto que me envien publicidad</label>
+                </fieldset>
+
+                <fieldset class="form-group pl-4">
+                    <input type="checkbox" class="form-check-input" id="terminos" required="required">
+                    <label class="form-check-label " for="terminos">Acepto Terminos y Condiciones</label>
+                </fieldset>
+                <div style="text-align: center;">
+                    <button class="btn action_button mt-2" type="submit">Enviar</button>
+                </div>    
+            </form>
+        </div>    
+    </div>
+</div>

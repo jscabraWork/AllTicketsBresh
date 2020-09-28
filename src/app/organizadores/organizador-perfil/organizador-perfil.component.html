@@ -21,7 +21,7 @@
                     <th class="border ">Nombre</th>
                     <th class="border ">Fecha</th>
                     <th class="border ">Lugar</th>               
-                    <th class="border">Ver Palcos</th>        
+                           
                     <th class="border ">Ver Perfil</th>
                     
                 </tr>
@@ -32,7 +32,7 @@
                     <td class="border"> <strong>{{evento?.nombre }}</strong></td> 
                     <td class="border"> <strong>{{evento?.fecha }} Hora: {{evento?.fecha.horaInicio}}</strong></td> 
                     <td class="border"> <strong>{{evento?.lugar }}</strong></td> 
-                    <td class="border"><button class="btn action_button float-right">Ver Palcos</button></td>
+                    
                     <td class="border"> <button class="btn action_button" routerLink="/organizadores/organizador/eventos/{{evento?.id}}">Ver Perfil</button></td> 
                 </tr>
             </tbody>

@@ -31,6 +31,7 @@ export class UpdateLocalidadComponent implements OnInit {
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
       this.idLocalidad=params.get('idLocalidad');
+      this.idEtapa = params.get('idEtapa');
       this.servicio.getLocaliddadPorId(this.idLocalidad, this.miId).subscribe(response=>{this.localidad=response})
     })
 
@@ -40,8 +41,12 @@ export class UpdateLocalidadComponent implements OnInit {
   saveLocalidad(){
     this.servicio.modificarLocalidad(this.localidad,this.miId, this.idLocalidad, this.idEtapa).subscribe(data=>{data
        alert("Se modificio la localidad " + this.localidad.nombre)
-       this.router.navigate(['/administradores/admin/eventos/lista/localidades/'+this.miId])
-      })
+       this.router.navigate(['/administradores/admin/eventos/lista/etapas/'+this.miId +'/localidades/'+ this.idEtapa])
+
+      },
+      error=> alert(error)
+      
+      )
 
    
 

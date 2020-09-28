@@ -35,6 +35,9 @@ import { AdminPalcosComponent } from './admin-perfil/admin-eventos/admin-palcos/
 import { AgregarPalcoComponent } from './admin-perfil/admin-eventos/admin-palcos/agregar-palco/agregar-palco.component';
 import { AdminEtapasComponent } from './admin-perfil/admin-eventos/admin-etapas/admin-etapas.component';
 import { AgregarEtapaComponent } from './admin-perfil/admin-eventos/admin-etapas/agregar-etapa/agregar-etapa.component';
+import { UpdatePalcosComponent } from './admin-perfil/admin-eventos/admin-palcos/update-palcos/update-palcos.component';
+import { AdminBlogComponent } from './admin-perfil/admin-blog/admin-blog.component';
+import { AdminPromotoresComponent } from './admin-perfil/admin-promotores/admin-promotores.component';
 
 
 const routes: Routes=[
@@ -89,6 +92,12 @@ const routes: Routes=[
           path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos/agregar',
           component: AgregarPalcoComponent
         },
+
+        {
+          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos/update/:idPalco',
+          component: UpdatePalcosComponent
+        },
+
 
         {
           path: 'admin/eventos/lista/localidad/boletas/:id/:idLocalidad/:nombreLocalidad',
@@ -146,6 +155,10 @@ const routes: Routes=[
         {
           path: 'admin/organizadores/lista/agregar',
           component: AgregarOrganizadorComponent
+        },
+        {
+          path:'blog',
+          component: AdminBlogComponent
         }
       ]
 }
@@ -178,7 +191,10 @@ const routes: Routes=[
       AdminPalcosComponent,
       AgregarPalcoComponent,
       AdminEtapasComponent,
-      AgregarEtapaComponent
+      AgregarEtapaComponent,
+      UpdatePalcosComponent,
+      AdminBlogComponent,
+      AdminPromotoresComponent
     ],
     imports:[
         CommonModule,

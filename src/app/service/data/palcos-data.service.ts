@@ -15,6 +15,9 @@ export class PalcosDataService {
 
   }
 
+  getPalco(pIdLocalidad, pIdPalco){
+    return this.http.get<Palco>(`${API_URL}/localidad/${pIdLocalidad}/palcos/${pIdPalco}`);
+  }
   getAllPalcosVendidosDeUnaLocalidad(pIdLocalidad, pVendido){
     return this.http.get<Palco[]>(`${API_URL}/localidad/${pIdLocalidad}/palcos/vendido/${pVendido}}`)
   }
@@ -36,5 +39,9 @@ export class PalcosDataService {
 
   reservarPalco(idLocalidad){
     return this.http.put<Palco>(`${API_URL}/palcos/localidad/${idLocalidad}/reservar`,null)
+  }
+
+  modificarPalco(idPalco,pIdLocalidad, palco:Palco){
+      return this.http.put(`${API_URL}/localidad/${pIdLocalidad}/palcos/${idPalco}`,palco)
   }
 }

@@ -4,27 +4,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-agregar-palco',
-  templateUrl: './agregar-palco.component.html',
-  styleUrls: ['./agregar-palco.component.css']
+  selector: 'app-update-palcos',
+  templateUrl: './update-palcos.component.html',
+  styleUrls: ['./update-palcos.component.css']
 })
-export class AgregarPalcoComponent implements OnInit {
+export class UpdatePalcosComponent implements OnInit {
 
   miId
   palco:Palco
   idLocalidad
   idEtapa
   cantidad
- 
+  idPalco
+
   constructor(private route: ActivatedRoute,private servicio: PalcosDataService, private router: Router) { }
 
   ngOnInit(): void {
+
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
       this.idLocalidad =params.get('idLocalidad');
       this.idEtapa =params.get('idEtapa');
-
-      
+      this.idPalco =params.get('idPalco');
+      this.servicio.getPalco(this.idLocalidad,this.idPalco).subscribe(response=> this.palco=response)
      
 })
 
@@ -43,14 +45,14 @@ this.palco={
 }
   }
 
-  agregarPalco(){
-    this.servicio.agregarPalcosALocalidad(this.idLocalidad,this.palco, this.cantidad).subscribe(response=>{response; alert("Agregados "+this.cantidad+ " Palcos a la localidad")
+  modificarPalco(){
+    this.servicio.modificarPalco(this.palco.id,this.idLocalidad,this.palco).subscribe(response=>{response; alert("Se modifico el palco "+this.palco.id)
     
     this.router.navigate([`/administradores/admin/eventos/lista/etapas/${this.miId}/localidades/${this.idEtapa}/${this.idLocalidad}/palcos`]);
   
   },
   error=> alert(error)
-  )
+  );
 
   }
 

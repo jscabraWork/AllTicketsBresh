@@ -47,20 +47,6 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
      
       this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
 
-    for(var i =0; i< this.evento.localidades.length;i++)
-
-    {
-      for(var j=0;j < this.evento.localidades[i].boletas.length;j++)
-      {
-        if(  this.evento.localidades[i].boletas[j].vendida==true){
-          this.dineroRecaudado =this.dineroRecaudado+ this.evento.localidades[i].precio;
-      }
-     }
-    }
-
-
-      
-      
       });
      
   })
@@ -115,10 +101,44 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     {
       if(  localidad.boletas[i].vendida==true){
         contador =contador+ localidad.precio;
+        this.dineroRecaudado = this.dineroRecaudado + localidad.precio;
       }
     }
    
     return contador;
   
+  }
+
+  palcosVendidos(localidad:Localidad, vendido:boolean){
+    var contador =0;
+    for (var i =0; i< localidad.palcos.length;i++){
+      if(localidad.palcos[i].vendido ==vendido){
+        contador = contador +1;
+      }
+    }
+    return contador;
+  }
+
+  dineroRecaudadoPalcos(localidad:Localidad){
+    var contador =0;
+    for (var i =0; i< localidad.palcos.length;i++){
+      if(localidad.palcos[i].vendido ==true){
+        contador = contador +localidad.precio;
+        this.dineroRecaudado = this.dineroRecaudado + localidad.precio;
+      }
+    }
+    return contador;
+  }
+
+
+  personasEnPalco(localidad:Localidad){
+    var contador =0;
+    for (var i =0; i< localidad.palcos.length;i++){
+      
+        contador = contador +localidad.palcos[i].personasAdentro;
+        
+      
+    }
+    return contador;
   }
 }

@@ -26,9 +26,9 @@ export class AgregarCiudadComponent implements OnInit {
 
   onFileSelected(event){
     this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile);
+    
     this.ciudad.imagen ="../../assets/images/img/" +event.target.files[0].name;
-    console.log(this.ciudad.imagen);
+    
 
   }
 

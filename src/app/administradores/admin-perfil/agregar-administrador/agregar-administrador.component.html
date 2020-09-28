@@ -13,7 +13,11 @@
 
     <fieldset class="form-group">
         <label for="tipo">Tipo de Documento</label>
-        <input type="text" class= "form-control"name ="tipo" required="required"  [(ngModel)]="administrador.tipoDocumento">
+        <select type="text" class= "form-control "name ="tipo" required="required"  [(ngModel)]="administrador.tipoDocumento">
+            <option value="Cedula">Cedula</option>
+            <option value="TarjetaIdentidad">Tarjeta de Identidad</option>
+            <option value="Pasaporte">Pasaporte</option>
+        </select>    
     </fieldset>
 
     <fieldset class="form-group">
