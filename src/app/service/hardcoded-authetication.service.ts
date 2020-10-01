@@ -40,6 +40,15 @@ authenticate(username,password){
     return sessionStorage.getItem('organizador');
   }
 
+  getMinisterio(){
+    return sessionStorage.getItem('ministerio');
+  }
+
+  getPuntoFisico(){
+    return sessionStorage.getItem('puntoF');
+  }
+
+
   usuarioLoggin(){
     let usuario =sessionStorage.getItem('usuario');
     return !(usuario==null);
@@ -52,10 +61,24 @@ authenticate(username,password){
     let usuario =sessionStorage.getItem('administrador');
     return !(usuario==null);
   }
+
+  ministerioLoggin(){
+    let usuario =sessionStorage.getItem('ministerio');
+    return !(usuario==null);
+
+  }
+
+ puntoFisicoLoggin(){
+    let usuario =sessionStorage.getItem('puntoF');
+    return !(usuario==null);
+
+  }
   logout(){
    
     sessionStorage.removeItem('usuario');
     sessionStorage.removeItem('organizador');
     sessionStorage.removeItem('administrador');
+    sessionStorage.removeItem('ministerio');
+    sessionStorage.removeItem('puntoF');
   }
 }

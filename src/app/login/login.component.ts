@@ -60,6 +60,22 @@ export class LoginComponent implements OnInit {
             
             
           }
+          else if(response.tipo=='puntoF')
+          {
+            sessionStorage.setItem('puntoF',this.username);
+            this.invalidLogin=false;
+            this.router.navigate(['puntoFisico',this.username]);
+            
+            
+          }
+          else if(response.tipo=='ministerio')
+          {
+            sessionStorage.setItem('ministerio',this.username);
+            this.invalidLogin=false;
+            this.router.navigate(['perfilMinisterio',this.username]);
+            
+            
+          }
         
        }
        else{

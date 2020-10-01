@@ -1,3 +1,7 @@
+import { RouteGuardPuntoFisicoService } from './service/route-guard-punto-fisico.service';
+import { PuntosFisicosComponent } from './puntos-fisicos/puntos-fisicos.component';
+import { RouteGuardMinisterioService } from './service/route-guard-ministerio.service';
+import { PerfilMinisterioComponent } from './perfil-ministerio/perfil-ministerio.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { RouteGuardUsuarioService } from './service/route-guard-usuario.service';
 import { RouteGuardOrganizadorService } from './service/route-guard-organizador.service';
@@ -89,11 +93,26 @@ const routes: Routes = [
     canActivate:[ RouteGuardOrganizadorService]
   },
   {
+    path:'logoutP', component: LogoutComponent,
+    canActivate:[ RouteGuardPuntoFisicoService]
+  },
+  {
+    path:'logoutM', component: LogoutComponent,
+    canActivate:[ RouteGuardMinisterioService]
+  },
+  {
     path:'registrarse', component: RegistrarseComponent
   },
 
   
-  
+  {
+    path:'perfilMinisterio/:user', component: PerfilMinisterioComponent,
+    canActivate:[ RouteGuardMinisterioService]
+  },
+  {
+    path:'puntoFisico/:user', component: PuntosFisicosComponent,
+    canActivate:[ RouteGuardPuntoFisicoService]
+  },
 
   
   

@@ -28,5 +28,13 @@ export class MenuComponent implements OnInit {
     this.usuario=this.autenticacion.getOrganizador();
     this.router.navigate(['organizadores/organizador',this.usuario]);
   }
+  cargarMinisterio(){
+    this.usuario=this.autenticacion.getMinisterio();
+    this.router.navigate(['perfilMinisterio',this.usuario]);
+  }
+  cargarPuntoFisico(){
+    this.usuario=this.autenticacion.getPuntoFisico();
+    this.router.navigate(['puntoFisico',this.usuario]);
+  }
 
 }
