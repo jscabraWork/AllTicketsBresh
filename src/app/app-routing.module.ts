@@ -110,7 +110,8 @@ const routes: Routes = [
     canActivate:[ RouteGuardMinisterioService]
   },
   {
-    path:'puntoFisico/:user', component: PuntosFisicosComponent,
+    path:'puntoFisico',
+    loadChildren:() => import('./puntos-fisicos/puntos-fisicos.module').then(m => m.PuntosFisicosModule),
     canActivate:[ RouteGuardPuntoFisicoService]
   },
 

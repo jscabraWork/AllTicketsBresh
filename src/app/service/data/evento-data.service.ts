@@ -20,7 +20,7 @@ urlGetOne=`${API_URL}/eventos/`;
 
   getEventoId(id:string){
     
-    return this.http.get(this.urlGetOne+id);
+    return this.http.get<Evento>(this.urlGetOne+id);
   }
   deleteEvento(id:string){
     return this.http.delete(`${API_URL}/eventos/${id}`);

@@ -38,6 +38,9 @@ import { AgregarEtapaComponent } from './admin-perfil/admin-eventos/admin-etapas
 import { UpdatePalcosComponent } from './admin-perfil/admin-eventos/admin-palcos/update-palcos/update-palcos.component';
 import { AdminBlogComponent } from './admin-perfil/admin-blog/admin-blog.component';
 import { AdminPromotoresComponent } from './admin-perfil/admin-promotores/admin-promotores.component';
+import { AdminPuntosFisicosComponent } from './admin-perfil/admin-puntos-fisicos/admin-puntos-fisicos.component';
+import { AgregarPuntoComponent } from './admin-perfil/admin-puntos-fisicos/agregar-punto/agregar-punto.component';
+import { UpdatePuntoComponent } from './admin-perfil/admin-puntos-fisicos/update-punto/update-punto.component';
 
 
 const routes: Routes=[
@@ -159,6 +162,19 @@ const routes: Routes=[
         {
           path:'blog',
           component: AdminBlogComponent
+        },
+
+        {
+          path:'puntosFisicos',
+          component: AdminPuntosFisicosComponent
+        },
+        {
+          path:'puntosFisicos/agregar',
+          component: AgregarPuntoComponent
+        },
+        {
+          path:'puntosFisicos/update/:id',
+          component: UpdatePuntoComponent
         }
       ]
 }
@@ -194,7 +210,10 @@ const routes: Routes=[
       AgregarEtapaComponent,
       UpdatePalcosComponent,
       AdminBlogComponent,
-      AdminPromotoresComponent
+      AdminPromotoresComponent,
+      AdminPuntosFisicosComponent,
+      AgregarPuntoComponent,
+      UpdatePuntoComponent
     ],
     imports:[
         CommonModule,

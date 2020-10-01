@@ -1,3 +1,4 @@
+import { PuntosFisicosModule } from './puntos-fisicos/puntos-fisicos.module';
 import { ResumirPipe } from './pipes/resumir.pipe';
 import { HttpInterceptBasicAuthService } from './service/http/http-intercept-basic-auth.service';
 import { AdminModule } from './administradores/admin.module';
@@ -53,22 +54,16 @@ registerLocaleData(localePy, 'es');
   
     EventosComponent,
   
-    LoginComponent,
-
-    ErrorComponent,
-
-    MenuComponent,
-
-    FooterComponent,
-
-    LogoutComponent,
-
-    RegistrarseComponent,
-    ResumirPipe,
+     LoginComponent,
+     ErrorComponent,
+     MenuComponent,
+     FooterComponent,
+     LogoutComponent,
+     RegistrarseComponent,
+     ResumirPipe,
      ResumirPipe2,
      CalendarioDeEventosComponent,
      PerfilMinisterioComponent,
-     PuntosFisicosComponent,
      PromotorPerfilComponent
   
 
@@ -84,7 +79,8 @@ registerLocaleData(localePy, 'es');
     UsuarioModule,
     AdminModule,
     OrganizadorModule,
-    HttpClientModule
+    HttpClientModule,
+    PuntosFisicosModule
     
    
   ],

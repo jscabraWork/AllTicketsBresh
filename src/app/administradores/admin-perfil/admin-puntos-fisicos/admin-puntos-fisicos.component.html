@@ -1,0 +1,43 @@
+
+
+
+    <section class="container mt-5">
+        <h2>Todos los Puntos Fisicos</h2>
+        <button class="btn btn-success" routerLink="agregar">Agregar</button>
+        <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
+        
+        <div class="container">
+        <table class="table mt-3">
+    
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                   <th>Usuario</th>
+                   <th>Contraseña</th>
+                   <th>Modificar</th>
+                   <th>Borrar</th>
+                    
+                </tr>
+        
+        
+        
+            </thead>
+            <tbody>
+              
+                <tr *ngFor = "let punto of puntosFisicos">
+                    <td>{{punto?.numeroDocumento}}</td>
+                    <td> {{punto?.nombre }}</td> 
+                    <td> {{punto?.usuario }}</td>
+                    <td>{{punto?.contrasena}}</td>
+                    <td><button  class="btn btn-warning" routerLink="update/{{punto.numeroDocumento}}"> Modificar</button></td>
+                    <td><button  class="btn btn-danger" (click)= "borrarPunto(punto.numeroDocumento)"> Delete</button></td>
+                </tr>
+        
+        
+            </tbody>
+        
+        </table>
+    </div>
+    
+    </section>

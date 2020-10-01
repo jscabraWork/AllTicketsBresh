@@ -29,7 +29,7 @@ export class AdministradoresComponent implements OnInit {
   borrarAdmin(id){
 
     this.service.deleteAdministrador(id).subscribe(response=> {
-      this.message= `Se borro la ciudad ${id}`
+      this.message= `Se borro el administrador ${id}`
       this.refrescaradmin();
       })
 
