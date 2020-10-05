@@ -2,7 +2,7 @@
 
     <div id="prueba">
         
-        <h1><strong>{{etapa.nombre}} de</strong></h1>
+        <h1><strong>Tickets {{etapa.nombre}} de</strong></h1>
         <h1><strong> {{evento?.nombre}}</strong></h1> 
         <small class="float-right pt-4"><strong>Pulep:</strong> {{evento?.id}}</small>
         
@@ -53,7 +53,7 @@
                      <button class=" rounded-circle" (click)= "reservarBoletasPorLocalidad(localidad)">+</button>
                     </td>
                     <td>{{numeroBoletasPorVenderYNoReservadas(localidad)}}</td>
-                    <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio| currency:'COP'}} </strong> + <strong>{{localidad.servicio*0.19 |currency:'COP'}}</strong></td> 
+                    <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio| currency:'COP'}} </strong> + <strong>{{localidad.servicio*IVA|currency:'COP'}}</strong></td> 
                     
                   
                 </tr>
@@ -79,7 +79,7 @@
               <div class="border" >
                 <div  class="border fondoBlanco" *ngFor="let boleta of boletas" >
                     <h6 class="pt-4 pl-4 pr-4"  >
-                    <h6><strong>Boleta: </strong>{{boleta.id}} <strong>Precio: </strong>{{boleta.precio + boleta.servicio + boleta.servicio*0.19 |currency:'COP'}}</h6>
+                    <h6><strong>Boleta: </strong>{{boleta.id}} <strong>Precio: </strong>{{boleta.precio + boleta.servicio + boleta.servicio*IVA |currency:'COP'}}</h6>
                   </h6>
                 </div>
                 <div  class="border fondoBlanco"  >
@@ -110,13 +110,3 @@
 
 
 
-  <section *ngIf="!evento?.mapa">
-	<div class="mt-5  container ">
-		<div class="row">
-			
-			<div style="text-align: center;" class="col-12  rounded  "><h1><strong> Palcos</strong></h1> <hr class="aaaa"> </div>
-			
-		</div>
-	</div>
-
-</section>

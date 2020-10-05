@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Etapa } from './etapa.model';
+import { IVA } from 'src/app/app.constants';
 
 @Component({
   selector: 'app-eventos-perfil',
@@ -18,6 +19,7 @@ export class EventosPerfilComponent implements OnInit {
   miId:string;
   evento:Evento;
   etapa:Etapa;
+  IVA
 localidadesPalcos:Localidad[]=[];
 localidadesBoletas:Localidad[]=[];
   
@@ -25,7 +27,7 @@ localidadesBoletas:Localidad[]=[];
   constructor(private route: ActivatedRoute, private service:EventoDataService, private _sanitizer: DomSanitizer, private etapaServicio:EtapasDataService) { }
 
   ngOnInit(): void {
-
+this.IVA = IVA
     this.evento ={
       id: "",
       nombre:"",

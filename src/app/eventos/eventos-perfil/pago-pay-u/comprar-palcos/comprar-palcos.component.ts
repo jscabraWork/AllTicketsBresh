@@ -11,6 +11,7 @@ import { UsuariosDataService } from './../../../../service/data/usuarios-data.se
 import { Component, OnInit } from '@angular/core';
 import { updateFor } from 'typescript';
 import { Etapa } from '../../etapa.model';
+import { IVA } from 'src/app/app.constants';
 
 @Component({
   selector: 'app-comprar-palcos',
@@ -24,7 +25,7 @@ export class ComprarPalcosComponent implements OnInit {
   usuarioA:string
   usuarioEntidad: Cliente
   evento:Evento;
-  
+  IVA
   
   usuarioBoolean:boolean=true;
   merchantId:number
@@ -43,7 +44,7 @@ export class ComprarPalcosComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service:EventoDataService, private palcoServicio:PalcosDataService,private etapaServicio:EtapasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
-
+    this.IVA =IVA
     this.merchantId=703263  // 508029
     this.accountId=706326 //  512321
     this.ApiKey="tyrs5RFaKLs72kHWaZW3WB91B0"
@@ -145,7 +146,7 @@ export class ComprarPalcosComponent implements OnInit {
   agregarALaLista(localidad:Localidad){
 
    this.localidad =localidad;
-   this.valorLocalidadAgregada = localidad.precio +localidad.servicio+ localidad.servicio*0.19;
+   this.valorLocalidadAgregada = localidad.precio +localidad.servicio+ localidad.servicio*IVA;
    this.valorBoletas = 1;
   }
 
@@ -157,7 +158,7 @@ export class ComprarPalcosComponent implements OnInit {
     }
     else{
       this.palcoServicio.reservarPalco(this.localidad.id).subscribe(response=>{ this.palco =response;
-      this.valorTotal = this.palco.precio +this.palco.servicio+this.palco.servicio*0.19;
+      this.valorTotal = this.palco.precio +this.palco.servicio+this.palco.servicio*IVA;
       })
     }
 

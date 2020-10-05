@@ -10,6 +10,7 @@ import { HardcodedAutheticationService } from './../../service/hardcoded-autheti
 import { EventoDataService } from './../../service/data/evento-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Etapa } from 'src/app/eventos/eventos-perfil/etapa.model';
+import { IVA } from 'src/app/app.constants';
 
 @Component({
   selector: 'app-evento-punto-fisico',
@@ -25,7 +26,7 @@ export class EventoPuntoFisicoComponent implements OnInit {
   etapa:Etapa
   boletas:Boleta[]=[]
 boletaBoolean:boolean=false
-localidadesPalcos:Localidad[]=[]
+IVA
 localidadesBoletas:Localidad[]=[];
 localidadesCompradas:Localidad[]=[];
 valorLocalidadAgregada:number =0
@@ -33,6 +34,7 @@ valorTotal:number=0
   constructor(private servicio: PuntosFisicosDataService , private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private route: ActivatedRoute,private autenticador: HardcodedAutheticationService, private eventosServicio:EventoDataService) { }
 
   ngOnInit(): void {
+    this.IVA=IVA
     this.etapa={
       evento:null,
       id:null,
@@ -51,9 +53,6 @@ valorTotal:number=0
         while(i < this.etapa.localidades.length){
           if(this.etapa.localidades[i].boletas.length>0){
             this.localidadesBoletas.push(this.etapa.localidades[i])
-          }
-          else if(this.etapa.localidades[i].palcos.length>0){
-            this.localidadesPalcos.push(this.etapa.localidades[i])
           }
           
           i=i+1;
@@ -122,7 +121,7 @@ valorTotal:number=0
     if(this.localidadesCompradas.length<6)
     {
       this.localidadesCompradas.push(localidad);
-      this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.servicio + localidad.servicio*0.19;
+      this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.servicio + localidad.servicio*IVA;
 
    }
   
@@ -148,7 +147,7 @@ valorTotal:number=0
           if(boleta!=null){ 
             this.boletas.push(boleta)
            
-            this.valorTotal=this.valorTotal+ localidad.precio  +localidad.servicio +localidad.servicio*0.19
+            this.valorTotal=this.valorTotal+ localidad.precio  +localidad.servicio +localidad.servicio*IVA
         
        
         }
@@ -179,7 +178,7 @@ quitaBoletaLocalidad(localidad:Localidad){
     for(var i =0 ; i <this.localidadesCompradas.length && !terminado;i=i+1){
       if(this.localidadesCompradas [i].id==localidad.id){
         this.localidadesCompradas.splice(i,1)
-        this.valorLocalidadAgregada = this.valorLocalidadAgregada - (localidad.precio  +localidad.servicio +localidad.servicio*0.19) ;
+        this.valorLocalidadAgregada = this.valorLocalidadAgregada - (localidad.precio  +localidad.servicio +localidad.servicio*IVA) ;
         terminado = true;
       }
     }

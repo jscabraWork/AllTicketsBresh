@@ -58,7 +58,7 @@
   </div>
 
 
-  <section class="container-fluid mt-5" >
+<section class="container-fluid mt-5" >
     <div class="row " >
     
       <div class="col-12 col-xl-9 pl-5 pr-5" *ngIf="!evento?.mapa">
@@ -87,7 +87,7 @@
                        
                       </td>
                       <td>{{darCantidadDePalcos(localidad)}}</td>
-                      <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio| currency:'COP'}}</strong> + <strong>{{localidad.servicio*0.19|currency:'COP'}}</strong></td> 
+                      <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio| currency:'COP'}}</strong> + <strong>{{localidad.servicio*IVA|currency:'COP'}}</strong></td> 
                       
                     
                   </tr>
@@ -113,7 +113,7 @@
               <div class="border" >
                 <div  class="border fondoBlanco" *ngIf="palco.id!=null ">
                     <h6 class="pt-4 pl-4 pr-4"  >
-                    <h6><strong>Palco: </strong>{{palco.nombre}} <strong>Precio: </strong>COP{{palco.precio + palco.servicio + palco.servicio*0.19| number:'1.0-0'}}.00</h6>
+                    <h6><strong>Palco: </strong>{{palco.nombre}} <strong>Precio: </strong>COP{{palco.precio + palco.servicio + palco.servicio*IVA| number:'1.0-0'}}.00</h6>
                   </h6>
                 </div>
                 <div  class="border fondoBlanco"   *ngIf="palco.id==null">

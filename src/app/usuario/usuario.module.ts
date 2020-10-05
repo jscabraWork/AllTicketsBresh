@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { TicketsUsuarioComponent } from './usuario-perfil/tickets-usuario/tickets-usuario.component';
-import { PalcosUsuarioComponent } from './usuario-perfil/palcos-usuario/palcos-usuario.component';
+
 
 
 
@@ -36,11 +36,7 @@ const routes: Routes=[
           canActivate:[RouteGuardUsuarioService]
         },
 
-        {
-          path: 'usuario/:user/misPalcos',
-          component: PalcosUsuarioComponent,
-          canActivate:[RouteGuardUsuarioService]
-        },
+     
 
 
         {
@@ -56,11 +52,7 @@ const routes: Routes=[
           canActivate:[RouteGuardAdminService]
         },
 
-        {
-          path: 'usuario/admin/:user/misPalcos',
-          component: PalcosUsuarioComponent,
-          canActivate:[RouteGuardAdminService]
-        },
+    
       ]
 }
 
@@ -69,7 +61,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[  UsuarioComponent,UsuarioPerfilComponent, TicketsUsuarioComponent, PalcosUsuarioComponent],
+    declarations:[  UsuarioComponent,UsuarioPerfilComponent, TicketsUsuarioComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

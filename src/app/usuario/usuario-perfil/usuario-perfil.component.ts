@@ -13,6 +13,7 @@ export class UsuarioPerfilComponent implements OnInit {
 
   user ='';
   usuario:Cliente
+ 
   constructor(private route:ActivatedRoute, private autenticador: HardcodedAutheticationService, private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {

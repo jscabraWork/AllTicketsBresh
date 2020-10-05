@@ -1,0 +1,104 @@
+<section>
+
+    <div id="prueba">
+        
+        <h1><strong>Palcos {{etapa.nombre}} de</strong></h1>
+        <h1><strong> {{evento?.nombre}}</strong></h1> 
+        <small class="float-right pt-4"><strong>Pulep:</strong> {{evento?.id}}</small>
+
+    </div>
+</section>
+<section *ngIf="!evento?.mapa">
+	<div class="mt-5  container ">
+		<div class="row">
+			
+			<div style="text-align: center;" class="col-12  rounded  "><h1><strong> Palcos</strong></h1> <hr class="aaaa"> </div>
+			
+		</div>
+	</div>
+
+</section>
+
+
+
+<section class="container-fluid mt-5" >
+    <div class="row " >
+    
+      <div class="col-12 col-xl-9 pl-5 pr-5" *ngIf="!evento?.mapa">
+        <div class="row border rounded shadow" style="background-color: white;">
+          <h4 class="p-3"><strong>Selección de Palcos</strong></h4>
+          <p class="pl-3 pr-3 pb-4">Por favor, indica el palco que deseas añadir a tu pedido. El numero de Palcos por compra se limita a 1, para reservar el palco es necesario el 10% de este y cuentas con un plazo de 24 horas para pagar el 50% y 72 horas para pagar el 100%.</p>
+        
+          <div class="col-12">
+            <table class="table mt-2 tabla border shadow-xs p-3" style="text-align: center;" >
+              <thead>
+                  <tr >
+                      <th >Nombre</th>
+                      <th>Agregar</th>
+                      <th>Aforo</th>
+                      <th >Precio + Servicio + IVA</th>
+    
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr  *ngFor ="let localidad of localidadesPalcos" >
+                      <td><strong>{{localidad?.nombre }}</strong></td> 
+                      <td >
+                       
+                       <button class="action_button" (click)="agregarALaLista(localidad)">+</button>
+                       
+                      </td>
+                      <td>{{darCantidadDePalcos(localidad)}}</td>
+                      <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio| currency:'COP'}}</strong> + <strong>{{localidad.servicio*IVA|currency:'COP'}}</strong></td> 
+                      
+                    
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-12  justify-content-end">
+           <div>
+             <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
+             <h5 ><strong>Entradas: </strong>  {{valorBoletas}} </h5>
+           </div>
+            <button style="font-size: 12px;" class="action_button float-right mr-1 mt-2 mb-3 p-3" (click) ="agregarAlCarrito()" > Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+  
+    <div class="col-12 col-xl-3 mt-5 mt-xl-0 rounded pl-4 pr-4" >
+        <div class="row ">
+            <div class="divisionLocalidad col-12 " >
+              <div class="tituloLocalidad shadow ">
+                <h3><strong> Carrito de compras </strong></h3>
+              </div>
+              <div class="border" >
+                <div  class="border fondoBlanco" *ngIf="palco.id!=null ">
+                    <h6 class="pt-4 pl-4 pr-4"  >
+                    <h6><strong>Palco: </strong>{{palco.nombre}} <strong>Precio: </strong>COP{{palco.precio + palco.servicio + palco.servicio*IVA| number:'1.0-0'}}.00</h6>
+                  </h6>
+                </div>
+                <div  class="border fondoBlanco"   *ngIf="palco.id==null">
+                  <h6 class="pt-4 pl-4 pr-4" >
+                    <strong> Agrega Palcos Al Carrito</strong>
+                  </h6>
+                </div>
+                <div class="fondoBlanco" *ngIf="palco">
+                  <h6 class="p-4"  >
+                    <strong>Valor Total:</strong> {{valorTotal |currency:'COP'}}
+                  </h6>
+                </div>
+              </div>
+              <div class="p-4" >
+                  <button  class="action_button"  (click) ="pagar()"   style="font-size:16px ;">Pagar</button>
+                
+              </div>
+            </div>
+        </div>
+    </div>
+  
+  
+    </div>
+
+  </section>

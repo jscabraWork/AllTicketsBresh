@@ -1,12 +1,12 @@
 <section class="container mt-5">
-    <button class="btn btn-success" routerLink="/administradores/admin/eventos/lista/etapas/{{miId}}/localidades/">Atras</button>
+    <button class="btn btn-success" routerLink="/administradores/admin/eventos/lista">Atras</button>
 
     
     <h1>Boletas del Evento {{miId}} en la localidad {{nombre}}</h1>
     <small>Boletas totales {{numeroDeBoletas}}</small> <br>
     <small>Boletas vendidas {{numeroDeBoletasVendidas}}</small> <br>
     <small>Boletas por vender {{numeroDeBoletasPorVender}}</small> <br>
-    <small>Dinero Recaudado {{dineroRecaudado}}</small> <br>
+    <small>Dinero Recaudado para entregar al organizador: {{dineroRecaudado|currency:'COP'}}</small> <br>
     <button class="btn btn-success" routerLink= "agregar"> Agregar Boletas</button>
 
     <table class="table mt-3">

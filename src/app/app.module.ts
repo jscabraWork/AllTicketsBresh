@@ -32,6 +32,8 @@ import { CalendarioDeEventosComponent } from './calendario-de-eventos/calendario
 import { PerfilMinisterioComponent } from './perfil-ministerio/perfil-ministerio.component';
 import { PuntosFisicosComponent } from './puntos-fisicos/puntos-fisicos.component';
 import { PromotorPerfilComponent } from './promotor-perfil/promotor-perfil.component';
+import { PreguntasFrecuentesComponent } from './preguntas-frecuentes/preguntas-frecuentes.component';
+import { CalendarioComponent } from './calendario/calendario.component';
  
 registerLocaleData(localePy, 'es');
 
@@ -64,7 +66,9 @@ registerLocaleData(localePy, 'es');
      ResumirPipe2,
      CalendarioDeEventosComponent,
      PerfilMinisterioComponent,
-     PromotorPerfilComponent
+     PromotorPerfilComponent,
+     PreguntasFrecuentesComponent,
+     CalendarioComponent
   
 
    

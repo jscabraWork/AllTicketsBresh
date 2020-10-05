@@ -11,7 +11,7 @@
     <button  routerLink="agregar" class="btn btn-success">Agregar Palco</button>
     <p>Palcos Vendidos: {{palcosVendidos}} </p>
     <p>Palcos Por Vender: {{palcosPorVender}}</p>
-    <p>Dinero Recaudado: {{dineroRecaudado}}</p>
+    <p>Dinero Dinero Recaudado para entregar al organizador: {{dineroRecaudado|currency:'COP'}}</p>
     <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
     <div class="container">
     <table class="table mt-3">
@@ -40,7 +40,7 @@
             <tr *ngFor = "let palco of localidad?.palcos">
                 <td>{{palco?.id}}</td>
                 <td>{{palco?.nombre }}</td>
-                <td>{{palco?.precio +palco?.servicio +palco?.servicio*0.19 | currency :'COP'}}</td>
+                <td>{{palco?.precio  | currency :'COP'}}</td>
                 <td>{{palco?.precioParcialPagado|currency:'COP'}}</td>
                 <td>{{palco?.servicio | currency :'COP'}}</td>
                 <td>{{palco?.personasAdentro}}</td>

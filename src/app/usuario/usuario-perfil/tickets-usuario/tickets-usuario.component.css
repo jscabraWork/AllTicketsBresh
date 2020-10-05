@@ -7,5 +7,10 @@
 }
 .eventoFondo{
     background-color: white;
-    text-align: center;
+    
+}
+.aaaa{        
+    border: 2px solid #ed701c;
+    height: 0px;
+    width: 70px;
 }

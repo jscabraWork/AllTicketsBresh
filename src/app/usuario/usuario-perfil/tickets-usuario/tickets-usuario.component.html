@@ -1,94 +1,28 @@
-<div id="prueba">
+
+
+
+<section class="container " >
+    
+    <div class="row rounded" >
+        <div class="col-12 border eventoFondo" style="text-align: center;" *ngIf="usuario.boletas.length==0">
+            <h4 class="p-5"> <strong> No tienes ningún Ticket, compra uno y vive la experiencia All Tickets.</strong></h4>
+        </div>
+        <div class="col-12 border eventoFondo mt-3 " *ngFor="let boleta of usuario.boletas">
+            <h5 class="pl-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
+            <h5 class="pl-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
+            <h5 class="pl-4 "><strong>Boleta No:</strong> {{boleta.id}}  </h5>
+            <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
+            <h5 class="pl-4 pb-4"><strong>Precio: </strong>{{boleta?.precio + boleta.servicio + boleta.servicio*0.19 | currency:'COP'}}</h5>
             
             
-    
-   
-   <h1 ><strong> Mis Tickets</strong></h1>
-  
-    
-</div>
-
-
-
-
-<section class="container-fluid mt-5" >
-    
-    <div class="row" >
-
-        <div class="col-4  " >
-        <div class="tituloLocalidad border rounded" ><h3>Los Eventos a Los Que Voy a Asistir</h3></div>
-           <div *ngFor="let eventoN of nombresEventos" class="border rounded eventoFondo" >
-               <h6 class="pt-4 pl-4 pr-4" (click)="cargarLocalidad(eventoN)" style="font-size: 18px;" >
-                   <strong> {{eventoN}}</strong>
-                    <div class="pt-4">
-                        <button class="action_button rounded">Ver</button>
-                    </div>
-               </h6>
-               
-           </div>
-           <div *ngIf="nombresEventos?.length==0" class="border eventoFondo" >
-            <h6 class="p-4" style="font-size: 20px;" >
-                <strong> No tienes Tickets para ningún evento</strong>
-                
-           </h6>
+            
+            
+            
         </div>
-        </div>
-
-        <div class="col-4 ">
-            <div class="tituloLocalidad border rounded" ><h3>Localidades Del Evento Seleccionado</h3></div>
-            <div *ngFor="let localidad of localidades"  class="border eventoFondo" >
-              
-
-                <h6 class="pt-4 pl-4 pr-4" style="font-size: 20px;" >
-                    <strong> {{localidad.nombre}}</strong>
-                    <div class="pt-4">
-                        <button (click)=" cargarBoletas(localidad.nombre)" class="action_button rounded">Ver</button>
-                    </div>
-               </h6>
-            </div>
-      
-
-            <div *ngIf="localidades.length==0" class="border eventoFondo" >
-                <h6 class="p-4" style="font-size: 20px;" >
-                    <strong> Selecciona Un Evento</strong>
-                    
-               </h6>
-            </div>
-        </div>
-
-        <div class="col-4 ">
-            <div class="tituloLocalidad border rounded" ><h3>Mis Boletas En Esta Localidad</h3></div>
-          
-
-            <div *ngFor= "let boleta of boletas" class="border eventoFondo" >
-              
-
-                <h6 class="pt-4 pl-4 pr-4"  >
-                    <strong> <strong>Boleta numero:</strong> {{boleta?.id}}........ <strong>Precio: </strong>{{boleta?.precio|currency:'COP'}}</strong>
-    
-               </h6>
-            </div>
-         
-            <div *ngIf="localidades.length==0" class="border eventoFondo" >
-                <h6 class="p-4" style="font-size: 20px;" >
-                    <strong> Selecciona Un Evento</strong>
-                    
-               </h6>
-            </div>
-            <div *ngIf="localidades.length!=0 && !nombreLocalidad" class="border eventoFondo" >
-                <h6 class="p-4" style="font-size: 20px;" >
-                    <strong> Selecciona Una Localidad </strong>
-                    
-               </h6>
-            </div>
-
-            <div *ngIf="boletas?.length==0 && nombresEventos?.length>0 && localidades.length!=0 && nombreLocalidad" class="border eventoFondo" >
-                <h6 class="p-4" style="font-size: 20px;" >
-                    <strong>No tienes Tickets en esta localidad</strong>   
-               </h6>
-            </div>
-        </div>
+        
+            
     </div>
 </section>
+
 
 

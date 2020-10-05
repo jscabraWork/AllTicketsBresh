@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {Md5} from 'ts-md5/dist/md5'
 import { Etapa } from '../etapa.model';
+import { IVA } from 'src/app/app.constants';
 
 
 @Component({
@@ -22,6 +23,7 @@ import { Etapa } from '../etapa.model';
 })
 export class PagoPayUComponent implements OnInit {
 miId;
+IVA
 valorTotal:number=0
 usuarioA:string
 usuarioEntidad: Cliente
@@ -42,7 +44,7 @@ localidadesBoletas:Localidad[]=[];
   constructor(private route: ActivatedRoute, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
-
+    this.IVA = IVA
     this.merchantId=703263  // 508029
     this.accountId=706326 //  512321
     this.ApiKey="tyrs5RFaKLs72kHWaZW3WB91B0"// 4Vj8eK4rloUd272L48hsrarnUA
@@ -208,7 +210,7 @@ localidadesBoletas:Localidad[]=[];
     if(this.localidadesCompradas.length<6 && !this.usuarioBoolean)
     {
       this.localidadesCompradas.push(localidad);
-      this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.servicio + localidad.servicio*0.19;
+      this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.servicio + localidad.servicio*IVA;
 
    }
   
@@ -238,10 +240,9 @@ localidadesBoletas:Localidad[]=[];
           boleta= response
           if(boleta!=null){ 
             this.boletas.push(boleta)
-            this.referenceCode = this.referenceCode +boleta.localidadNombre+":"+boleta.id+"/";
-            this.valorTotal=this.valorTotal+ localidad.precio  +localidad.servicio +localidad.servicio*0.19
-            var md5 = new Md5()
-            this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
+           
+            this.valorTotal=this.valorTotal+ localidad.precio  +localidad.servicio +localidad.servicio*IVA
+            
 
         }
 
