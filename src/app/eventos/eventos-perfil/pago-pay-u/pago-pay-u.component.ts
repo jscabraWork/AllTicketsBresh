@@ -37,6 +37,7 @@ referenceCode:string="TICKET: "
 signature:string
 ApiKey:string
 valorLocalidadAgregada:number =0
+contadorBoletas =0
 etapa:Etapa
 boletaBoolean:boolean=false
 localidadesPalcos:Localidad[]=[]
@@ -104,7 +105,13 @@ localidadesBoletas:Localidad[]=[];
           
           this.dataServicio.getCliente(this.usuarioA).subscribe(response => {this.usuarioEntidad=response
             this.usuarioBoolean=false;
-            
+            var j =0;
+            while(j < this.usuarioEntidad.boletas.length){
+              if(this.usuarioEntidad.boletas[j].nombreEvento== this.evento.nombre){
+                this.contadorBoletas = this.contadorBoletas+1;
+              }
+             j= j+1; 
+            }  
           })
 
         }
@@ -230,7 +237,7 @@ localidadesBoletas:Localidad[]=[];
 
 
   var boleta:Boleta;
-  if(this.localidadesCompradas.length + this.boletas.length<7 && !this.usuarioBoolean)
+  if(this.localidadesCompradas.length + this.boletas.length + this.contadorBoletas<7 && !this.usuarioBoolean)
     {
 
       for(var i =0; i < this.localidadesCompradas.length; i=i+1){
@@ -241,7 +248,7 @@ localidadesBoletas:Localidad[]=[];
           if(boleta!=null){ 
             this.boletas.push(boleta)
            
-        console.log(boleta)    
+        
         this.referenceCode = this.referenceCode +boleta.localidadNombre+":"+boleta.id+"/";
       
         
@@ -263,7 +270,7 @@ localidadesBoletas:Localidad[]=[];
       this.localidadesCompradas =[];
       this.valorLocalidadAgregada =0;
   }
-  else if(this.localidadesCompradas.length + this.boletas.length>6){
+  else if(this.localidadesCompradas.length + this.boletas.length +this.contadorBoletas>=6){
     alert("Solo puedes comprar 6 boletas máximo por Evento")
   }
   

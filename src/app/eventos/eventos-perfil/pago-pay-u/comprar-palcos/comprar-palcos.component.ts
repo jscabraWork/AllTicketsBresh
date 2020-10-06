@@ -38,7 +38,7 @@ export class ComprarPalcosComponent implements OnInit {
   etapa:Etapa
   boletaBoolean:boolean=false
   localidadesPalcos:Localidad[]=[]
-
+  contadorPalcos=0
   palco:Palco
   localidad:Localidad
   valorBoletas=0
@@ -113,6 +113,15 @@ export class ComprarPalcosComponent implements OnInit {
               
               this.dataServicio.getCliente(this.usuarioA).subscribe(response => {this.usuarioEntidad=response
                 this.usuarioBoolean=false;
+                var j =0;
+                
+                while( j < this.usuarioEntidad.palcos.length){
+                  if(this.usuarioEntidad.palcos[j].nombreEvento == this.evento.nombre){
+                  this.contadorPalcos = this.contadorPalcos+1;
+                  
+                }
+                j= j+1
+                }
                 
               })
     
@@ -130,6 +139,7 @@ export class ComprarPalcosComponent implements OnInit {
               
               i=i+1;
             }
+
           
           
           })
@@ -154,6 +164,9 @@ export class ComprarPalcosComponent implements OnInit {
 
   agregarAlCarrito(){
 
+    if(this.contadorPalcos <2){
+  if(this.palco.nombre != this.localidad.nombre){
+    this.referenceCode ="PALCO: "
     if(this.localidad==null){
       alert("Agregar un Palco para continuar")
     }
@@ -167,11 +180,19 @@ export class ComprarPalcosComponent implements OnInit {
 
 
           this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
-      
+          this.localidad= null;
+          this.valorLocalidadAgregada =0;
+          this.valorBoletas = 0;
       })
     }
-
-
+  }    
+  else{
+    alert("Ya tienes este Palco agregado")
+  }
+}
+else{
+  alert("Solo puedes comprar 2 Palcos máximo por Evento")
+}
 }
 
 manejar(response){
