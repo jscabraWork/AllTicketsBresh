@@ -38,9 +38,12 @@ export class UsuarioPerfilComponent implements OnInit {
 
   saveUsuario(){
     console.log(this.usuario)
-    this.dataServicio.updateCliente(this.usuario.numeroDocumento,this.usuario).subscribe(data=>{console.log(data)  })
+    this.dataServicio.updateCliente(this.usuario.numeroDocumento,this.usuario).subscribe(data=>{console.log(data) 
+      alert('Cambiaste exitosamente tus datos '+ this.usuario.usuario)
+    },
+    error=>alert(error.error.message))
    
-    alert('Cambiaste exitosamente tus datos '+ this.usuario.usuario)
+    
 
   }
 

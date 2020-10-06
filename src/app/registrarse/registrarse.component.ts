@@ -34,7 +34,11 @@ export class RegistrarseComponent implements OnInit {
   saveUsuario(){
     
     this.service.createCliente(this.usuario).subscribe(data=>{console.log(data),alert("Se ha creado exitosamente el usuario "+this.usuario.usuario),  this.router.navigate(['login'])},
-    error=>{alert("se ha producido un error")})
+    error=>{alert(error.error.message);
+      console.log(error)
+      }
+    
+    )
    
     
 

@@ -175,7 +175,7 @@ localidadesBoletas:Localidad[]=[];
         this.referenceCode = this.referenceCode +lista[0].localidadNombre+":"+lista[0].id+"/";
       
         this.servicioBoletas.reservarBoletaIndividual(this.evento.id, localidad.id, lista[0]).subscribe(data=>  {data;
-          this.valorTotal=this.valorTotal+ localidad.precio  + localidad.servicio
+          this.valorTotal=this.valorTotal+ localidad.precio  + localidad.servicio + localidad.servicio*IVA
           var md5 = new Md5()
 
 
@@ -241,10 +241,18 @@ localidadesBoletas:Localidad[]=[];
           if(boleta!=null){ 
             this.boletas.push(boleta)
            
-            this.valorTotal=this.valorTotal+ localidad.precio  +localidad.servicio +localidad.servicio*IVA
-            
+        console.log(boleta)    
+        this.referenceCode = this.referenceCode +boleta.localidadNombre+":"+boleta.id+"/";
+      
+        
+          this.valorTotal=this.valorTotal+ localidad.precio  +localidad.servicio +localidad.servicio*IVA  
+          var md5 = new Md5()
 
-        }
+
+          this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
+            
+        
+      }
 
           else {
             alert("No quedan boletas en esta localidad, prueba más tarde")
