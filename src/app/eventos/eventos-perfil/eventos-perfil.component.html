@@ -114,19 +114,19 @@
 			
 			
 	<h1><strong>Ubicaciones y Precios</strong></h1> 
-		
+	<h1 style="font-size: 25px;"><strong>{{etapa?.nombre}}</strong></h1>
 		
 		
 	
 	
 </div>
 <section>
-	<div class="mt-3 container " *ngIf="etapa.id!=null">
+	<div class="mt-3 container " *ngIf="etapa.id!=null && localidadesBoletas.length>0">
 
 		<div class="row">
 			<div style="text-align: center;" class="col-12  rounded  ">
 				<h1 style="font-size: 35px;">
-					<strong>{{etapa?.nombre}}</strong>
+					<strong>Tickets</strong>
 				</h1>
 				<hr class="aaaa">
 			</div>
@@ -222,7 +222,7 @@
 	
 </section>
 
-<section class="container" *ngIf="etapa.id!=null">
+<section class="container" *ngIf="etapa.id!=null && localidadesBoletas.length>0">
 	<div class="row">
 		<div class="col-12  mt-5" style="text-align: center;">
 			<button class="action_button rounded mt-5 shadow " routerLink="pago">Comprar Tickets</button>
@@ -230,5 +230,11 @@
 	</div>
 </section>
 
-
+<section class="container" *ngIf="etapa.id!=null && localidadesBoletas.length==0 && localidadesPalcos.length>0">
+	<div class="row">
+		<div class="col-12  mt-5" style="text-align: center;">
+			<button class="action_button rounded mt-5 shadow " routerLink="pago/palcos">Comprar Tickets</button>
+		</div>
+	</div>
+</section>
 

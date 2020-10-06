@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 import { updateFor } from 'typescript';
 import { Etapa } from '../../etapa.model';
 import { IVA } from 'src/app/app.constants';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-comprar-palcos',
@@ -158,7 +159,15 @@ export class ComprarPalcosComponent implements OnInit {
     }
     else{
       this.palcoServicio.reservarPalco(this.localidad.id).subscribe(response=>{ this.palco =response;
-      this.valorTotal = this.palco.precio +this.palco.servicio+this.palco.servicio*IVA;
+        this.referenceCode = this.referenceCode +this.palco.nombre+":"+this.palco.id+"/";
+      
+        
+          this.valorTotal=this.palco.precio  +this.palco.servicio +this.palco.servicio*IVA  
+          var md5 = new Md5()
+
+
+          this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
+      
       })
     }
 
