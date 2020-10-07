@@ -15,6 +15,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { RegalarBoletaComponent } from './eventos-perfil/pago-pay-u/regalar-boleta/regalar-boleta.component';
 import { ComprarPalcosComponent } from './eventos-perfil/pago-pay-u/comprar-palcos/comprar-palcos.component';
+import { VacaComponent } from './eventos-perfil/pago-pay-u/comprar-palcos/vaca/vaca.component';
 
 
 
@@ -40,8 +41,8 @@ const routes: Routes=[
           component: PagoPayUComponent
         },
         {
-          path:'evento/:id/pago/palcos',
-          component: ComprarPalcosComponent
+          path:'evento/:id/pago/palcos/vaca',
+          component: VacaComponent
         },
         {
           path:'evento/:id/pago/regalar',
@@ -55,7 +56,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent,HoraPipe ],
+    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent,HoraPipe, VacaComponent ],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

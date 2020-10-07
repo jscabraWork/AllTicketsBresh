@@ -8,7 +8,7 @@
       <div class="col-12 col-xl-9 pl-5 pr-5" *ngIf="!evento?.mapa">
         <div class="row border rounded shadow" style="background-color: white;">
           <h4 class="p-3"><strong>Selección de Palcos</strong></h4>
-          <p class="pl-3 pr-3 pb-4">Por favor, indica el palco que deseas añadir a tu pedido. El numero de Palcos por compra se limita a 1, para reservar el palco es necesario el 10% de este y cuentas con un plazo de 24 horas para pagar el 50% y 72 horas para pagar el 100%.</p>
+          <p class="pl-3 pr-3 pb-4">Por favor, indica el palco que deseas añadir a tu pedido. El numero de Palcos por compra se limita a 1 y puedes comprar máximo 2 por cada evento, para reservar el palco es necesario el 10% de este y cuentas con un plazo de 24 horas para pagar el 50% y 72 horas para pagar el 100%.</p>
         
           <div class="col-12">
             <table class="table mt-2 tabla border shadow-xs p-3" style="text-align: center;" >
@@ -42,6 +42,7 @@
            <div>
              <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
              <h5 ><strong>Entradas: </strong>  {{valorBoletas}} </h5>
+             <button class="action_button float-left  mr-1 mt-5 mb-3 p-3" style="font-size: 12px;" routerLink="palcos/vaca">Hacer Vaca</button>
            </div>
             <button style="font-size: 12px;" class="action_button float-right mr-1 mt-2 mb-3 p-3" (click) ="agregarAlCarrito()" > Agregar al carrito</button>
           </div>

@@ -73,7 +73,7 @@
   <div class="col-12 col-xl-9 pl-5 pr-5" *ngIf="!evento?.mapa">
     <div class="row border rounded shadow" style="background-color: white;">
       <h4 class="p-3"><strong>Selección de Tickets por cada Localidad</strong></h4>
-      <p class="pl-3 pr-3 pb-4">Por favor, indica el número de Tickets que deseas añadir a tu pedido. El numero de Tickets se limita a 6 por cada persona en cada evento.</p>
+      <p class="pl-3 pr-3 pb-4">Por favor, indica el número de Tickets que deseas añadir a tu pedido. El numero de Tickets se limita a 6 para cada persona en cada evento.</p>
     
       <div class="col-12">
         <table class="table mt-2 tabla border shadow-xs p-3" style="text-align: center;" >
@@ -114,6 +114,14 @@
     </div>
   </div>
 
+
+
+
+  <div class="col-12 col-xl-9 pl-5 pr-5" *ngIf="evento?.mapa=='mapa1'">
+    <div class="row border rounded shadow" style="background-color: white;">
+      <h1>MAPA 1</h1>
+    </div>
+  </div>
 
   
 
@@ -193,4 +201,4 @@
 	<h1 style="font-size: 25px;"><strong>{{etapa?.nombre}}</strong></h1>
 
 </div>
-<app-comprar-palcos *ngIf="!evento?.mapa"></app-comprar-palcos>
+<app-comprar-palcos *ngIf="!evento?.mapa && localidadesPalcos.length>0"></app-comprar-palcos>
