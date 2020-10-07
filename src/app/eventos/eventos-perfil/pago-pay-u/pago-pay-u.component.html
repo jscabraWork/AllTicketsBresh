@@ -107,8 +107,9 @@
        <div>
          <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
          <h5><strong>Entradas: </strong> {{localidadesCompradas.length}}</h5>
+         <button class="action_button float-left  mr-1 mt-5 mb-3 p-3" style="font-size: 12px;" routerLink="regalar">Regala un Ticket</button>
        </div>
-        <button style="font-size: 12px;" class="action_button float-right mr-1 mt-2 mb-3 p-3" (click) ="reservarBoletasLocalidad()"> Agregar al carrito</button>
+        <button style="font-size: 12px;" class="action_button float-right mr-1 mt-5 mb-3 p-3" (click) ="reservarBoletasLocalidad()"> Agregar al carrito</button>
       </div>
     </div>
   </div>
@@ -165,9 +166,7 @@
          
           </div>
 
-          <div class="col-12" style="margin-top: 40%;">
-          <button class="action_button float-right  mr-1 mt-2 mb-3 p-3" style="font-size: 16px;" routerLink="regalar">Regala un Ticket</button>
-        </div>
+     
       </div>
   </div>
   </div>
@@ -188,61 +187,10 @@
 
 
 
-<section *ngIf="!evento?.mapa">
-	<div class="mt-5  container ">
-		<div class="row">
-			
-			<div style="text-align: center;" class="col-12  rounded  "><h1><strong> Palcos</strong></h1> <hr class="aaaa"> </div>
-			
-		</div>
-	</div>
+<div id="prueba9" class="mt-5"*ngIf="!evento?.mapa">
 
-</section>
-
-
-
-<section class="container-fluid rounded mt-3  ">
-	<div class="row">
-<div class="col-12 mt-3 ubicaciones" >
-
+	<h1><strong>Palcos</strong></h1> 
+	<h1 style="font-size: 25px;"><strong>{{etapa?.nombre}}</strong></h1>
 
 </div>
-
-<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad "  *ngFor ="let localidad of localidadesPalcos" style="text-align: center;">
-	
-	<div class="localidades border rounded" >
-		<div class="pt-2 ">
-			<h5><strong>Aforo</strong></h5>
-			
-			<p class="precioLocalidades"> <strong> {{ darCantidadDePalcos(localidad)}}</strong></p>
-		</div>
-		<hr>
-
-		<div class="pt-2 ">
-			<h5><strong>Personas Por Palco</strong></h5>
-			
-			<p class="precioLocalidades"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
-		</div>
-		<hr>
-		<div class="p-3 ">
-			
-			<h5><strong>Precio + Servicio</strong></h5>
-			<p class="precioLocalidades"> <strong> {{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio|currency:'COP'}} </strong>+ <strong>{{localidad.servicio*IVA |currency:'COP'}}</strong></p>
-		</div>
-		<div class="tituloLocalidad">
-			<h3><strong> {{localidad.nombre}} </strong></h3>
-		</div>
-	</div>	
-</div>
-
-<div class="col-12  mt-5" style="text-align: center;">
-	<a class="action_button rounded mt-5 shadow  mr-1 mt-2 mb-3 p-3 " style="font-size:16px;" routerLink="palcos">Comprar Palco</a>
-
-</div>
-
-
-
-</div>
-
-	
-</section>
+<app-comprar-palcos *ngIf="!evento?.mapa"></app-comprar-palcos>
