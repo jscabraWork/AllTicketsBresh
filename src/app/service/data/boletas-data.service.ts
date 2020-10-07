@@ -3,6 +3,8 @@ import { Evento } from './../../eventos/evento.model';
 import { HttpClient } from '@angular/common/http';
 import { API_URL } from './../../app.constants';
 import { Injectable } from '@angular/core';
+import { Cliente } from 'src/app/usuario/cliente.model';
+import { Asistente } from 'src/app/administradores/admin-perfil/admin-eventos/admin-lector/asistente.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,16 @@ export class BoletasDataService {
   url=`${API_URL}/eventos/`
   constructor(private http:HttpClient) { }
 
+  getClienteDeUnaBoleta(pIdBoleta:number){
+    return this.http.get<Cliente>(`${API_URL}/boletas/cliente/${pIdBoleta}`);
+  }
+  
+  getAsistenteDeUnaBoleta(pIdBoleta:number){
+    return this.http.get<Asistente>(`${API_URL}/boletas/asistente/${pIdBoleta}`);
+  }
+  getBoletaPorId(pId:number){
+    return this.http.get<Boleta>(`${API_URL}/boletas/${pId}`);
+  }
 
   getAllBoletasLocalidad(pEvento:string, pLocalidad:number){
     return this.http.get(this.url+`${pEvento}/localidades/${pLocalidad}/boletas`);

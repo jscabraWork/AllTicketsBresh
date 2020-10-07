@@ -19,6 +19,11 @@ export class UsuariosDataService {
     return this.http.get<Cliente>(this.url+'/usuario/'+usuario);
   }
 
+  getClientePorId(pId:number){
+    return this.http.get<Cliente>(this.url+'/'+pId);
+  }
+
+  
   createCliente(usuario){
     return this.http.post(`${API_URL}/clientes`,usuario);
   }

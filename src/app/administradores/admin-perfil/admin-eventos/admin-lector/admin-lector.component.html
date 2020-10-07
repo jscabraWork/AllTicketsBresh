@@ -1,0 +1,101 @@
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1>Boletas Evento {{evento.nombre}}</h1>
+        </div>
+        <div class="col-12">
+            <h2>Busqueda por boleta</h2>
+            <fieldset class="form-group">
+                <label for="servicio">Boleta Id</label>
+                <input type="number" class= "form-control"name ="servicio" required="required"  [(ngModel)]="idBoleta">
+            </fieldset>
+            <button class="btn btn-success" (click)= "traerBoleta()">Buscar</button>
+           
+          <h3>{{boleta.nombreEvento}}</h3>
+            <p><strong>Numero Boleta</strong> {{boleta.id}}</p>
+            <p><strong>Boleta Utilizada: </strong> {{boleta.utilizada}}</p>
+            <p><strong>Cliente Numero Identificacion </strong>{{cliente.numeroDocumento}} <strong>Tipo Documento: </strong> {{cliente.tipoDocumento}} <strong>Nombre: </strong> {{cliente.nombre}}</p>
+            <p><strong>Asistente Numero Identificacion </strong>{{asistente.numeroDocumento}} </p>
+            <button class="btn btn-success">Marcar boleta como utilizada</button>
+        </div>
+        <hr>
+
+        <div class="col-12 mt-5">
+            <h2>Busqueda por Palco</h2>
+            <fieldset class="form-group">
+                <label for="servicio">Palco Id</label>
+                <input type="number" class= "form-control"name ="servicio" required="required"  [(ngModel)]="idPalco">
+            </fieldset>
+            <button class="btn btn-success" (click)= "traerPalco()">Buscar</button>
+           
+          <h3>{{palco.nombreEvento}}</h3>
+          <p><strong>Numero Palco: </strong> {{palco.id}}</p>
+          <p><strong>Nombre de la localidad del palco</strong>  {{palco.nombre}}</p>
+          <p><strong>Cantidad de personas por palco: </strong> {{palco.personasMaximas}}</p>
+          <p><strong>Personas adentro: </strong> {{palco.personasAdentro}}</p>
+          <p><strong>Dinero Pagado: </strong>{{palco.precioParcialPagado|currency:'COP'}}</p>
+          <p><strong>Precio que debe estar completo: </strong>{{palco.precio + palco.servicio+ palco.servicio*IVA|currency:'COP'}}</p>
+          
+          <h3><strong>Clientes:</strong></h3>
+            <div *ngFor="let clienteA of listaClientes"> 
+                <p><strong>Cliente Numero Identificacion </strong>{{clienteA.numeroDocumento}} <strong>Tipo Documento: </strong> {{clienteA.tipoDocumento}} <strong>Nombre: </strong> {{clienteA.nombre}}</p>
+            </div>
+            
+          <button class="btn btn-success">Ingresar Personas</button>
+        </div>
+        <hr>
+
+
+
+
+
+
+        <div class="col-12 mt-5">
+            <h2>Busqueda por cliente</h2>
+            <fieldset class="form-group">
+                <label for="servicio">Numero Documento Cliente</label>
+                <input type="number" class= "form-control"name ="servicio" required="required"  [(ngModel)]="idCliente">
+            </fieldset>
+            <button class="btn btn-success" (click)= "traerCliente()">Buscar</button>
+           <h2>Boletas del cliente Buscado</h2>
+            <div *ngFor="let boleta of boletasBuscadasPorDocumento">
+                <h3>{{boleta.nombreEvento}}</h3>
+                <p><strong>Numero Boleta</strong> {{boleta.id}}</p>
+                <p><strong>Boleta Utilizada: </strong> {{boleta.utilizada}}</p>
+                <p><strong>Cliente Numero Identificacion </strong>{{cliente.numeroDocumento}} <strong>Tipo Documento: </strong> {{cliente.tipoDocumento}} <strong>Nombre: </strong>{{cliente.nombre}}</p>
+                <button class="btn btn-success">Marcar boleta como utilizada</button>
+                <hr>
+            </div>
+          <hr>
+            <h2>Palcos del cliente buscado</h2>
+            <div *ngFor="let palco of palcosBuscadosPorDocumento">
+                <h3>{{palco.nombreEvento}}</h3>
+                <p><strong>Numero Palco: </strong> {{palco.id}}</p>
+                <p><strong>Nombre de la localidad del palco</strong>  {{palco.nombre}}</p>
+                <p><strong>Cantidad de personas por palco: </strong> {{palco.personasMaximas}}</p>
+                <p><strong>Personas adentro: </strong> {{palco.personasAdentro}}</p>
+                <p><strong>Dinero Pagado: </strong>{{palco.precioParcialPagado|currency:'COP'}}</p>
+                <p><strong>Precio que debe estar completo: </strong>{{palco.precio + palco.servicio+ palco.servicio*IVA|currency:'COP'}}</p>
+                <p><strong>Cliente Numero Identificacion </strong>{{cliente.numeroDocumento}} <strong>Tipo Documento: </strong> {{cliente.tipoDocumento}}</p>
+                <button class="btn btn-success">Ingresar Personas</button>
+                <hr>
+            </div>
+        </div>
+        <hr>
+        <div class="col-12 mt-5">
+            <h2>Busqueda por asistene</h2>
+            <fieldset class="form-group">
+                <label for="servicio">Numero Documento asistente</label>
+                <input type="number" class= "form-control"name ="servicio" required="required"  [(ngModel)]="idAsistente">
+            </fieldset>
+            <button class="btn btn-success" (click)= "traerBoleta()">Buscar</button>
+           
+          <h3>{{boleta.nombreEvento}}</h3>
+            <p><strong>Numero Boleta</strong> {{boleta.id}}</p>
+            <p><strong>Boleta Utilizada: </strong> {{boleta.utilizada}}</p>
+            <p><strong>Cliente Numero Identificacion </strong>{{cliente.numeroDocumento}} <strong>Tipo Documento: </strong> {{cliente.tipoDocumento}}</p>
+            <p><strong>Asistente Numero Identificacion </strong>{{asistente.numeroDocumento}} </p>
+            <button class="btn btn-success">Marcar boleta como utilizada</button>
+        </div>
+    </div>
+</section>

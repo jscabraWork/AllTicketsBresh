@@ -2,6 +2,7 @@ import { Palco } from './../../administradores/admin-perfil/admin-eventos/admin-
 import { API_URL } from './../../app.constants';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Cliente } from 'src/app/usuario/cliente.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,11 @@ export class PalcosDataService {
   }
   getAllPalcosVendidosDeUnaLocalidad(pIdLocalidad, pVendido){
     return this.http.get<Palco[]>(`${API_URL}/localidad/${pIdLocalidad}/palcos/vendido/${pVendido}}`)
+  }
+
+  getClientesDeUnPalco(pIdPalco)
+  {
+    return this.http.get<Cliente[]>(`${API_URL}/palcos/clientes/${pIdPalco}`)
   }
   agregarPalcosALocalidad(pIdLocalidad:number, palco:Palco, cantidad:number){
     return this.http.post(`${API_URL}/localidad/${pIdLocalidad}/palcos/${cantidad}`,palco)
