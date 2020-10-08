@@ -50,25 +50,22 @@
                 
                 <fieldset class="form-group">
                     <label for="id">Numero Documento</label>
-                    <input type="text" class= "form-control"name ="id" required="required"  [(ngModel)]="asistente.numeroDocumento">
+                    <input type="number" class= "form-control"name ="id" required="required"  [(ngModel)]="asistente.numeroDocumento">
                 </fieldset>    
             <fieldset class="form-group">
-                <label for="nombre">Nombre</label>
+                <label for="nombre">Nombre Completo</label>
                 <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="asistente.nombre">
             </fieldset>
         
             <fieldset class="form-group">
-                <label for="tipo">Tipo de Documento</label>
-                <select type="text" class= "form-control "name ="tipo" required="required"  [(ngModel)]="asistente.correo">
-                    <option value="Cedula">Cedula</option>
-                    <option value="TarjetaIdentidad">Tarjeta de Identidad</option>
-                    <option value="Pasaporte">Pasaporte</option>
-                </select>    
-            </fieldset>
+              <label for="nombre">Correo</label>
+              <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="asistente.correo">
+          </fieldset>
+      
         
             <fieldset class="form-group">
-                <label for="nombre">Usuario</label>
-                <input type="text" class= "form-control"name ="usuario" required="required"  [(ngModel)]="asistente.celular">
+                <label for="nombre">Celular</label>
+                <input type="number" class= "form-control"name ="usuario" required="required"  [(ngModel)]="asistente.celular">
             </fieldset>
 
             <button style="font-size: 12px;"  type="submit" class="action_button float-right mr-1 mt-5 mb-3 p-3" > Agregar al carrito</button>
