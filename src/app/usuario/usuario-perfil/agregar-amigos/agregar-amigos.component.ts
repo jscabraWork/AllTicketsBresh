@@ -1,3 +1,5 @@
+import { Md5 } from 'ts-md5/dist/md5';
+import { IVA } from './../../../app.constants';
 import { PalcosDataService } from 'src/app/service/data/palcos-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { HardcodedAutheticationService } from './../../../service/hardcoded-authetication.service';
@@ -20,10 +22,24 @@ export class AgregarAmigosComponent implements OnInit {
   clientes:Cliente[]=[]
   clienteAgregado:Cliente
   numeroDocumento
+  IVA
+  merchantId
+  accountId
+  ApiKey
+  referenceCode:string
+  porcentaje
+  url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
+  
+  signature
+  valorAPagar=0
   constructor(private route:ActivatedRoute, private autenticador: HardcodedAutheticationService, private dataServicio:UsuariosDataService, private palcoServicio: PalcosDataService) { }
 
   ngOnInit(): void {
 
+    this.IVA = IVA
+    this.merchantId=703263  // 508029
+    this.accountId=706326 //  512321
+    this.ApiKey="tyrs5RFaKLs72kHWaZW3WB91B0"// 4Vj8eK4rloUd272L48hsrarnUA
     this.clienteAgregado={
       boletas:[],
       celular:null,
@@ -68,14 +84,33 @@ export class AgregarAmigosComponent implements OnInit {
     this.route.paramMap.subscribe( params =>{
       this.idPalco =params.get('idPalco');
     this.dataServicio.getCliente(this.user).subscribe(response => {this.usuario=response;
-    this.palcoServicio.getPalco(0, this.idPalco).subscribe(response=>{ this.palco=response;
-    this.refrescar()
-    
-    })
+      this.refrescarPalco()
     })
   })
 
   }
+
+  refrescarPalco(){
+    this.palcoServicio.getPalco(0, this.idPalco).subscribe(response=>{ this.palco=response;
+      this.referenceCode="APORTE A PALCO: " +this.palco.id
+    this.refrescar()
+    
+    })
+  }
+  cambiarTotal(){
+
+    this.valorAPagar = (this.porcentaje/100)*(this.palco.precio+this.palco.servicio+this.palco.servicio*0.19);
+    if(this.valorAPagar +this.palco.precioParcialPagado <= (this.palco.precio + this.palco.servicio+ this.palco.servicio*0.19))
+    {
+    this.referenceCode= this.referenceCode+"/"+new Date()
+    var md5 = new Md5()
+    this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorAPagar+"~COP").end().toString();
+  }
+  else{
+    alert("Estas aportando más del valor total")
+  }
+   }
+  
   refrescar(){
     this.palcoServicio.getClientesDeUnPalco(this.idPalco).subscribe(response=> this.clientes=response)
   }
@@ -128,4 +163,26 @@ export class AgregarAmigosComponent implements OnInit {
     }
 }
 
+aportarVaca(){
+
+ 
+    if(this.valorAPagar!=0){
+      if(this.palco.precioParcialPagado+ this.valorAPagar <= (this.palco.precio+ this.palco.servicio +this.palco.servicio*0.19))
+      {
+        this.palcoServicio.aportaALaVaca(this.palco.id,this.valorAPagar).subscribe(response=> {response;
+          
+          
+        this.refrescarPalco()
+        
+        })
+      }
+      else{
+        alert("Estas aportando más del valor total")
+      }
+    }
+    else{
+        alert("Agrega un valor a aportar")
+      }
+    
+}
 }

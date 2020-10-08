@@ -46,6 +46,7 @@ export class ComprarPalcosComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service:EventoDataService, private palcoServicio:PalcosDataService,private etapaServicio:EtapasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
+    this.referenceCode= this.referenceCode 
     this.IVA =IVA
     this.merchantId=703263  // 508029
     this.accountId=706326 //  512321

@@ -42,7 +42,11 @@ export class PalcosDataService {
     return this.http.put(`${API_URL}/palcos/${idPalco}/comprar/${pIdCliente}/${valorPagado}`, null)
   }
 
+  aportaALaVaca(idPalco,valorPagado){
+    return this.http.put(`${API_URL}/palcos/${idPalco}/comprar/${valorPagado}`, null)
+  }
 
+  
   reservarPalco(idLocalidad){
     return this.http.put<Palco>(`${API_URL}/palcos/localidad/${idLocalidad}/reservar`,null)
   }

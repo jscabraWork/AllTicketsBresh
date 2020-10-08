@@ -13,6 +13,7 @@
                             <h5 class="pl-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
                             <h5 class="pl-4 "><strong>Palco No:</strong> {{palco.id}}</h5>
                             <h5 class="pl-4"><strong>Personas por palco:</strong> {{palco.personasMaximas}}</h5>
+                            <h5 class="pl-4"><strong>Personas que van a asistir:</strong> {{clientes.length}}</h5>
                             <h5 class="pl-4" ><strong>Precio: </strong>{{palco?.precio + palco?.servicio + palco?.servicio*0.19|currency:'COP'}}</h5>
                             <h5 class="pl-4 "><strong>Dinero recaudado: </strong> {{palco?.precioParcialPagado |currency:'COP'}}</h5>
                             <div class="progress ml-4 mt-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)">
@@ -31,6 +32,53 @@
 
                             <div class="mt-4 mb-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)" style="text-align: center;">
                                 <h6><strong>Palco Por Pagar</strong></h6>
+                                <h6><strong>Recuerda que cuentas con un plazo de 24 horas para pagar el 50% y 72 horas para pagar el 100%.</strong></h6>
+                            </div>
+                            <hr>
+                            <div style="text-align: center;" class="mb-4 " *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)">
+                            <h4 ><strong>Aportar a la vaca</strong></h4>
+                              <hr class="aaaa" >
+                             
+                            </div>
+                            <div class="ml-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)">
+                                <h5><strong>Selecciona el valor para aportar</strong></h5> 
+                                <select class="float-center ml-4 mb-4" (change)="cambiarTotal()" type="text" class= "form-control "name ="tipo" required="required" style="width: 100px;" [(ngModel)]="porcentaje">
+                                    <option value=""> </option>
+                                    <option value=10>10%</option>
+                                    <option value=20>20%</option>
+                                    <option value=30>30%</option>
+                                    <option value=40>40%</option>
+                                    <option value=50>50%</option>
+                                    <option value=60>60%</option>
+                                    <option value=70>70%</option>
+                                    <option value=80>80%</option>
+                                    <option value=90>90%</option>
+                                    <option value=100>100%</option>
+                                </select>
+                                <h5 class="mt-4"><strong>Dinero a Aportar: </strong>{{valorAPagar | currency:'COP'}} </h5>
+                            </div>
+                            <div style="text-align: center;" class="mt-4 mb-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)">
+                                
+                                <form ngNoForm method="post" [action]="url">
+                                    <input name="merchantId" type="hidden" value="{{merchantId}}">
+                                    <input name="accountId" type="hidden" value="{{accountId}}">
+                                    <input name="description" type="hidden" value="{{palco?.nombreEvento}}">
+                                    <input name="referenceCode" type="hidden" value="{{referenceCode}}">
+                                    <input name="amount" type="hidden" value="{{valorAPagar}}">
+                                    <input name="tax" type="hidden" value="0">
+                                    <input name="taxReturnBase" type="hidden" value="0">
+                                    <input name="currency" type="hidden" value="COP">
+                                    <input name="lng" type="hidden" value="es">
+                                    <input name="signature" type="hidden" value="{{signature}}">
+                                    <input name="test" type="hidden" value="0">
+                                    <input name="buyerEmail" type="hidden" value="{{usuario?.correo}}">
+                                    <input name="buyerFullName" type="hidden" value="{{usuario?.nombre}}">
+                                    <input name="responseUrl" type="hidden" value="http://www.test.com/response">
+                                    <input name="confirmationUrl" type="hidden" value="http://www.test.com/confirmation">
+                                    <input name="zipCode" type="hidden" value="12345">
+                                    <button name="Submit" class="action_button" type="submit" (click)="aportarVaca()"  value="Enviar" style="font-size:16px ;">Aportar a la vaca</button>
+                                  </form>
+
                             </div>
     
                         </div>

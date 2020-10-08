@@ -33,7 +33,7 @@ localidadesCompradas:Localidad[]=[]
 usuarioBoolean:boolean=true;
 merchantId:number
 accountId:number
-referenceCode:string="TICKET: "
+referenceCode:string="TICKET: /"
 signature:string
 ApiKey:string
 valorLocalidadAgregada:number =0
@@ -46,6 +46,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   constructor(private route: ActivatedRoute, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
+    this.referenceCode= this.referenceCode 
     this.IVA = IVA
     this.merchantId=703263  // 508029
     this.accountId=706326 //  512321
@@ -250,7 +251,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
             this.boletas.push(boleta)
            
         
-        this.referenceCode = this.referenceCode +boleta.localidadNombre+":"+boleta.id+"/";
+        this.referenceCode = this.referenceCode +boleta.localidadNombre+":"+boleta.id+"/" ;
       
         
           this.valorTotal=this.valorTotal+ localidad.precio  +localidad.servicio +localidad.servicio*IVA  
