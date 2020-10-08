@@ -28,7 +28,7 @@ import { ResumirPipe2 } from './pipes/resumir.pipe copy';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import localePy from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
-import { CalendarioDeEventosComponent } from './calendario-de-eventos/calendario-de-eventos.component';
+
 import { PerfilMinisterioComponent } from './perfil-ministerio/perfil-ministerio.component';
 import { PuntosFisicosComponent } from './puntos-fisicos/puntos-fisicos.component';
 import { PromotorPerfilComponent } from './promotor-perfil/promotor-perfil.component';
@@ -64,7 +64,7 @@ registerLocaleData(localePy, 'es');
      RegistrarseComponent,
      ResumirPipe,
      ResumirPipe2,
-     CalendarioDeEventosComponent,
+     
      PerfilMinisterioComponent,
      PromotorPerfilComponent,
      PreguntasFrecuentesComponent,

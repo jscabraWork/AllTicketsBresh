@@ -1,1 +1,156 @@
-<p>regalar-boleta works!</p>
+
+<section class="container-fluid mt-5" >
+    <div class="row " >
+  
+    <div class="col-12 col-xl-9 pl-5 pr-5" *ngIf="!evento?.mapa">
+      <div class="row border rounded shadow" style="background-color: white;">
+        
+      
+        <div class="col-12">
+            <h4 class="pt-3 pl-3 pr-3"><strong>Selección de Ticket</strong></h4>
+            <p class="pl-3 pr-3 pt-3">Por favor llena los datos de la persona que va a asistir al evento y selecciona el Ticket que vas a comprar</p>
+            <p class="pl-3 pr-3 pb-3"><strong>Recuerda que un asistente solo puede tener 1 boleta para cada evento</strong></p>
+          <table class="table mt-2 tabla border shadow-xs p-3" style="text-align: center;" >
+            <thead>
+                <tr >
+                    <th >Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Aforo</th>
+                    <th >Precio + Servicio +IVA</th>
+  
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr  *ngFor ="let localidad of localidadesBoletas" >
+                    <td><strong>{{localidad?.nombre }}</strong></td> 
+                    <td >
+     
+                     <button class=" rounded-circle" (click)= "reservarBoletasPorLocalidad(localidad)">+</button>
+                    </td>
+                    <td>{{numeroBoletasPorVenderYNoReservadas(localidad)}}</td>
+                    <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio| currency:'COP'}} </strong> + <strong>{{localidad.servicio*IVA|currency:'COP'}}</strong></td> 
+                    
+                  
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-12 mt-3 justify-content-end">
+            <div>
+              <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
+              <h5><strong>Entradas: </strong> {{boletaN}} </h5>
+            </div>
+             
+           </div>
+
+        <div class="col-12 mt-3">
+            <h4><strong>Datos del Asistente</strong></h4>
+        <form (ngSubmit)="!todoForm.invalid && reservarBoletasLocalidad()" #todoForm="ngForm">
+                
+                <fieldset class="form-group">
+                    <label for="id">Numero Documento</label>
+                    <input type="text" class= "form-control"name ="id" required="required"  [(ngModel)]="asistente.numeroDocumento">
+                </fieldset>    
+            <fieldset class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="asistente.nombre">
+            </fieldset>
+        
+            <fieldset class="form-group">
+                <label for="tipo">Tipo de Documento</label>
+                <select type="text" class= "form-control "name ="tipo" required="required"  [(ngModel)]="asistente.correo">
+                    <option value="Cedula">Cedula</option>
+                    <option value="TarjetaIdentidad">Tarjeta de Identidad</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                </select>    
+            </fieldset>
+        
+            <fieldset class="form-group">
+                <label for="nombre">Usuario</label>
+                <input type="text" class= "form-control"name ="usuario" required="required"  [(ngModel)]="asistente.celular">
+            </fieldset>
+
+            <button style="font-size: 12px;"  type="submit" class="action_button float-right mr-1 mt-5 mb-3 p-3" > Agregar al carrito</button>
+        </form>
+        </div>
+
+      </div>
+    </div>
+  
+  
+  
+  
+    <div class="col-12 col-xl-9 pl-5 pr-5" *ngIf="evento?.mapa=='mapa1'">
+      <div class="row border rounded shadow" style="background-color: white;">
+        <h1>MAPA 1</h1>
+      </div>
+    </div>
+  
+    
+  
+    <div class="col-12 col-xl-3 mt-5 mt-xl-0 rounded pl-4 pr-4" >
+        <div class="row ">
+            <div class="divisionLocalidad col-12 " >
+              <div class="tituloLocalidad shadow ">
+                <h3><strong> Carrito de compras </strong></h3>
+              </div>
+              <div class="border" >
+                <div  class="border fondoBlanco" *ngIf="boleta.id!=null">
+                
+                    <h6 class="pt-4 pl-4 pr-4"  >
+                    <h6><strong>Boleta: </strong>{{boleta.id}} <strong>Precio: </strong>{{boleta.precio + boleta.servicio + boleta.servicio*IVA|currency:'COP'}}</h6>
+                  </h6>
+                </div>
+                <div  class="border fondoBlanco"  *ngIf="boleta.id==null">
+                  <h6 class="pt-4 pl-4 pr-4"  >
+                    <strong> Agrega Tickets Al Carrito</strong>
+                  </h6>
+                </div>
+                <div class="fondoBlanco">
+                  <h6 class="p-4"  >
+                    <strong>Valor Total:</strong> {{valorTotal |currency:'COP'}}
+                  </h6>
+                </div>
+              </div>
+              <div class="p-4" >
+                  <form ngNoForm method="post" [action]="url">
+                    <input name="merchantId" type="hidden" value="{{merchantId}}">
+                    <input name="accountId" type="hidden" value="{{accountId}}">
+                    <input name="description" type="hidden" value="{{evento?.nombre}}">
+                    <input name="referenceCode" type="hidden" value="{{referenceCode}}">
+                    <input name="amount" type="hidden" value="{{valorTotal}}">
+                    <input name="tax" type="hidden" value="0">
+                    <input name="taxReturnBase" type="hidden" value="0">
+                    <input name="currency" type="hidden" value="COP">
+                    <input name="lng" type="hidden" value="es">
+                    <input name="signature" type="hidden" value="{{signature}}">
+                    <input name="test" type="hidden" value="0">
+                    <input name="buyerEmail" type="hidden" value="{{asistente?.correo}}">
+                    <input name="buyerFullName" type="hidden" value="{{asistente?.nombre}}">
+                    <input name="responseUrl" type="hidden" value="http://www.test.com/response">
+                    <input name="confirmationUrl" type="hidden" value="http://www.test.com/confirmation">
+                    <input name="zipCode" type="hidden" value="12345">
+                    <button name="Submit" class="action_button" type="submit" (click)="comprarBoletas()"  value="Enviar" style="font-size:16px ;">Pagar</button>
+                  </form>
+            
+              </div>
+           
+            </div>
+  
+       
+        </div>
+    </div>
+    </div>
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <br>
+    
+  </section>

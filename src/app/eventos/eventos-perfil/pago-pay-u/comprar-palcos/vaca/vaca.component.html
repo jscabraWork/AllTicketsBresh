@@ -1,1 +1,198 @@
-<p>vaca works!</p>
+ <!--BANNER-->
+ <section class="Banner"  content="width=device-width m-xs-5" >
+    <div class="row">
+      <div class="col-12">
+        <section id="banner" class="carousel slide"  data-ride="carousel">
+        <!--Indicadores-->
+          <ul class = "carousel-indicators" *ngFor= "let imagen of evento?.imagenes">
+            <li data-target="banner" data-slide-to="imagen" class="active"> </li>
+        
+          </ul>		
+          
+  
+  
+  
+            <!--Imagenes-->	
+        <div class="carousel-inner outerLink">
+  
+          <div class="carousel-item active h-25"  *ngIf="evento?.imagenes[0]" >
+            <img src="{{evento?.imagenes[0]}}" class="img-fluid align-items-center darkableImageBanner">
+            <div class="carousel-caption">
+              <h1><strong>Artistas: {{evento?.artistas}}</strong></h1>
+            </div>
+          </div>
+  
+          <div class="carousel-item"  *ngIf="evento?.imagenes[1]" >
+            <img src="{{evento?.imagenes[1]}}" class="img-fluid align-items-center darkableImageBanner">
+            <div class="carousel-caption">
+              <h1><strong>En {{evento?.lugar}}</strong></h1>
+            </div>
+          </div>
+  
+          <div class="carousel-item"  *ngIf="evento?.imagenes[2]">
+            <img src="{{evento?.imagenes[2]}}" class="img-fluid align-items-center darkableImageBanner">
+            <div class="carousel-caption">
+              <h1><strong>Empieza el día {{evento?.fecha}}</strong></h1>
+            </div>
+          </div>
+  
+  
+        </div>
+  
+  
+        <!--Controles-->	
+  
+          <a *ngIf="evento?.imagenes[1]" href="#banner" class="carousel-control-prev" data-slide= "prev"> <span class="carousel-control-prev-icon"></span></a>
+          <a  *ngIf="evento?.imagenes[1]" href="#banner" class="carousel-control-next" data-slide= "next"><span class="carousel-control-next-icon"></span></a>
+  
+  
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <div id="prueba">
+    <h1><strong>{{etapa?.nombre}} de Palcos</strong></h1>
+    <h1><strong> {{evento?.nombre}}</strong></h1> 
+    <h1 style="font-size: 25px;"><strong>Hola {{usuarioEntidad?.nombre}}</strong></h1>
+    <small class="float-right pt-4"><strong>Pulep:</strong> {{evento?.id}}</small>
+  </div>
+
+  <section class="container-fluid mt-5 ">
+      <div class="row  pr-5 pl-5 " >
+          <div class="col-12 fondoArriba border rounded" style=" text-align: center;">
+            <h1><strong>Instrucciones</strong></h1>
+           
+            <br>
+            
+          </div>
+          <div class="col-12 pt-4 pb-4 border rounded" style="background-color: white;">
+            <p class="parrafosInstrucciones"><strong>1.</strong> Selecciona el Palco que deseas comprar.</p>
+            <p class="parrafosInstrucciones"><strong>2.</strong> Reservalo minimo con el 10% del valor total.</p>
+            <p class="parrafosInstrucciones"><strong>3.</strong> Entra a tu perfil y busca el palco que reservaste.</p>
+            <p class="parrafosInstrucciones"><strong>4.</strong> Agrega todos los usuarios All Tickets que van a aportar a la vaca.</p>
+            <p class="parrafosInstrucciones"><strong>5.</strong> Listo, cada uno puede aportar desde su perfil.</p>
+            <div style="text-align: center;">
+                <h4><strong><ins>Recuerda que tienes un plazo de 24 horas para completar el 50% del pago y un plazo de 72 horas para completar el 100% del pago, en caso de no hacer no se podra hacer un reembolso completo</ins></strong></h4>
+            </div>
+          </div>
+   
+      </div>
+  </section>
+<section class="container-fluid mt-5" >
+    <div class="row " >
+    
+      <div class="col-12 col-xl-9 pl-5 pr-5" *ngIf="!evento?.mapa">
+        <div class="row border rounded shadow" style="background-color: white;">
+          <h4 class="p-3"><strong>Selección de Palcos</strong></h4>
+          <p class="pl-3 pr-3 pb-4">Por favor, indica el palco que deseas añadir a tu pedido. El numero de Palcos por compra se limita a 1 y puedes comprar máximo 2 por cada evento, para reservar el palco es necesario el 10% del precio completo y cuentas con un plazo de 24 horas para pagar el 50% y 72 horas para pagar el 100%.</p>
+        
+          <div class="col-12">
+            <table class="table mt-2 tabla border shadow-xs p-3" style="text-align: center;" >
+              <thead>
+                  <tr >
+                      <th >Nombre</th>
+                      <th>Agregar</th>
+                      <th>Aforo</th>
+                      <th >Precio + Servicio + IVA</th>
+    
+                      
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr  *ngFor ="let localidad of localidadesPalcos" >
+                      <td><strong>{{localidad?.nombre }}</strong></td> 
+                      <td >
+                       
+                       <button class="rounded-circle" (click)="agregarALaLista(localidad)">+</button>
+                       
+                      </td>
+                      <td>{{darCantidadDePalcos(localidad)}}</td>
+                      <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio| currency:'COP'}}</strong> + <strong>{{localidad.servicio*IVA|currency:'COP'}}</strong></td> 
+                      
+                    
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-12">
+            <fieldset class="form-group">
+                <label for="tipo"><strong>Selecciona el porcentaje con el que vas a reservar</strong></label>
+                <select (change)="cambiarTotal()" type="text" class= "form-control "name ="tipo" required="required" style="width: 100px;" [(ngModel)]="porcentaje">
+                    <option value=10>10%</option>
+                    <option value=20>20%</option>
+                    <option value=30>30%</option>
+                    <option value=40>40%</option>
+                    <option value=50>50%</option>
+                    <option value=60>60%</option>
+                    <option value=70>70%</option>
+                    <option value=80>80%</option>
+                    <option value=90>90%</option>
+                    <option value=100>100%</option>
+                </select>    
+            </fieldset>
+            
+          </div>
+          <div class="col-12 justify-content-end">
+           <div>
+             <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
+             <h5 ><strong>Entradas: </strong>  {{valorBoletas}} </h5>
+             
+           </div>
+            <button style="font-size: 12px;" class="action_button float-right mr-1 mt-2 mb-3 p-3" (click) ="agregarAlCarrito()" > Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+  
+    <div class="col-12 col-xl-3 mt-5 mt-xl-0 rounded pl-4 pr-4" >
+        <div class="row ">
+            <div class="divisionLocalidad col-12 " >
+              <div class="tituloLocalidad shadow ">
+                <h3><strong> Carrito de compras </strong></h3>
+              </div>
+              <div class="border" >
+                <div  class="border fondoBlanco" *ngIf="palco.id!=null ">
+                    <h6 class="pt-4 pl-4 pr-4"  >
+                    <h6><strong>Palco: </strong>{{palco.nombre}} <strong>Precio Total: </strong>COP{{palco.precio + palco.servicio + palco.servicio*IVA| number:'1.0-0'}}.00</h6>
+                  </h6>
+                </div>
+                <div  class="border fondoBlanco"   *ngIf="palco.id==null">
+                  <h6 class="pt-4 pl-4 pr-4" >
+                    <strong> Agrega Palcos Al Carrito</strong>
+                  </h6>
+                </div>
+                <div class="fondoBlanco" *ngIf="palco">
+                  <h6 class="p-4"  >
+                    <strong>Valor Total Para reservar:</strong> {{valorTotal |currency:'COP'}}
+                  </h6>
+                </div>
+              </div>
+              <div class="p-4" >
+                <form ngNoForm   method="post" [action]="url">
+                  <input name="merchantId" type="hidden" value="{{merchantId}}">
+                  <input name="accountId" type="hidden" value="{{accountId}}">
+                  <input name="description" type="hidden" value="{{evento?.nombre}}">
+                  <input name="referenceCode" type="hidden" value="{{referenceCode}}">
+                  <input name="amount" type="hidden" value="{{valorTotal}}">
+                  <input name="tax" type="hidden" value="0">
+                  <input name="taxReturnBase" type="hidden" value="0">
+                  <input name="currency" type="hidden" value="COP">
+                  <input name="lng" type="hidden" value="es">
+                  <input name="signature" type="hidden" value="{{signature}}">
+                  <input name="test" type="hidden" value="0">
+                  <input name="buyerEmail" type="hidden" value="{{usuarioEntidad?.correo}}">
+                  <input name="buyerFullName" type="hidden" value="{{usuarioEntidad?.nombre}}">
+                  <input name="responseUrl" type="hidden" value="http://www.test.com/response">
+                  <input name="confirmationUrl" type="hidden" value="http://www.test.com/confirmation">
+                  <input name="zipCode" type="hidden" value="12345">
+                  <button name="Submit" class="action_button" type="submit" (click) ="pagar()"  value="Enviar" style="font-size:16px ;">Pagar</button>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+  
+  
+    </div>
+
+  </section>

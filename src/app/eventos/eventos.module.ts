@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HoraPipe } from './../pipes/horas.pipe';
 import { RespuestaComponent } from './eventos-perfil/pago-pay-u/respuesta/respuesta.component';
 import { ConfirmacionComponent } from './eventos-perfil/pago-pay-u/confirmacion/confirmacion.component';
@@ -60,7 +61,9 @@ const routes: Routes=[
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 
-        HttpClientModule
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule 
       
         
         

@@ -107,7 +107,7 @@
        <div>
          <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
          <h5><strong>Entradas: </strong> {{localidadesCompradas.length}}</h5>
-         <button class="action_button float-left  mr-1 mt-5 mb-3 p-3" style="font-size: 12px;" routerLink="regalar">Regala un Ticket</button>
+         <button class="action_button float-left  mr-1 mt-5 mb-3 p-3" style="font-size: 12px;" routerLink="regalar">Comprar Un Ticket Sin usuario</button>
        </div>
         <button style="font-size: 12px;" class="action_button float-right mr-1 mt-5 mb-3 p-3" (click) ="reservarBoletasLocalidad()"> Agregar al carrito</button>
       </div>
@@ -150,7 +150,7 @@
               </div>
             </div>
             <div class="p-4" >
-                <form method="post" action="https://checkout.payulatam.com/ppp-web-gateway-payu/">
+                <form ngNoForm method="post" [action]="url">
                   <input name="merchantId" type="hidden" value="{{merchantId}}">
                   <input name="accountId" type="hidden" value="{{accountId}}">
                   <input name="description" type="hidden" value="{{evento?.nombre}}">
@@ -179,14 +179,6 @@
   </div>
   </div>
 
-
-
-
-
-
-
-
-  
   <br>
   
 </section>
@@ -198,7 +190,7 @@
 <div id="prueba9" class="mt-5"*ngIf="!evento?.mapa">
 
 	<h1><strong>Palcos</strong></h1> 
-	<h1 style="font-size: 25px;"><strong>{{etapa?.nombre}}</strong></h1>
-
+	
+ 
 </div>
 <app-comprar-palcos *ngIf="!evento?.mapa && localidadesPalcos.length>0"></app-comprar-palcos>

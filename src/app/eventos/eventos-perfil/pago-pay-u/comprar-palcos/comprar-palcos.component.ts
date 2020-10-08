@@ -42,6 +42,7 @@ export class ComprarPalcosComponent implements OnInit {
   palco:Palco
   localidad:Localidad
   valorBoletas=0
+  url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   constructor(private route: ActivatedRoute, private service:EventoDataService, private palcoServicio:PalcosDataService,private etapaServicio:EtapasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
