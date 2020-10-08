@@ -67,7 +67,7 @@
   </div>
 </section>
 
-<section class="container-fluid mt-5" >
+<section class="container-fluid mt-5" *ngIf="localidadesBoletas.length>0">
   <div class="row " >
 
   <div class="col-12 col-xl-9 pl-5 pr-5" *ngIf="!evento?.mapa">
@@ -183,11 +183,11 @@
   
 </section>
 
-<hr>
+<hr *ngIf="localidadesBoletas.length>0">
 
 
 
-<div id="prueba9" class="mt-5"*ngIf="!evento?.mapa">
+<div id="prueba9" class="mt-5"*ngIf="!evento?.mapa &&localidadesBoletas.length>0">
 
 	<h1><strong>Palcos</strong></h1> 
 	

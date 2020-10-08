@@ -222,7 +222,7 @@
 	
 </section>
 
-<section class="container" *ngIf="etapa.id!=null && localidadesBoletas.length>0">
+<section class="container" *ngIf="etapa.id!=null ">
 	<div class="row">
 		<div class="col-12  mt-5" style="text-align: center;">
 			<button class="action_button rounded mt-5 shadow " routerLink="pago">Comprar Tickets</button>
@@ -230,11 +230,5 @@
 	</div>
 </section>
 
-<section class="container" *ngIf="etapa.id!=null && localidadesBoletas.length==0 && localidadesPalcos.length>0">
-	<div class="row">
-		<div class="col-12  mt-5" style="text-align: center;">
-			<button class="action_button rounded mt-5 shadow " routerLink="pago/palcos">Comprar Tickets</button>
-		</div>
-	</div>
-</section>
+
 
