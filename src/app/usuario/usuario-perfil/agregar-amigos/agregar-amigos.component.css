@@ -1,0 +1,22 @@
+.centrar {
+    font-size: 25px;
+    color: white;
+    position: relative
+}
+
+.centrar2 {
+    font-size: 20px;
+    color: white;
+    position: relative
+}
+
+.arriba{
+    background: linear-gradient(#666, #333); 
+    text-align: center;
+}
+h3{
+    color: white;
+}
+.fondoBlancoCliente{
+    background-color: white;
+}

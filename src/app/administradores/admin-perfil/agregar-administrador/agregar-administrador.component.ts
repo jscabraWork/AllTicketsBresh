@@ -1,3 +1,4 @@
+import { Cliente } from './../../../usuario/cliente.model';
 import { AdministradoresWebDataService } from './../../../service/data/administradores-web-data.service';
 import { Admin } from './../../admin.model';
 import { Component, OnInit } from '@angular/core';
@@ -14,6 +15,7 @@ export class AgregarAdministradorComponent implements OnInit {
   constructor(private service: AdministradoresWebDataService, private router:Router) { }
 
   administrador:Admin;
+  clienteAgregado:Cliente
   ngOnInit(): void {
 
     this.administrador={

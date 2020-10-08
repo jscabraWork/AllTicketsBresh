@@ -1,0 +1,86 @@
+
+        <div id="prueba" style="text-align: center;">
+            <h1><strong>Agrega a todos tus amigos</strong></h1>    
+        </div>
+                
+                <section class="container  mt-5" >
+                    <div class="row  rounded" >
+                        <div class="col-12 arriba p-4 border rounded">
+                            <h3><strong>{{palco.nombre}}</strong></h3>
+                        </div>
+                        <div class="col-12 border fondoBlancoCliente" >
+                            <h5 class="pt-4 pl-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>
+                            <h5 class="pl-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
+                            <h5 class="pl-4 "><strong>Palco No:</strong> {{palco.id}}</h5>
+                            <h5 class="pl-4"><strong>Personas por palco:</strong> {{palco.personasMaximas}}</h5>
+                            <h5 class="pl-4" ><strong>Precio: </strong>{{palco?.precio + palco?.servicio + palco?.servicio*0.19|currency:'COP'}}</h5>
+                            <h5 class="pl-4 "><strong>Dinero recaudado: </strong> {{palco?.precioParcialPagado |currency:'COP'}}</h5>
+                            <div class="progress ml-4 mt-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)">
+                                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicio*0.19))*100}}%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                    {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicio*0.19))*100}}%
+                                </div>
+                              </div>
+
+                            <div style="text-align: center;" class="progress ml-4 mt-4" *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicio*0.19)">
+                              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicio*0.19))*100}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                
+                            </div>
+                            <div class="mt-4" *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicio*0.19)" style="text-align: center;">
+                                <h6><strong>Palco Pagado</strong></h6>
+                            </div>
+
+                            <div class="mt-4 mb-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)" style="text-align: center;">
+                                <h6><strong>Palco Por Pagar</strong></h6>
+                            </div>
+    
+                        </div>
+                            
+                    </div>
+                </section>
+
+                <section class="container mt-5">
+                    <div class="row">
+                        <div class="col-12 arriba p-4 border rounded">
+                            <h3><strong>Integrantes del palco</strong></h3>
+                        </div>
+                        <div class="col-12 fondoBlancoCliente border "  *ngFor="let cliente of clientes">
+                           
+                            <h5 class="pt-4 pl-4 pr-4"> <strong>Nombre: </strong>{{cliente.nombre}}</h5> 
+                           <h5 class="pl-4 pr-4 pt-2"> <strong>{{cliente.tipoDocumento}}: </strong>{{cliente.numeroDocumento}}</h5>
+                           <h5 class="pl-4 pr-4 pb-4 pt-2"> <strong>Correo: </strong>{{cliente.correo}}</h5> 
+                           
+                        </div>
+
+
+
+                        <div class="col-12 arriba p-4 border rounded mt-5">
+                            <h3><strong>Agrega a tu amigo</strong></h3>
+                        </div>
+
+                        <div class="col-12 fondoBlancoCliente border" >
+                           
+
+                            <form (ngSubmit)="!todoForm.invalid && buscarCliente()" class=" mt-3 pl-4 pb-4" #todoForm="ngForm">
+        
+                                <fieldset class="form-group  ">
+                                    <label for="id"> <h5> <strong> Numero Documento </strong> </h5></label>
+                                    <input type="number" class= "form-control"name ="id" required="required"  [(ngModel)]="numeroDocumento">
+                                </fieldset>    
+
+                        
+                            <button class="action_button" type="submit">Buscar</button>
+                        </form>                           
+                        </div>
+
+                        <div class="col-12 fondoBlancoCliente border"  >
+                            
+                            <h5 class="pt-4 pl-4 pr-4"> <strong>Nombre: </strong>{{clienteAgregado.nombre}}</h5> 
+                            <h5 class="pl-4 pr-4 pt-2">  <strong *ngIf="clienteAgregado.numeroDocumento==null">No Documento: </strong> <strong *ngIf="clienteAgregado.numeroDocumento!=null">{{clienteAgregado.tipoDocumento}}: </strong>{{clienteAgregado.numeroDocumento}}</h5>
+                            <h5 class="pl-4 pr-4 pb-4 pt-2"> <strong>Correo: </strong>{{clienteAgregado.correo}}</h5>
+                            <button class="action_button m-4"(click)="agregarCliente()" >Agregar Cliente</button>
+                        </div>
+
+
+                    </div>
+                    
+                </section>

@@ -50,4 +50,8 @@ export class PalcosDataService {
   modificarPalco(idPalco,pIdLocalidad, palco:Palco){
       return this.http.put(`${API_URL}/localidad/${pIdLocalidad}/palcos/${idPalco}`,palco)
   }
+
+  agregarClientesAlPalco(idPalco, pIdCliente){
+    return this.http.put(`${API_URL}/palcos/${idPalco}/agregarCliente/${pIdCliente}`,null)
+  }
 }
