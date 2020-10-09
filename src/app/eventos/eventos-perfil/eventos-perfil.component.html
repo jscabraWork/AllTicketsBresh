@@ -160,7 +160,7 @@
 			<h5><strong>Precio + Servicio +IVA</strong></h5>
 			<p class="precioLocalidades"> <strong> {{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio|currency:'COP'}} </strong>+ <strong>{{localidad.servicio*IVA |currency:'COP'}}</strong></p>
 		</div>
-		<div class="tituloLocalidad">
+		<div class="tituloLocalidad" routerLink="pago">
 			<h3><strong> {{localidad.nombre}} </strong></h3>
 		</div>
 	</div>	
@@ -211,7 +211,7 @@
 			<h5><strong>Precio + Servicio +IVA</strong></h5>
 			<p class="precioLocalidades"> <strong> {{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio|currency:'COP'}}  </strong>+<strong>{{localidad.servicio*IVA |currency:'COP'}}</strong> </p>
 		</div>
-		<div class="tituloLocalidad">
+		<div class="tituloLocalidad" routerLink="pago">
 			<h3><strong> {{localidad.nombre}} </strong></h3>
 		</div>
 	</div>	
