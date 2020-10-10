@@ -28,15 +28,24 @@ import { ResumirPipe2 } from './pipes/resumir.pipe copy';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import localePy from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
+
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 
 import { PerfilMinisterioComponent } from './perfil-ministerio/perfil-ministerio.component';
-import { PuntosFisicosComponent } from './puntos-fisicos/puntos-fisicos.component';
+
 import { PromotorPerfilComponent } from './promotor-perfil/promotor-perfil.component';
 import { PreguntasFrecuentesComponent } from './preguntas-frecuentes/preguntas-frecuentes.component';
 import { CalendarioComponent } from './calendario/calendario.component';
+
+
+
  
 registerLocaleData(localePy, 'es');
 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin
+]);
 
 @NgModule({
   declarations: [
@@ -84,7 +93,9 @@ registerLocaleData(localePy, 'es');
     AdminModule,
     OrganizadorModule,
     HttpClientModule,
-    PuntosFisicosModule
+    PuntosFisicosModule,
+    FullCalendarModule 
+
     
    
   ],
@@ -96,6 +107,7 @@ registerLocaleData(localePy, 'es');
   bootstrap: [AppComponent]
 })
 export class AppModule { 
+
  
   
 }

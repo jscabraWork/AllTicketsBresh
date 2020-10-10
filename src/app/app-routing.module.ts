@@ -1,3 +1,4 @@
+import { CalendarioComponent } from './calendario/calendario.component';
 import { RouteGuardPuntoFisicoService } from './service/route-guard-punto-fisico.service';
 import { PuntosFisicosComponent } from './puntos-fisicos/puntos-fisicos.component';
 import { RouteGuardMinisterioService } from './service/route-guard-ministerio.service';
@@ -115,7 +116,9 @@ const routes: Routes = [
     canActivate:[ RouteGuardPuntoFisicoService]
   },
 
-  
+  {
+    path:'calendario', component: CalendarioComponent
+  },
   
   {
     path:'', component: HomeComponent

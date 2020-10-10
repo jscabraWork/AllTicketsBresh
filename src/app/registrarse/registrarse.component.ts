@@ -52,4 +52,5 @@ export class RegistrarseComponent implements OnInit {
       this.usuario.publicidad=true
     }
   }
+  
 }
