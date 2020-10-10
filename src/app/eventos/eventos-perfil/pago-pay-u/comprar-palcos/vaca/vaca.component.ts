@@ -70,7 +70,8 @@ export class VacaComponent implements OnInit {
       precioParcialPagado:null,
       reservado:null,
       servicio:0,
-      vendido:null
+      vendido:null,
+      numeroDentroDeEvento:null
     }
 
     this.usuarioEntidad= {
@@ -228,7 +229,8 @@ export class VacaComponent implements OnInit {
           precioParcialPagado:null,
           reservado:null,
           servicio:0,
-          vendido:null
+          vendido:null,
+          numeroDentroDeEvento:null
         }
         this.valorTotal=0
 

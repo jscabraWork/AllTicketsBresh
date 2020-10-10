@@ -12,6 +12,7 @@ export interface Palco {
 	  personasAdentro: number,
 	  vendido:boolean,
 	  reservado:boolean,
-	  personasMaximas:number
+	  personasMaximas:number,
+	  numeroDentroDeEvento:string
 	  
 }

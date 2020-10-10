@@ -27,7 +27,7 @@ boleta:Boleta
 localidadCompradas:Localidad
 merchantId:number
 accountId:number
-referenceCode:string="TICKET REGALO: "
+referenceCode:string="TICKETREGALO: "
 signature:string
 ApiKey:string
 valorLocalidadAgregada:number =0
@@ -205,7 +205,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
             this.boleta = boleta
            
         
-        this.referenceCode = "TICKET REGALO: /"+this.asistente.correo+boleta.localidadNombre+":"+boleta.id+"/";
+        this.referenceCode = "TICKETREGALO: /"+this.asistente.correo+boleta.localidadNombre+":"+boleta.id+"/";
       
         
           this.valorTotal= this.boleta.precio  + this.boleta.servicio + this.boleta.servicio*IVA
@@ -230,14 +230,30 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   
 }
 
-quitaBoletaLocalidad(localidad:Localidad){
- 
-}
+    quitaBoletaLocalidad(localidad:Localidad){
+    
+    }
 
-comprarBoletas(){
+    comprarBoletas(){
+      this.servicioBoletas.comprarBoletaParaAsistente(this.evento.id, this.boleta.localidadIdNumero,this.boleta.id, this.asistente).subscribe(response=>{response
+        this.boleta={
+          id:null,
+          imagenQr:null,
+          localidadIdNumero:null,
+          localidadNombre:null,
+          nombreEvento:null,
+          precio:null,
+          reservado:null,
+          seccionSilla:null,
+          servicio:null,
+          utilizada:null,
+          vendida:null,
+        }
+      
+      })
 
 
 
-}
+    }
 
 }

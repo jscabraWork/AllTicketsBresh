@@ -81,12 +81,16 @@ export class LoginComponent implements OnInit {
        else{
       
         this.invalidLogin=true;
+        this.username="";
+        this.password="";
       }
       
       }
        else{
       
         this.invalidLogin=true;
+        this.username="";
+        this.password="";
       }
     },
     error=> (this.invalidLogin=true)

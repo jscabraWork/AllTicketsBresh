@@ -89,5 +89,16 @@ export class BoletasDataService {
   addMultiplesBoletasPatrocinio(pEvento,  pIdLocalidad:number,cantidad:number, correoPatrocinio:string, nombrePatrocinador:string){
     return this.http.post(this.url+`${pEvento}/localidades/${pIdLocalidad}/boletas/${cantidad}/patrocinio/${correoPatrocinio}/${nombrePatrocinador}`, null); 
   }
+
+  comprarBoletaParaAsistente(pEvento,pIdLocalidad,pIdBoleta, asistente){
+    return this.http.put(`${API_URL}/eventos/${pEvento}/boletas/${pIdLocalidad}/comprar/boleta/${pIdBoleta}/asistente`, asistente);
+  }
   
+  marcarComoUtiliza(pIdBoleta){
+    return this.http.put(`${API_URL}/boletas/marcar/${pIdBoleta}`,null)
+  }
+
+  reservarBoletaExacta(pEvento,pIdBoleta){
+    return this.http.put <Boleta>(this.url+ `${pEvento}/boletas/{pIdLocalidad}/reservar/${pIdBoleta}`,null);
+  }
 }

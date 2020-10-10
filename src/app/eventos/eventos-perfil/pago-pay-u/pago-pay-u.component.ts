@@ -330,6 +330,7 @@ comprarBoletas(){
 
    
   }
+  this.boletas=[]
   }
   else if(this.usuarioBoolean){
     

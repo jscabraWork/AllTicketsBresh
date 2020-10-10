@@ -58,4 +58,14 @@ export class PalcosDataService {
   agregarClientesAlPalco(idPalco, pIdCliente){
     return this.http.put(`${API_URL}/palcos/${idPalco}/agregarCliente/${pIdCliente}`,null)
   }
+
+
+aumentarPersonaPalco(idPalco){
+  return this.http.put(`${API_URL}/palcos/${idPalco}/personasMas`,null)
+}
+
+reservarPalcoExacto(idPalco){
+  return this.http.put<Palco>(`${API_URL}/palcos/palco/${idPalco}/reservar`,null)
+}
+  
 }

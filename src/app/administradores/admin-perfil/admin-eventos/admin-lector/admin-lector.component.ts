@@ -1,3 +1,5 @@
+import { API_URL } from './../../../../app.constants';
+import { AsistenteDataService } from './../../../../service/data/asistente-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IVA } from 'src/app/app.constants';
@@ -18,7 +20,7 @@ import { Asistente } from './asistente.model';
 })
 export class AdminLectorComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private service: BoletasDataService, private servicioEvento:EventoDataService, private clienteService:UsuariosDataService, private palcosServicio:PalcosDataService) { }
+  constructor(private route: ActivatedRoute, private service: BoletasDataService, private asistenteService:AsistenteDataService, private servicioEvento:EventoDataService, private clienteService:UsuariosDataService, private palcosServicio:PalcosDataService) { }
   listaClientes:Cliente[]=[]
   boleta:Boleta
   cliente: Cliente
@@ -66,7 +68,8 @@ export class AdminLectorComponent implements OnInit {
      precioParcialPagado:null,
      reservado:null,
      servicio:null,
-     vendido:null
+     vendido:null,
+     numeroDentroDeEvento:null
     }
     this.boleta={
       id:null,
@@ -128,7 +131,8 @@ export class AdminLectorComponent implements OnInit {
     precioParcialPagado:null,
     reservado:null,
     servicio:null,
-    vendido:null
+    vendido:null,
+    numeroDentroDeEvento:null
    }
     this.cliente={
       boletas:[],
@@ -153,15 +157,15 @@ export class AdminLectorComponent implements OnInit {
     }
     
     this.service.getBoletaPorId(this.idBoleta).subscribe(response=>{this.boleta=response;
-      this.service.getClienteDeUnaBoleta(this.idBoleta).subscribe(response => {this.cliente= response;
-      this.service.getAsistenteDeUnaBoleta(this.idBoleta).subscribe(response=> { this.asistente=response})
-      
-      }
-        
-        
-        )
+ 
     
     })
+
+    this.service.getClienteDeUnaBoleta(this.idBoleta).subscribe(response => {this.cliente= response;
+
+      }
+        )
+        this.service.getAsistenteDeUnaBoleta(this.idBoleta).subscribe(response=> { this.asistente=response})
   }
 
   traerCliente(){
@@ -175,7 +179,8 @@ export class AdminLectorComponent implements OnInit {
       precioParcialPagado:null,
       reservado:null,
       servicio:null,
-      vendido:null
+      vendido:null,
+      numeroDentroDeEvento:null
      }
       this.cliente={
         boletas:[],
@@ -197,6 +202,19 @@ export class AdminLectorComponent implements OnInit {
         correo:"",
         nombre:"",
         numeroDocumento:0,
+      }
+      this.boleta={
+        id:null,
+        imagenQr:null,
+        localidadIdNumero:null,
+        localidadNombre:null,
+        nombreEvento:null,
+        precio:null,
+        reservado:null,
+        seccionSilla:null,
+        servicio:null,
+        utilizada:null,
+        vendida:null,
       }
     this.boletasBuscadasPorDocumento=[]
     this.clienteService.getClientePorId(this.idCliente).subscribe(response=>
@@ -234,7 +252,8 @@ export class AdminLectorComponent implements OnInit {
       precioParcialPagado:null,
       reservado:null,
       servicio:null,
-      vendido:null
+      vendido:null,
+      numeroDentroDeEvento:null
      }
       this.cliente={
         boletas:[],
@@ -257,6 +276,19 @@ export class AdminLectorComponent implements OnInit {
         nombre:"",
         numeroDocumento:0,
       }
+      this.boleta={
+        id:null,
+        imagenQr:null,
+        localidadIdNumero:null,
+        localidadNombre:null,
+        nombreEvento:null,
+        precio:null,
+        reservado:null,
+        seccionSilla:null,
+        servicio:null,
+        utilizada:null,
+        vendida:null,
+      }
       this.palcosServicio.getPalco(0,this.idPalco).subscribe(response=> {this.palco= response;
       
       this.palcosServicio.getClientesDeUnPalco(this.palco.id).subscribe(data=>{this.listaClientes=data;
@@ -269,5 +301,80 @@ export class AdminLectorComponent implements OnInit {
 
   getClienteDeUnPalco (idPalco){
     
+  }
+
+  traerAsistente(){
+    this.palco={
+      id:null, 
+      nombre:null,
+      nombreEvento:null,
+      personasAdentro:null,
+      personasMaximas:null,
+      precio:null,
+      precioParcialPagado:null,
+      reservado:null,
+      servicio:null,
+      vendido:null,
+      numeroDentroDeEvento:null
+     }
+      this.cliente={
+        boletas:[],
+        celular:"",
+        contrasena:"",
+        correo:"",
+        direccion:"",
+        nombre:"",
+        numeroDocumento:0,
+        palcos:[],
+        publicidad:false,
+        tipoDocumento:"",
+        usuario:""
+      }
+      
+      this.asistente={
+        boletas:[],
+        celular:"",
+        correo:"",
+        nombre:"",
+        numeroDocumento:0,
+      }
+      this.boleta={
+        id:null,
+        imagenQr:null,
+        localidadIdNumero:null,
+        localidadNombre:null,
+        nombreEvento:null,
+        precio:null,
+        reservado:null,
+        seccionSilla:null,
+        servicio:null,
+        utilizada:null,
+        vendida:null,
+      }
+      this.boletasBuscadasPorDocumento=[]
+      this.asistenteService.getAsistente(this.idAsistente).subscribe(response=>{
+        this.asistente=response
+        var i =0
+        while(i < this.asistente.boletas.length){
+          if(this.asistente.boletas[i].nombreEvento == this.evento.nombre){
+            this.boletasBuscadasPorDocumento.push(this.asistente.boletas[i])
+          }
+  
+          i = i+1;
+  
+        }
+        
+      })
+
+  }
+
+
+  marcarBoletaComoUtilizada(pIdBoleta){
+    this.service.marcarComoUtiliza(pIdBoleta).subscribe(response=> response);
+
+  }
+
+  aumentarPersonaPalco(pIdPalco){
+    this.palcosServicio.aumentarPersonaPalco(pIdPalco).subscribe(response=>response)
   }
 }

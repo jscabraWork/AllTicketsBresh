@@ -62,7 +62,8 @@ export class ComprarPalcosComponent implements OnInit {
       precioParcialPagado:null,
       reservado:null,
       servicio:null,
-      vendido:null
+      vendido:null,
+      numeroDentroDeEvento:null
     }
 
     this.usuarioEntidad= {
@@ -204,7 +205,21 @@ manejar(response){
 pagar(){
   if(!this.usuarioBoolean){
     if(this.palco.id!=null){
-      this.palcoServicio.comprarPalco(this.palco.id,this.usuarioEntidad.numeroDocumento,this.valorTotal).subscribe(response=>response)
+      this.palcoServicio.comprarPalco(this.palco.id,this.usuarioEntidad.numeroDocumento,this.valorTotal).subscribe(response=>{response
+        this.palco={
+          id:null,
+          nombre:null,
+          nombreEvento:null,
+          personasAdentro:null,
+          personasMaximas:null,
+          precio:null,
+          precioParcialPagado:null,
+          reservado:null,
+          servicio:null,
+          vendido:null,
+          numeroDentroDeEvento:null
+        }
+      })
     }
     else{
       alert("Agrega algún Palco al Carrito")
