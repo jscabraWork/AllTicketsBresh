@@ -42,6 +42,7 @@ etapa:Etapa
 boletaBoolean:boolean=false
 localidadesPalcos:Localidad[]=[]
 localidadesBoletas:Localidad[]=[];
+cargando:boolean=false
 url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   constructor(private route: ActivatedRoute, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
@@ -71,7 +72,8 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       
       horaInicio:null,
       horaFin:null,
-      etapas:[]
+      etapas:[], 
+      mapaImagen:null
     }
 
     this.usuarioEntidad= {
@@ -216,7 +218,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 
     var lista:Boleta[]=[];
 
-    if(this.localidadesCompradas.length<6 && !this.usuarioBoolean)
+    if(this.localidadesCompradas.length<6 && !this.usuarioBoolean && !this.cargando)
     {
       this.localidadesCompradas.push(localidad);
       this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.servicio + localidad.servicio*IVA;
@@ -231,6 +233,9 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   else if(this.localidadesCompradas.length==6 ){
     alert("Solo puedes comprar 6 boletas máximo por Evento")
   }
+  else if(this.cargando){
+    alert("Estamos un poco atareados el día de hoy, estamos cargando");
+  }
   }
 
 
@@ -238,10 +243,11 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   reservarBoletasLocalidad(){
 
 
+    
   var boleta:Boleta;
   if(this.localidadesCompradas.length + this.boletas.length + this.contadorBoletas<7 && !this.usuarioBoolean)
     {
-
+      this.cargando=true
       for(var i =0; i < this.localidadesCompradas.length; i=i+1){
 
         var localidad = this.localidadesCompradas[i]
@@ -249,6 +255,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
           boleta= response
           if(boleta!=null){ 
             this.boletas.push(boleta)
+            this.cargando= false
            
         
         this.referenceCode = this.referenceCode +boleta.localidadNombre+":"+boleta.id+"/" ;

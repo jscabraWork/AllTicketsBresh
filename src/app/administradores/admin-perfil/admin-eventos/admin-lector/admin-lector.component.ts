@@ -104,7 +104,8 @@ export class AdminLectorComponent implements OnInit {
       
       horaInicio:null,
       horaFin:null,
-      etapas:[]
+      etapas:[],
+      mapaImagen:null
     }
 
     this.route.paramMap.subscribe( params =>{

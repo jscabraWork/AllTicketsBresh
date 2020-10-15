@@ -40,7 +40,8 @@ export class AdminEtapasComponent implements OnInit {
         
         horaInicio:null,
         horaFin:null,
-        etapas:[]
+        etapas:[],
+        mapaImagen:null
       }
     this.refrescar()
     })

@@ -43,6 +43,7 @@ export class VacaComponent implements OnInit {
   localidad:Localidad
   valorBoletas=0
   url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
+  cargando=false
   constructor(private route: ActivatedRoute, private service:EventoDataService, private palcoServicio:PalcosDataService,private etapaServicio:EtapasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
@@ -109,7 +110,8 @@ export class VacaComponent implements OnInit {
           
           horaInicio:null,
           horaFin:null,
-          etapas:[]
+          etapas:[],
+          mapaImagen:null
         }
 
         this.route.paramMap.subscribe( params =>{
@@ -180,7 +182,8 @@ export class VacaComponent implements OnInit {
  
    agregarAlCarrito(){
  
-     if(this.contadorPalcos <2){
+     if(this.contadorPalcos <2 && !this.cargando){
+       this.cargando=true
    if(this.palco.nombre != this.localidad.nombre){
      this.referenceCode ="PALCO: "
      if(this.localidad==null){
@@ -189,7 +192,7 @@ export class VacaComponent implements OnInit {
      else{
        this.palcoServicio.reservarPalco(this.localidad.id).subscribe(response=>{ this.palco =response;
          this.referenceCode = this.referenceCode +this.palco.nombre+":"+this.palco.id+"/";
-       
+          this.cargando =false
          
            this.valorTotal=this.valorLocalidadAgregada
            var md5 = new Md5()

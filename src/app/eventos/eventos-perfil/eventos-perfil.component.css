@@ -82,13 +82,7 @@
             }
 
 
-            .tituloLocalidad:hover{
-                background:linear-gradient(#ed701c, #F9B84f); 
-                color:#FFF;
-                padding: 3%;
-                width: 100%;
-                
-            }
+        
 
             .precioLocalidades{
                 font-size:22px;

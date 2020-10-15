@@ -104,6 +104,12 @@
                     <strong> Agrega Tickets Al Carrito</strong>
                   </h6>
                 </div>
+
+                <div  class="border fondoBlanco"  *ngIf="boleta.id==null && cargando">
+                  <h6 class="pt-4 pl-4 pr-4"  >
+                    <strong> Cargando...</strong>
+                  </h6>
+                </div>
                 <div class="fondoBlanco">
                   <h6 class="p-4"  >
                     <strong>Valor Total:</strong> {{valorTotal |currency:'COP'}}

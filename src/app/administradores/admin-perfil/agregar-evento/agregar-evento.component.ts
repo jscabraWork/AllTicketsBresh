@@ -37,7 +37,8 @@ export class AgregarEventoComponent implements OnInit {
       
       horaInicio:null,
       horaFin:null,
-      etapas:[]
+      etapas:[],
+      mapaImagen:null
     }
 
     
@@ -66,6 +67,13 @@ export class AgregarEventoComponent implements OnInit {
   }
 
 
+  onFileSelected2(event){
+    this.selectedFile = event.target.files[0];
+ 
+    this.evento.mapaImagen ="../../assets/images/img/" +event.target.files[0].name;
+    
+
+  }
 
 
   

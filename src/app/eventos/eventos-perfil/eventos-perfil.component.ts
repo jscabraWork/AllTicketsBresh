@@ -47,14 +47,15 @@ this.IVA = IVA
       localidades:[],
       horaInicio:"",
       horaFin:"",
-      etapas:[]
+      etapas:[],
+      mapaImagen:null
     }
     this.etapa={
       evento:null,
       id:null,
       localidades:[],
       nombre:"PRUEBA",
-      visible:null    
+      visible:false    
     }
     
     this.route.paramMap.subscribe( params =>{

@@ -22,6 +22,7 @@ export interface Evento {
     
     horaInicio:string,
     horaFin:string,
-    etapas:Etapa[]
+    etapas:Etapa[],
+    mapaImagen:string
 
 }

@@ -26,32 +26,17 @@
           <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body">
                 <app-tickets-usuario></app-tickets-usuario>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="card">
-            <div class="card-header arriba" id="headingOne">
-              
-                <button class="btn  rounded p-3" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                  <h3> 
-                    <strong> Mis Palcos</strong>
-                   </h3>
-                </button>
-                
-                
-              
-            </div>
-        
-            <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
-              <div class="card-body">
-                
                 <section class="container eventoFondo " >
                     <div class="row  rounded" >
-                        <div class="col-12 border " style="text-align: center;" *ngIf="usuario.palcos.length==0">
-                            <h4 class="p-5"> <strong> No tienes ningún Palco, compra uno y vive la experiencia All Tickets.</strong></h4>
-                        </div>
+
                         <div class="col-12 border " *ngFor="let palco of usuario.palcos" >
+                            <div style="text-align: center; " class="pt-3">
+                                <h3 style="color:#ed701c">
+                                    <strong>
+                                        Palco
+                                    </strong>
+                                </h3>
+                            </div>
                             <h5 class="pt-4 pl-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>
                             <h5 class="pl-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
                             <h5 class="pl-4 "><strong>Palco No:</strong> {{palco.id}}</h5>
@@ -85,9 +70,11 @@
                             
                     </div>
                 </section>
-              </div>
             </div>
           </div>
+        </div>
+        <hr>
+      
           <hr>
         <div class="card">
           <div class="card-header arriba" id="headingTwo">

@@ -38,6 +38,7 @@ localidadesBoletas:Localidad[]=[];
 asistente:Asistente
 boletaN:number=0
 url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
+cargando = false
   constructor(private route: ActivatedRoute, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router) { }
 
   ngOnInit(): void {
@@ -86,7 +87,8 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       
       horaInicio:null,
       horaFin:null,
-      etapas:[]
+      etapas:[],
+      mapaImagen:null
     }
 
         this.etapa={
@@ -196,13 +198,14 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
  
 
      
-
-      
+if(!this.cargando){
+      this.cargando=true
         this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadCompradas.id).subscribe(response=>{
           boleta= response
           console.log(boleta)
           if(boleta!=null){ 
             this.boleta = boleta
+            this.cargando = false;
            
         
         this.referenceCode = "TICKETREGALO: /"+this.asistente.correo+boleta.localidadNombre+":"+boleta.id+"/";
@@ -226,7 +229,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       
       this.localidadCompradas =null;
       this.valorLocalidadAgregada =0;
-  
+    }
   
 }
 

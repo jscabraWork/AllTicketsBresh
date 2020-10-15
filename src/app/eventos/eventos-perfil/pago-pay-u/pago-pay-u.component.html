@@ -139,8 +139,12 @@
                 </h6>
               </div>
               <div  class="border fondoBlanco"  >
-                <h6 class="pt-4 pl-4 pr-4" *ngIf="boletas.length==0" >
+                <h6 class="pt-4 pl-4 pr-4" *ngIf="boletas.length==0 && cargando==false" >
                   <strong> Agrega Tickets Al Carrito</strong>
+                </h6>
+
+                <h6 class="pt-4 pl-4 pr-4" *ngIf="boletas.length==0 && cargando==true" >
+                  <strong> Cargando ...</strong>
                 </h6>
               </div>
               <div class="fondoBlanco">
@@ -161,7 +165,7 @@
                   <input name="currency" type="hidden" value="COP">
                   <input name="lng" type="hidden" value="es">
                   <input name="signature" type="hidden" value="{{signature}}">
-                  <input name="test" type="hidden" value="0">
+                  <input name="test" type="hidden" value="1">
                   <input name="buyerEmail" type="hidden" value="{{usuarioEntidad?.correo}}">
                   <input name="buyerFullName" type="hidden" value="{{usuarioEntidad?.nombre}}">
                   <input name="responseUrl" type="hidden" value="http://www.test.com/response">

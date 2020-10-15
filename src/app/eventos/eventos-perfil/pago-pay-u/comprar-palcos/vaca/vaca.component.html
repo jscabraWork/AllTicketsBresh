@@ -161,6 +161,11 @@
                     <strong> Agrega Palcos Al Carrito</strong>
                   </h6>
                 </div>
+                <div  class="border fondoBlanco"   *ngIf="palco.id==null && cargando">
+                  <h6 class="pt-4 pl-4 pr-4" >
+                    <strong> Cargando...</strong>
+                  </h6>
+                </div>
                 <div class="fondoBlanco" *ngIf="palco">
                   <h6 class="p-4"  >
                     <strong>Valor Total Para reservar:</strong> {{valorTotal |currency:'COP'}}

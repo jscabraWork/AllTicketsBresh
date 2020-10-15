@@ -65,7 +65,8 @@ valorBoletas=0
       
       horaInicio:null,
       horaFin:null,
-      etapas:[]
+      etapas:[],
+      mapaImagen:null
     }
     this.palco={
       id:null,
