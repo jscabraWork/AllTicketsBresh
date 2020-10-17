@@ -21,6 +21,23 @@ p{
     font-size: 18px;
 }
 
+.colorLetras{
+    color:#ed701c;
+}
+.botonLogin{
+    background: linear-gradient(#F9B84A, #ed701c); 
+    width: 100%;
+    color:white;
+}
 
+.L75
+{
+    width: 75%;
+}
 
-
+.botonCrearCuenta{
+    background: white; 
+    width: 50%;
+    color: #ed701c;
+    border-color: #ed701c;
+}

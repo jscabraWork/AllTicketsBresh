@@ -61,7 +61,7 @@
 										<a  *ngIf="autenticacion.puntoFisicoLoggin()" routerLink='puntoFisico/{{usuario}}' class="nav-link " (click)="cargarPuntoFisico()" style="color:#ed701c;">Perfil</a>
 									</li>
 									<li routerLinkActive="active" class=" m-lg-3" *ngIf="!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin() && !autenticacion.puntoFisicoLoggin() && !autenticacion.ministerioLoggin()">
-										<a  routerLink='/registrarse' class="nav-link " style="color:#ed701c;">Registrate</a>
+										<a routerLink=''  (click)="openDialog()" class="nav-link " style="color:#ed701c; ">Registrate</a>
 										
 									</li>
 

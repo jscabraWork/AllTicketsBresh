@@ -37,8 +37,10 @@ import { PerfilMinisterioComponent } from './perfil-ministerio/perfil-ministerio
 import { PromotorPerfilComponent } from './promotor-perfil/promotor-perfil.component';
 import { PreguntasFrecuentesComponent } from './preguntas-frecuentes/preguntas-frecuentes.component';
 import { CalendarioComponent } from './calendario/calendario.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
-
+import {MatIconModule} from '@angular/material/icon'; 
 
 
  
@@ -95,8 +97,12 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     OrganizadorModule,
     HttpClientModule,
     PuntosFisicosModule,
-    FullCalendarModule 
-
+    FullCalendarModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatIconModule
+  
     
    
   ],

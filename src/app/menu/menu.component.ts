@@ -1,3 +1,5 @@
+import { RegistrarseComponent } from './../registrarse/registrarse.component';
+import { MatDialog } from '@angular/material/dialog';
 import { HardcodedAutheticationService } from './../service/hardcoded-authetication.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
 
   usuario:string;
-  constructor(private router: Router,public autenticacion: HardcodedAutheticationService) { }
+  constructor(private router: Router,public autenticacion: HardcodedAutheticationService, public dialog: MatDialog) { }
   
   ngOnInit(): void {
     
@@ -35,6 +37,20 @@ export class MenuComponent implements OnInit {
   cargarPuntoFisico(){
     this.usuario=this.autenticacion.getPuntoFisico();
     this.router.navigate(['puntoFisico',this.usuario]);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(RegistrarseComponent, {
+      width: '600px',
+      height:'700px',
+      
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
   }
 
 }

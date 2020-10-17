@@ -1,0 +1,26 @@
+.centrarTexto{
+    text-align: center;
+}
+.colorLetras{
+    color:#ed701c;
+}
+
+.botonLogin{
+    background: linear-gradient(#F9B84A, #ed701c); 
+    width: 100%;
+    color:white;
+}
+small{
+    color:gray;
+}
+
+.botonesCerrar{
+	background-color:white; 
+	color:#ed701c  ;
+	
+	
+}
+
+.colorGris{
+    color:gray;
+}

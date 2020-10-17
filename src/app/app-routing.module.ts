@@ -101,9 +101,6 @@ const routes: Routes = [
     path:'logoutM', component: LogoutComponent,
     canActivate:[ RouteGuardMinisterioService]
   },
-  {
-    path:'registrarse', component: RegistrarseComponent
-  },
 
   
   {

@@ -465,9 +465,6 @@
  
 }
 
-.ng-invalid:not(form){
-    border-left:5px solid red;
-}
 
 .ng-valid:not(form){
     border-left:5px solid green;
@@ -695,3 +692,5 @@
         position: relative
     }
    
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

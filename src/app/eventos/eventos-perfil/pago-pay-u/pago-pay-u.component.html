@@ -1,57 +1,5 @@
 
 
- <!--BANNER-->
- <section class="Banner"  content="width=device-width m-xs-5" >
-  <div class="row">
-    <div class="col-12">
-      <section id="banner" class="carousel slide"  data-ride="carousel">
-      <!--Indicadores-->
-        <ul class = "carousel-indicators" *ngFor= "let imagen of evento?.imagenes">
-          <li data-target="banner" data-slide-to="imagen" class="active"> </li>
-      
-        </ul>		
-        
-
-
-
-          <!--Imagenes-->	
-      <div class="carousel-inner outerLink">
-
-        <div class="carousel-item active h-25"  *ngIf="evento?.imagenes[0]" >
-          <img src="{{evento?.imagenes[0]}}" class="img-fluid align-items-center darkableImageBanner">
-          <div class="carousel-caption">
-            <h1><strong>Artistas: {{evento?.artistas}}</strong></h1>
-          </div>
-        </div>
-
-        <div class="carousel-item"  *ngIf="evento?.imagenes[1]" >
-          <img src="{{evento?.imagenes[1]}}" class="img-fluid align-items-center darkableImageBanner">
-          <div class="carousel-caption">
-            <h1><strong>En {{evento?.lugar}}</strong></h1>
-          </div>
-        </div>
-
-        <div class="carousel-item"  *ngIf="evento?.imagenes[2]">
-          <img src="{{evento?.imagenes[2]}}" class="img-fluid align-items-center darkableImageBanner">
-          <div class="carousel-caption">
-            <h1><strong>Empieza el día {{evento?.fecha}}</strong></h1>
-          </div>
-        </div>
-
-
-      </div>
-
-
-      <!--Controles-->	
-
-        <a *ngIf="evento?.imagenes[1]" href="#banner" class="carousel-control-prev" data-slide= "prev"> <span class="carousel-control-prev-icon"></span></a>
-        <a  *ngIf="evento?.imagenes[1]" href="#banner" class="carousel-control-next" data-slide= "next"><span class="carousel-control-next-icon"></span></a>
-
-
-      </section>
-    </div>
-  </div>
-</section>
 
 <div id="prueba">
   <h1><strong>{{etapa?.nombre}} de</strong></h1>

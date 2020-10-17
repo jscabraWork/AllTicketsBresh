@@ -1,3 +1,5 @@
+import { RegistrarseComponent } from './../registrarse/registrarse.component';
+import { MatDialog } from '@angular/material/dialog';
 import { HardcodedAutheticationService } from './../service/hardcoded-authetication.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,7 +17,8 @@ export class LoginComponent implements OnInit {
   errorMessage="Invalid credentials";
   invalidLogin =false;
   constructor( private router: Router,
-    public autenticacion: HardcodedAutheticationService) { 
+    public autenticacion: HardcodedAutheticationService,
+    public dialog: MatDialog) { 
 
   }
 
@@ -98,4 +101,18 @@ export class LoginComponent implements OnInit {
  
   }
 
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(RegistrarseComponent, {
+      width: '600px',
+      height:'750px'
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+  }
 }
