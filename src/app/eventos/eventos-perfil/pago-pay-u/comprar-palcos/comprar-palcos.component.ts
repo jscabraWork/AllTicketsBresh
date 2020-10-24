@@ -1,3 +1,6 @@
+import { CarritoDeComprasComponent } from './../carrito-de-compras/carrito-de-compras.component';
+import { LoginComponent } from './../../../../login/login.component';
+import { MatDialog } from '@angular/material/dialog';
 import { EtapasDataService } from './../../../../service/data/etapas-data.service';
 import { Localidad } from './../../../../administradores/admin-perfil/admin-eventos/admin-localidades/localidad.model';
 import { Evento } from './../../../evento.model';
@@ -44,7 +47,7 @@ export class ComprarPalcosComponent implements OnInit {
   valorBoletas=0
   url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   cargando=false
-  constructor(private route: ActivatedRoute, private service:EventoDataService, private palcoServicio:PalcosDataService,private etapaServicio:EtapasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
+  constructor(private route: ActivatedRoute, private dialog: MatDialog,private service:EventoDataService, private palcoServicio:PalcosDataService,private etapaServicio:EtapasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
     this.referenceCode= this.referenceCode 
@@ -64,7 +67,8 @@ export class ComprarPalcosComponent implements OnInit {
       reservado:null,
       servicio:null,
       vendido:null,
-      numeroDentroDeEvento:null
+      numeroDentroDeEvento:null,
+      fechaVendido : null
     }
 
     this.usuarioEntidad= {
@@ -153,7 +157,19 @@ export class ComprarPalcosComponent implements OnInit {
       
       
       
+    openDialog(): void {
+      const dialogRef = this.dialog.open(LoginComponent, {
+        width: '600px',
+        height:'600px',
+        
+        
+      });
   
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        
+      });
+    }
 
   handleGetSuccesfull(response){
     this.evento =response;
@@ -161,14 +177,19 @@ export class ComprarPalcosComponent implements OnInit {
 
   agregarALaLista(localidad:Localidad){
 
+    if(!this.usuarioBoolean){
    this.localidad =localidad;
    this.valorLocalidadAgregada = localidad.precio +localidad.servicio+ localidad.servicio*IVA;
-   this.valorBoletas = 1;
+   this.valorBoletas = 1;}
+   else{
+     this.openDialog()
+   }
   }
 
 
   agregarAlCarrito(){
 
+   if(!this.usuarioBoolean){ 
     if(this.contadorPalcos <2 && !this.cargando){
       this.cargando=true
   if(this.palco.nombre != this.localidad.nombre){
@@ -189,6 +210,9 @@ export class ComprarPalcosComponent implements OnInit {
           this.localidad= null;
           this.valorLocalidadAgregada =0;
           this.valorBoletas = 0;
+          this.AbrirCarrito()
+          this.palcoServicio.rechazarReservaPalco(this.palco.id).subscribe(response=>response)
+          
       })
     }
   }    
@@ -200,39 +224,72 @@ else{
   alert("Solo puedes comprar 2 Palcos máximo por Evento")
 }
 }
+else{
+  this.openDialog()
+}
+}
+
+
+
+AbrirCarrito(): void {
+  const dialogRef = this.dialog.open(CarritoDeComprasComponent, {
+    width: '100%',
+    height:'85%',
+    
+    data: { 
+      valorTotal: this.valorTotal,
+            palco: this.palco,
+            evento: this.evento,
+            usuarioEntidad: this.usuarioEntidad,
+            signature: this.signature,
+            referenceCode: this.referenceCode,
+           
+    }       
+    
+    
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+  
+    
+    this.dialog.closeAll();
+    this.palco={
+      id:null,
+      nombre:null,
+      nombreEvento:null,
+      personasAdentro:null,
+      personasMaximas:null,
+      precio:null,
+      precioParcialPagado:null,
+      reservado:null,
+      servicio:null,
+      vendido:null,
+      numeroDentroDeEvento:null,
+      fechaVendido:null
+    }
+    this.localidad={
+      boletas:[],
+      boletasPatrocinio:[],
+      id:null,
+      nombre:null,
+      nombreEtapa:null,
+      palcos:[],
+      precio:0,
+      servicio:0,
+      }
+    this.valorLocalidadAgregada =0
+    this.valorTotal=0
+    this.referenceCode="TICKET: /"
+    this.signature = null
+
+
+
+   
+  });
+}
 
 manejar(response){
   this.etapa =response;
-}
-
-pagar(){
-  if(!this.usuarioBoolean){
-    if(this.palco.id!=null){
-      this.palcoServicio.comprarPalco(this.palco.id,this.usuarioEntidad.numeroDocumento,this.valorTotal).subscribe(response=>{response
-        this.palco={
-          id:null,
-          nombre:null,
-          nombreEvento:null,
-          personasAdentro:null,
-          personasMaximas:null,
-          precio:null,
-          precioParcialPagado:null,
-          reservado:null,
-          servicio:null,
-          vendido:null,
-          numeroDentroDeEvento:null
-        }
-      })
-    }
-    else{
-      alert("Agrega algún Palco al Carrito")
-    }
-
-  }
-  else{
-    alert("Entra a tu cuenta AllTickets")
-    this.router.navigate(['/login'])
-  }
 }
 
 darCantidadDePalcos(localidad:Localidad){

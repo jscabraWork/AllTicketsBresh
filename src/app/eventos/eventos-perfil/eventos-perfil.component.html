@@ -134,8 +134,11 @@
 			<div style="text-align: center;" class="col-12  rounded  ">
 				<h1 style="font-size: 35px;">
 					<strong>Tickets</strong>
+					
 				</h1>
+				
 				<hr class="aaaa">
+				
 			</div>
 			
 			
@@ -188,7 +191,7 @@
 
 
 <div class="col-12 mt-5" style="text-align: center;">
-	<button *ngIf="etapa.id!=null " style="font-size: 15px;" class="action_button rounded shadow " routerLink="pago">Comprar Tickets</button>
+	<button *ngIf="evento.mapaImagen" class="action_button p-3" style="font-size: 15px;" (click)= "openDialog()">Mapa del evento</button>
 </div>
 </div>
 

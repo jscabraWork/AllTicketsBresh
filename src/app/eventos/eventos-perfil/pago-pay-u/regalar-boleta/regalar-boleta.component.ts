@@ -161,7 +161,7 @@ cargando = false
 
 
           this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
-        
+          this.servicioBoletas.rechazarReservaBoleta( lista[0].id).subscribe(response=>response);
       
       })}
       else {
@@ -217,8 +217,8 @@ if(!this.cargando){
             
 
           this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
+          this.servicioBoletas.rechazarReservaBoleta( boleta.id).subscribe(response=>response)   
             
-        
       }
 
           else {

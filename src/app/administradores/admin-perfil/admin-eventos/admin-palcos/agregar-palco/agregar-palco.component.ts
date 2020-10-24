@@ -39,7 +39,8 @@ this.palco={
     personasMaximas:null,
     reservado:null,
     vendido:null,
-    numeroDentroDeEvento:null
+    numeroDentroDeEvento:null,
+    fechaVendido : null
 
 }
   }

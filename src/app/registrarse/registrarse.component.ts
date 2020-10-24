@@ -13,7 +13,7 @@ export class RegistrarseComponent implements OnInit {
   usuario:Cliente;
   constructor(private service:UsuariosDataService, private router:Router, public dialog: MatDialog) { }
 
-  logrado= false
+
   ngOnInit(): void {
     this.usuario= {
       nombre: null,
@@ -34,9 +34,11 @@ export class RegistrarseComponent implements OnInit {
 
   saveUsuario(){
     
-    this.service.createCliente(this.usuario).subscribe(data=>{console.log(data),alert("Se ha creado exitosamente el usuario "+this.usuario.usuario),  this.router.navigate(['login']),
-    this.logrado =true
-  
+    this.service.createCliente(this.usuario).subscribe(response=>{console.log(response),
+      alert("Se ha creado exitosamente el usuario "+this.usuario.usuario + " Revisa tu correo, debio llegar un correo de confirmación") ,
+      this.dialog.closeAll(),
+      this.service.mandarCorreo(this.usuario).subscribe(response=>response)
+    
   },
     error=>{alert(error.error.message);
       console.log(error)

@@ -39,9 +39,10 @@ export class LoginComponent implements OnInit {
           if(response.tipo=='usuario'){
             sessionStorage.setItem('usuario',this.username);
             this.invalidLogin=false;
+            this.dialog.closeAll()
             this.router.navigate(['usuarios/usuario',this.username]);
             
-9 
+
           }
           
           else if(response.tipo=='admin' )
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
         
             this.router.navigate(['administradores/admin',this.username]);
             this.invalidLogin=false;
+            this.dialog.closeAll()
             sessionStorage.setItem('administrador',this.username);
             
             
@@ -59,6 +61,7 @@ export class LoginComponent implements OnInit {
           {
             sessionStorage.setItem('organizador',this.username);
             this.invalidLogin=false;
+            this.dialog.closeAll()
             this.router.navigate(['organizadores/organizador',this.username]);
             
             
@@ -67,6 +70,7 @@ export class LoginComponent implements OnInit {
           {
             sessionStorage.setItem('puntoF',this.username);
             this.invalidLogin=false;
+            this.dialog.closeAll()
             this.router.navigate(['puntoFisico',this.username]);
             
             
@@ -75,6 +79,7 @@ export class LoginComponent implements OnInit {
           {
             sessionStorage.setItem('ministerio',this.username);
             this.invalidLogin=false;
+            this.dialog.closeAll()
             this.router.navigate(['perfilMinisterio',this.username]);
             
             

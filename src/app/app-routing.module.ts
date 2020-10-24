@@ -78,9 +78,7 @@ const routes: Routes = [
   {
     path:'contactanos', component: ContactanosComponent
   },
-  {
-    path:'login', component: LoginComponent
-  },
+  
   {
     path:'logout', component: LogoutComponent,
     canActivate:[ RouteGuardUsuarioService]

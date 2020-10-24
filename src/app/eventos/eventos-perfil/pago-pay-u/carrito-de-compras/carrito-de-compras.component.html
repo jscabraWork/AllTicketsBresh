@@ -1,1 +1,100 @@
-<p>carrito-de-compras works!</p>
+<section class="container-fluid">
+    <div class="row">
+<div class="col-12 pl-4 pr-4" >
+      <div class="row ">
+          <div class="divisionLocalidad col-12 " >
+            <div class="tituloLocalidad shadow ">
+              <h3><strong> Carrito de compras </strong></h3>
+            </div>
+            <div class="" >
+        <div class="  eventoFondo   fondoBlanco border " *ngFor="let boleta of boletas">
+            <h5 class="pl-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
+            <h5 class="pl-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
+            
+            <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
+            <h5 class="pl-4 pb-4"><strong>Precio: </strong>{{boleta?.precio + boleta.servicio + boleta.servicio*0.19 | currency:'COP'}}</h5>
+        </div>
+
+
+
+   <div class="col-12 border " *ngIf="palco.id!=null" >
+      <h5 class="pt-4 pl-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>
+      <h5 class="pl-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
+      <h5 class="pl-4 "><strong>Palco No:</strong> {{palco.id}}</h5>
+      <h5 class="pl-4"><strong>Personas por palco:</strong> {{palco.personasMaximas}}</h5>
+      <h5 class="pl-4" ><strong>Precio: </strong>{{palco?.precio + palco?.servicio + palco?.servicio*0.19|currency:'COP'}}</h5>
+   </div>
+
+
+
+
+
+
+              <div  class=" border"  >
+             
+
+                <h6 class="pt-4 pl-4 pr-4" *ngIf="boletas?.length==0 && cargando==true" >
+                  <strong> Cargando ...</strong>
+                </h6>
+              </div>
+              <div class="fondoBlanco shadow">
+                <h5 class="p-5"  >
+                  <strong>Valor Total:</strong> {{valorTotal |currency:'COP'}}
+                  <br>
+                  <strong *ngIf="boletas?.length>0">Cantidad de Tickets:</strong> {{boletas?.length}}
+                  <strong  *ngIf="palco.id!=null" >Cantidad de Palcos: 1</strong> 
+                </h5>
+            
+              </div>
+            </div>
+            <div class="p-4" >
+                <form ngNoForm method="post" [action]="url" *ngIf="boletas?.length>0">
+                  <input name="merchantId" type="hidden" value="{{merchantId}}">
+                  <input name="accountId" type="hidden" value="{{accountId}}">
+                  <input name="description" type="hidden" value="{{evento?.nombre}}">
+                  <input name="referenceCode" type="hidden" value="{{referenceCode}}">
+                  <input name="amount" type="hidden" value="{{valorTotal}}">
+                  <input name="tax" type="hidden" value="0">
+                  <input name="taxReturnBase" type="hidden" value="0">
+                  <input name="currency" type="hidden" value="COP">
+                  <input name="lng" type="hidden" value="es">
+                  <input name="signature" type="hidden" value="{{signature}}">
+                  <input name="test" type="hidden" value="1">
+                  <input name="buyerEmail" type="hidden" value="{{usuarioEntidad?.correo}}">
+                  <input name="buyerFullName" type="hidden" value="{{usuarioEntidad?.nombre}}">
+                  <input name="responseUrl" type="hidden" value="http://www.test.com/response">
+                  <input name="confirmationUrl" type="hidden" value="http://www.test.com/confirmation">
+                  <input name="zipCode" type="hidden" value="12345">
+                  <button name="Submit" class="action_button" type="submit" (click)="comprarBoletas()"  value="Enviar" style="font-size:16px ;">Pagar</button>
+                </form>
+
+                <form ngNoForm method="post" [action]="url" *ngIf="palco.id!=null">
+                  <input name="merchantId" type="hidden" value="{{merchantId}}">
+                  <input name="accountId" type="hidden" value="{{accountId}}">
+                  <input name="description" type="hidden" value="{{evento?.nombre}}">
+                  <input name="referenceCode" type="hidden" value="{{referenceCode}}">
+                  <input name="amount" type="hidden" value="{{valorTotal}}">
+                  <input name="tax" type="hidden" value="0">
+                  <input name="taxReturnBase" type="hidden" value="0">
+                  <input name="currency" type="hidden" value="COP">
+                  <input name="lng" type="hidden" value="es">
+                  <input name="signature" type="hidden" value="{{signature}}">
+                  <input name="test" type="hidden" value="0">
+                  <input name="buyerEmail" type="hidden" value="{{usuarioEntidad?.correo}}">
+                  <input name="buyerFullName" type="hidden" value="{{usuarioEntidad?.nombre}}">
+                  <input name="responseUrl" type="hidden" value="http://www.test.com/response">
+                  <input name="confirmationUrl" type="hidden" value="http://www.test.com/confirmation">
+                  <input name="zipCode" type="hidden" value="12345">
+                  <button name="Submit" class="action_button" type="submit" (click) ="pagar()"  value="Enviar" style="font-size:16px ;">Pagar</button>
+                </form>
+            </div>
+            
+            
+         
+          </div>
+
+     
+      </div>
+  </div>
+</div>
+</section>

@@ -1,5 +1,5 @@
 <header class="barra">
-	<section class="fixed-top"   >
+	<section    >
 		<!-- Header desktop -->							
 					<!-- Menu -->
 			
@@ -53,7 +53,7 @@
 									</li>
 
 									<li routerLinkActive="active" class=" m-lg-3">
-										<a *ngIf="!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin() && !autenticacion.puntoFisicoLoggin() && !autenticacion.ministerioLoggin()" routerLink='/login' class="nav-link " style="color:#ed701c;">Iniciar Sesión</a>
+										<a *ngIf="!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin() && !autenticacion.puntoFisicoLoggin() && !autenticacion.ministerioLoggin()" (click)="openDialog2()" class="nav-link " style="color:#ed701c;cursor: pointer">Iniciar Sesión</a>
 										<a  *ngIf="autenticacion.usuarioLoggin()" routerLink='/usuarios/usuario/{{usuario}}' class="nav-link " (click)="cargarUsuario()" style="color:#ed701c;">Perfil</a>
 										<a  *ngIf="autenticacion.adminLoggin()" routerLink='/administradores/admin/{{usuario}}' class="nav-link " (click)="cargarAdmin()" style="color:#ed701c;">Perfil</a>
 										<a  *ngIf="autenticacion.organizadorLoggin()" routerLink='organizadores/organizador/{{usuario}}' class="nav-link " (click)="cargarOrganizador()" style="color:#ed701c;">Perfil</a>
@@ -61,9 +61,10 @@
 										<a  *ngIf="autenticacion.puntoFisicoLoggin()" routerLink='puntoFisico/{{usuario}}' class="nav-link " (click)="cargarPuntoFisico()" style="color:#ed701c;">Perfil</a>
 									</li>
 									<li routerLinkActive="active" class=" m-lg-3" *ngIf="!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin() && !autenticacion.puntoFisicoLoggin() && !autenticacion.ministerioLoggin()">
-										<a routerLink=''  (click)="openDialog()" class="nav-link " style="color:#ed701c; ">Registrate</a>
+										<a   (click)="openDialog()" class="nav-link " style="color:#ed701c;cursor: pointer">Registrate</a>
 										
 									</li>
+									
 
 								
 									<li routerLinkActive="active" class=" m-lg-3">

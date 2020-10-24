@@ -1,3 +1,5 @@
+import { CarritoDeComprasComponent } from './../../carrito-de-compras/carrito-de-compras.component';
+import { MatDialog } from '@angular/material/dialog';
 import { IVA } from './../../../../../app.constants';
 import { Md5 } from 'ts-md5/dist/md5';
 import { EventoDataService } from './../../../../../service/data/evento-data.service';
@@ -44,7 +46,7 @@ export class VacaComponent implements OnInit {
   valorBoletas=0
   url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   cargando=false
-  constructor(private route: ActivatedRoute, private service:EventoDataService, private palcoServicio:PalcosDataService,private etapaServicio:EtapasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
+  constructor(private route: ActivatedRoute, private service:EventoDataService, private dialog: MatDialog,private palcoServicio:PalcosDataService,private etapaServicio:EtapasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
     this.IVA =IVA
@@ -72,7 +74,8 @@ export class VacaComponent implements OnInit {
       reservado:null,
       servicio:0,
       vendido:null,
-      numeroDentroDeEvento:null
+      numeroDentroDeEvento:null,
+      fechaVendido : null
     }
 
     this.usuarioEntidad= {
@@ -202,6 +205,8 @@ export class VacaComponent implements OnInit {
            this.localidad= null;
            this.valorLocalidadAgregada =0;
            this.valorBoletas = 0;
+           this.AbrirCarrito();
+           this.palcoServicio.rechazarReservaPalco(this.palco.id).subscribe(response=>response)
        })
      }
    }    
@@ -218,37 +223,6 @@ export class VacaComponent implements OnInit {
  }
 
  
- pagar(){
-   if(!this.usuarioBoolean){
-     if(this.palco.id!=null){
-       this.palcoServicio.comprarPalco(this.palco.id,this.usuarioEntidad.numeroDocumento,this.valorTotal).subscribe(response=>{response
-        this.palco={
-          id:null,
-          nombre:null,
-          nombreEvento:null,
-          personasAdentro:null,
-          personasMaximas:null,
-          precio:0,
-          precioParcialPagado:null,
-          reservado:null,
-          servicio:0,
-          vendido:null,
-          numeroDentroDeEvento:null
-        }
-        this.valorTotal=0
-
-      })
-     }
-     else{
-       alert("Agrega algún Palco al Carrito")
-     }
- 
-   }
-   else{
-     alert("Entra a tu cuenta AllTickets")
-     this.router.navigate(['/login'])
-   }
- }
  
  darCantidadDePalcos(localidad:Localidad){
    var contador =0;
@@ -260,5 +234,65 @@ export class VacaComponent implements OnInit {
    }
    return contador;
  }
+
+
+ 
+
+AbrirCarrito(): void {
+  const dialogRef = this.dialog.open(CarritoDeComprasComponent, {
+    width: '100%',
+    height:'85%',
+    
+    data: { 
+      valorTotal: this.valorTotal,
+            palco: this.palco,
+            evento: this.evento,
+            usuarioEntidad: this.usuarioEntidad,
+            signature: this.signature,
+            referenceCode: this.referenceCode,
+           
+    }       
+    
+    
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+  
+    
+    this.dialog.closeAll();
+    this.palco={
+      id:null,
+      nombre:null,
+      nombreEvento:null,
+      personasAdentro:null,
+      personasMaximas:null,
+      precio:null,
+      precioParcialPagado:null,
+      reservado:null,
+      servicio:null,
+      vendido:null,
+      numeroDentroDeEvento:null,
+      fechaVendido:null
+    }
+    this.localidad={
+      boletas:[],
+      boletasPatrocinio:[],
+      id:null,
+      nombre:null,
+      nombreEtapa:null,
+      palcos:[],
+      precio:0,
+      servicio:0,
+      }
+    this.valorLocalidadAgregada =0
+    this.valorTotal=0
+    this.referenceCode="TICKET: /"
+    this.signature = null
+
+
+
+   
+  });
+}
 
 }

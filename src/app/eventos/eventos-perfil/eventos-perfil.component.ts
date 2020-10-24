@@ -1,3 +1,5 @@
+import { ImagenEventosComponent } from './imagen-eventos/imagen-eventos.component';
+import { MatDialog } from '@angular/material/dialog';
 import { EtapasDataService } from './../../service/data/etapas-data.service';
 
 import { Localidad } from './../../administradores/admin-perfil/admin-eventos/admin-localidades/localidad.model';
@@ -24,7 +26,7 @@ localidadesPalcos:Localidad[]=[];
 localidadesBoletas:Localidad[]=[];
   
 
-  constructor(private route: ActivatedRoute, private service:EventoDataService, private _sanitizer: DomSanitizer, private etapaServicio:EtapasDataService) { }
+  constructor(private route: ActivatedRoute, private dialog: MatDialog, private service:EventoDataService, private _sanitizer: DomSanitizer, private etapaServicio:EtapasDataService) { }
 
   ngOnInit(): void {
 this.IVA = IVA
@@ -87,6 +89,25 @@ this.IVA = IVA
       })
      
   })
+}
+
+
+
+openDialog(): void {
+  const dialogRef = this.dialog.open(ImagenEventosComponent, {
+    width: '600px',
+    height:'100%',
+    data: { mapaImagen: this.evento.mapaImagen }
+    
+    
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    
+  });
+
+  
 }
 
 handleGetSuccesfull(response){

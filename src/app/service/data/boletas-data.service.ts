@@ -67,15 +67,21 @@ export class BoletasDataService {
   }
 
 
-  rechazarReservaBoleta(pEvento:string, pIdLocalidad:number , pBoleta:Boleta){
+  rechazarReservaBoleta(  pIdBoleta ){
 
-    return this.http.put(this.url+ `${pEvento}/boletas/${pIdLocalidad}/reservar/rechazar`, pBoleta);
+    return this.http.put(`${API_URL}/reservar/rechazar/${pIdBoleta}`, null);
   }
 
-  
-  comprarBoleta(pEvento:string, pIdLocalidad:number , pBoleta:Boleta, pCliente){
 
-    return this.http.put(this.url+ `${pEvento}/boletas/${pIdLocalidad}/comprar/${pCliente}`, pBoleta);
+  rechazarReservaBoletaInstantaneamente(  pIdBoleta ){
+
+    return this.http.put(`${API_URL}/reservar/rechazarI/${pIdBoleta}`, null);
+  }
+
+
+  comprarBoleta(pEvento:string, pBoleta:Boleta[], pCliente){
+
+    return this.http.put(this.url+ `${pEvento}/boletas/comprar/${pCliente}`, pBoleta);
   }
 
 

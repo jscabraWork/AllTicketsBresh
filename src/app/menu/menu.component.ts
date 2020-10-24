@@ -1,3 +1,4 @@
+import { LoginComponent } from './../login/login.component';
 import { RegistrarseComponent } from './../registrarse/registrarse.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HardcodedAutheticationService } from './../service/hardcoded-authetication.service';
@@ -43,6 +44,22 @@ export class MenuComponent implements OnInit {
     const dialogRef = this.dialog.open(RegistrarseComponent, {
       width: '600px',
       height:'700px',
+      
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+  }
+
+
+
+  openDialog2(): void {
+    const dialogRef = this.dialog.open(LoginComponent, {
+      width: '600px',
+      height:'600px',
       
       
     });

@@ -79,7 +79,8 @@ valorBoletas=0
       reservado:null,
       servicio:null,
       vendido:null,
-      numeroDentroDeEvento:null
+      numeroDentroDeEvento:null,
+      fechaVendido : null
     }
     this.user=this.autenticador.getPuntoFisico();
     this.servicio.getPuntoPorUsuario(this.user).subscribe(response=>{this.puntoFisico=response;

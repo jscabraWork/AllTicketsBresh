@@ -38,8 +38,8 @@ export class PalcosDataService {
   }
 
 
-  comprarPalco(idPalco,pIdCliente,valorPagado){
-    return this.http.put(`${API_URL}/palcos/${idPalco}/comprar/${pIdCliente}/${valorPagado}`, null)
+  comprarPalco(idPalco,pIdCliente,valorPagado,  palco){
+    return this.http.put(`${API_URL}/palcos/${idPalco}/comprar/${pIdCliente}/${valorPagado}`, palco)
   }
 
   aportaALaVaca(idPalco,valorPagado){
@@ -67,5 +67,15 @@ aumentarPersonaPalco(idPalco){
 reservarPalcoExacto(idPalco){
   return this.http.put<Palco>(`${API_URL}/palcos/palco/${idPalco}/reservar`,null)
 }
+
+rechazarReservaPalco(idPalco){
+  return this.http.put(`${API_URL}/palcos/${idPalco}/rechazar`,null)
+}
+
+pasoMuchoTiempoPaca(idPalco){
+  return this.http.put(`${API_URL}/palcos/${idPalco}/vaca/rechazar`,null)
+}
   
+  
+
 }
