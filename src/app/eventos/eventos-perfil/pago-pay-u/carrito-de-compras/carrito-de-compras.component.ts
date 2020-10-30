@@ -7,6 +7,7 @@ import { Cliente } from './../../../../usuario/cliente.model';
 import { IVA } from './../../../../app.constants';
 import { Component, Inject, OnInit } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Asistente } from 'src/app/administradores/admin-perfil/admin-eventos/admin-lector/asistente.model';
 
 @Component({
   selector: 'app-carrito-de-compras',
@@ -26,6 +27,8 @@ export class CarritoDeComprasComponent implements OnInit {
   boletas:Boleta[]=[]
   valorTotal:number=0
   palco:Palco
+  boleta:Boleta
+  asistente: Asistente
   url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   cargando= true
   constructor( @Inject(MAT_DIALOG_DATA) public data: any,
@@ -99,13 +102,44 @@ export class CarritoDeComprasComponent implements OnInit {
         this.signature = this.data.signature
         this.referenceCode = this.data.referenceCode,
         this.valorTotal = this.data.valorTotal
+        if(this.data.palco){
         this.palco= this.data.palco
+        }
+        if(this.data.asistente){
+          this.asistente = this.data.asistente
+        }
+        if(this.data.boleta){
+          this.boleta = this.data.boleta
+        }
+  }
+
+  comprarBoletasAsistente(){
+    alert("A continuación entraras a Pay U para realizar tu pago")
+    this.servicioBoletas.comprarBoletaParaAsistente(this.evento.id, this.boleta.localidadIdNumero,this.boleta.id, this.asistente).subscribe(response=>{response
+      this.boleta={
+        id:null,
+        imagenQr:null,
+        localidadIdNumero:null,
+        localidadNombre:null,
+        nombreEvento:null,
+        precio:null,
+        reservado:null,
+        seccionSilla:null,
+        servicio:null,
+        utilizada:null,
+        vendida:null,
+      }
+    
+    })
+
+
+
   }
 
 
   comprarBoletas(){
 
-
+    alert("A continuación entraras a Pay U para realizar tu pago")
     if(  this.boletas.length>0){
      
 
@@ -119,7 +153,8 @@ export class CarritoDeComprasComponent implements OnInit {
 
 
     pagar(){
-      
+
+      alert("A continuación entraras a Pay U para realizar tu pago")
         if(this.palco.id!=null){
           var date= new Date()
           this.palco.fechaVendido =date;

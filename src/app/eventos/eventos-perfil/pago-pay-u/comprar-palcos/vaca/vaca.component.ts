@@ -14,6 +14,7 @@ import { Evento } from './../../../../evento.model';
 import { Cliente } from './../../../../../usuario/cliente.model';
 import { Component, OnInit } from '@angular/core';
 import { Etapa } from '../../../etapa.model';
+import { LoginComponent } from 'src/app/login/login.component';
 
 @Component({
   selector: 'app-vaca',
@@ -176,10 +177,16 @@ export class VacaComponent implements OnInit {
   
 
   agregarALaLista(localidad:Localidad){
-
+    if(this.usuarioEntidad.numeroDocumento!=null)
+  {
     this.localidad =localidad;
     this.valorLocalidadAgregada = (localidad.precio +localidad.servicio+ localidad.servicio*IVA)*(this.porcentaje/100);
     this.valorBoletas = 1;
+  }
+  else{
+    alert("Para hacer una vaca debes conectarte en tu cuenta AllTickets")
+    this.openDialog();
+  }
    }
  
  
@@ -295,4 +302,17 @@ AbrirCarrito(): void {
   });
 }
 
+openDialog(): void {
+  const dialogRef = this.dialog.open(LoginComponent, {
+    width: '600px',
+    height:'600px',
+    
+    
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    
+  });
+}
 }

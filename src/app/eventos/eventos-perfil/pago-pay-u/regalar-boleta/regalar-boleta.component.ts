@@ -11,6 +11,8 @@ import { Boleta } from './../../../boleta.model';
 import { Evento } from './../../../evento.model';
 import { Component, OnInit } from '@angular/core';
 import { Etapa } from '../../etapa.model';
+import { MatDialog } from '@angular/material/dialog';
+import { CarritoDeComprasComponent } from '../carrito-de-compras/carrito-de-compras.component';
 
 @Component({
   selector: 'app-regalar-boleta',
@@ -39,7 +41,7 @@ asistente:Asistente
 boletaN:number=0
 url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 cargando = false
-  constructor(private route: ActivatedRoute, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router) { }
+  constructor(private route: ActivatedRoute,public dialog: MatDialog, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router) { }
 
   ngOnInit(): void {
     this.IVA = IVA
@@ -198,7 +200,7 @@ cargando = false
  
 
      
-if(!this.cargando){
+if(this.localidadCompradas){
       this.cargando=true
         this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadCompradas.id).subscribe(response=>{
           boleta= response
@@ -217,7 +219,10 @@ if(!this.cargando){
             
 
           this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
-          this.servicioBoletas.rechazarReservaBoleta( boleta.id).subscribe(response=>response)   
+          this.AbrirCarrito()
+          this.servicioBoletas.rechazarReservaBoleta( boleta.id).subscribe(response=>{response
+          
+          })   
             
       }
 
@@ -230,33 +235,76 @@ if(!this.cargando){
       this.localidadCompradas =null;
       this.valorLocalidadAgregada =0;
     }
+    else{
+      alert("Agrega una boleta")
+    }
   
 }
 
-    quitaBoletaLocalidad(localidad:Localidad){
+
+
+ 
+
     
+
+AbrirCarrito(): void {
+  const dialogRef = this.dialog.open(CarritoDeComprasComponent, {
+    width: '100%',
+    height:'85%',
+    
+    data: { 
+      valorTotal: this.valorTotal,
+            boleta: this.boleta,
+            evento: this.evento,
+            asistente: this.asistente,
+            signature: this.signature,
+            referenceCode: this.referenceCode,
+            
+           
+    }       
+    
+    
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+  
+      this.servicioBoletas.rechazarReservaBoletaInstantaneamente(this.boleta.id).subscribe(response=> response)
+
+    
+    
+    this.dialog.closeAll();
+    this.boleta={
+      id:null,
+      imagenQr:null,
+      localidadIdNumero:null,
+      localidadNombre:null,
+      nombreEvento:null,
+      precio:null,
+      reservado:null,
+      seccionSilla:null,
+      servicio:null,
+      utilizada:null,
+      vendida:null,
     }
-
-    comprarBoletas(){
-      this.servicioBoletas.comprarBoletaParaAsistente(this.evento.id, this.boleta.localidadIdNumero,this.boleta.id, this.asistente).subscribe(response=>{response
-        this.boleta={
-          id:null,
-          imagenQr:null,
-          localidadIdNumero:null,
-          localidadNombre:null,
-          nombreEvento:null,
-          precio:null,
-          reservado:null,
-          seccionSilla:null,
-          servicio:null,
-          utilizada:null,
-          vendida:null,
-        }
-      
-      })
-
-
+    this.localidadCompradas ={
+      boletas:[],
+      boletasPatrocinio:[],
+      id:null,
+      nombre:null,
+      nombreEtapa:null,
+      palcos:[],
+      precio:null,
+      servicio:null,
 
     }
+    this.valorLocalidadAgregada =0
+    this.valorTotal=0
+    this.referenceCode="TICKET: /"
+    this.signature = null
 
+
+
+   
+  });
+}
 }

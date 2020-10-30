@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { MandarCorreosService } from '../service/mandar-correos.service';
 
 
 @Component({
@@ -13,13 +14,21 @@ export class ContactanosComponent implements OnInit {
   correo='';
   mensaje='';
 
-  constructor() { }
+  constructor(private service:MandarCorreosService) { }
 
   ngOnInit(): void {
   }
 
 
   onSubmit() {
+    alert("Gracias por contactarnos")
+    
+  this.service.contactanos(this.nombre,this.mensaje, this.correo).subscribe(response=>{ response; ; 
+    this.nombre='';
+    this.correo='';
+    this.mensaje='';
+  
+  })
     
   }
 

@@ -10,7 +10,7 @@
 <div class="row">
   <div class="col-1"></div>
   <div class="col-10 border" style="background-color: white;">
-    <form  class="p-4"   #contactForm="ngForm">
+    <form  class="p-4"  (ngSubmit)="!contactForm.invalid && onSubmit()" #contactForm="ngForm">
     
       <div class="form-group">
         <label for="nombre">Nombre:</label>
@@ -29,7 +29,7 @@
         <textarea [(ngModel)]="mensaje" name="mensaje" style="height: 100px;" id="mensaje" cols="30" rows="10"  class="form-control"></textarea>
       </div>
   
-      <button class="btn action_button">Enviar</button>
+      <button class="btn action_button" type="submit">Enviar</button>
   
     </form>
   </div>
