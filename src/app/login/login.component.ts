@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem('usuario',this.username);
             this.invalidLogin=false;
             this.dialog.closeAll()
+            this.ngOnInit()
             
  
           }

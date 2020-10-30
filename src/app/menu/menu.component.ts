@@ -67,7 +67,7 @@ export class MenuComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       
-      this.ngOnInit()
+ 
       
     });
   }
