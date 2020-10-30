@@ -75,9 +75,7 @@ const routes: Routes = [
     
   },
 
-  {
-    path:'contactanos', component: ContactanosComponent
-  },
+
   
   {
     path:'logout', component: LogoutComponent,

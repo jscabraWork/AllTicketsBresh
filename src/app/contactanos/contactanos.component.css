@@ -1,0 +1,13 @@
+input{
+    color:gray
+}
+.botonLogin{
+    background: linear-gradient(#F9B84A, #ed701c); 
+    width: 100%;
+    color:white;
+}
+.botonesCerrar{
+	background-color:white; 
+	color:#ed701c  ;
+
+}

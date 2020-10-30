@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MandarCorreosService } from '../service/mandar-correos.service';
 
 
@@ -14,7 +15,7 @@ export class ContactanosComponent implements OnInit {
   correo='';
   mensaje='';
 
-  constructor(private service:MandarCorreosService) { }
+  constructor(private service:MandarCorreosService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +23,7 @@ export class ContactanosComponent implements OnInit {
 
   onSubmit() {
     alert("Gracias por contactarnos")
-    
+    this.dialog.closeAll()
   this.service.contactanos(this.nombre,this.mensaje, this.correo).subscribe(response=>{ response; ; 
     this.nombre='';
     this.correo='';

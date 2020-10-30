@@ -40,9 +40,8 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem('usuario',this.username);
             this.invalidLogin=false;
             this.dialog.closeAll()
-            this.router.navigate(['usuarios/usuario',this.username]);
             
-
+ 
           }
           
           else if(response.tipo=='admin' )

@@ -20,6 +20,9 @@ import { VacaComponent } from './eventos-perfil/pago-pay-u/comprar-palcos/vaca/v
 import { CarritoDeComprasComponent } from './eventos-perfil/pago-pay-u/carrito-de-compras/carrito-de-compras.component';
 import { ImagenEventosComponent } from './eventos-perfil/imagen-eventos/imagen-eventos.component';
 import { CarritoDeComprasAsistenteComponent } from './eventos-perfil/pago-pay-u/regalar-boleta/carrito-de-compras-asistente/carrito-de-compras-asistente.component';
+import { MatIconModule } from '@angular/material/icon';
+
+
 
 
 
@@ -66,7 +69,10 @@ const routes: Routes=[
         RouterModule.forChild(routes), 
         HttpClientModule,
         FormsModule,
-        ReactiveFormsModule 
+        ReactiveFormsModule,
+        MatIconModule
+  
+
       
         
         

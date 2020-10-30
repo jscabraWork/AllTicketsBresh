@@ -153,8 +153,12 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       
     });
 
+
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      
+      this.localidadesBoletas=[]
+      this.localidadesPalcos=[]
+      this.ngOnInit()
       
     });
   }

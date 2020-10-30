@@ -1,35 +1,30 @@
-<div id="prueba">
-            
-            
-  <h1><strong>Contactanos </strong></h1>
 
-  
-</div>
-
+<mat-icon class="float-right rounded pt-2 pb-2 pl-3 pr-3 botonesCerrar" mat-button mat-dialog-close> cancel_presentation</mat-icon>
 <div class="container mt-5">
 <div class="row">
   <div class="col-1"></div>
   <div class="col-10 border" style="background-color: white;">
+    
     <form  class="p-4"  (ngSubmit)="!contactForm.invalid && onSubmit()" #contactForm="ngForm">
     
       <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input [(ngModel)]="nombre" name="nombre" type="text" id="nombre" class="form-control">
+        
+        <input [(ngModel)]="nombre"  required="required" name="nombre" type="text" id="nombre" class="form-control" placeholder="Nombre">
       </div>
   
   
   
       <div class="form-group">
-        <label for="correo">Correo:</label>
-        <input [(ngModel)]="correo" name="correo" type="text" id="correo" class="form-control">
+        
+        <input [(ngModel)]="correo"  required="required" name="correo" type="text" id="correo" class="form-control" placeholder="Correo">
       </div>
   
       <div class="form-group">
-        <label for="mensaje">Mensaje:</label>  
-        <textarea [(ngModel)]="mensaje" name="mensaje" style="height: 100px;" id="mensaje" cols="30" rows="10"  class="form-control"></textarea>
+        
+        <textarea [(ngModel)]="mensaje"  required="required" name="mensaje" style="height: 100px;" id="mensaje" cols="30" rows="10" placeholder="Mensaje" class="form-control"></textarea>
       </div>
   
-      <button class="btn action_button" type="submit">Enviar</button>
+      <button class="btn botonLogin" type="submit">Enviar</button>
   
     </form>
   </div>

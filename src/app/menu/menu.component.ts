@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { HardcodedAutheticationService } from './../service/hardcoded-authetication.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ContactanosComponent } from '../contactanos/contactanos.component';
 
 @Component({
   selector: 'app-menu',
@@ -60,6 +61,21 @@ export class MenuComponent implements OnInit {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: '600px',
       height:'600px',
+      
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+      this.ngOnInit()
+      
+    });
+  }
+
+  openDialog3(): void {
+    const dialogRef = this.dialog.open(ContactanosComponent, {
+      width: '40%',
+      height:'50%',
       
       
     });

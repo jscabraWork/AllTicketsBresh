@@ -100,7 +100,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FullCalendarModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    BrowserAnimationsModule,
+  
     MatIconModule
   
     
