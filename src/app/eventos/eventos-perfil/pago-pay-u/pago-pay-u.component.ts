@@ -43,9 +43,11 @@ valorLocalidadAgregada:number =0
 contadorBoletas =0
 etapa:Etapa
 boletaBoolean:boolean=false
-localidadesPalcos:Localidad[]=[]
-localidadesBoletas:Localidad[]=[];
+
 cargando:boolean=false
+idLocalidad
+idEtapa
+localidad:Localidad
 url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   constructor(private route: ActivatedRoute,public dialog: MatDialog, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService ) { }
 
@@ -102,6 +104,10 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
+      this.idLocalidad =params.get('idLocalidad');
+      this.idEtapa =params.get('idEtapa');
+
+      
      
       this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
         if(this.autenticador.getUsuario()!=null ){
@@ -129,13 +135,10 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
         var i =0;
         while(i < this.etapa.localidades.length){
-          if(this.etapa.localidades[i].boletas.length>0){
-            this.localidadesBoletas.push(this.etapa.localidades[i])
+          if(this.etapa.localidades[i].id ==this.idLocalidad){
+            this.localidad=this.etapa.localidades[i]
           }
-          else if(this.etapa.localidades[i].palcos.length>0){
-            this.localidadesPalcos.push(this.etapa.localidades[i])
-          }
-          
+
           i=i+1;
         }
       
@@ -156,8 +159,8 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 
     dialogRef.afterClosed().subscribe(result => {
       
-      this.localidadesBoletas=[]
-      this.localidadesPalcos=[]
+
+     
       this.ngOnInit()
       
     });
