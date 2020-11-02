@@ -44,7 +44,7 @@ const routes: Routes=[
           component: EventosPerfilComponent
         },
         {
-          path:'evento/:id/pago',
+          path:'evento/:id/pago/:idLocalidad',
           component: PagoPayUComponent
         },
         {

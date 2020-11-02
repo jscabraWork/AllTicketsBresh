@@ -52,10 +52,7 @@ export class LoginComponent implements OnInit {
             this.invalidLogin=false;
             this.dialog.closeAll()
             sessionStorage.setItem('administrador',this.username);
-            
-            
-          
-                
+
           }
           else if(response.tipo=='organizador')
           {

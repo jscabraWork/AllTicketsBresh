@@ -90,7 +90,9 @@ this.IVA = IVA
      
   })
 }
-
+scroll(){
+  document.getElementById("prueba9").scrollIntoView({behavior:"smooth"})
+}
 
 
 openDialog(): void {

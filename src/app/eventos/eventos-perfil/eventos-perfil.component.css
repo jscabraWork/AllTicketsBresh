@@ -1,6 +1,9 @@
 
-
-
+.botonLogin{
+    background: linear-gradient(#F9B84A, #ed701c); 
+    width: 50%;
+    color:white;
+}
 
 #prueba9
 {
@@ -78,7 +81,13 @@
                 color:#FFF;
                 padding: 3%;
                 width: 100%;
+                cursor: pointer;
                 
+            }
+
+            .tituloLocalidad:hover{
+
+                background:linear-gradient(#ed701c, #F9B84f); 
             }
 
 
