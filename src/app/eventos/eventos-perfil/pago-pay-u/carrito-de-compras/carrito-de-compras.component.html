@@ -15,14 +15,16 @@
                 <h5 class="pl-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
                 
                 <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
-                <h5 class="pl-4 pb-4"><strong>Precio: </strong>{{boleta?.precio + boleta.servicio + boleta.servicio*0.19 | currency:'COP'}}</h5>
+                <h5 class="pl-4"><strong>Precio: </strong> {{boleta?.precio| currency:'COP'}} + <strong>Servicio: </strong> {{boleta?.servicio| currency:'COP'}} + <strong>IVA: </strong> {{boleta?.servicio *IVA| currency:'COP'}} </h5>
+                <h5 class="pl-4 pb-4"><strong>Valor: </strong> {{boleta?.precio + boleta?.servicio + boleta?.servicio*IVA | currency:'COP'}}</h5>
             </div>      
         <div class="  eventoFondo   fondoBlanco border " *ngFor="let boleta of boletas">
             <h5 class="pl-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
             <h5 class="pl-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
             
             <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
-            <h5 class="pl-4 pb-4"><strong>Precio: </strong>{{boleta?.precio + boleta.servicio + boleta.servicio*0.19 | currency:'COP'}}</h5>
+            <h5 class="pl-4"><strong>Precio: </strong> {{boleta?.precio| currency:'COP'}} + <strong>Servicio: </strong> {{boleta?.servicio| currency:'COP'}} + <strong>IVA: </strong> {{boleta?.servicio *IVA| currency:'COP'}}</h5>
+            <h5 class="pl-4  pb-4"><strong>Valor: </strong> {{boleta?.precio + boleta?.servicio + boleta?.servicio*IVA | currency:'COP'}}</h5>
         </div>
 
 
@@ -32,12 +34,9 @@
       <h5 class="pl-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
       <h5 class="pl-4 "><strong>Palco No:</strong> {{palco.id}}</h5>
       <h5 class="pl-4"><strong>Personas por palco:</strong> {{palco.personasMaximas}}</h5>
-      <h5 class="pl-4" ><strong>Precio: </strong>{{palco?.precio + palco?.servicio + palco?.servicio*0.19|currency:'COP'}}</h5>
+      <h5 class="pl-4 "><strong>Precio: </strong> {{palco?.precio| currency:'COP'}} + <strong>Servicio: </strong> {{palco?.servicio| currency:'COP'}} + <strong>IVA: </strong> {{palco?.servicio *IVA| currency:'COP'}}</h5>
+      <h5 class="pl-4 pb-4" ><strong>Valor: </strong>{{palco?.precio + palco?.servicio + palco?.servicio*IVA|currency:'COP'}}</h5>
    </div>
-
-
-
-
 
 
               <div  class=" border"  >

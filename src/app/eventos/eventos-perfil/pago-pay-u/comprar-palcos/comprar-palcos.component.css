@@ -27,7 +27,9 @@
         background: linear-gradient(rgba(236, 158, 40, 0.87), rgba(255, 80, 28, 0.87)); 
     }
 
-    
+    p{
+        font-size: 20px;
+    }
     .action_button {
         text-decoration: none; 
         color: #fff; 

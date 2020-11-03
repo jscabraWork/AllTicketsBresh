@@ -12,7 +12,13 @@
       .fondoBlanco{
         background-color: white;
     }
+    p{
+        font-size: 20px;
+    }
     
+    label{
+        font-size: 20px;
+    }
     .divisionLocalidad
     {
      

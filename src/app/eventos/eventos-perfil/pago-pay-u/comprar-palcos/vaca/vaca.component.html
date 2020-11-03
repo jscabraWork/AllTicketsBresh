@@ -53,10 +53,10 @@
                       <td><strong>{{localidadCargada?.nombre }}</strong></td> 
                       <td >
                        
-                       <button class="rounded-circle" (click)="agregarALaLista(localidad)">+</button>
+                       <button class="rounded-circle" (click)="agregarALaLista(localidadCargada)">+</button>
                        
                       </td>
-                      <td>{{darCantidadDePalcos(localidad)}}</td>
+                      <td>{{darCantidadDePalcos(localidadCargada)}}</td>
                       <td><strong>{{localidadCargada.precio | currency: 'COP'}}</strong> + <strong>{{localidadCargada.servicio| currency:'COP'}}</strong> + <strong>{{localidadCargada.servicio*IVA|currency:'COP'}}</strong></td> 
                       
                     
@@ -64,7 +64,7 @@
               </tbody>
             </table>
           </div>
-          <div class="col-12">
+          <div class="col-12 mt-3">
             <fieldset class="form-group">
                 <label for="tipo"><strong>Selecciona el porcentaje con el que vas a reservar</strong></label>
                 <select (change)="cambiarTotal()" type="text" class= "form-control "name ="tipo" required="required" style="width: 100px;" [(ngModel)]="porcentaje">
