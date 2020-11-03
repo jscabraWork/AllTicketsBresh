@@ -48,11 +48,15 @@ const routes: Routes=[
           component: PagoPayUComponent
         },
         {
-          path:'evento/:id/pago/palcos/vaca',
+          path:'evento/:id/pago/palco/:idLocalidad',
+          component: ComprarPalcosComponent
+        },
+        {
+          path:'evento/:id/pago/palco/:idLocalidad/vaca',
           component: VacaComponent
         },
         {
-          path:'evento/:id/pago/regalar',
+          path:'evento/:id/pago/:idLocalidad/regalar',
           component: RegalarBoletaComponent
         }
       ]

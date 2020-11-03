@@ -1,4 +1,9 @@
-
+<div id="prueba">
+  <h1><strong>{{etapa?.nombre}} de </strong></h1>
+  <h1><strong> {{evento?.nombre}}</strong></h1> 
+  <h1 style="font-size: 25px;"><strong>Hola {{usuarioEntidad?.nombre}}</strong></h1>
+  <small class="float-right pt-4"><strong>Pulep:</strong> {{evento?.id}}</small>
+</div>
 
 
 
@@ -17,22 +22,22 @@
                   <tr >
                       <th >Nombre</th>
                       <th>Agregar</th>
-                      <th>Aforo</th>
+                      <th>Disponibles</th>
                       <th >Precio + Servicio + IVA</th>
     
                       
                   </tr>
               </thead>
               <tbody>
-                  <tr  *ngFor ="let localidad of localidadesPalcos" >
-                      <td><strong>{{localidad?.nombre }}</strong></td> 
+                  <tr   >
+                      <td><strong>{{localidadCargada?.nombre }}</strong></td> 
                       <td >
                        
-                       <button class="rounded-circle" (click)="agregarALaLista(localidad)">+</button>
+                       <button class="rounded-circle" (click)="agregarALaLista(localidadCargada)">+</button>
                        
                       </td>
-                      <td>{{darCantidadDePalcos(localidad)}}</td>
-                      <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio| currency:'COP'}}</strong> + <strong>{{localidad.servicio*IVA|currency:'COP'}}</strong></td> 
+                      <td>{{darCantidadDePalcos(localidadCargada)}}</td>
+                      <td><strong>{{localidadCargada.precio | currency: 'COP'}}</strong> + <strong>{{localidadCargada.servicio| currency:'COP'}}</strong> + <strong>{{localidadCargada.servicio*IVA|currency:'COP'}}</strong></td> 
                       
                     
                   </tr>
@@ -43,7 +48,7 @@
            <div>
              <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
              <h5 ><strong>Entradas: </strong>  {{valorBoletas}} </h5>
-             <button class="action_button float-left  mr-1 mt-5 mb-3 p-3" style="font-size: 12px;" routerLink="palcos/vaca">Hacer Vaca</button>
+             <button class="action_button float-left  mr-1 mt-5 mb-3 p-3" style="font-size: 12px;" routerLink="vaca">Hacer Vaca</button>
            </div>
             <button style="font-size: 12px;" class="action_button float-right mr-1 mt-2 mb-3 p-3" (click) ="agregarAlCarrito()" > Agregar al carrito</button>
           </div>

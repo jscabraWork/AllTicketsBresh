@@ -19,6 +19,7 @@ import { Etapa } from '../etapa.model';
 import { IVA } from 'src/app/app.constants';
 
 
+
 @Component({
   selector: 'app-pago-pay-u',
   templateUrl: './pago-pay-u.component.html',
@@ -27,22 +28,22 @@ import { IVA } from 'src/app/app.constants';
 export class PagoPayUComponent implements OnInit {
 miId;
 IVA
-valorTotal:number=0
+valorTotal:number
 usuarioA:string
 usuarioEntidad: Cliente
 evento:Evento;
 boletas:Boleta[]=[]
 localidadesCompradas:Localidad[]=[]
-usuarioBoolean:boolean=true;
+usuarioBoolean:boolean
 merchantId:number
 accountId:number
-referenceCode:string="TICKET: /"
+referenceCode:string
 signature:string
 ApiKey:string
-valorLocalidadAgregada:number =0
-contadorBoletas =0
+valorLocalidadAgregada:number 
+contadorBoletas 
 etapa:Etapa
-boletaBoolean:boolean=false
+boletaBoolean:boolean
 
 cargando:boolean=false
 idLocalidad
@@ -52,6 +53,13 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   constructor(private route: ActivatedRoute,public dialog: MatDialog, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService ) { }
 
   ngOnInit(): void {
+    this.boletaBoolean=false
+    this.valorTotal=0
+    this.boletas=[]
+    this.localidadesCompradas=[]
+    this.valorLocalidadAgregada=0
+    this.contadorBoletas=0
+    this.usuarioBoolean=true;
     this.referenceCode= this.referenceCode 
     this.IVA = IVA
     this.merchantId=703263  // 508029
@@ -80,7 +88,16 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       etapas:[], 
       mapaImagen:null
     }
-
+    this.localidad ={
+      id:null,
+      nombre: "",
+      precio:null,
+      boletas:[],
+      servicio:null,
+      nombreEtapa:null,
+      boletasPatrocinio:[],
+      palcos:[]
+    }
     this.usuarioEntidad= {
       nombre: "",
       numeroDocumento: null,
@@ -105,7 +122,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
       this.idLocalidad =params.get('idLocalidad');
-      this.idEtapa =params.get('idEtapa');
+
 
       
      
@@ -137,6 +154,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
         while(i < this.etapa.localidades.length){
           if(this.etapa.localidades[i].id ==this.idLocalidad){
             this.localidad=this.etapa.localidades[i]
+            i= this.etapa.localidades.length;
           }
 
           i=i+1;

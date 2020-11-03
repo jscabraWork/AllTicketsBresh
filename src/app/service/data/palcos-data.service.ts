@@ -72,6 +72,11 @@ rechazarReservaPalco(idPalco){
   return this.http.put(`${API_URL}/palcos/${idPalco}/rechazar`,null)
 }
 
+
+rechazarReservaPalcoInmediatamente(idPalco){
+  return this.http.put(`${API_URL}/palcos/${idPalco}/rechazarI`,null)
+}
+
 pasoMuchoTiempoPaca(idPalco){
   return this.http.put(`${API_URL}/palcos/${idPalco}/vaca/rechazar`,null)
 }

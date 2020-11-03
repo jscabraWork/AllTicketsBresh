@@ -6,7 +6,7 @@ import { Evento } from './../../../evento.model';
 import { Cliente } from './../../../../usuario/cliente.model';
 import { IVA } from './../../../../app.constants';
 import { Component, Inject, OnInit } from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Asistente } from 'src/app/administradores/admin-perfil/admin-eventos/admin-lector/asistente.model';
 
 @Component({
@@ -33,7 +33,8 @@ export class CarritoDeComprasComponent implements OnInit {
   cargando= true
   constructor( @Inject(MAT_DIALOG_DATA) public data: any,
   private servicioBoletas: BoletasDataService,
-  private palcoServicio:PalcosDataService
+  private palcoServicio:PalcosDataService,
+  private dialog:MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -136,6 +137,9 @@ export class CarritoDeComprasComponent implements OnInit {
 
   }
 
+  cerrar(){
+    this.dialog.closeAll()
+  }
 
   comprarBoletas(){
 

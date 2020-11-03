@@ -3,6 +3,8 @@
     background: linear-gradient(#F9B84A, #ed701c); 
     width: 50%;
     color:white;
+    border: white;
+    font-size: 22px;
 }
 
 #prueba9
@@ -85,11 +87,14 @@
                 
             }
 
-            .tituloLocalidad:hover{
+            .divisionLocalidad:hover .tituloLocalidad{
 
                 background:linear-gradient(#ed701c, #F9B84f); 
+                
             }
-
+            .divisionLocalidad:hover{
+                transform: scale(1.01);
+            }
 
             
 
@@ -133,6 +138,17 @@
             
                 h1{
                     font-size: 26px;
+                }
+                
+            }
+
+            
+            
+            @media(max-width:991px) and (min-width:768px){
+            
+                .largo{
+                    width: 103%;
+                    
                 }
             }
             

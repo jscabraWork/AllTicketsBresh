@@ -1,55 +1,4 @@
- <!--BANNER-->
- <section class="Banner"  content="width=device-width m-xs-5" >
-    <div class="row">
-      <div class="col-12">
-        <section id="banner" class="carousel slide"  data-ride="carousel">
-        <!--Indicadores-->
-          <ul class = "carousel-indicators" *ngFor= "let imagen of evento?.imagenes">
-            <li data-target="banner" data-slide-to="imagen" class="active"> </li>
-        
-          </ul>		
-          
-  
-  
-  
-            <!--Imagenes-->	
-        <div class="carousel-inner outerLink">
-  
-          <div class="carousel-item active h-25"  *ngIf="evento?.imagenes[0]" >
-            <img src="{{evento?.imagenes[0]}}" class="img-fluid align-items-center darkableImageBanner">
-            <div class="carousel-caption">
-              <h1><strong>Artistas: {{evento?.artistas}}</strong></h1>
-            </div>
-          </div>
-  
-          <div class="carousel-item"  *ngIf="evento?.imagenes[1]" >
-            <img src="{{evento?.imagenes[1]}}" class="img-fluid align-items-center darkableImageBanner">
-            <div class="carousel-caption">
-              <h1><strong>En {{evento?.lugar}}</strong></h1>
-            </div>
-          </div>
-  
-          <div class="carousel-item"  *ngIf="evento?.imagenes[2]">
-            <img src="{{evento?.imagenes[2]}}" class="img-fluid align-items-center darkableImageBanner">
-            <div class="carousel-caption">
-              <h1><strong>Empieza el día {{evento?.fecha}}</strong></h1>
-            </div>
-          </div>
-  
-  
-        </div>
-  
-  
-        <!--Controles-->	
-  
-          <a *ngIf="evento?.imagenes[1]" href="#banner" class="carousel-control-prev" data-slide= "prev"> <span class="carousel-control-prev-icon"></span></a>
-          <a  *ngIf="evento?.imagenes[1]" href="#banner" class="carousel-control-next" data-slide= "next"><span class="carousel-control-next-icon"></span></a>
-  
-  
-        </section>
-      </div>
-    </div>
-  </section>
+
 
   <div id="prueba">
     <h1><strong>{{etapa?.nombre}} de Palcos</strong></h1>
@@ -93,22 +42,22 @@
                   <tr >
                       <th >Nombre</th>
                       <th>Agregar</th>
-                      <th>Aforo</th>
+                      <th>Disponibles</th>
                       <th >Precio + Servicio + IVA</th>
     
                       
                   </tr>
               </thead>
               <tbody>
-                  <tr  *ngFor ="let localidad of localidadesPalcos" >
-                      <td><strong>{{localidad?.nombre }}</strong></td> 
+                  <tr  >
+                      <td><strong>{{localidadCargada?.nombre }}</strong></td> 
                       <td >
                        
                        <button class="rounded-circle" (click)="agregarALaLista(localidad)">+</button>
                        
                       </td>
                       <td>{{darCantidadDePalcos(localidad)}}</td>
-                      <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio| currency:'COP'}}</strong> + <strong>{{localidad.servicio*IVA|currency:'COP'}}</strong></td> 
+                      <td><strong>{{localidadCargada.precio | currency: 'COP'}}</strong> + <strong>{{localidadCargada.servicio| currency:'COP'}}</strong> + <strong>{{localidadCargada.servicio*IVA|currency:'COP'}}</strong></td> 
                       
                     
                   </tr>

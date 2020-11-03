@@ -23,27 +23,37 @@ export class RegalarBoletaComponent implements OnInit {
 
 miId;
 IVA
-valorTotal:number=0
+valorTotal:number
 evento:Evento;
 boleta:Boleta
 localidadCompradas:Localidad
 merchantId:number
 accountId:number
-referenceCode:string="TICKETREGALO: "
+referenceCode:string
 signature:string
 ApiKey:string
-valorLocalidadAgregada:number =0
-contadorBoletas =0
+valorLocalidadAgregada:number
+contadorBoletas 
 etapa:Etapa
-boletaBoolean:boolean=false
-localidadesBoletas:Localidad[]=[];
+boletaBoolean:boolean
+
 asistente:Asistente
-boletaN:number=0
+boletaN:number
+localidad:Localidad
+idLocalidad
 url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 cargando = false
   constructor(private route: ActivatedRoute,public dialog: MatDialog, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router) { }
 
   ngOnInit(): void {
+
+    this.valorTotal=0
+
+    this.valorLocalidadAgregada=0
+    this.contadorBoletas=0
+    this.boletaN=0
+    this.boletaBoolean=false
+    this.referenceCode="TICKETREGALO: "
     this.IVA = IVA
     this.merchantId=703263  // 508029
     this.accountId=706326 //  512321
@@ -92,6 +102,16 @@ cargando = false
       etapas:[],
       mapaImagen:null
     }
+    this.localidad ={
+      id:null,
+      nombre: "",
+      precio:null,
+      boletas:[],
+      servicio:null,
+      nombreEtapa:null,
+      boletasPatrocinio:[],
+      palcos:[]
+    }
 
         this.etapa={
           evento:null,
@@ -104,13 +124,14 @@ cargando = false
 
         this.route.paramMap.subscribe( params =>{
           this.miId =params.get('id');
-         
+          this.idLocalidad =params.get('idLocalidad');
           this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response)
             this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
               var i =0;
               while(i < this.etapa.localidades.length){
-                if(this.etapa.localidades[i].boletas.length>0){
-                  this.localidadesBoletas.push(this.etapa.localidades[i])
+                if(this.etapa.localidades[i].id ==this.idLocalidad){
+                  this.localidad=this.etapa.localidades[i]
+                  i= this.etapa.localidades.length;
                 }  
                 i=i+1;
               }

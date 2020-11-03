@@ -25,32 +25,44 @@ export class VacaComponent implements OnInit {
 
   
   miId;
-  valorTotal:number=0
+  valorTotal:number
   usuarioA:string
   usuarioEntidad: Cliente
   evento:Evento;
   IVA
   porcentaje:number
-  usuarioBoolean:boolean=true;
+  usuarioBoolean:boolean
   merchantId:number
   accountId:number
-  referenceCode:string="PALCO: "
+  referenceCode:string
   signature:string
   ApiKey:string
-  valorLocalidadAgregada:number =0
+  valorLocalidadAgregada:number
   etapa:Etapa
-  boletaBoolean:boolean=false
-  localidadesPalcos:Localidad[]=[]
-  contadorPalcos=0
+  boletaBoolean:boolean
+
+  contadorPalcos
   palco:Palco
   localidad:Localidad
-  valorBoletas=0
+  valorBoletas
   url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   cargando=false
+  idLocalidad
+  localidadCargada:Localidad
   constructor(private route: ActivatedRoute, private service:EventoDataService, private dialog: MatDialog,private palcoServicio:PalcosDataService,private etapaServicio:EtapasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService) { }
 
   ngOnInit(): void {
-    this.localidadesPalcos=[]
+
+    this.valorBoletas=0
+    this.contadorPalcos=0
+    this.valorTotal=0
+    this.usuarioBoolean=true;
+ 
+    this.valorLocalidadAgregada=0
+
+    this.boletaBoolean=false
+    this.referenceCode= "PALCO: "
+
     this.IVA =IVA
     this.merchantId=703263  // 508029
     this.accountId=706326 //  512321
@@ -64,6 +76,17 @@ export class VacaComponent implements OnInit {
     palcos:[],
     precio:0,
     servicio:0,
+    }
+
+    this.localidadCargada ={
+      id:null,
+      nombre: "",
+      precio:null,
+      boletas:[],
+      servicio:null,
+      nombreEtapa:null,
+      boletasPatrocinio:[],
+      palcos:[]
     }
     this.palco={
       id:null,
@@ -121,7 +144,7 @@ export class VacaComponent implements OnInit {
 
         this.route.paramMap.subscribe( params =>{
           this.miId =params.get('id');
-         
+          this.idLocalidad =params.get('idLocalidad');
           this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
             if(this.autenticador.getUsuario()!=null ){
             
@@ -151,10 +174,10 @@ export class VacaComponent implements OnInit {
           this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
             var i =0;
             while(i < this.etapa.localidades.length){
-            if(this.etapa.localidades[i].palcos.length>0){
-                this.localidadesPalcos.push(this.etapa.localidades[i])
+              if(this.etapa.localidades[i].id==this.idLocalidad){
+                this.localidadCargada = this.etapa.localidades[i];
+                i= this.etapa.localidades.length;
               }
-              
               i=i+1;
             }
 
@@ -268,35 +291,11 @@ AbrirCarrito(): void {
   
     
     this.dialog.closeAll();
-    this.palco={
-      id:null,
-      nombre:null,
-      nombreEvento:null,
-      personasAdentro:null,
-      personasMaximas:null,
-      precio:null,
-      precioParcialPagado:null,
-      reservado:null,
-      servicio:null,
-      vendido:null,
-      numeroDentroDeEvento:null,
-      fechaVendido:null
-    }
-    this.localidad={
-      boletas:[],
-      boletasPatrocinio:[],
-      id:null,
-      nombre:null,
-      nombreEtapa:null,
-      palcos:[],
-      precio:0,
-      servicio:0,
-      }
-    this.valorLocalidadAgregada =0
-    this.valorTotal=0
-    this.referenceCode="TICKET: /"
-    this.signature = null
-
+    this.palcoServicio.rechazarReservaPalcoInmediatamente(this.palco.id).subscribe(response=>
+      {response
+        this.ngOnInit()
+      })
+   
 
 
    
