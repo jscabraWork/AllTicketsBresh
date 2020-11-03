@@ -47,6 +47,10 @@ authenticate(username,password){
   getPuntoFisico(){
     return sessionStorage.getItem('puntoF');
   }
+  getPromotor(){
+    return sessionStorage.getItem('promotor');
+  }
+
 
 
   usuarioLoggin(){
@@ -68,6 +72,12 @@ authenticate(username,password){
 
   }
 
+  promotorLoggin(){
+    let usuario =sessionStorage.getItem('promotor');
+    return !(usuario==null);
+
+  }
+
  puntoFisicoLoggin(){
     let usuario =sessionStorage.getItem('puntoF');
     return !(usuario==null);
@@ -76,6 +86,7 @@ authenticate(username,password){
   logout(){
    
     sessionStorage.removeItem('usuario');
+    sessionStorage.removeItem('promotor');
     sessionStorage.removeItem('organizador');
     sessionStorage.removeItem('administrador');
     sessionStorage.removeItem('ministerio');

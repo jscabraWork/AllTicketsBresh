@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Promotor } from 'src/app/promotor-perfil/promotor.model';
+import { PromotorDataService } from 'src/app/service/data/promotor-data.service';
 
 @Component({
   selector: 'app-admin-promotores',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPromotoresComponent implements OnInit {
 
-  constructor() { }
+  promotores:Promotor[]=[]
+  message: string
+  constructor(private servicio: PromotorDataService) { }
 
   ngOnInit(): void {
+   this.refrescar()
   }
 
+  borrar(numeroDocumento){
+    this.servicio.deletePromotorById(numeroDocumento).subscribe(response=>{
+      response
+      this.message= `Se borro el promotor ${numeroDocumento}`
+      this.refrescar()
+    })
+  }
+
+  refrescar(){
+    this.servicio.getAllPromotores().subscribe(response=> {
+      response;
+      this.promotores= response
+
+    })
+  }
 }

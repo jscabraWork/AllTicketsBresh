@@ -79,7 +79,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      ResumirPipe,
      ResumirPipe2,
 
-     PromotorPerfilComponent,
+
      PreguntasFrecuentesComponent,
      CalendarioComponent,
 
@@ -102,7 +102,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FullCalendarModule,
     BrowserAnimationsModule,
     MatDialogModule,
-  
+ 
     MatIconModule,
 
   

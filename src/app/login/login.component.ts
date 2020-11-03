@@ -45,6 +45,15 @@ export class LoginComponent implements OnInit {
  
           }
           
+          else if(response.tipo=='promotor'){
+            sessionStorage.setItem('promotor',this.username);
+            this.invalidLogin=false;
+            this.dialog.closeAll()
+            this.ngOnInit()
+            this.router.navigate(['promotor',this.username]);
+ 
+          }
+
           else if(response.tipo=='admin' )
           {
         

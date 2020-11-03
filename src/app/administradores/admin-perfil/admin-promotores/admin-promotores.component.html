@@ -1,1 +1,44 @@
-<p>admin-promotores works!</p>
+
+<section class="container mt-5">
+    <h2>Todos los Promotores</h2>
+    <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
+    
+    
+    <div class="container">
+    <table class="table mt-3">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Modificar</th>
+                <th>Borrar</th>
+                
+            </tr>
+    
+    
+    
+        </thead>
+        <tbody>
+          
+            <tr *ngFor = "let promotor of promotores">
+                <td>{{promotor?.numeroDocumento}}</td>
+                <td>{{promotor?.nombre }}</td> 
+                <td><button routerLink= 'update/{{promotor.numeroDocumento}}' class="btn btn-warning"> Modificar</button></td>
+                <td><button (click)="borrar(promotor.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
+            </tr>
+    
+    
+        </tbody>
+    
+    </table>
+</div>
+
+<div class="row">
+    <div class="col-12 mt-5" style="text-align: center;">
+<button  routerLink="agregar" class="btn btn-success">Agregar Promotor</button>
+
+</div>
+</div>
+
+</section>

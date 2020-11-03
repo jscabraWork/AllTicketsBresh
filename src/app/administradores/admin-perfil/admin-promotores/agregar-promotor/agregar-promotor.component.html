@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <h1>Promotor</h1>
+<form (ngSubmit)="!todoForm.invalid &&save()" #todoForm="ngForm">
+        
+        <fieldset class="form-group">
+            <label for="id">Numero Documento</label>
+            <input type="text" class= "form-control"name ="id" required="required"  [(ngModel)]="promotor.numeroDocumento">
+        </fieldset>    
+    <fieldset class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="promotor.nombre">
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="tipo">Tipo de Documento</label>
+        <select type="text" class= "form-control "name ="tipo" required="required"  [(ngModel)]="promotor.tipoDocumento">
+            <option value="Interno">Valor Interno AllTickets</option>
+            <option value="Cedula">Cedula</option>
+            <option value="Pasaporte">Pasaporte</option>
+        </select>    
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="nombre">Usuario</label>
+        <input type="text" class= "form-control"name ="usuario" required="required"  [(ngModel)]="promotor.usuario">
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="nombre">Contraseña</label>
+        <input type="text" class= "form-control"name ="contrasena" required="required"  [(ngModel)]="promotor.contrasena">
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="nombre">Codigo Venta</label>
+        <input type="text" class= "form-control"name ="contrasena" required="required"  [(ngModel)]="promotor.codigoventa">
+    </fieldset>
+
+    <button class="btn btn-success" type="submit">Guardar</button>
+</form>
+</div>

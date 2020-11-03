@@ -5,6 +5,7 @@ import { RouteGuardMinisterioService } from './service/route-guard-ministerio.se
 import { PerfilMinisterioComponent } from './perfil-ministerio/perfil-ministerio.component';
 import { RegistrarseComponent } from './registrarse/registrarse.component';
 import { RouteGuardUsuarioService } from './service/route-guard-usuario.service';
+import { RoutGuardPromotorService } from './service/rout-guard-promotor.service';
 import { RouteGuardOrganizadorService } from './service/route-guard-organizador.service';
 import { RouteGuardAdminService } from './service/route-guard-admin.service';
 import { LogoutComponent } from './logout/logout.component';
@@ -40,7 +41,11 @@ const routes: Routes = [
   
     
   },
-
+  {
+    path:'promotor',
+    loadChildren:() => import('./promotor-perfil/promotor.module').then(m => m.PromotorModule),
+    canActivate:[RoutGuardPromotorService]
+  },
 
   {
     path:'administradores', 
@@ -70,9 +75,9 @@ const routes: Routes = [
     path:'nosotros', component: NosotrosComponent
   },
 
+
   {
-    path:'sePromotor', component: SePromotorComponent
-    
+    path:'login', component: LoginComponent
   },
 
 
@@ -98,6 +103,10 @@ const routes: Routes = [
     canActivate:[ RouteGuardMinisterioService]
   },
 
+  {
+    path:'logoutPromotor', component: LogoutComponent,
+    canActivate:[ RoutGuardPromotorService]
+  },
   
   {
     path:'perfilMinisterio', 

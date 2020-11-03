@@ -5,6 +5,7 @@ import { HardcodedAutheticationService } from './../service/hardcoded-autheticat
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactanosComponent } from '../contactanos/contactanos.component';
+import { SePromotorComponent } from '../se-promotor/se-promotor.component';
 
 @Component({
   selector: 'app-menu',
@@ -40,6 +41,10 @@ export class MenuComponent implements OnInit {
     this.usuario=this.autenticacion.getPuntoFisico();
     this.router.navigate(['puntoFisico',this.usuario]);
   }
+  cargarPromotor(){
+    this.usuario = this.autenticacion.getPromotor();
+    this.router.navigate(['promotor', this.usuario])
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(RegistrarseComponent, {
@@ -55,6 +60,20 @@ export class MenuComponent implements OnInit {
     });
   }
 
+
+  openDialog5(): void {
+    const dialogRef = this.dialog.open(SePromotorComponent, {
+      width: '600px',
+      height:'900px',
+      
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+  }
 
 
   openDialog2(): void {
