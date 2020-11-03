@@ -42,6 +42,9 @@ import { AdminPuntosFisicosComponent } from './admin-perfil/admin-puntos-fisicos
 import { AgregarPuntoComponent } from './admin-perfil/admin-puntos-fisicos/agregar-punto/agregar-punto.component';
 import { UpdatePuntoComponent } from './admin-perfil/admin-puntos-fisicos/update-punto/update-punto.component';
 import { AdminLectorComponent } from './admin-perfil/admin-eventos/admin-lector/admin-lector.component';
+import { AdminMinisterioComponent } from './admin-perfil/admin-ministerio/admin-ministerio.component';
+import { AgregarMinisterioComponent } from './admin-perfil/admin-ministerio/agregar-ministerio/agregar-ministerio.component';
+import { UpdateMinisterioComponent } from './admin-perfil/admin-ministerio/update-ministerio/update-ministerio.component';
 
 
 const routes: Routes=[
@@ -70,6 +73,24 @@ const routes: Routes=[
         {
           path: 'admin/:nombre',
           component: AdminPerfilComponent
+        },
+
+
+        {
+          path: 'ministerios',
+          component: AdminMinisterioComponent
+        },
+
+
+        {
+          path: 'ministerios/agregar',
+          component: AgregarMinisterioComponent
+        },
+
+        
+        {
+          path: 'ministerios/update/:id',
+          component: UpdateMinisterioComponent
         },
 
         {
@@ -221,7 +242,10 @@ const routes: Routes=[
       AdminPuntosFisicosComponent,
       AgregarPuntoComponent,
       UpdatePuntoComponent,
-      AdminLectorComponent
+      AdminLectorComponent,
+      AdminMinisterioComponent,
+      AgregarMinisterioComponent,
+      UpdateMinisterioComponent
     ],
     imports:[
         CommonModule,

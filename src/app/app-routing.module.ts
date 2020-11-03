@@ -100,7 +100,8 @@ const routes: Routes = [
 
   
   {
-    path:'perfilMinisterio/:user', component: PerfilMinisterioComponent,
+    path:'perfilMinisterio', 
+    loadChildren:() => import('./perfil-ministerio/ministerio.module').then(m => m.MinisterioModule),
     canActivate:[ RouteGuardMinisterioService]
   },
   {

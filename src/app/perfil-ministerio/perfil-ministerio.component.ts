@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Evento } from '../eventos/evento.model';
+import { EventoDataService } from '../service/data/evento-data.service';
 
 @Component({
   selector: 'app-perfil-ministerio',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilMinisterioComponent implements OnInit {
 
-  constructor() { }
+  eventos:Evento[]
+  constructor(private servicio: EventoDataService) { }
 
   ngOnInit(): void {
+    this.servicio.getAllEventos().subscribe(response=>{
+      this.eventos = response
+    })
+
   }
 
 }

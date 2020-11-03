@@ -1,0 +1,44 @@
+
+<section class="container mt-5">
+    <h2>Todos los Perfiles del ministerio</h2>
+    <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
+    
+    
+    <div class="container">
+    <table class="table mt-3">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Modificar</th>
+                <th>Borrar</th>
+                
+            </tr>
+    
+    
+    
+        </thead>
+        <tbody>
+          
+            <tr *ngFor = "let punto of ministerios">
+                <td>{{punto?.numeroDocumento}}</td>
+                <td>{{punto?.nombre }}</td> 
+                <td><button routerLink= 'update/{{punto.numeroDocumento}}' class="btn btn-warning"> Modificar</button></td>
+                <td><button (click)="borrarMinisterio(punto.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
+            </tr>
+    
+    
+        </tbody>
+    
+    </table>
+</div>
+
+<div class="row">
+    <div class="col-12 mt-5" style="text-align: center;">
+<button  routerLink="agregar" class="btn btn-success">Agregar Ministerio</button>
+
+</div>
+</div>
+
+</section>

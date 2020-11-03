@@ -32,7 +32,7 @@ import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 
-import { PerfilMinisterioComponent } from './perfil-ministerio/perfil-ministerio.component';
+
 
 import { PromotorPerfilComponent } from './promotor-perfil/promotor-perfil.component';
 import { PreguntasFrecuentesComponent } from './preguntas-frecuentes/preguntas-frecuentes.component';
@@ -40,7 +40,9 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 
-import {MatIconModule} from '@angular/material/icon'; 
+import {MatIconModule} from '@angular/material/icon';
+import { MinisterioModule } from './perfil-ministerio/ministerio.module';
+
 
 
  
@@ -76,11 +78,11 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      RegistrarseComponent,
      ResumirPipe,
      ResumirPipe2,
-     
-     PerfilMinisterioComponent,
+
      PromotorPerfilComponent,
      PreguntasFrecuentesComponent,
-     CalendarioComponent
+     CalendarioComponent,
+
   
 
    
@@ -101,7 +103,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     BrowserAnimationsModule,
     MatDialogModule,
   
-    MatIconModule
+    MatIconModule,
+
   
     
    

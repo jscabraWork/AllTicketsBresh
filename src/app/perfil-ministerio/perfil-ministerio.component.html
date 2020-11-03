@@ -1,1 +1,34 @@
-<p>perfil-ministerio works!</p>
+
+		<div id="prueba">	
+            <h1><strong>Bienvenido a All Tickets </strong></h1> 
+		</div>
+
+
+<section class="container mt-5">
+
+    <div class="container">
+        <table class="table mt-3 border rounded tabla" >
+            <thead>
+                <tr class="border ">
+                    <th class="border ">PullEp</th>
+                    <th class="border ">Nombre</th>
+                    <th class="border ">Fecha</th>
+                    <th class="border ">Lugar</th>               
+                           
+                    <th class="border ">Ver Perfil</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border"*ngFor = "let evento of eventos" >
+                    <td class="border"><strong>{{evento?.id}}</strong></td>
+                    <td class="border"> <strong>{{evento?.nombre }}</strong></td> 
+                    <td class="border"> <strong>{{evento?.fecha }} Hora: {{evento?.horaInicio}}</strong></td> 
+                    <td class="border"> <strong>{{evento?.lugar }}</strong></td> 
+                    
+                    <td class="border"> <button class="btn action_button" routerLink="evento/{{evento?.id}}">Ver Perfil</button></td> 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
