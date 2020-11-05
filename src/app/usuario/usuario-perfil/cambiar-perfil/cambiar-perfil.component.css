@@ -1,0 +1,21 @@
+.arriba{
+    background: linear-gradient(#666, #333);
+    width: 100%; 
+    color: white;
+   
+}
+.botonesCerrar{
+    color: #ed701c;
+}
+.colorLetras{
+    color:#ed701c;
+}
+.centrarTexto{
+    text-align: center;
+}
+
+.botonLogin{
+    background: linear-gradient(#F9B84A, #ed701c); 
+    width: 100%;
+    color:white;
+}

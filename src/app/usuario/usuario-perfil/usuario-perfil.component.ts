@@ -3,6 +3,8 @@ import { UsuariosDataService } from './../../service/data/usuarios-data.service'
 import { HardcodedAutheticationService } from './../../service/hardcoded-authetication.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { CambiarPerfilComponent } from './cambiar-perfil/cambiar-perfil.component';
 
 @Component({
   selector: 'app-usuario-perfil',
@@ -13,8 +15,11 @@ export class UsuarioPerfilComponent implements OnInit {
 
   user ='';
   usuario:Cliente
+  tickets=false
+  palcos = false
+  datos = true
  
-  constructor(private route:ActivatedRoute, private autenticador: HardcodedAutheticationService, private dataServicio:UsuariosDataService) { }
+  constructor(private route:ActivatedRoute, private autenticador: HardcodedAutheticationService, private dataServicio:UsuariosDataService, private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.usuario= {
@@ -36,15 +41,32 @@ export class UsuarioPerfilComponent implements OnInit {
 
   }
 
-  saveUsuario(){
-    console.log(this.usuario)
-    this.dataServicio.updateCliente(this.usuario.numeroDocumento,this.usuario).subscribe(data=>{console.log(data) 
-      alert('Cambiaste exitosamente tus datos '+ this.usuario.usuario)
-    },
-    error=>alert(error.error.message))
-   
-    
 
+  openDialog(){
+    const dialogRef = this.dialog.open(CambiarPerfilComponent, {
+      width: '600px',
+      height:'700px',
+      
+      data: { 
+        usuario: this.usuario,
+      
+      }       
+      
+      
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+     
+      
+      this.dialog.closeAll();
+      this.ngOnInit()
+  
+  
+  
+     
+    });
   }
+
+
 
 }

@@ -4,7 +4,7 @@
 <section class="container " >
     
     <div class="row rounded" >
-        <div class="col-12 border eventoFondo" style="text-align: center;" *ngIf="usuario.boletas.length==0 && usuario.palcos.length==0">
+        <div class="col-12 border eventoFondo" style="text-align: center;" *ngIf="usuario.boletas.length==0 ">
             <h4 class="p-5"> <strong> No tienes ningún Ticket, compra uno y vive la experiencia All Tickets.</strong></h4>
         </div>
         <div class="col-12 border eventoFondo mt-3 " *ngFor="let boleta of usuario.boletas">

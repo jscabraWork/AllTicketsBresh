@@ -11,6 +11,69 @@ h3{
     color: white;
 }
 .arriba{
-    background: linear-gradient(#666, #333); 
+    background: linear-gradient(#666, #333);
+    width: 100%; 
    
+}
+
+mat-icon{
+    color: #ed701c;
+    cursor: pointer;
+}
+.elementosMenu
+{
+    color:black;
+ 
+    
+}
+.elementosMenu:hover
+{
+    color: #ed701c;
+    background-color: lightgray;
+    
+}
+
+.descripcion{
+    font-size: 20px;
+    color: #ed701c;
+    cursor: pointer;
+}
+a{
+    cursor: pointer;
+}
+a:hover
+{
+    text-decoration: underline;
+    color: #ed701c;
+}
+.centrarTexto{
+    text-align: center;
+}
+
+.fondoImagen
+{
+    overflow: hidden;
+    width: 100%;
+    height: 400px;
+    cursor: pointer;
+    background-color: #ed701c;
+    text-align: center;
+    
+}
+
+.centrado10{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white;
+
+
+}
+
+
+.imagenes{
+    width: 50%;
+    cursor: pointer;
+    
 }

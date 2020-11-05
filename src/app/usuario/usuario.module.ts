@@ -12,6 +12,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { TicketsUsuarioComponent } from './usuario-perfil/tickets-usuario/tickets-usuario.component';
 import { AgregarAmigosComponent } from './usuario-perfil/agregar-amigos/agregar-amigos.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CambiarPerfilComponent } from './usuario-perfil/cambiar-perfil/cambiar-perfil.component';
 
 
 
@@ -60,13 +64,16 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[  UsuarioComponent,UsuarioPerfilComponent, TicketsUsuarioComponent, AgregarAmigosComponent],
+    declarations:[  UsuarioComponent,UsuarioPerfilComponent, TicketsUsuarioComponent, AgregarAmigosComponent, CambiarPerfilComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 
         HttpClientModule,
         FormsModule,
-        ReactiveFormsModule, 
+        ReactiveFormsModule,
+        MatDialogModule,
+     
+        MatIconModule, 
     ]
 
 })

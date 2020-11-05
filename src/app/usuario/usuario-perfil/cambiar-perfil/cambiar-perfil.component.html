@@ -1,0 +1,44 @@
+<section class="container">
+    <div class="row">
+        <div class="col-12">
+            <mat-icon class="float-right rounded pt-2 pb-2 pl-3 pr-3 botonesCerrar" mat-button mat-dialog-close> cancel_presentation</mat-icon>
+        </div>
+        <div class="col-12 mt-3 mb-3" >
+            <div class="centrarTexto">
+                <h3 class="colorLetras"><strong>Tus Datos</strong></h3>
+                <h5><strong>Mantente actualizado para un mejor servicio</strong></h5>
+            </div>
+            <hr>
+
+            <form (ngSubmit)="!todoForm.invalid && saveUsuario()" class="fondoNegro border rounded p-3" #todoForm="ngForm">
+               
+                <fieldset class="form-group">
+                    <input type="text" class= "form-control" placeholder="Nombre" name ="nombre" required="required"  [(ngModel)]="usuario.nombre">
+                </fieldset>
+                <fieldset class="form-group">
+                  
+                    <input type="password" placeholder="Contraseña" class= "form-control "name ="contrasena" required="required"  [(ngModel)]="usuario.contrasena">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    
+                    <input type="tel"placeholder="Celular"   class= "form-control "name ="celular" required="required"  [(ngModel)]="usuario.celular">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    
+                    <input type="email" placeholder="Correo" class= "form-control "name ="correo" required="required"  [(ngModel)]="usuario.correo">
+                </fieldset>
+
+                <fieldset class="form-group">
+             
+                    <input type="text" placeholder="Dirección" class= "form-control "name ="direccion" required="required"  [(ngModel)]="usuario.direccion">
+                </fieldset>
+
+                <div style="text-align: center;">
+                    <button class="btn botonLogin mt-2" type="submit">Guardar</button>
+                </div>    
+            </form>
+        </div>  
+    </div>
+</section>
