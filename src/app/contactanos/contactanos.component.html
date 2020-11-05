@@ -1,10 +1,14 @@
 
 <mat-icon class="float-right rounded pt-2 pb-2 pl-3 pr-3 botonesCerrar" mat-button mat-dialog-close> cancel_presentation</mat-icon>
-<div class="container mt-5">
+<div class="container mt-3 mb-3">
 <div class="row">
   <div class="col-1"></div>
   <div class="col-10 border" style="background-color: white;">
-    
+    <div class="centrarTexto mt-3">
+      <h3 class="colorLetras"><strong>Contactanos</strong></h3>
+      <h5><strong>Estamos para resolver cualquier problema</strong></h5>
+  </div>
+  <hr>
     <form  class="p-4"  (ngSubmit)="!contactForm.invalid && onSubmit()" #contactForm="ngForm">
     
       <div class="form-group">
