@@ -19,8 +19,8 @@ export class UsuariosDataService {
     return this.http.get<Cliente>(this.url+'/usuario/'+usuario);
   }
 
-  mandarCorreo(cliente:Cliente){
-    return this.http.post(`${API_URL}/clientes/correo`, cliente)
+  mandarCorreo(cliente:Cliente, contrasena){
+    return this.http.post(`${API_URL}/clientes/correo/${contrasena}`, cliente)
   }
 
   getClientePorId(pId:number){

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Promotor } from 'src/app/promotor-perfil/promotor.model';
 import { PromotorDataService } from 'src/app/service/data/promotor-data.service';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-agregar-promotor',
@@ -28,6 +29,10 @@ export class AgregarPromotorComponent implements OnInit {
   }
 
   save(){
+    var md5 = new Md5()
+
+    var contra = this.promotor.contrasena;
+    this.promotor.contrasena = md5.appendStr(contra).end().toString();
     this.servicio.addPromotor(this.promotor).subscribe(response=>{
       response
       alert('Se creo el promotor ' + this.promotor.usuario)

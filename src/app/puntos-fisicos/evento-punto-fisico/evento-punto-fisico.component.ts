@@ -135,42 +135,47 @@ valorTotal:number=0
   reservarBoletasLocalidad(){
 
 
-  var boleta:Boleta;
-  if(this.localidadesCompradas.length + this.boletas.length<7 )
-    {
+    
+ 
 
-      for(var i =0; i < this.localidadesCompradas.length; i=i+1){
-
-        var localidad = this.localidadesCompradas[i]
-        this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, localidad.id).subscribe(response=>{
-          boleta= response
-          if(boleta!=null){ 
-            this.boletas.push(boleta)
-           
-            this.valorTotal=this.valorTotal+ localidad.precio  +localidad.servicio +localidad.servicio*IVA
-        
-       
-        }
-
-          else {
-            alert("No quedan boletas en esta localidad, prueba más tarde")
-          }
+      
+  
           
-        })
-      }
-      this.localidadesCompradas =[];
-      this.valorLocalidadAgregada =0;
-  }
-  else if(this.localidadesCompradas.length + this.boletas.length>6){
-    alert("Solo puedes comprar 6 boletas máximo por Evento")
-  }
+          this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadesCompradas[0].id , this.localidadesCompradas.length).subscribe(response=>{
+            
+            if(response!=null){ 
+              this.boletas =response
+  
+          for(var i=0; this.boletas.length>i;i=i+1)
+          {
+
+            this.valorTotal=this.valorTotal+ this.boletas[i].precio  +this.boletas[i].servicio +this.boletas[i].servicio*IVA  
+           
+          
+            this.servicioBoletas.rechazarReservaBoleta( this.boletas).subscribe(response=>response);
+          } 
+  
   
 
+              
+            
+  
+            
+              
+          
+        }
+  
+            else {
+              alert("No quedan boletas en esta localidad, prueba más tarde")
+            }
+            
+          })
+        
+        
 
-  else if(this.boletas.length ==6 ){
-    alert("Solo puedes comprar 6 boletas máximo por Evento")
+   
+    
   }
-}
 
 quitaBoletaLocalidad(localidad:Localidad){
   if(this.localidadesCompradas.length >0){

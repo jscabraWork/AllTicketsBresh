@@ -3,6 +3,7 @@ import { Cliente } from './../usuario/cliente.model';
 import {MatDialog} from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-registrarse',
@@ -24,7 +25,7 @@ export class RegistrarseComponent implements OnInit {
       celular:null,
       correo:null,
         direccion:null,
-        publicidad:true,
+        publicidad:false,
         boletas:[],
         palcos:[]
     }
@@ -34,14 +35,19 @@ export class RegistrarseComponent implements OnInit {
 
   saveUsuario(){
     
+    var md5 = new Md5()
+
+    var contra = this.usuario.contrasena;
+    this.usuario.contrasena = md5.appendStr(contra).end().toString();
     this.service.createCliente(this.usuario).subscribe(response=>{console.log(response),
       alert("Se ha creado exitosamente el usuario "+this.usuario.usuario + " Revisa tu correo, debio llegar un correo de confirmación") ,
       this.dialog.closeAll(),
-      this.service.mandarCorreo(this.usuario).subscribe(response=>response)
+      this.service.mandarCorreo(this.usuario, contra).subscribe(response=>response)
     
   },
     error=>{alert(error.error.message);
       console.log(error)
+      this.usuario.contrasena =""
       }
     
     )

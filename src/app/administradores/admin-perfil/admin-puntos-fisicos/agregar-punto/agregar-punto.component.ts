@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { PuntoFisico } from './../../../../puntos-fisicos/puntoFisico.model';
 import { PuntosFisicosDataService } from './../../../../service/data/puntos-fisicos-data.service';
 import { Component, OnInit } from '@angular/core';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-agregar-punto',
@@ -25,6 +26,10 @@ export class AgregarPuntoComponent implements OnInit {
   }
 
   savePunto(){
+    var md5 = new Md5()
+
+    var contra = this.punto.contrasena;
+    this.punto.contrasena = md5.appendStr(contra).end().toString();
     this.servicio.agregarPunto(this.punto).subscribe(response=>{  alert('Se creo el punto fisico ' + this.punto.nombre);
     this.router.navigate(['administradores/puntosFisicos'])
       },

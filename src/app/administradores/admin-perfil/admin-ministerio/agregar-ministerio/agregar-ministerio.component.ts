@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ministerio } from 'src/app/perfil-ministerio/ministerio.model';
 import { MinisterioDataService } from 'src/app/service/data/ministerio-data.service';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-agregar-ministerio',
@@ -25,6 +26,10 @@ export class AgregarMinisterioComponent implements OnInit {
   }
 
   saveMinisterio(){
+    var md5 = new Md5()
+
+    var contra = this.ministerio.contrasena;
+    this.ministerio.contrasena = md5.appendStr(contra).end().toString();
     this.service.crearMinisterios(this.ministerio).subscribe(response=>{response
     alert("Se creo el ministerio "+this.ministerio.usuario)
     this.router.navigate(['administradores/ministerios'])

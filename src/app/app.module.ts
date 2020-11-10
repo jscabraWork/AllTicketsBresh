@@ -42,6 +42,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import {MatIconModule} from '@angular/material/icon';
 import { MinisterioModule } from './perfil-ministerio/ministerio.module';
+import { MensajeComponent } from './mensaje/mensaje.component';
 
 
 
@@ -82,6 +83,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 
      PreguntasFrecuentesComponent,
      CalendarioComponent,
+     MensajeComponent,
 
   
 

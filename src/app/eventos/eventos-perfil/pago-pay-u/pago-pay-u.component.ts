@@ -233,7 +233,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 
 
           this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
-          this.servicioBoletas.rechazarReservaBoleta( lista[0].id).subscribe(response=>response);
+          this.servicioBoletas.rechazarReservaBoleta( this.boletas).subscribe(response=>response);
       
       })}
       else {
@@ -286,36 +286,32 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 
 
     
-  var boleta:Boleta;
+ 
   if(this.localidadesCompradas.length + this.boletas.length + this.contadorBoletas<7 && !this.usuarioBoolean && this.localidadesCompradas.length>0)
     {
       this.cargando=true
-      for(var i =0; i < this.localidadesCompradas.length; i=i+1){
+    
 
-        var localidad = this.localidadesCompradas[i]
-        this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, localidad.id).subscribe(response=>{
-          boleta= response
-          if(boleta!=null){ 
-            this.boletas.push(boleta)
-            this.cargando= false
-           
         
-        this.referenceCode = this.referenceCode +boleta.localidadNombre+":"+boleta.id+"/" ;
-      
-        
-          this.valorTotal=this.valorTotal+ boleta.precio  +boleta.servicio +boleta.servicio*IVA  
-          var md5 = new Md5()
-
-
-          this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
+        this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadesCompradas[0].id , this.localidadesCompradas.length).subscribe(response=>{
           
-          if(i == this.localidadesCompradas.length)
-          {
-            this.AbrirCarrito()
-            
+          if(response!=null){ 
+            this.boletas =response
+            this.cargando= false
+
+        for(var i=0; this.boletas.length>i;i=i+1)
+        { 
+          var md5 = new Md5()
+          this.referenceCode = this.referenceCode +this.boletas[i].localidadNombre+":"+this.boletas[i].id+"/" ;
+          this.valorTotal=this.valorTotal+ this.boletas[i].precio  +this.boletas[i].servicio +this.boletas[i].servicio*IVA  
+          this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
+          if(i == this.boletas.length-1){
+            this.AbrirCarrito()  
           }
 
-          this.servicioBoletas.rechazarReservaBoleta( boleta.id).subscribe(response=>response);
+        } 
+
+              this.servicioBoletas.rechazarReservaBoleta( this.boletas).subscribe(response=>response);
             
         
       }
@@ -325,7 +321,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
           }
           
         })
-      }
+      
       
       
   }
@@ -412,10 +408,10 @@ AbrirCarrito(): void {
   });
 
   dialogRef.afterClosed().subscribe(result => {
-    for(var i=0; i < this.boletas.length; i=i+1){
-      this.servicioBoletas.rechazarReservaBoletaInstantaneamente(this.boletas[i].id).subscribe(response=> response)
+  
+      this.servicioBoletas.rechazarReservaBoletaInstantaneamente(this.boletas).subscribe(response=> response)
 
-    }
+    
     
     this.dialog.closeAll();
     this.boletas=[]

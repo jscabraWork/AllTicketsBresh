@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { HardcodedAutheticationService } from './../service/hardcoded-authetication.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-login',
@@ -27,14 +28,18 @@ export class LoginComponent implements OnInit {
 
 
   handleLogin(){
+    var md5 = new Md5()
 
-   this.autenticacion.authenticate(this.username,this.password).subscribe( response=>
+    var contra = md5.appendStr(this.password).end().toString();
+ 
+
+   this.autenticacion.authenticate(this.username,contra).subscribe( response=>
 
     {
   
       if(response!=null){
         
-        if(response.contrasena == this.password){
+        if(response.contrasena == contra){
           
           if(response.tipo=='usuario'){
             sessionStorage.setItem('usuario',this.username);

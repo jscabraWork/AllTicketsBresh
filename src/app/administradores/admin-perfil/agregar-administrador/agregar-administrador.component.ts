@@ -4,6 +4,7 @@ import { Admin } from './../../admin.model';
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-agregar-administrador',
@@ -29,7 +30,10 @@ export class AgregarAdministradorComponent implements OnInit {
     
   }
   saveAdmin(){
+    var md5 = new Md5()
 
+    var contra = this.administrador.contrasena;
+    this.administrador.contrasena = md5.appendStr(contra).end().toString();
     this.service.addAdministrador(this.administrador).subscribe(data=>data)
     alert('Se creo el administrador ' + this.administrador.nombre)
     this.router.navigate(['administradores'])

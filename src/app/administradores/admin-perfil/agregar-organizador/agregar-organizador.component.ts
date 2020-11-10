@@ -2,6 +2,7 @@ import { OrganizadorDataService } from './../../../service/data/organizador-data
 import { Organizador } from './../../../organizadores/organizador.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-agregar-organizador',
@@ -25,6 +26,10 @@ organizador:Organizador;
   }
 
   saveOrganizador(){
+    var md5 = new Md5()
+
+    var contra = this.organizador.contrasena;
+    this.organizador.contrasena = md5.appendStr(contra).end().toString();
     this.servicio.addOrganizador(this.organizador).subscribe(data=> console.log(data))
     this.router.navigate(['organizadores'])
     alert(' Se agrego el organizador '+ this.organizador.nombre)

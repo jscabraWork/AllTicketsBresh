@@ -184,7 +184,7 @@ cargando = false
 
 
           this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
-          this.servicioBoletas.rechazarReservaBoleta( lista[0].id).subscribe(response=>response);
+          this.servicioBoletas.rechazarReservaBoleta( lista).subscribe(response=>response);
       
       })}
       else {
@@ -217,21 +217,21 @@ cargando = false
   reservarBoletasLocalidad(){
 
 
-  var boleta:Boleta;
+  var boleta:Boleta[];
  
 
      
 if(this.localidadCompradas){
       this.cargando=true
-        this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadCompradas.id).subscribe(response=>{
+        this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadCompradas.id, 1).subscribe(response=>{
           boleta= response
           console.log(boleta)
           if(boleta!=null){ 
-            this.boleta = boleta
+            this.boleta = boleta[0]
             this.cargando = false;
            
         
-        this.referenceCode = "TICKETREGALO: /"+this.asistente.correo+boleta.localidadNombre+":"+boleta.id+"/";
+        this.referenceCode = "TICKETREGALO: /"+this.asistente.correo+boleta[0].localidadNombre+":"+boleta[0].id+"/";
       
         
           this.valorTotal= this.boleta.precio  + this.boleta.servicio + this.boleta.servicio*IVA
@@ -241,7 +241,7 @@ if(this.localidadCompradas){
 
           this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
           this.AbrirCarrito()
-          this.servicioBoletas.rechazarReservaBoleta( boleta.id).subscribe(response=>{response
+          this.servicioBoletas.rechazarReservaBoleta( boleta).subscribe(response=>{response
           
           })   
             
@@ -288,8 +288,9 @@ AbrirCarrito(): void {
   });
 
   dialogRef.afterClosed().subscribe(result => {
-  
-      this.servicioBoletas.rechazarReservaBoletaInstantaneamente(this.boleta.id).subscribe(response=> response)
+  var boletas: Boleta[] =[];
+  boletas.push(this.boleta)
+      this.servicioBoletas.rechazarReservaBoletaInstantaneamente(boletas).subscribe(response=> response)
 
     
     

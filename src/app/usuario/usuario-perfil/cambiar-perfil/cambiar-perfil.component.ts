@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UsuariosDataService } from 'src/app/service/data/usuarios-data.service';
+import { Md5 } from 'ts-md5';
 import { Cliente } from '../../cliente.model';
 
 @Component({
@@ -14,6 +15,7 @@ export class CambiarPerfilComponent implements OnInit {
     private dataServicio:UsuariosDataService,
     private dialog:MatDialog) { }
   usuario:Cliente
+  contra
   ngOnInit(): void {
     this.usuario= {
       nombre: "",
@@ -28,12 +30,20 @@ export class CambiarPerfilComponent implements OnInit {
         boletas:[],
         palcos:[]
     }
+    this.contra = this.data.usuario.contrasena;
     this.usuario= this.data.usuario;
+    
+ 
 
   }
 
   saveUsuario(){
-    console.log(this.usuario)
+    if(this.contra != this.usuario.contrasena){
+      var md5 = new Md5()
+
+      var contra = this.usuario.contrasena;
+      this.usuario.contrasena = md5.appendStr(contra).end().toString();
+    }
     this.dataServicio.updateCliente(this.usuario.numeroDocumento,this.usuario).subscribe(data=>{console.log(data)
       this.dialog.closeAll() 
       alert('Cambiaste exitosamente tus datos '+ this.usuario.usuario)
