@@ -53,7 +53,35 @@
                      </h3>
                 
               </div>
-                <app-tickets-usuario></app-tickets-usuario>
+                
+<section class="container " >
+    
+    <div class="row rounded" >
+        <div class="col-12 border eventoFondo" style="text-align: center;" *ngIf="usuario.boletas.length==0 ">
+            <h4 class="p-5"> <strong> No tienes ningún Ticket, compra uno y vive la experiencia All Tickets.</strong></h4>
+        </div>
+        <div class="col-12 border eventoFondo mt-3 " *ngFor="let boleta of usuario.boletas">
+            
+                <div style="text-align: center" class="pt-3">
+                    <h3 class="colorNaranja">
+                        <strong>
+                            Ticket
+                        </strong>
+                    </h3>
+                </div>
+
+            <h5 class="pl-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
+            <h5 class="pl-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
+            <h5 class="pl-4 "><strong>Boleta No:</strong> {{boleta.id}}  </h5>
+            <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
+            <h5 class="pl-4 pb-4"><strong>Precio: </strong>{{boleta?.precio + boleta.servicio + boleta.servicio*0.19 | currency:'COP'}}</h5>
+        </div>
+        
+            
+    </div>
+</section>
+
+
             </div>
 
             <div class="col-12  " *ngIf=datos  >

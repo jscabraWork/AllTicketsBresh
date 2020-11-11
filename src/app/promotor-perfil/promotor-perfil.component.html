@@ -1,1 +1,139 @@
-<p>promotor-perfil works!</p>
+<section class="container-fluid eventoFondo border shadow mb-5 mt-2" >
+    <section class="container ">
+    <div class="row">
+        <div class="col-12 mt-4" >
+            <div >
+         
+                <div class="fondoImagen pt-3" style="border-radius: 10px;" >
+                    
+                    <img class="img-fluid bordeRedondeado"   src="../../../assets/images/img/Logo grande.png" alt="">
+                    
+                </div>
+            </div>
+            <div class="centrarTexto centrado10">
+                <img src="../../../assets/images/img/Persona 3.png" class="imagenes rounded-circle eventoFondo border"  alt="">
+                
+            </div>
+            
+            
+        </div>
+        <div class="col-12">
+            <div class="centrarTexto">
+                <h1 class="mt-5 pt-5"><strong>{{promotor.nombre}}</strong></h1>
+
+            </div>
+      
+            <hr>
+        </div>
+        <div class="col-12 menu2 mb-4 mt-3">
+            <p>
+        
+                <a (click)="datos=true; palcos =false; tickets =false;" class="p-3 mr-3 ml-3 rounded elementosMenu">Información General</a>
+                <a (click)="datos=false; palcos =true; tickets =false;" class="p-3 mr-3 ml-3 rounded elementosMenu">Palcos vendidos recientemente</a>
+                <a (click)="datos=false; palcos =false; tickets =true;"  class="p-3 mr-3 ml-3 rounded elementosMenu">Tickets vendidos recientemente</a>
+             
+                
+            </p>
+            
+        </div>
+    </div>
+</section>
+</section>
+<section class="container">
+    <div class="row">
+
+      
+        <div class="col-12" *ngIf="tickets">
+            <div class=" arriba  ">
+                <h3 class=" p-4"> 
+                  <strong> Tickets Vendidos</strong>
+                 </h3>
+          </div>
+            
+                 
+<section class="container " >
+    
+    <div class="row rounded" >
+        <div class="col-12 border eventoFondo" style="text-align: center;" *ngIf="promotor.boletasVendidas.length==0 ">
+            <h4 class="p-5"> <strong> No has vendido ningún ticket recientemente.</strong></h4>
+        </div>
+        <div class="col-12 border eventoFondo mt-3 " *ngFor="let boleta of promotor.boletasVendidas">
+            
+            <div style="text-align: center" class="pt-3">
+                <h3 class="colorNaranja">
+                    <strong>
+                        Ticket
+                    </strong>
+                </h3>
+            </div>
+
+            <h5 class="pl-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
+            <h5 class="pl-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
+            <h5 class="pl-4 "><strong>Boleta No:</strong> {{boleta.id}}  </h5>
+            <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
+            <h5 class="pl-4 pb-4"><strong>Precio: </strong>{{boleta?.precio + boleta.servicio + boleta.servicio*0.19 | currency:'COP'}}</h5>
+        </div>     
+    </div>
+</section>
+
+
+         
+           
+        </div>
+
+        <div class="col-12  " *ngIf=datos  >
+                   
+            <div class=" arriba  ">
+                <h3 class=" p-4"> 
+                  <strong> Mis Datos</strong>
+                 </h3>
+          </div>
+    <div class="eventoFondo border rounded p-4">
+        <h5 class="pl-4 pt-4" ><strong>Codigo de Venta: </strong>{{promotor?.codigoventa}}</h5>
+        <h5 class="pl-4"><strong>ID {{promotor?.tipoDocumento}} de Promotor: </strong>{{promotor?.numeroDocumento}}</h5>
+        <h5 class="pl-4"><strong>Nombre: </strong> {{promotor.nombre}}</h5>
+        <h5 class="pl-4" ><strong>Usuario: </strong>{{promotor?.usuario}}</h5>
+        <h5 class="pl-4" ><strong>Correo: </strong>{{promotor?.correo}}</h5>
+        <h5 class="pl-4" ><strong>Celular: </strong>{{promotor?.celular}}</h5>
+        <h5 class="pl-4" ><strong>Cantidad de boletas Historicas vendidas: </strong>{{promotor?.boletasVendidas.length + promotor?.boletasCanjeadas.length}}</h5>
+        <h5 class="pl-4" ><strong>Cantidad de boletas por pagar: </strong>{{promotor?.boletasVendidas.length}}</h5>
+        <h5 class="pl-4" ><strong>Cantidad de palcos Historicas vendidas: </strong>{{promotor?.palcosVendidos.length + promotor?.palcosCanjeados.length}}</h5>
+        <h5 class="pl-4" ><strong>Cantidad de palcos por pagar: </strong>{{promotor?.palcosVendidos.length}}</h5>
+    </div>  
+        </div>  
+    <div class="col-12" *ngIf="palcos">
+        <div class=" arriba  ">
+        
+          
+            <h3 class=" p-4"> 
+              <strong> Mis Palcos</strong>
+             </h3>
+        
+      </div>
+     <section class="container" >
+        <div class="row">
+            <div class="col-12 border eventoFondo" style="text-align: center;" *ngIf="promotor.palcosVendidos.length==0 ">
+                <h4 class="p-5"> <strong> No has vendido ningún palco recientemente.</strong></h4>
+            </div>
+            <div class="col-12 border " *ngFor="let palco of promotor.palcosVendidos" >
+                <div style="text-align: center; " class="pt-3">
+                    <h3 style="color:#ed701c">
+                        <strong>
+                            Palco
+                        </strong>
+                    </h3>
+                </div>
+                <h5 class="pt-4 pl-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>
+                <h5 class="pl-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
+                <h5 class="pl-4 "><strong>Palco No:</strong> {{palco.id}}</h5>
+                <h5 class="pl-4"><strong>Personas por palco:</strong> {{palco.personasMaximas}}</h5>
+                <h5 class="pl-4" ><strong>Precio: </strong>{{palco?.precio + palco?.servicio + palco?.servicio*0.19|currency:'COP'}}</h5>
+                <h5 class="pl-4 "><strong>Dinero recaudado: </strong> {{palco?.precioParcialPagado |currency:'COP'}}</h5>
+
+
+            </div>
+        </div>
+    </section> 
+</div>  
+    </div>
+</section>

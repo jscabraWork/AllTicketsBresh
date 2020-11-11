@@ -26,7 +26,12 @@ export class UpdatePromotorComponent implements OnInit {
       numeroDocumento:null,
       tipo:null,
       tipoDocumento:null,
-      usuario:null
+      usuario:null,
+      boletasCanjeadas:[],
+      palcosCanjeados:[],
+      palcosVendidos:[],
+      celular:null,
+      correo:null
     }
     this.route.paramMap.subscribe(params=>{ this.id=params.get('id')});
     this.servicio.getPromotorById(this.id).subscribe(response=>{

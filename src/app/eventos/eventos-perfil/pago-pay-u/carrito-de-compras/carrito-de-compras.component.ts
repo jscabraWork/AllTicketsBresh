@@ -16,6 +16,7 @@ import { Asistente } from 'src/app/administradores/admin-perfil/admin-eventos/ad
 })
 export class CarritoDeComprasComponent implements OnInit {
 
+  codigoVenta=''
   merchantId:number
   accountId:number
   referenceCode: string
@@ -115,23 +116,20 @@ export class CarritoDeComprasComponent implements OnInit {
   }
 
   comprarBoletasAsistente(){
+    if(this.codigoVenta!='')
+    {
+      var boletas:Boleta[] =[]
+      boletas.push(this.boleta)
+      this.servicioBoletas.asignarBoletasPromotor(this.codigoVenta,boletas).subscribe(response=>response)
+    }
     alert("A continuación entraras a Pay U para realizar tu pago")
     this.servicioBoletas.comprarBoletaParaAsistente(this.evento.id, this.boleta.localidadIdNumero,this.boleta.id, this.asistente).subscribe(response=>{response
-      this.boleta={
-        id:null,
-        imagenQr:null,
-        localidadIdNumero:null,
-        localidadNombre:null,
-        nombreEvento:null,
-        precio:null,
-        reservado:null,
-        seccionSilla:null,
-        servicio:null,
-        utilizada:null,
-        vendida:null,
-      }
+
+
     
     })
+
+  
 
 
 
@@ -148,7 +146,10 @@ export class CarritoDeComprasComponent implements OnInit {
      
 
     this.servicioBoletas.comprarBoleta(this.evento.id,this.boletas,this.usuarioEntidad.numeroDocumento).subscribe(response=> {response
-    
+    if(this.codigoVenta!='')
+    {
+      this.servicioBoletas.asignarBoletasPromotor(this.codigoVenta, this.boletas).subscribe(response=>response)
+    }
     })
 
     }
@@ -163,6 +164,9 @@ export class CarritoDeComprasComponent implements OnInit {
           var date= new Date()
           this.palco.fechaVendido =date;
           this.palcoServicio.comprarPalco(this.palco.id,this.usuarioEntidad.numeroDocumento,this.valorTotal,this.palco).subscribe(response=>{response
+            if(this.codigoVenta!=''){
+              this.palcoServicio.asignarPalco(this.codigoVenta,this.palco).subscribe(response=>response)
+            }
             this.palcoServicio.pasoMuchoTiempoPaca(this.palco.id).subscribe(response=>{response
         
               this.palco={

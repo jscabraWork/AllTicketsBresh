@@ -81,6 +81,9 @@ pasoMuchoTiempoPaca(idPalco){
   return this.http.put(`${API_URL}/palcos/${idPalco}/vaca/rechazar`,null)
 }
   
+asignarPalco(codigoVenta:string, palco){
+  return this.http.put(`${API_URL}/palcosPromotor/${codigoVenta}`, palco)
   
+}
 
 }

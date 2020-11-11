@@ -24,7 +24,12 @@ export class AgregarPromotorComponent implements OnInit {
       numeroDocumento:null,
       tipo:null,
       tipoDocumento:null,
-      usuario:null
+      usuario:null,
+      boletasCanjeadas:[],
+      palcosCanjeados:[],
+      palcosVendidos:[],
+      celular:null,
+      correo:null
     }
   }
 

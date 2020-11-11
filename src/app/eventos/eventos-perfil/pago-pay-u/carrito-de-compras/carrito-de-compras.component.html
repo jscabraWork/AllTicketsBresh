@@ -47,17 +47,20 @@
                   <strong> Cargando ...</strong>
                 </h6>
               </div>
-              <div class="fondoBlanco shadow">
+              <div class="fondoBlanco shadow col-12">
                 <h5 class="p-5"  >
                   <strong>Valor Total:</strong> {{valorTotal |currency:'COP'}}
                   <br>
+                  
                   <strong *ngIf="boletas?.length>0">Cantidad de Tickets:</strong> {{boletas?.length}}
                   <strong  *ngIf="palco.id!=null" >Cantidad de Palcos: 1</strong> 
                 </h5>
-            
+                
               </div>
+
             </div>
-            <div class="p-4" >
+            <div class="row">
+            <div class="p-4 col-6" >
               <button *ngIf="boletas?.length>0" (click)="comprarBoletas()" >Comprar sin pagar BOTON PRUEBAS </button>
                 <form ngNoForm method="post" [action]="url" *ngIf="boletas?.length>0">
                   <input name="merchantId" type="hidden" value="{{merchantId}}">
@@ -124,8 +127,11 @@
                   <button name="Submit" class="action_button" type="submit"  value="Enviar" style="font-size:16px ;">Pagar</button>
                 </form>
             </div>
-            
-            
+            <div class="col-6">
+              <input placeholder="¿Algún promotor?" [(ngModel)] ="codigoVenta" class="float-right form-control" type="text">
+              
+            </div>
+          </div>  
          
           </div>
 

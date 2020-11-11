@@ -107,4 +107,9 @@ export class BoletasDataService {
   reservarBoletaExacta(pEvento,pIdBoleta){
     return this.http.put <Boleta>(this.url+ `${pEvento}/boletas/{pIdLocalidad}/reservar/${pIdBoleta}`,null);
   }
+
+  asignarBoletasPromotor(codigoVenta:string, boletas){
+    return this.http.put(`${API_URL}/boletasPromotor/${codigoVenta}`, boletas)
+    
+  }
 }

@@ -12,4 +12,8 @@ export class MandarCorreosService {
   contactanos(nombre, mensaje, correo){
     return this.http.get(`${API_URL}/contactanos/${nombre}/${mensaje}/${correo}`)
   }
+  solicitudPromotor(documento, nombre, tipoDocumento, fecha, celular, correo,  hacer, porque, gusta){
+    return this.http.get(`${API_URL}/promotor/solicitud/${documento}/${nombre}/${tipoDocumento}/${fecha}/${celular}/${correo}/${hacer}/${porque}/${gusta}`)
+    
+  }
 }

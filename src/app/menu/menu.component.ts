@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactanosComponent } from '../contactanos/contactanos.component';
 import { SePromotorComponent } from '../se-promotor/se-promotor.component';
+import { CalendarioComponent } from '../calendario/calendario.component';
 
 @Component({
   selector: 'app-menu',
@@ -105,4 +106,18 @@ export class MenuComponent implements OnInit {
     });
   }
 
+  openDialog7(){
+ 
+    const dialogRef = this.dialog.open(CalendarioComponent, {
+      width: '40%',
+      height:'80%',
+      
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+  }
 }

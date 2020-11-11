@@ -10,20 +10,20 @@
             </div>
             <hr>
 
-            <form (ngSubmit)="!todoForm.invalid" #todoForm="ngForm">
+            <form (ngSubmit)="!todoForm.invalid  && onSubmit()" #todoForm="ngForm">
                 <fieldset class="form-group">
               
-                    <input placeholder="Numero Documento" type="text" class= "form-control "name ="id" required="required" >
+                    <input [(ngModel)]="documento" placeholder="Numero Documento" type="text" class= "form-control "name ="id" required="required" >
                 </fieldset>    
                 
                 <fieldset class="form-group">
              
-                    <input placeholder="Nombre" type="text" class= "form-control "name ="nombre" required="required"  >
+                    <input [(ngModel)]="nombre" placeholder="Nombre" type="text" class= "form-control "name ="nombre" required="required"  >
                 </fieldset>
 
                 <fieldset class="form-group">
        
-                    <select type="text" class= "form-control "name ="tipo" required="required" >
+                    <select [(ngModel)]="tipoDocumento" type="text" class= "form-control "name ="tipo" required="required" >
                         <option value="Cedula">Cedula</option>
                         <option value="Pasaporte">Pasaporte</option>
                     </select>    
@@ -31,38 +31,32 @@
 
                 <fieldset class="form-group">
                
-                    <input type="date"  class= "form-control" name="fecha" required="required" >
+                    <input [(ngModel)]="fecha" type="date"  class= "form-control" name="fecha" required="required" >
                 </fieldset>
                 <fieldset class="form-group">
             
-                    <input placeholder="Celular" type="text"  class= "form-control "name ="celular" required="required" >
+                    <input [(ngModel)]="celular" placeholder="Celular" type="text"  class= "form-control "name ="celular" required="required" >
                 </fieldset>
 
                 <fieldset class="form-group">
            
-                    <input placeholder="Correo" type="email" class= "form-control "name ="correo" required="required">
-                </fieldset>
-
-
-                <fieldset class="form-group">
-              
-                    <input placeholder="Dirección" type="text" class= "form-control "name ="direccion" required="required">
+                    <input [(ngModel)]="correo" placeholder="Correo" type="email" class= "form-control "name ="correo" required="required">
                 </fieldset>
                 <fieldset class="form-group">
             
-                    <input placeholder="¿Que haces? ¿Estudias? ¿Trabajas?" type="text"  class= "form-control "name ="estudiante" required="required" >
+                    <input [(ngModel)]="haces" placeholder="¿Que haces? ¿Estudias? ¿Trabajas?" type="text"  class= "form-control "name ="estudiante" required="required" >
                 </fieldset>
 
              
       
                 <fieldset class="form-group">
               
-                    <input placeholder="¿Por qué quieres trabajar con nosotros?" type="text" class= "form-control "name ="porque" required="required">
+                    <input [(ngModel)]="porque" placeholder="¿Por qué quieres trabajar con nosotros?" type="text" class= "form-control "name ="porque" required="required">
                 </fieldset>
 
                 <fieldset class="form-group">
               
-                    <input placeholder="¿Qué te gusta hacer?" type="text" class= "form-control "name ="gustos" required="required">
+                    <input [(ngModel)]="gusta" placeholder="¿Qué te gusta hacer?" type="text" class= "form-control "name ="gustos" required="required">
                 </fieldset>
 
     

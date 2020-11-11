@@ -485,7 +485,9 @@
     background-color: white;
     
 }
-
+.colorNaranja{
+    color: #ed701c;
+}
 
 .action_button {
     text-decoration: none; 

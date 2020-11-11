@@ -120,10 +120,6 @@ const routes: Routes = [
   },
 
   {
-    path:'calendario', component: CalendarioComponent
-  },
-  
-  {
     path:'', component: HomeComponent
   }
   ,
