@@ -86,4 +86,27 @@ asignarPalco(codigoVenta:string, palco){
   
 }
 
+
+
+pagarPalcosAPromotor(codigoVenta:string){
+  return this.http.put(`${API_URL}/palcosPromotorPagar/${codigoVenta}`, null)
+  
+}
+
+
+
+asignarPalcoPuntoFisico(numeroInterno:number, palco){
+  return this.http.put(`${API_URL}/palcosPuntosFisicos/${numeroInterno}`, palco)
+  
+}
+
+
+
+pagarPalcosAPromotorPuntoFisico(numeroInterno:number){
+  return this.http.put(`${API_URL}/palcosPuntosFisicosPagar/${numeroInterno}`, null)
+  
+}
+
+
+
 }

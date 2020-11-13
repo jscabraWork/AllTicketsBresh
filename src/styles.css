@@ -42,8 +42,6 @@
 #prueba
 {
 	background-image: url("assets/images/img/eventoP.jpg");
-
-    padding: 70px;
     text-align: center;
 	background-position: center center;
 	background-size: cover;
@@ -65,7 +63,7 @@
 }
 
 #prueba h1 {
-	font-size: 45px;
+
 	color: white;
 	position: relative
 }
@@ -210,11 +208,11 @@
 
     #prueba
     {
-        padding: 60px;
+        padding: 30px;
     }  
 
     #prueba h1 {
-        font-size: 45px;
+        font-size: 35px;
 
     }
 }
@@ -224,11 +222,11 @@
 
     #prueba
     {
-        padding: 40px;
+        padding: 30px;
     }  
 
     #prueba h1 {
-        font-size: 40px;
+        font-size: 30px;
 
     }
 }
@@ -240,11 +238,11 @@
 
     #prueba
     {
-        padding: 35px;
+        padding: 30px;
     }  
 
     #prueba h1 {
-        font-size: 40px;
+        font-size: 28px;
 
     }
     
@@ -253,11 +251,11 @@
 
     #prueba
     {
-        padding: 50px;
+        padding: 30px;
     }  
 
     #prueba h1 {
-        font-size: 40px;
+        font-size: 25px;
 
     }
 }
@@ -267,11 +265,11 @@
 
     #prueba
     {
-        padding: 40px;
+        padding: 30px;
     }  
 
     #prueba h1 {
-        font-size: 40px;
+        font-size: 25px;
 
     }
 }

@@ -15,6 +15,7 @@
                     <th>Nombre</th>
                    <th>Usuario</th>
                    <th>Contraseña</th>
+                   <th>Pagar</th>
                    <th>Modificar</th>
                    <th>Borrar</th>
                     
@@ -30,6 +31,7 @@
                     <td> {{punto?.nombre }}</td> 
                     <td> {{punto?.usuario }}</td>
                     <td>{{punto?.contrasena}}</td>
+                    <td><button  class="btn btn-warning" routerLink="pagar/{{punto.numeroDocumento}}"> Pagar</button></td>
                     <td><button  class="btn btn-warning" routerLink="update/{{punto.numeroDocumento}}"> Modificar</button></td>
                     <td><button  class="btn btn-danger" (click)= "borrarPunto(punto.numeroDocumento)"> Delete</button></td>
                 </tr>

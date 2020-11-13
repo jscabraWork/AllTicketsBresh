@@ -20,7 +20,11 @@ export class AgregarPuntoComponent implements OnInit {
       numeroDocumento:null,
       tipo:null,
       tipoDocumento:null,
-      usuario:null
+      usuario:null,
+      boletasCanjeadas:[],
+      boletasVendidas:[],
+      palcosCanjeados:[],
+      palcosVendidos:[]
     }
 
   }

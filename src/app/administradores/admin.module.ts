@@ -47,6 +47,8 @@ import { AgregarMinisterioComponent } from './admin-perfil/admin-ministerio/agre
 import { UpdateMinisterioComponent } from './admin-perfil/admin-ministerio/update-ministerio/update-ministerio.component';
 import { AgregarPromotorComponent } from './admin-perfil/admin-promotores/agregar-promotor/agregar-promotor.component';
 import { UpdatePromotorComponent } from './admin-perfil/admin-promotores/update-promotor/update-promotor.component';
+import { BoletasPromotorComponent } from './admin-perfil/admin-promotores/boletas-promotor/boletas-promotor.component';
+import { BoletasPuntosFisicosComponent } from './admin-perfil/admin-puntos-fisicos/boletas-puntos-fisicos/boletas-puntos-fisicos.component';
 
 
 const routes: Routes=[
@@ -218,7 +220,16 @@ const routes: Routes=[
         {
           path: 'promotores/update/:id',
           component: UpdatePromotorComponent
-        }
+        },
+        {
+          path: 'promotores/boletasAPagar/:id',
+          component: BoletasPromotorComponent
+        },
+
+        {
+          path:'puntosFisicos/pagar/:id',
+          component: BoletasPuntosFisicosComponent
+        },
       ]
 }
 
@@ -262,7 +273,9 @@ const routes: Routes=[
       AgregarMinisterioComponent,
       UpdateMinisterioComponent,
       AgregarPromotorComponent,
-      UpdatePromotorComponent
+      UpdatePromotorComponent,
+      BoletasPromotorComponent,
+      BoletasPuntosFisicosComponent
     ],
     imports:[
         CommonModule,

@@ -12,6 +12,7 @@
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Modificar</th>
+                <th>Pagar Al Promotor</th>
                 <th>Borrar</th>
                 
             </tr>
@@ -25,6 +26,7 @@
                 <td>{{promotor?.numeroDocumento}}</td>
                 <td>{{promotor?.nombre }}</td> 
                 <td><button routerLink= 'update/{{promotor.numeroDocumento}}' class="btn btn-warning"> Modificar</button></td>
+                <td><button class="btn btn-warning" routerLink='boletasAPagar/{{promotor.numeroDocumento}}' >Pagar </button></td>
                 <td><button (click)="borrar(promotor.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
             </tr>
     

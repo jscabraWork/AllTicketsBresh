@@ -56,4 +56,6 @@ export class UpdatePromotorComponent implements OnInit {
       )
   }
 
+  
+
 }

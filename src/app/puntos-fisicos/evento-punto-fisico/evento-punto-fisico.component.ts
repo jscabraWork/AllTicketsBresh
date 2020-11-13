@@ -134,13 +134,6 @@ valorTotal:number=0
 
   reservarBoletasLocalidad(){
 
-
-    
- 
-
-      
-  
-          
           this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadesCompradas[0].id , this.localidadesCompradas.length).subscribe(response=>{
             
             if(response!=null){ 
@@ -154,14 +147,7 @@ valorTotal:number=0
           
             this.servicioBoletas.rechazarReservaBoleta( this.boletas).subscribe(response=>response);
           } 
-  
-  
-
-              
-            
-  
-            
-              
+   
           
         }
   

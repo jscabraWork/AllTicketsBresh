@@ -112,4 +112,26 @@ export class BoletasDataService {
     return this.http.put(`${API_URL}/boletasPromotor/${codigoVenta}`, boletas)
     
   }
+
+  
+pagarBoletasAPromotor(codigoVenta:string){
+  return this.http.put(`${API_URL}/boletasPromotorPagar/${codigoVenta}`, null)
+  
+}
+
+
+
+asignarBoletasPuntoFisico(numeroInterno:number, boletas){
+  return this.http.put(`${API_URL}/boletasPuntosFisicos/${numeroInterno}`, boletas)
+  
+}
+
+
+
+pagarBoletasAPromotorPuntoFisico(numeroInterno:number){
+  return this.http.put(`${API_URL}/boletasPuntosFisicosPagas/${numeroInterno}`, null)
+  
+}
+
+
 }

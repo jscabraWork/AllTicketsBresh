@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Promotor } from 'src/app/promotor-perfil/promotor.model';
+import { BoletasDataService } from 'src/app/service/data/boletas-data.service';
 import { PromotorDataService } from 'src/app/service/data/promotor-data.service';
 
 @Component({
@@ -32,4 +33,6 @@ export class AdminPromotoresComponent implements OnInit {
 
     })
   }
+
+
 }

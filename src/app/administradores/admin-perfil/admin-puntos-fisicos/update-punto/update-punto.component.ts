@@ -23,7 +23,11 @@ export class UpdatePuntoComponent implements OnInit {
       numeroDocumento:null,
       tipo:null,
       tipoDocumento:null,
-      usuario:null
+      usuario:null,
+      boletasCanjeadas:[],
+      boletasVendidas:[],
+      palcosCanjeados:[],
+      palcosVendidos:[]
     }
 
     this.route.paramMap.subscribe( params =>{

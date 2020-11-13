@@ -1,0 +1,92 @@
+<section class="container mt-5">
+
+
+    <h1>Promotor {{promotor.numeroDocumento}} y {{promotor.nombre}}</h1>
+    <small>Boletas totales vendidas por el promotor: {{promotor.boletasVendidas.length}}</small> <br>
+    <small>Dinero que vendio en boletas {{dineroTotalBoletas | currency:'COP'}}</small> <br>
+    <button class="btn btn-warning" (click)="pagarBoletasAlPromotor()">Pagar</button>
+
+    <table class="table mt-3">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre del evento</th>
+                <th>Localidad</th>
+                <th>Precio</th>
+       
+        
+             
+                
+            </tr>
+    
+    
+    
+        </thead>
+        <tbody>
+          
+            <tr *ngFor = "let boleta of promotor.boletasVendidas">
+                <td>{{boleta?.id}}</td>
+                <td>{{boleta.nombreEvento}}</td>
+                <td>{{boleta.localidadNombre}}</td>
+                <td>{{boleta?.precio + boleta?.servicio +boleta?.servicio*IVA| currency: 'COP'}}</td>
+
+
+ 
+    
+            </tr>
+    
+    
+        </tbody>
+    
+    </table>
+    
+</section>
+
+
+
+<section class="container mt-5">
+
+
+    <h1>Promotor {{promotor.numeroDocumento}} y {{promotor.nombre}}</h1>
+    <small>Palcos totales vendidas por el promotor: {{promotor.palcosVendidos.length}}</small> <br>
+    <small>Dinero que vendio en palcos {{dineroTotalPalcos | currency:'COP'}}</small> <br>
+    <button class="btn btn-warning" (click)="pagarPalcosAlPromotor()">Pagar</button>
+
+    <table class="table mt-3">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre del evento</th>
+                <th>Localidad</th>
+                <th>Precio</th>
+                <th>Precio Pagado</th>
+        
+             
+                
+            </tr>
+    
+    
+    
+        </thead>
+        <tbody>
+          
+            <tr *ngFor = "let palco of promotor.palcosVendidos">
+                <td>{{palco?.id}}</td>
+                <td>{{palco.nombreEvento}}</td>
+                <td>{{palco.nombre}}</td>
+                <td>{{palco?.precio + palco?.servicio +palco?.servicio*IVA| currency: 'COP'}}</td>
+                <td>{{palco?.precioParcialPagado| currency: 'COP'}}</td>
+
+
+ 
+    
+            </tr>
+    
+    
+        </tbody>
+    
+    </table>
+    
+</section>
