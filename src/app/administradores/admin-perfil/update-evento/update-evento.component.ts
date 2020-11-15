@@ -42,7 +42,8 @@ this.evento ={
   horaInicio:null,
   horaFin:null,
   etapas:[],
-  mapaImagen:null
+  mapaImagen:null,
+  visible:false
 }
 this.servicio.getEventoId(this.miId).subscribe( response => this.handleGetSuccesfull(response));
   }

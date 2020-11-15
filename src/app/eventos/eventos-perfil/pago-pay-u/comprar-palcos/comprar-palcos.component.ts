@@ -127,7 +127,8 @@ export class ComprarPalcosComponent implements OnInit {
           horaInicio:null,
           horaFin:null,
           etapas:[],
-          mapaImagen:null
+          mapaImagen:null,
+          visible:false
         }
         
         this.route.paramMap.subscribe( params =>{
@@ -135,6 +136,21 @@ export class ComprarPalcosComponent implements OnInit {
           this.idLocalidad =params.get('idLocalidad');
          
           this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
+            this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(response =>{this.manejar(response);
+            var i =0;
+            while(i < this.etapa.localidades.length){
+            if(this.etapa.localidades[i].id==this.idLocalidad){
+                this.localidadCargada = this.etapa.localidades[i];
+                i= this.etapa.localidades.length;
+              }
+              i=i+1;
+          
+            }
+
+          
+          
+          })
+
             if(this.autenticador.getUsuario()!=null ){
             
               this.usuarioA= this.autenticador.getUsuario(); 
@@ -160,20 +176,7 @@ export class ComprarPalcosComponent implements OnInit {
     
           
           });
-          this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
-            var i =0;
-            while(i < this.etapa.localidades.length){
-            if(this.etapa.localidades[i].id==this.idLocalidad){
-                this.localidadCargada = this.etapa.localidades[i];
-                i= this.etapa.localidades.length;
-              }
-              i=i+1;
           
-            }
-
-          
-          
-          })
       })
     }
       
@@ -195,7 +198,9 @@ export class ComprarPalcosComponent implements OnInit {
     }
 
   handleGetSuccesfull(response){
-    this.evento =response;
+    if(response.visible){
+      this.evento=response;
+    }
   }
 
   agregarALaLista(localidad:Localidad){

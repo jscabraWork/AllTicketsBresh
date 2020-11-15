@@ -50,7 +50,8 @@ this.IVA = IVA
       horaInicio:"",
       horaFin:"",
       etapas:[],
-      mapaImagen:null
+      mapaImagen:null,
+      visible:false
     }
     this.etapa={
       evento:null,
@@ -64,29 +65,25 @@ this.IVA = IVA
       this.miId =params.get('id');
      
       this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
-
+        this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(response =>{this.manejar(response);
+          var i =0;
+          while(i < this.etapa.localidades.length){
+            if(this.etapa.localidades[i].boletas.length>0){
+              this.localidadesBoletas.push(this.etapa.localidades[i])
+            }
+            else if(this.etapa.localidades[i].palcos.length>0){
+              this.localidadesPalcos.push(this.etapa.localidades[i])
+            }
+            
+            i=i+1;
+          }
+    
+          })
         
       
       
       });
-      this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
-      var i =0;
-      while(i < this.etapa.localidades.length){
-        if(this.etapa.localidades[i].boletas.length>0){
-          this.localidadesBoletas.push(this.etapa.localidades[i])
-        }
-        else if(this.etapa.localidades[i].palcos.length>0){
-          this.localidadesPalcos.push(this.etapa.localidades[i])
-        }
-        
-        i=i+1;
-      }
       
-      
-      
-      
-      
-      })
      
   })
 }
@@ -113,7 +110,9 @@ openDialog(): void {
 }
 
 handleGetSuccesfull(response){
+  if(response.visible){
   this.evento=response;
+}
 }
 
 manejar(response){

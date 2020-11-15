@@ -100,7 +100,8 @@ cargando = false
       horaInicio:null,
       horaFin:null,
       etapas:[],
-      mapaImagen:null
+      mapaImagen:null,
+      visible:false
     }
     this.localidad ={
       id:null,
@@ -126,7 +127,7 @@ cargando = false
           this.miId =params.get('id');
           this.idLocalidad =params.get('idLocalidad');
           this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response)
-            this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
+            this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(response =>{this.manejar(response);
               var i =0;
               while(i < this.etapa.localidades.length){
                 if(this.etapa.localidades[i].id ==this.idLocalidad){
@@ -146,7 +147,9 @@ cargando = false
     this.etapa =response;
   }
   handleGetSuccesfull(response){
-    this.evento=response;
+    if(response.visible){
+      this.evento=response;
+    }
   }
   
 

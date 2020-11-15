@@ -27,7 +27,7 @@ export class EventosComponent implements OnInit {
       ,error  => {alert(">Ocurrio un error!")}
       );*/
 
-      this.service.getAllEventos().subscribe(
+      this.service.getAllEventosVisibles().subscribe(
         response => {this.handleSuccesfullGet(response);
         }
       )
@@ -42,10 +42,7 @@ export class EventosComponent implements OnInit {
 
     
   }
-  a(fecha:Date){
-   return fecha.getDay()
-  }
-  
+
 }
 
 

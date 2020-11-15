@@ -35,6 +35,31 @@ valorTotal:number=0
 
   ngOnInit(): void {
     this.IVA=IVA
+       
+    this.evento ={
+      id: "",
+      nombre:"",
+      fecha:null,
+      descripcion:"",
+      lugar:"",
+      video:"",
+      terminosYCondiciones:"",
+      recomendaciones:"",
+      ciudadIdTexto:null,
+      organizadorid:null,
+      imagen:"",
+      imagenes:[],
+      artistas:"",
+      fechaFin:null,
+      mapa:null,
+      localidades:[],
+      
+      horaInicio:null,
+      horaFin:null,
+      etapas:[],
+      mapaImagen:null,
+      visible:false
+    }
     this.etapa={
       evento:null,
       id:null,

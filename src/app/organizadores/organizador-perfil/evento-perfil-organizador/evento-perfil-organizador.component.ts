@@ -41,7 +41,8 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
       horaInicio:null,
       horaFin:null,
       etapas:[],
-      mapaImagen:null
+      mapaImagen:null,
+      visible:false
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');

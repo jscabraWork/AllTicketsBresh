@@ -15,6 +15,7 @@
                 <th>Organizador</th>
                 <th>Etapas</th>
                 <th>Lector</th>
+                <th>Visibilidad</th>
                 <th>Modificar</th>
                 <th>Borrar</th>
                 
@@ -32,7 +33,9 @@
                 <td>{{evento.organizadorid}}</td>
                 <td><button class="btn btn-success" routerLink="etapas/{{evento.id}}"> Etapas</button></td>
                 <td><button class="btn btn-success" routerLink="lector/{{evento.id}}"> Lector provisional</button></td>
-                <td><button (click)="updateEvento(evento.id)" class="btn btn-warning" routerLink="update/{{evento.id}}"> Modificar</button></td>
+                
+                <td><button (click)="cambiarVisibilidad(evento.id)" class="btn btn-warning" > {{evento.visible |booleans}}</button></td>
+                <td><button  class="btn btn-warning" routerLink="update/{{evento.id}}"> Modificar</button></td>
                 <td><button (click)="deleteEvento(evento.id)" class="btn btn-danger"> Delete</button></td>
     
             </tr>

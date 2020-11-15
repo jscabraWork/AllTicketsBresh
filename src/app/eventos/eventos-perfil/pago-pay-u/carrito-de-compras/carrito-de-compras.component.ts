@@ -66,7 +66,8 @@ export class CarritoDeComprasComponent implements OnInit {
       horaInicio:null,
       horaFin:null,
       etapas:[], 
-      mapaImagen:null
+      mapaImagen:null,
+      visible:false
     }
 
     this.usuarioEntidad= {

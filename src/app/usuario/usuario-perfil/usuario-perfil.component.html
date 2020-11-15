@@ -11,7 +11,7 @@
                         
                     </div>
                 </div>
-                <div class="centrarTexto centrado10">
+                <div class="centrarTexto centrado10 col-9 col-sm-8 col-md-6 col-lg-4">
                     <img src="../../../assets/images/img/Persona 4.png" class="imagenes rounded-circle eventoFondo border"  alt="">
                     
                 </div>
@@ -20,21 +20,27 @@
             </div>
             <div class="col-12">
                 <div class="centrarTexto">
-                    <h1 class="mt-5 pt-5"><strong>{{usuario.nombre}}</strong></h1>
+                    <h1 class="mt-3 mt-md-2 mt-lg-3 pt-5"><strong>{{usuario.nombre}}</strong></h1>
                     <a (click)="openDialog()" class="descripcion">Cambiar mis datos</a>
                 </div>
           
                 <hr>
             </div>
             <div class="col-12 menu2 mb-4 mt-3">
-                <p>
-            
-                    <a (click)="datos=true; palcos =false; tickets =false;" class="p-3 mr-3 ml-3 rounded elementosMenu">Información General</a>
-                    <a (click)="datos=false; palcos =true; tickets =false;" class="p-3 mr-3 ml-3 rounded elementosMenu">Mis Palcos</a>
-                    <a (click)="datos=false; palcos =false; tickets =true;"  class="p-3 mr-3 ml-3 rounded elementosMenu">Mis Tickets</a>
-                 
-                    
-                </p>
+
+                <section class="container centrarTexto">
+                    <div class="row">
+                        <div class="col-12 col-md-4 ">
+                            <p><a (click)="datos=true; palcos =false; tickets =false;" class="p-3 mr-3 ml-3 rounded elementosMenu">Información General</a></p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <p><a (click)="datos=false; palcos =true; tickets =false;" class="p-3 mr-3 ml-3 rounded elementosMenu">Mis Palcos</a></p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <p> <a (click)="datos=false; palcos =false; tickets =true;"  class="p-3 mr-3 ml-3 rounded elementosMenu">Mis Tickets</a></p>
+                        </div>
+                    </div>
+                </section>
                 
             </div>
         </div>

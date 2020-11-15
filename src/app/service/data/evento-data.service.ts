@@ -16,6 +16,9 @@ urlGetOne=`${API_URL}/eventos/`;
     return this.http.get<Evento[]>(this.urlGet);
   }
 
+  getAllEventosVisibles(){
+    return this.http.get<Evento[]>(this.urlGet+"/visibles");
+  }
 
 
   getEventoId(id:string){
@@ -30,6 +33,10 @@ urlGetOne=`${API_URL}/eventos/`;
   updateEventoId(id:string, evento){
     
     return this.http.put(`${API_URL}/eventos/${id}`,evento);
+  }
+  cambiarVisibilidad(id:string){
+    
+    return this.http.put(`${API_URL}/eventos/visible/${id}`,null);
   }
 
   

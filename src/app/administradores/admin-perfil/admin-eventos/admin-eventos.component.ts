@@ -25,13 +25,15 @@ export class AdminEventosComponent implements OnInit {
     })
 
   }
-  updateEvento(id){
 
-
-  }
 
   refresecarEventos(){
     this.service.getAllEventos().subscribe(response=> this.eventos= response);
   }
-
+  cambiarVisibilidad(pId){
+    this.service.cambiarVisibilidad(pId).subscribe(response=>{
+      response;
+      this.refresecarEventos();
+    })
+  }
 }
