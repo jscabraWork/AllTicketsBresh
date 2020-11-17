@@ -4,7 +4,7 @@
     <h1>Punto Fisico {{punto.numeroDocumento}} y {{punto.nombre}}</h1>
     <small>Boletas totales vendidas por el punto: {{punto.boletasVendidas.length}}</small> <br>
     <small>Dinero que vendio en boletas {{dineroTotalBoletas | currency:'COP'}}</small> <br>
-    <button class="btn btn-warning" >Pagar</button>
+    <button class="btn btn-warning" (click)="pagarBoletas()" >Pagar</button>
 
     <table class="table mt-3">
 
@@ -51,7 +51,7 @@
     <h1>Punto Fisico {{punto.numeroDocumento}} y {{punto.nombre}}</h1>
     <small>Palcos totales vendidas por el punto: {{punto.palcosVendidos.length}}</small> <br>
     <small>Dinero que vendio en palcos {{dineroTotalPalcos | currency:'COP'}}</small> <br>
-    <button class="btn btn-warning" >Pagar</button>
+    <button class="btn btn-warning" (click)="pagarPalcos()" >Pagar</button>
 
     <table class="table mt-3">
 

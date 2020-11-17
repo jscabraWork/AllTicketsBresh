@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IVA } from 'src/app/app.constants';
 import { PuntoFisico } from 'src/app/puntos-fisicos/puntoFisico.model';
+import { BoletasDataService } from 'src/app/service/data/boletas-data.service';
+import { PalcosDataService } from 'src/app/service/data/palcos-data.service';
 import { PuntosFisicosDataService } from 'src/app/service/data/puntos-fisicos-data.service';
 
 @Component({
@@ -11,7 +13,7 @@ import { PuntosFisicosDataService } from 'src/app/service/data/puntos-fisicos-da
 })
 export class BoletasPuntosFisicosComponent implements OnInit {
 
-  constructor(private servicio: PuntosFisicosDataService, private router:Router, private route: ActivatedRoute) { }
+  constructor(private servicio: PuntosFisicosDataService, private router:Router, private route: ActivatedRoute, private serviceBoleta:BoletasDataService, private servicioPalcos:PalcosDataService) { }
   punto:PuntoFisico
   id
   contra
@@ -56,4 +58,15 @@ export class BoletasPuntosFisicosComponent implements OnInit {
     }) 
   }
 
+  pagarBoletas(){
+    this.serviceBoleta.pagarBoletasAPuntoFisico(this.punto.numeroDocumento).subscribe(response=>{response
+    this.refrescar()
+    })
+  }
+
+  pagarPalcos(){
+    this.servicioPalcos.pagarPalcosAPromotorPuntoFisico(this.punto.numeroDocumento).subscribe(response=>{response
+    this.refrescar()
+    })
+  }
 }

@@ -128,7 +128,7 @@ asignarBoletasPuntoFisico(numeroInterno:number, boletas){
 
 
 
-pagarBoletasAPromotorPuntoFisico(numeroInterno:number){
+pagarBoletasAPuntoFisico(numeroInterno:number){
   return this.http.put(`${API_URL}/boletasPuntosFisicosPagas/${numeroInterno}`, null)
   
 }
