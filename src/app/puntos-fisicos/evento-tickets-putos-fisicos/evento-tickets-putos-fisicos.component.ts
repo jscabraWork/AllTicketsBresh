@@ -27,8 +27,8 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
   IVA
   valorTotal:number
   evento:Evento;
-  boleta:Boleta
-  localidadCompradas:Localidad
+  boletas:Boleta[]=[]
+  localidadesCompradas:Localidad[]=[]
   valorLocalidadAgregada:number
   usuario:Cliente
   usernameCliente:string
@@ -52,19 +52,7 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
     this.boletaBoolean=false
     this.IVA = IVA
 
-    this.boleta={
-      id:null,
-      imagenQr:null,
-      localidadIdNumero:null,
-      localidadNombre:null,
-      nombreEvento:null,
-      precio:null,
-      reservado:null,
-      seccionSilla:null,
-      servicio:null,
-      utilizada:null,
-      vendida:null,
-    }
+
     this.asistente={
       boletas:[],
       celular:null,
@@ -149,11 +137,8 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
   reservarBoletasPorLocalidad(localidad:Localidad){
 
 
-    var lista:Boleta[]=[];
-
-      this.boletaN=1
-      this.localidadCompradas= localidad;
-      this.valorLocalidadAgregada =  localidad.precio  +localidad.servicio + localidad.servicio*this.IVA;
+    this.localidadesCompradas.push(localidad);
+    this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.servicio + localidad.servicio*IVA;
 
    
   
@@ -180,36 +165,39 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
   reservarBoletasLocalidad(){
     var boleta:Boleta[];
   
-  if(this.localidadCompradas){
+  if(this.localidadesCompradas.length>0){
 
-          this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadCompradas.id, 1).subscribe(response=>{
-            boleta= response
-            console.log(boleta)
-            if(boleta!=null){ 
-              this.boleta = boleta[0]
-
-             
+    this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidad.id, this.localidadesCompradas.length).subscribe(response=>{
           
-   
+      if(response!=null){ 
+        this.boletas =response
+        this.valorTotal =this.valorLocalidadAgregada
+
+ 
+        for(var i=0; this.boletas.length>i;i=i+1)
+        { 
         
-          
-            this.valorTotal= this.boleta.precio  + this.boleta.servicio + this.boleta.servicio*this.IVA
-            this.boletaN=0
+          this.valorTotal=this.valorTotal+ this.boletas[i].precio  +this.boletas[i].servicio +this.boletas[i].servicio*IVA  
 
-            this.AbrirCarrito()
-            this.servicioBoletas.rechazarReservaBoleta( boleta).subscribe(response=>{response
-            
-            })   
-              
+          if(i == this.boletas.length-1){
+            this.AbrirCarrito()  
+          }
+
         }
   
-            else {
-              alert("No quedan boletas en esta localidad, prueba más tarde")
-            }
-            
-          })
+
+          this.servicioBoletas.rechazarReservaBoleta( this.boletas).subscribe(response=>response);
         
-        this.localidadCompradas =null;
+    
+  }
+
+      else {
+        alert("No quedan boletas en esta localidad, prueba más tarde")
+      }
+      
+    })
+        
+     
         this.valorLocalidadAgregada =0;
       }
       else{
@@ -221,7 +209,22 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
   
   
    
+  quitaBoletaLocalidad(localidad:Localidad){
+    if(this.localidadesCompradas.length >0){
+      var terminado =false;
+      for(var i =0 ; i <this.localidadesCompradas.length && !terminado;i=i+1){
+        if(this.localidadesCompradas [i].id==localidad.id){
+          this.localidadesCompradas.splice(i,1)
+          this.valorLocalidadAgregada = this.valorLocalidadAgregada - (localidad.precio  +localidad.servicio +localidad.servicio*0.19) ;
+          terminado = true;
+        }
+      }
   
+    }
+    else{
+      alert("No tienes Tickets seleccionados")
+    }
+  }
       
   
   AbrirCarrito(): void {
@@ -231,7 +234,7 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
       
       data: { 
         valorTotal: this.valorTotal,
-              boleta: this.boleta,
+              boletas: this.boletas,
               evento: this.evento,
               asistente: this.asistente,
               punto: this.puntoFisico
@@ -243,37 +246,14 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
   
     dialogRef.afterClosed().subscribe(result => {
     var boletas: Boleta[] =[];
-    boletas.push(this.boleta)
-        this.servicioBoletas.rechazarReservaBoletaInstantaneamente(boletas).subscribe(response=> response)
+
+        this.servicioBoletas.rechazarReservaBoletaInstantaneamente(this.boletas).subscribe(response=> response)
   
       
       
       this.dialog.closeAll();
-      this.boleta={
-        id:null,
-        imagenQr:null,
-        localidadIdNumero:null,
-        localidadNombre:null,
-        nombreEvento:null,
-        precio:null,
-        reservado:null,
-        seccionSilla:null,
-        servicio:null,
-        utilizada:null,
-        vendida:null,
-
-      }
-      this.localidadCompradas ={
-        boletas:[],
-        boletasPatrocinio:[],
-        id:null,
-        nombre:null,
-        nombreEtapa:null,
-        palcos:[],
-        precio:null,
-        servicio:null,
-  
-      }
+      this.boletas=[]
+      this.localidadesCompradas=[]
       this.valorLocalidadAgregada =0
       this.valorTotal=0
 

@@ -23,7 +23,7 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
   evento:Evento;
   boletas:Boleta[]=[]
   palco:Palco
-  boleta:Boleta
+
   asistente: Asistente
   valorTotal
   puntoFisico:PuntoFisico
@@ -94,22 +94,23 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
         if(this.data.asistente){
           this.asistente = this.data.asistente
         }
-        if(this.data.boleta){
-          this.boleta = this.data.boleta
-        }
+
   }
 
   comprarBoletasAsistente(){
 
     alert("A continuación entraras a Pay U para realizar tu pago")
-    this.servicioBoletas.comprarBoletaParaAsistente(this.evento.id, this.boleta.localidadIdNumero,this.boleta.id, this.asistente).subscribe(response=>{response
+
+    for(var i =0; i < this.boletas.length;i=i+1){
+
+    this.servicioBoletas.comprarBoletaParaAsistente(this.evento.id, this.boletas[i].localidadIdNumero,this.boletas[i].id, this.asistente).subscribe(response=>{response
  
     })
-    var boletas: Boleta[]=[]
-    boletas.push(this.boleta)
-    this.servicioBoletas.asignarBoletasPuntoFisico(this.puntoFisico.numeroDocumento,boletas).subscribe(response=>response)
 
+    
 
+  }
+  this.servicioBoletas.asignarBoletasPuntoFisico(this.puntoFisico.numeroDocumento,this.boletas).subscribe(response=>response)
 
   }
 

@@ -30,9 +30,10 @@
                   <tr   >
                       <td><strong>{{localidad?.nombre }}</strong></td> 
                       <td >
-       
-                       <button class=" rounded-circle" (click)= "reservarBoletasPorLocalidad(localidad)">+</button>
-                      </td>
+                        <button class="pr-2 pl-2 rounded-circle" (click)= "quitaBoletaLocalidad(localidad)">-</button>
+                        {{localidadesCompradas.length}}
+                        <button class=" rounded-circle" (click)= "reservarBoletasPorLocalidad(localidad)">+</button>
+                       </td>
                       <td>{{numeroBoletasPorVenderYNoReservadas(localidad)}}</td>
                       <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio| currency:'COP'}} </strong> + <strong>{{localidad.servicio*IVA|currency:'COP'}}</strong></td> 
                       
@@ -44,7 +45,7 @@
           <div class="col-12 mt-3 justify-content-end">
               <div>
                 <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
-                <h5><strong>Entradas: </strong> {{boletaN}} </h5>
+                <h5><strong>Entradas: </strong> {{localidadesCompradas.length}} </h5>
               </div>
                
              </div>
