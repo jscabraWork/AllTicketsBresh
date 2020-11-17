@@ -20,7 +20,7 @@ export class PuntosFisicosComponent implements OnInit {
   ngOnInit(): void {
     this.user=this.autenticador.getPuntoFisico();
     this.servicio.getPuntoPorUsuario(this.user).subscribe(response=>{this.puntoFisico=response;
-    this.eventosServicio.getAllEventos().subscribe(response=>this.eventos=response)
+    this.eventosServicio.getAllEventosVisibles().subscribe(response=>this.eventos=response)
     
     });
   }

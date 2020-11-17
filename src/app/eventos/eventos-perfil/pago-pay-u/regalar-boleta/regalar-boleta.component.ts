@@ -25,8 +25,8 @@ miId;
 IVA
 valorTotal:number
 evento:Evento;
-boleta:Boleta
-localidadCompradas:Localidad
+boletas:Boleta[]=[]
+localidadesCompradas:Localidad[]=[]
 merchantId:number
 accountId:number
 referenceCode:string
@@ -59,19 +59,6 @@ cargando = false
     this.accountId=706326 //  512321
     this.ApiKey="tyrs5RFaKLs72kHWaZW3WB91B0"// 4Vj8eK4rloUd272L48hsrarnUA
 
-    this.boleta={
-      id:null,
-      imagenQr:null,
-      localidadIdNumero:null,
-      localidadNombre:null,
-      nombreEvento:null,
-      precio:null,
-      reservado:null,
-      seccionSilla:null,
-      servicio:null,
-      utilizada:null,
-      vendida:null,
-    }
     this.asistente={
       boletas:[],
       celular:null,
@@ -177,7 +164,7 @@ cargando = false
     this.servicioBoletas.getBoletasVendidasYReservado(this.evento.id, localidad.id, false, false).subscribe(response=>{
       lista= response
       if(lista.length>0){ 
-        this.boleta = lista[0]
+        this.boletas = response
       
         this.referenceCode = "TICKET REGALO: /"+this.asistente.correo+lista[0].localidadNombre+":"+lista[0].id+"/";
       
@@ -204,49 +191,62 @@ cargando = false
   reservarBoletasPorLocalidad(localidad:Localidad){
 
 
-    var lista:Boleta[]=[];
+    if(this.localidadesCompradas.length<6 )
+    {
+      this.localidadesCompradas.push(localidad);
+      this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.servicio + localidad.servicio*IVA;
 
-      this.boletaN=1
-      this.localidadCompradas= localidad;
-      this.valorLocalidadAgregada =  localidad.precio  +localidad.servicio + localidad.servicio*IVA;
-
-   
+   }
+   else{
+     alert("Maximo puedes comprar 6 tickets")
+   }
   
  
   }
 
-
+  quitaBoletaLocalidad(localidad:Localidad){
+    if(this.localidadesCompradas.length >0){
+      var terminado =false;
+      for(var i =0 ; i <this.localidadesCompradas.length && !terminado;i=i+1){
+        if(this.localidadesCompradas [i].id==localidad.id){
+          this.localidadesCompradas.splice(i,1)
+          this.valorLocalidadAgregada = this.valorLocalidadAgregada - (localidad.precio  +localidad.servicio +localidad.servicio*0.19) ;
+          terminado = true;
+        }
+      }
+  
+    }
+    else{
+      alert("No tienes Tickets seleccionados")
+    }
+  }
 
   reservarBoletasLocalidad(){
 
 
-  var boleta:Boleta[];
+
  
-
+    if(this.localidadesCompradas.length<=6){
      
-if(this.localidadCompradas){
-      this.cargando=true
-        this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadCompradas.id, 1).subscribe(response=>{
-          boleta= response
-          console.log(boleta)
-          if(boleta!=null){ 
-            this.boleta = boleta[0]
-            this.cargando = false;
-           
-        
-        this.referenceCode = "TICKETREGALO: /"+this.asistente.correo+boleta[0].localidadNombre+":"+boleta[0].id+"/";
-      
-        
-          this.valorTotal= this.boleta.precio  + this.boleta.servicio + this.boleta.servicio*IVA
-          this.boletaN=0
-          var md5 = new Md5()
-            
+if(this.localidadesCompradas.length>0){
 
-          this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
-          this.AbrirCarrito()
-          this.servicioBoletas.rechazarReservaBoleta( boleta).subscribe(response=>{response
-          
-          })   
+        this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadesCompradas[0].id, this.localidadesCompradas.length).subscribe(response=>{
+        
+          this.boletas =response
+          if(response!=null){ 
+            for(var i=0; this.boletas.length>i;i=i+1)
+            { 
+              var md5 = new Md5()
+              this.referenceCode = this.referenceCode +this.boletas[i].localidadNombre+":"+this.boletas[i].id+"/" ;
+              this.valorTotal=this.valorTotal+ this.boletas[i].precio  +this.boletas[i].servicio +this.boletas[i].servicio*IVA  
+              this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
+              if(i == this.boletas.length-1){
+                this.AbrirCarrito()  
+              }
+    
+            } 
+    
+                  this.servicioBoletas.rechazarReservaBoleta( this.boletas).subscribe(response=>response);   
             
       }
 
@@ -256,13 +256,16 @@ if(this.localidadCompradas){
           
         })
       
-      this.localidadCompradas =null;
+      this.localidadesCompradas =[];
       this.valorLocalidadAgregada =0;
     }
     else{
       alert("Agrega una boleta")
     }
-  
+    }
+    else{
+      alert("Solo puedes comprar máximo 6 boletas")
+    }
 }
 
 
@@ -278,7 +281,7 @@ AbrirCarrito(): void {
     
     data: { 
       valorTotal: this.valorTotal,
-            boleta: this.boleta,
+            boletas: this.boletas,
             evento: this.evento,
             asistente: this.asistente,
             signature: this.signature,
@@ -291,37 +294,14 @@ AbrirCarrito(): void {
   });
 
   dialogRef.afterClosed().subscribe(result => {
-  var boletas: Boleta[] =[];
-  boletas.push(this.boleta)
-      this.servicioBoletas.rechazarReservaBoletaInstantaneamente(boletas).subscribe(response=> response)
+
+      this.servicioBoletas.rechazarReservaBoletaInstantaneamente(this.boletas).subscribe(response=> response)
 
     
     
     this.dialog.closeAll();
-    this.boleta={
-      id:null,
-      imagenQr:null,
-      localidadIdNumero:null,
-      localidadNombre:null,
-      nombreEvento:null,
-      precio:null,
-      reservado:null,
-      seccionSilla:null,
-      servicio:null,
-      utilizada:null,
-      vendida:null,
-    }
-    this.localidadCompradas ={
-      boletas:[],
-      boletasPatrocinio:[],
-      id:null,
-      nombre:null,
-      nombreEtapa:null,
-      palcos:[],
-      precio:null,
-      servicio:null,
-
-    }
+    this.boletas= []
+    this.localidadesCompradas =[]
     this.valorLocalidadAgregada =0
     this.valorTotal=0
     this.referenceCode="TICKET: /"

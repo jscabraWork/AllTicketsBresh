@@ -261,7 +261,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   reservarBoletasPorLocalidad(localidad:Localidad){
 
 
-    var lista:Boleta[]=[];
+
 
     if(this.localidadesCompradas.length<6 && !this.usuarioBoolean && !this.cargando)
     {

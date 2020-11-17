@@ -28,7 +28,7 @@ export class CarritoDeComprasComponent implements OnInit {
   boletas:Boleta[]=[]
   valorTotal:number=0
   palco:Palco
-  boleta:Boleta
+
   asistente: Asistente
   url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   cargando= true
@@ -70,19 +70,7 @@ export class CarritoDeComprasComponent implements OnInit {
       visible:false
     }
 
-    this.usuarioEntidad= {
-      nombre: "",
-      numeroDocumento: null,
-      tipoDocumento: "",
-      usuario: "",
-      contrasena:"",
-      celular:null,
-      correo:"",
-        direccion:"",
-        publicidad:null,
-      boletas:[],
-      palcos:[]
-        }
+
 
         this.palco={
           id:null,
@@ -111,28 +99,27 @@ export class CarritoDeComprasComponent implements OnInit {
         if(this.data.asistente){
           this.asistente = this.data.asistente
         }
-        if(this.data.boleta){
-          this.boleta = this.data.boleta
-        }
+
   }
 
   comprarBoletasAsistente(){
-    if(this.codigoVenta!='')
-    {
-      var boletas:Boleta[] =[]
-      boletas.push(this.boleta)
-      this.servicioBoletas.asignarBoletasPromotor(this.codigoVenta,boletas).subscribe(response=>response)
-    }
     alert("A continuación entraras a Pay U para realizar tu pago")
-    this.servicioBoletas.comprarBoletaParaAsistente(this.evento.id, this.boleta.localidadIdNumero,this.boleta.id, this.asistente).subscribe(response=>{response
+    for(var i=0; i < this.boletas.length; i=i+1){
+
+  
+    this.servicioBoletas.comprarBoletaParaAsistente(this.evento.id, this.boletas[i].localidadIdNumero,this.boletas[i].id, this.asistente).subscribe(response=>{response
 
 
     
     })
 
   
+  }
+  if(this.codigoVenta!='')
+  {
 
-
+    this.servicioBoletas.asignarBoletasPromotor(this.codigoVenta,this.boletas).subscribe(response=>response)
+  }
 
   }
 

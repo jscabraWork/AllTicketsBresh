@@ -24,6 +24,7 @@ import { EventosComponent } from './eventos/eventos.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TerminosYCondicionesComponent } from './terminos-ycondiciones/terminos-ycondiciones.component';
 
 
 const routes: Routes = [
@@ -118,11 +119,14 @@ const routes: Routes = [
     loadChildren:() => import('./puntos-fisicos/puntos-fisicos.module').then(m => m.PuntosFisicosModule),
     canActivate:[ RouteGuardPuntoFisicoService]
   },
-
   {
-    path:'', component: HomeComponent
+    path:'terminosYCondiciones', component: TerminosYCondicionesComponent
   }
   ,
+  {
+    path:'', component: HomeComponent
+  },
+
   {
     path:'**', component: ErrorComponent
   }
