@@ -1,0 +1,84 @@
+<mat-icon class="float-right rounded pt-2 pb-2 pl-3 pr-3 botonesCerrar" (click)="cerrar()"> cancel_presentation</mat-icon>
+<section class="container-fluid">
+    <div class="row">
+<div class="col-12 pl-4 pr-4" >
+      <div class="row ">
+          <div class="divisionLocalidad col-12 " >
+            <div class="tituloLocalidad shadow ">
+              <h3><strong> Carrito de compras </strong>{{puntoFisico.numeroDocumento}}</h3>
+              
+             
+            </div>
+            <div class="" >
+
+
+              <div class="  eventoFondo   fondoBlanco border " *ngIf="boleta">
+                <h5 class="pl-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
+                <h5 class="pl-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
+                
+                <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
+                <h5 class="pl-4"><strong>Precio: </strong> {{boleta?.precio| currency:'COP'}} + <strong>Servicio: </strong> {{boleta?.servicio| currency:'COP'}} + <strong>IVA: </strong> {{boleta?.servicio *IVA| currency:'COP'}} </h5>
+                <h5 class="pl-4 pb-4"><strong>Valor: </strong> {{boleta?.precio + boleta?.servicio + boleta?.servicio*IVA | currency:'COP'}}</h5>
+            </div>      
+        <div class="  eventoFondo   fondoBlanco border " *ngFor="let boleta of boletas">
+            <h5 class="pl-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
+            <h5 class="pl-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
+            
+            <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
+            <h5 class="pl-4"><strong>Precio: </strong> {{boleta?.precio| currency:'COP'}} + <strong>Servicio: </strong> {{boleta?.servicio| currency:'COP'}} + <strong>IVA: </strong> {{boleta?.servicio *IVA| currency:'COP'}}</h5>
+            <h5 class="pl-4  pb-4"><strong>Valor: </strong> {{boleta?.precio + boleta?.servicio + boleta?.servicio*IVA | currency:'COP'}}</h5>
+        </div>
+
+
+
+   <div class="col-12 border " *ngIf="palco.id!=null" >
+      <h5 class="pt-4 pl-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>
+      <h5 class="pl-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
+      <h5 class="pl-4 "><strong>Palco No:</strong> {{palco.id}}</h5>
+      <h5 class="pl-4"><strong>Personas por palco:</strong> {{palco.personasMaximas}}</h5>
+      <h5 class="pl-4 "><strong>Precio: </strong> {{palco?.precio| currency:'COP'}} + <strong>Servicio: </strong> {{palco?.servicio| currency:'COP'}} + <strong>IVA: </strong> {{palco?.servicio *IVA| currency:'COP'}}</h5>
+      <h5 class="pl-4 pb-4" ><strong>Valor: </strong>{{palco?.precio + palco?.servicio + palco?.servicio*IVA|currency:'COP'}}</h5>
+   </div>
+
+
+              <div  class=" border"  >
+             
+
+                <h6 class="pt-4 pl-4 pr-4" *ngIf="boletas?.length==0 " >
+                  <strong> Cargando ...</strong>
+                </h6>
+              </div>
+              <div class="fondoBlanco shadow col-12">
+                <h5 class="p-5"  >
+                  <strong>Valor Total:</strong> {{valorTotal |currency:'COP'}}
+                  <br>
+                  
+                  <strong *ngIf="boletas?.length>0">Cantidad de Tickets:</strong> {{boletas?.length}}
+                  <strong  *ngIf="palco.id!=null" >Cantidad de Palcos: 1</strong> 
+                </h5>
+                
+              </div>
+
+            </div>
+            <div class="row">
+            <div class="p-4 col-6" >
+
+   
+               
+                <button class="action_button" *ngIf="palco.id!=null" (click) ="pagar()">Pagar </button>
+
+
+
+                <button class="action_button" *ngIf="boleta" (click)="comprarBoletasAsistente()" >Pagar </button>
+
+            </div>
+
+          </div>  
+         
+          </div>
+
+     
+      </div>
+  </div>
+</div>
+</section>

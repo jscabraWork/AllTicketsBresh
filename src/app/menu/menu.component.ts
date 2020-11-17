@@ -94,8 +94,8 @@ export class MenuComponent implements OnInit {
 
   openDialog3(): void {
     const dialogRef = this.dialog.open(ContactanosComponent, {
-      width: '40%',
-      height:'50%',
+      width: '600px',
+      height:'600px',
       
       
     });
@@ -109,8 +109,8 @@ export class MenuComponent implements OnInit {
   openDialog7(){
  
     const dialogRef = this.dialog.open(CalendarioComponent, {
-      width: '40%',
-      height:'80%',
+      width: '600px',
+      height:'600px',
       
       
     });

@@ -11,6 +11,8 @@ import { EventoDataService } from './../../service/data/evento-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Etapa } from 'src/app/eventos/eventos-perfil/etapa.model';
 import { IVA } from 'src/app/app.constants';
+import { ImagenEventosComponent } from 'src/app/eventos/eventos-perfil/imagen-eventos/imagen-eventos.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-evento-punto-fisico',
@@ -27,11 +29,10 @@ export class EventoPuntoFisicoComponent implements OnInit {
   boletas:Boleta[]=[]
 boletaBoolean:boolean=false
 IVA
-localidadesBoletas:Localidad[]=[];
-localidadesCompradas:Localidad[]=[];
-valorLocalidadAgregada:number =0
-valorTotal:number=0
-  constructor(private servicio: PuntosFisicosDataService , private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private route: ActivatedRoute,private autenticador: HardcodedAutheticationService, private eventosServicio:EventoDataService) { }
+
+
+
+  constructor(private servicio: PuntosFisicosDataService ,private dialog:MatDialog, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private route: ActivatedRoute,private autenticador: HardcodedAutheticationService, private eventosServicio:EventoDataService) { }
 
   ngOnInit(): void {
     this.IVA=IVA
@@ -72,19 +73,21 @@ valorTotal:number=0
     
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');})
-      this.eventosServicio.getEventoId(this.miId).subscribe(response=> this.evento =response);
-      this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
-        var i =0;
-        while(i < this.etapa.localidades.length){
-          if(this.etapa.localidades[i].boletas.length>0){
-            this.localidadesBoletas.push(this.etapa.localidades[i])
-          }
+      this.eventosServicio.getEventoId(this.miId).subscribe(response=> 
+        {
+          if(response.visible)
+        {
+          this.evento =response
+          this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
+       
           
-          i=i+1;
+          
+          })
         }
-      
-      
-      })
+        }
+        
+        );
+    
     
     });
   }
@@ -94,7 +97,16 @@ valorTotal:number=0
     this.etapa=response
   }
 
-
+  darCantidadDePalcos(localidad:Localidad){
+    var contador =0;
+    for(var i =0; i < localidad.palcos.length; i=i+1){
+      if(localidad.palcos[i].vendido==false){
+  
+        contador = contador+1;
+      }
+    }
+    return contador;
+  }
   
   numeroBoletasPorVenderYNoReservadas(localidad:Localidad){
 
@@ -111,124 +123,25 @@ valorTotal:number=0
  
   }
 
-
-  reservarBoletasSillasExactas(localidad:Localidad){
-
-
-    var lista:Boleta[]=[];
-
-    if(this.boletas.length<6 )
-    {
-      this.servicioBoletas.getBoletasVendidasYReservado(this.evento.id, localidad.id, false, false).subscribe(response=>{
-        lista= response
-        if(lista.length>0){ 
-          this.boletas.push(lista[0])
-      }
-        else {
-          alert("No quedan boletas en esta localidad, prueba más tarde")
-        }
-        
-      })
-    }
-
-    else if(this.boletas.length==6 ){
-      alert("Solo puedes comprar 6 boletas máximo por Evento")
-    }
-  }
-
-
-
-  reservarBoletasPorLocalidad(localidad:Localidad){
-
-
-    var lista:Boleta[]=[];
-
-    if(this.localidadesCompradas.length<6)
-    {
-      this.localidadesCompradas.push(localidad);
-      this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.servicio + localidad.servicio*IVA;
-
-   }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ImagenEventosComponent, {
+      width: '600px',
+      height:'100%',
+      data: { mapaImagen: this.evento.mapaImagen }
+      
+      
+    });
   
-  else if(this.localidadesCompradas.length==6 ){
-    alert("Solo puedes comprar 6 boletas máximo por Evento")
-  }
-  }
-
-
-
-  reservarBoletasLocalidad(){
-
-          this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadesCompradas[0].id , this.localidadesCompradas.length).subscribe(response=>{
-            
-            if(response!=null){ 
-              this.boletas =response
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
   
-          for(var i=0; this.boletas.length>i;i=i+1)
-          {
-
-            this.valorTotal=this.valorTotal+ this.boletas[i].precio  +this.boletas[i].servicio +this.boletas[i].servicio*IVA  
-           
-          
-            this.servicioBoletas.rechazarReservaBoleta( this.boletas).subscribe(response=>response);
-          } 
-   
-          
-        }
-  
-            else {
-              alert("No quedan boletas en esta localidad, prueba más tarde")
-            }
-            
-          })
-        
-        
-
-   
     
   }
 
-quitaBoletaLocalidad(localidad:Localidad){
-  if(this.localidadesCompradas.length >0){
-    var terminado =false;
-    for(var i =0 ; i <this.localidadesCompradas.length && !terminado;i=i+1){
-      if(this.localidadesCompradas [i].id==localidad.id){
-        this.localidadesCompradas.splice(i,1)
-        this.valorLocalidadAgregada = this.valorLocalidadAgregada - (localidad.precio  +localidad.servicio +localidad.servicio*IVA) ;
-        terminado = true;
-      }
-    }
-
-  }
-  else{
-    alert("No tienes Tickets seleccionados")
-  }
-}
-
-boletasLocalidadCantidadSeleccionada(localidad:Localidad){
-  var cantidad =0;
-  for(var i =0; i < this.localidadesCompradas.length; i=i+1){
-    if(this.localidadesCompradas[i].id ==localidad.id){
-      
-      cantidad = cantidad +1;
-    }
-  }
-  return cantidad;
-}
 
 
-comprarBoletas(){
-
-
-  if( this.boletas.length>0)
-    {
-      var i =0
-      while(i < this.boletas.length){
-        this.servicioBoletas.comprarBoleta
-          i=i+1;
-          }
-    }
-  }
 }
 
 
