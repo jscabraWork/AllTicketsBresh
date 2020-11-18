@@ -67,15 +67,15 @@
 <section class="container-fluid  mt-1  ">
 <div class="pl-1 pr-1  ">
 <div class="row largo" >
-	<div class="col-12 col-lg-6 mt-5 " *ngIf="evento?.video" style="text-align: center;">
+	<div class="col-12 col-lg-7 mt-5 " *ngIf="evento?.video" style="text-align: center;">
 		<iframe class="rounded" width="100%" height="650px" [src]="getVideoIframe(evento.video)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
-	<div class="col-12 col-lg-6 mt-5  " *ngIf="!evento?.video">
+	<div class="col-12 col-lg-7 mt-5  " *ngIf="!evento?.video">
 		<img  class="rounded" src="{{evento?.imagen}}" style=" width: 100%; height: 650px;" alt="">
 		
 	</div>
 
-	<div class="col-12 col-lg-6 pl-2 mt-5 contenederoBlanco border rounded mt-5">
+	<div class="col-12 col-lg-5 pl-2 mt-5 contenederoBlanco border rounded mt-5">
 		
 			<h2 class="ubicaciones mt-3" ><strong>Información General</strong></h2>
 			<hr class="aaaa mb-3">
@@ -85,7 +85,6 @@
 			<p><strong>Fecha de Inicio:</strong> {{evento?.fecha|date}} <strong>Hora: </strong>{{evento?.horaInicio| horas}}</p>
 			<p><strong>Fecha de Fin:</strong> {{evento?.fechaFin|date}} <strong>Hora Finalización: </strong>{{evento?.horaFin | horas}}</p>
 			<p><strong>Artistas:</strong> {{evento?.artistas}}</p>
-			<p><strong>Recomendaciones:</strong> {{evento?.recomendaciones}}</p>
 			<p><strong>Lugar:</strong> {{evento?.lugar}}</p>
 			<p><strong>Mapa:</strong></p>
 			<iframe class="rounded border" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5955534654577!2d-74.03310298523712!3d4.8392962964859745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f878f6c305675%3A0xc7088d8f70002c47!2sCentro%20de%20Eventos%20Autopista%20Norte!5e0!3m2!1ses!2sco!4v1597485543875!5m2!1ses!2sco" width="100%" height="30%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -100,6 +99,7 @@
 
 			<p class="mt-3 text-justify"   >{{evento?.descripcion}}</p>
 			<p > <strong>{{evento?.terminosYCondiciones}}</strong></p>
+			<p style="font-size:14px"> {{evento?.recomendaciones}}</p>
 			<p><strong>ADVERTENCIA DE COMPRA:</strong> RECIBIRÁS UN CÓDIGO QR, REVISA SPAM! ESE CÓDIGO QR ES TU ENTRADA!</p>
 		
 	</div>
