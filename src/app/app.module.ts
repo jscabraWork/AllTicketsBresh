@@ -44,6 +44,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MinisterioModule } from './perfil-ministerio/ministerio.module';
 import { MensajeComponent } from './mensaje/mensaje.component';
 import { TerminosYCondicionesComponent } from './terminos-ycondiciones/terminos-ycondiciones.component';
+import { RedesSocialesComponent } from './redes-sociales/redes-sociales.component';
 
 
 
@@ -86,6 +87,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      CalendarioComponent,
      MensajeComponent,
      TerminosYCondicionesComponent,
+     RedesSocialesComponent,
 
   
 

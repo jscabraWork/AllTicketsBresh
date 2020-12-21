@@ -1,7 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
-
+.redes{
+    position: fixed;
+    top: 90%;
+    left: 82%;
+    overflow: hidden;
+    width: 100%;
+}
+.imagenesRedes
+{
+    width: 70px;
+}
 
 .barra{
     background-color: black;

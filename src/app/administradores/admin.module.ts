@@ -51,238 +51,238 @@ import { BoletasPromotorComponent } from './admin-perfil/admin-promotores/boleta
 import { BoletasPuntosFisicosComponent } from './admin-perfil/admin-puntos-fisicos/boletas-puntos-fisicos/boletas-puntos-fisicos.component';
 
 
-const routes: Routes=[
+const routes: Routes = [
 
-{
-    path:'',
-    children:[
-        {
-          path:'',
-          component: AdministradoresComponent
-        },
-
-
-        {
-          path:'admin/admin/mapas',
-          component: MapasComponent
-        },
-        {
-          path:'agregar/admin',
-          component: AgregarAdministradorComponent
-        },
-        {
-          path:'update/admin/:id',
-          component: UpdateAdminComponent
-        },
-        {
-          path: 'admin/:nombre',
-          component: AdminPerfilComponent
-        },
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        component: AdministradoresComponent
+      },
 
 
-        {
-          path: 'ministerios',
-          component: AdminMinisterioComponent
-        },
+      {
+        path: 'admin/admin/mapas',
+        component: MapasComponent
+      },
+      {
+        path: 'agregar/admin',
+        component: AgregarAdministradorComponent
+      },
+      {
+        path: 'update/admin/:id',
+        component: UpdateAdminComponent
+      },
+      {
+        path: 'admin/:nombre',
+        component: AdminPerfilComponent
+      },
 
 
-        {
-          path: 'ministerios/agregar',
-          component: AgregarMinisterioComponent
-        },
-
-        
-        {
-          path: 'ministerios/update/:id',
-          component: UpdateMinisterioComponent
-        },
-
-        {
-          path: 'admin/eventos/lista',
-          component: AdminEventosComponent
-        },
-
-        {
-          path: 'admin/eventos/lista/lector/:id',
-          component: AdminLectorComponent
-        },
-
-        {
-          path: 'admin/eventos/lista/etapas/:id/agregar',
-          component: AgregarEtapaComponent
-        },
-
-        {
-          path: 'admin/eventos/lista/etapas/:id',
-          component: AdminEtapasComponent
-        },
+      {
+        path: 'ministerios',
+        component: AdminMinisterioComponent
+      },
 
 
-        {
-          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos', 
-          component: AdminPalcosComponent
-        },
-
-        {
-          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos/agregar',
-          component: AgregarPalcoComponent
-        },
-
-        {
-          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos/update/:idPalco',
-          component: UpdatePalcosComponent
-        },
+      {
+        path: 'ministerios/agregar',
+        component: AgregarMinisterioComponent
+      },
 
 
-        {
-          path: 'admin/eventos/lista/localidad/boletas/:id/:idLocalidad/:nombreLocalidad',
-          component: AdminBoletasComponent
-        },
+      {
+        path: 'ministerios/update/:id',
+        component: UpdateMinisterioComponent
+      },
 
-        {
-          path: 'admin/eventos/lista/localidad/boletas/:id/:idLocalidad/:nombreLocalidad/agregar',
-          component: AgregarBoletasComponent
-        },
-        
-        {
-          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa', 
-          component: AdminLocalidadesComponent
-        },
+      {
+        path: 'admin/eventos/lista',
+        component: AdminEventosComponent
+      },
 
-        {
-          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/localidad/:idLocalidad',
-          component: UpdateLocalidadComponent
-        },
+      {
+        path: 'admin/eventos/lista/lector/:id',
+        component: AdminLectorComponent
+      },
 
-        {
-          path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/agregar',
-          component: AgregarLocalidadComponent
-        },
+      {
+        path: 'admin/eventos/lista/etapas/:id/agregar',
+        component: AgregarEtapaComponent
+      },
 
-
+      {
+        path: 'admin/eventos/lista/etapas/:id',
+        component: AdminEtapasComponent
+      },
 
 
-        {
-          path: 'admin/eventos/lista/agregar',
-          component: AgregarEventoComponent
-        },
-        {
-          path: 'admin/eventos/lista/update/:id',
-          component: UpdateEventoComponent
-        },
-        {
-          path: 'admin/ciudades/lista',
-          component: CiudadesAdminComponent
-        },
-        {
-          path: 'admin/ciudades/lista/agregar',
-          component: AgregarCiudadComponent
-        },
-      
-        {
-          path: 'admin/ciudades/lista/update/:id',
-          component: CiudadesUpdateComponent
-        },
-        {
-          path: 'admin/organizadores/lista/update/:id',
-          component: UpdateOrganizadorComponent
-        },
-        {
-          path: 'admin/organizadores/lista/agregar',
-          component: AgregarOrganizadorComponent
-        },
-        {
-          path:'blog',
-          component: AdminBlogComponent
-        },
+      {
+        path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos',
+        component: AdminPalcosComponent
+      },
 
-        {
-          path:'puntosFisicos',
-          component: AdminPuntosFisicosComponent
-        },
-        {
-          path:'puntosFisicos/agregar',
-          component: AgregarPuntoComponent
-        },
-        {
-          path:'puntosFisicos/update/:id',
-          component: UpdatePuntoComponent
-        },
+      {
+        path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos/agregar',
+        component: AgregarPalcoComponent
+      },
 
-        {
-          path: 'promotores',
-          component: AdminPromotoresComponent
-        },
-        {
-          path: 'promotores/agregar',
-          component: AgregarPromotorComponent
-        },
-        {
-          path: 'promotores/update/:id',
-          component: UpdatePromotorComponent
-        },
-        {
-          path: 'promotores/boletasAPagar/:id',
-          component: BoletasPromotorComponent
-        },
+      {
+        path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos/update/:idPalco',
+        component: UpdatePalcosComponent
+      },
 
-        {
-          path:'puntosFisicos/pagar/:id',
-          component: BoletasPuntosFisicosComponent
-        },
-      ]
-}
+
+      {
+        path: 'admin/eventos/lista/localidad/boletas/:id/:idLocalidad/:nombreLocalidad',
+        component: AdminBoletasComponent
+      },
+
+      {
+        path: 'admin/eventos/lista/localidad/boletas/:id/:idLocalidad/:nombreLocalidad/agregar',
+        component: AgregarBoletasComponent
+      },
+
+      {
+        path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa',
+        component: AdminLocalidadesComponent
+      },
+
+      {
+        path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/localidad/:idLocalidad',
+        component: UpdateLocalidadComponent
+      },
+
+      {
+        path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/agregar',
+        component: AgregarLocalidadComponent
+      },
+
+
+
+
+      {
+        path: 'admin/eventos/lista/agregar',
+        component: AgregarEventoComponent
+      },
+      {
+        path: 'admin/eventos/lista/update/:id',
+        component: UpdateEventoComponent
+      },
+      {
+        path: 'admin/ciudades/lista',
+        component: CiudadesAdminComponent
+      },
+      {
+        path: 'admin/ciudades/lista/agregar',
+        component: AgregarCiudadComponent
+      },
+
+      {
+        path: 'admin/ciudades/lista/update/:id',
+        component: CiudadesUpdateComponent
+      },
+      {
+        path: 'admin/organizadores/lista/update/:id',
+        component: UpdateOrganizadorComponent
+      },
+      {
+        path: 'admin/organizadores/lista/agregar',
+        component: AgregarOrganizadorComponent
+      },
+      {
+        path: 'blog',
+        component: AdminBlogComponent
+      },
+
+      {
+        path: 'puntosFisicos',
+        component: AdminPuntosFisicosComponent
+      },
+      {
+        path: 'puntosFisicos/agregar',
+        component: AgregarPuntoComponent
+      },
+      {
+        path: 'puntosFisicos/update/:id',
+        component: UpdatePuntoComponent
+      },
+
+      {
+        path: 'promotores',
+        component: AdminPromotoresComponent
+      },
+      {
+        path: 'promotores/agregar',
+        component: AgregarPromotorComponent
+      },
+      {
+        path: 'promotores/update/:id',
+        component: UpdatePromotorComponent
+      },
+      {
+        path: 'promotores/boletasAPagar/:id',
+        component: BoletasPromotorComponent
+      },
+
+      {
+        path: 'puntosFisicos/pagar/:id',
+        component: BoletasPuntosFisicosComponent
+      },
+    ]
+  }
 
 
 ]
 
 @NgModule({
 
-    declarations:[  
-      AdministradoresComponent,
-      AdminPerfilComponent,
-       AdminEventosComponent, 
-       AgregarEventoComponent,
-       UpdateEventoComponent,
-        CiudadesAdminComponent,
-      CiudadesUpdateComponent
-      ,AgregarCiudadComponent,    
-      UpdateOrganizadorComponent,
-      AgregarOrganizadorComponent,
-      AgregarAdministradorComponent,
-      UpdateAdminComponent,
-      AdminBoletasComponent,
-      BooleanPipe,
-      AgregarBoletasComponent,
-      AdminLocalidadesComponent,
-      AgregarLocalidadComponent,
-      UpdateLocalidadComponent,
-      MapasComponent,
-      AdminPalcosComponent,
-      AgregarPalcoComponent,
-      AdminEtapasComponent,
-      AgregarEtapaComponent,
-      UpdatePalcosComponent,
-      AdminBlogComponent,
-      AdminPromotoresComponent,
-      AdminPuntosFisicosComponent,
-      AgregarPuntoComponent,
-      UpdatePuntoComponent,
-      AdminLectorComponent,
-      AdminMinisterioComponent,
-      AgregarMinisterioComponent,
-      UpdateMinisterioComponent,
-      AgregarPromotorComponent,
-      UpdatePromotorComponent,
-      BoletasPromotorComponent,
-      BoletasPuntosFisicosComponent
-    ],
-    imports:[
-        CommonModule,
-        RouterModule.forChild(routes), 
-        HttpClientModule,
-        FormsModule
-    ]
+  declarations: [
+    AdministradoresComponent,
+    AdminPerfilComponent,
+    AdminEventosComponent,
+    AgregarEventoComponent,
+    UpdateEventoComponent,
+    CiudadesAdminComponent,
+    CiudadesUpdateComponent, 
+    AgregarCiudadComponent,
+    UpdateOrganizadorComponent,
+    AgregarOrganizadorComponent,
+    AgregarAdministradorComponent,
+    UpdateAdminComponent,
+    AdminBoletasComponent,
+    BooleanPipe,
+    AgregarBoletasComponent,
+    AdminLocalidadesComponent,
+    AgregarLocalidadComponent,
+    UpdateLocalidadComponent,
+    MapasComponent,
+    AdminPalcosComponent,
+    AgregarPalcoComponent,
+    AdminEtapasComponent,
+    AgregarEtapaComponent,
+    UpdatePalcosComponent,
+    AdminBlogComponent,
+    AdminPromotoresComponent,
+    AdminPuntosFisicosComponent,
+    AgregarPuntoComponent,
+    UpdatePuntoComponent,
+    AdminLectorComponent,
+    AdminMinisterioComponent,
+    AgregarMinisterioComponent,
+    UpdateMinisterioComponent,
+    AgregarPromotorComponent,
+    UpdatePromotorComponent,
+    BoletasPromotorComponent,
+    BoletasPuntosFisicosComponent
+  ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    HttpClientModule,
+    FormsModule
+  ]
 
 })
-export class AdminModule{}
+export class AdminModule { }
