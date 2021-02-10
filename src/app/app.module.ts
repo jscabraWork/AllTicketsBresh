@@ -45,6 +45,7 @@ import { MinisterioModule } from './perfil-ministerio/ministerio.module';
 import { MensajeComponent } from './mensaje/mensaje.component';
 import { TerminosYCondicionesComponent } from './terminos-ycondiciones/terminos-ycondiciones.component';
 import { RedesSocialesComponent } from './redes-sociales/redes-sociales.component';
+import { BannerComponent } from './banner/banner.component';
 
 
 
@@ -88,6 +89,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      MensajeComponent,
      TerminosYCondicionesComponent,
      RedesSocialesComponent,
+     BannerComponent,
 
   
 

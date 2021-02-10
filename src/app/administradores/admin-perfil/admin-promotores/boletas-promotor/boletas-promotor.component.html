@@ -90,3 +90,87 @@
     </table>
     
 </section>
+
+
+
+
+<section class="container mt-5">
+    <h1>Promotor {{promotor.numeroDocumento}} y {{promotor.nombre}}</h1>
+    <small>Boletas totales historicas vendidas por el promotor: {{promotor.boletasCanjeadas.length}}</small> <br>
+
+ 
+    <table class="table mt-3">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre del evento</th>
+                <th>Localidad</th>
+                <th>Precio</th>     
+            </tr>
+
+        </thead>
+        <tbody>
+          
+            <tr *ngFor = "let boleta of promotor.boletasCanjeadas">
+                <td>{{boleta?.id}}</td>
+                <td>{{boleta.nombreEvento}}</td>
+                <td>{{boleta.localidadNombre}}</td>
+                <td>{{boleta?.precio + boleta?.servicio +boleta?.servicio*IVA| currency: 'COP'}}</td>
+
+            </tr>
+    
+    
+        </tbody>
+    
+    </table>
+    
+</section>
+
+
+
+<section class="container mt-5">
+
+
+    <h1>Promotor {{promotor.numeroDocumento}} y {{promotor.nombre}}</h1>
+    <small>Palcos totales Historicos vendidas por el promotor: {{promotor.palcosCanjeados.length}}</small> <br>
+
+
+    <table class="table mt-3">
+
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre del evento</th>
+                <th>Localidad</th>
+                <th>Precio</th>
+                <th>Precio Pagado</th>
+        
+             
+                
+            </tr>
+    
+    
+    
+        </thead>
+        <tbody>
+          
+            <tr *ngFor = "let palco of promotor.palcosCanjeados">
+                <td>{{palco?.id}}</td>
+                <td>{{palco.nombreEvento}}</td>
+                <td>{{palco.nombre}}</td>
+                <td>{{palco?.precio + palco?.servicio +palco?.servicio*IVA| currency: 'COP'}}</td>
+                <td>{{palco?.precioParcialPagado| currency: 'COP'}}</td>
+
+
+ 
+    
+            </tr>
+    
+    
+        </tbody>
+    
+    </table>
+    
+</section>
+

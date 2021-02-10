@@ -36,7 +36,12 @@ export class PromotorPerfilComponent implements OnInit {
 
     this.user= this.autenticador.getPromotor()
     this.servicio.getPromotorByUsuario(this.user).subscribe( response=>{
+   
       this.promotor = response
+
+    },
+    error=>{
+      alert('Sucedio un error por favor intente más tarde')
     })
   }
   openDialog(){

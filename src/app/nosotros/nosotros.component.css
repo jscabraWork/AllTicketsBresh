@@ -9,9 +9,17 @@
     background-color: white;
     text-align: center;
 }
-
-.contenedor8:hover .tituloLocalidad{
-    background: linear-gradient(#F9B84A, #ed701c); 
-    
-    
+.eventoFondo, fondoLogo{
+    height: 280px;
+}
+img{
+    width: 100%;
+    padding: 20px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }

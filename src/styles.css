@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
+.centrarTexto{
+    text-align: center;
+}
+
 .redes{
     position: fixed;
     top: 90%;
@@ -393,7 +397,7 @@
 
 
     .titulos{
-        font-size: 26px;
+        font-size: 23px;
     }
 
 }
@@ -404,7 +408,7 @@
 
 
     .titulos{
-        font-size: 20px;
+        font-size: 18px;
     }
 
 }
@@ -414,7 +418,7 @@
 
 
     .titulos{
-        font-size: 20px;
+        font-size: 18px;
     }
 
 }
@@ -423,7 +427,7 @@
 
 
     .titulos{
-        font-size: 25px;
+        font-size: 23px;
     }
 
     }
@@ -431,7 +435,7 @@
 @media(max-width:767px) and (min-width:576px){
 
     .titulos{
-        font-size: 20px;
+        font-size: 22px;
     }
 
 }
@@ -440,7 +444,7 @@
 @media(max-width:575px) and (min-width:0px){
 
     .titulos{
-        font-size: 25px;
+        font-size: 23px;
     }
 
     }

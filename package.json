@@ -27,10 +27,13 @@
     "@fullcalendar/daygrid": "^5.3.2",
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "@popperjs/core": "^2.5.3",
+    "@types/three": "^0.125.1",
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
     "mdbootstrap": "^4.17.0",
     "rxjs": "~6.5.4",
+    "three": "^0.125.2",
+    "threex.domevents": "^1.0.1",
     "ts-md5": "^1.2.7",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

@@ -25,6 +25,7 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TerminosYCondicionesComponent } from './terminos-ycondiciones/terminos-ycondiciones.component';
+import { BannerComponent } from './banner/banner.component';
 
 
 const routes: Routes = [
@@ -122,7 +123,14 @@ const routes: Routes = [
   {
     path:'terminosYCondiciones', component: TerminosYCondicionesComponent
   }
+
   ,
+  {
+    path: 'prueba',
+    component:BannerComponent
+  }
+  ,
+
   {
     path:'', component: HomeComponent
   },

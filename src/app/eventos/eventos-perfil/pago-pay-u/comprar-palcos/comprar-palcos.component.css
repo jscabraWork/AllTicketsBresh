@@ -13,7 +13,10 @@
     position: relative; 
     width: 100%;
 }
-
+img{
+    width: 60px;
+    cursor: pointer;
+}
 
     .tituloLocalidad{
         background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
@@ -52,4 +55,36 @@
     }
     td{
         background-color: white;
+    }
+
+    .grid{
+        margin-top: 1rem;
+        display: grid;
+        grid-template-columns:120px;
+        grid-template-rows: repeat(2, 80px);
+        text-align: center;
+        align-items: center;
+        justify-content: center;   
+      }
+
+    .grid a{
+        font-weight: bold;
+        text-decoration: none;
+      
+        padding:15px;
+        border-radius: 10px;
+        transition: all 300ms;
+        background: linear-gradient(#ed701c, #F9B84f) ;
+        color: white;
+        transition: all 500ms;
+    }
+    .grid a:hover{
+      color: #ed701c;
+      background: white;
+      border: 1px solid #ed701c;
+
+  }
+    .grid img{
+        margin-left: 35px;
+        font-size: 50px;
     }

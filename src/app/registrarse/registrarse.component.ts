@@ -19,7 +19,7 @@ export class RegistrarseComponent implements OnInit {
     this.usuario= {
       nombre: null,
       numeroDocumento: null,
-      tipoDocumento: null,
+      tipoDocumento: "Cedula",
       usuario: null,
       contrasena:null,
       celular:null,

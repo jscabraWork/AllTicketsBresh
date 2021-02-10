@@ -57,14 +57,21 @@
        <div>
          <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
          <h5><strong>Entradas: </strong> {{localidadesCompradas.length}}</h5>
-         <button class="action_button float-left  mr-1 mt-5 mb-3 p-3" style="font-size: 12px;" routerLink="regalar">Comprar Un Ticket Sin usuario</button>
+         <div>
+
+        </div>
        </div>
         <button style="font-size: 12px;" class="action_button float-right mr-1 mt-5 mb-3 p-3" (click) ="reservarBoletasLocalidad()"> Agregar al carrito</button>
       </div>
     </div>
   </div>
 
-
+<div class="col-12">
+  <div class="grid">
+    <mat-icon> card_giftcard</mat-icon>
+    <a routerLink="regalar">Ticket Regalo</a>
+   </div>
+</div>
 
 
   <div class="col-12 col-xl-9 pl-5 pr-5" *ngIf="evento?.mapa=='mapa1'">

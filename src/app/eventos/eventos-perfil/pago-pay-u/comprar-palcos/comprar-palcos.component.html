@@ -1,62 +1,72 @@
 <div id="prueba">
   <h1><strong>{{etapa?.nombre}} de </strong></h1>
-  <h1><strong> {{evento?.nombre}}</strong></h1> 
+  <h1><strong> {{evento?.nombre}}</strong></h1>
   <h1 style="font-size: 25px;"><strong>Hola {{usuarioEntidad?.nombre}}</strong></h1>
   <small class="float-right pt-4"><strong>Pulep:</strong> {{evento?.id}}</small>
 </div>
 
 
 
-<section class="container-fluid mt-5" >
-    <div class="row " >
-    
-      <div class="col-12  pl-5 pr-5" *ngIf="!evento?.mapa">
-        <div class="row border rounded shadow" style="background-color: white;">
-          <div class="col-12">
+<section class="container-fluid mt-5">
+  <div class="row ">
+
+    <div class="col-12  pl-5 pr-5" *ngIf="!evento?.mapa">
+      <div class="row border rounded shadow" style="background-color: white;">
+        <div class="col-12">
           <h4 class="p-3"><strong>Selección de Palcos</strong></h4>
-          <p class="pl-3 pr-3 pb-4">Por favor, indica el palco que deseas añadir a tu pedido. El numero de Palcos por compra se limita a 1 y puedes comprar máximo 2 por cada evento</p>
+          <p class="pl-3 pr-3 pb-4">Por favor, indica el palco que deseas añadir a tu pedido. El numero de Palcos por
+            compra se limita a 1 y puedes comprar máximo 2 por cada evento</p>
         </div>
-          <div class="col-12">
-            <table class="table mt-2 tabla border shadow-xs p-3" style="text-align: center;" >
-              <thead>
-                  <tr >
-                      <th >Nombre</th>
-                      <th>Agregar</th>
-                      <th>Disponibles</th>
-                      <th >Precio + Servicio + IVA</th>
-    
-                      
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr   >
-                      <td><strong>{{localidadCargada?.nombre }}</strong></td> 
-                      <td >
-                       
-                       <button class="rounded-circle" (click)="agregarALaLista(localidadCargada)">+</button>
-                       
-                      </td>
-                      <td>{{darCantidadDePalcos(localidadCargada)}}</td>
-                      <td><strong>{{localidadCargada.precio | currency: 'COP'}}</strong> + <strong>{{localidadCargada.servicio| currency:'COP'}}</strong> + <strong>{{localidadCargada.servicio*IVA|currency:'COP'}}</strong></td> 
-                      
-                    
-                  </tr>
-              </tbody>
-            </table>
+        <div class="col-12">
+          <table class="table mt-2 tabla border shadow-xs p-3" style="text-align: center;">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Agregar</th>
+                <th>Disponibles</th>
+                <th>Precio + Servicio + IVA</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>{{localidadCargada?.nombre }}</strong></td>
+                <td>
+
+                  <button class="rounded-circle" (click)="agregarALaLista(localidadCargada)">+</button>
+
+                </td>
+                <td>{{darCantidadDePalcos(localidadCargada)}}</td>
+                <td><strong>{{localidadCargada.precio | currency: 'COP'}}</strong> +
+                  <strong>{{localidadCargada.servicio| currency:'COP'}}</strong> +
+                  <strong>{{localidadCargada.servicio*IVA|currency:'COP'}}</strong></td>
+
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-12  justify-content-end">
+          <div>
+            <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
+            <h5><strong>Entradas: </strong> {{valorBoletas}} </h5>
           </div>
-          <div class="col-12  justify-content-end">
-           <div>
-             <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
-             <h5 ><strong>Entradas: </strong>  {{valorBoletas}} </h5>
-             <button class="action_button float-left  mr-1 mt-5 mb-3 p-3" style="font-size: 12px;" routerLink="vaca">Hacer Vaca</button>
-           </div>
-            <button style="font-size: 12px;" class="action_button float-right mr-1 mt-2 mb-3 p-3" (click) ="agregarAlCarrito()" > Agregar al carrito</button>
-          </div>
+          <button style="font-size: 12px;" class="action_button float-right mr-1 mt-2 mb-3 p-3"
+            (click)="agregarAlCarrito()"> Agregar al carrito</button>
         </div>
       </div>
-  
-  
-  
     </div>
 
-  </section>
+
+    <div class="col-12">
+      <div class="grid">
+        <img src="../../../../../assets/images/img/vaca.png" alt="vaca" routerLink="vaca">
+        <a routerLink="vaca">Hacer Vaca</a>
+      </div>
+    </div>
+
+
+  </div>
+
+</section>

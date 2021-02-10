@@ -1,1 +1,18 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+h3 a{
+    color: #ed701c;
+    text-decoration: none;
+    transition: all 700ms;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+ 
+    
+}
+
+h3 a:hover{
+    color: white;
+    
+    background: linear-gradient(#F9B84A, #ed701c); 
+}

@@ -1,0 +1,10 @@
+mat-icon{
+    font-size: 30px;
+    color: #ed701c;
+    transition: all 400ms;
+}
+mat-icon:hover{
+    color: #f06000;
+    font-size: 35px;
+    
+}
