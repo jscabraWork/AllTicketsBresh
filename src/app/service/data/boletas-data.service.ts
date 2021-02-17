@@ -133,5 +133,8 @@ pagarBoletasAPuntoFisico(numeroInterno:number){
   
 }
 
+entro(){
+  return this.http.get(`${API_URL}/entro`)
+}
 
 }

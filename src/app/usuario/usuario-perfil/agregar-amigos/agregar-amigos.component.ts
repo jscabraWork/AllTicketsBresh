@@ -94,7 +94,7 @@ export class AgregarAmigosComponent implements OnInit {
 
   refrescarPalco(){
     this.palcoServicio.getPalco(0, this.idPalco).subscribe(response=>{ this.palco=response;
-      this.referenceCode="APORTE A PALCO: " +this.palco.id
+      this.referenceCode="APORTE A PALCO: "+this.usuario+"/" +this.palco.id
     this.refrescar()
     
     })
@@ -187,4 +187,50 @@ aportarVaca(){
       }
     
 }
+
+window: any = window;
+handler = this.window.ePayco.checkout.configure({
+  key: '7c7542634fcbfa55f6852b0d6ae4a98e',
+  test: true,
+});
+
+epaycoPalcosUsuarios() {
+  var data = {
+    //Parametros compra (obligatorio)
+    name: this.palco.nombreEvento,
+    description:
+    'Aporte al Palco para ' +
+    this.palco.nombreEvento +
+    ' En la localidad ' +
+    this.palco.nombre,
+    currency: 'cop',
+    amount: this.valorAPagar,
+    tax_base: '0',
+    tax: '0',
+    country: 'co',
+    lang: 'es',
+
+    //Onpage="false" - Standard="true"
+    external: 'true',
+
+    //Atributos opcionales
+
+    response: "http://localhost:4200/eventos/respuesta",
+    confirmation: "http://localhost:4200/eventos/confirmacion",
+
+    //Atributos cliente
+    name_billing: this.usuario.nombre,
+    address_billing: this.usuario.direccion,
+    type_doc_billing: 'cc',
+    mobilephone_billing: this.usuario.celular,
+    number_doc_billing: this.usuario.numeroDocumento,
+  };
+
+  this.handler.onCloseModal = this.onCloseEpaycoModal;
+  this.handler.open(data);
+}
+onCloseEpaycoModal() {
+  alert('Close ePayco Modal!!!!!!!');
+}
+
 }

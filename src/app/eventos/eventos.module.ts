@@ -8,7 +8,7 @@ import { PagoPayUComponent } from './eventos-perfil/pago-pay-u/pago-pay-u.compon
 
 import { EventosPerfilComponent } from './eventos-perfil/eventos-perfil.component';
 import { EventosComponent } from './eventos.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { CommonModule } from '@angular/common';
 
@@ -19,8 +19,9 @@ import { ComprarPalcosComponent } from './eventos-perfil/pago-pay-u/comprar-palc
 import { VacaComponent } from './eventos-perfil/pago-pay-u/comprar-palcos/vaca/vaca.component';
 import { CarritoDeComprasComponent } from './eventos-perfil/pago-pay-u/carrito-de-compras/carrito-de-compras.component';
 import { ImagenEventosComponent } from './eventos-perfil/imagen-eventos/imagen-eventos.component';
-import { CarritoDeComprasAsistenteComponent } from './eventos-perfil/pago-pay-u/regalar-boleta/carrito-de-compras-asistente/carrito-de-compras-asistente.component';
+
 import { MatIconModule } from '@angular/material/icon';
+import { HttpInterceptBasicAuthService } from '../service/http/http-intercept-basic-auth.service';
 
 
 
@@ -58,6 +59,14 @@ const routes: Routes=[
         {
           path:'evento/:id/pago/:idLocalidad/regalar',
           component: RegalarBoletaComponent
+        },
+        {
+          path:'respuesta',
+          component: RespuestaComponent
+        },
+        {
+          path:'confirmacion',
+          component: ConfirmacionComponent
         }
       ]
 }
@@ -67,7 +76,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent, CarritoDeComprasAsistenteComponent ],
+    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent ],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 
@@ -75,12 +84,15 @@ const routes: Routes=[
         FormsModule,
         ReactiveFormsModule,
         MatIconModule
-  
 
       
         
         
-    ]
+    ],
+    providers: [
+      {provide:HTTP_INTERCEPTORS, useClass: HttpInterceptBasicAuthService, multi: true  }
+ 
+    ],
 
 })
 export class EventosModule{}

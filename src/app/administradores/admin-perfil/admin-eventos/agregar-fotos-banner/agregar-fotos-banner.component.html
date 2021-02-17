@@ -1,0 +1,27 @@
+<div class="container centrarTexto fondoBlanco border rounded shadow p-3">
+
+    <div class="row">
+        <div class="col-12">
+            <mat-icon class="float-right rounded pt-2 pb-2 pl-3 pr-3 botonesCerrar" mat-button mat-dialog-close>
+                cancel_presentation</mat-icon>
+        </div>
+        <div class="col-4"  *ngFor="let imga of url" >
+            <img src="{{imga.url}}" class="imagenes pt-2" alt="">
+        </div>
+        <div class="col-12">
+            <button id="selectButton" class="botones btn mt-4" (click)="fileInput.click()">Seleccione foto</button>
+            <input type="file" #fileInput hidden multiple accept="jpg,png,jpeg" (change)="selectFiles($event)" />
+        </div>
+
+        <div class="col-12 mt-2">
+            <p *ngFor="let file of selectedFiles">{{file.name}}</p>
+            <button id="uploadButton" class="botones btn mt-4" *ngIf="selectedFiles" [disabled]="!selectedFiles"
+                (click)="uploadFiles()">
+                Subir Foto
+            </button>
+        </div>
+        <div class="col-12">
+
+            {{message}}
+        </div>
+    </div>

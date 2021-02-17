@@ -49,6 +49,13 @@ import { AgregarPromotorComponent } from './admin-perfil/admin-promotores/agrega
 import { UpdatePromotorComponent } from './admin-perfil/admin-promotores/update-promotor/update-promotor.component';
 import { BoletasPromotorComponent } from './admin-perfil/admin-promotores/boletas-promotor/boletas-promotor.component';
 import { BoletasPuntosFisicosComponent } from './admin-perfil/admin-puntos-fisicos/boletas-puntos-fisicos/boletas-puntos-fisicos.component';
+import { AgregarFotoPerfilComponent } from './admin-perfil/admin-eventos/agregar-foto-perfil/agregar-foto-perfil.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AgregarFotoMapaComponent } from './admin-perfil/admin-eventos/agregar-foto-mapa/agregar-foto-mapa.component';
+import { AgregarFotosBannerComponent } from './admin-perfil/admin-eventos/agregar-fotos-banner/agregar-fotos-banner.component';
+import { AgregarFotoCiudadComponent } from './admin-perfil/ciudades-admin/agregar-foto-ciudad/agregar-foto-ciudad.component';
+
 
 
 const routes: Routes = [
@@ -275,13 +282,20 @@ const routes: Routes = [
     AgregarPromotorComponent,
     UpdatePromotorComponent,
     BoletasPromotorComponent,
-    BoletasPuntosFisicosComponent
+    BoletasPuntosFisicosComponent,
+    AgregarFotoPerfilComponent,
+    AgregarFotoMapaComponent,
+    AgregarFotosBannerComponent,
+    AgregarFotoCiudadComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatIconModule,
+    MatDialogModule,
+    
   ]
 
 })

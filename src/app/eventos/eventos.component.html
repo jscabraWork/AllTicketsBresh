@@ -21,7 +21,7 @@
         
             <div class="contenedor contenedor2" >
             <a routerLink="/eventos/evento/{{evento.id}}" class="outerLink"> 
-                <img src="{{evento.imagen}}" class=" rounded  darkableImage"onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1" 
+                <img src="{{evento.imagen.url}}" *ngIf="evento.imagen" class=" rounded  darkableImage"onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1" 
                 onmouseover="javascript:this.style.opacity=0.4;this.opacity=40" />
                
             </a>

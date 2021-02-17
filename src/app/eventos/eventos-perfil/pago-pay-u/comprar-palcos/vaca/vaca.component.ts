@@ -129,7 +129,7 @@ export class VacaComponent implements OnInit {
           recomendaciones:"",
           ciudadIdTexto:null,
           organizadorid:null,
-          imagen:"",
+          imagen:null,
           imagenes:[],
           artistas:"",
           fechaFin:null,
@@ -223,7 +223,7 @@ export class VacaComponent implements OnInit {
      if(this.contadorPalcos <2 && !this.cargando){
        this.cargando=true
    if(this.palco.nombre != this.localidad.nombre){
-     this.referenceCode ="PALCO: "
+     this.referenceCode ="PALCO: "+this.usuarioEntidad.usuario+"/"
      if(this.localidad==null){
        alert("Agregar un Palco para continuar")
      }

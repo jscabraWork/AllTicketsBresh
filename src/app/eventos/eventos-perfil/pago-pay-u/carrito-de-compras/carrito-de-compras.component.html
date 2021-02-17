@@ -53,71 +53,17 @@
             </div>
             <div class="row">
             <div class="p-4 col-6" >
-              <button *ngIf="usuarioEntidad" (click)="comprarBoletas()" >Comprar sin pagar BOTON PRUEBAS </button>
-                <form ngNoForm method="post" [action]="url" *ngIf="usuarioEntidad">
-                  <input name="merchantId" type="hidden" value="{{merchantId}}">
-                  <input name="accountId" type="hidden" value="{{accountId}}">
-                  <input name="description" type="hidden" value="{{evento?.nombre}}">
-                  <input name="referenceCode" type="hidden" value="{{referenceCode}}">
-                  <input name="amount" type="hidden" value="{{valorTotal}}">
-                  <input name="tax" type="hidden" value="0">
-                  <input name="taxReturnBase" type="hidden" value="0">
-                  <input name="currency" type="hidden" value="COP">
-                  <input name="lng" type="hidden" value="es">
-                  <input name="signature" type="hidden" value="{{signature}}">
-                  <input name="test" type="hidden" value="1">
-                  <input name="buyerEmail" type="hidden" value="{{usuarioEntidad?.correo}}">
-                  <input name="buyerFullName" type="hidden" value="{{usuarioEntidad?.nombre}}">
-                  <input name="responseUrl" type="hidden" value="http://www.test.com/response">
-                  <input name="confirmationUrl" type="hidden" value="http://www.test.com/confirmation">
-                  <input name="zipCode" type="hidden" value="12345">
-                  <button name="Submit" class="action_button" type="submit"   value="Enviar" style="font-size:16px ;">Pagar</button>
-                  
-                </form>
-                
+              <button *ngIf="usuarioEntidad && boletas" (click)="comprarBoletas()" >Comprar sin pagar BOTON PRUEBAS </button>
+
+                <img class="btn-epayco"  *ngIf="usuarioEntidad && boletas"  (click)="epaycoTicketsUsuarios()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
+
                
                 <button *ngIf="palco.id!=null" (click) ="pagar()">Comprar sin pagar BOTON PRUEBAS </button>
-                <form ngNoForm method="post" [action]="url" *ngIf="palco.id!=null">
-                  <input name="merchantId" type="hidden" value="{{merchantId}}">
-                  <input name="accountId" type="hidden" value="{{accountId}}">
-                  <input name="description" type="hidden" value="{{evento?.nombre}}">
-                  <input name="referenceCode" type="hidden" value="{{referenceCode}}">
-                  <input name="amount" type="hidden" value="{{valorTotal}}">
-                  <input name="tax" type="hidden" value="0">
-                  <input name="taxReturnBase" type="hidden" value="0">
-                  <input name="currency" type="hidden" value="COP">
-                  <input name="lng" type="hidden" value="es">
-                  <input name="signature" type="hidden" value="{{signature}}">
-                  <input name="test" type="hidden" value="0">
-                  <input name="buyerEmail" type="hidden" value="{{usuarioEntidad?.correo}}">
-                  <input name="buyerFullName" type="hidden" value="{{usuarioEntidad?.nombre}}">
-                  <input name="responseUrl" type="hidden" value="http://www.test.com/response">
-                  <input name="confirmationUrl" type="hidden" value="http://www.test.com/confirmation">
-                  <input name="zipCode" type="hidden" value="12345">
-                  <button name="Submit" class="action_button"  type="submit"   value="Enviar" style="font-size:16px ;">Pagar</button>
-                </form>
+                <img class="btn-epayco"  *ngIf="palco.id!=null"  (click)="epaycoPalcosUsuarios()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
 
 
                 <button *ngIf="asistente" (click)="comprarBoletasAsistente()" >Comprar sin pagar BOTON PRUEBAS </button>
-                <form *ngIf="asistente" ngNoForm method="post" [action]="url">
-                  <input name="merchantId" type="hidden" value="{{merchantId}}">
-                  <input name="accountId" type="hidden" value="{{accountId}}">
-                  <input name="description" type="hidden" value="{{evento?.nombre}}">
-                  <input name="referenceCode" type="hidden" value="{{referenceCode}}">
-                  <input name="amount" type="hidden" value="{{valorTotal}}">
-                  <input name="tax" type="hidden" value="0">
-                  <input name="taxReturnBase" type="hidden" value="0">
-                  <input name="currency" type="hidden" value="COP">
-                  <input name="lng" type="hidden" value="es">
-                  <input name="signature" type="hidden" value="{{signature}}">
-                  <input name="test" type="hidden" value="0">
-                  <input name="buyerEmail" type="hidden" value="{{asistente?.correo}}">
-                  <input name="buyerFullName" type="hidden" value="{{asistente?.nombre}}">
-                  <input name="responseUrl" type="hidden" value="http://www.test.com/response">
-                  <input name="confirmationUrl" type="hidden" value="http://www.test.com/confirmation">
-                  <input name="zipCode" type="hidden" value="12345">
-                  <button name="Submit" class="action_button" type="submit"  value="Enviar" style="font-size:16px ;">Pagar</button>
-                </form>
+                <img class="btn-epayco"  *ngIf="asistente" (click)="epaycoBoletasAsistente()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
             </div>
             <div class="col-6">
               <input placeholder="¿Algún promotor?" [(ngModel)] ="codigoVenta" class="float-right form-control" type="text">

@@ -56,7 +56,7 @@ valorBoletas=0
       recomendaciones:"",
       ciudadIdTexto:null,
       organizadorid:null,
-      imagen:"",
+      imagen:null,
       imagenes:[],
       artistas:"",
       fechaFin:null,

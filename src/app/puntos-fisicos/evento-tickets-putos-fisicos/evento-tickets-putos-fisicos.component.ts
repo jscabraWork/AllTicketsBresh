@@ -71,7 +71,7 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
       recomendaciones:"",
       ciudadIdTexto:null,
       organizadorid:null,
-      imagen:"",
+      imagen:null,
       imagenes:[],
       artistas:"",
       fechaFin:null,

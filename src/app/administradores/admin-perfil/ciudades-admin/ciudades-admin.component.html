@@ -9,7 +9,7 @@
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Temperatura</th>
-              
+                <th>Foto</th>
                 <th>Modificar</th>
                 <th>Borrar</th>
                 
@@ -24,7 +24,7 @@
                 <td>{{ciudad?.id}}</td>
                 <td>{{ciudad?.nombre }}</td>
                 <td>{{ciudad?.temperatura}}</td>
-            
+                <td><button class="btn btn-success" (click)="AgregarFotoCiudad(ciudad)">Agregar Foto De Ciudad</button></td>
                 <td><button routerLink="update/{{ciudad.id}}" class="btn btn-warning">  Modificar</button></td>
                 <td><button  class="btn btn-danger" (click)="deleteCiudad(ciudad.id)" > Delete</button></td>
     

@@ -1,0 +1,24 @@
+.botones{
+    color:white;
+    background-color: #c61e5b;
+    border: 2px solid white;
+}
+
+.botones:hover{
+    color:#c61e5b;
+    background-color: white;
+    border: 2px solid #c61e5b;
+}
+
+.imagenes{
+    width: 160px;
+    height: 160px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}
+.fondoBlanco{
+    background-color:white ;
+}

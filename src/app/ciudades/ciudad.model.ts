@@ -1,6 +1,8 @@
+import { Foto } from "../models/foto.model";
+
 export interface Ciudad {
     id: number,
     nombre:string,
-    imagen:string,
+    imagen:Foto,
     temperatura:number
 }

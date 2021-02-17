@@ -1,6 +1,10 @@
 import { EventoDataService } from './../../../service/data/evento-data.service';
 import { Evento } from './../../../eventos/evento.model';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AgregarFotoPerfilComponent } from './agregar-foto-perfil/agregar-foto-perfil.component';
+import { AgregarFotoMapaComponent } from './agregar-foto-mapa/agregar-foto-mapa.component';
+import { AgregarFotosBannerComponent } from './agregar-fotos-banner/agregar-fotos-banner.component';
 
 @Component({
   selector: 'app-admin-eventos',
@@ -10,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminEventosComponent implements OnInit {
 
   message:string;
-  constructor(private service:EventoDataService) { }
+  constructor(private service:EventoDataService, private dialog:MatDialog) { }
 
   eventos:Evento[]=[];
   ngOnInit(): void {
@@ -36,4 +40,69 @@ export class AdminEventosComponent implements OnInit {
       this.refresecarEventos();
     })
   }
+
+
+  agregarFotoPortada(evento:Evento) {
+    var portada = ""
+    if (evento.imagen != null) {
+      portada = evento.imagen.url
+    }
+    const dialogRef = this.dialog.open(AgregarFotoPerfilComponent,
+      {
+        width: '600px',
+        height: '380px',
+        data: {
+          id: evento.id,
+          url: portada
+        }
+      })
+    dialogRef.afterClosed().subscribe(result => {
+      result
+      this.ngOnInit()
+    })
+  }
+
+  agregarFotoMapa(evento:Evento) {
+    var portada = ""
+    if (evento.mapaImagen != null) {
+      portada = evento.mapaImagen.url
+    }
+    const dialogRef = this.dialog.open(AgregarFotoMapaComponent
+    ,
+      {
+        width: '600px',
+        height: '380px',
+        data: {
+          id: evento.id,
+          url: portada
+        }
+      })
+    dialogRef.afterClosed().subscribe(result => {
+      result
+      this.ngOnInit()
+    })
+  }
+
+  agregarFotosBanner(evento:Evento) {
+    var portada = []
+    if (evento.mapaImagen != null) {
+      portada = evento.imagenes
+    }
+    const dialogRef = this.dialog.open(AgregarFotosBannerComponent
+    ,
+      {
+        width: '600px',
+        height: '380px',
+        data: {
+          id: evento.id,
+          url: portada
+        }
+      })
+    dialogRef.afterClosed().subscribe(result => {
+      result
+      this.ngOnInit()
+    })
+  }
+
+
 }

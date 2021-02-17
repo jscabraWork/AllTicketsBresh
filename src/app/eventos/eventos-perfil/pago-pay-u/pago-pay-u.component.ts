@@ -37,7 +37,7 @@ localidadesCompradas:Localidad[]=[]
 usuarioBoolean:boolean
 merchantId:number
 accountId:number
-referenceCode:string
+referenceCode:string =""
 signature:string
 ApiKey:string
 valorLocalidadAgregada:number 
@@ -76,7 +76,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       recomendaciones:"",
       ciudadIdTexto:null,
       organizadorid:null,
-      imagen:"",
+      imagen:null,
       imagenes:[],
       artistas:"",
       fechaFin:null,
@@ -143,7 +143,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
         if(this.autenticador.getUsuario()!=null ){
         
           this.usuarioA= this.autenticador.getUsuario(); 
-         this.referenceCode = this.referenceCode + this.usuarioA+': ';
+         this.referenceCode = this.referenceCode +'TICKET: '+ this.usuarioA+'/';
           
           
           this.dataServicio.getCliente(this.usuarioA).subscribe(response => {this.usuarioEntidad=response

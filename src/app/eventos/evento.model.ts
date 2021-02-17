@@ -1,6 +1,7 @@
 import { Etapa } from './eventos-perfil/etapa.model';
 import { Palco } from './../administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
 import { Localidad } from './../administradores/admin-perfil/admin-eventos/admin-localidades/localidad.model';
+import { Foto } from '../models/foto.model';
 
 export interface Evento {
     id: string,
@@ -13,8 +14,8 @@ export interface Evento {
     recomendaciones:string,
     ciudadIdTexto:number,
     organizadorid:number,
-    imagen:string,
-    imagenes:string[],
+    imagen:Foto,
+    imagenes:Foto[],
     artistas,
     fechaFin:Date,
     mapa: string,
@@ -23,7 +24,7 @@ export interface Evento {
     horaInicio:string,
     horaFin:string,
     etapas:Etapa[],
-    mapaImagen:string,
+    mapaImagen:Foto,
     visible:boolean
 
 }

@@ -48,7 +48,7 @@ IVA
       recomendaciones:"",
       ciudadIdTexto:null,
       organizadorid:null,
-      imagen:"",
+      imagen:null,
       imagenes:[],
       artistas:"",
       fechaFin:null,

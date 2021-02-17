@@ -16,17 +16,22 @@
 				<div class="carousel-inner outerLink">
 
 					<div class="carousel-item active h-25" *ngIf="evento?.imagenes[0]">
-						<img src="{{evento?.imagenes[0]}}" class="img-fluid align-items-center darkableImageBanner">
+						<img src="{{evento?.imagenes[0].url}}" class="img-fluid align-items-center darkableImageBanner">
 
 					</div>
 
 					<div class="carousel-item" *ngIf="evento?.imagenes[1]">
-						<img src="{{evento?.imagenes[1]}}" class="img-fluid align-items-center darkableImageBanner">
+						<img src="{{evento?.imagenes[1].url}}" class="img-fluid align-items-center darkableImageBanner">
 
 					</div>
 
 					<div class="carousel-item" *ngIf="evento?.imagenes[2]">
-						<img src="{{evento?.imagenes[2]}}" class="img-fluid align-items-center darkableImageBanner">
+						<img src="{{evento?.imagenes[2].url}}" class="img-fluid align-items-center darkableImageBanner">
+
+					</div>
+
+					<div class="carousel-item" *ngIf="evento?.imagenes[3]">
+						<img src="{{evento?.imagenes[3].url}}" class="img-fluid align-items-center darkableImageBanner">
 
 					</div>
 
@@ -71,7 +76,7 @@
 					allowfullscreen></iframe>
 			</div>
 			<div class="col-12 col-lg-7 mt-5  " *ngIf="!evento?.video">
-				<img class="rounded" src="{{evento?.imagen}}" style=" width: 100%; height: 650px;" alt="">
+				<img class="rounded" src="{{evento?.imagen?.url}}" style=" width: 100%; height: 650px;" alt="">
 
 			</div>
 
@@ -204,6 +209,7 @@
 		<div class="col-12 mt-5" style="text-align: center;">
 			<button *ngIf="evento.mapaImagen" class="action_button p-3" style="font-size: 15px;"
 				(click)="openDialog()">Mapa del evento</button>
+				<img class="btn-epayco" (click)="epayco()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
 		</div>
 	</div>
 

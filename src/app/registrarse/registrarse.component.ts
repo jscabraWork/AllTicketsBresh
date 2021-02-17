@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Md5 } from 'ts-md5';
+import { TerminosYCondicionesComponent } from '../terminos-ycondiciones/terminos-ycondiciones.component';
 
 @Component({
   selector: 'app-registrarse',
@@ -65,5 +66,17 @@ export class RegistrarseComponent implements OnInit {
     }
   }
 
+  terminosYCondiciones(){
+    const dialogRef = this.dialog.open(TerminosYCondicionesComponent, {
+      width: '600px',
+      height:'750px'
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+  }
   
 }

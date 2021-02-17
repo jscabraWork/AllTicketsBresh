@@ -23,3 +23,10 @@ small{
 .colorGris{
     color:gray;
 }
+.terminos{
+    color: #ed701c;
+    cursor: pointer;
+}
+.terminos:hover{
+    color: #c54f00;
+}

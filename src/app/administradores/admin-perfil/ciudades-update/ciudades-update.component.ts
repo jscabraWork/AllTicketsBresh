@@ -20,7 +20,7 @@ export class CiudadesUpdateComponent implements OnInit {
   })
   this.ciudad ={    id: 0,
     nombre:'string',
-    imagen:'string',
+    imagen:null,
     temperatura:0};
   this.servicio.getCiudad(this.id).subscribe(response=> this.manejarCiudad(response));
   }
@@ -28,13 +28,7 @@ export class CiudadesUpdateComponent implements OnInit {
   manejarCiudad(response){
     this.ciudad=response;
   }
-  onFileSelected(event){
-    this.selectedFile = event.target.files[0];
- 
-    this.ciudad.imagen ="../../assets/images/img/" +event.target.files[0].name;
- 
 
-  }
   saveCiudad(){
     this.servicio.updateCiudad(this.id,this.ciudad).subscribe(data=>data);
     this.router.navigate(['/administradores/admin/ciudades/lista'])

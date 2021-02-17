@@ -18,19 +18,13 @@ export class AgregarCiudadComponent implements OnInit {
     this.ciudad={
       id: -1,
     nombre:'',
-    imagen:'',
+    imagen:null,
     temperatura:-1
 
     }
   }
 
-  onFileSelected(event){
-    this.selectedFile = event.target.files[0];
-    
-    this.ciudad.imagen ="../../assets/images/img/" +event.target.files[0].name;
-    
-
-  }
+ 
 
   saveCiudad(){
     this.servicio.addCiudad(this.ciudad).subscribe(data=>console.log(data))

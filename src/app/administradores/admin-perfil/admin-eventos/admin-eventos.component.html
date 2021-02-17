@@ -14,6 +14,8 @@
                 <th>Fecha</th>
                 <th>Organizador</th>
                 <th>Etapas</th>
+                <th>Foto Perfil</th>
+                <th>Foto Mapa</th>
                 <th>Lector</th>
                 <th>Visibilidad</th>
                 <th>Modificar</th>
@@ -32,7 +34,11 @@
                 <td>{{evento?.fecha| date}}</td>
                 <td>{{evento.organizadorid}}</td>
                 <td><button class="btn btn-success" routerLink="etapas/{{evento.id}}"> Etapas</button></td>
+                <td><button class="btn btn-success" (click)="agregarFotoPortada(evento)">Agregar Foto Perfil</button></td>
+                <td><button class="btn btn-success" (click)="agregarFotoMapa(evento)">Agregar Foto Mapa</button></td>
+                <td><button class="btn btn-success" (click)="agregarFotosBanner(evento)">Agregar Fotos Banner</button></td>
                 <td><button class="btn btn-success" routerLink="lector/{{evento.id}}"> Lector provisional</button></td>
+                
                 
                 <td><button (click)="cambiarVisibilidad(evento.id)" class="btn btn-warning" > {{evento.visible |booleans}}</button></td>
                 <td><button  class="btn btn-warning" routerLink="update/{{evento.id}}"> Modificar</button></td>

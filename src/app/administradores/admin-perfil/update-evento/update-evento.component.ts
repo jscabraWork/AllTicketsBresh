@@ -32,7 +32,7 @@ this.evento ={
   recomendaciones:"",
   ciudadIdTexto:null,
   organizadorid:null,
-  imagen:"",
+  imagen:null,
   imagenes:[],
   artistas:"",
   fechaFin:null,
@@ -62,20 +62,7 @@ this.servicio.getEventoId(this.miId).subscribe( response => this.handleGetSucces
   }
 
 
-  onFileSelected(event){
-    this.selectedFile = event.target.files[0];
  
-    this.evento.imagen ="../../assets/images/img/" +event.target.files[0].name;
-    
-
-  }
-  onFileSelected1(event){
-    this.selectedFile = event.target.files[0];
- 
-    this.evento.imagenes.push ("../../assets/images/img/" +event.target.files[0].name)
-    
-
-  }
 
 
 }
