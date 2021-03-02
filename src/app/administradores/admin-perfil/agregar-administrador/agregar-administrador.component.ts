@@ -34,9 +34,15 @@ export class AgregarAdministradorComponent implements OnInit {
 
     var contra = this.administrador.contrasena;
     this.administrador.contrasena = md5.appendStr(contra).end().toString();
-    this.service.addAdministrador(this.administrador).subscribe(data=>data)
-    alert('Se creo el administrador ' + this.administrador.nombre)
-    this.router.navigate(['administradores'])
+
+    this.service.addAdministrador(this.administrador).subscribe(
+      (response)=>{
+      response
+      this.router.navigate(['administradores'])
+    }
+    )
+    
+    
   }
 
 }

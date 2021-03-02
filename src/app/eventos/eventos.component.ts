@@ -2,6 +2,7 @@ import { EventoDataService } from './../service/data/evento-data.service';
 
 import { Evento } from './evento.model';
 import { Component, OnInit } from '@angular/core';
+import { EpaycoService } from '../service/epayco.service';
 
 
 @Component({

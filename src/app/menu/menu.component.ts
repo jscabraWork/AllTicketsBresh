@@ -50,7 +50,7 @@ export class MenuComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(RegistrarseComponent, {
       width: '600px',
-      height:'700px',
+ 
       
       
     });
@@ -65,7 +65,7 @@ export class MenuComponent implements OnInit {
   openDialog5(): void {
     const dialogRef = this.dialog.open(SePromotorComponent, {
       width: '600px',
-      height:'900px',
+     
       
       
     });
@@ -80,8 +80,7 @@ export class MenuComponent implements OnInit {
   openDialog2(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: '600px',
-      height:'600px',
-      
+ 
       
     });
 
@@ -95,7 +94,7 @@ export class MenuComponent implements OnInit {
   openDialog3(): void {
     const dialogRef = this.dialog.open(ContactanosComponent, {
       width: '600px',
-      height:'600px',
+    
       
       
     });
@@ -110,7 +109,7 @@ export class MenuComponent implements OnInit {
  
     const dialogRef = this.dialog.open(CalendarioComponent, {
       width: '600px',
-      height:'600px',
+      
       
       
     });

@@ -46,6 +46,7 @@ import { MensajeComponent } from './mensaje/mensaje.component';
 import { TerminosYCondicionesComponent } from './terminos-ycondiciones/terminos-ycondiciones.component';
 import { RedesSocialesComponent } from './redes-sociales/redes-sociales.component';
 import { BannerComponent } from './banner/banner.component';
+import { EpaycoService } from './service/epayco.service';
 
 
 
@@ -112,6 +113,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatDialogModule,
  
     MatIconModule,
+    
 
   
     
@@ -120,7 +122,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass: HttpInterceptBasicAuthService, multi: true  },
-    {provide: LOCALE_ID, useValue: 'es' } 
+    {provide: LOCALE_ID, useValue: 'es', } 
   ],
   bootstrap: [AppComponent]
 })

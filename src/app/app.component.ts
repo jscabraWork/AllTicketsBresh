@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EpaycoService } from './service/epayco.service';
 
 
 @Component({

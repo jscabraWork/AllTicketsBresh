@@ -125,11 +125,7 @@ const routes: Routes = [
   }
 
   ,
-  {
-    path: 'prueba',
-    component:BannerComponent
-  }
-  ,
+
 
   {
     path:'', component: HomeComponent

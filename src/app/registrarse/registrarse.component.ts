@@ -40,14 +40,16 @@ export class RegistrarseComponent implements OnInit {
 
     var contra = this.usuario.contrasena;
     this.usuario.contrasena = md5.appendStr(contra).end().toString();
-    this.service.createCliente(this.usuario).subscribe(response=>{console.log(response),
+    this.service.createCliente(this.usuario).subscribe(response=>{
+
+      response
       alert("Se ha creado exitosamente el usuario "+this.usuario.usuario + " Revisa tu correo, debio llegar un correo de confirmación") ,
       this.dialog.closeAll(),
       this.service.mandarCorreo(this.usuario, contra).subscribe(response=>response)
     
   },
-    error=>{alert(error.error.message);
-      console.log(error)
+    error=>{
+      error
       this.usuario.contrasena =""
       }
     

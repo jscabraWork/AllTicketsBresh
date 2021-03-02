@@ -309,6 +309,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
           this.valorTotal=this.valorTotal+ this.boletas[i].precio  +this.boletas[i].servicio +this.boletas[i].servicio*IVA  
           this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
           if(i == this.boletas.length-1){
+            this.referenceCode = this.referenceCode + "% FECHA: "+ new Date();
             this.AbrirCarrito()  
           }
 

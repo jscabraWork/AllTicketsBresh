@@ -33,6 +33,7 @@
     "mdbootstrap": "^4.17.0",
     "rxjs": "~6.5.4",
     "three": "^0.125.2",
+    "three-obj-loader": "^1.1.3",
     "threex.domevents": "^1.0.1",
     "ts-md5": "^1.2.7",
     "tslib": "^1.10.0",

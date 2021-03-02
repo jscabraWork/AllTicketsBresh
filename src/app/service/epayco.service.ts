@@ -6,7 +6,7 @@ import { EpaycoTransaction } from '../models/epayco.model';
   providedIn: 'root'
 })
 export class EpaycoService {
-  configUrl = 'https://secure.epayco.co/validation/v1/reference/';
+  configUrl = '/validation/v1/reference/';
   constructor(	private http: HttpClient) { }
   getTransactionResponse(refPayco: string) {
 	  return this.http.get<EpaycoTransaction>(this.configUrl+refPayco);

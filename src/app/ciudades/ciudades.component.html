@@ -25,7 +25,7 @@
     
         <div class="contenedor2" (mouseover)="textoV=true" (mouseout)="textoV=false">
         <a routerLink="/ciudades/eventos/{{ciudad.id}}" class="outerLink"> 
-            <img src="{{ciudad.imagen.url}}" class=" rounded  darkableImage"onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1" 
+            <img *ngIf="ciudad.imagen" src="{{ciudad.imagen.url}}" class=" rounded  darkableImage"onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1" 
             onmouseover="javascript:this.style.opacity=0.4;this.opacity=40" />
             <p *ngIf="textoV" class="centrado6"><strong> Acá encontraras los mejores eventos en la ciudad de {{ciudad?.nombre}}. ¿Qué estas esperando? compra tu Ticket premium ya</strong></p>
         </a>

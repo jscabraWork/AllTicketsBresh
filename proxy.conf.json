@@ -1,0 +1,8 @@
+{"/validation/v1/reference/*": {
+    "target":"https://secure.epayco.co",
+    "secure":false,
+    "changeOrigin":true
+}
+
+
+}

@@ -29,7 +29,7 @@ export class CarritoDeComprasComponent implements OnInit {
   palco: Palco;
 
   asistente: Asistente;
-  url = 'https://checkout.payulatam.com/ppp-web-gateway-payu/';
+
   cargando = true;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -220,8 +220,8 @@ export class CarritoDeComprasComponent implements OnInit {
 
       //Atributos opcionales
 
-      response: "http://localhost:4200/eventos/respuesta",
-      confirmation: "http://localhost:4200/eventos/confirmacion",
+      response:"http://localhost:4200/eventos/respuesta",
+      confirmation:'http://localhost:8080/epayco',
 
       //Atributos cliente
       name_billing: this.usuarioEntidad.nombre,
@@ -257,7 +257,7 @@ export class CarritoDeComprasComponent implements OnInit {
       //Atributos opcionales
 
       response: "http://localhost:4200/eventos/respuesta",
-      confirmation: "http://localhost:4200/eventos/confirmacion",
+      confirmation:'http://localhost:8080/epayco',
 
       //Atributos cliente
       name_billing: this.usuarioEntidad.nombre,
@@ -295,7 +295,7 @@ export class CarritoDeComprasComponent implements OnInit {
       //Atributos opcionales
 
       response: "http://localhost:4200/eventos/respuesta",
-      confirmation: "http://localhost:4200/eventos/confirmacion",
+      confirmation:'http://localhost:8080/epayco',
 
       //Atributos cliente
       name_billing: this.asistente.nombre,
@@ -310,5 +310,131 @@ export class CarritoDeComprasComponent implements OnInit {
 
   onCloseEpaycoModal() {
     alert('Close ePayco Modal!!!!!!!');
+  }
+
+
+
+
+
+
+
+
+
+
+  window2: any = window;
+  handler2 = this.window2.ePayco.checkout.configure({
+    key: 'c3b3aa9c8c34f800c0d0701f24fc5e33',
+    test: true,
+  });
+
+  epaycoTicketsUsuarios2() {
+    var data = {
+      //Parametros compra (obligatorio)
+      name: this.evento.nombre,
+      description:
+        this.boletas.length +
+        ' Tickets para ' +
+        this.evento.nombre +
+        ' En la localidad ' +
+        this.boletas[0].localidadNombre,
+      invoice: this.referenceCode,
+      currency: 'cop',
+      amount: this.valorTotal,
+      tax_base: '0',
+      tax: '0',
+      country: 'co',
+      lang: 'es',
+
+      //Onpage="false" - Standard="true"
+      external: 'false',
+
+      //Atributos opcionales
+
+      response:"http://localhost:4200/eventos/respuesta",
+      confirmation:'http://localhost:8080/epayco',
+
+      //Atributos cliente
+      name_billing: this.usuarioEntidad.nombre,
+      address_billing: this.usuarioEntidad.direccion,
+      type_doc_billing: 'cc',
+      mobilephone_billing: this.usuarioEntidad.celular,
+      number_doc_billing: this.usuarioEntidad.numeroDocumento,
+    };
+
+    this.handler2.onCloseModal = this.onCloseEpaycoModal;
+    this.handler2.open(data);
+  }
+
+  epaycoPalcosUsuarios2() {
+    var data = {
+      //Parametros compra (obligatorio)
+      name: this.evento.nombre,
+      description:
+      '1 Palco para ' +
+      this.evento.nombre +
+      ' En la localidad ' +
+      this.palco.nombre,
+      currency: 'cop',
+      amount: this.valorTotal,
+      tax_base: '0',
+      tax: '0',
+      country: 'co',
+      lang: 'es',
+
+      //Onpage="false" - Standard="true"
+      external: 'false',
+
+      //Atributos opcionales
+
+      response: "http://localhost:4200/eventos/respuesta",
+      confirmation:'http://localhost:8080/epayco',
+
+      //Atributos cliente
+      name_billing: this.usuarioEntidad.nombre,
+      address_billing: this.usuarioEntidad.direccion,
+      type_doc_billing: 'cc',
+      mobilephone_billing: this.usuarioEntidad.celular,
+      number_doc_billing: this.usuarioEntidad.numeroDocumento,
+    };
+
+    this.handler2.onCloseModal = this.onCloseEpaycoModal;
+    this.handler2.open(data);
+  }
+
+  epaycoBoletasAsistente2() {
+    var data = {
+      //Parametros compra (obligatorio)
+      name: this.evento.nombre,
+      description:
+      this.boletas.length +
+      ' Tickets para ' +
+      this.evento.nombre +
+      ' En la localidad ' +
+      this.boletas[0].localidadNombre,
+      invoice: this.referenceCode,
+      currency: 'cop',
+      amount: this.valorTotal,
+      tax_base: '0',
+      tax: '0',
+      country: 'co',
+      lang: 'es',
+
+      //Onpage="false" - Standard="true"
+      external: 'false',
+
+      //Atributos opcionales
+
+      response: "http://localhost:4200/eventos/respuesta",
+      confirmation:'http://localhost:8080/epayco',
+
+      //Atributos cliente
+      name_billing: this.asistente.nombre,
+      type_doc_billing: 'cc',
+      mobilephone_billing: this.asistente.celular,
+      number_doc_billing: this.asistente.numeroDocumento,
+    };
+
+    this.handler2.onCloseModal = this.onCloseEpaycoModal;
+    this.handler2.open(data);
   }
 }

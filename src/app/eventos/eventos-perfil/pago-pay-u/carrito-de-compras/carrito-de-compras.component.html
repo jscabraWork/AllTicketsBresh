@@ -53,17 +53,29 @@
             </div>
             <div class="row">
             <div class="p-4 col-6" >
-              <button *ngIf="usuarioEntidad && boletas" (click)="comprarBoletas()" >Comprar sin pagar BOTON PRUEBAS </button>
+              
 
                 <img class="btn-epayco"  *ngIf="usuarioEntidad && boletas"  (click)="epaycoTicketsUsuarios()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
 
                
-                <button *ngIf="palco.id!=null" (click) ="pagar()">Comprar sin pagar BOTON PRUEBAS </button>
+                
                 <img class="btn-epayco"  *ngIf="palco.id!=null"  (click)="epaycoPalcosUsuarios()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
 
 
-                <button *ngIf="asistente" (click)="comprarBoletasAsistente()" >Comprar sin pagar BOTON PRUEBAS </button>
+                
                 <img class="btn-epayco"  *ngIf="asistente" (click)="epaycoBoletasAsistente()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
+
+              
+
+                <img class="btn-epayco"  *ngIf="usuarioEntidad && boletas"  (click)="epaycoTicketsUsuarios2()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
+
+               
+                
+                <img class="btn-epayco"  *ngIf="palco.id!=null"  (click)="epaycoPalcosUsuarios2()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
+
+
+                
+                <img class="btn-epayco"  *ngIf="asistente" (click)="epaycoBoletasAsistente2()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
             </div>
             <div class="col-6">
               <input placeholder="¿Algún promotor?" [(ngModel)] ="codigoVenta" class="float-right form-control" type="text">
