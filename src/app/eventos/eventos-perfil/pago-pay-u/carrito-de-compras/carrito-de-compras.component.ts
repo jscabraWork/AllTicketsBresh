@@ -4,10 +4,11 @@ import { BoletasDataService } from './../../../../service/data/boletas-data.serv
 import { Boleta } from './../../../boleta.model';
 import { Evento } from './../../../evento.model';
 import { Cliente } from './../../../../usuario/cliente.model';
-import { IVA } from './../../../../app.constants';
+import { API_URL, API_URL2, IVA, respuesta } from './../../../../app.constants';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Asistente } from 'src/app/administradores/admin-perfil/admin-eventos/admin-lector/asistente.model';
+
 
 @Component({
   selector: 'app-carrito-de-compras',
@@ -21,7 +22,7 @@ export class CarritoDeComprasComponent implements OnInit {
   referenceCode: string;
   IVA;
   usuarioEntidad: Cliente;
-  signature: string;
+  
   ApiKey: string;
   evento: Evento;
   boletas: Boleta[] = [];
@@ -41,9 +42,9 @@ export class CarritoDeComprasComponent implements OnInit {
   ngOnInit(): void {
     this.referenceCode = this.referenceCode;
     this.IVA = IVA;
-    this.merchantId = 703263; // 508029
-    this.accountId = 706326; //  512321
-    this.ApiKey = 'tyrs5RFaKLs72kHWaZW3WB91B0'; // 4Vj8eK4rloUd272L48hsrarnUA
+
+
+
 
     this.evento = {
       id: '',
@@ -68,6 +69,10 @@ export class CarritoDeComprasComponent implements OnInit {
       etapas: [],
       mapaImagen: null,
       visible: false,
+      soldout:false,
+      mensaje:null,
+      imagenFinal:null,
+      fechaApertura:null
     };
 
     this.palco = {
@@ -83,12 +88,14 @@ export class CarritoDeComprasComponent implements OnInit {
       vendido: null,
       numeroDentroDeEvento: null,
       fechaVendido: null,
+      servicioIva:null,
+      proceso:null
     };
 
     this.boletas = this.data.boletas;
     this.evento = this.data.evento;
     this.usuarioEntidad = this.data.usuarioEntidad;
-    this.signature = this.data.signature;
+    
     (this.referenceCode = this.data.referenceCode),
       (this.valorTotal = this.data.valorTotal);
     if (this.data.palco) {
@@ -99,105 +106,24 @@ export class CarritoDeComprasComponent implements OnInit {
     }
   }
 
-  comprarBoletasAsistente() {
-    alert('A continuación entraras a Pay U para realizar tu pago');
-    for (var i = 0; i < this.boletas.length; i = i + 1) {
-      this.servicioBoletas
-        .comprarBoletaParaAsistente(
-          this.evento.id,
-          this.boletas[i].localidadIdNumero,
-          this.boletas[i].id,
-          this.asistente
-        )
-        .subscribe((response) => {
-          response;
-        });
-    }
-    if (this.codigoVenta != '') {
-      this.servicioBoletas
-        .asignarBoletasPromotor(this.codigoVenta, this.boletas)
-        .subscribe((response) => response);
-    }
-  }
 
   cerrar() {
     this.dialog.closeAll();
   }
 
-  comprarBoletas() {
-    alert('A continuación entraras a Pay U para realizar tu pago');
-    if (this.boletas.length > 0) {
-      this.servicioBoletas
-        .comprarBoleta(
-          this.evento.id,
-          this.boletas,
-          this.usuarioEntidad.numeroDocumento
-        )
-        .subscribe((response) => {
-          response;
-          if (this.codigoVenta != '') {
-            this.servicioBoletas
-              .asignarBoletasPromotor(this.codigoVenta, this.boletas)
-              .subscribe((response) => response);
-          }
-        });
-    }
-  }
-
-  pagar() {
-    alert('A continuación entraras a Pay U para realizar tu pago');
-    if (this.palco.id != null) {
-      var date = new Date();
-      this.palco.fechaVendido = date;
-      this.palcoServicio
-        .comprarPalco(
-          this.palco.id,
-          this.usuarioEntidad.numeroDocumento,
-          this.valorTotal,
-          this.palco
-        )
-        .subscribe((response) => {
-          response;
-          if (this.codigoVenta != '') {
-            this.palcoServicio
-              .asignarPalco(this.codigoVenta, this.palco)
-              .subscribe((response) => response);
-          }
-          this.palcoServicio
-            .pasoMuchoTiempoPaca(this.palco.id)
-            .subscribe((response) => {
-              response;
-
-              this.palco = {
-                id: null,
-                nombre: null,
-                nombreEvento: null,
-                personasAdentro: null,
-                personasMaximas: null,
-                precio: 0,
-                precioParcialPagado: null,
-                reservado: null,
-                servicio: 0,
-                vendido: null,
-                numeroDentroDeEvento: null,
-                fechaVendido: null,
-              };
-            });
-
-          this.valorTotal = 0;
-        });
-    } else {
-      alert('Agrega algún Palco al Carrito');
-    }
-  }
 
   window: any = window;
   handler = this.window.ePayco.checkout.configure({
     key: '7c7542634fcbfa55f6852b0d6ae4a98e',
-    test: true,
+    //key:'6a47649a3a8cab7f99fd0654f71ecf66',
+    test: false,
   });
 
+
+   
+  
   epaycoTicketsUsuarios() {
+
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -220,8 +146,9 @@ export class CarritoDeComprasComponent implements OnInit {
 
       //Atributos opcionales
 
-      response:"http://localhost:4200/eventos/respuesta",
-      confirmation:'http://localhost:8080/epayco',
+      //response:"http://localhost:4200/eventos/respuesta",
+      response: `${respuesta}/eventos/respuesta`,
+      confirmation:`${API_URL2}/epayco`,
 
       //Atributos cliente
       name_billing: this.usuarioEntidad.nombre,
@@ -236,6 +163,7 @@ export class CarritoDeComprasComponent implements OnInit {
   }
 
   epaycoPalcosUsuarios() {
+
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -246,6 +174,7 @@ export class CarritoDeComprasComponent implements OnInit {
       this.palco.nombre,
       currency: 'cop',
       amount: this.valorTotal,
+      invoice:this.referenceCode,
       tax_base: '0',
       tax: '0',
       country: 'co',
@@ -256,8 +185,9 @@ export class CarritoDeComprasComponent implements OnInit {
 
       //Atributos opcionales
 
-      response: "http://localhost:4200/eventos/respuesta",
-      confirmation:'http://localhost:8080/epayco',
+     // response: "http://localhost:4200/eventos/respuesta",
+     response: `${respuesta}/eventos/respuesta`,
+      confirmation:`${API_URL2}/epayco`,
 
       //Atributos cliente
       name_billing: this.usuarioEntidad.nombre,
@@ -272,6 +202,7 @@ export class CarritoDeComprasComponent implements OnInit {
   }
 
   epaycoBoletasAsistente() {
+
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -294,8 +225,9 @@ export class CarritoDeComprasComponent implements OnInit {
 
       //Atributos opcionales
 
-      response: "http://localhost:4200/eventos/respuesta",
-      confirmation:'http://localhost:8080/epayco',
+      //response: "http://localhost:4200/eventos/respuesta",
+      response: `${respuesta}/eventos/respuesta`,
+      confirmation:`${API_URL2}/epayco`,
 
       //Atributos cliente
       name_billing: this.asistente.nombre,
@@ -317,17 +249,19 @@ export class CarritoDeComprasComponent implements OnInit {
 
 
 
+efectivo:true
 
 
 
-
-  window2: any = window;
-  handler2 = this.window2.ePayco.checkout.configure({
-    key: 'c3b3aa9c8c34f800c0d0701f24fc5e33',
-    test: true,
-  });
 
   epaycoTicketsUsuarios2() {
+
+
+    this.handler=this.window.ePayco.checkout.configure({
+      key: 'c3b3aa9c8c34f800c0d0701f24fc5e33',
+      test: false,
+    });
+
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -350,8 +284,9 @@ export class CarritoDeComprasComponent implements OnInit {
 
       //Atributos opcionales
 
-      response:"http://localhost:4200/eventos/respuesta",
-      confirmation:'http://localhost:8080/epayco',
+      response: `${respuesta}/eventos/respuesta`,
+     //response: "https://localhost:4200/eventos/respuesta",
+      confirmation:`${API_URL2}/epayco`,
 
       //Atributos cliente
       name_billing: this.usuarioEntidad.nombre,
@@ -361,11 +296,16 @@ export class CarritoDeComprasComponent implements OnInit {
       number_doc_billing: this.usuarioEntidad.numeroDocumento,
     };
 
-    this.handler2.onCloseModal = this.onCloseEpaycoModal;
-    this.handler2.open(data);
+    this.handler.onCloseModal = this.onCloseEpaycoModal;
+    this.handler.open(data);
   }
 
   epaycoPalcosUsuarios2() {
+
+    this.handler=this.window.ePayco.checkout.configure({
+      key: 'c3b3aa9c8c34f800c0d0701f24fc5e33',
+      test: false,
+    });
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -375,6 +315,7 @@ export class CarritoDeComprasComponent implements OnInit {
       ' En la localidad ' +
       this.palco.nombre,
       currency: 'cop',
+      invoice:this.referenceCode,
       amount: this.valorTotal,
       tax_base: '0',
       tax: '0',
@@ -386,8 +327,9 @@ export class CarritoDeComprasComponent implements OnInit {
 
       //Atributos opcionales
 
-      response: "http://localhost:4200/eventos/respuesta",
-      confirmation:'http://localhost:8080/epayco',
+      response: `${respuesta}/eventos/respuesta`,
+   //response: "https://localhost:4200/eventos/respuesta",
+      confirmation:`${API_URL2}/epayco`,
 
       //Atributos cliente
       name_billing: this.usuarioEntidad.nombre,
@@ -397,11 +339,15 @@ export class CarritoDeComprasComponent implements OnInit {
       number_doc_billing: this.usuarioEntidad.numeroDocumento,
     };
 
-    this.handler2.onCloseModal = this.onCloseEpaycoModal;
-    this.handler2.open(data);
+    this.handler.onCloseModal = this.onCloseEpaycoModal;
+    this.handler.open(data);
   }
 
   epaycoBoletasAsistente2() {
+    this.handler=this.window.ePayco.checkout.configure({
+      key: 'c3b3aa9c8c34f800c0d0701f24fc5e33',
+      test: false,
+    });
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -424,8 +370,9 @@ export class CarritoDeComprasComponent implements OnInit {
 
       //Atributos opcionales
 
-      response: "http://localhost:4200/eventos/respuesta",
-      confirmation:'http://localhost:8080/epayco',
+      response: `${respuesta}/eventos/respuesta`,
+     // response: "https://localhost:4200/eventos/respuesta",
+      confirmation:`${API_URL2}/epayco`,
 
       //Atributos cliente
       name_billing: this.asistente.nombre,
@@ -434,7 +381,7 @@ export class CarritoDeComprasComponent implements OnInit {
       number_doc_billing: this.asistente.numeroDocumento,
     };
 
-    this.handler2.onCloseModal = this.onCloseEpaycoModal;
-    this.handler2.open(data);
+    this.handler.onCloseModal = this.onCloseEpaycoModal;
+    this.handler.open(data);
   }
 }

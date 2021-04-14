@@ -10,7 +10,9 @@ import { EpaycoService } from './service/epayco.service';
 export class AppComponent {
   title = 'front-allTickets';
 
+constructor(){
   
+}
   
 
 

@@ -36,7 +36,8 @@ dineroRecaudado=1;
         nombreEtapa:null,
         palcos:[],
         precio:null,
-        servicio:null
+        servicio:null,
+        servicioPorcentaje:null
       }
       this.refrescar();
 })
@@ -75,4 +76,28 @@ dineroRecaudado=1;
     
   }
 
+  marcarReservado(id){
+    this.servicioPalco.marcarComoReservado(id).subscribe(response=>{
+      response
+      this.message = "Se cambio el estado de reserva del palco "+id
+      this.refrescar()
+    })
+  }
+
+  marcarComoVendido(id){
+    this.servicioPalco.marcarComoVendido(id).subscribe(response=>{
+      response
+      this.message = "Se cambio el estado de reserva del palco "+id
+      this.refrescar()
+    })
+  }
+
+
+  marcarComoProceso(id){
+    this.servicioPalco.marcarComoProceso(id).subscribe(response=>{
+      response
+      this.message = "Se cambio el estado de reserva del palco "+id
+      this.refrescar()
+    })
+  }
 }

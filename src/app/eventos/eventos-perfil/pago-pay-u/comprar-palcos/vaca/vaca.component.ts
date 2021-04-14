@@ -23,6 +23,29 @@ import { LoginComponent } from 'src/app/login/login.component';
 })
 export class VacaComponent implements OnInit {
 
+  lista1:number[]=[] 
+  lista2:number[]=[] 
+  lista3:number[]=[] 
+  lista4:number[]=[]
+  lista5:number[]=[] 
+  lista6:number[]=[] 
+  lista7:number[]=[] 
+  lista8:number[]=[]  
+
+  lista9:number[]=[] 
+  lista10:number[]=[]  
+
+  lista11:number[]=[] 
+  lista12:number[]=[] 
+
+  lista13:number[]=[] 
+  lista14:number[]=[] 
+
+  lista15:number[]=[] 
+  lista16:number[]=[] 
+  lista17:number []=[]
+  lista18:number []=[]
+  lista19:number []=[]
   
   miId;
   valorTotal:number
@@ -53,6 +76,52 @@ export class VacaComponent implements OnInit {
 
   ngOnInit(): void {
 
+    for(let i = 1; i< 13; i+=1){
+      this.lista1[i-1]=i;
+      this.lista2[i-1]=i+12
+     
+    }
+    for(let i =1; i< 15; i+=1){
+      this.lista3[i-1]=i+24
+      this.lista4[i-1]=i+38
+      this.lista5[i-1]=i+52
+      this.lista6[i-1]=i+66
+    }
+    for(let i =1; i< 8; i+=1){
+      this.lista7[i-1]=i+80
+      this.lista8[i-1]=i+87
+    
+    }
+    for(let i =1; i< 7; i+=1){
+      this.lista9[i-1]=i+94
+      this.lista10[i-1]=i+100
+      this.lista11[i-1]=i+106
+      this.lista12[i-1]=i+112
+    
+    }
+
+    for(let i =1; i< 10; i+=1){
+      this.lista13[i-1]=i+118
+      this.lista14[i-1]=i+127
+      this.lista15[i-1]=i+136
+      this.lista16[i-1]=i+145
+
+    }
+
+    for(let i =1; i< 17; i+=1){
+      this.lista17[i-1]=i+154
+
+
+    }
+    for(let i =1; i< 15; i+=1){
+      this.lista18[i-1]=i+170
+    }
+
+    for(let i =1; i< 3; i+=1){
+      this.lista19[i-1]=i+184
+    }
+
+
     this.valorBoletas=0
     this.contadorPalcos=0
     this.valorTotal=0
@@ -76,6 +145,7 @@ export class VacaComponent implements OnInit {
     palcos:[],
     precio:0,
     servicio:0,
+    servicioPorcentaje:null
     }
 
     this.localidadCargada ={
@@ -86,7 +156,8 @@ export class VacaComponent implements OnInit {
       servicio:null,
       nombreEtapa:null,
       boletasPatrocinio:[],
-      palcos:[]
+      palcos:[],
+      servicioPorcentaje:null
     }
     this.palco={
       id:null,
@@ -100,7 +171,9 @@ export class VacaComponent implements OnInit {
       servicio:0,
       vendido:null,
       numeroDentroDeEvento:null,
-      fechaVendido : null
+      fechaVendido : null, 
+      servicioIva:null,
+      proceso:null
     }
 
     this.usuarioEntidad= {
@@ -140,7 +213,11 @@ export class VacaComponent implements OnInit {
           horaFin:null,
           etapas:[],
           mapaImagen:null,
-          visible:false
+          visible:false,
+          soldout:false,
+          mensaje:null,
+          imagenFinal:null,
+          fechaApertura:null
         }
 
         this.route.paramMap.subscribe( params =>{
@@ -319,5 +396,97 @@ openDialog(): void {
     this.ngOnInit()
     
   });
+}
+
+
+cambiarTotalIndividual(){
+  this.valorLocalidadAgregada = (this.porcentaje/100)*(this.palco.precio+this.palco.servicio+this.palco.servicio*0.19);
+ }
+
+
+getPalcoIndividualParaMapa(numero){
+  this.palcoServicio.getPalcoParaCompraIndividual(this.evento.nombre, numero).subscribe(response=>{
+    this.palco =response
+    if(this.palco.vendido==false && this.palco.reservado==false){
+      this.valorLocalidadAgregada = (this.palco.precio +this.palco.servicio+ this.palco.servicio*IVA)*(this.porcentaje/100);
+   this.valorBoletas = 1;}
+   else{
+     alert("Este palco ya ha sido comprado, intenta más tarde ")
+     this.palco={
+      id:null,
+      nombre:null,
+      nombreEvento:null,
+      personasAdentro:null,
+      personasMaximas:null,
+      precio:null,
+      precioParcialPagado:null,
+      reservado:null,
+      servicio:null,
+      vendido:null,
+      numeroDentroDeEvento:null,
+      fechaVendido : null,
+      servicioIva:null,
+      proceso:null
+    }
+   }
+
+  })
+}
+
+
+agregarPalcoIndividual(){
+  if(!this.usuarioBoolean){ 
+    if(this.palco.id!=null){
+
+if(this.porcentaje!=null){
+    if(this.contadorPalcos <2 && !this.cargando){
+      this.cargando=true
+  
+      this.referenceCode ="PALCOVACA: " +this.usuarioEntidad.numeroDocumento+","
+    if(this.palco==null){
+      alert("Agregar un Palco para continuar")
+    }
+    else{
+      
+      this.referenceCode = this.referenceCode +this.palco.id+","+ new Date();
+        this.cargando =false
+        
+        this.valorTotal=this.valorLocalidadAgregada
+        
+          var md5 = new Md5()
+
+
+          this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
+          this.localidad= null;
+          this.valorLocalidadAgregada =0;
+          this.valorBoletas = 0;
+          this.AbrirCarrito()
+          this.palcoServicio.rechazarReservaPalco(this.palco.id).subscribe(response=>response)
+          
+      
+    }
+
+}
+else{
+  alert("Solo puedes comprar 2 Palcos máximo por Evento")
+}
+
+
+}
+else{
+  alert("Selecciona un porcentaje con el cual desesas reservar")
+}
+
+  }
+
+
+
+  else{
+    alert("Selecciona un palco")
+  }
+}
+else{
+  this.openDialog()
+}
 }
 }

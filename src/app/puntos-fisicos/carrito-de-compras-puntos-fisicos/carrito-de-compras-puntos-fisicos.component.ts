@@ -62,7 +62,11 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
       horaFin:null,
       etapas:[], 
       mapaImagen:null,
-      visible:false
+      visible:false,
+      soldout:false,
+      mensaje:null,
+      imagenFinal:null,
+      fechaApertura:null
     }
 
 
@@ -79,7 +83,9 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
           servicio:null,
           vendido:null,
           numeroDentroDeEvento:null,
-          fechaVendido : null
+          fechaVendido : null,
+          servicioIva:null,
+          proceso:null
         }
 
         this.boletas=this.data.boletas;

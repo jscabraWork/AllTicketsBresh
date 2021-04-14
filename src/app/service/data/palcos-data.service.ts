@@ -19,6 +19,10 @@ export class PalcosDataService {
   getPalco(pIdLocalidad, pIdPalco){
     return this.http.get<Palco>(`${API_URL}/localidad/${pIdLocalidad}/palcos/${pIdPalco}`);
   }
+
+  getPalcoParaCompraIndividual(pNombre, pNumero){
+    return this.http.get<Palco>(`${API_URL}/evento/nombre/${pNombre}/palco/numero/${pNumero}`);
+  }
   getAllPalcosVendidosDeUnaLocalidad(pIdLocalidad, pVendido){
     return this.http.get<Palco[]>(`${API_URL}/localidad/${pIdLocalidad}/palcos/vendido/${pVendido}}`)
   }
@@ -58,6 +62,23 @@ export class PalcosDataService {
   agregarClientesAlPalco(idPalco, pIdCliente){
     return this.http.put(`${API_URL}/palcos/${idPalco}/agregarCliente/${pIdCliente}`,null)
   }
+
+  marcarComoReservado(idPalco){
+    return this.http.put(`${API_URL}/palcos/${idPalco}/marcarVendido`,null)
+  }
+
+
+  marcarComoVendido(idPalco){
+    return this.http.put(`${API_URL}/palcos/${idPalco}/vendeAMano`,null)
+  }
+
+  marcarComoProceso(idPalco){
+    return this.http.put(`${API_URL}/palcos/${idPalco}/marcarPendiente`,null)
+  }
+
+
+
+
 
 
 aumentarPersonaPalco(idPalco){
@@ -107,6 +128,9 @@ pagarPalcosAPromotorPuntoFisico(numeroInterno:number){
   
 }
 
+pagarPalco(transaccion:string, valorPagado:number, aceptada:string){
+  return this.http.put(`${API_URL}/epaycoPago/${transaccion}/monto/${valorPagado}/aceptada/${aceptada}`,null)
+}
 
 
 }

@@ -39,7 +39,11 @@ export class EventoMinisterioComponent implements OnInit {
       horaFin:null,
       etapas:[],
       mapaImagen:null,
-      visible:false
+      visible:false,
+      soldout:false,
+      mensaje:null,
+      imagenFinal:null,
+      fechaApertura:null
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');

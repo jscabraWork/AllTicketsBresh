@@ -14,7 +14,7 @@
                     <th>Correo</th>
                    <th>Usuario</th>
                    <th>Contraseña</th>
-                   <th>Borrar</th>
+                   <th>Celular</th>
                     
                 </tr>
         
@@ -29,7 +29,9 @@
                     <td>{{usuario?.correo}}</td>
                     <td> {{usuario?.usuario }}</td>
                     <td>{{usuario?.contrasena}}</td>
+                    <td>{{usuario?.celular}}</td>
                     <td><button  class="btn btn-danger" (click)="deleteUsuario(usuario?.numeroDocumento)" > Delete</button></td>
+                    <td *ngFor="let palco of usuario.palcos">{{palco.id}}</td>
                 </tr>
         
         

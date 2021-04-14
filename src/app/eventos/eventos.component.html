@@ -20,12 +20,14 @@
 
         
             <div class="contenedor contenedor2" >
+                <img *ngIf="evento.soldout" class="sold_out"src="../../assets/images/img/SOLDOUT.png" alt="">   
             <a routerLink="/eventos/evento/{{evento.id}}" class="outerLink"> 
-                <img src="{{evento.imagen.url}}" *ngIf="evento.imagen" class=" rounded  darkableImage"onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1" 
+                <img src="{{evento?.imagen.url}}" *ngIf="evento.imagen" class=" rounded  darkableImage"onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1" 
                 onmouseover="javascript:this.style.opacity=0.4;this.opacity=40" />
                
             </a>
-            <p  class="centrado2"><strong> {{evento?.descripcion|resumir}}</strong></p>
+            <p class="centrado2"><strong> {{evento?.descripcion|resumir}}</strong></p>
+            
             </div>
             
           
@@ -47,7 +49,7 @@
     
            </div>
             <div class="col-6 pb-5">
-                <button class="action_button rounded-pill shadow texto"  routerLink="/eventos/evento/{{evento.id}}">Comprar</button>
+                <button *ngIf="!evento.soldout" class="action_button rounded-pill shadow texto"  routerLink="/eventos/evento/{{evento.id}}">Comprar</button>
             </div>
 
         </div>
@@ -60,3 +62,8 @@
  
 
 
+ <div class="img__wrapper">
+    
+    
+
+  </div>

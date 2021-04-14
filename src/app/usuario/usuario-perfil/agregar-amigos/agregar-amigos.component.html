@@ -11,36 +11,36 @@
                         <div class="col-12 border fondoBlancoCliente" >
                             <h5 class="pt-4 pl-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>
                             <h5 class="pl-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
-                            <h5 class="pl-4 "><strong>Palco No:</strong> {{palco.id}}</h5>
+                            <h5 class="pl-4 "><strong>Palco No:</strong> {{palco.numeroDentroDeEvento}}</h5>
                             <h5 class="pl-4"><strong>Personas por palco:</strong> {{palco.personasMaximas}}</h5>
                             <h5 class="pl-4"><strong>Personas que van a asistir:</strong> {{clientes.length}}</h5>
-                            <h5 class="pl-4" ><strong>Precio: </strong>{{palco?.precio + palco?.servicio + palco?.servicio*0.19|currency:'COP'}}</h5>
+                            <h5 class="pl-4" ><strong>Precio: </strong>{{palco?.precio + palco?.servicio +palco?.servicioIva|currency:'COP'}}</h5>
                             <h5 class="pl-4 "><strong>Dinero recaudado: </strong> {{palco?.precioParcialPagado |currency:'COP'}}</h5>
-                            <div class="progress ml-4 mt-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)">
-                                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicio*0.19))*100}}%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                    {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicio*0.19))*100}}%
+                            <div class="progress ml-4 mt-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicioIva)">
+                                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicioIva))*100}}%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                    {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicioIva))*100}}%
                                 </div>
                               </div>
 
-                            <div style="text-align: center;" class="progress ml-4 mt-4" *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicio*0.19)">
-                              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicio*0.19))*100}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
+                            <div style="text-align: center;" class="progress ml-4 mt-4" *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicioIva)">
+                              <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicioIva))*100}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
                                 
                             </div>
-                            <div class="mt-4" *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicio*0.19)" style="text-align: center;">
+                            <div class="mt-4" *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicioIva)" style="text-align: center;">
                                 <h6><strong>Palco Pagado</strong></h6>
                             </div>
 
-                            <div class="mt-4 mb-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)" style="text-align: center;">
+                            <div class="mt-4 mb-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicioIva)" style="text-align: center;">
                                 <h6><strong>Palco Por Pagar</strong></h6>
                                 <h6><strong>Recuerda que cuentas con un plazo de 24 horas para pagar el 50% y 72 horas para pagar el 100%.</strong></h6>
                             </div>
                             <hr>
-                            <div style="text-align: center;" class="mb-4 " *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)">
+                            <div style="text-align: center;" class="mb-4 " *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicioIva)">
                             <h4 ><strong>Aportar a la vaca</strong></h4>
                               <hr class="aaaa" >
                              
                             </div>
-                            <div class="ml-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)">
+                            <div class="ml-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicioIva)">
                                 <h5><strong>Selecciona el valor para aportar</strong></h5> 
                                 <select class="float-center ml-4 mb-4" (change)="cambiarTotal()" type="text" class= "form-control "name ="tipo" required="required" style="width: 100px;" [(ngModel)]="porcentaje">
                                     <option value=""> </option>
@@ -57,8 +57,8 @@
                                 </select>
                                 <h5 class="mt-4"><strong>Dinero a Aportar: </strong>{{valorAPagar | currency:'COP'}} </h5>
                             </div>
-                            <div style="text-align: center;" class="mt-4 mb-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicio*0.19)">
-                                <button *ngIf="palco.id!=null"  (click)="aportarVaca()">Comprar sin pagar BOTON PRUEBAS </button>
+                            <div style="text-align: center;" class="mt-4 mb-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicioIva)">
+
                                 <img class="btn-epayco"  *ngIf="palco.id!=null"  (click)="epaycoPalcosUsuarios()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
 
                             </div>

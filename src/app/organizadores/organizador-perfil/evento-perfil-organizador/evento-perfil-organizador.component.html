@@ -39,8 +39,12 @@
                             <th class="border">Dinero De Tickets</th>
                             <th class="border">Numero Tickets Patrocinados</th>
                             <th class="border">Palcos Totales</th>
+
                             <th class="border">Palcos Vendidos</th>
-                            <th class="border">Palcos Por Vender</th>
+                            <th class="border">Palcos Disponibles</th>
+                            <th class="border">Palcos Cortesias</th>
+                            <th class="border">Palcos En Transacción</th>
+
                             <th class="border">Dinero De Palcos</th>
                             <th class="border">Personas en Palcos</th>
                             <th class="border">Tickets Patrocinios</th>   
@@ -63,8 +67,14 @@
                             <td class="border">{{dineroVendido(localidad)|currency:'COP'}}</td>
                             <td class="border">{{localidad?.boletasPatrocinio.length}}</td>
                             <td class="border">{{localidad?.palcos?.length}}</td>
+
                             <td class="border">{{palcosVendidos(localidad, true)}}</td>
                             <td class="border">{{palcosVendidos(localidad, false)}}</td>
+
+                            <td class="border">{{palcosCortesias(localidad)}}</td>
+                            <td class="border">{{palcosEnProceso(localidad)}}</td>
+
+
                             <td class="border">{{dineroRecaudadoPalcos(localidad)|currency:'COP'}}</td>
                             <td class="border">{{personasEnPalco(localidad)}}</td>
                             <td class="border"><button class=" action_button" routerLink="patrocinio/{{localidad?.id}}">Tickets patrocinio</button></td>

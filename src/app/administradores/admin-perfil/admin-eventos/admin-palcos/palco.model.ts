@@ -14,6 +14,8 @@ export interface Palco {
 	  reservado:boolean,
 	  personasMaximas:number,
 	  numeroDentroDeEvento:string,
-	  fechaVendido : Date
+	  fechaVendido : Date,
+	  servicioIva:number,
+	  proceso:boolean
 	  
 }

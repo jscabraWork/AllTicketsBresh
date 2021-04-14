@@ -29,10 +29,10 @@
                 <td>{{etapa?.id}}</td>
                 <td>{{etapa?.nombre }}</td>
                 <td>{{etapa?.visible| booleans}}</td>
-               <td><button class="btn btn-success" routerLink="localidades/{{etapa?.id}}">Localidades</button></td>
+               <td><button class="btn btn-success" routerLink="localidades/{{etapa.id}}">Localidades</button></td>
        
-                <td><button  class="btn btn-warning" (click)="hacerVisible(etapa?.id)"> Hacer Visible</button></td>
-                <td><button  class="btn btn-danger" (click)="borrarEtapa(etapa?.id)"> Delete</button></td>
+                <td><button  class="btn btn-warning" (click)="hacerVisible(etapa.id)"> Hacer Visible</button></td>
+                <td><button  class="btn btn-danger" (click)="borrarEtapa(etapa.id)"> Delete</button></td>
     
             </tr>
     

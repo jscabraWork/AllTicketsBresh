@@ -5,6 +5,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { AgregarFotoPerfilComponent } from './agregar-foto-perfil/agregar-foto-perfil.component';
 import { AgregarFotoMapaComponent } from './agregar-foto-mapa/agregar-foto-mapa.component';
 import { AgregarFotosBannerComponent } from './agregar-fotos-banner/agregar-fotos-banner.component';
+import { AdminMensajeComponent } from './admin-mensaje/admin-mensaje.component';
+import { AgregarImagenFinalComponent } from './agregar-imagen-final/agregar-imagen-final.component';
+import { AgregarFechaAperturaComponent } from './agregar-fecha-apertura/agregar-fecha-apertura.component';
 
 @Component({
   selector: 'app-admin-eventos',
@@ -41,6 +44,12 @@ export class AdminEventosComponent implements OnInit {
     })
   }
 
+  cambiarSoldout(pId){
+    this.service.cambiarSoldout(pId).subscribe(response=>{
+      response;
+      this.refresecarEventos();
+    })
+  }
 
   agregarFotoPortada(evento:Evento) {
     var portada = ""
@@ -61,6 +70,27 @@ export class AdminEventosComponent implements OnInit {
       this.ngOnInit()
     })
   }
+  
+  agregarFotoFinal(evento:Evento) {
+    var portada = ""
+    if (evento.imagenFinal != null) {
+      portada = evento.imagenFinal.url
+    }
+    const dialogRef = this.dialog.open(AgregarImagenFinalComponent,
+      {
+        width: '600px',
+        height: '380px',
+        data: {
+          id: evento.id,
+          url: portada
+        }
+      })
+    dialogRef.afterClosed().subscribe(result => {
+      result
+      this.ngOnInit()
+    })
+  }
+
 
   agregarFotoMapa(evento:Evento) {
     var portada = ""
@@ -104,5 +134,40 @@ export class AdminEventosComponent implements OnInit {
     })
   }
 
+  agregarMensajeOrganizador(evento:Evento) {
+
+    const dialogRef = this.dialog.open(AdminMensajeComponent
+    ,
+      {
+        width: '600px',
+        height: '380px',
+        data: {
+          id: evento.id
+        }
+      })
+    dialogRef.afterClosed().subscribe(result => {
+      result
+      this.ngOnInit()
+    })
+    
+  }
+  
+
+  agregarFechaApertura(evento:Evento) {
+
+    const dialogRef = this.dialog.open(AgregarFechaAperturaComponent
+    ,
+      {
+        width: '600px',
+        height: '380px',
+        data: {
+          id: evento.id
+        }
+      })
+    dialogRef.afterClosed().subscribe(result => {
+      result
+      this.ngOnInit()
+    })
+  }
 
 }

@@ -29,30 +29,23 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import localePy from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
-
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
-
-
-
-import { PromotorPerfilComponent } from './promotor-perfil/promotor-perfil.component';
 import { PreguntasFrecuentesComponent } from './preguntas-frecuentes/preguntas-frecuentes.component';
 import { CalendarioComponent } from './calendario/calendario.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-
 import {MatIconModule} from '@angular/material/icon';
-import { MinisterioModule } from './perfil-ministerio/ministerio.module';
 import { MensajeComponent } from './mensaje/mensaje.component';
 import { TerminosYCondicionesComponent } from './terminos-ycondiciones/terminos-ycondiciones.component';
 import { RedesSocialesComponent } from './redes-sociales/redes-sociales.component';
 import { BannerComponent } from './banner/banner.component';
-import { EpaycoService } from './service/epayco.service';
+import { ComoComprarComponent } from './como-comprar/como-comprar.component';
 
+//SERVICIOS
 
-
- 
+//FIN SERVICIOS
 registerLocaleData(localePy, 'es');
-
+declare const THREEx: any;
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
 ]);
@@ -91,6 +84,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      TerminosYCondicionesComponent,
      RedesSocialesComponent,
      BannerComponent,
+     ComoComprarComponent,
 
   
 
@@ -121,6 +115,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   ],
   
   providers: [
+   
     {provide:HTTP_INTERCEPTORS, useClass: HttpInterceptBasicAuthService, multi: true  },
     {provide: LOCALE_ID, useValue: 'es', } 
   ],

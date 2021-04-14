@@ -8,10 +8,12 @@ import { Evento } from './../evento.model';
 import { EventoDataService } from './../../service/data/evento-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 import { Etapa } from './etapa.model';
 import { IVA } from 'src/app/app.constants';
-
+import * as countdown from 'countdown'
+import { Time } from 'src/app/models/time.model';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-eventos-perfil',
   templateUrl: './eventos-perfil.component.html',
@@ -21,15 +23,18 @@ export class EventosPerfilComponent implements OnInit {
   miId:string;
   evento:Evento;
   etapa:Etapa;
-  IVA
+
 localidadesPalcos:Localidad[]=[];
 localidadesBoletas:Localidad[]=[];
-  
+  fecha:Date 
+  fechaActual:Date=new Date();
 
+  time:Time =null;
   constructor(private route: ActivatedRoute, private dialog: MatDialog, private service:EventoDataService, private _sanitizer: DomSanitizer, private etapaServicio:EtapasDataService) { }
 
   ngOnInit(): void {
-this.IVA = IVA
+    
+
     this.evento ={
       id: "",
       nombre:"",
@@ -50,8 +55,16 @@ this.IVA = IVA
       horaInicio:"",
       horaFin:"",
       etapas:[],
-      mapaImagen:null,
-      visible:false
+      mapaImagen: {
+        id:null,
+        name:null,
+        url:null
+      },
+      visible:false,
+      soldout:false,
+      mensaje:null,
+      imagenFinal:null,
+      fechaApertura:null
     }
     this.etapa={
       evento:null,
@@ -65,8 +78,14 @@ this.IVA = IVA
       this.miId =params.get('id');
      
       this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
+        
+        this.fecha = new Date(this.evento.fechaApertura)
+       countdown(this.fecha,(ts)=>{
+          this.time=ts
+        },countdown.MONTHS|countdown.WEEKS|countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS)
         this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(response =>{this.manejar(response);
           var i =0;
+          if(response!=null){
           while(i < this.etapa.localidades.length){
             if(this.etapa.localidades[i].boletas.length>0){
               this.localidadesBoletas.push(this.etapa.localidades[i])
@@ -77,7 +96,9 @@ this.IVA = IVA
             
             i=i+1;
           }
-    
+        }
+
+          
           })
         
       
@@ -94,8 +115,7 @@ scroll(){
 
 openDialog(): void {
   const dialogRef = this.dialog.open(ImagenEventosComponent, {
-    width: '600px',
-    height:'100%',
+
     data: { mapaImagen: this.evento.mapaImagen }
     
     
@@ -125,9 +145,10 @@ getVideoIframe(url) {
 
   results = url.match('[\\?&]v=([^&#]*)');
   video   = (results === null) ? url : results[1];
-
-  return this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video);   
+  let a:SafeResourceUrl= this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video);   
+  return a
 }
+
 
 
 numeroBoletasPorVenderYNoReservadas(localidad:Localidad){
@@ -149,7 +170,7 @@ numeroBoletasPorVenderYNoReservadas(localidad:Localidad){
 darCantidadDePalcos(localidad:Localidad){
   var contador =0;
   for(var i =0; i < localidad.palcos.length; i=i+1){
-    if(localidad.palcos[i].vendido==false){
+    if(localidad.palcos[i].vendido==false && localidad.palcos[i].reservado==false && localidad.palcos[i].proceso==false){
 
       contador = contador+1;
     }

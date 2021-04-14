@@ -1,90 +1,396 @@
-.fondoBlanco{
-    background-color: white;
+.fondoBlanco {
+  background-color: white;
 }
 
-.divisionLocalidad
+.divisionLocalidad {
+  text-align: right;
+  width: 600px;
+  text-align: center;
+  transition: all 1s;
+  position: relative;
+  width: 100%;
+}
+img {
+  width: 60px;
+  cursor: pointer;
+}
+
+.tituloLocalidad {
+  background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28));
+  color: #fff;
+  padding: 3%;
+  width: 100%;
+}
+
+.action_button:hover {
+  background: linear-gradient(
+    rgba(236, 158, 40, 0.87),
+    rgba(255, 80, 28, 0.87)
+  );
+}
+
+p {
+  font-size: 20px;
+}
+.action_button {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  background: linear-gradient(#666, #333);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+th {
+  background: linear-gradient(#666, #333);
+  color: white;
+}
+td {
+  background-color: white;
+}
+
+.grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 120px;
+  grid-template-rows: repeat(2, 80px);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid a {
+  font-weight: bold;
+  text-decoration: none;
+
+  padding: 15px;
+  border-radius: 10px;
+  transition: all 300ms;
+  background: linear-gradient(#ed701c, #f9b84f);
+  color: white;
+  transition: all 500ms;
+}
+.grid a:hover {
+  color: #ed701c;
+  background: white;
+  border: 1px solid #ed701c;
+}
+.grid img {
+  margin-left: 35px;
+  font-size: 50px;
+}
+
+
+
+#convensiones,
+#desplzate{
+  margin-top:2%;
+  margin-left: 11%;
+  margin-bottom: 2%;
+}
+
+#convensiones p{
+  margin: 0px;
+  padding: 0px;
+  display: grid;
+  grid-template-columns: 50px 300px;
+  align-items: center;
+}
+
+#desplzate p{
+  color:#ed701c;
+  font-weight: bolder;
+  font-size: 20px;
+
+}
+
+#desplzate{
+  display:none;
+}
+
+@media(max-width:1500px){
+    #desplzate{
+      display: block;
+    }
+}
+
+.contenedor-mapa {
+  overflow: auto;
+  width: 90%;
+  text-align: center;
+  margin: 0px auto;
+
+
+}
+
+@media(max-widht:1500px){
+  .contenedor-mapa {
+    overflow: scroll;
+
+  
+  }
+}
+.mapa {
+  margin: 0px auto;
+  width: 1500px;
+
+}
+
+.centrar-mapa{
+  margin: 0px auto;
+}
+
+.cuadros {
+  background-color: #ccc;
+
+  width: 40px;
+  height: 40px;
+  
+  margin: 3px;
+  float: left;
+  font-size: 100%;
+  cursor: pointer;
+  text-align: center;
+}
+.cuadros:hover {
+  background-color: #aaa;
+}
+
+.rojo {
+  background-color: red;
+  cursor: auto;
+}
+.rojo:hover {
+  background-color: red;
+}
+.amarillo{
+  background-color:rgb(255, 153, 0) ;
+  cursor: auto;
+}
+
+.amarillo:hover{
+  background-color:rgb(255, 153, 0) ;
+}
+.tarima {
+  float: left;
+  background-color: #333;
+  height: 40px;
+  color: white;
+  margin:3px 3px 0px 3px;
+  width: 250px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.clearFix {
+  clear: both;
+  float: none;
+}
+.tarimaLarga,
+.tarimaLarga2 {
+  background-color: #333;
+
+  float: left;
+  margin-top: -3px;
+  height: 46px;
+  width: 40px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.tarimaLarga2{
+  height: 50px;
+}
+.parte2 .cuadros
 {
+  margin-right: 4px;
+  margin-left: 3.2px;
+}
+.tarimaAncha {
  
-    
-    text-align: right;
-    width: 600px;
-    text-align: center;
-    transition: all 1s; 
-    position: relative; 
-    width: 100%;
-}
-img{
-    width: 60px;
-    cursor: pointer;
+  background-color: #333;
+ width: 420px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 470px;
+
+  color: white;
+  font-weight: bold;
+  text-align: center;
 }
 
-    .tituloLocalidad{
-        background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
-        color:#FFF;
-        padding: 3%;
-        width: 100%;
-        
-    }
+.parte3{
+ 
+  
+  margin-left: 268px;
+}
+.parte3 .cuadros{
+  
+  margin-right: 8px;
+  margin-left: 8px;
+}
 
-    .action_button:hover{
-        background: linear-gradient(rgba(236, 158, 40, 0.87), rgba(255, 80, 28, 0.87)); 
-    }
+.tarimaDos {
+  background-color: #333;
+  width: 90px;
+  line-height: 90px;
+  margin-bottom: -90px;
+  height: 90px;
+  margin-left: 4px;
+  text-align: center;
+  color: white;
+ 
+}
 
-    p{
-        font-size: 20px;
-    }
-    .action_button {
-        text-decoration: none; 
-        color: #fff; 
-        font-weight: bold; 
-        border-radius: 5px; 
-        background: linear-gradient(#666, #333); 
-        font-size: 11px; 
-        text-transform: uppercase;
-    }
+.tarimaTres {
+  background-color: #333;
+  width: 90px;
+  margin-left: 1268px;
+  line-height: 90px;
+  margin-bottom: -90px;
+  height: 90px;
+  text-align: center;
+  color: white;
+ 
+}
+
+.parte8 {
+  margin-left: 276px;
+}
+
+.parte8 .cuadros{
+  margin-right: 7.65px;
+  margin-left: 7.65px;
+}
+
+.parte9{
+  margin-left: 220px;
+}
 
 
 
-    
+.parte8 .espacioDerecho:nth-child(2) .cuadros{
+  margin-right: 60px;
+}
 
+.parte8 .espacioDerecho:nth-child(10) .cuadros{
+  margin-right: 60px;
+}
 
+.parte9 .cuadros {
+  margin-right: 4.45px;
+  margin-left: 4.45px;
+}
 
-    th{
-        background:linear-gradient(#666, #333);
-        color: white;
-    }
-    td{
-        background-color: white;
-    }
+.parte10 {
+margin-left: 230px;
+}
+.parte10 .cuadros{
+  margin-right: 8px;
+  margin-left:8px ;
+}
 
-    .grid{
-        margin-top: 1rem;
-        display: grid;
-        grid-template-columns:120px;
-        grid-template-rows: repeat(2, 80px);
-        text-align: center;
-        align-items: center;
-        justify-content: center;   
-      }
+.parte11 {
+ margin-left: 230px;
+}
+.parte11 .cuadros{
+  margin-right: 12.1px;
+  margin-left:12.1px ;
+}
+.parte12 {
+  margin-left: 42%;
+}
 
-    .grid a{
-        font-weight: bold;
-        text-decoration: none;
+.vendido {
+  background-color: red;
+}
+.disponible {
+  background-color: #ccc;
+}
+.disponible,
+.vendido {
+  padding: 5px;
+  margin: 10px auto;
+  height: 40px;
+  width: 90px;
+}
+
+.sold_out {
+
+  display: block;
+ 
+  z-index:10;
+
+  margin-left:35%;
+  position: absolute;
+  overflow: hidden;
+  width: 500px;
+  height: 500px;
+  margin-top: 180px;
+transform: rotate(30deg);
+
+   }
+  @media(max-width:1194px){
+    .sold_out{
+    margin-left: 30%;
+  }
+  }
+
+  @media(max-width:940px){
+    .sold_out{
+    margin-left: 25%;
+  }
+  }
+  @media(max-width:727px){
+
+    .sold_out{
       
-        padding:15px;
-        border-radius: 10px;
-        transition: all 300ms;
-        background: linear-gradient(#ed701c, #F9B84f) ;
-        color: white;
-        transition: all 500ms;
+      width: 400px;
+      height: 400px;
+      margin-top: 200px;
     }
-    .grid a:hover{
-      color: #ed701c;
-      background: white;
-      border: 1px solid #ed701c;
 
   }
-    .grid img{
-        margin-left: 35px;
-        font-size: 50px;
+
+  @media(max-width:617px){
+
+    .sold_out{
+
+      width: 350px;
+      height: 350px;
     }
+
+    
+  }
+
+  @media(max-width:529px){
+
+    .sold_out{
+
+      width: 330px;
+      height: 330px;
+    }
+  }
+
+  
+  @media(max-width:473px){
+
+    .sold_out{
+
+      width: 280px;
+      height: 280px;
+    }
+  }
+
+    
+  @media(max-width:407px){
+
+    .sold_out{
+      margin-left: 10%;
+    }
+  }
+  .informacion{
+    text-align: left;
+    margin-left: 11%;
+  }

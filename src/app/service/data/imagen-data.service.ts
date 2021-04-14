@@ -1,7 +1,7 @@
 import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { API_URL } from 'src/app/app.constants';
+import { API_URL, API_URL2 } from 'src/app/app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,18 @@ export class ImagenDataService {
 
     const formData: FormData= new FormData();
     formData.append('files', file);
-    const req = new HttpRequest('POST',`${API_URL}/upload/${pId}`, formData,{
+    const req = new HttpRequest('POST',`${API_URL2}/upload/${pId}`, formData,{
+      reportProgress:true,
+      responseType:'json'
+    })
+    return this.http.request(req);
+  }
+
+  uploadFotoFinal(file:File, pId): Observable<HttpEvent<any>>{
+
+    const formData: FormData= new FormData();
+    formData.append('files', file);
+    const req = new HttpRequest('POST',`${API_URL2}/upload/fotoFinal/${pId}`, formData,{
       reportProgress:true,
       responseType:'json'
     })
@@ -25,7 +36,7 @@ export class ImagenDataService {
 
     const formData: FormData= new FormData();
     formData.append('files', file);
-    const req = new HttpRequest('POST',`${API_URL}/upload/imagenesbanner/${pId}`, formData,{
+    const req = new HttpRequest('POST',`${API_URL2}/upload/imagenesbanner/${pId}`, formData,{
       reportProgress:true,
       responseType:'json'
     })
@@ -35,7 +46,7 @@ export class ImagenDataService {
 
     const formData: FormData= new FormData();
     formData.append('files', file);
-    const req = new HttpRequest('POST',`${API_URL}/upload/mapa/${pId}`, formData,{
+    const req = new HttpRequest('POST',`${API_URL2}/upload/mapa/${pId}`, formData,{
       reportProgress:true,
       responseType:'json'
     })
@@ -46,7 +57,7 @@ export class ImagenDataService {
 
     const formData: FormData= new FormData();
     formData.append('files', file);
-    const req = new HttpRequest('POST',`${API_URL}/upload/ciudad/${pId}`, formData,{
+    const req = new HttpRequest('POST',`${API_URL2}/upload/ciudad/${pId}`, formData,{
       reportProgress:true,
       responseType:'json'
     })
@@ -54,11 +65,11 @@ export class ImagenDataService {
   }
 
   getFiles(){
-    return this.http.get(`${API_URL}/files`)
+    return this.http.get(`${API_URL2}/files`)
   }
 
   deleteFile(filename:string){
 
-    return this.http.get(`${API_URL}/${filename}`)
+    return this.http.get(`${API_URL2}/${filename}`)
   }
 }

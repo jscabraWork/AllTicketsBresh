@@ -26,6 +26,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TerminosYCondicionesComponent } from './terminos-ycondiciones/terminos-ycondiciones.component';
 import { BannerComponent } from './banner/banner.component';
+import { ComoComprarComponent } from './como-comprar/como-comprar.component';
 
 
 const routes: Routes = [
@@ -72,6 +73,15 @@ const routes: Routes = [
   },
   {
     path:'blog', component: BlogComponent
+  },
+
+{
+  path:'terminosYcondiciones', component: TerminosYCondicionesComponent
+}
+  ,
+
+  {
+    path:'como-comprar', component:ComoComprarComponent
   },
   {
     path:'nosotros', component: NosotrosComponent

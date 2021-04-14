@@ -10,7 +10,7 @@ export class ResumirPipe implements PipeTransform{
             return null;
         }
 
-        return valor.substr(0,128)+'.';
+        return valor.substr(0,97)+'.';
 
     }
 }

@@ -18,12 +18,13 @@ export class AgregarEventoComponent implements OnInit {
   selectedFile:File=null;
   evento:Evento;
   horaInicio
-
+  fecha:Date = new Date()
 
 
 
   ngOnInit(): void {
 
+    
     this.evento ={
       id: "",
       nombre:"",
@@ -46,19 +47,20 @@ export class AgregarEventoComponent implements OnInit {
       horaFin:null,
       etapas:[],
       mapaImagen:null,
-      visible:false
+      visible:false,
+      soldout:false,
+      mensaje:null,
+      imagenFinal:null,
+      fechaApertura:null,
+      
     }
 
     
   }
 
-
-  seleccionarHora(){
-
-    this.evento.fecha.setHours(this.horaInicio)
+  mostrarFecha(){
+    console.log(this.evento.fechaApertura)
   }
-
-
 
   saveEvento(){
     

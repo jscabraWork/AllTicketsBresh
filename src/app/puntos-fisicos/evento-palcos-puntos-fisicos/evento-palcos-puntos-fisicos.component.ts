@@ -67,7 +67,11 @@ valorBoletas=0
       horaFin:null,
       etapas:[],
       mapaImagen:null,
-      visible:false
+      visible:false,
+      soldout:false,
+      mensaje:null,
+      imagenFinal:null,
+      fechaApertura:null
     }
     this.palco={
       id:null,
@@ -81,7 +85,9 @@ valorBoletas=0
       servicio:null,
       vendido:null,
       numeroDentroDeEvento:null,
-      fechaVendido : null
+      fechaVendido : null,
+      servicioIva:null,
+      proceso:null
     }
     this.user=this.autenticador.getPuntoFisico();
     this.servicio.getPuntoPorUsuario(this.user).subscribe(response=>{this.puntoFisico=response;

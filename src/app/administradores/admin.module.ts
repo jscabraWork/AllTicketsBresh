@@ -55,6 +55,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AgregarFotoMapaComponent } from './admin-perfil/admin-eventos/agregar-foto-mapa/agregar-foto-mapa.component';
 import { AgregarFotosBannerComponent } from './admin-perfil/admin-eventos/agregar-fotos-banner/agregar-fotos-banner.component';
 import { AgregarFotoCiudadComponent } from './admin-perfil/ciudades-admin/agregar-foto-ciudad/agregar-foto-ciudad.component';
+import { AdminMensajeComponent } from './admin-perfil/admin-eventos/admin-mensaje/admin-mensaje.component';
+import { AgregarImagenFinalComponent } from './admin-perfil/admin-eventos/agregar-imagen-final/agregar-imagen-final.component';
+import { AgregarFechaAperturaComponent } from './admin-perfil/admin-eventos/agregar-fecha-apertura/agregar-fecha-apertura.component';
 
 
 
@@ -286,7 +289,10 @@ const routes: Routes = [
     AgregarFotoPerfilComponent,
     AgregarFotoMapaComponent,
     AgregarFotosBannerComponent,
-    AgregarFotoCiudadComponent
+    AgregarFotoCiudadComponent,
+    AdminMensajeComponent,
+    AgregarImagenFinalComponent,
+    AgregarFechaAperturaComponent
   ],
   imports: [
     CommonModule,

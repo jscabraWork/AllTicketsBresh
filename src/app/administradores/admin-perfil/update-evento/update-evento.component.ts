@@ -43,7 +43,11 @@ this.evento ={
   horaFin:null,
   etapas:[],
   mapaImagen:null,
-  visible:false
+  visible:false,
+  soldout:false,
+  mensaje:null,
+  fechaApertura:null,
+  imagenFinal:null
 }
 this.servicio.getEventoId(this.miId).subscribe( response => this.handleGetSuccesfull(response));
   }

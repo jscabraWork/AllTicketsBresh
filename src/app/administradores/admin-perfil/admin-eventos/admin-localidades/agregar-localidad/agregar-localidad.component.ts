@@ -24,7 +24,8 @@ export class AgregarLocalidadComponent implements OnInit {
       servicio:null,
       nombreEtapa:null,
       boletasPatrocinio:[],
-      palcos:[]
+      palcos:[],
+      servicioPorcentaje:null
     }
 
     this.route.paramMap.subscribe( params =>{

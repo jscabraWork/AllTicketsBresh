@@ -3,15 +3,19 @@ import * as THREE from 'three';
 import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader'
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class BannerService  implements OnDestroy{
+
+
   private canvas: HTMLCanvasElement;
   private renderer: THREE.WebGLRenderer;
   private camera: THREE.PerspectiveCamera;
   private scene: THREE.Scene;
   private light: THREE.AmbientLight;
+
 
 
   private objeto: THREE.Object3D = new THREE.Object3D();
@@ -22,8 +26,16 @@ export class BannerService  implements OnDestroy{
 
   private frameId: number = null;
 
+ 
+ 
+
   public constructor(private ngZone: NgZone) {
+   
+    
   }
+
+ 
+
   public ngOnDestroy(): void {
     if (this.frameId != null) {
       cancelAnimationFrame(this.frameId);
@@ -31,6 +43,8 @@ export class BannerService  implements OnDestroy{
   }
   public createScene(canvas: ElementRef<HTMLCanvasElement>): void {
 
+    
+    
     // The first step is to get the reference of the canvas element from our HTML document
     this.canvas = canvas.nativeElement;
 
@@ -57,7 +71,10 @@ export class BannerService  implements OnDestroy{
     this.light.position.z = 10;
     this.scene.add(this.light);
       
-  
+    
+      
+     
+     
 
     const objLoader = new OBJLoader();
     objLoader.setPath('../../../assets/images/models/')
@@ -74,6 +91,10 @@ export class BannerService  implements OnDestroy{
       
     });
 
+   
+
+
+    
     objLoader.load('ticket.obj', (root) => {
       this.objeto2 =root;
       
@@ -101,6 +122,8 @@ export class BannerService  implements OnDestroy{
       
     });
 
+   
+ 
     objLoader.load('ciudades.obj', (root) => {
       this.objeto4 =root;
       
@@ -155,7 +178,10 @@ export class BannerService  implements OnDestroy{
     this.objeto2.rotation.y +=0.01;
     this.objeto4.rotation.y +=0.02;
     this.objeto5.rotation.y +=0.05;
+
+   
     this.renderer.render(this.scene, this.camera);
+    
   }
 
   public resize(): void {
@@ -167,4 +193,6 @@ export class BannerService  implements OnDestroy{
 
     this.renderer.setSize(width, height);
   }
+
+  
 }

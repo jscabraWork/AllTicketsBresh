@@ -42,7 +42,9 @@ this.palco={
     reservado:null,
     vendido:null,
     numeroDentroDeEvento:null,
-    fechaVendido : null
+    fechaVendido : null,
+    servicioIva:null,
+    proceso:null
 
 }
   }

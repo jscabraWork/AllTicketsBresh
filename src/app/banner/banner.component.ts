@@ -8,6 +8,7 @@ import { BannerService } from '../service/banner/banner.service';
 })
 export class BannerComponent implements OnInit {
 
+  
   @ViewChild('rendererCanvas', {static: true})
   public rendererCanvas: ElementRef<HTMLCanvasElement>;
   
@@ -15,6 +16,7 @@ export class BannerComponent implements OnInit {
   ngOnInit(): void {
     this.engServ.createScene(this.rendererCanvas);
     this.engServ.animate();
-   
+    
   }
+
 }

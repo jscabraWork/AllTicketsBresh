@@ -8,6 +8,7 @@ export interface Localidad {
     servicio:number,
     nombreEtapa:string,
     boletasPatrocinio:Boleta[],
-    palcos:Palco[]
+    palcos:Palco[],
+    servicioPorcentaje:number
    
 }

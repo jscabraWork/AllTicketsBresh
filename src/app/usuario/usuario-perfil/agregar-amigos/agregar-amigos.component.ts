@@ -30,16 +30,14 @@ export class AgregarAmigosComponent implements OnInit {
   porcentaje
   url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   
-  signature
+
   valorAPagar=0
   constructor(private route:ActivatedRoute, private autenticador: HardcodedAutheticationService, private dataServicio:UsuariosDataService, private palcoServicio: PalcosDataService) { }
 
   ngOnInit(): void {
 
     this.IVA = IVA
-    this.merchantId=703263  // 508029
-    this.accountId=706326 //  512321
-    this.ApiKey="tyrs5RFaKLs72kHWaZW3WB91B0"// 4Vj8eK4rloUd272L48hsrarnUA
+
     this.clienteAgregado={
       boletas:[],
       celular:null,
@@ -79,7 +77,9 @@ export class AgregarAmigosComponent implements OnInit {
        servicio:null,
        vendido:null,
        numeroDentroDeEvento:null,
-       fechaVendido : null
+       fechaVendido : null,
+       servicioIva:null,
+       proceso:null
     }
     this.user= this.autenticador.getUsuario();
     
@@ -94,7 +94,7 @@ export class AgregarAmigosComponent implements OnInit {
 
   refrescarPalco(){
     this.palcoServicio.getPalco(0, this.idPalco).subscribe(response=>{ this.palco=response;
-      this.referenceCode="APORTE A PALCO: "+this.usuario+"/" +this.palco.id
+      this.referenceCode="APORTEPALCO: "+this.usuario.numeroDocumento+"," +this.palco.id;
     this.refrescar()
     
     })
@@ -104,9 +104,8 @@ export class AgregarAmigosComponent implements OnInit {
     this.valorAPagar = (this.porcentaje/100)*(this.palco.precio+this.palco.servicio+this.palco.servicio*0.19);
     if(this.valorAPagar +this.palco.precioParcialPagado <= (this.palco.precio + this.palco.servicio+ this.palco.servicio*0.19))
     {
-    this.referenceCode= this.referenceCode+"/"+new Date()
-    var md5 = new Md5()
-    this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorAPagar+"~COP").end().toString();
+    this.referenceCode= this.referenceCode+","+new Date()
+   
   }
   else{
     alert("Estas aportando más del valor total")
@@ -165,28 +164,6 @@ export class AgregarAmigosComponent implements OnInit {
     }
 }
 
-aportarVaca(){
-
- 
-    if(this.valorAPagar!=0){
-      if(this.palco.precioParcialPagado+ this.valorAPagar <= (this.palco.precio+ this.palco.servicio +this.palco.servicio*0.19))
-      {
-        this.palcoServicio.aportaALaVaca(this.palco.id,this.valorAPagar).subscribe(response=> {response;
-          
-          
-        this.refrescarPalco()
-        
-        })
-      }
-      else{
-        alert("Estas aportando más del valor total")
-      }
-    }
-    else{
-        alert("Agrega un valor a aportar")
-      }
-    
-}
 
 window: any = window;
 handler = this.window.ePayco.checkout.configure({
@@ -195,6 +172,9 @@ handler = this.window.ePayco.checkout.configure({
 });
 
 epaycoPalcosUsuarios() {
+  if(this.valorAPagar!=0){
+    if(this.palco.precioParcialPagado+ this.valorAPagar <= (this.palco.precio+ this.palco.servicio +this.palco.servicio*0.19))
+    {
   var data = {
     //Parametros compra (obligatorio)
     name: this.palco.nombreEvento,
@@ -204,6 +184,7 @@ epaycoPalcosUsuarios() {
     ' En la localidad ' +
     this.palco.nombre,
     currency: 'cop',
+    invoice: this.referenceCode,
     amount: this.valorAPagar,
     tax_base: '0',
     tax: '0',
@@ -211,7 +192,7 @@ epaycoPalcosUsuarios() {
     lang: 'es',
 
     //Onpage="false" - Standard="true"
-    external: 'true',
+    external: 'false',
 
     //Atributos opcionales
 
@@ -228,6 +209,14 @@ epaycoPalcosUsuarios() {
 
   this.handler.onCloseModal = this.onCloseEpaycoModal;
   this.handler.open(data);
+}
+else{
+  alert("Estas aportando más del valor total")
+}
+}
+else{
+  alert("Agrega un valor a aportar")
+}
 }
 onCloseEpaycoModal() {
   alert('Close ePayco Modal!!!!!!!');

@@ -1,10 +1,10 @@
-<section class="container mt-5">
+<section class="container-fluid mt-5">
 
     <div class="row">
         <div class="col-12">
     <h2>Todos los eventos</h2>
     <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
-    <div class="container">
+    <div class="container-fluid">
     <table class="table mt-3">
 
         <thead>
@@ -15,9 +15,14 @@
                 <th>Organizador</th>
                 <th>Etapas</th>
                 <th>Foto Perfil</th>
+                <th>Foto Asistente Oficial</th>
                 <th>Foto Mapa</th>
+                <th>Fotos Banner</th>
                 <th>Lector</th>
+                <th>Soldout</th>
                 <th>Visibilidad</th>
+                <th>Agregar Mensaje</th>
+                <th>Agregar fecha apertura</th>
                 <th>Modificar</th>
                 <th>Borrar</th>
                 
@@ -35,12 +40,18 @@
                 <td>{{evento.organizadorid}}</td>
                 <td><button class="btn btn-success" routerLink="etapas/{{evento.id}}"> Etapas</button></td>
                 <td><button class="btn btn-success" (click)="agregarFotoPortada(evento)">Agregar Foto Perfil</button></td>
+                <td><button class="btn btn-success" (click)="agregarFotoFinal(evento)">Agregar Foto Asistente</button></td>
+
                 <td><button class="btn btn-success" (click)="agregarFotoMapa(evento)">Agregar Foto Mapa</button></td>
                 <td><button class="btn btn-success" (click)="agregarFotosBanner(evento)">Agregar Fotos Banner</button></td>
                 <td><button class="btn btn-success" routerLink="lector/{{evento.id}}"> Lector provisional</button></td>
-                
-                
+
+                <td><button (click)="cambiarSoldout(evento.id)" class="btn btn-warning" >{{evento.soldout|booleans}}</button></td>
                 <td><button (click)="cambiarVisibilidad(evento.id)" class="btn btn-warning" > {{evento.visible |booleans}}</button></td>
+
+                <td><button class="btn btn-success" (click)="agregarMensajeOrganizador(evento)"> Agregar Mensaje</button></td>
+                <td><button class="btn btn-success" (click)="agregarFechaApertura(evento)"> Agregar Fecha apertura</button></td>
+                
                 <td><button  class="btn btn-warning" routerLink="update/{{evento.id}}"> Modificar</button></td>
                 <td><button (click)="deleteEvento(evento.id)" class="btn btn-danger"> Delete</button></td>
     

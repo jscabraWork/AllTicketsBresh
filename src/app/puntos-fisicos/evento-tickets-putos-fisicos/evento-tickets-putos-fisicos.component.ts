@@ -82,7 +82,11 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
       horaFin:null,
       etapas:[],
       mapaImagen:null,
-      visible:false
+      visible:false,
+      soldout:false,
+      mensaje:null,
+      imagenFinal:null,
+      fechaApertura:null
     }
     this.localidad ={
       id:null,
@@ -92,7 +96,8 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
       servicio:null,
       nombreEtapa:null,
       boletasPatrocinio:[],
-      palcos:[]
+      palcos:[],
+      servicioPorcentaje:null
     }
 
         this.etapa={

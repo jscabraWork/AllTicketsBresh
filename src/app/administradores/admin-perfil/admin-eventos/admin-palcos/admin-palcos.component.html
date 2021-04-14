@@ -28,7 +28,10 @@
                 <th>Personas Maximas</th>
                 <th>Vendido</th>
                 <th>Reservado</th>
-                <th>Modificar</th>
+                <th>En proceso</th>
+                <th>Reservar</th>
+                <th>Proceso</th>
+                <th>VENDER A MANO</th>
                 <th>Borrar</th>
                 
             </tr>
@@ -49,7 +52,11 @@
                 <td>{{palco?.personasMaximas}}</td>
                 <td>{{palco?.vendido  |booleans}}</td>
                 <td>{{palco?.reservado  |booleans}}</td>
-                <td><button class="btn btn-warning" routerLink="update/{{palco.id}}"> Modificar</button></td>
+                <td>{{palco?.proceso  |booleans}}</td>
+                <td><button class="btn btn-warning" (click)="marcarReservado(palco.id)"> Modificar</button></td>
+
+                <td><button class="btn btn-warning" (click)="marcarComoProceso(palco.id)"> PROCESO</button></td>
+                <td><button class="btn btn-success" (click)="marcarComoVendido(palco.id)"> VENDER A MANO</button></td>
                 <td><button (click) ="borrarPalco(palco.id)" class="btn btn-danger"> Delete</button></td>
     
             </tr>

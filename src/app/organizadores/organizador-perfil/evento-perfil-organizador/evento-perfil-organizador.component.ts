@@ -42,7 +42,11 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
       horaFin:null,
       etapas:[],
       mapaImagen:null,
-      visible:false
+      visible:false,
+      soldout:false,
+      mensaje:null,
+      imagenFinal:null,
+      fechaApertura:null
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
@@ -114,7 +118,27 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   palcosVendidos(localidad:Localidad, vendido:boolean){
     var contador =0;
     for (var i =0; i< localidad.palcos.length;i++){
-      if(localidad.palcos[i].vendido ==vendido){
+      if(localidad.palcos[i].vendido ==vendido && localidad.palcos[i].proceso ==false && localidad.palcos[i].reservado ==false ){
+        contador = contador +1;
+      }
+    }
+    return contador;
+  }
+
+  palcosCortesias(localidad:Localidad){
+    var contador =0;
+    for (var i =0; i< localidad.palcos.length;i++){
+      if(localidad.palcos[i].reservado ==true){
+        contador = contador +1;
+      }
+    }
+    return contador;
+  }
+
+  palcosEnProceso(localidad:Localidad){
+    var contador =0;
+    for (var i =0; i< localidad.palcos.length;i++){
+      if(localidad.palcos[i].proceso ==true){
         contador = contador +1;
       }
     }

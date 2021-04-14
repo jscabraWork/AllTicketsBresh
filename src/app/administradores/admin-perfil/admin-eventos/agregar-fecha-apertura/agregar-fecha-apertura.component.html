@@ -1,0 +1,19 @@
+<form (ngSubmit)="!todoForm.invalid && guardar()" #todoForm="ngForm">
+    <fieldset class="form-group">
+        <input type="number" [(ngModel)]="year" placeholder="año" class="form-control" name="anio"> 
+    </fieldset>
+    <fieldset class="form-group">
+        <input type="number" [(ngModel)]="month" placeholder="mes" class="form-control" name="mes">
+    </fieldset>
+    <fieldset class="form-group">
+        <input type="number" [(ngModel)]="dayOfMonth" placeholder="dia" class="form-control" name="dia">
+    </fieldset>
+    <fieldset class="form-group">
+        <input type="number" [(ngModel)]="hour" placeholder="hora" class="form-control" name="hora">
+    </fieldset>
+    <fieldset class="form-group">
+        <input type="number" [(ngModel)]="minute" placeholder="minuto" class="form-control" name="minuto">
+    </fieldset>
+
+    <button class="btn btn-success">Agregar fecha</button>
+</form>

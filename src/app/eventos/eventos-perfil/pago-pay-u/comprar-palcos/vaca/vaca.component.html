@@ -92,10 +92,182 @@
           </div>
         </div>
       </div>
+
+
+      <div class="col-12  pl-5 pr-5 mt-3" *ngIf="evento?.mapa=='mapa1'" style="margin: 0px auto;">
+        <h2><strong>Selecciona el palco que deseas comprar</strong> </h2>
+        <div *ngFor="let item of lista1">
+          <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+            {{item}}
+          </div>
+        </div>
+        <div class="tarima">
+          Tarima
+        </div>
+        <div *ngFor="let item of lista2">
+          <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+            {{item}}
+          </div>
+        </div>
+        <div class="clearFix"></div>
+        <div *ngFor="let item of lista3">
+          <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+            {{item}}
+          </div>
+        </div>
+        <div class="tarimaLarga"></div>
+        <div *ngFor="let item of lista4">
+          <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+            {{item}}
+          </div>
+        </div>
   
-   
+        <div class="clearFix"></div>
+        <div *ngFor="let item of lista5">
+          <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+            {{item}}
+          </div>
+        </div>
+        <div class="tarimaLarga"></div>
+        <div *ngFor="let item of lista6">
+          <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+            {{item}}
+          </div>
+        </div>
+        <div class="clearFix"></div>
+        <div class="parte7">
+          <div *ngFor="let item of lista7">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga"></div>
+          <div *ngFor="let item of lista8">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="clearFix"></div>
+        <div class="parte8">
+          <div *ngFor="let item of lista9">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga"></div>
+          <div *ngFor="let item of lista10">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="clearFix"></div>
+        <div class="parte8">
+          <div *ngFor="let item of lista11">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga"></div>
+          <div *ngFor="let item of lista12">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+        </div>
   
   
+        <div class="clearFix"></div>
+        <div class="parte9">
+          <div *ngFor="let item of lista13">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga"></div>
+          <div *ngFor="let item of lista14">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="clearFix"></div>
+        <div class="parte9">
+          <div *ngFor="let item of lista15">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga"></div>
+          <div *ngFor="let item of lista16">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+        </div>
+        <div class="clearFix"></div>
+        <div class="tarimaAncha"></div>
+  
+        <div class="parte10">
+          <div *ngFor="let item of lista17">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+        </div>
+        <div class="clearFix"></div>
+        <div class="parte11">
+          <div *ngFor="let item of lista18">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="clearFix"></div>
+        <div class="parte12">
+          <div *ngFor="let item of lista19">
+            <div class="cuadros" (click)="getPalcoIndividualParaMapa(item)">
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+   <div class="fondoBlanco row border ml-5">
+      <div class="col-12 mt-3">
+        <fieldset class="form-group">
+            <label for="tipo"><strong>Selecciona el porcentaje con el que vas a reservar</strong></label>
+            <select (change)="cambiarTotalIndividual()" type="text" class= "form-control "name ="tipo" required="required" style="width: 100px;" [(ngModel)]="porcentaje">
+                <option value=10>10%</option>
+                <option value=20>20%</option>
+                <option value=30>30%</option>
+                <option value=40>40%</option>
+                <option value=50>50%</option>
+                <option value=60>60%</option>
+                <option value=70>70%</option>
+                <option value=80>80%</option>
+                <option value=90>90%</option>
+                <option value=100>100%</option>
+            </select>    
+        </fieldset>
+        
+      </div>
+      <div class="col-12 justify-content-end">
+       <div>
+        <h5><strong>Palco seleccionado: </strong>{{palco?.numeroDentroDeEvento}}</h5>
+         <h5> <strong>Total: </strong> {{valorLocalidadAgregada | currency:'COP'}} </h5>
+         <h5 ><strong>Entradas: </strong>  {{valorBoletas}} </h5>
+         
+       </div>
+        <button style="font-size: 12px;" class="action_button float-right mr-1 mt-2 mb-3 p-3" (click) ="agregarPalcoIndividual()" > Agregar al carrito</button>
+      </div>
+    </div>
     </div>
 
   </section>

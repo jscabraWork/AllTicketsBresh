@@ -20,6 +20,7 @@
 
         
             <div class="contenedor contenedor2" >
+                <img *ngIf="evento.soldout" class="sold_out"src="../../assets/images/img/SOLDOUT.png" alt="">  
             <a routerLink="/eventos/evento/{{evento.id}}" class="outerLink"> 
                 <img *ngIf="evento.imagen" src="{{evento.imagen.url}}" class=" rounded  darkableImage"onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1" 
                 onmouseover="javascript:this.style.opacity=0.4;this.opacity=40" />
@@ -47,7 +48,7 @@
     
            </div>
             <div class="col-6 pb-5">
-                <button class="action_button rounded-pill shadow texto"  routerLink="/eventos/evento/{{evento.id}}">Comprar</button>
+                <button *ngIf="!evento.soldout" class="action_button rounded-pill shadow texto"  routerLink="/eventos/evento/{{evento.id}}">Comprar</button>
                 
             </div>
 

@@ -28,6 +28,7 @@ export class AgregarPalcoComponent implements OnInit {
      
 })
 
+
 this.palco={
   id:null,
     precio:null,
@@ -40,7 +41,9 @@ this.palco={
     reservado:null,
     vendido:null,
     numeroDentroDeEvento:null,
-    fechaVendido : null
+    fechaVendido : null,
+    servicioIva:null,
+    proceso:null
 
 }
   }

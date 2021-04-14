@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 import { EpaycoTransaction } from 'src/app/models/epayco.model';
-import { BoletasDataService } from 'src/app/service/data/boletas-data.service';
+import { Foto } from 'src/app/models/foto.model';
+import { EventoDataService } from 'src/app/service/data/evento-data.service';
 import { EpaycoService } from 'src/app/service/epayco.service';
 
 @Component({
@@ -16,9 +18,11 @@ export class RespuestaComponent implements OnInit {
 
   refPayco: string = ''
 	transactionResponse:any ;
+  url:Foto
   constructor(
     private epaycoService: EpaycoService,
     private activatedRoute: ActivatedRoute,
+    private eventoService:EventoDataService
 
   ) {
     
@@ -26,6 +30,11 @@ export class RespuestaComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.url={
+      id:null,
+      name:null,
+      url:null
+    }
 
     this.activatedRoute.queryParams.subscribe(params => {
       this.refPayco= params['ref_payco'] || params['x_ref_payco'];
@@ -33,6 +42,13 @@ export class RespuestaComponent implements OnInit {
    this.epaycoService.getTransactionResponse(this.refPayco)
    .subscribe((data: EpaycoTransaction) =>{
        this.transactionResponse = data.data
+
+
+      if(data.data.x_transaction_state=='Aceptada'){
+        this.eventoService.getFotoFinalDeEvento(data.data.x_description).subscribe(response=>{
+          this.url = response;
+        })
+      }
    });
   }
 

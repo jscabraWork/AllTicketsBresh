@@ -1,8 +1,33 @@
-{"/validation/v1/reference/*": {
+{
+"/validation/v1/reference/*": {
     "target":"https://secure.epayco.co",
     "secure":false,
     "changeOrigin":true
-}
+    
+},
 
+"/*":{
+    
+    "target":"https://allticketscol.com/",
+    "secure":false,
+    "changeOrigin":true
+    
+},
+
+"/files/*":{
+    
+    "target":"http://alltickets-env.eba-kfsntqbt.us-east-1.elasticbeanstalk.com",
+    "secure":false,
+    "changeOrigin":true
+    
+},
+
+"/upload/*":{
+    
+    "target":"http://alltickets-env.eba-kfsntqbt.us-east-1.elasticbeanstalk.com",
+    "secure":false,
+    "changeOrigin":true
+   
+}
 
 }

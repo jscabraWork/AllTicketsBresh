@@ -42,15 +42,22 @@ export class AdminEtapasComponent implements OnInit {
         horaFin:null,
         etapas:[],
         mapaImagen:null,
-        visible:false
+        visible:false,
+        soldout:false,
+        mensaje:null,
+        imagenFinal:null,
+        fechaApertura:null
       }
     this.refrescar()
     })
   }
 
   hacerVisible(idEtapa){
-
-    this.service.hacerVisible(idEtapa, this.miId).subscribe(response=>{response; this.refrescar()})
+    console.log("BOTON")
+    this.service.hacerVisible(idEtapa, this.miId).subscribe(response=>{response; 
+      console.log(response);
+      console.log("AAA")
+      this.refrescar()})
     
   }
   borrarEtapa(idEtapa){

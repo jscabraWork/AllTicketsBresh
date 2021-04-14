@@ -22,6 +22,7 @@ import { ImagenEventosComponent } from './eventos-perfil/imagen-eventos/imagen-e
 
 import { MatIconModule } from '@angular/material/icon';
 import { HttpInterceptBasicAuthService } from '../service/http/http-intercept-basic-auth.service';
+import { CountdownModule } from 'ngx-countdown';
 
 
 
@@ -52,10 +53,10 @@ const routes: Routes=[
           path:'evento/:id/pago/palco/:idLocalidad',
           component: ComprarPalcosComponent
         },
-        {
+       /* {
           path:'evento/:id/pago/palco/:idLocalidad/vaca',
           component: VacaComponent
-        },
+        },*/
         {
           path:'evento/:id/pago/:idLocalidad/regalar',
           component: RegalarBoletaComponent
@@ -83,7 +84,8 @@ const routes: Routes=[
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        MatIconModule
+        MatIconModule,
+        CountdownModule
 
       
         

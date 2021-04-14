@@ -96,6 +96,10 @@ export class RegalarBoletaComponent implements OnInit {
       etapas: [],
       mapaImagen: null,
       visible: false,
+      soldout:false,
+      mensaje:null,
+      imagenFinal:null,
+      fechaApertura:null
     };
     this.localidad = {
       id: null,
@@ -106,6 +110,7 @@ export class RegalarBoletaComponent implements OnInit {
       nombreEtapa: null,
       boletasPatrocinio: [],
       palcos: [],
+      servicioPorcentaje:null
     };
 
     this.etapa = {
