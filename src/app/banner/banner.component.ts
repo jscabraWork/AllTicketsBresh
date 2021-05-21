@@ -209,8 +209,8 @@ export class BannerComponent implements OnInit {
       const width = window.innerWidth;
       const height = window.innerHeight;
       const mouse = {
-        x: (event.clientX / width) * 2 - 1,
-        y: -(event.clientY / height) * 2 + 1
+        x: (event.offsetX  / width) * 2 - 1,
+        y: -(event.offsetY  / height) * 2 + 1
     }
 
     this.raycaster = new THREE.Raycaster();
@@ -221,23 +221,26 @@ export class BannerComponent implements OnInit {
    if (this.intersects.length > 0) {
 
        
-     if (this.intersects.length > 0) {
-
+     
+      console.log(this.intersects[0])
       if(this.intersects[0]!=undefined){
      
         if(this.intersects[0].object.name === "logo" ||this.intersects[0].object.name == "contorno_ticket001_1" ||this.intersects[0].object.name == "contorno_ticket001_2" ||this.intersects[0].object.name == "contorno_ticket001_3" ||this.intersects[0].object.name == "Ticket"||this.intersects[0].object.name == "usuario" || this.intersects[0].object.name == "gafas003_1" || this.intersects[0].object.name == "gafas003_3" || this.intersects[0].object.name == "gafas003_2"|| this.intersects[0].object.name == "ciudades_1" || this.intersects[0].object.name == "ciudades_2" || this.intersects[0].object.name == "ciudades_3" || this.intersects[0].object.name == "localización003_1"|| this.intersects[0].object.name == "localización003_2"|| this.intersects[0].object.name == "localización003_3"){
           this.renderer.domElement.className = "cursor"
         }
         else{
-          this.renderer.domElement.className = ""
+          this.renderer.domElement.className = "normal"
         }
         
       }
       else{
-        this.renderer.domElement.className = ""
+        this.renderer.domElement.className = "normal"
       }
-     }
+     
    }
+   else{
+    this.renderer.domElement.className = "normal"
+  }
 
     }
   
