@@ -91,7 +91,8 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       soldout:false,
       mensaje:null,
       imagenFinal:null,
-      fechaApertura:null
+      fechaApertura:null,
+      urlMapa:null
     }
     this.localidad ={
       id:null,
@@ -102,7 +103,8 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       nombreEtapa:null,
       boletasPatrocinio:[],
       palcos:[],
-      servicioPorcentaje:null
+      servicioPorcentaje:null,
+      efectivo:false
     }
     this.usuarioEntidad= {
       nombre: "",

@@ -34,7 +34,9 @@ export class AdminLocalidadesComponent implements OnInit {
     }
   }
 
-
+  cambiarEfectivo(idLocalidad:number){
+    this.servicio.cambiarEfectivo(idLocalidad).subscribe(response=>{this.refrescar(), this.message ="SE cambio el efectivo de la localdiad "+idLocalidad})
+  }
   borrarLocalidad(idLocalidad:number){
 
 

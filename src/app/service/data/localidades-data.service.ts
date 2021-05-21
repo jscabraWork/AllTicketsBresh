@@ -2,6 +2,7 @@ import { Localidad } from './../../administradores/admin-perfil/admin-eventos/ad
 import { API_URL } from './../../app.constants';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Etapa } from 'src/app/eventos/eventos-perfil/etapa.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,15 @@ export class LocalidadesDataService {
     return this.http.get<Localidad> (`${API_URL}/eventos/${pEvento}/localidades/localidad/${pIdLocalidad}`)
   }
 
+  
+  getEtapaPorIdLocalidad(pIdLocalidad:number){
+
+    return this.http.get<Etapa> (`${API_URL}/localidad/${pIdLocalidad}`)
+  }
+
+  getLocalidadVisibleId(pIdLocalidad:number){
+    return this.http.get<Localidad> (`${API_URL}/localidad/${pIdLocalidad}/visibles`)
+  }
   addLocalidadAEvento( localidad, pEvento:string, pIdEtapa:number){
     
     return this.http.post(`${API_URL}/eventos/${pEvento}/localidades/etapas/${pIdEtapa}`,localidad); 
@@ -37,5 +47,9 @@ export class LocalidadesDataService {
 
   modificarLocalidad(localidad:Localidad, pEvento, pIdLocalidad, pIdEtapa:number){
     return this.http.put(`${API_URL}/eventos/${pEvento}/localidades/${pIdLocalidad}/etapa/${pIdEtapa}`, localidad);
+  }
+
+  cambiarEfectivo(localidad:number){
+    return this.http.put(`${API_URL}/localidad/efectivo/${localidad}`,null);
   }
 }

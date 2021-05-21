@@ -47,7 +47,7 @@
 
                             <th class="border">Dinero De Palcos</th>
                             <th class="border">Personas en Palcos</th>
-                            <th class="border">Tickets Patrocinios</th>   
+                           <!-- <th class="border">Tickets Patrocinios</th>   -->
                                  
                         </tr>
                 
@@ -55,7 +55,7 @@
                 
                     </thead>
                     <tbody>
-                        <tr *ngFor="let localidad of evento?.localidades"  >
+                        <tr *ngFor="let localidad of localidades"  >
                            
                             <td class="border"><strong>{{localidad?.nombreEtapa}}</strong></td>
                             <td class="border"> <strong>{{localidad?.nombre }}</strong></td> 
@@ -77,7 +77,7 @@
 
                             <td class="border">{{dineroRecaudadoPalcos(localidad)|currency:'COP'}}</td>
                             <td class="border">{{personasEnPalco(localidad)}}</td>
-                            <td class="border"><button class=" action_button" routerLink="patrocinio/{{localidad?.id}}">Tickets patrocinio</button></td>
+                            <!-- <td class="border"><button class=" action_button" routerLink="patrocinio/{{localidad?.id}}">Tickets patrocinio</button></td>-->
                            
                         </tr>
                         

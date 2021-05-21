@@ -5,7 +5,7 @@ import { HardcodedAutheticationService } from './../service/hardcoded-autheticat
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactanosComponent } from '../contactanos/contactanos.component';
-import { SePromotorComponent } from '../se-promotor/se-promotor.component';
+
 import { CalendarioComponent } from '../calendario/calendario.component';
 
 @Component({
@@ -62,19 +62,7 @@ export class MenuComponent implements OnInit {
   }
 
 
-  openDialog5(): void {
-    const dialogRef = this.dialog.open(SePromotorComponent, {
-      width: '600px',
-     
-      
-      
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      
-    });
-  }
+  
 
 
   openDialog2(): void {

@@ -4,6 +4,7 @@ import { HardcodedAutheticationService } from './../service/hardcoded-autheticat
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Md5 } from 'ts-md5';
+import { OlvidoComponent } from '../olvido/olvido.component';
 
 @Component({
   selector: 'app-login',
@@ -117,7 +118,16 @@ export class LoginComponent implements OnInit {
  
   }
 
+  olvidoContrasenia(){
+    const dialogRef = this.dialog.open(OlvidoComponent, {
+      width: '600px'      
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(RegistrarseComponent, {

@@ -16,7 +16,7 @@
 
           </div>
           <div class="">
-
+           
 
             <div class="  eventoFondo carrito   fondoBlanco border " *ngFor="let boleta of boletas">
               <h5 class="pl-md-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
@@ -38,8 +38,8 @@
               <h5 class="pl-md-4 "><strong>Palco No:</strong> {{palco.numeroDentroDeEvento}}</h5>
               <h5 class="pl-md-4"><strong>Personas por palco:</strong> {{palco.personasMaximas}}</h5>
               <h5 class="pl-md-4 "><strong>Precio: </strong> {{palco?.precio| currency:'COP'}} + <strong>Servicio:
-                </strong> {{palco?.servicio| currency:'COP'}} +IVA</h5>
-              <h5 class="pl-md-4 pb-4"><strong>Valor: </strong>{{palco?.precio + palco?.servicio }} + IVA</h5>
+                </strong> {{palco?.servicio| currency:'COP'}} + <strong>IVA</strong> {{palco?.servicioIva|currency:'COP'}}</h5>
+              <h5 class="pl-md-4 pb-4"><strong>Valor Total: </strong>{{palco?.precio + palco?.servicio + palco?.servicioIva|currency:'COP'}}</h5>
             </div>
 
             <div class="fondoBlanco shadow col-12">
@@ -52,7 +52,8 @@
 
 
               </h5>
-              <div class="pl-md-4 pb-5">
+              <div class="pl-md-4 pb-5 mt-3">
+                <h5 class="frase">Pagar con tarjeta</h5>
                 <img class="btn-epayco" *ngIf="usuarioEntidad && boletas" (click)="epaycoTicketsUsuarios()"
                   src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
                   alt="botón epayco">
@@ -63,9 +64,16 @@
                   src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
                   alt="botón epayco">
 
+                  
+
+                  <h5 class="frase" *ngIf="efectivo">Pagar con efectivo</h5>
+                  <img class="btn-epayco" *ngIf="usuarioEntidad && boletas && efectivo" (click)="epaycoTicketsUsuarios2()"
+                  src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
+                  alt="botón epayco">
 
 
-                <img class="btn-epayco" *ngIf="asistente" (click)="epaycoBoletasAsistente()"
+
+                <img class="btn-epayco" *ngIf="palco.id!=null && efectivo" (click)="epaycoPalcosUsuarios2()"
                   src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
                   alt="botón epayco">
               </div>
@@ -76,7 +84,7 @@
           <div class="row">
 
             <div class="col-6 pt-3">
-              <input placeholder="¿Algún promotor?" [(ngModel)]="codigoVenta" class="float-right form-control"
+              <input placeholder="¿Te ayudo algún promotor?" [(ngModel)]="codigoVenta" class="float-right form-control"
                 type="text">
 
             </div>

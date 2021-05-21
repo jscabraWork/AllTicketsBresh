@@ -7,6 +7,16 @@
     font-size: 22px;
 }
 
+.botonComprar{
+    background: linear-gradient(#F9B84A, #ed701c); 
+    width: 150px;
+    margin-left: 12px;
+    color:white;
+    border: white;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
 #prueba9
 {
 	
@@ -173,11 +183,27 @@
                 background:linear-gradient(#ed701c, #F9B84f); 
                 
             }
+
+
+
+
+
             .divisionLocalidad:hover{
                 transform: scale(1.01);
             }
 
-            
+
+
+            .tituloLocalidad2{
+                background: linear-gradient(#666, #333); 
+                color:#FFF;
+                padding: 3%;
+                width: 100%;
+                
+                
+            }
+
+
 
             .precioLocalidades{
                 font-size:22px;

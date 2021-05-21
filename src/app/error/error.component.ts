@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  mensajeError ="Parcero por aca no se puede";
+  mensajeError ="Parcero por acá no se puede";
   constructor() { }
 
   ngOnInit(): void {

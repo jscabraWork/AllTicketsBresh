@@ -66,7 +66,8 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
       soldout:false,
       mensaje:null,
       imagenFinal:null,
-      fechaApertura:null
+      fechaApertura:null,
+      urlMapa:null
     }
 
 
@@ -85,7 +86,10 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
           numeroDentroDeEvento:null,
           fechaVendido : null,
           servicioIva:null,
-          proceso:null
+          proceso:null,
+          disponible:null,
+          idLocalidad:null,
+          
         }
 
         this.boletas=this.data.boletas;

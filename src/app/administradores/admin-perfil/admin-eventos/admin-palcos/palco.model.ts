@@ -16,6 +16,8 @@ export interface Palco {
 	  numeroDentroDeEvento:string,
 	  fechaVendido : Date,
 	  servicioIva:number,
-	  proceso:boolean
+	  proceso:boolean,
+	  disponible:boolean,
+	  idLocalidad:number
 	  
 }

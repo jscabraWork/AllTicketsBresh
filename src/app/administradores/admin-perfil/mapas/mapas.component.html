@@ -1,147 +1,401 @@
-<section class="container mt-5">
-    <div class="row">
-        <div class="col-12">
-            <h1>Mapa 1:</h1>
-            <div *ngFor="let item of lista1">
-                <div class="cuadros">
-                    {{item}}
-                </div>
-            </div>
-            <div class="tarima">
-                Tarima
-            </div>
-            <div *ngFor="let item of lista2">
-                <div class="cuadros">
-                    {{item}}
-                </div>
-            </div>
-            <div class="clearFix"></div>
-            <div *ngFor="let item of lista3">
-                <div class="cuadros">
-                    {{item}}
-                </div>
-            </div>
-            <div class="tarimaLarga"></div>
-            <div *ngFor="let item of lista4">
-                <div class="cuadros">
-                    {{item}}
-                </div>
-            </div>
 
-            <div class="clearFix"></div>
-            <div *ngFor="let item of lista5">
-                <div class="cuadros">
-                    {{item}}
-                </div>
-            </div>
-            <div class="tarimaLarga"></div>
-            <div *ngFor="let item of lista6">
-                <div class="cuadros">
-                    {{item}}
-                </div>
-            </div>
-            <div class="clearFix"></div>
-            <div class="parte7">
-                <div *ngFor="let item of lista7">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-                <div class="tarimaLarga"></div>
-                <div *ngFor="let item of lista8">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="clearFix"></div>
-            <div class="parte8">
-                <div *ngFor="let item of lista9">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-                <div class="tarimaLarga"></div>
-                <div *ngFor="let item of lista10">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="clearFix"></div>
-            <div class="parte8">
-                <div *ngFor="let item of lista11">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-                <div class="tarimaLarga"></div>
-                <div *ngFor="let item of lista12">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="clearFix"></div>
-            <div class="parte9">
-                <div *ngFor="let item of lista13">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-                <div class="tarimaLarga"></div>
-                <div *ngFor="let item of lista14">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-            </div> 
-
-            <div class="clearFix"></div>
-            <div class="parte9">
-                <div *ngFor="let item of lista15">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-                <div class="tarimaLarga"></div>
-                <div *ngFor="let item of lista16">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-            </div> 
-            <div class="clearFix"></div>
-            <div class="tarimaAncha"></div>
-            
-            <div class="parte10">
-                <div *ngFor="let item of lista17">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-            </div> 
-            <div class="clearFix"></div>
-            <div class="parte11">
-                <div *ngFor="let item of lista18">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-            </div> 
-
-            <div class="clearFix"></div>
-            <div class="parte12">
-                <div *ngFor="let item of lista19">
-                    <div class="cuadros">
-                        {{item}}
-                    </div>
-                </div>
-            </div> 
+<div class="contenedor-mapa mt-5" >
+    <h1>Mapa 1</h1>
+    <div class="mapa"  style="margin: 0px auto;">
+  
+      <div class="centrar-mapa">
+  
+  
+        <div class="clearFix"></div>
+        <div *ngFor="let item of lista1">
+          <div class="cuadros">
+            {{item}}
+          </div>
         </div>
+  
+        <div class="tarima">
+          TARIMA
+        </div>
+  
+        <div *ngFor="let item of lista2">
+          <div class="cuadros">
+            {{item}}
+          </div>
+        </div>
+        <div class="clearFix"></div>
+        <div class="parte2">
+          <div *ngFor="let item of lista3">
+            <div class="cuadros">
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga">T</div>
+          <div *ngFor="let item of lista4">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+          <div class="clearFix"></div>
+        </div>
+        <div class="parte2">
+          <div *ngFor="let item of lista5">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga">A</div>
+          <div *ngFor="let item of lista6">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+          <div class="clearFix"></div>
+        </div>
+  
+        <div class="tarimaDos">
+          <strong>TARIMA</strong>
+        </div>
+        <div class="parte3">
+  
+          <div *ngFor="let item of lista7">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+  
+  
+          <div class="tarimaLarga">R</div>
+          <div *ngFor="let item of lista8">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+        </div>
+        <div class="tarimaTres">
+          <strong>TARIMA</strong>
+        </div>
+        <div class="clearFix"></div>
+  
+  
+        <div class="parte8">
+  
+          <div class="espacioDerecho" *ngFor="let item of lista9">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+  
+  
+          <div class="tarimaLarga">I</div>
+  
+  
+          <div class="espacioDerecho" *ngFor="let item of lista10">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="clearFix"></div>
+  
+        <div class="parte8">
+  
+          <div class="espacioDerecho" *ngFor="let item of lista11">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+  
+          <div class="tarimaLarga">M</div>
+  
+  
+          <div class="espacioDerecho" *ngFor="let item of lista12">
+            <div class="cuadros">
+              {{item}}
+            </div>
+          </div>
+  
+  
+        </div>
+  
+  
+        <div class="clearFix"></div>
+  
+  
+        <div class="parte9">
+          <div *ngFor="let item of lista13">
+            <div class="cuadros">
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga">A</div>
+          <div *ngFor="let item of lista14">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+  
+  
+  
+        <div class="clearFix"></div>
+        <div class="parte9">
+          <div *ngFor="let item of lista15">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga2"></div>
+          <div *ngFor="let item of lista16">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+  
+        <div class="clearFix"></div>
+        <div class="tarimaAncha">TARIMA</div>
+  
+        <div class="parte10">
+          <div *ngFor="let item of lista17">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="clearFix"></div>
+        <div class="parte11">
+          <div *ngFor="let item of lista18">
+            <div class="cuadros">
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="clearFix"></div>
+        <div class="parte12">
+          <div *ngFor="let item of lista19">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="clearFix"></div>
+      </div>
     </div>
-</section>
+  </div>
+  
+
+  
+<div class="contenedor-mapa mt-5" >
+    <h1>Mapa 2</h1>
+    <div class="mapa"  style="margin: 0px auto;">
+  
+      <div class="centrar-mapa">
+  
+  
+        <div class="clearFix"></div>
+        <div *ngFor="let item of lista1">
+          <div class="cuadros">
+            {{item}}
+          </div>
+        </div>
+  
+        <div class="tarima">
+          TARIMA
+        </div>
+  
+        <div *ngFor="let item of lista2">
+          <div class="cuadros">
+            {{item}}
+          </div>
+        </div>
+        <div class="clearFix"></div>
+        <div class="parte2">
+          <div *ngFor="let item of lista3">
+            <div class="cuadros">
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga">T</div>
+          <div *ngFor="let item of lista4">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+          <div class="clearFix"></div>
+        </div>
+        <div class="parte2">
+          <div *ngFor="let item of lista5">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga">A</div>
+          <div *ngFor="let item of lista6">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+          <div class="clearFix"></div>
+        </div>
+  
+
+        <div class="parte3">
+  
+          <div *ngFor="let item of lista7">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+  
+  
+          <div class="tarimaLarga">R</div>
+          <div *ngFor="let item of lista8">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+        </div>
+
+        <div class="clearFix"></div>
+  
+  
+        <div class="parte8">
+  
+          <div class="espacioDerecho" *ngFor="let item of lista9">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+  
+  
+          <div class="tarimaLarga">I</div>
+  
+  
+          <div class="espacioDerecho" *ngFor="let item of lista10">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="clearFix"></div>
+  
+        <div class="parte8">
+  
+          <div class="espacioDerecho" *ngFor="let item of lista11">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+  
+          <div class="tarimaLarga">M</div>
+  
+  
+          <div class="espacioDerecho" *ngFor="let item of lista12">
+            <div class="cuadros">
+              {{item}}
+            </div>
+          </div>
+  
+  
+        </div>
+  
+  
+        <div class="clearFix"></div>
+  
+  
+        <div class="parte9">
+          <div *ngFor="let item of lista13">
+            <div class="cuadros">
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga">A</div>
+          <div *ngFor="let item of lista14">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+  
+  
+  
+        <div class="clearFix"></div>
+        <div class="parte9">
+          <div *ngFor="let item of lista15">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+          <div class="tarimaLarga2"></div>
+          <div *ngFor="let item of lista16">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+  
+        <div class="clearFix"></div>
+        <div class="tarimaAncha">TARIMA</div>
+  
+        <div class="parte10">
+          <div *ngFor="let item of lista17">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="clearFix"></div>
+        <div class="parte11">
+          <div *ngFor="let item of lista18">
+            <div class="cuadros">
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="clearFix"></div>
+        <div class="parte12">
+          <div *ngFor="let item of lista19">
+            <div class="cuadros" >
+              {{item}}
+            </div>
+          </div>
+        </div>
+  
+        <div class="clearFix"></div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="contenedor-mapa mt-5" >
+    <h1>Mapa 3</h1>
+    <div class="mapa"  style="margin: 0px auto;">
+  
+      <div class="centrar-mapa">
+  
+  
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  

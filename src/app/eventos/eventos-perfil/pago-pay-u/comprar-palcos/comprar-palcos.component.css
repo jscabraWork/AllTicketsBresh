@@ -1,3 +1,7 @@
+.letraGrande span{
+  font-size: 18px;
+}
+
 .fondoBlanco {
   background-color: white;
 }
@@ -14,7 +18,9 @@ img {
   width: 60px;
   cursor: pointer;
 }
-
+.tituloActual{
+  font-weight: bold;
+}
 .tituloLocalidad {
   background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28));
   color: #fff;
@@ -84,7 +90,8 @@ td {
 
 
 #convensiones,
-#desplzate{
+#desplzate,
+#desplazate{
   margin-top:2%;
   margin-left: 11%;
   margin-bottom: 2%;
@@ -98,14 +105,16 @@ td {
   align-items: center;
 }
 
-#desplzate p{
+#desplzate p,
+#desplazate p{
   color:#ed701c;
   font-weight: bolder;
   font-size: 20px;
 
 }
 
-#desplzate{
+#desplzate,
+#desplazate{
   display:none;
 }
 
@@ -115,11 +124,21 @@ td {
     }
 }
 
+
+@media(max-width:1500px){
+  #desplazate{
+    display: block;
+  }
+}
+
+
+
 .contenedor-mapa {
   overflow: auto;
   width: 90%;
   text-align: center;
   margin: 0px auto;
+  margin-left: 10%;
 
 
 }
@@ -136,6 +155,13 @@ td {
   width: 1500px;
 
 }
+
+.mapa3 {
+  margin: 0px auto;
+  width: 1350px;
+
+}
+
 
 .centrar-mapa{
   margin: 0px auto;
@@ -155,6 +181,33 @@ td {
 }
 .cuadros:hover {
   background-color: #aaa;
+}
+
+.cuadros2 {
+  background-color: #ccc;
+
+  width: 40px;
+  height: 40px;
+  
+  margin: 3px;
+  float: left;
+  font-size: 100%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cuadros3 {
+  background-color: rgb(61, 92, 122);
+  color:white;
+}
+
+.cuadros2:hover {
+  background-color: #aaa;
+}
+
+.cuadros3:hover {
+  background-color: rgb(53, 60, 73);
+  
 }
 
 .rojo {
@@ -394,3 +447,94 @@ transform: rotate(30deg);
     text-align: left;
     margin-left: 11%;
   }
+
+ .margenIzquierdo{
+   margin-left: 415px;
+ } 
+
+ .tarimaMapa3 {
+  float: left;
+  background-color: #333;
+  height: 40px;
+  color: white;
+  
+  width: 330px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+.margen2izquierda{
+  margin-left: 278px;
+}
+.tarimaAncha2 {
+ 
+  background-color: #333;
+  width: 695px;
+  height: 25px;
+  line-height: 20px;
+  margin-top: -3px;  
+
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+.tarimaAncha2 span{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+
+
+
+.vacio {
+
+
+
+  float: left;
+  margin-top: -3px;
+  height: 46px;
+  width: 40px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.patrocionador {
+  background-color: #ed701c;
+
+  width: 25px;
+  height: 46px;
+  
+  margin: 3px;
+  margin-top: -3px;
+  float: left;
+  font-size: 100%;
+  
+  text-align: center;
+  color: white;font-weight: bold;
+}
+.patrocionador2{
+  
+  background-color: #ed701c;
+
+  width: 25px;
+  height: 46px;
+  
+  margin: 3px;
+  margin-bottom: -3px;
+  
+  float: left;
+  font-size: 100%;
+  
+  text-align: center;
+  color: white;font-weight: bold;
+}
+
+.opaco{
+  opacity: 0.3;
+  cursor:default;
+  background-color: #ccc;
+}
+.opaco:hover{
+  background-color: #ccc;
+ 
+}

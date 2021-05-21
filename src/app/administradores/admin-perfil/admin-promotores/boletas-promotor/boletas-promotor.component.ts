@@ -37,7 +37,8 @@ export class BoletasPromotorComponent implements OnInit {
       palcosCanjeados:[],
       palcosVendidos:[],
       celular:null,
-      correo:null
+      correo:null,
+      eventos:[]
     }
     this.route.paramMap.subscribe(params=>{ this.id=params.get('id')});
     this.refrescar();

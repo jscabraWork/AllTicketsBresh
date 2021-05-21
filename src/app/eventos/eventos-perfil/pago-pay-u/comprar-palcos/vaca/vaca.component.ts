@@ -145,7 +145,8 @@ export class VacaComponent implements OnInit {
     palcos:[],
     precio:0,
     servicio:0,
-    servicioPorcentaje:null
+    servicioPorcentaje:null,
+    efectivo:false
     }
 
     this.localidadCargada ={
@@ -157,7 +158,8 @@ export class VacaComponent implements OnInit {
       nombreEtapa:null,
       boletasPatrocinio:[],
       palcos:[],
-      servicioPorcentaje:null
+      servicioPorcentaje:null,
+      efectivo:false
     }
     this.palco={
       id:null,
@@ -173,7 +175,9 @@ export class VacaComponent implements OnInit {
       numeroDentroDeEvento:null,
       fechaVendido : null, 
       servicioIva:null,
-      proceso:null
+      proceso:null,
+      disponible:null,
+      idLocalidad:null
     }
 
     this.usuarioEntidad= {
@@ -217,7 +221,8 @@ export class VacaComponent implements OnInit {
           soldout:false,
           mensaje:null,
           imagenFinal:null,
-          fechaApertura:null
+          fechaApertura:null,
+          urlMapa:null
         }
 
         this.route.paramMap.subscribe( params =>{
@@ -426,7 +431,9 @@ getPalcoIndividualParaMapa(numero){
       numeroDentroDeEvento:null,
       fechaVendido : null,
       servicioIva:null,
-      proceso:null
+      proceso:null,
+      disponible:null,
+      idLocalidad:null
     }
    }
 

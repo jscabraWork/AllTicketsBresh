@@ -40,7 +40,9 @@ export class UsuariosDataService {
   }
 
 
-  
+  olvidoContrasenia(correo:string){
+    return this.http.get(`${API_URL}/olvido/${correo}`)
+  }
   deleteUsuario(id:number){
 
     return this.http.delete(`${API_URL}/clientes/${id}`);

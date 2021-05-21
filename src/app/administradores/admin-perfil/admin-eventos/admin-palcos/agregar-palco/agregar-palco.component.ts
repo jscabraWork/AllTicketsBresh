@@ -14,7 +14,8 @@ export class AgregarPalcoComponent implements OnInit {
   palco:Palco
   idLocalidad
   idEtapa
-  cantidad
+  numeroArriba
+  numeroAbajo
  
   constructor(private route: ActivatedRoute,private servicio: PalcosDataService, private router: Router) { }
 
@@ -43,13 +44,16 @@ this.palco={
     numeroDentroDeEvento:null,
     fechaVendido : null,
     servicioIva:null,
-    proceso:null
+    proceso:null,
+    disponible:null,
+    idLocalidad:null,
+    
 
 }
   }
 
   agregarPalco(){
-    this.servicio.agregarPalcosALocalidad(this.idLocalidad,this.palco, this.cantidad).subscribe(response=>{response; alert("Agregados "+this.cantidad+ " Palcos a la localidad")
+    this.servicio.agregarPalcosALocalidad(this.idLocalidad,this.palco, this.numeroArriba, this.numeroAbajo).subscribe(response=>{response; alert("Agregados "+(this.numeroArriba - this.numeroAbajo)+ " Palcos a la localidad")
     
     this.router.navigate([`/administradores/admin/eventos/lista/etapas/${this.miId}/localidades/${this.idEtapa}/${this.idLocalidad}/palcos`]);
   

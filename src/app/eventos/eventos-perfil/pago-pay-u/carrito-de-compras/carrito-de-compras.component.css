@@ -13,7 +13,10 @@
 
 
 }
-
+.frase{
+    font-weight: bold;
+    color:#ed701c
+}
 .btn-epayco{
     cursor: pointer;
     

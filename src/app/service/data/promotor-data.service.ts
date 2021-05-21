@@ -41,4 +41,6 @@ export class PromotorDataService {
   {
     return this.http.get<Promotor>((`${API_URL}/promotores/usuario/${pUsuario}`)); 
   }
+
+ 
 }

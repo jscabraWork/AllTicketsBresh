@@ -29,7 +29,8 @@ export class AgregarPromotorComponent implements OnInit {
       palcosCanjeados:[],
       palcosVendidos:[],
       celular:null,
-      correo:null
+      correo:null,
+      eventos:[]
     }
   }
 

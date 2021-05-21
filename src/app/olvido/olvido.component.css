@@ -1,0 +1,48 @@
+.ng-invalid:not(form){
+    border-left:2px solid black ;
+}
+
+.ng-valid:not(form){
+    border-left:2px solid black  ;
+}
+.fondoBlanco{
+    background-color: white;
+}
+.fondoLogin{
+    background: linear-gradient(#666, #333); 
+    color: white;
+    width: 100%;
+}
+.contenederoLogin:hover .fondoLogin{ 
+    background: linear-gradient(#F9B84A, #ed701c); 
+}
+
+p{
+    font-size: 18px;
+}
+
+.colorLetras{
+    color:#ed701c;
+}
+.botonLogin{
+    background: linear-gradient(#F9B84A, #ed701c); 
+    width: 100%;
+    color:white;
+}
+
+.L75
+{
+    width: 75%;
+}
+
+.botonCrearCuenta{
+    background: white; 
+    width: 50%;
+    color: #ed701c;
+    border-color: #ed701c;
+}
+.botonesCerrar{
+	background-color:white; 
+	color:#ed701c  ;
+
+}

@@ -18,6 +18,7 @@
                         <th>Boletas</th>
                         <th>Palcos</th>
                         <th>Modificar</th>
+                        <th>Efectivo</th>
                         <th>Borrar</th>
                         
                     </tr>
@@ -36,6 +37,7 @@
                         <td><button class="btn btn-success" routerLink="/administradores/admin/eventos/lista/localidad/boletas/{{miId}}/{{localidad?.id}}/{{localidad?.nombre}}"> Boletas</button></td>
                         <td><button class="btn btn-success" routerLink="{{localidad.id}}/palcos"> Palcos</button></td>
                         <td><button class="btn btn-warning" routerLink="localidad/{{localidad.id}}"> Modificar</button> </td>
+                        <td><button class="btn btn-warning" (click)="cambiarEfectivo(localidad.id)"> {{localidad.efectivo | booleans}}</button></td>
                         <td><button  class="btn btn-danger" (click)="borrarLocalidad(localidad.id)" > Delete</button></td>
             
                     </tr>

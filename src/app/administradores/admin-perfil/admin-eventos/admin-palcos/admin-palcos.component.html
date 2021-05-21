@@ -1,4 +1,4 @@
-<section class="container mt-5">
+<section class="container-fluid"> 
 
     <div class="row">
         <div class="col-12"  style="text-align: center;">
@@ -13,7 +13,7 @@
     <p>Palcos Por Vender: {{palcosPorVender}}</p>
     <p>Dinero Dinero Recaudado para entregar al organizador: {{dineroRecaudado|currency:'COP'}}</p>
     <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
-    <div class="container">
+
     <table class="table mt-3">
 
         <thead>
@@ -24,13 +24,18 @@
                 <th>Precio</th>
                 <th>Cantidad Pagada</th>
                 <th>Servicio</th>
+                <th>IVA</th>
                 <th>Personas Adentro</th>
                 <th>Personas Maximas</th>
+
                 <th>Vendido</th>
                 <th>Reservado</th>
                 <th>En proceso</th>
+                <th>Esta Disponible</th>
+
                 <th>Reservar</th>
                 <th>Proceso</th>
+                <th>Disponible</th>
                 <th>VENDER A MANO</th>
                 <th>Borrar</th>
                 
@@ -48,14 +53,18 @@
                 <td>{{palco?.precio  | currency :'COP'}}</td>
                 <td>{{palco?.precioParcialPagado|currency:'COP'}}</td>
                 <td>{{palco?.servicio | currency :'COP'}}</td>
+                <td>{{palco?.servicioIva | currency :'COP'}}</td>
                 <td>{{palco?.personasAdentro}}</td>
                 <td>{{palco?.personasMaximas}}</td>
                 <td>{{palco?.vendido  |booleans}}</td>
                 <td>{{palco?.reservado  |booleans}}</td>
                 <td>{{palco?.proceso  |booleans}}</td>
+                <td>{{palco?.disponible  |booleans}}</td>
+
                 <td><button class="btn btn-warning" (click)="marcarReservado(palco.id)"> Modificar</button></td>
 
                 <td><button class="btn btn-warning" (click)="marcarComoProceso(palco.id)"> PROCESO</button></td>
+                <td><button class="btn btn-success" (click)="marcarComoDisponible(palco.id)"> Marcar disónibilidad</button></td>
                 <td><button class="btn btn-success" (click)="marcarComoVendido(palco.id)"> VENDER A MANO</button></td>
                 <td><button (click) ="borrarPalco(palco.id)" class="btn btn-danger"> Delete</button></td>
     
@@ -65,7 +74,7 @@
         </tbody>
     
     </table>
-</div>
+
 <div class="row">
     <div class="col-12 mt-5" style="text-align: center;">
 

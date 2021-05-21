@@ -37,7 +37,8 @@ dineroRecaudado=1;
         palcos:[],
         precio:null,
         servicio:null,
-        servicioPorcentaje:null
+        servicioPorcentaje:null,
+        efectivo:false
       }
       this.refrescar();
 })
@@ -92,6 +93,14 @@ dineroRecaudado=1;
     })
   }
 
+
+  marcarComoDisponible(id){
+    this.servicioPalco.marcarComoDisponible(id).subscribe(response=>{
+      response
+      this.message = "Se cambio el estado de reserva del palco "+id
+      this.refrescar()
+    })
+  }
 
   marcarComoProceso(id){
     this.servicioPalco.marcarComoProceso(id).subscribe(response=>{

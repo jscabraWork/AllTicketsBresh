@@ -1,25 +1,21 @@
-import { CalendarioComponent } from './calendario/calendario.component';
+
 import { RouteGuardPuntoFisicoService } from './service/route-guard-punto-fisico.service';
-import { PuntosFisicosComponent } from './puntos-fisicos/puntos-fisicos.component';
+
 import { RouteGuardMinisterioService } from './service/route-guard-ministerio.service';
-import { PerfilMinisterioComponent } from './perfil-ministerio/perfil-ministerio.component';
-import { RegistrarseComponent } from './registrarse/registrarse.component';
+
 import { RouteGuardUsuarioService } from './service/route-guard-usuario.service';
 import { RoutGuardPromotorService } from './service/rout-guard-promotor.service';
 import { RouteGuardOrganizadorService } from './service/route-guard-organizador.service';
 import { RouteGuardAdminService } from './service/route-guard-admin.service';
 import { LogoutComponent } from './logout/logout.component';
-import { EventosPerfilComponent } from './eventos/eventos-perfil/eventos-perfil.component';
-import { UsuarioComponent } from './usuario/usuario.component';
+
 
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
-import { CiudadesEventosComponent } from './ciudades/ciudades-eventos/ciudades-eventos.component';
-import { ContactanosComponent } from './contactanos/contactanos.component';
-import { SePromotorComponent } from './se-promotor/se-promotor.component';
+
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { BlogComponent } from './blog/blog.component';
-import { EventosComponent } from './eventos/eventos.component';
+
 
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
@@ -27,6 +23,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TerminosYCondicionesComponent } from './terminos-ycondiciones/terminos-ycondiciones.component';
 import { BannerComponent } from './banner/banner.component';
 import { ComoComprarComponent } from './como-comprar/como-comprar.component';
+import { OlvidoComponent } from './olvido/olvido.component';
 
 
 const routes: Routes = [
@@ -66,6 +63,9 @@ const routes: Routes = [
 
   {
     path:'home', component: HomeComponent
+  },
+   {
+    path:'banner', component: BannerComponent
   },
   {
     path:'eventos', 

@@ -3,6 +3,7 @@ import { EventoDataService } from './../../../service/data/evento-data.service';
 import { Evento } from './../../../eventos/evento.model';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { LocalidadesDataService } from 'src/app/service/data/localidades-data.service';
 
 
 
@@ -13,12 +14,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventoPerfilOrganizadorComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private service:EventoDataService) { }
+  constructor(private route: ActivatedRoute, private service:EventoDataService, private servicioLocalidad: LocalidadesDataService) { }
 
   evento:Evento
   boletas:[]
   miId:string
   dineroRecaudado:number=0
+  localidades:Localidad[]=[]
   ngOnInit( ): void {
     this.evento ={
       id: "",
@@ -46,13 +48,18 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
       soldout:false,
       mensaje:null,
       imagenFinal:null,
-      fechaApertura:null
+      fechaApertura:null,
+      urlMapa:null
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
      
       this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
-
+        this.servicioLocalidad.getAllLocalidadesDeEvento(this.miId).subscribe(
+          response=>{
+            this.localidades = response;
+          }
+        )
       });
      
   })
@@ -118,7 +125,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   palcosVendidos(localidad:Localidad, vendido:boolean){
     var contador =0;
     for (var i =0; i< localidad.palcos.length;i++){
-      if(localidad.palcos[i].vendido ==vendido && localidad.palcos[i].proceso ==false && localidad.palcos[i].reservado ==false ){
+      if(localidad.palcos[i].vendido ==vendido && localidad.palcos[i].proceso ==false && localidad.palcos[i].reservado ==false && localidad.palcos[i].disponible ==true ){
         contador = contador +1;
       }
     }

@@ -1,5 +1,6 @@
 import { Palco } from '../administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
 import { Boleta } from '../eventos/boleta.model';
+import { Evento } from '../eventos/evento.model';
 
 export interface Promotor{
     nombre:string;
@@ -15,6 +16,7 @@ export interface Promotor{
     palcosVendidos:Palco[],
     palcosCanjeados:Palco[],
     correo:string,
-    celular:string
+    celular:string,
+    eventos:Evento[]
 	
 }

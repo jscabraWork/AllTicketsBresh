@@ -63,7 +63,8 @@ IVA
       soldout:false,
       mensaje:null,
       imagenFinal:null,
-      fechaApertura:null
+      fechaApertura:null,
+      urlMapa:null
     }
     this.etapa={
       evento:null,

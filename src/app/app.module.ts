@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
-import { SePromotorComponent } from './se-promotor/se-promotor.component';
+
 import { ContactanosComponent } from './contactanos/contactanos.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -40,6 +40,7 @@ import { TerminosYCondicionesComponent } from './terminos-ycondiciones/terminos-
 import { RedesSocialesComponent } from './redes-sociales/redes-sociales.component';
 import { BannerComponent } from './banner/banner.component';
 import { ComoComprarComponent } from './como-comprar/como-comprar.component';
+import { OlvidoComponent } from './olvido/olvido.component';
 
 //SERVICIOS
 
@@ -60,7 +61,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 
     NosotrosComponent,
 
-    SePromotorComponent,
+    
 
     ContactanosComponent,
     
@@ -85,6 +86,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      RedesSocialesComponent,
      BannerComponent,
      ComoComprarComponent,
+     OlvidoComponent,
 
   
 
@@ -105,7 +107,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FullCalendarModule,
     BrowserAnimationsModule,
     MatDialogModule,
- 
+
     MatIconModule,
     
 

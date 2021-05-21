@@ -44,11 +44,7 @@ export class RespuestaComponent implements OnInit {
        this.transactionResponse = data.data
 
 
-      if(data.data.x_transaction_state=='Aceptada'){
-        this.eventoService.getFotoFinalDeEvento(data.data.x_description).subscribe(response=>{
-          this.url = response;
-        })
-      }
+  
    });
   }
 

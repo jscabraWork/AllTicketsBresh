@@ -31,7 +31,8 @@ export class PromotorPerfilComponent implements OnInit {
       palcosCanjeados:[],
       palcosVendidos:[],
       celular:null,
-      correo:null
+      correo:null,
+      eventos:[]
     }
 
     this.user= this.autenticador.getPromotor()

@@ -15,12 +15,12 @@ export class EtapasDataService {
   }
 
   getAllEtapasDeEvento(pIdEvento:string){
-    return this.http.get(`${API_URL}/etapas/evento/${pIdEvento}`)
+    return this.http.get<Etapa[]>(`${API_URL}/etapas/evento/${pIdEvento}`)
   }
 
 
   getAllEtapasVisiblesDeEvento(pIdEvento:string, pVisible){
-    return this.http.get(`${API_URL}/etapas/evento/${pIdEvento}/visible/${pVisible}`)
+    return this.http.get<Etapa[]>(`${API_URL}/etapas/evento/${pIdEvento}/visible/${pVisible}`)
   }
 
   addEtapa(pIdEvento,etapa){

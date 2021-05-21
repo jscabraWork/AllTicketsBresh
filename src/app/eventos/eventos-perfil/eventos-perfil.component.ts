@@ -22,17 +22,17 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class EventosPerfilComponent implements OnInit {
   miId:string;
   evento:Evento;
-  etapa:Etapa;
-
-localidadesPalcos:Localidad[]=[];
-localidadesBoletas:Localidad[]=[];
+  etapas:Etapa[]=[];
+  mapaUrl =null
+  safeSrc=null
   fecha:Date 
   fechaActual:Date=new Date();
-
+  localidades:Localidad[] = [];
   time:Time =null;
-  constructor(private route: ActivatedRoute, private dialog: MatDialog, private service:EventoDataService, private _sanitizer: DomSanitizer, private etapaServicio:EtapasDataService) { }
+  constructor(private route: ActivatedRoute, private dialog: MatDialog, private service:EventoDataService, private sanitizer: DomSanitizer, private etapaServicio:EtapasDataService) { }
 
   ngOnInit(): void {
+    
     
 
     this.evento ={
@@ -64,41 +64,31 @@ localidadesBoletas:Localidad[]=[];
       soldout:false,
       mensaje:null,
       imagenFinal:null,
-      fechaApertura:null
+      fechaApertura:null,
+      urlMapa:null
     }
-    this.etapa={
-      evento:null,
-      id:null,
-      localidades:[],
-      nombre:"PRUEBA",
-      visible:false    
-    }
+ 
     
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
      
       this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
-        
+        this.mapaUrl = this.getSafeUrl(this.evento.urlMapa);
+        this.safeSrc = this.getSafeUrl(this.evento.video)
         this.fecha = new Date(this.evento.fechaApertura)
        countdown(this.fecha,(ts)=>{
           this.time=ts
         },countdown.MONTHS|countdown.WEEKS|countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS)
-        this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(response =>{this.manejar(response);
-          var i =0;
-          if(response!=null){
-          while(i < this.etapa.localidades.length){
-            if(this.etapa.localidades[i].boletas.length>0){
-              this.localidadesBoletas.push(this.etapa.localidades[i])
-            }
-            else if(this.etapa.localidades[i].palcos.length>0){
-              this.localidadesPalcos.push(this.etapa.localidades[i])
-            }
-            
-            i=i+1;
-          }
-        }
 
+
+
+        this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(response =>{this.manejar(response);
           
+          for(let i=0; i< response.length; i++){
+            this.localidades = this.localidades.concat(response[i].localidades)
+          }
+         
+
           })
         
       
@@ -122,7 +112,7 @@ openDialog(): void {
   });
 
   dialogRef.afterClosed().subscribe(result => {
-    console.log('The dialog was closed');
+    
     
   });
 
@@ -136,17 +126,11 @@ handleGetSuccesfull(response){
 }
 
 manejar(response){
-  this.etapa =response;
+  this.etapas =response;
 }
 
-getVideoIframe(url) {
-  var video, results;
-
-
-  results = url.match('[\\?&]v=([^&#]*)');
-  video   = (results === null) ? url : results[1];
-  let a:SafeResourceUrl= this._sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video);   
-  return a
+getSafeUrl(url) {
+  return this.sanitizer.bypassSecurityTrustResourceUrl(url)
 }
 
 
@@ -170,13 +154,12 @@ numeroBoletasPorVenderYNoReservadas(localidad:Localidad){
 darCantidadDePalcos(localidad:Localidad){
   var contador =0;
   for(var i =0; i < localidad.palcos.length; i=i+1){
-    if(localidad.palcos[i].vendido==false && localidad.palcos[i].reservado==false && localidad.palcos[i].proceso==false){
+    if(localidad.palcos[i].vendido==false && localidad.palcos[i].reservado==false && localidad.palcos[i].proceso==false && localidad.palcos[i].disponible==true){
 
       contador = contador+1;
     }
   }
   return contador;
 }
-
 
 }

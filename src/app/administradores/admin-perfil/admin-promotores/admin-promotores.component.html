@@ -13,6 +13,7 @@
                 <th>Nombre</th>
                 <th>Modificar</th>
                 <th>Pagar Al Promotor</th>
+                <th>Ver Eventos del promotor</th>
                 <th>Borrar</th>
                 
             </tr>
@@ -27,6 +28,7 @@
                 <td>{{promotor?.nombre }}</td> 
                 <td><button routerLink= 'update/{{promotor.numeroDocumento}}' class="btn btn-warning"> Modificar</button></td>
                 <td><button class="btn btn-warning" routerLink='boletasAPagar/{{promotor.numeroDocumento}}' >Pagar </button></td>
+                <td><button class="btn btn-success" routerLink='agregar-evento/{{promotor.numeroDocumento}}' >Ver </button></td>
                 <td><button (click)="borrar(promotor.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
             </tr>
     

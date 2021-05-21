@@ -29,6 +29,7 @@ export interface Evento {
     soldout:boolean,
     mensaje:string,
     imagenFinal:Foto,
-    fechaApertura:Date
+    fechaApertura:Date,
+    urlMapa:string
 
 }

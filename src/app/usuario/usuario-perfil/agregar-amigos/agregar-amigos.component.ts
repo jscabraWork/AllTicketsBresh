@@ -1,5 +1,5 @@
 import { Md5 } from 'ts-md5/dist/md5';
-import { IVA } from './../../../app.constants';
+import { API_URL2, IVA, respuesta } from './../../../app.constants';
 import { PalcosDataService } from 'src/app/service/data/palcos-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { HardcodedAutheticationService } from './../../../service/hardcoded-authetication.service';
@@ -79,7 +79,9 @@ export class AgregarAmigosComponent implements OnInit {
        numeroDentroDeEvento:null,
        fechaVendido : null,
        servicioIva:null,
-       proceso:null
+       proceso:null,
+       disponible:null,
+       idLocalidad:null
     }
     this.user= this.autenticador.getUsuario();
     
@@ -196,8 +198,8 @@ epaycoPalcosUsuarios() {
 
     //Atributos opcionales
 
-    response: "http://localhost:4200/eventos/respuesta",
-    confirmation: "http://localhost:4200/eventos/confirmacion",
+    response: `${respuesta}/eventos/respuesta`,
+    confirmation:`${API_URL2}/epayco`,
 
     //Atributos cliente
     name_billing: this.usuario.nombre,

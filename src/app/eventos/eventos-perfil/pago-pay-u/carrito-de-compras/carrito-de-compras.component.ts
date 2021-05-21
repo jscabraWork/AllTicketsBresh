@@ -28,9 +28,9 @@ export class CarritoDeComprasComponent implements OnInit {
   boletas: Boleta[] = [];
   valorTotal: number = 0;
   palco: Palco;
-
+  efectivo:boolean = false;
   asistente: Asistente;
-
+  pagar:boolean;
   cargando = true;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -42,7 +42,7 @@ export class CarritoDeComprasComponent implements OnInit {
   ngOnInit(): void {
     this.referenceCode = this.referenceCode;
     this.IVA = IVA;
-
+    this.pagar = false;
 
 
 
@@ -72,7 +72,8 @@ export class CarritoDeComprasComponent implements OnInit {
       soldout:false,
       mensaje:null,
       imagenFinal:null,
-      fechaApertura:null
+      fechaApertura:null,
+      urlMapa:null
     };
 
     this.palco = {
@@ -89,14 +90,17 @@ export class CarritoDeComprasComponent implements OnInit {
       numeroDentroDeEvento: null,
       fechaVendido: null,
       servicioIva:null,
-      proceso:null
+      proceso:null,
+      disponible:null,
+      idLocalidad:null
     };
 
     this.boletas = this.data.boletas;
     this.evento = this.data.evento;
+    this.efectivo = this.data.efectivo
     this.usuarioEntidad = this.data.usuarioEntidad;
     
-    (this.referenceCode = this.data.referenceCode),
+    (this.referenceCode = this.data.referenceCode +','+this.codigoVenta),
       (this.valorTotal = this.data.valorTotal);
     if (this.data.palco) {
       this.palco = this.data.palco;
@@ -120,10 +124,19 @@ export class CarritoDeComprasComponent implements OnInit {
   });
 
 
-   
+  codigoVentaCuadrar(){
+  
+    if(this.codigoVenta==''){
+      this.codigoVenta='00000'
+    }
+  }
   
   epaycoTicketsUsuarios() {
 
+
+    if(this.pagar == false){
+    this.codigoVentaCuadrar()
+    this.referenceCode = this.data.referenceCode +','+this.codigoVenta
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -160,10 +173,17 @@ export class CarritoDeComprasComponent implements OnInit {
 
     this.handler.onCloseModal = this.onCloseEpaycoModal;
     this.handler.open(data);
+
+  }
   }
 
   epaycoPalcosUsuarios() {
 
+
+if(this.pagar == false){
+  this.pagar = true;
+    this.codigoVentaCuadrar()
+    this.referenceCode = this.data.referenceCode +','+this.codigoVenta
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -199,57 +219,23 @@ export class CarritoDeComprasComponent implements OnInit {
 
     this.handler.onCloseModal = this.onCloseEpaycoModal;
     this.handler.open(data);
+
   }
 
-  epaycoBoletasAsistente() {
-
-    var data = {
-      //Parametros compra (obligatorio)
-      name: this.evento.nombre,
-      description:
-      this.boletas.length +
-      ' Tickets para ' +
-      this.evento.nombre +
-      ' En la localidad ' +
-      this.boletas[0].localidadNombre,
-      invoice: this.referenceCode,
-      currency: 'cop',
-      amount: this.valorTotal,
-      tax_base: '0',
-      tax: '0',
-      country: 'co',
-      lang: 'es',
-
-      //Onpage="false" - Standard="true"
-      external: 'false',
-
-      //Atributos opcionales
-
-      //response: "http://localhost:4200/eventos/respuesta",
-      response: `${respuesta}/eventos/respuesta`,
-      confirmation:`${API_URL2}/epayco`,
-
-      //Atributos cliente
-      name_billing: this.asistente.nombre,
-      type_doc_billing: 'cc',
-      mobilephone_billing: this.asistente.celular,
-      number_doc_billing: this.asistente.numeroDocumento,
-    };
-
-    this.handler.onCloseModal = this.onCloseEpaycoModal;
-    this.handler.open(data);
   }
+
 
   onCloseEpaycoModal() {
+    this.pagar =false
+    console.log("pagar")
     alert('Close ePayco Modal!!!!!!!');
+    
   }
 
 
 
 
 
-
-efectivo:true
 
 
 
@@ -257,6 +243,10 @@ efectivo:true
   epaycoTicketsUsuarios2() {
 
 
+
+    if(this.pagar == false){
+    this.codigoVentaCuadrar()
+    this.referenceCode = this.data.referenceCode +','+this.codigoVenta
     this.handler=this.window.ePayco.checkout.configure({
       key: 'c3b3aa9c8c34f800c0d0701f24fc5e33',
       test: false,
@@ -298,10 +288,16 @@ efectivo:true
 
     this.handler.onCloseModal = this.onCloseEpaycoModal;
     this.handler.open(data);
+
+
+  }
   }
 
   epaycoPalcosUsuarios2() {
 
+    if(this.pagar == false){
+    this.codigoVentaCuadrar()
+    this.referenceCode = this.data.referenceCode +','+this.codigoVenta
     this.handler=this.window.ePayco.checkout.configure({
       key: 'c3b3aa9c8c34f800c0d0701f24fc5e33',
       test: false,
@@ -342,46 +338,6 @@ efectivo:true
     this.handler.onCloseModal = this.onCloseEpaycoModal;
     this.handler.open(data);
   }
+}
 
-  epaycoBoletasAsistente2() {
-    this.handler=this.window.ePayco.checkout.configure({
-      key: 'c3b3aa9c8c34f800c0d0701f24fc5e33',
-      test: false,
-    });
-    var data = {
-      //Parametros compra (obligatorio)
-      name: this.evento.nombre,
-      description:
-      this.boletas.length +
-      ' Tickets para ' +
-      this.evento.nombre +
-      ' En la localidad ' +
-      this.boletas[0].localidadNombre,
-      invoice: this.referenceCode,
-      currency: 'cop',
-      amount: this.valorTotal,
-      tax_base: '0',
-      tax: '0',
-      country: 'co',
-      lang: 'es',
-
-      //Onpage="false" - Standard="true"
-      external: 'false',
-
-      //Atributos opcionales
-
-      response: `${respuesta}/eventos/respuesta`,
-     // response: "https://localhost:4200/eventos/respuesta",
-      confirmation:`${API_URL2}/epayco`,
-
-      //Atributos cliente
-      name_billing: this.asistente.nombre,
-      type_doc_billing: 'cc',
-      mobilephone_billing: this.asistente.celular,
-      number_doc_billing: this.asistente.numeroDocumento,
-    };
-
-    this.handler.onCloseModal = this.onCloseEpaycoModal;
-    this.handler.open(data);
-  }
 }

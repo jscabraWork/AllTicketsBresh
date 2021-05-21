@@ -72,7 +72,9 @@ export class AdminLectorComponent implements OnInit {
      numeroDentroDeEvento:null,
      fechaVendido : null,
      servicioIva:null,
-     proceso:null
+     proceso:null,
+     disponible:null,
+     idLocalidad:null
     }
     this.boleta={
       id:null,
@@ -113,7 +115,8 @@ export class AdminLectorComponent implements OnInit {
       soldout:false,
       mensaje:null,
       imagenFinal:null,
-      fechaApertura:null
+      fechaApertura:null,
+      urlMapa:null
     }
 
     this.route.paramMap.subscribe( params =>{
@@ -144,7 +147,9 @@ export class AdminLectorComponent implements OnInit {
     numeroDentroDeEvento:null,
     fechaVendido : null,
     servicioIva:null,
-    proceso:null
+    proceso:null,
+    disponible:null,
+    idLocalidad:null
    }
     this.cliente={
       boletas:[],
@@ -195,7 +200,9 @@ export class AdminLectorComponent implements OnInit {
       numeroDentroDeEvento:null,
       fechaVendido : null,
       servicioIva:null,
-      proceso:null
+      proceso:null,
+      disponible:null,
+      idLocalidad:null
      }
       this.cliente={
         boletas:[],
@@ -271,7 +278,9 @@ export class AdminLectorComponent implements OnInit {
       numeroDentroDeEvento:null,
       fechaVendido : null,
       servicioIva:null,
-      proceso:null
+      proceso:null,
+      disponible:null,
+      idLocalidad:null
      }
       this.cliente={
         boletas:[],
@@ -336,7 +345,9 @@ export class AdminLectorComponent implements OnInit {
       numeroDentroDeEvento:null,
       fechaVendido : null, 
       servicioIva:null,
-      proceso:null
+      proceso:null,
+      disponible:null,
+      idLocalidad:null
      }
       this.cliente={
         boletas:[],

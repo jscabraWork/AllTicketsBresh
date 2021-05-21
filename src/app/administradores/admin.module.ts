@@ -58,6 +58,7 @@ import { AgregarFotoCiudadComponent } from './admin-perfil/ciudades-admin/agrega
 import { AdminMensajeComponent } from './admin-perfil/admin-eventos/admin-mensaje/admin-mensaje.component';
 import { AgregarImagenFinalComponent } from './admin-perfil/admin-eventos/agregar-imagen-final/agregar-imagen-final.component';
 import { AgregarFechaAperturaComponent } from './admin-perfil/admin-eventos/agregar-fecha-apertura/agregar-fecha-apertura.component';
+import { AdminAgregarEventosPromotorComponent } from './admin-perfil/admin-promotores/admin-agregar-eventos-promotor/admin-agregar-eventos-promotor.component';
 
 
 
@@ -232,6 +233,10 @@ const routes: Routes = [
         component: UpdatePromotorComponent
       },
       {
+        path: 'promotores/agregar-evento/:id',
+        component: AdminAgregarEventosPromotorComponent
+      },
+      {
         path: 'promotores/boletasAPagar/:id',
         component: BoletasPromotorComponent
       },
@@ -292,7 +297,8 @@ const routes: Routes = [
     AgregarFotoCiudadComponent,
     AdminMensajeComponent,
     AgregarImagenFinalComponent,
-    AgregarFechaAperturaComponent
+    AgregarFechaAperturaComponent,
+    AdminAgregarEventosPromotorComponent
   ],
   imports: [
     CommonModule,

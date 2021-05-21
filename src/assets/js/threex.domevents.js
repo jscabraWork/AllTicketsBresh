@@ -65,7 +65,7 @@
 //
 
 /** @namespace */
-var THREEx		= THREEx 		|| {};
+ var THREEx		= THREEx 		|| {};
 
 // # Constructor
 THREEx.DomEvents	= function(camera, domElement)

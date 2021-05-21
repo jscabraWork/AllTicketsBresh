@@ -26,14 +26,18 @@ export class UpdateLocalidadComponent implements OnInit {
       nombreEtapa:null,
       boletasPatrocinio:[],
       palcos:[],
-      servicioPorcentaje:null
+      servicioPorcentaje:null,
+      efectivo:false
     }
 
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
       this.idLocalidad=params.get('idLocalidad');
       this.idEtapa = params.get('idEtapa');
-      this.servicio.getLocaliddadPorId(this.idLocalidad, this.miId).subscribe(response=>{this.localidad=response})
+      this.servicio.getLocaliddadPorId(this.idLocalidad, this.miId).subscribe(response=>{this.localidad=response
+      console.log(response)
+      
+      })
     })
 
   }

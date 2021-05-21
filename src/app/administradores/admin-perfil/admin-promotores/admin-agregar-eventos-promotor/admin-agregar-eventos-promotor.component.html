@@ -1,0 +1,82 @@
+
+<section class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-12">
+    <h2>Todos los eventos de este promotor</h2>
+    <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
+    <div class="container-fluid">
+    <table class="table mt-3">
+
+        <thead>
+            <tr>
+                <th>PullEp</th>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Organizador</th>
+                <th>Eliminar evento del promotor</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+          
+            <tr *ngFor = "let evento of promotor.eventos">
+                <td>{{evento?.id}}</td>
+                <td>{{evento?.nombre }}</td>
+                <td>{{evento?.fecha| date}}</td>
+                <td>{{evento.organizadorid}}</td>
+                <td><button class="btn btn-danger" (click)="eliminar(evento.id)">Eliminar</button></td>
+    
+            </tr>
+    
+    
+        </tbody>
+    
+    </table>
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<section class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-12">
+    <h2>Todos los eventos en general</h2>
+    <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
+    <div class="container-fluid">
+    <table class="table mt-3">
+
+        <thead>
+            <tr>
+                <th>PullEp</th>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Organizador</th>
+                <th>Agregar promotor al evento</th>
+    
+                
+            </tr>
+        </thead>
+        <tbody>
+          
+            <tr *ngFor = "let evento of eventos">
+                <td>{{evento?.id}}</td>
+                <td>{{evento?.nombre }}</td>
+                <td>{{evento?.fecha| date}}</td>
+                <td>{{evento.organizadorid}}</td>
+                <td><button class="btn btn-warning" (click)="agregar(evento?.id)">Agregar</button></td>
+    
+            </tr>
+    
+    
+        </tbody>
+    
+    </table>
+</div>
+
+</div>
+</div>
+
+</section>

@@ -47,7 +47,8 @@ this.evento ={
   soldout:false,
   mensaje:null,
   fechaApertura:null,
-  imagenFinal:null
+  imagenFinal:null,
+  urlMapa:null
 }
 this.servicio.getEventoId(this.miId).subscribe( response => this.handleGetSuccesfull(response));
   }

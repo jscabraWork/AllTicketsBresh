@@ -64,4 +64,11 @@ urlGetOne=`${API_URL}/eventos/`;
   asignarFechaApertura(pId, year, month,dayOfMonth,hour,minute){
     return this.http.put(`${API_URL}/evento/${pId}/fechaApertura/${year}/${month}/${dayOfMonth}/${hour}/${minute}`,null)
   }
+
+  agregarPromotorAEvento(idEvento, idPromotor){
+    return this.http.put(`${API_URL}/evento/promotor/agregar/${idEvento}/${idPromotor}`,null)
+  }
+  eliminarPromotorAEvento(idEvento, idPromotor){
+    return this.http.put(`${API_URL}/evento/promotor/eliminar/${idEvento}/${idPromotor}`,null)
+  }
 }

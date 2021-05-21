@@ -31,8 +31,8 @@ export class PalcosDataService {
   {
     return this.http.get<Cliente[]>(`${API_URL}/palcos/clientes/${pIdPalco}`)
   }
-  agregarPalcosALocalidad(pIdLocalidad:number, palco:Palco, cantidad:number){
-    return this.http.post(`${API_URL}/localidad/${pIdLocalidad}/palcos/${cantidad}`,palco)
+  agregarPalcosALocalidad(pIdLocalidad:number, palco:Palco, numeroArriba:number, numeroAbajo:number){
+    return this.http.post(`${API_URL}/localidad/${pIdLocalidad}/palcos/${numeroArriba}/${numeroAbajo}`,palco)
 
 
 
@@ -77,6 +77,12 @@ export class PalcosDataService {
   }
 
 
+  
+  marcarComoDisponible(idPalco){
+    return this.http.put(`${API_URL}/palcos/${idPalco}/disponible`,null)
+  }
+
+
 
 
 
@@ -89,10 +95,13 @@ reservarPalcoExacto(idPalco){
   return this.http.put<Palco>(`${API_URL}/palcos/palco/${idPalco}/reservar`,null)
 }
 
+rechazarReservaPalcoEfectivo(idPalco){
+  return this.http.put(`${API_URL}/palcos/${idPalco}/rechazar/efectivo`,null)
+}
+
 rechazarReservaPalco(idPalco){
   return this.http.put(`${API_URL}/palcos/${idPalco}/rechazar`,null)
 }
-
 
 rechazarReservaPalcoInmediatamente(idPalco){
   return this.http.put(`${API_URL}/palcos/${idPalco}/rechazarI`,null)
@@ -102,10 +111,7 @@ pasoMuchoTiempoPaca(idPalco){
   return this.http.put(`${API_URL}/palcos/${idPalco}/vaca/rechazar`,null)
 }
   
-asignarPalco(codigoVenta:string, palco){
-  return this.http.put(`${API_URL}/palcosPromotor/${codigoVenta}`, palco)
-  
-}
+
 
 
 
