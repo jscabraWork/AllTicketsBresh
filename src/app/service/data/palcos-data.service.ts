@@ -138,5 +138,8 @@ pagarPalco(transaccion:string, valorPagado:number, aceptada:string){
   return this.http.put(`${API_URL}/epaycoPago/${transaccion}/monto/${valorPagado}/aceptada/${aceptada}`,null)
 }
 
+voltear(pIdLocalidad){
+  return this.http.get<Cliente[]>(`${API_URL}/voltear/${pIdLocalidad}`)
+}
 
 }

@@ -109,4 +109,12 @@ dineroRecaudado=1;
       this.refrescar()
     })
   }
+
+  voltear(){
+    this.servicioPalco.voltear(this.miId).subscribe(response=>{
+      response
+      this.message = "Se cambio la disponibilidad de los palcos"
+      this.refrescar()
+    })
+  }
 }

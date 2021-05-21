@@ -6,6 +6,8 @@ import * as THREE from 'three';
 import {GLTF, GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
  
 import { OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import { Router } from '@angular/router';
+import { HardcodedAutheticationService } from '../service/hardcoded-authetication.service';
 
 declare var createjs: any;
 @Component({
@@ -23,7 +25,8 @@ export class BannerComponent implements OnInit {
   objetoEscenario: GLTF;
   frameId: number = null;
   modelReady = false;
-  
+  raycaster
+  intersects
 
   clock: THREE.Clock = new THREE.Clock()
 
@@ -33,12 +36,8 @@ export class BannerComponent implements OnInit {
   @ViewChild('rendererCanvas', {static: true})
   public rendererCanvas: ElementRef<HTMLCanvasElement>;
   
-  constructor() {
-    var width = window.innerWidth ;
-    var height = window.innerHeight;
-    this.camera = new THREE.PerspectiveCamera(
-      75, width / height, 0.1, 1000
-    );
+  constructor( private router:Router, private autenticador: HardcodedAutheticationService) {
+  
   }
 
   ngOnInit(): void {
@@ -50,7 +49,11 @@ export class BannerComponent implements OnInit {
   
 
   public createScene(canvas: ElementRef<HTMLCanvasElement>): void {
-    
+    var width = window.innerWidth ;
+    var height = window.innerHeight;
+    this.camera = new THREE.PerspectiveCamera(
+      75, width / height, 0.1, 1000
+    );
 
     this.canvas = canvas.nativeElement;
 
@@ -116,7 +119,7 @@ export class BannerComponent implements OnInit {
           //console.log(this.sceneMeshes)
             if ((<THREE.Mesh>child).isMesh) {
               let m = <THREE.Mesh>child
-
+              console.log(m)
               this.sceneMeshes.push(m)
                 
             }
@@ -169,9 +172,7 @@ export class BannerComponent implements OnInit {
         this.onMouseMove(evento)
       }, false);
       this.renderer.domElement.addEventListener('click',evento=>{
-        this.onClick(evento)
-      }
-      
+        this.onClick(evento)}
       , false);
   }
 
@@ -212,28 +213,30 @@ export class BannerComponent implements OnInit {
         y: -(event.clientY / height) * 2 + 1
     }
 
-    const raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera(mouse, this.camera);
+    this.raycaster = new THREE.Raycaster();
+    this.raycaster.setFromCamera(mouse, this.camera);
 
-    const intersects = raycaster.intersectObjects(this.sceneMeshes, false);
+    this.intersects = this.raycaster.intersectObjects(this.sceneMeshes, false);
     
-   if (intersects.length > 0) {
-      // console.log(sceneMeshes.length + " " + intersects.length)
-       //console.log(intersects[0])
-       //console.log(intersects[0].object.userData.name + " " + intersects[0].distance + " ") //ESTO PUEDE SER UTIL
-      // console.log(intersects[0].face.normal)
-       // line.position.set(0, 0, 0);
-       // line.lookAt(intersects[0].face.normal);
-       // line.position.copy(intersects[0].point);
+   if (this.intersects.length > 0) {
 
        
-     console.log(intersects[0])
-  if(intersects[0]!=undefined){
-   
-      // if(intersects[0].object.name === "usuario"){
-      //   intersects[0].object.rotation.y +=1
-      // }
-    }
+     if (this.intersects.length > 0) {
+
+      if(this.intersects[0]!=undefined){
+     
+        if(this.intersects[0].object.name === "logo" ||this.intersects[0].object.name == "contorno_ticket001_1" ||this.intersects[0].object.name == "contorno_ticket001_2" ||this.intersects[0].object.name == "contorno_ticket001_3" ||this.intersects[0].object.name == "Ticket"||this.intersects[0].object.name == "usuario" || this.intersects[0].object.name == "gafas003_1" || this.intersects[0].object.name == "gafas003_3" || this.intersects[0].object.name == "gafas003_2"|| this.intersects[0].object.name == "ciudades_1" || this.intersects[0].object.name == "ciudades_2" || this.intersects[0].object.name == "ciudades_3" || this.intersects[0].object.name == "localización003_1"|| this.intersects[0].object.name == "localización003_2"|| this.intersects[0].object.name == "localización003_3"){
+          this.renderer.domElement.className = "cursor"
+        }
+        else{
+          this.renderer.domElement.className = ""
+        }
+        
+      }
+      else{
+        this.renderer.domElement.className = ""
+      }
+     }
    }
 
     }
@@ -241,16 +244,31 @@ export class BannerComponent implements OnInit {
   }
 
   onClick( event ) {
-      console.log("A")
+    if (this.intersects.length > 0) {
+
+     if(this.intersects[0]!=undefined){
+    
+       if(this.intersects[0].object.name == "logo" ||this.intersects[0].object.name == "contorno_ticket001_1" ||this.intersects[0].object.name == "contorno_ticket001_2" ||this.intersects[0].object.name == "contorno_ticket001_3" ||this.intersects[0].object.name == "Ticket" ){
+         this.router.navigate(['eventos'])
+         
+       }
+
+       else if(this.intersects[0].object.name == "usuario" || this.intersects[0].object.name == "gafas003_1" || this.intersects[0].object.name == "gafas003_3" || this.intersects[0].object.name == "gafas003_2"){
+        this.router.navigate(['/usuarios/usuario/' +this.autenticador.getUsuario()])
+      }
+      else if(this.intersects[0].object.name == "ciudades_1" || this.intersects[0].object.name == "ciudades_2" || this.intersects[0].object.name == "ciudades_3" || this.intersects[0].object.name == "localización003_1"|| this.intersects[0].object.name == "localización003_2"|| this.intersects[0].object.name == "localización003_3"){
+        this.router.navigate(['/ciudades'])
+      }
+      
+      
+     }
+    }
 
     }
 
 
-  hoverPiece(){
 
-
- 
-  }
+    
  
 
 }
