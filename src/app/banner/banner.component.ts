@@ -219,9 +219,6 @@ export class BannerComponent implements OnInit {
     this.intersects = this.raycaster.intersectObjects(this.sceneMeshes, false);
     
    if (this.intersects.length > 0) {
-
-       
-     
       console.log(this.intersects[0])
       if(this.intersects[0]!=undefined){
      
@@ -229,17 +226,17 @@ export class BannerComponent implements OnInit {
           this.renderer.domElement.className = "cursor"
         }
         else{
-          this.renderer.domElement.className = "normal"
+          this.renderer.domElement.className = ""
         }
         
       }
       else{
-        this.renderer.domElement.className = "normal"
-      }
-     
+        this.renderer.domElement.className = ""
+      } 
    }
+
    else{
-    this.renderer.domElement.className = "normal"
+    this.renderer.domElement.className = ""
   }
 
     }
