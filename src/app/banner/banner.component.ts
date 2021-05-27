@@ -27,7 +27,8 @@ export class BannerComponent implements OnInit {
   modelReady = false;
   raycaster
   intersects
-
+  activeAction: THREE.AnimationAction
+  lastAction: THREE.AnimationAction
   clock: THREE.Clock = new THREE.Clock()
 
   sceneMeshes = new Array()
@@ -269,6 +270,18 @@ export class BannerComponent implements OnInit {
 
 
     
+ setAction  (toAction: THREE.AnimationAction)  {
+  if (toAction != this.activeAction) {
+      this.lastAction = this.activeAction
+      this.activeAction = toAction
+      //lastAction.stop()
+      this.lastAction.fadeOut(1)
+      this.activeAction.reset()
+      this.activeAction.fadeIn(1)
+      this.activeAction.play()
+  }
+}
+
  
 
 }
