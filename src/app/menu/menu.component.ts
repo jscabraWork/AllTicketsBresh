@@ -50,7 +50,7 @@ export class MenuComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(RegistrarseComponent, {
       width: '600px',
- 
+      height:'90%'
       
       
     });
