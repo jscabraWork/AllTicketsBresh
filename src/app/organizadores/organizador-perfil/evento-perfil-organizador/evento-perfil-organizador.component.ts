@@ -49,7 +49,8 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
       mensaje:null,
       imagenFinal:null,
       fechaApertura:null,
-      urlMapa:null
+      urlMapa:null,
+      adicionales:[]
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
@@ -154,10 +155,10 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
 
   dineroRecaudadoPalcos(localidad:Localidad){
     var contador =0;
-    for (var i =0; i< localidad.palcos.length;i++){
+    for (var i =0; i< localidad.palcos.length;i=1+i){
       if(localidad.palcos[i].vendido ==true){
-        contador = contador +localidad.precio;
-        this.dineroRecaudado = this.dineroRecaudado + localidad.precio;
+        contador = contador +localidad.palcos[i].precio;
+        this.dineroRecaudado = this.dineroRecaudado + localidad.palcos[i].precio;
       }
     }
     return contador;
@@ -166,7 +167,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
 
   personasEnPalco(localidad:Localidad){
     var contador =0;
-    for (var i =0; i< localidad.palcos.length;i++){
+    for (var i =0; i< localidad.palcos.length;i=1+i){
       
         contador = contador +localidad.palcos[i].personasAdentro;
         

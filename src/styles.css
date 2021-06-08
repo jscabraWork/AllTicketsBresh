@@ -17,6 +17,34 @@
     width: 70px;
 }
 
+
+@media(max-width:901px){
+    .redes{
+       
+        top: 85%;
+        left: 85%;
+        
+    }
+}
+
+@media(max-width:551px){
+    .redes{
+       
+        top: 85%;
+        left: 80%;
+        
+    }
+}
+
+@media(max-width:427px){
+    .redes{
+       
+        top: 85%;
+        left: 75%;
+        
+    }
+}
+
 .barra{
     background-color: rgba(16,36,56,1);
 }

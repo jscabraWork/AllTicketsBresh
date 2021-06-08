@@ -1,0 +1,20 @@
+.centrar{
+    text-align: center;
+}
+.mensaje{
+    font-size:22px;
+    font-weight:bold;
+}
+.botonesCerrar{
+	background-color:white; 
+	color:#ed701c  ;
+
+}
+.botonLogin{
+    background: linear-gradient(#F9B84A, #ed701c); 
+    width: 200px;
+    color:white;
+    border: white;
+    font-size: 25px;
+    font-weight: bolder;
+}

@@ -116,7 +116,8 @@ export class AdminLectorComponent implements OnInit {
       mensaje:null,
       imagenFinal:null,
       fechaApertura:null,
-      urlMapa:null
+      urlMapa:null,
+      adicionales:[]
     }
 
     this.route.paramMap.subscribe( params =>{

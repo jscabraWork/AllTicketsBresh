@@ -48,7 +48,8 @@ this.evento ={
   mensaje:null,
   fechaApertura:null,
   imagenFinal:null,
-  urlMapa:null
+  urlMapa:null,
+  adicionales:[]
 }
 this.servicio.getEventoId(this.miId).subscribe( response => this.handleGetSuccesfull(response));
   }

@@ -1,11 +1,12 @@
-<mat-icon class="float-right rounded pt-2 pb-2 pl-3 pr-3 botonesCerrar" (click)="cerrar()"> cancel_presentation
-</mat-icon>
+
 <section class="container-fluid">
   <div class="row">
     <div class="col-12 pl-4 pr-4">
       <div class="row ">
         <div class="divisionLocalidad col-12 ">
           <div class="tituloLocalidad shadow ">
+            <mat-icon class="float-right rounded  mt-1 ml-2 mr-2  botonesCerrar" (click)="cerrar()"> cancel_presentation
+            </mat-icon>
             <h3><strong> Carrito de compras </strong>
               <br>
 
@@ -24,9 +25,9 @@
 
               <h5 class="pl-md-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
               <h5 class="pl-md-4"><strong>Precio: </strong> {{boleta?.precio| currency:'COP'}} + <strong>Servicio:
-                </strong> {{boleta?.servicio| currency:'COP'}} + <strong>IVA: </strong> {{boleta?.servicio *IVA|
+                </strong> {{boleta?.servicio| currency:'COP'}} + <strong>IVA: </strong> {{boleta?.servicio |
                 currency:'COP'}}</h5>
-              <h5 class="pl-md-4  pb-4"><strong>Valor: </strong> {{boleta?.precio + boleta?.servicio + boleta?.servicio*IVA
+              <h5 class="pl-md-4  pb-4"><strong>Valor: </strong> {{boleta?.precio + boleta?.servicio + boleta?.servicio
                 | currency:'COP'}}</h5>
             </div>
 
@@ -83,7 +84,7 @@
           </div>
           <div class="row">
 
-            <div class="col-6 pt-3">
+            <div class="col-12 pt-3">
               <input placeholder="¿Te ayudo algún promotor?" [(ngModel)]="codigoVenta" class="float-right form-control"
                 type="text">
 

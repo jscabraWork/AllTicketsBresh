@@ -68,13 +68,13 @@
 			<div class="col-12 col-lg-7 mt-5 " *ngIf="evento?.video" style="text-align: center;">
 
 
-			<iframe class="rounded" width="100%" height="650px" [src]='safeSrc' *ngIf="safeSrc!=null " frameborder="0"
-				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen></iframe>
+				<iframe class="rounded" width="100%" height="650px" [src]='safeSrc' *ngIf="safeSrc!=null "
+					frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
 
 
 			</div>
-	
+
 
 			<div *ngIf="evento?.video" class="col-12 col-lg-5 pl-2 mt-5 contenederoBlanco border rounded mt-5">
 
@@ -93,8 +93,7 @@
 
 
 
-				<iframe Set-Cookie: flavor=choco; SameSite=None; Secure *ngIf='mapaUrl!=null'
-					[src]='mapaUrl'
+				<iframe Set-Cookie: flavor=choco; SameSite=None; Secure *ngIf='mapaUrl!=null' [src]='mapaUrl'
 					width="100%" height="30%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
 
@@ -105,7 +104,7 @@
 
 			</div>
 
-			
+
 			<div *ngIf="!evento?.video" class="col-12  pl-2 mt-5 contenederoBlanco border rounded mt-5">
 
 				<h2 class="ubicaciones mt-3"><strong>Información General</strong></h2>
@@ -123,8 +122,7 @@
 
 
 
-				<iframe Set-Cookie: flavor=choco; SameSite=None; Secure *ngIf='mapaUrl!=null'
-					[src]='mapaUrl'
+				<iframe Set-Cookie: flavor=choco; SameSite=None; Secure *ngIf='mapaUrl!=null' [src]='mapaUrl'
 					width="100%" height="30%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
 
@@ -147,11 +145,11 @@
 				<div class="col-12 mt-5 mb-4" style="text-align: center;">
 					<button *ngIf="evento?.mapaImagen?.url !=null" class="action_button" style="font-size: 15px;"
 						(click)="openDialog()">Mapa del evento</button>
-						<button *ngIf="(evento?.mapa=='mapa3' || evento?.mapa=='mapa4' )&& etapas.length >0" class="botonComprar rounded p-3"
-						routerLink="pago/palco/mapa">COMPRAR</button>		
+					<button *ngIf="(evento?.mapa=='mapa3' || evento?.mapa=='mapa4' )&& etapas.length >0"
+						class="botonComprar rounded p-3" routerLink="pago/palco/mapa">COMPRAR</button>
 
 				</div>
-			
+
 			</div>
 
 		</div>
@@ -163,7 +161,7 @@
 <div id="prueba9" class="mt-3">
 
 	<h1><strong>Ubicaciones y Precios</strong></h1>
-	<h1 style="font-size: 25px;" *ngFor="let etapa of etapas"><strong >{{etapa?.nombre}}</strong></h1>
+	<h1 style="font-size: 25px;" *ngFor="let etapa of etapas"><strong>{{etapa?.nombre}}</strong></h1>
 </div>
 
 <div class="container-fluid" *ngIf="fecha>fechaActual && etapas.length == 0">
@@ -185,23 +183,23 @@
 
 
 
-<section class="container-fluid  mt-3  " *ngIf="etapas.length > 0 && localidades.length > 1 && (evento.mapa=='mapa3'|| evento?.mapa=='mapa4')">
+<section class="container-fluid  mt-3  "
+	*ngIf="etapas.length > 0 && localidades.length > 1 && (evento.mapa=='mapa3'|| evento?.mapa=='mapa4')">
 	<div class="row">
 
 
-	
-		<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad2 "
-			*ngFor="let localidad of localidades" style="text-align: center;">
+
+		<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad2 " *ngFor="let localidad of localidades"
+			style="text-align: center;">
 
 			<div class="localidades border rounded">
 
-				<div class="tituloLocalidad"
-					*ngIf="localidad.boletas.length>0 &&!evento.mapa">
+				<div class="tituloLocalidad" *ngIf="localidad.boletas.length>0 &&!evento.mapa">
 					<h3><strong> {{localidad.nombre}} </strong></h3>
 				</div>
-	
 
-				<div  class="tituloLocalidad2" *ngIf="evento.mapa">
+
+				<div class="tituloLocalidad2" *ngIf="evento.mapa">
 					<h3><strong> {{localidad.nombre}} </strong></h3>
 				</div>
 				<div class="pt-2 " *ngIf="localidad.palcos.length>0">
@@ -229,7 +227,7 @@
 
 				<hr>
 
-				<div class="pt-2 ">
+				<div class="pt-2 " *ngIf="evento.adicionales.length == 0">
 
 					<h5><strong>Precio + Servicio +IVA</strong></h5>
 					<p class="precioLocalidades"> <strong> {{localidad.precio | currency: 'COP'}}</strong> +
@@ -238,23 +236,15 @@
 					</p>
 
 				</div>
-				
 
 
-	
+
+
 
 			</div>
 		</div>
-		<div class="col-12 centrarTexto mt-3">
-			<button class="botonLogin rounded pt-2 pb-2"
-						routerLink="pago/palco/mapa">Comprar</button>
-		</div>
-
-
 
 	</div>
-
-
 </section>
 
 
@@ -266,8 +256,8 @@
 
 
 
-		<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad "
-			*ngFor="let localidad of localidades" style="text-align: center;">
+		<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad " *ngFor="let localidad of localidades"
+			style="text-align: center;">
 
 			<div class="localidades border rounded">
 
@@ -306,9 +296,9 @@
 
 
 
-				<hr>
+				<hr *ngIf="evento.adicionales.length < 0">
 
-				<div class="pt-2 ">
+				<div class="pt-2 " *ngIf="evento.adicionales.length == 0">
 
 					<h5><strong>Precio + Servicio +IVA</strong></h5>
 					<p class="precioLocalidades"> <strong> {{localidad.precio | currency: 'COP'}}</strong> +
@@ -339,4 +329,56 @@
 	</div>
 
 
+</section>
+
+
+
+<section class="container-fluid" *ngIf="evento.adicionales.length > 0">
+	<div class="row">
+		<div class="col-12 esconder">
+			<table class="table mt-3 border rounded tabla" style="text-align: center;">
+				<thead>
+					<tr class="border ">
+
+						<th class="border">Variación</th>
+						<th class="border ">Precio</th>
+						<th class="border ">Servicio</th>
+						<th class="border ">IVA</th>
+						<th class="border ">Total</th>
+
+						<!-- <th class="border">Tickets Patrocinios</th>   -->
+
+					</tr>
+
+
+
+				</thead>
+				<tbody>
+					<tr *ngFor="let adicion of evento.adicionales">
+
+						<td class="border"><strong>{{adicion?.nombre}}</strong></td>
+						<td class="border"> <strong>{{adicion?.precio | currency: 'COP'}}</strong></td>
+						<td class="border"> <strong>{{adicion?.servicio| currency:'COP'}}</strong></td>
+						<td class="border"> <strong>{{adicion.servicioIva | currency:'COP'}}</strong></td>
+						<td class="border"> <strong>{{adicion.servicioIva + adicion?.servicio + adicion?.precio |
+								currency:'COP'}}</strong></td>
+
+					</tr>
+
+
+
+				</tbody>
+
+			</table>
+		</div>
+
+	</div>
+</section>
+
+<section class="container-fluid" 	*ngIf="etapas.length > 0 && localidades.length > 1 && (evento.mapa=='mapa3'|| evento?.mapa=='mapa4')">
+	<div class="row">
+		<div class="col-12 centrarTexto mt-3">
+			<button class="botonLogin rounded pt-2 pb-2" routerLink="pago/palco/mapa">Comprar</button>
+		</div>
+	</div>
 </section>

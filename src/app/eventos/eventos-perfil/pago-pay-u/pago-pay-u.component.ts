@@ -92,7 +92,8 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       mensaje:null,
       imagenFinal:null,
       fechaApertura:null,
-      urlMapa:null
+      urlMapa:null,
+      adicionales:[]
     }
     this.localidad ={
       id:null,

@@ -17,6 +17,7 @@ import { Etapa } from '../../etapa.model';
 import { IVA } from 'src/app/app.constants';
 import { Md5 } from 'ts-md5';
 import { LocalidadesDataService } from 'src/app/service/data/localidades-data.service';
+import { AdicionalComponent } from '../adicional/adicional.component';
 
 @Component({
   selector: 'app-comprar-palcos',
@@ -250,6 +251,7 @@ export class ComprarPalcosComponent implements OnInit {
       imagenFinal: null,
       fechaApertura: null,
       urlMapa: null,
+      adicionales:[]
     };
 
     this.route.paramMap.subscribe((params) => {
@@ -426,13 +428,13 @@ export class ComprarPalcosComponent implements OnInit {
                 this.valorLocalidadAgregada = 0;
                 this.valorBoletas = 0;
                 this.AbrirCarrito();
-                if (!this.localidadCargada.efectivo) {
+                if (this.localidadCargada.efectivo) {
                   this.palcoServicio
-                    .rechazarReservaPalco(this.palco.id)
+                    .rechazarReservaPalcoEfectivo(this.palco.id)
                     .subscribe((response) => response);
                 } else {
                   this.palcoServicio
-                    .rechazarReservaPalcoEfectivo(this.palco.id)
+                    .rechazarReservaPalco(this.palco.id)
                     .subscribe((response) => {
                       response;
                     });
@@ -456,31 +458,74 @@ export class ComprarPalcosComponent implements OnInit {
   }
 
   AbrirCarrito(): void {
-    const dialogRef = this.dialog.open(CarritoDeComprasComponent, {
-      width: '100%',
-      height: '85%',
 
-      data: {
-        valorTotal: this.valorTotal,
-        palco: this.palco,
-        evento: this.evento,
-        usuarioEntidad: this.usuarioEntidad,
+    if(this.evento.adicionales.length ==0){
 
-        referenceCode: this.referenceCode,
-        efectivo: this.localidadCargada.efectivo,
-      },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      this.dialog.closeAll();
-      this.palcoServicio
-        .rechazarReservaPalcoInmediatamente(this.palco.id)
-        .subscribe((response) => {
-          response;
-          this.ngOnInit();
-        });
-    });
+      this.carrito()
+    
   }
+
+  else{
+    this.adicionales()
+  }
+
+
+  }
+
+carrito(){
+  let efectivo =this.localidadCargada.efectivo
+  const dialogRef = this.dialog.open(CarritoDeComprasComponent, {
+    width: '100%',
+    height: '85%',
+
+    data: {
+      valorTotal: this.valorTotal,
+      palco: this.palco,
+      evento: this.evento,
+      usuarioEntidad: this.usuarioEntidad,
+
+      referenceCode: this.referenceCode,
+      efectivo: efectivo,
+    },
+  });
+
+  dialogRef.afterClosed().subscribe((result) => {
+    this.dialog.closeAll();
+    this.palcoServicio
+      .rechazarReservaPalcoInmediatamente(this.palco.id)
+      .subscribe((response) => {
+        response;
+        this.ngOnInit();
+      });
+  });
+}
+
+adicionales(){
+  const dialogRef = this.dialog.open(AdicionalComponent, {
+    width: '100%',
+    height: '85%',
+
+    data: {
+      valorTotal: this.valorTotal,
+      palco: this.palco,
+      evento: this.evento,
+      usuarioEntidad: this.usuarioEntidad,
+      adicionales:this.evento.adicionales,
+      referenceCode: this.referenceCode,
+      efectivo: this.localidadCargada.efectivo,
+    },
+  });
+
+  dialogRef.afterClosed().subscribe((result) => {
+    this.dialog.closeAll();
+    this.palcoServicio
+      .rechazarReservaPalcoInmediatamente(this.palco.id)
+      .subscribe((response) => {
+        response;
+        this.ngOnInit();
+      });
+  });
+}
 
   manejar(response) {
     this.etapas = response;

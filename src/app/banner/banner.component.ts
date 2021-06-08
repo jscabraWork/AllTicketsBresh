@@ -34,8 +34,10 @@ export class BannerComponent implements OnInit {
 
  activeAction2: THREE.AnimationAction
  lastAction2: THREE.AnimationAction
-
-
+ciudades
+perfil
+eventos
+allproducts
  sobreObjeto:boolean = false
   clock: THREE.Clock = new THREE.Clock()
 
@@ -85,7 +87,7 @@ export class BannerComponent implements OnInit {
 
     this.camera.position.z = 9;
     this.scene.add(this.camera);
-
+    
     this.renderer.setSize(window.innerWidth, window.innerHeight)
 
     const light = new THREE.HemisphereLightProbe(0xffffff, 0x000000, 2);
@@ -104,12 +106,6 @@ export class BannerComponent implements OnInit {
 
    // const controls = new OrbitControls(this.camera, this.renderer.domElement)
 
-    const planeGeometry: THREE.PlaneGeometry = new THREE.PlaneGeometry(100, 20)
-    const plane: THREE.Mesh = new THREE.Mesh(planeGeometry, new THREE.MeshPhongMaterial())
-    plane.rotateX(-Math.PI / 2)
-    plane.position.y = -6.5
-    plane.receiveShadow = true;
-    this.scene.add(plane)
 
     const gltLoader = new GLTFLoader();
     gltLoader.setPath('../../../assets/modelados/')
@@ -130,7 +126,7 @@ export class BannerComponent implements OnInit {
 
           this.clips.push(action)
         if(clip.name!='usuario-mouse' && clip.name!='gafas-mouse'  && clip.name!='ciudades-mouse' && clip.name!='loca-mouse' && clip.name!='ticket-mouse'  && clip.name!='contorno-mouse'  && clip.name!='logo-mouse'){
-          action.play();
+          action.setLoop(THREE.LoopRepeat,Infinity).play();
         }
 
         });
@@ -140,25 +136,40 @@ export class BannerComponent implements OnInit {
           if ((<THREE.Mesh>child).isMesh) {
             let m = <THREE.Mesh>child
             
+            if(m.name!="Plane" && m.name!="All_Tickets" && m.name!="Plane2"){
             this.sceneMeshes.push(m)
-
           }
+        }
 
           if ((<THREE.Light>child).isLight) {
             let l = <THREE.Light>child
 
           }
+      
         }
         
         )
         
-
+        
+        
         this.scene.add(this.objetoEscenario.scene);
-        
-        
-        this.modelReady = true
         console.log(this.clips)
-        console.log(this.sceneMeshes)
+
+
+        this.ciudades = this.scene.getObjectByName("Ciudades");
+        this.allproducts = this.scene.getObjectByName("AllProducts")
+        this.eventos = this.scene.getObjectByName("Eventos")
+        this.perfil = this.scene.getObjectByName("Perfil")
+          this.borrarObjeto(this.scene.getObjectByName("Ciudades"))
+          this.borrarObjeto(this.scene.getObjectByName("AllProducts"))
+          this.borrarObjeto(this.scene.getObjectByName("Eventos"))
+          this.borrarObjeto(this.scene.getObjectByName("Perfil"))
+
+          
+        
+          this.modelReady = true
+        
+
         
         
       }
@@ -170,7 +181,9 @@ export class BannerComponent implements OnInit {
 
 
   }
-
+borrarObjeto(objeto){
+  this.scene.children[2].remove(objeto)
+}
 
 
 
@@ -339,7 +352,7 @@ export class BannerComponent implements OnInit {
           .setLoop( THREE.LoopOnce ,1)
 					.play();
           this.activeAction2.clampWhenFinished = true
-
+          this.scene.children[2].add(this.perfil)
 
 
 
@@ -374,7 +387,7 @@ export class BannerComponent implements OnInit {
           .setLoop( THREE.LoopOnce ,1)
 					.play();
           this.activeAction2.clampWhenFinished = true
-
+          this.scene.children[2].add(this.ciudades)
 
 
 
@@ -407,7 +420,7 @@ export class BannerComponent implements OnInit {
          .setLoop( THREE.LoopOnce ,1)
          .play();
          this.activeAction2.clampWhenFinished = true
-
+         this.scene.children[2].add(this.eventos)
 
 
 
@@ -429,6 +442,18 @@ export class BannerComponent implements OnInit {
          
 
         }
+
+        else if (this.intersects[0].object.name == "Cap_Cylinder002" || this.intersects[0].object.name == "Cap_Subdivision_Surface_Sphere001" || this.intersects[0].object.name == "Cap_11001" || this.intersects[0].object.name == "papas001_1" || this.intersects[0].object.name == "papas001_2" || this.intersects[0].object.name == "botella001") {
+
+          this.sobreObjeto =true
+          this.lastAction = this.clips[2]
+          this.activeAction = this.clips[3]
+
+          this.scene.children[2].add(this.allproducts)
+         
+
+        }
+
       }
     
     }
@@ -449,6 +474,10 @@ export class BannerComponent implements OnInit {
       this.activeAction = null
       this.activeAction2 = null
       this.sobreObjeto =false
+      this.borrarObjeto(this.scene.getObjectByName("Ciudades"))
+      this.borrarObjeto(this.scene.getObjectByName("AllProducts"))
+      this.borrarObjeto(this.scene.getObjectByName("Eventos"))
+      this.borrarObjeto(this.scene.getObjectByName("Perfil"))
     } 
     else if(this.activeAction!=null ){
 
@@ -461,6 +490,10 @@ export class BannerComponent implements OnInit {
       this.activeAction = null
   
       this.sobreObjeto =false
+      this.borrarObjeto(this.scene.getObjectByName("Ciudades"))
+      this.borrarObjeto(this.scene.getObjectByName("AllProducts"))
+      this.borrarObjeto(this.scene.getObjectByName("Eventos"))
+      this.borrarObjeto(this.scene.getObjectByName("Perfil"))
 
     }
   }

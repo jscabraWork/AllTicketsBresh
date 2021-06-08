@@ -29,9 +29,10 @@ export class CarritoDeComprasComponent implements OnInit {
   valorTotal: number = 0;
   palco: Palco;
   efectivo:boolean = false;
-  asistente: Asistente;
+
   pagar:boolean;
   cargando = true;
+  adicional:number
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private servicioBoletas: BoletasDataService,
@@ -43,8 +44,8 @@ export class CarritoDeComprasComponent implements OnInit {
     this.referenceCode = this.referenceCode;
     this.IVA = IVA;
     this.pagar = false;
-
-
+    
+    this.adicional =-1
 
     this.evento = {
       id: '',
@@ -73,7 +74,8 @@ export class CarritoDeComprasComponent implements OnInit {
       mensaje:null,
       imagenFinal:null,
       fechaApertura:null,
-      urlMapa:null
+      urlMapa:null,
+      adicionales:[]
     };
 
     this.palco = {
@@ -99,15 +101,15 @@ export class CarritoDeComprasComponent implements OnInit {
     this.evento = this.data.evento;
     this.efectivo = this.data.efectivo
     this.usuarioEntidad = this.data.usuarioEntidad;
-    
+    if(this.data.adicional){
+    this.adicional = this.data.adicional;
+  }
     (this.referenceCode = this.data.referenceCode +','+this.codigoVenta),
       (this.valorTotal = this.data.valorTotal);
     if (this.data.palco) {
       this.palco = this.data.palco;
     }
-    if (this.data.asistente) {
-      this.asistente = this.data.asistente;
-    }
+
   }
 
 
@@ -183,7 +185,7 @@ export class CarritoDeComprasComponent implements OnInit {
 if(this.pagar == false){
   this.pagar = true;
     this.codigoVentaCuadrar()
-    this.referenceCode = this.data.referenceCode +','+this.codigoVenta
+    this.referenceCode = this.data.referenceCode +','+this.codigoVenta + ',' + this.adicional
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -223,6 +225,9 @@ if(this.pagar == false){
   }
 
   }
+
+
+
 
 
   onCloseEpaycoModal() {

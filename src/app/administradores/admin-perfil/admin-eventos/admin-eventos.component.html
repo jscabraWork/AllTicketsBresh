@@ -14,6 +14,7 @@
                 <th>Fecha</th>
                 <th>Organizador</th>
                 <th>Etapas</th>
+                <th>Adicionales</th>
                 <th>Foto Perfil</th>
                 <th>Foto Asistente Oficial</th>
                 <th>Foto Mapa</th>
@@ -39,6 +40,7 @@
                 <td>{{evento?.fecha| date}}</td>
                 <td>{{evento.organizadorid}}</td>
                 <td><button class="btn btn-success" routerLink="etapas/{{evento.id}}"> Etapas</button></td>
+                <td><button class="btn btn-success" routerLink="adicionales/{{evento.id}}"> Adicionales</button></td>
                 <td><button class="btn btn-success" (click)="agregarFotoPortada(evento)">Agregar Foto Perfil</button></td>
                 <td><button class="btn btn-success" (click)="agregarFotoFinal(evento)">Agregar Foto Asistente</button></td>
 

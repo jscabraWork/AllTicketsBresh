@@ -2,6 +2,7 @@ import { Etapa } from './eventos-perfil/etapa.model';
 import { Palco } from './../administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
 import { Localidad } from './../administradores/admin-perfil/admin-eventos/admin-localidades/localidad.model';
 import { Foto } from '../models/foto.model';
+import { Adicionales } from '../administradores/admin-perfil/admin-adicionales/adicionales.model';
 
 export interface Evento {
     id: string,
@@ -30,6 +31,7 @@ export interface Evento {
     mensaje:string,
     imagenFinal:Foto,
     fechaApertura:Date,
-    urlMapa:string
+    urlMapa:string,
+    adicionales:Adicionales[]
 
 }

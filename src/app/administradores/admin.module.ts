@@ -59,6 +59,8 @@ import { AdminMensajeComponent } from './admin-perfil/admin-eventos/admin-mensaj
 import { AgregarImagenFinalComponent } from './admin-perfil/admin-eventos/agregar-imagen-final/agregar-imagen-final.component';
 import { AgregarFechaAperturaComponent } from './admin-perfil/admin-eventos/agregar-fecha-apertura/agregar-fecha-apertura.component';
 import { AdminAgregarEventosPromotorComponent } from './admin-perfil/admin-promotores/admin-agregar-eventos-promotor/admin-agregar-eventos-promotor.component';
+import { AdminAdicionalesComponent } from './admin-perfil/admin-adicionales/admin-adicionales.component';
+import { AgregarAdicionalComponent } from './admin-perfil/admin-adicionales/agregar-adicional/agregar-adicional.component';
 
 
 
@@ -128,7 +130,14 @@ const routes: Routes = [
         component: AdminEtapasComponent
       },
 
-
+      {
+        path: 'admin/eventos/lista/adicionales/:id',
+        component: AdminAdicionalesComponent
+      },
+      {
+        path: 'admin/eventos/lista/adicionales/:id/agregar',
+        component: AgregarAdicionalComponent
+      },
       {
         path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos',
         component: AdminPalcosComponent
@@ -298,7 +307,9 @@ const routes: Routes = [
     AdminMensajeComponent,
     AgregarImagenFinalComponent,
     AgregarFechaAperturaComponent,
-    AdminAgregarEventosPromotorComponent
+    AdminAgregarEventosPromotorComponent,
+    AdminAdicionalesComponent,
+    AgregarAdicionalComponent
   ],
   imports: [
     CommonModule,

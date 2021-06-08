@@ -1,0 +1,55 @@
+.tituloLocalidad{
+    background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
+    color:#FFF;
+    padding: 3%;
+    width: 100%;
+    
+}
+.botonesCerrar{
+	
+    color:white  ;
+    cursor: pointer;
+
+ 
+
+
+}
+.frase{
+    font-weight: bold;
+    color:#ed701c
+}
+.btn-epayco{
+    cursor: pointer;
+    
+    display: block;
+
+}
+.carrito{
+    overflow: auto;
+}
+
+@media(max-width:465px){
+    h3{
+        font-size: 18px  !important; 
+    }
+    h4{
+        font-size: 16.5px  !important; 
+    }
+    h5{
+        font-size: 15px  !important; 
+    }
+    .btn-epayco{
+        width: 90%;
+    }
+}
+.botonLogin{
+    background: linear-gradient(#F9B84A, #ed701c); 
+    width: 100px;
+    color:white;
+    border: white;
+   
+}
+
+.full{
+    width: 100%;
+}

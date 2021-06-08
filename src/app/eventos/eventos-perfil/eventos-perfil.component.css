@@ -1,269 +1,244 @@
-
-.botonLogin{
-    background: linear-gradient(#F9B84A, #ed701c); 
-    width: 50%;
-    color:white;
-    border: white;
-    font-size: 22px;
+.botonLogin {
+  background: linear-gradient(#f9b84a, #ed701c);
+  width: 50%;
+  color: white;
+  border: white;
+  font-size: 22px;
 }
 
-.botonComprar{
-    background: linear-gradient(#F9B84A, #ed701c); 
-    width: 150px;
-    margin-left: 12px;
-    color:white;
-    border: white;
+.botonComprar {
+  background: linear-gradient(#f9b84a, #ed701c);
+  width: 150px;
+  margin-left: 12px;
+  color: white;
+  border: white;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+#prueba9 {
+  padding: 35px;
+  text-align: center;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+#contador .contenedor {
+  margin: 0px auto;
+
+  text-align: center;
+  width: 60%;
+  padding: 10px;
+  background: linear-gradient(#333, #666);
+  box-shadow: 1px 1px 1px #333, 2px 2px 2px #333, 3px 3px 3px #333,
+    4px 4px 4px #333, 5px 5px 5px #333;
+  border: 4px solid black;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1557px) {
+  #contador .contenedor {
+    width: 80%;
+  }
+}
+@media (max-width: 887px) {
+  #contador .contenedor {
+    width: 90%;
+  }
+}
+
+@media (max-width: 641px) {
+  #contador .contenedor {
+    width: 95%;
+  }
+}
+@media (max-width: 503px) {
+  #contador .contenedor {
+    width: 100%;
+  }
+}
+#contador .contenedor p {
+  font-weight: bold;
+  font-size: 20px;
+  display: grid;
+  float: left;
+}
+#contador .contenedor p span {
+  font-size: 22px;
+  color: #ff6600;
+}
+
+@media (max-width: 767px) {
+  #contador .contenedor p {
+    font-size: 16px;
+  }
+  #contador .contenedor p span {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 571px) {
+  #contador .contenedor p {
+    font-size: 13px;
+  }
+  #contador .contenedor p span {
     font-size: 15px;
-    font-weight: bolder;
+  }
 }
 
-#prueba9
-{
-	
-
-    padding: 35px;
-    text-align: center;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	position: relative;
-
-}
-#contador .contenedor{
-    margin: 0px auto;
-
-    text-align: center;
-    width: 60%;
-    padding: 10px;
-    background: linear-gradient(#333,#666); 
-    box-shadow: 1px 1px 1px #333,2px 2px 2px #333, 3px 3px 3px #333 ,4px 4px 4px #333,5px 5px 5px #333;
-    border: 4px solid black;
-    color: white;
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
-    align-items: center;
-    justify-content: center;
-}
-@media(max-width:1557px){
-    #contador .contenedor{
-        width: 80%;
-    }
-}
-@media(max-width:887px){
-    #contador .contenedor{
-        width: 90%;
-    }
+@media (max-width: 465px) {
+  #contador .contenedor p {
+    font-size: 10px;
+  }
+  #contador .contenedor p span {
+    font-size: 12px;
+  }
 }
 
-@media(max-width:641px){
-    #contador .contenedor{
-        width: 95%;
-    }
-}
-@media(max-width:503px){
-    #contador .contenedor{
-        width: 100%;
-    }
-}
-#contador .contenedor p{
-    font-weight: bold;
-    font-size: 20px;
-    display: grid;
-    float: left;
-  
-}
-#contador .contenedor p span{
-    font-size: 22px;
-    color: #ff6600;
-}
-
-@media(max-width:767px){
-    #contador .contenedor p{
-        font-size: 16px;      
-    }
-    #contador .contenedor p span{
-        font-size: 18px;
-    }
-}
-
-@media(max-width:571px){
-    #contador .contenedor p{
-        font-size: 13px;      
-    }
-    #contador .contenedor p span{
-        font-size: 15px;
-    }
-}
-
-@media(max-width:465px){
-    #contador .contenedor p{
-        font-size: 10px;      
-    }
-    #contador .contenedor p span{
-        font-size: 12px;
-    }
-}
-
-@media(max-width:381px){
-    #contador .contenedor p{
-        font-size: 8px;      
-    }
-    #contador .contenedor p span{
-        font-size: 10px;
-    }
+@media (max-width: 381px) {
+  #contador .contenedor p {
+    font-size: 8px;
+  }
+  #contador .contenedor p span {
+    font-size: 10px;
+  }
 }
 #prueba9:before {
-	content:'';
-	position: absolute;
-        top: 0;
-	bottom: 0;
-	left: 0;
-    right: 0;
-    background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
-	
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28));
 }
 
 #prueba9 h1 {
-	font-size: 35px;
-	color: white;
-	position: relative
+  font-size: 35px;
+  color: white;
+  position: relative;
 }
 
+.ubicaciones {
+  text-align: center;
+}
+.contenederoBlanco {
+  background-color: white;
+}
+h3 {
+  font-size: 25px;
+}
 
+.Ahr {
+  width: 100%;
+}
 
+.localidades {
+  background-color: white;
+}
+.divisionLocalidad {
+  text-align: right;
 
+  text-align: center;
+  transition: all 1s;
+  position: relative;
+  width: 100%;
+}
 
+.tituloLocalidad {
+  background: linear-gradient(#666, #333);
+  color: #fff;
+  padding: 3%;
+  width: 100%;
+  cursor: pointer;
+}
 
+.divisionLocalidad:hover .tituloLocalidad {
+  background: linear-gradient(#ed701c, #f9b84f);
+}
 
+.divisionLocalidad:hover {
+  transform: scale(1.01);
+}
 
+.tituloLocalidad2 {
+  background: linear-gradient(#666, #333);
+  color: #fff;
+  padding: 3%;
+  width: 100%;
+}
 
+.precioLocalidades {
+  font-size: 22px;
+  color: #ed701c;
+}
+p {
+  font-size: 17px;
+}
+.aaaa {
+  border: 2px solid #ed701c;
 
-        .ubicaciones {
-            text-align: center; 
-            
-            
-        }
-        .contenederoBlanco{
-            background-color: white;
-        }
-        h3{
-            font-size: 25px;
-        }
+  height: 0px;
+  width: 70px;
+}
 
-        .Ahr{
-            width: 100%;
-        }
+.action_button:hover {
+  background: linear-gradient(#ed701c, #f9b84f);
+}
 
-        .localidades{
-            background-color: white;
-        }
-        .divisionLocalidad
-        {
-         
-            
-            text-align: right;
-            
-            text-align: center;
-            transition: all 1s; 
-            position: relative; 
-            width: 100%;
-        }
-    
-            .tituloLocalidad{
-                background: linear-gradient(#666, #333); 
-                color:#FFF;
-                padding: 3%;
-                width: 100%;
-                cursor: pointer;
-                
-            }
+.action_button {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
 
-            .divisionLocalidad:hover .tituloLocalidad{
+  background: linear-gradient(#666, #333);
+  padding: 15px 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
 
-                background:linear-gradient(#ed701c, #F9B84f); 
-                
-            }
+@media (max-width: 767px) and (min-width: 576px) {
+  h1 {
+    font-size: 26px;
+  }
+}
 
+@media (max-width: 991px) and (min-width: 768px) {
+  .largo {
+    width: 103%;
+  }
+}
 
+@media (max-width: 575px) and (min-width: 0px) {
+  h1 {
+    font-size: 22px;
+  }
+}
 
+th {
+  background: linear-gradient(#666, #333);
+  color: white;
+}
+td {
+  background-color: white;
+}
 
-
-            .divisionLocalidad:hover{
-                transform: scale(1.01);
-            }
-
-
-
-            .tituloLocalidad2{
-                background: linear-gradient(#666, #333); 
-                color:#FFF;
-                padding: 3%;
-                width: 100%;
-                
-                
-            }
-
-
-
-            .precioLocalidades{
-                font-size:22px;
-                color:#ed701c;
-            }
-         p{
-             font-size: 17px;
-         }
-         .aaaa{
-            
-            border: 2px solid #ed701c;
-    
-            height: 0px;
-            width: 70px;
-           
-              }
-         
-
-           
-       
-            .action_button:hover{
-                background:linear-gradient(#ed701c, #F9B84f); 
-            }
-
-
-            .action_button {
-                text-decoration: none; 
-                color: #fff; 
-                font-weight: bold; 
-                
-                background: linear-gradient(#666, #333); 
-               padding: 15px 20px;
-                font-size: 20px; 
-                text-transform: uppercase;
-            }
-
-            
-            @media(max-width:767px) and (min-width:576px){
-            
-                h1{
-                    font-size: 26px;
-                }
-                
-            }
-
-            
-            
-            @media(max-width:991px) and (min-width:768px){
-            
-                .largo{
-                    width: 103%;
-                    
-                }
-            }
-            
-            
-            @media(max-width:575px) and (min-width:0px){
-            
-                h1{
-                    font-size: 22px;
-                }
-            
-                }
+.tabla {
+  text-align: center;
+  width: 100%;
+  
+}
+@media(max-width:766px){
+    .tabla{
+        width: 766px;
+        
+    }
+    .esconder{
+      overflow-x: scroll;
+  }
+  
+}

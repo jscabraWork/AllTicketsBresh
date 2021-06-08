@@ -1,0 +1,40 @@
+
+<section class="full">
+  
+    <div class="row">
+        <div class="col-12 pl-4 pr-4">
+            <div class="row ">
+                <div class="divisionLocalidad col-12 ">
+                    <div class="tituloLocalidad shadow ">
+                        <mat-icon class="float-right rounded mt-1 ml-2 mr-2 botonesCerrar" (click)="cerrar()"> cancel_presentation
+                        </mat-icon>
+                        <h3><strong>Selecciona una opción</strong>
+                            <br>
+
+                        </h3>
+
+
+                    </div>
+                    <div *ngFor="let adicional2 of adicionales"  class="">
+                        <div class="  eventoFondo carrito   fondoBlanco border " *ngIf="visible(adicional2)">
+                            <h5 class="pl-md-4 pt-4 ml-2"><strong>Adicional: </strong>{{adicional2?.nombre}}</h5>
+                            <h5 class="pl-md-4 ml-2"><strong>Precio: </strong> {{adicional2?.precio| currency:'COP'}} + <strong>Servicio:
+                              </strong> {{adicional2?.servicio| currency:'COP'}} + <strong>IVA: </strong> {{adicional2?.servicioIva |
+                              currency:'COP'}}</h5>
+                            <h5 class="pl-md-4 ml-2 pb-2"><strong>Valor: </strong> {{adicional2?.precio + adicional2?.servicio + adicional2?.servicioIva
+                              | currency:'COP'}}</h5>
+                              <button class="botonLogin rounded pt-2 pb-2 ml-2 mb-2 ml-md-4 mb-md-4"(click)="seleccionar(adicional2)" >
+                                Seleccionar
+                              </button>
+                          </div>
+                          
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>

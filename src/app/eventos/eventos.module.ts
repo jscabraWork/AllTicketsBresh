@@ -23,6 +23,7 @@ import { ImagenEventosComponent } from './eventos-perfil/imagen-eventos/imagen-e
 import { MatIconModule } from '@angular/material/icon';
 import { HttpInterceptBasicAuthService } from '../service/http/http-intercept-basic-auth.service';
 import { CountdownModule } from 'ngx-countdown';
+import { AdicionalComponent } from './eventos-perfil/pago-pay-u/adicional/adicional.component';
 
 
 
@@ -77,7 +78,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent ],
+    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent, AdicionalComponent ],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 
