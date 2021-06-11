@@ -86,15 +86,15 @@ const routes: Routes=[
         FormsModule,
         ReactiveFormsModule,
         MatIconModule,
-        CountdownModule
-
+        CountdownModule,
+         
       
         
         
     ],
     providers: [
-      {provide:HTTP_INTERCEPTORS, useClass: HttpInterceptBasicAuthService, multi: true  }
- 
+      {provide:HTTP_INTERCEPTORS, useClass: HttpInterceptBasicAuthService, multi: true  },
+      
     ],
 
 })

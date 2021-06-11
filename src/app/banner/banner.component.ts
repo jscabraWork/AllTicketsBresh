@@ -8,6 +8,8 @@ import { GLTF, GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 //import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { Router } from '@angular/router';
 import { HardcodedAutheticationService } from '../service/hardcoded-authetication.service';
+import { MensajeComponent } from '../mensaje/mensaje.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 declare var createjs: any;
@@ -47,7 +49,7 @@ allproducts
   @ViewChild('rendererCanvas', { static: true })
   public rendererCanvas: ElementRef<HTMLCanvasElement>;
 
-  constructor(private router: Router, private autenticador: HardcodedAutheticationService) {
+  constructor(private router: Router, private autenticador: HardcodedAutheticationService,  public dialog: MatDialog) {
 
   }
 
@@ -136,11 +138,11 @@ allproducts
           if ((<THREE.Mesh>child).isMesh) {
             let m = <THREE.Mesh>child
             
-            if(m.name!="Plane" && m.name!="All_Tickets" && m.name!="Plane2"){
+            if(m.name!="Palabra_AT" &&m.name!="Plane" && m.name!="Plane_1" && m.name!="Plane_2"&& m.name!="Plane_3"&& m.name!="Circle"&& m.name!="Icosphere"&& m.name!="Icosphere002"&& m.name!="Icosphere001"&& m.name!="Cube" &&m.name!="Circle_1"&&m.name!="Circle_2"){
             this.sceneMeshes.push(m)
           }
         }
-
+        
           if ((<THREE.Light>child).isLight) {
             let l = <THREE.Light>child
 
@@ -151,9 +153,11 @@ allproducts
         )
         
         
-        
+        this.objetoEscenario.scene.scale.x =1.1
+        this.objetoEscenario.scene.scale.z =1.1
+        this.objetoEscenario.scene.scale.y =1.1
         this.scene.add(this.objetoEscenario.scene);
-        console.log(this.clips)
+        console.log(this.sceneMeshes)
 
 
         this.ciudades = this.scene.getObjectByName("Ciudades");
@@ -312,7 +316,7 @@ borrarObjeto(objeto){
         }
 
         else if (this.intersects[0].object.name == "Cap_Cylinder002" || this.intersects[0].object.name == "Cap_Subdivision_Surface_Sphere001" || this.intersects[0].object.name == "Cap_11001" || this.intersects[0].object.name == "papas001_1" || this.intersects[0].object.name == "papas001_2" || this.intersects[0].object.name == "botella001") {
-          alert("AllProducts Pronto")
+          this.openDialog2()
         }
 
       }
@@ -320,7 +324,21 @@ borrarObjeto(objeto){
 
   }
 
+  openDialog2(): void {
+    const dialogRef = this.dialog.open(MensajeComponent, {
+      width: '600px',
+      data:{
+        mensaje:"All Products pronto estara disponible para ti"
+      }
+      
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      
+ 
+      
+    });
+  }
   animacion() {
     
     if(this.intersects!=undefined)

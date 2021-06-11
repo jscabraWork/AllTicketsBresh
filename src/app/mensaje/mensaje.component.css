@@ -17,4 +17,9 @@
     border: white;
     font-size: 25px;
     font-weight: bolder;
+    transition: all 300ms;
+}
+
+.botonLogin:hover{
+    background:  #ed701c; 
 }
