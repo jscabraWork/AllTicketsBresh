@@ -58,7 +58,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
     this.boletas=[]
     this.localidadesCompradas=[]
     this.valorLocalidadAgregada=0
-    this.contadorBoletas=0
+    
     this.usuarioBoolean=true;
     this.referenceCode= this.referenceCode 
     this.IVA = IVA

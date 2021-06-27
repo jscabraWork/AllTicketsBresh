@@ -11,6 +11,7 @@
               <br>
 
             </h3>
+
             <h4 class="contador">
               <strong>Tiempo para realizar la compra: <countdown [config]="{leftTime:240}"></countdown> </strong>
             </h4>
@@ -18,16 +19,16 @@
           </div>
           <div class="">
            
-
+           
             <div class="  eventoFondo carrito   fondoBlanco border " *ngFor="let boleta of boletas">
               <h5 class="pl-md-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
               <h5 class="pl-md-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
 
               <h5 class="pl-md-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
               <h5 class="pl-md-4"><strong>Precio: </strong> {{boleta?.precio| currency:'COP'}} + <strong>Servicio:
-                </strong> {{boleta?.servicio| currency:'COP'}} + <strong>IVA: </strong> {{boleta?.servicio |
+                </strong> {{boleta?.servicio| currency:'COP'}} + <strong>IVA: </strong> {{boleta?.servicioIva |
                 currency:'COP'}}</h5>
-              <h5 class="pl-md-4  pb-4"><strong>Valor: </strong> {{boleta?.precio + boleta?.servicio + boleta?.servicio
+              <h5 class="pl-md-4  pb-4"><strong>Valor: </strong> {{boleta?.precio + boleta?.servicio + boleta?.servicioIva
                 | currency:'COP'}}</h5>
             </div>
 

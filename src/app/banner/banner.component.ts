@@ -42,9 +42,9 @@ eventos
 allproducts
  sobreObjeto:boolean = false
   clock: THREE.Clock = new THREE.Clock()
-
+  escena:string
   sceneMeshes = new Array()
-
+  horizontal:boolean
 
   @ViewChild('rendererCanvas', { static: true })
   public rendererCanvas: ElementRef<HTMLCanvasElement>;
@@ -74,7 +74,14 @@ allproducts
     this.camera = new THREE.PerspectiveCamera(
       75, width / height, 0.1, 1000
     );
-
+      if(width>height){
+        this.horizontal = true
+        this.escena ='escenario.glb'
+      }
+      else{
+        this.escena ='escenarioV.glb'
+        this.horizontal = false
+      }
     this.canvas = canvas.nativeElement;
 
     this.renderer = new THREE.WebGLRenderer({
@@ -86,11 +93,14 @@ allproducts
 
 
 
-
     this.camera.position.z = 9;
+    
+
+    
     this.scene.add(this.camera);
     
-    this.renderer.setSize(window.innerWidth, window.innerHeight)
+   
+    this.renderer.setSize(width, height-100)
 
     const light = new THREE.HemisphereLightProbe(0xffffff, 0x000000, 2);
 
@@ -113,13 +123,15 @@ allproducts
     gltLoader.setPath('../../../assets/modelados/')
 
     gltLoader.load(
-      'escenario.gltf', (root) => {
+      this.escena, (root) => {
 
         this.objetoEscenario = root;
 
 
+        
         this.objetoEscenario.scene.position.y = -5
-
+      
+   
         this.mixer = new THREE.AnimationMixer(this.objetoEscenario.scene);
 
         this.objetoEscenario.animations.forEach((clip) => {
@@ -138,7 +150,7 @@ allproducts
           if ((<THREE.Mesh>child).isMesh) {
             let m = <THREE.Mesh>child
             
-            if(m.name!="Palabra_AT" &&m.name!="Plane" && m.name!="Plane_1" && m.name!="Plane_2"&& m.name!="Plane_3"&& m.name!="Circle"&& m.name!="Icosphere"&& m.name!="Icosphere002"&& m.name!="Icosphere001"&& m.name!="Cube" &&m.name!="Circle_1"&&m.name!="Circle_2"){
+            if(m.name!="Palabra_AT" &&m.name!="farol"&&m.name!="farol001"&& m.name!="novoarco001" && m.name!="Plane"&& m.name!="Plane001" && m.name!="Plane001_1"&& m.name!="Plane002_3"&& m.name!="Plane002_2"&& m.name!="Plane002_1" && m.name!="Plane002"&& m.name!="novoarco"&& m.name!="Circle"&& m.name!="Icosphere"&& m.name!="Icosphere002"&& m.name!="Icosphere001"&& m.name!="Cube" &&m.name!="Circle_1"&&m.name!="Circle_2"){
             this.sceneMeshes.push(m)
           }
         }
@@ -152,13 +164,11 @@ allproducts
         
         )
         
-        
-        this.objetoEscenario.scene.scale.x =1.1
-        this.objetoEscenario.scene.scale.z =1.1
-        this.objetoEscenario.scene.scale.y =1.1
+      
+   
         this.scene.add(this.objetoEscenario.scene);
-        console.log(this.sceneMeshes)
-
+        
+        
 
         this.ciudades = this.scene.getObjectByName("Ciudades");
         this.allproducts = this.scene.getObjectByName("AllProducts")
@@ -169,8 +179,7 @@ allproducts
           this.borrarObjeto(this.scene.getObjectByName("Eventos"))
           this.borrarObjeto(this.scene.getObjectByName("Perfil"))
 
-          
-        
+
           this.modelReady = true
         
 
@@ -242,10 +251,16 @@ borrarObjeto(objeto){
     const width = window.innerWidth;
     const height = window.innerHeight;
 
+
     this.camera.aspect = width / height;
+  
+
+
     this.camera.updateProjectionMatrix();
 
-    this.renderer.setSize(width, height);
+    this.renderer.setSize(width, height-100);
+
+
 
 
   }
@@ -315,10 +330,10 @@ borrarObjeto(objeto){
           this.router.navigate(['/ciudades'])
         }
 
-        else if (this.intersects[0].object.name == "Cap_Cylinder002" || this.intersects[0].object.name == "Cap_Subdivision_Surface_Sphere001" || this.intersects[0].object.name == "Cap_11001" || this.intersects[0].object.name == "papas001_1" || this.intersects[0].object.name == "papas001_2" || this.intersects[0].object.name == "botella001") {
+        else if (this.intersects[0].object.name == "Cap_Subdivision_Surface_Sphere001_2" ||this.intersects[0].object.name == "Cap_Subdivision_Surface_Sphere001_1" ||this.intersects[0].object.name == "Cap_Cylinder003" ||this.intersects[0].object.name == "Cap_Cylinder002" ||this.intersects[0].object.name == "Cap_Cylinder002" || this.intersects[0].object.name == "Cap_Subdivision_Surface_Sphere001" || this.intersects[0].object.name == "Cap_11001" || this.intersects[0].object.name == "papas001_1" || this.intersects[0].object.name == "papas001_2" || this.intersects[0].object.name == "botella001") {
           this.openDialog2()
         }
-
+        
       }
     }
 
@@ -348,8 +363,8 @@ borrarObjeto(objeto){
         if (!this.sobreObjeto&& (this.intersects[0].object.name == "usuario001" || this.intersects[0].object.name == "gafas_1" || this.intersects[0].object.name == "gafas_2" || this.intersects[0].object.name == "gafas_3")) {
 
           this.sobreObjeto =true
-          this.lastAction = this.clips[18]
-           this.activeAction = this.clips[17]
+          this.lastAction = this.clips[22]
+           this.activeAction = this.clips[21]
           this.lastAction.fadeOut(0.1)
           this.activeAction
 					.reset()
@@ -360,8 +375,8 @@ borrarObjeto(objeto){
 
 
          
-          this.lastAction2 = this.clips[20]
-          this.activeAction2 = this.clips[19]
+          this.lastAction2 = this.clips[24]
+          this.activeAction2 = this.clips[23]
            this.lastAction2.fadeOut(0.1)
           
           this.activeAction2
@@ -383,8 +398,8 @@ borrarObjeto(objeto){
 
 
           this.sobreObjeto =true
-          this.lastAction = this.clips[5]
-           this.activeAction = this.clips[4]
+          this.lastAction = this.clips[9]
+           this.activeAction = this.clips[8]
           this.lastAction.fadeOut(0.1)
           this.activeAction
 					.reset()
@@ -395,8 +410,8 @@ borrarObjeto(objeto){
 
 
          
-          this.lastAction2 = this.clips[7]
-          this.activeAction2 = this.clips[6]
+          this.lastAction2 = this.clips[11]
+          this.activeAction2 = this.clips[10]
            this.lastAction2.fadeOut(0.1)
           
           this.activeAction2
@@ -416,8 +431,8 @@ borrarObjeto(objeto){
         else if (!this.sobreObjeto&& (this.intersects[0].object.name == "contorno_ticket001_1" || this.intersects[0].object.name == "contorno_ticket001_2" || this.intersects[0].object.name == "contorno_ticket001_3" || this.intersects[0].object.name == "Ticket")) {
          
           this.sobreObjeto =true
-          this.lastAction = this.clips[1]
-          this.activeAction = this.clips[0]
+          this.lastAction = this.clips[5]
+          this.activeAction = this.clips[4]
          this.lastAction.fadeOut(0.1)
          this.activeAction
          .reset()
@@ -428,8 +443,8 @@ borrarObjeto(objeto){
 
 
         
-         this.lastAction2 = this.clips[9]
-         this.activeAction2 = this.clips[10]
+         this.lastAction2 = this.clips[13]
+         this.activeAction2 = this.clips[14]
           this.lastAction2.fadeOut(0.1)
          
          this.activeAction2
@@ -448,8 +463,8 @@ borrarObjeto(objeto){
         else if(!this.sobreObjeto&&(this.intersects[0].object.name == "logo") ){
 
           this.sobreObjeto =true
-          this.lastAction = this.clips[2]
-          this.activeAction = this.clips[3]
+          this.lastAction = this.clips[6]
+          this.activeAction = this.clips[7]
          this.lastAction.fadeOut(0.1)
          this.activeAction
          .reset()
@@ -461,11 +476,10 @@ borrarObjeto(objeto){
 
         }
 
-        else if (this.intersects[0].object.name == "Cap_Cylinder002" || this.intersects[0].object.name == "Cap_Subdivision_Surface_Sphere001" || this.intersects[0].object.name == "Cap_11001" || this.intersects[0].object.name == "papas001_1" || this.intersects[0].object.name == "papas001_2" || this.intersects[0].object.name == "botella001") {
+        else if (this.intersects[0].object.name == "Cap_Subdivision_Surface_Sphere001_2" ||this.intersects[0].object.name == "Cap_Subdivision_Surface_Sphere001_1" ||this.intersects[0].object.name == "Cap_Cylinder003" ||this.intersects[0].object.name == "Cap_Cylinder002" ||this.intersects[0].object.name == "Cap_Cylinder002" || this.intersects[0].object.name == "Cap_Subdivision_Surface_Sphere001" || this.intersects[0].object.name == "Cap_11001" || this.intersects[0].object.name == "papas001_1" || this.intersects[0].object.name == "papas001_2" || this.intersects[0].object.name == "botella001") {
 
           this.sobreObjeto =true
-          this.lastAction = this.clips[2]
-          this.activeAction = this.clips[3]
+         
 
           this.scene.children[2].add(this.allproducts)
          
@@ -513,6 +527,13 @@ borrarObjeto(objeto){
       this.borrarObjeto(this.scene.getObjectByName("Eventos"))
       this.borrarObjeto(this.scene.getObjectByName("Perfil"))
 
+    }
+    else if(this.sobreObjeto){
+      this.borrarObjeto(this.scene.getObjectByName("Ciudades"))
+      this.borrarObjeto(this.scene.getObjectByName("AllProducts"))
+      this.borrarObjeto(this.scene.getObjectByName("Eventos"))
+      this.borrarObjeto(this.scene.getObjectByName("Perfil"))
+      this.sobreObjeto =false
     }
   }
 

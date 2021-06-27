@@ -1,0 +1,14 @@
+<div class="container border rounded">
+    <div class="row">
+        <section class="col-12 centrar tituloLocalidad">
+            <h5 >Selecciona la cantidad de boletas que deseas comprar (máximo 6 por evento)</h5>
+        </section>
+       
+        <section class="col-12 centrar mt-3">
+            <button class="btnA btn rounded-circle mr-2" (click)="menos()">-</button> <strong class="cantidad">{{boletasCantidad}}</strong> <button class="btnA btn rounded-circle ml-2" (click)="mas()">+</button>
+        </section>
+        <section class="col-12 centrar mt-3 mb-3">
+            <button (click)="cerrar()" class="btn btnB mr-2">Cancelar</button> <button class="btn btnB" (click)="siguiente()">Siguiente</button>
+        </section>
+    </div>
+</div>

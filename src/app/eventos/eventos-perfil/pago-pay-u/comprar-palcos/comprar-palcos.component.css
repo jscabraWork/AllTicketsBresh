@@ -201,6 +201,10 @@ td {
   color:white;
 }
 
+.cuadros4 {
+ background-color: green;
+  color:white;
+}
 .cuadros2:hover {
   background-color: #aaa;
 }
@@ -449,7 +453,7 @@ transform: rotate(30deg);
   }
 
  .margenIzquierdo{
-   margin-left: 415px;
+   margin-left: 432px;
  } 
 
  .tarimaMapa3 {
@@ -464,16 +468,17 @@ transform: rotate(30deg);
   font-size: 20px;
 }
 .margen2izquierda{
-  margin-left: 278px;
+  margin-left: 188px;
+  margin-right: 187px;
 }
 .tarimaAncha2 {
  
   background-color: #333;
-  width: 695px;
+  width: 693px;
   height: 25px;
   line-height: 20px;
   margin-top: -3px;  
-
+  float: left;
   color: white;
   font-weight: bold;
   text-align: center;
@@ -538,3 +543,97 @@ transform: rotate(30deg);
   background-color: #ccc;
  
 }
+.localidadLibre{
+  background-color: green;
+  width:100px;
+  height: 46px;
+  margin:3px;
+  margin-bottom: -3px;
+  float: left;
+  text-align: center;
+  color: white;font-weight: bold;
+  cursor: pointer;
+  font-size: 35px;;
+}
+.localidadLibre2{
+  background-color: green;
+  width:100px;
+  height: 22px;
+  margin:3px;
+  margin-bottom: -3px;
+  float: left;
+  text-align: center;
+  color: white;font-weight: bold;
+  cursor: pointer;
+  font-size: 35px;
+}
+.localidadLibre3{
+  background-color: green;
+  width:100px;
+  height: 22px;
+  margin:3px;
+  margin-bottom: -3px;
+  float: left;
+  font-size: 35px;
+  text-align: center;
+  color: white;font-weight: bold;
+  cursor: pointer;
+}
+.localidadLibreLarga{
+  background-color: green;
+  width:381px;
+  height: 100px;
+  margin:3px;
+  font-size: 30px;
+  
+  text-align: center;
+  color: white;font-weight: bold;
+cursor: pointer;
+float:left;
+}
+
+.localidadLibreLargaVIP{
+  background-color: rgb(255, 60, 93);
+  width:462px;
+  height: 100px;
+  margin:3px;
+  font-size: 30px;
+  float:left;
+  text-align: center;
+  color: white;font-weight: bold;
+cursor: pointer;
+
+}
+.localidadLibreLarga2{
+  background-color: green;
+  width:419px;
+  height: 100px;
+  margin:3px;
+  font-size: 30px;
+  
+  text-align: center;
+  color: white;font-weight: bold;
+cursor: pointer;
+float:left;
+}
+
+
+.libreVIPCorto {
+  background-color: rgb(255, 60, 93);
+  cursor: pointer;
+  width: 34px;
+  height: 46px;
+  
+  margin-top: 3px;
+  margin-bottom: -3px;
+  
+  float: left;
+  font-size: 100%;
+  
+  text-align: center;
+  color: white;font-weight: bold;
+}
+.cuadros5 {
+  background-color: rgb(255, 60, 93);
+   color:white;
+ }

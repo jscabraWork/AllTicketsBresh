@@ -138,7 +138,7 @@ export class CarritoDeComprasComponent implements OnInit {
 
     if(this.pagar == false){
     this.codigoVentaCuadrar()
-    this.referenceCode = this.data.referenceCode +','+this.codigoVenta
+    this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.adicional
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -163,7 +163,7 @@ export class CarritoDeComprasComponent implements OnInit {
 
       //response:"http://localhost:4200/eventos/respuesta",
       response: `${respuesta}/eventos/respuesta`,
-      confirmation:`${API_URL2}/epayco`,
+      confirmation:`${API_URL2}/epayco/tickets`,
 
       //Atributos cliente
       name_billing: this.usuarioEntidad.nombre,
@@ -251,7 +251,7 @@ if(this.pagar == false){
 
     if(this.pagar == false){
     this.codigoVentaCuadrar()
-    this.referenceCode = this.data.referenceCode +','+this.codigoVenta
+    this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.adicional
     this.handler=this.window.ePayco.checkout.configure({
       key: 'c3b3aa9c8c34f800c0d0701f24fc5e33',
       test: false,
@@ -281,7 +281,7 @@ if(this.pagar == false){
 
       response: `${respuesta}/eventos/respuesta`,
      //response: "https://localhost:4200/eventos/respuesta",
-      confirmation:`${API_URL2}/epayco`,
+      confirmation:`${API_URL2}/epayco/tickets`,
 
       //Atributos cliente
       name_billing: this.usuarioEntidad.nombre,
@@ -302,7 +302,7 @@ if(this.pagar == false){
 
     if(this.pagar == false){
     this.codigoVentaCuadrar()
-    this.referenceCode = this.data.referenceCode +','+this.codigoVenta
+    this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.adicional
     this.handler=this.window.ePayco.checkout.configure({
       key: 'c3b3aa9c8c34f800c0d0701f24fc5e33',
       test: false,

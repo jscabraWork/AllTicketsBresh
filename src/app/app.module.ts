@@ -43,6 +43,7 @@ import { ComoComprarComponent } from './como-comprar/como-comprar.component';
 import { OlvidoComponent } from './olvido/olvido.component';
 import { FACEBOOK_PIXEL_PROVIDER } from './service/facebook/facebook-pixel-provider';
 import { CountdownModule } from 'ngx-countdown';
+import { TratamientoDatosComponent } from './tratamiento-datos/tratamiento-datos.component';
 
 //SERVICIOS
 
@@ -89,6 +90,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      BannerComponent,
      ComoComprarComponent,
      OlvidoComponent,
+     TratamientoDatosComponent,
 
   
 

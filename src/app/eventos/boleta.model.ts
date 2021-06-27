@@ -10,7 +10,8 @@ export interface Boleta {
 	localidadIdNumero:number,
 	nombreEvento:string,
 	servicio:number,
-	utilizada:boolean
+	utilizada:boolean,
+	servicioIva:number
 	
 
 

@@ -15,11 +15,10 @@
             <form (ngSubmit)="!todoForm.invalid && saveUsuario()" class="mt-4" #todoForm="ngForm">
                 <fieldset class="form-group">
                     
-                    <input class= "form-control "name ="id" placeholder="Numero De Documento" required="required"  [(ngModel)]="usuario.numeroDocumento">
-                </fieldset>    
-                
-                <fieldset class="form-group">
+                    <fieldset class="form-group">
                     
+                    <input type="text" class= "form-control "name ="nombre" placeholder="Nombre" required="required"  [(ngModel)]="usuario.nombre">
+                </fieldset>
                     <select type="text" class= "form-control colorGris "name ="tipoDocumento" required="required" placeholder="Tipo de documento" [(ngModel)]="usuario.tipoDocumento">
                         
                         <option value="Cedula" >Cedula</option>
@@ -27,11 +26,14 @@
                         <option value="Pasaporte">Pasaporte</option>
                     </select>    
                 </fieldset>
-
                 <fieldset class="form-group">
                     
-                    <input type="text" class= "form-control "name ="nombre" placeholder="Nombre" required="required"  [(ngModel)]="usuario.nombre">
-                </fieldset>
+                    <input class= "form-control "name ="id" placeholder="Numero De Documento" required="required"  [(ngModel)]="usuario.numeroDocumento">
+                </fieldset>    
+                
+               
+
+                
 
                
 
@@ -70,7 +72,7 @@
                 <div style="text-align: center;">
                     <button class="btn botonLogin mt-2 mb-3"   type="submit">Registrarse</button>
                 </div>   
-                <small>Al hacer clic en "Registrarse", <a class="terminos" (click)="terminosYCondiciones()"> Aceptas nuestro terminos, condiciones y nuestra politica de tratamiento de datos.</a> </small> 
+                <small>Al hacer clic en "Registrarse", <a class="terminos" (click)="terminosYCondiciones()"> Aceptas nuestro terminos, condiciones </a>y <a class="terminos"  (click)="tratamientoDatos()">nuestra politica de tratamiento de datos</a> </small> 
             </form>
         </div>    
     </div>

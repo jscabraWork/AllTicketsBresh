@@ -88,6 +88,7 @@ export class AdminLectorComponent implements OnInit {
       servicio:null,
       utilizada:null,
       vendida:null,
+      servicioIva:null
     }
     this.evento ={
       id: "",
@@ -238,6 +239,7 @@ export class AdminLectorComponent implements OnInit {
         servicio:null,
         utilizada:null,
         vendida:null,
+        servicioIva:null,
       }
     this.boletasBuscadasPorDocumento=[]
     this.clienteService.getClientePorId(this.idCliente).subscribe(response=>
@@ -316,6 +318,7 @@ export class AdminLectorComponent implements OnInit {
         servicio:null,
         utilizada:null,
         vendida:null,
+        servicioIva:null,
       }
       this.palcosServicio.getPalco(0,this.idPalco).subscribe(response=> {this.palco= response;
       
@@ -383,6 +386,7 @@ export class AdminLectorComponent implements OnInit {
         servicio:null,
         utilizada:null,
         vendida:null,
+        servicioIva:null,
       }
       this.boletasBuscadasPorDocumento=[]
       this.asistenteService.getAsistente(this.idAsistente).subscribe(response=>{

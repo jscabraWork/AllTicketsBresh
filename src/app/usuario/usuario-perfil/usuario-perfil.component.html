@@ -80,7 +80,7 @@
             <h5 class="pl-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
             <h5 class="pl-4 "><strong>Boleta No:</strong> {{boleta.id}}  </h5>
             <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
-            <h5 class="pl-4 pb-4"><strong>Precio: </strong>{{boleta?.precio + boleta.servicio + boleta.servicio*0.19 | currency:'COP'}}</h5>
+            <h5 class="pl-4 pb-4"><strong>Precio: </strong>{{boleta?.precio + boleta.servicio + boleta.servicioIva | currency:'COP'}}</h5>
         </div>
         
             

@@ -30,7 +30,8 @@ export class AgregarBoletasComponent implements OnInit {
   localidadIdNumero:null,
   nombreEvento:null,
   servicio:null,
-  utilizada:null
+  utilizada:null,
+  servicioIva:null
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');

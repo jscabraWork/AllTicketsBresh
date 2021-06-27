@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Md5 } from 'ts-md5';
 import { TerminosYCondicionesComponent } from '../terminos-ycondiciones/terminos-ycondiciones.component';
+import { TratamientoDatosComponent } from '../tratamiento-datos/tratamiento-datos.component';
 
 @Component({
   selector: 'app-registrarse',
@@ -81,4 +82,16 @@ export class RegistrarseComponent implements OnInit {
     });
   }
   
+  tratamientoDatos(){
+    const dialogRef = this.dialog.open(TratamientoDatosComponent, {
+      width: '600px',
+      height:'750px'
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+  }
 }

@@ -24,6 +24,7 @@ import { TerminosYCondicionesComponent } from './terminos-ycondiciones/terminos-
 import { BannerComponent } from './banner/banner.component';
 import { ComoComprarComponent } from './como-comprar/como-comprar.component';
 import { OlvidoComponent } from './olvido/olvido.component';
+import { TratamientoDatosComponent } from './tratamiento-datos/tratamiento-datos.component';
 
 
 const routes: Routes = [
@@ -135,6 +136,9 @@ const routes: Routes = [
   }
 
   ,
+  {
+    path:'tratamientoDatos', component: TratamientoDatosComponent
+  },
 
 
   {

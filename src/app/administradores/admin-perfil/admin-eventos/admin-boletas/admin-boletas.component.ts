@@ -63,4 +63,13 @@ export class AdminBoletasComponent implements OnInit {
 
   }
 
+  rechazarI(boleta:Boleta){
+    var boletas: Boleta[] = [];
+    boletas.push(boleta);
+    this.servicio.rechazarReservaBoletaInstantaneamente(boletas).subscribe(response=>{
+      response
+      this.refrescar()
+      
+    })
+  }
 }

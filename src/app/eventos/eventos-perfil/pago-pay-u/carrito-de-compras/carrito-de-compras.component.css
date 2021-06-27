@@ -1,18 +1,19 @@
 .tituloLocalidad{
     background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
     color:#FFF;
-    padding: 3%;
+    padding: 2%;
     width: 100%;
+   
     
 }
+
 .botonesCerrar{
 	
     color:white  ;
     cursor: pointer;
-
- 
-
-
+}
+.cantidad{
+font-size: 18px;
 }
 .frase{
     font-weight: bold;
