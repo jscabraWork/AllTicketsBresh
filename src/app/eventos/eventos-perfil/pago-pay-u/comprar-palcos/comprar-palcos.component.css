@@ -453,7 +453,7 @@ transform: rotate(30deg);
   }
 
  .margenIzquierdo{
-   margin-left: 432px;
+   margin-left: 385px;
  } 
 
  .tarimaMapa3 {
@@ -468,8 +468,8 @@ transform: rotate(30deg);
   font-size: 20px;
 }
 .margen2izquierda{
-  margin-left: 188px;
-  margin-right: 187px;
+  margin-left: 140px;
+  margin-right: 143px;
 }
 .tarimaAncha2 {
  
@@ -581,7 +581,7 @@ transform: rotate(30deg);
 }
 .localidadLibreLarga{
   background-color: green;
-  width:381px;
+  width:336px;
   height: 100px;
   margin:3px;
   font-size: 30px;
@@ -606,7 +606,7 @@ cursor: pointer;
 }
 .localidadLibreLarga2{
   background-color: green;
-  width:419px;
+  width:372px;
   height: 100px;
   margin:3px;
   font-size: 30px;
