@@ -242,3 +242,10 @@ td {
   }
   
 }
+.precios{
+  font-size: 10px;
+  font-weight: bolder;
+}
+.margen-menor{
+  margin-top: -12px;
+}

@@ -42,7 +42,7 @@ signature:string
 ApiKey:string
 valorLocalidadAgregada:number 
 contadorBoletas 
-etapa:Etapa
+etapa:Etapa[]=[]
 boletaBoolean:boolean
 
 cargando:boolean=false
@@ -60,7 +60,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
     this.valorLocalidadAgregada=0
     
     this.usuarioBoolean=true;
-    this.referenceCode= this.referenceCode 
+    this.referenceCode= ""
     this.IVA = IVA
     this.merchantId=703263  // 508029
     this.accountId=706326 //  512321
@@ -120,30 +120,29 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       boletas:[],
       palcos:[]
         }
-        this.etapa={
-          evento:null,
-          id:null,
-          localidades:[],
-          nombre:"PRUEBA",
-          visible:null    
-        }
+
 
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
       this.idLocalidad =params.get('idLocalidad');
-
+      this.contadorBoletas =0
 
       
      
       this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
+        
         this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(response =>{this.manejar(response);
+          
           var i =0;
-          while(i < this.etapa.localidades.length){
-            if(this.etapa.localidades[i].id ==this.idLocalidad){
-              this.localidad=this.etapa.localidades[i]
-              i= this.etapa.localidades.length;
+
+          while(i < this.etapa.length){
+            for(var j=0;j< this.etapa[i].localidades.length;j=j+1)
+            {
+            if(this.etapa[i].localidades[j].id ==this.idLocalidad){
+              this.localidad=this.etapa[i].localidades[j]
+            
             }
-  
+          }
             i=i+1;
           }
 
@@ -224,45 +223,6 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   manejar(response){
     this.etapa =response;
   }
-  reservarBoletasSillasExactas(localidad:Localidad){
-
-
-    var lista:Boleta[]=[];
-
-    if(this.boletas.length<6 && !this.usuarioBoolean)
-    {
-    this.servicioBoletas.getBoletasVendidasYReservado(this.evento.id, localidad.id, false, false).subscribe(response=>{
-      lista= response
-      if(lista.length>0){ 
-        this.boletas.push(lista[0])
-      
-        this.referenceCode = this.referenceCode +lista[0].localidadNombre+":"+lista[0].id+"/";
-      
-        this.servicioBoletas.reservarBoletaIndividual(this.evento.id, localidad.id, lista[0]).subscribe(data=>  {data;
-          this.valorTotal=this.valorTotal+ localidad.precio  + localidad.servicio + localidad.servicio*IVA
-          var md5 = new Md5()
-
-
-          this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
-          this.servicioBoletas.rechazarReservaBoleta( this.boletas).subscribe(response=>response);
-      
-      })}
-      else {
-        alert("No quedan boletas en esta localidad, prueba más tarde")
-      }
-      
-    })
-  }
-  
-  else if(this.usuarioBoolean){
-    alert("Entra a tu cuenta AllTickets")
-   this.openDialog();
-  }
-
-  else if(this.boletas.length==6 ){
-    alert("Solo puedes comprar 6 boletas máximo por Evento")
-  }
-  }
 
 
 
@@ -274,7 +234,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
     if(this.localidadesCompradas.length<6 && !this.usuarioBoolean && !this.cargando)
     {
       this.localidadesCompradas.push(localidad);
-      this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.servicio + localidad.servicio*IVA;
+      this.valorLocalidadAgregada = this.valorLocalidadAgregada +  localidad.precio  +localidad.servicio + localidad.servicioPorcentaje;
 
    }
   
@@ -295,13 +255,11 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 
   reservarBoletasLocalidad(){
 
-
-    
- 
-  if(this.localidadesCompradas.length + this.boletas.length + this.contadorBoletas<7 && !this.usuarioBoolean && this.localidadesCompradas.length>0)
+   
+  if(this.localidadesCompradas.length + this.contadorBoletas<7 && !this.usuarioBoolean && this.localidadesCompradas.length>0)
     {
       this.cargando=true
-    
+      
 
         
         this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.localidadesCompradas[0].id , this.localidadesCompradas.length).subscribe(response=>{
@@ -309,15 +267,16 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
           if(response!=null){ 
             this.boletas =response
             this.cargando= false
-
+            this.referenceCode = 'TICKET;'+this.usuarioEntidad.numeroDocumento + ',' ;
         for(var i=0; this.boletas.length>i;i=i+1)
         { 
           var md5 = new Md5()
-          this.referenceCode = this.referenceCode +this.boletas[i].localidadNombre+":"+this.boletas[i].id+"/" ;
-          this.valorTotal=this.valorTotal+ this.boletas[i].precio  +this.boletas[i].servicio +this.boletas[i].servicio*IVA  
-          this.signature = md5.appendStr(this.ApiKey+"~"+this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~COP").end().toString();
+          this.referenceCode  = this.referenceCode+ this.boletas[i].id +"_"
+          this.valorTotal=this.valorTotal+ this.boletas[i].precio  +this.boletas[i].servicio +this.boletas[i].servicioIva
+          
           if(i == this.boletas.length-1){
-            this.referenceCode = this.referenceCode + "% FECHA: "+ new Date();
+            this.referenceCode = this.referenceCode + "-1"
+            this.referenceCode = this.referenceCode +"," + this.boletas[0].nombreEvento +"," + new Date()
             this.AbrirCarrito()  
           }
 
@@ -364,7 +323,7 @@ quitaBoletaLocalidad(localidad:Localidad){
     for(var i =0 ; i <this.localidadesCompradas.length && !terminado;i=i+1){
       if(this.localidadesCompradas [i].id==localidad.id){
         this.localidadesCompradas.splice(i,1)
-        this.valorLocalidadAgregada = this.valorLocalidadAgregada - (localidad.precio  +localidad.servicio +localidad.servicio*0.19) ;
+        this.valorLocalidadAgregada = this.valorLocalidadAgregada - (localidad.precio  +localidad.servicio +localidad.servicioPorcentaje) ;
         terminado = true;
       }
     }
@@ -426,12 +385,7 @@ AbrirCarrito(): void {
     
     
     this.dialog.closeAll();
-    this.boletas=[]
-    this.localidadesCompradas=[]
-    this.valorLocalidadAgregada =0
-    this.valorTotal=0
-    this.referenceCode="TICKET: /"
-    this.signature = null
+    this.ngOnInit()
 
 
 

@@ -107,7 +107,9 @@ scroll(){
 openDialog(): void {
   const dialogRef = this.dialog.open(ImagenEventosComponent, {
 
-    data: { mapaImagen: this.evento.mapaImagen }
+    data: { mapaImagen: this.evento.mapaImagen },
+    width:'100%',
+    height:'100%'
     
     
   });

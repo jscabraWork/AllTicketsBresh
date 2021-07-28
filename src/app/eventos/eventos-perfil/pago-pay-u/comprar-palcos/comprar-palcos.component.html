@@ -40,7 +40,7 @@
                 <td>{{darCantidadDePalcos(localidadCargada)}}</td>
                 <td><strong>{{localidadCargada.precio | currency: 'COP'}}</strong> +
                   <strong>{{localidadCargada.servicio| currency:'COP'}}</strong> +
-                  <strong>{{localidadCargada.servicio*IVA|currency:'COP'}}</strong>
+                  <strong>{{localidadCargada.servicioPorcentaje|currency:'COP'}}</strong>
                 </td>
 
 
@@ -85,15 +85,19 @@
 </div>
 <img class="sold_out" *ngIf="evento.soldout && evento?.mapa" src="../../assets/images/img/SOLDOUT.png" alt="">
 <div *ngIf="evento?.mapa" id="convensiones">
-  <p *ngIf="evento?.mapa !='mapa3'"><span class="cuadros">#</span> Disponible</p>
+  <p *ngIf="evento?.mapa !='mapa5'"><span class="cuadros">#</span> Disponible</p>
   <p><span class="cuadros rojo">v</span>Vendido</p>
   <p><span class="cuadros amarillo">p</span>En Proceso de compra</p>
-  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros opaco">l</span>No hace parte de esta etapa de venta</p>
-  <p *ngIf="evento?.mapa =='mapa3'"><span class="cuadros">#</span> PALCOS GENERAL</p>
+  <p *ngIf="evento?.mapa =='mapa5'" ><span class="cuadros3 cuadros">#</span>PALCOS EXCLUSIVE</p>
+  <p *ngIf="evento?.mapa =='mapa5'" ><span class="cuadros5 cuadros">#</span>PALCOS VIP</p>
+  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros">#</span> PALCOS PREFERENCIAL</p>
+  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros cuadros7"></span> PLATINO (Tickets Individuales)</p>
+  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros cuadros8"></span> GENERAL (Tickets Individuales)</p>
+  <!-- <p *ngIf="evento?.mapa =='mapa3'"><span class="cuadros">#</span> PALCOS GENERAL</p>
   <p *ngIf="evento?.mapa =='mapa3'" ><span class="cuadros3 cuadros">#</span>PALCOS VIP</p>
   <p *ngIf="evento?.mapa =='mapa3'" ><span class="cuadros4 cuadros"></span>ZONA LIBRE GENERAL (Boletas Individuales)</p>
-  <p *ngIf="evento?.mapa =='mapa3'" ><span class="cuadros5 cuadros"></span>ZONA LIBRE VIP (Boletas Individuales)</p>
-
+  <p *ngIf="evento?.mapa =='mapa3'" ><span class="cuadros5 cuadros"></span>ZONA LIBRE VIP (Boletas Individuales)</p>-->
+  <p *ngIf="evento?.mapa =='mapa1'" ><span class="cuadros4 cuadros"></span>PERREO AL AIRE LIBRE (Boletas Individuales)</p> 
   <p *ngIf="evento?.mapa =='mapa4'"><span class="cuadros">#</span> PALCOS VIP</p>
   <p *ngIf="evento?.mapa =='mapa4'" ><span class="cuadros3 cuadros">#</span>PALCOS PLATINO</p>
 </div>
@@ -310,6 +314,195 @@
       </div>
 
       <div class="clearFix"></div>
+
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo">
+        
+      </div>
+      <div class="tarimaPerreo">
+        TARIMA
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo2">
+        
+      </div>
+      <div class="clearfix"></div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo3">
+        PERREO AL AIRE LIBRE
+      </div>
+      <div class="clearfix"></div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo5">
+        
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo6">
+        
+      </div>
+
+      <div class="clearfix"></div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo5">
+        
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo8">
+   
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo7">
+        
+      </div>
+      <div class="comidas">
+        
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo8">
+     
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo9">
+        
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+
+      <div class="clearfix"></div>
+
+
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div class="localidadLibreLargaPerreo5">
+        BAÑOS
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo8">
+        EMPRENDI-
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo7">
+        
+      </div>
+      <div class="comidas">
+        ZONA REDBULL Y BAR
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div class="localidadLibreLargaPerreo8">
+        EMPRENDI-
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo9">
+        ZONA COMIDAS
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div class="localidadLibreLargaPerreo5">
+        
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo8">
+        MIENTOS
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo7">
+        
+      </div>
+      <div class="comidas">
+     
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo8">
+        MIENTOS
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo9">
+   
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+
+      <div class="clearfix"></div>
+
+
+
+
+
+
+      
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div class="localidadLibreLargaPerreo8">
+        
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo7">
+        
+      </div>
+      <div class="comidas">
+     
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo8">
+        
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div  class="localidadLibreLargaPerreo9">
+   
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo4">
+        
+      </div>
+      <div class="clearfix"></div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo10">
+        
+      </div>
+      <div class="comidas">
+     
+      </div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo11">
+        
+      </div>
+      <div class="clearfix"></div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreLargaPerreo12">
+        
+      </div>
+
     </div>
   </div>
 </div>
@@ -534,11 +727,12 @@
 
 
 
-<div id="desplazate" *ngIf="evento?.mapa=='mapa3'">
+<!-- <div id="desplazate" *ngIf="evento?.mapa=='mapa3'">
   <p>
-    <--- Desplázate en el mapa --->
+     Desplázate en el mapa 
   </p>
-</div>
+</div> -->
+<!-- 
 <div class="contenedor-mapa mt-5 pb-5" *ngIf="evento?.mapa=='mapa3'">
   <div class="mapa3" style="margin: 0px auto;">
 
@@ -918,15 +1112,7 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
+ -->
 
 
 
@@ -1106,6 +1292,93 @@
   </div>
 </div>
 
+
+
+<div class="contenedor-mapa6 mt-5 pb-5" *ngIf="evento?.mapa=='mapa5'">
+  <div class="mapa5" style="margin: 0px auto;">
+
+    <div class="centrar-mapa">
+      <div class="tarimaBooth ">
+        BOOTH
+      </div>
+      <div class="clearFix"></div>
+
+      
+      <div *ngFor="let item of lista1">
+        <div class="cuadros2" [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip'}"
+          (click)="agregarPalcoIndividual(item.valor)">
+          {{item.valor}}
+        </div>
+      </div>
+      <div class="clearFix"></div>
+      <div *ngFor="let item of lista2">
+        <div class="cuadros2" [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip'}"
+          (click)="agregarPalcoIndividual(item.valor)">
+          {{item.valor}}
+        </div>
+      </div>
+      <div class="clearFix"></div>
+      <div *ngFor="let item of lista3">
+        <div class="cuadros2" [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros5':item.localidad=='pre'}"
+          (click)="agregarPalcoIndividual(item.valor)">
+          {{item.valor}}
+        </div>
+      </div>
+      <div class="clearFix"></div>
+      <div *ngFor="let item of lista4">
+        <div class="cuadros2" [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros5':item.localidad=='pre'}"
+          (click)="agregarPalcoIndividual(item.valor)">
+          {{item.valor}}
+        </div>
+      </div>
+      <div class="clearFix"></div>
+      <div *ngFor="let item of lista5">
+        <div class="cuadros2" [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros5':item.localidad=='pre'}"
+          (click)="agregarPalcoIndividual(item.valor)">
+          {{item.valor}}
+        </div>
+      </div>
+      <div class="clearFix"></div>
+      <div *ngFor="let item of lista6">
+        <div class="cuadros2" [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros5':item.localidad=='pre'}"
+          (click)="agregarPalcoIndividual(item.valor)">
+          {{item.valor}}
+        </div>
+      </div>
+      <div class="clearFix"></div>
+
+
+      <div *ngFor="let item of lista7">
+        <div class="cuadros2" [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l'}"
+          (click)="agregarPalcoIndividual(item.valor)">
+          {{item.valor}}
+        </div>
+      </div>
+      <div class="clearFix"></div>
+      <div *ngFor="let item of lista8">
+        <div class="cuadros2" [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l'}"
+          (click)="agregarPalcoIndividual(item.valor)">
+          {{item.valor}}
+        </div>
+      </div>
+      <div class="clearFix"></div>
+      <div *ngFor="let item of lista9">
+        <div class="cuadros2" [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l'}"
+          (click)="agregarPalcoIndividual(item.valor)">
+          {{item.valor}}
+        </div>
+      </div>
+      <div class="clearFix"></div>
+      <div (click)="abrirTickets(localidadCargadaBoletasVIP)" class="localidadLibreAgora1">
+        PLATINO
+      </div>
+      <div class="clearFix"></div>
+      <div (click)="abrirTickets(localidadCargadaBoletas)" class="localidadLibreAgora2">
+        GENERAL
+      </div>
+        </div>
+  </div>
+</div>
 
 
 

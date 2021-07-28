@@ -146,6 +146,32 @@
                 background-color: white;
             }
             
+.ver{
+    display: none;
+}
+.ver p,
+.ver p{
+  color:#ed701c;
+  font-weight: bolder;
+  font-size: 20px;
 
-          
+}
+@media(max-width:510px){
+    .tabla thead tr th{
+        font-size: 14px;
+    }
+    .tabla button{
+        width: 100%;
+        border-radius: 0px;
+    }
 
+}
+@media(max-width:490px){
+    .esconder{
+        overflow: scroll;
+        z-index: 1;
+    }
+    .ver{
+        display: block;
+    }
+}
