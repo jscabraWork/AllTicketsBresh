@@ -132,9 +132,7 @@ manejar(response){
   this.etapas =response;
 }
 
-getSafeUrl(url) {
-  return this.sanitizer.bypassSecurityTrustResourceUrl(url)
-}
+
 
 
 
