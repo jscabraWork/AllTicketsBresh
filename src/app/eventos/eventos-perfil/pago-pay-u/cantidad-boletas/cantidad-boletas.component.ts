@@ -24,6 +24,7 @@ export class CantidadBoletasComponent implements OnInit {
   valorTotal 
   usuarioEntidad: Cliente;
   cargando:boolean
+  codigoVenta
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private servicioBoletas: BoletasDataService,
@@ -61,7 +62,8 @@ export class CantidadBoletasComponent implements OnInit {
       imagenFinal:null,
       fechaApertura:null,
       urlMapa:null,
-      adicionales:[]
+      adicionales:[],
+      oculto:null
     };
     this.usuarioEntidad = this.data.usuarioEntidad;
     this.boletasCantidad =1
@@ -71,6 +73,8 @@ export class CantidadBoletasComponent implements OnInit {
     this.efectivo = this.data.efectivo
     this.evento = this.data.evento
     this.contadorBoletas = this.data.contadorBoletas
+    this.codigoVenta = this.data.codigoVenta;
+
   }
   mas(){
     if(this.boletasCantidad+this.contadorBoletas <6){
@@ -129,6 +133,7 @@ AbrirCarrito(): void {
         usuarioEntidad: this.usuarioEntidad,
         referenceCode: this.referenceCode,
         efectivo: this.efectivo,
+        codigoVenta: this.codigoVenta
       },
     });
   

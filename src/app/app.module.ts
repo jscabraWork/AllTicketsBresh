@@ -41,7 +41,7 @@ import { RedesSocialesComponent } from './redes-sociales/redes-sociales.componen
 import { BannerComponent } from './banner/banner.component';
 import { ComoComprarComponent } from './como-comprar/como-comprar.component';
 import { OlvidoComponent } from './olvido/olvido.component';
-import { FACEBOOK_PIXEL_PROVIDER } from './service/facebook/facebook-pixel-provider';
+
 import { CountdownModule } from 'ngx-countdown';
 import { TratamientoDatosComponent } from './tratamiento-datos/tratamiento-datos.component';
 
@@ -123,8 +123,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   providers: [
    
     {provide:HTTP_INTERCEPTORS, useClass: HttpInterceptBasicAuthService, multi: true  },
-    {provide: LOCALE_ID, useValue: 'es', } ,
-     FACEBOOK_PIXEL_PROVIDER
+    {provide: LOCALE_ID, useValue: 'es', } 
   ],
   bootstrap: [AppComponent]
 })

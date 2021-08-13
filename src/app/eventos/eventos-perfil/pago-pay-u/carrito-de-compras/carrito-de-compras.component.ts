@@ -75,7 +75,8 @@ export class CarritoDeComprasComponent implements OnInit {
       imagenFinal:null,
       fechaApertura:null,
       urlMapa:null,
-      adicionales:[]
+      adicionales:[],
+      oculto:null
     };
 
     this.palco = {
@@ -109,6 +110,9 @@ export class CarritoDeComprasComponent implements OnInit {
     if (this.data.palco) {
       this.palco = this.data.palco;
     }
+    
+      this.codigoVenta = this.data.codigoVenta;
+      
 
   }
 
@@ -128,7 +132,7 @@ export class CarritoDeComprasComponent implements OnInit {
 
   codigoVentaCuadrar(){
   
-    if(this.codigoVenta==''){
+    if(this.codigoVenta=='' || this.codigoVenta == null){
       this.codigoVenta='00000'
     }
   }

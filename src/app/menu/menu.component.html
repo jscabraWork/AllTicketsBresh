@@ -26,14 +26,7 @@
 							<div class="collapse navbar-collapse justify-content-md-end" id="uno">
 								<ul class="navbar-nav">
 	
-									<li routerLinkActive="active " class=" m-lg-3">
-										<a routerLink='/home' class="nav-link">Inicio</a>
-									</li>
-									<!--
-									<li routerLinkActive="active" class=" m-lg-3">
-										<a (click)="openDialog7()" style="cursor: pointer;" class="nav-link">Calendario</a>
-									</li>
-									-->
+		
 									<li routerLinkActive="active " class=" m-lg-3">
 										<a routerLink='/eventos' class="nav-link">Eventos</a>
 									</li>
@@ -55,9 +48,10 @@
 										<a (click)="openDialog3()" class="nav-link " style="cursor: pointer" class="nav-link">Contáctanos</a>
 									</li>
 
+
+
 									<li routerLinkActive="active" class=" m-lg-3">
-										<a *ngIf="!autenticacion.getPromotor()&&!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin() && !autenticacion.puntoFisicoLoggin() && !autenticacion.ministerioLoggin()" (click)="openDialog2()" class="nav-link " style="color:#ed701c;cursor: pointer"><mat-icon>input</mat-icon></a>
-										<a  *ngIf="autenticacion.usuarioLoggin()" routerLink='/usuarios/usuario/{{usuario}}' class="nav-link " (click)="cargarUsuario()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
+										<a *ngIf="!autenticacion.getPromotor()&&!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin() && !autenticacion.puntoFisicoLoggin() && !autenticacion.ministerioLoggin()" (click)="openDialog2()" class="nav-link " style="color:#ed701c;cursor: pointer">Login</a>										<a  *ngIf="autenticacion.usuarioLoggin()" routerLink='/usuarios/usuario/{{usuario}}' class="nav-link " (click)="cargarUsuario()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
 										<a  *ngIf="autenticacion.adminLoggin()" routerLink='/administradores/admin/{{usuario}}' class="nav-link " (click)="cargarAdmin()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
 										<a  *ngIf="autenticacion.organizadorLoggin()" routerLink='organizadores/organizador/{{usuario}}' class="nav-link " (click)="cargarOrganizador()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
 										<a  *ngIf="autenticacion.ministerioLoggin()" routerLink='perfilMinisterio/{{usuario}}' class="nav-link " (click)="cargarMinisterio()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
@@ -65,12 +59,10 @@
 										<a  *ngIf="autenticacion.promotorLoggin()" routerLink='promotor/{{usuario}}' class="nav-link " (click)="cargarPromotor()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
 									</li>
 									<li routerLinkActive="active" class=" m-lg-3" *ngIf="!autenticacion.getPromotor()&&!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin() && !autenticacion.puntoFisicoLoggin() && !autenticacion.ministerioLoggin()">
-										<a   (click)="openDialog()" class="nav-link " style="color:#ed701c;cursor: pointer"><mat-icon>assignment</mat-icon></a>
+										<a   (click)="openDialog()" class="nav-link " style="color:#ed701c;cursor: pointer">Registraté</a>
 										
 									</li>
 									
-
-								
 									<li routerLinkActive="active" class=" m-lg-3">
 										<a *ngIf="autenticacion.usuarioLoggin()" routerLink='/logout' class="nav-link"><mat-icon>exit_to_app</mat-icon></a>
 										<a *ngIf="autenticacion.adminLoggin()" routerLink='/logoutA' class="nav-link" ><mat-icon>exit_to_app</mat-icon></a>

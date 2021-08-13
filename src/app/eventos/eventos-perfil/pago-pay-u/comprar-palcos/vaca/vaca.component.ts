@@ -223,7 +223,8 @@ export class VacaComponent implements OnInit {
           imagenFinal:null,
           fechaApertura:null,
           urlMapa:null,
-          adicionales:[]
+          adicionales:[],
+          oculto:null
         }
 
         this.route.paramMap.subscribe( params =>{
@@ -279,7 +280,7 @@ export class VacaComponent implements OnInit {
 
   
   handleGetSuccesfull(response){
-    if(response.visible){
+    if(response.visible || response.oculto){
       this.evento=response;
     }
   }

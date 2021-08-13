@@ -34,6 +34,7 @@ import { CantidadBoletasComponent } from './eventos-perfil/pago-pay-u/cantidad-b
 
 
 
+
 const routes: Routes=[
 
 {
@@ -53,6 +54,10 @@ const routes: Routes=[
         },
         {
           path:'evento/:id/pago/palco/:idLocalidad',
+          component: ComprarPalcosComponent
+        },
+        {
+          path:'evento/:id/pago/palco/:idLocalidad/:codigoVenta',
           component: ComprarPalcosComponent
         },
        /* {

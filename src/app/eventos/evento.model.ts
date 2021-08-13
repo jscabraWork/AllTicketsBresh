@@ -32,6 +32,7 @@ export interface Evento {
     imagenFinal:Foto,
     fechaApertura:Date,
     urlMapa:string,
-    adicionales:Adicionales[]
+    adicionales:Adicionales[],
+    oculto:boolean
 
 }

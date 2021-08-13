@@ -77,7 +77,8 @@ export class AdicionalComponent implements OnInit {
       imagenFinal:null,
       fechaApertura:null,
       urlMapa:null,
-      adicionales:[]
+      adicionales:[],
+      oculto:null
     };
 
     this.palco = {

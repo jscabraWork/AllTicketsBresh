@@ -93,7 +93,8 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       imagenFinal:null,
       fechaApertura:null,
       urlMapa:null,
-      adicionales:[]
+      adicionales:[],
+      oculto:null
     }
     this.localidad ={
       id:null,
@@ -194,7 +195,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 
 
   handleGetSuccesfull(response){
-    if(response.visible){
+    if(response.visible || response.oculto){
       this.evento=response;
     }
   }

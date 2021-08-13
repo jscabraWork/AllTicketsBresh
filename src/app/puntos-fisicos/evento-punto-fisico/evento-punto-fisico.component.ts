@@ -65,7 +65,8 @@ IVA
       imagenFinal:null,
       fechaApertura:null,
       urlMapa:null,
-      adicionales:[]
+      adicionales:[],
+      oculto:null
     }
     this.etapa={
       evento:null,

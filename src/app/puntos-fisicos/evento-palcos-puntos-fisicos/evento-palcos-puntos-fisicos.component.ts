@@ -73,7 +73,8 @@ valorBoletas=0
       imagenFinal:null,
       fechaApertura:null,
       urlMapa:null,
-      adicionales:[]
+      adicionales:[],
+      oculto:null
     }
     this.palco={
       id:null,

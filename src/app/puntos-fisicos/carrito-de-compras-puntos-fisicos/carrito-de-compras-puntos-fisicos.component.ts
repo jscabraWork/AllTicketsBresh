@@ -68,7 +68,8 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
       imagenFinal:null,
       fechaApertura:null,
       urlMapa:null,
-      adicionales:[]
+      adicionales:[],
+      oculto:null
     }
 
 

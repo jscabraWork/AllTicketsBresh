@@ -53,7 +53,8 @@ export class AgregarEventoComponent implements OnInit {
       imagenFinal:null,
       fechaApertura:null,
       urlMapa:null,
-      adicionales:[]
+      adicionales:[],
+      oculto:null
       
     }
 

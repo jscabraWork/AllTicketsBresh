@@ -66,7 +66,8 @@ export class EventosPerfilComponent implements OnInit {
       imagenFinal:null,
       fechaApertura:null,
       urlMapa:null,
-      adicionales:[]
+      adicionales:[],
+      oculto:null
     }
  
     
@@ -86,9 +87,21 @@ export class EventosPerfilComponent implements OnInit {
         this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(response =>{this.manejar(response);
           
           for(let i=0; i< response.length; i++){
+            
+            if(this.evento.mapa =='mapa1')
+            {
+              console.log(response[i])
+              this.localidades =[]
+              this.localidades = this.localidades.concat(response[i].localidades[1])
+            console.log(this.localidades)
+            
+          }
+          else{
             this.localidades = this.localidades.concat(response[i].localidades)
           }
-         
+            
+          }
+          
 
           })
         
@@ -103,7 +116,9 @@ scroll(){
   document.getElementById("prueba9").scrollIntoView({behavior:"smooth"})
 }
 
-
+getSafeUrl(url) {
+  return this.sanitizer.bypassSecurityTrustResourceUrl(url)
+}
 openDialog(): void {
   const dialogRef = this.dialog.open(ImagenEventosComponent, {
 
@@ -123,7 +138,7 @@ openDialog(): void {
 }
 
 handleGetSuccesfull(response){
-  if(response.visible){
+  if(response.visible || response.oculto){
   this.evento=response;
 }
 }

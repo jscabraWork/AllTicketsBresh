@@ -88,7 +88,8 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
       imagenFinal:null,
       fechaApertura:null,
       urlMapa:null,
-      adicionales:[]
+      adicionales:[],
+      oculto:null
     }
     this.localidad ={
       id:null,

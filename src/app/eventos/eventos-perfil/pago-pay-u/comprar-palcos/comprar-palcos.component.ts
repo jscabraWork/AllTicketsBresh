@@ -105,7 +105,7 @@ export class ComprarPalcosComponent implements OnInit {
   localidadCargadaBoletas: Localidad;
   localidadCargadaBoletasVIP:Localidad;
   contadorBoletas;
-
+  codigoVenta;
   constructor(
     private route: ActivatedRoute,
     private dialog: MatDialog,
@@ -119,7 +119,8 @@ export class ComprarPalcosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-   
+    
+    this.codigoVenta =''
     this.contadorBoletas = 0;
     this.valorBoletas = 0;
     this.contadorPalcos = 0;
@@ -353,8 +354,12 @@ export class ComprarPalcosComponent implements OnInit {
       fechaApertura: null,
       urlMapa: null,
       adicionales: [],
+      oculto:null
     };
-
+    this.codigoVenta =='';
+    this.route.paramMap.subscribe((params)=>{
+      this.codigoVenta = params.get('codigoVenta')
+    })
     this.route.paramMap.subscribe((params) => {
       this.miId = params.get('id');
       this.idLocalidad = params.get('idLocalidad');
@@ -562,7 +567,7 @@ export class ComprarPalcosComponent implements OnInit {
   }
 
   handleGetSuccesfull(response) {
-    if (response.visible) {
+    if(response.visible || response.oculto){
       this.evento = response;
     }
   }
@@ -646,6 +651,8 @@ export class ComprarPalcosComponent implements OnInit {
 
   carrito() {
     let efectivo = this.localidadCargada.efectivo;
+  
+  
     const dialogRef = this.dialog.open(CarritoDeComprasComponent, {
       width: '100%',
       height: '85%',
@@ -655,7 +662,7 @@ export class ComprarPalcosComponent implements OnInit {
         palco: this.palco,
         evento: this.evento,
         usuarioEntidad: this.usuarioEntidad,
-
+        codigoVenta:this.codigoVenta,
         referenceCode: this.referenceCode,
         efectivo: efectivo,
       },
@@ -2353,12 +2360,14 @@ export class ComprarPalcosComponent implements OnInit {
     }
 
     else {
+      alert('Ingresa a tu cuenta AllTickets para poder realizar la compra')
       this.openDialog();
     }
   }
 
   cantidadBoletas(localidad: Localidad) {
     let efectivo = localidad.efectivo;
+
     const dialogRef = this.dialog.open(CantidadBoletasComponent, {
       width: '600px',
      
@@ -2369,6 +2378,7 @@ export class ComprarPalcosComponent implements OnInit {
         efectivo: efectivo,
         evento:this.evento,
         contadorBoletas:this.contadorBoletas,
+        codigoVenta:this.codigoVenta,
         usuarioEntidad: this.usuarioEntidad,
       },
     });
