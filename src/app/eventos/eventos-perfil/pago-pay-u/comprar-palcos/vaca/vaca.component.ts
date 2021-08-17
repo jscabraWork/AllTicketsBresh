@@ -177,7 +177,8 @@ export class VacaComponent implements OnInit {
       servicioIva:null,
       proceso:null,
       disponible:null,
-      idLocalidad:null
+      idLocalidad:null,
+      reserva:null
     }
 
     this.usuarioEntidad= {
@@ -435,7 +436,8 @@ getPalcoIndividualParaMapa(numero){
       servicioIva:null,
       proceso:null,
       disponible:null,
-      idLocalidad:null
+      idLocalidad:null,
+      reserva:null
     }
    }
 

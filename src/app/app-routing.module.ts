@@ -25,6 +25,7 @@ import { BannerComponent } from './banner/banner.component';
 import { ComoComprarComponent } from './como-comprar/como-comprar.component';
 import { OlvidoComponent } from './olvido/olvido.component';
 import { TratamientoDatosComponent } from './tratamiento-datos/tratamiento-datos.component';
+import { ReservasPromotorComponent } from './reservas-promotor/reservas-promotor.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,11 @@ const routes: Routes = [
     path:'ciudades', 
     loadChildren:() => import('./ciudades/ciudades.module').then(m => m.CiudadesModule)
   },
+{
+  path:'reservas/:id',
+  component:ReservasPromotorComponent
+}
+  ,
 
   {
     path:'usuarios', 

@@ -81,7 +81,8 @@ export class AgregarAmigosComponent implements OnInit {
        servicioIva:null,
        proceso:null,
        disponible:null,
-       idLocalidad:null
+       idLocalidad:null,
+       reserva:null
     }
     this.user= this.autenticador.getUsuario();
     

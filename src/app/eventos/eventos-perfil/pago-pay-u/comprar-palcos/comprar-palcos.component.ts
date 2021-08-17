@@ -159,6 +159,7 @@ export class ComprarPalcosComponent implements OnInit {
           proceso: null,
           disponible: null,
           idLocalidad: null,
+          reserva:null
         },
       ],
       servicioPorcentaje: null,
@@ -191,6 +192,7 @@ export class ComprarPalcosComponent implements OnInit {
           proceso: null,
           disponible: null,
           idLocalidad: null,
+          reserva:null
         },
       ],
       servicioPorcentaje: null,
@@ -222,6 +224,7 @@ export class ComprarPalcosComponent implements OnInit {
           proceso: null,
           disponible: null,
           idLocalidad: null,
+          reserva:null
         },
       ],
       servicioPorcentaje: null,
@@ -253,6 +256,7 @@ export class ComprarPalcosComponent implements OnInit {
           proceso: null,
           disponible: null,
           idLocalidad: null,
+          reserva:null
         },
       ],
       servicioPorcentaje: null,
@@ -284,6 +288,7 @@ export class ComprarPalcosComponent implements OnInit {
           proceso: null,
           disponible: null,
           idLocalidad: null,
+          reserva:null
         },
       ],
       servicioPorcentaje: null,
@@ -306,6 +311,7 @@ export class ComprarPalcosComponent implements OnInit {
       proceso: null,
       disponible: null,
       idLocalidad: null,
+      reserva:null
     };
 
     this.usuarioEntidad = {

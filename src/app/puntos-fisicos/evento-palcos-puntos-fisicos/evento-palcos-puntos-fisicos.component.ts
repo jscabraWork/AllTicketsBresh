@@ -92,7 +92,8 @@ valorBoletas=0
       servicioIva:null,
       proceso:null,
       disponible:null,
-      idLocalidad:null
+      idLocalidad:null, 
+      reserva:null
     }
     this.user=this.autenticador.getPuntoFisico();
     this.servicio.getPuntoPorUsuario(this.user).subscribe(response=>{this.puntoFisico=response;

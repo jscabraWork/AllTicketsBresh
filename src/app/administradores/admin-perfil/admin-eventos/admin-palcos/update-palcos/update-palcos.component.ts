@@ -30,6 +30,7 @@ export class UpdatePalcosComponent implements OnInit {
      
 })
 
+
 this.palco={
   id:null,
     precio:null,
@@ -46,7 +47,8 @@ this.palco={
     servicioIva:null,
     proceso:null,
     disponible:null,
-    idLocalidad:null
+    idLocalidad:null,
+    reserva:null
 
 }
   }

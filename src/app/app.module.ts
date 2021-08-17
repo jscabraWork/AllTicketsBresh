@@ -44,6 +44,7 @@ import { OlvidoComponent } from './olvido/olvido.component';
 
 import { CountdownModule } from 'ngx-countdown';
 import { TratamientoDatosComponent } from './tratamiento-datos/tratamiento-datos.component';
+import { ReservasPromotorComponent } from './reservas-promotor/reservas-promotor.component';
 
 //SERVICIOS
 
@@ -91,6 +92,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      ComoComprarComponent,
      OlvidoComponent,
      TratamientoDatosComponent,
+     ReservasPromotorComponent,
 
   
 

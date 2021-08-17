@@ -47,7 +47,7 @@ this.palco={
     proceso:null,
     disponible:null,
     idLocalidad:null,
-    
+    reserva:null
 
 }
   }

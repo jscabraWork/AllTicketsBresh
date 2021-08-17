@@ -58,6 +58,7 @@ export class AdminLectorComponent implements OnInit {
       nombre:null,
       numeroDocumento:null,
     }
+    
     this.palco={
      id:null, 
      nombre:null,
@@ -74,7 +75,8 @@ export class AdminLectorComponent implements OnInit {
      servicioIva:null,
      proceso:null,
      disponible:null,
-     idLocalidad:null
+     idLocalidad:null,
+     reserva:null
     }
     this.boleta={
       id:null,
@@ -152,7 +154,8 @@ export class AdminLectorComponent implements OnInit {
     servicioIva:null,
     proceso:null,
     disponible:null,
-    idLocalidad:null
+    idLocalidad:null,
+    reserva:null
    }
     this.cliente={
       boletas:[],
@@ -205,7 +208,8 @@ export class AdminLectorComponent implements OnInit {
       servicioIva:null,
       proceso:null,
       disponible:null,
-      idLocalidad:null
+      idLocalidad:null,
+      reserva:null
      }
       this.cliente={
         boletas:[],
@@ -284,7 +288,8 @@ export class AdminLectorComponent implements OnInit {
       servicioIva:null,
       proceso:null,
       disponible:null,
-      idLocalidad:null
+      idLocalidad:null,
+      reserva:null
      }
       this.cliente={
         boletas:[],
@@ -352,7 +357,8 @@ export class AdminLectorComponent implements OnInit {
       servicioIva:null,
       proceso:null,
       disponible:null,
-      idLocalidad:null
+      idLocalidad:null,
+      reserva:null
      }
       this.cliente={
         boletas:[],

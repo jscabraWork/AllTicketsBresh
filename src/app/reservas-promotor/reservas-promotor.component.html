@@ -1,0 +1,25 @@
+<section >
+
+    <div id="prueba">
+        
+        
+        <h1 class="centrado4 rounded" ><strong>Reserva para el evento {{palco?.nombreEvento}}</strong></h1>
+        
+        
+    </div>
+</section>
+
+
+<div class="pagar cetrarTexto container border mt-5 p-3">
+    <p><strong>Nombre de la Reserva:</strong> {{usuario.nombre}}</p>
+    <p><strong>Nombre del promotor:</strong> {{promotor.nombre}}</p>
+    <p><strong>Palco Numero: </strong>{{palco?.numeroDentroDeEvento}}</p>
+    <p><strong>Valor Total: </strong>{{palco?.precio + palco?.servicio + palco?.servicioIva | currency:'COP'}}</p>
+
+    <img class="btn-epayco" *ngIf="palco.id!=null" (click)="epaycoPalcosUsuarios()"
+    src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
+    alt="botón epayco">
+
+</div>
+
+

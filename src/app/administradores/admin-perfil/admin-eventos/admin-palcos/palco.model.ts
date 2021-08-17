@@ -1,3 +1,5 @@
+import { Reserva } from "src/app/models/reserva.model";
+
 export interface Palco {
 
 	id:number,
@@ -18,6 +20,6 @@ export interface Palco {
 	  servicioIva:number,
 	  proceso:boolean,
 	  disponible:boolean,
-	  idLocalidad:number
-	  
+	  idLocalidad:number,
+	  reserva:Reserva
 }

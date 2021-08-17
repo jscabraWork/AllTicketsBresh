@@ -1,0 +1,38 @@
+
+<div id="prueba">
+			
+			
+    <h1><strong>{{evento.nombre}}</strong></h1> 
+    <small *ngFor="let etapa of etapas" style="font-size: 24px;"> <strong> {{etapa.nombre}} </strong></small>
+
+    
+    
+</div>
+
+
+<section class="container mt-5">
+
+<div class="container">
+<table class="table mt-3 border rounded tabla" >
+    <thead>
+        <tr class="border ">
+
+            <th class="border ">Nombre</th>
+            <th class="border ">Precio</th>
+            <th class="border ">Ver Palcos</th>               
+                              
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="border"*ngFor = "let localidad of localidades" >
+            
+            <td class="border"> <strong>{{localidad?.nombre }}</strong></td> 
+            <td>{{localidad.precio +localidad.servicio + localidad.servicioPorcentaje| number: '1.0-0'}} COP</td>
+            
+            
+            <td class="border"> <button class="btn action_button" routerLink="{{localidad.id}}">Ver Palcos</button></td> 
+        </tr>
+    </tbody>
+</table>
+</div>
+</section>

@@ -311,10 +311,10 @@
 					<button class="botonLogin rounded pt-2 pb-2" routerLink="pago/{{localidad.id}}">Comprar</button>
 				</div>
 
-				<div class="p-3 " *ngIf="localidad.palcos.length>0">
+				<div class="p-3 " *ngIf="localidad.palcos.length>0 && !evento.oculto" >
 
 
-					<button class="botonLogin rounded pt-2 pb-2"
+					<button class="botonLogin rounded pt-2 pb-2" >
 						routerLink="pago/palco/{{localidad.id}}">Comprar</button>
 				</div>
 

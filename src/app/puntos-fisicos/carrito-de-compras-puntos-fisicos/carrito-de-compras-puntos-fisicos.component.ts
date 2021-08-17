@@ -91,6 +91,7 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
           proceso:null,
           disponible:null,
           idLocalidad:null,
+          reserva:null
           
         }
 

@@ -1,0 +1,36 @@
+
+<div id="prueba">
+			
+			
+    <h1><strong>{{evento.nombre}}</strong></h1> 
+    <small *ngFor="let etapa of etapas" style="font-size: 24px;"> <strong> {{localidad.nombre}} </strong></small>
+
+    
+    
+</div>
+
+
+<section class="container mt-5">
+
+<div class="container">
+<table class="table mt-3 border rounded tabla" >
+    <thead>
+        <tr class="border ">
+
+            <th class="border ">Numero de palco</th>
+            <th class="border ">Precio</th>
+            <th class="border " >Reservar</th>               
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="border"*ngFor = "let palco of localidad.palcos" >
+            
+            <td *ngIf="!palco.vendido &&!palco.proceso  && (!palco.reserva|| palco.reserva.numeroPromotor == promotor.numeroDocumento )" class="border"> <strong>{{palco.numeroDentroDeEvento}}</strong></td> 
+            <td *ngIf="!palco.vendido&&!palco.proceso && (!palco.reserva|| palco.reserva.numeroPromotor == promotor.numeroDocumento )">{{palco.precio +palco.servicio + palco.servicioIva| number: '1.0-0'}} COP</td> 
+            <td class="border" *ngIf="!palco.vendido&&!palco.proceso  && (!palco.reserva|| palco.reserva.numeroPromotor == promotor.numeroDocumento )"> <button [disabled]="palco.reserva" class="btn action_button ml-2 mt-2" (click)="agregarPalcoIndividual(palco.numeroDentroDeEvento)">Reservar</button> <button [disabled]="!palco.reserva" class="btn action_button ml-2 mt-2" (click)="elminarReserva(palco.reserva.id)">Eliminar Reserva</button></td> 
+        </tr>
+    </tbody>
+</table>
+</div>
+</section>

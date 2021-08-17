@@ -1,0 +1,12 @@
+p a{
+    text-align: center;
+    font-size: 25px;
+    color:#ed701c;
+    margin-top: 40%;
+}
+div{
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

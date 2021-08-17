@@ -45,8 +45,5 @@ export class PromotorPerfilComponent implements OnInit {
       alert('Sucedio un error por favor intente más tarde')
     })
   }
-  openDialog(){
-
-  }
-
+  
 }

@@ -97,7 +97,8 @@ export class AdicionalComponent implements OnInit {
       servicioIva:null,
       proceso:null,
       disponible:null,
-      idLocalidad:null
+      idLocalidad:null,
+      reserva:null
     };
 
     this.palcoBackup = {
@@ -116,7 +117,8 @@ export class AdicionalComponent implements OnInit {
       servicioIva:null,
       proceso:null,
       disponible:null,
-      idLocalidad:null
+      idLocalidad:null,
+      reserva:null
     };
     if (this.data.palco) {
     this.palcoBackup = Object.assign({}, this.data.palco);
