@@ -28,7 +28,7 @@ export class AgregarAmigosComponent implements OnInit {
   ApiKey
   referenceCode:string
   porcentaje
-  url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
+  
   
 
   valorAPagar=0
@@ -97,17 +97,18 @@ export class AgregarAmigosComponent implements OnInit {
 
   refrescarPalco(){
     this.palcoServicio.getPalco(0, this.idPalco).subscribe(response=>{ this.palco=response;
-      this.referenceCode="APORTEPALCO: "+this.usuario.numeroDocumento+"," +this.palco.id;
+      //PALCO;1020823136,3010,Guess Who’s Back,Tue Aug 17 2021 15:30:33 GMT-0500 (hora estándar de Colombia),arckenFRAT,-1
+      this.referenceCode="APORTEPALCO;"+this.usuario.numeroDocumento+"," +this.palco.id+","+this.palco.nombreEvento+","+new Date()+",00000,-1";
     this.refrescar()
     
     })
   }
   cambiarTotal(){
 
-    this.valorAPagar = (this.porcentaje/100)*(this.palco.precio+this.palco.servicio+this.palco.servicio*0.19);
-    if(this.valorAPagar +this.palco.precioParcialPagado <= (this.palco.precio + this.palco.servicio+ this.palco.servicio*0.19))
+    this.valorAPagar = (this.porcentaje/100)*(this.palco.precio+this.palco.servicio+this.palco.servicioIva);
+    if(this.valorAPagar +this.palco.precioParcialPagado <= (this.palco.precio + this.palco.servicio+ this.palco.servicioIva))
     {
-    this.referenceCode= this.referenceCode+","+new Date()
+    
    
   }
   else{

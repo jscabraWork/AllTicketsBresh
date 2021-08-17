@@ -124,16 +124,17 @@ export class LocalidadPromotorComponent implements OnInit {
       this.service.getEventoId(this.miId).subscribe(response => {
         this.handleGetSuccesfull(response);
 
+        
 
+        this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(r => {
+          this.manejar(r);
 
-        this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(response => {
-          this.manejar(response);
+          for (let i = 0; i < this.etapas.length; i++) {
+            console.log(this.etapas.length);
+            for (let j = 0; j < this.etapas[i].localidades.length; j++) {
 
-          for (let i = 0; i < response.length; i++) {
-
-            for (let j = 0; j < response[i].localidades.length; i++) {
-              if (response[i].localidades[j].id == this.idLocalidad) {
-                this.localidad = response[i].localidades[j];
+              if (this.etapas[i].localidades[j].id == this.idLocalidad) {
+                this.localidad = this.etapas[i].localidades[j];
               }
             }
           }

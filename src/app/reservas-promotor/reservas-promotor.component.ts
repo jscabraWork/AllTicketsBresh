@@ -28,6 +28,8 @@ export class ReservasPromotorComponent implements OnInit {
   promotor: Promotor
   palco:Palco
   pagar2:boolean
+  porcentaje
+  valorAPagar
   constructor(
     private autenticador: HardcodedAutheticationService
     , private route: ActivatedRoute,
@@ -116,8 +118,9 @@ export class ReservasPromotorComponent implements OnInit {
           this.promotor = response
           this.reservasService.getPalcoReserva(this.miId).subscribe((response)=>{
            this.palco = response
+           this.valorAPagar = this.palco.precio + this.palco.servicio + this.palco.servicioIva
             console.log(response)
-          //  PALCO;1020823136,1478,Giolì & Assia – Natalia Paris en Vivo,Mon Aug 09 2021 12:51:06 GMT-0500 (hora estándar de Colombia),00000,-1
+          
            this.referenceCode ="PALCO;"
            +this.usuario.numeroDocumento
            +","+this.palco.id +","
@@ -165,7 +168,18 @@ export class ReservasPromotorComponent implements OnInit {
   }
 
 
-  
+  cambiarTotal(){
+
+    this.valorAPagar = (this.porcentaje/100)*(this.palco.precio+this.palco.servicio+this.palco.servicioIva);
+    if(this.valorAPagar +this.palco.precioParcialPagado <= (this.palco.precio + this.palco.servicio+ this.palco.servicioIva))
+    {
+    
+   
+  }
+  else{
+    alert("Estas aportando más del valor total")
+  }
+   }
   window: any = window;
   handler = this.window.ePayco.checkout.configure({
     key: '7c7542634fcbfa55f6852b0d6ae4a98e',
@@ -177,7 +191,7 @@ export class ReservasPromotorComponent implements OnInit {
 
     if(this.pagar2 == false){
       this.pagar2 = true;
-        let amount = this.palco.precio + this.palco.servicio + this.palco.servicioIva;
+        
 
         var data = {
           //Parametros compra (obligatorio)
@@ -188,7 +202,7 @@ export class ReservasPromotorComponent implements OnInit {
           ' En la localidad ' +
           this.palco.nombre,
           currency: 'cop',
-          amount: amount,
+          amount: this.valorAPagar,
           invoice:this.referenceCode,
           tax_base: '0',
           tax: '0',
