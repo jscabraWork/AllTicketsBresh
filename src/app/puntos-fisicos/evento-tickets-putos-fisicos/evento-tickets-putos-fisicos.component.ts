@@ -109,7 +109,8 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
           id:null,
           localidades:[],
           nombre:"PRUEBA",
-          visible:null    
+          visible:null  ,
+          promotorVenta:null  
         }
 
         this.user=this.autenticador.getPuntoFisico();

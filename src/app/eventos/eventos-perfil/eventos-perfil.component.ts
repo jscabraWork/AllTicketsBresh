@@ -29,11 +29,12 @@ export class EventosPerfilComponent implements OnInit {
   fechaActual:Date=new Date();
   localidades:Localidad[] = [];
   time:Time =null;
+  mapaV:boolean
   constructor(private route: ActivatedRoute, private dialog: MatDialog, private service:EventoDataService, private sanitizer: DomSanitizer, private etapaServicio:EtapasDataService) { }
 
   ngOnInit(): void {
     
-    
+    this.mapaV=false
 
     this.evento ={
       id: "",
@@ -76,6 +77,9 @@ export class EventosPerfilComponent implements OnInit {
      
       this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
         this.mapaUrl = this.getSafeUrl(this.evento.urlMapa);
+       if(this.evento.urlMapa!='no'){
+         this.mapaV =true
+       }
         this.safeSrc = this.getSafeUrl(this.evento.video)
         this.fecha = new Date(this.evento.fechaApertura)
        countdown(this.fecha,(ts)=>{
@@ -88,11 +92,11 @@ export class EventosPerfilComponent implements OnInit {
           
           for(let i=0; i< response.length; i++){
             
-            if(this.evento.mapa =='mapa1')
+            if(this.evento.id =='No-Pullep2')
             {
               console.log(response[i])
               this.localidades =[]
-              this.localidades = this.localidades.concat(response[i].localidades[1])
+              this.localidades = this.localidades.concat(response[i].localidades[0])
             console.log(this.localidades)
             
           }

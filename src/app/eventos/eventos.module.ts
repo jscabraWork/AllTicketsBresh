@@ -53,6 +53,10 @@ const routes: Routes=[
           component: PagoPayUComponent
         },
         {
+          path:'evento/:id/pago/:idLocalidad/:codigoVenta/promotor',
+          component: PagoPayUComponent
+        },
+        {
           path:'evento/:id/pago/palco/:idLocalidad',
           component: ComprarPalcosComponent
         },

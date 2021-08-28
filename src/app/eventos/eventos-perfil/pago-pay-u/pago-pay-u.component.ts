@@ -49,6 +49,7 @@ cargando:boolean=false
 idLocalidad
 idEtapa
 localidad:Localidad
+codigoVenta
 url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
   constructor(private route: ActivatedRoute,public dialog: MatDialog, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService ) { }
 
@@ -125,6 +126,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
+      this.codigoVenta = params.get('codigoVenta')
       this.idLocalidad =params.get('idLocalidad');
       this.contadorBoletas =0
 
@@ -372,7 +374,7 @@ AbrirCarrito(): void {
             usuarioEntidad: this.usuarioEntidad,
             signature: this.signature,
             referenceCode: this.referenceCode,
-            
+            codigoVenta:this.codigoVenta,
            
     }       
     

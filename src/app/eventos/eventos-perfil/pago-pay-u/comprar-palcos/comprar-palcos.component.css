@@ -249,6 +249,11 @@ td {
   
 }
 
+.cuadros4:hover {
+  background-color: rgb(4, 94, 4);
+   color:white;
+ }
+
 .tarima {
   float: left;
   background-color: #333;
@@ -493,8 +498,8 @@ transform: rotate(30deg);
   background-color: #333;
   height: 40px;
   color: white;
-  margin-left: 50px;
-  width: 130px;
+  
+  width: 273px;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
@@ -572,6 +577,7 @@ transform: rotate(30deg);
   cursor:default;
   background-color: #ccc;
 }
+
 .opaco:hover{
   background-color: #ccc;
  
@@ -798,25 +804,33 @@ float:left;
  .localidadLibreAgora1,
  .localidadLibreAgora2{
   background-color: rgb(3, 92, 37);
-  width:228px;
-  height: 200px;
+  width:274px;
+  height: 300px;
   
   font-size: 26px;
-  line-height: 200px;
+  line-height: 300px;
   text-align: center;
   color: white;font-weight: bold;
 cursor: pointer;
 
 }
+.cuadros10{
+  background-color: rgb(0, 162, 255);
+  color:white;
+}
+.cuadros10:hover{
+  background-color: rgb(0, 162, 255);
+  color:white;
+}
 .localidadLibreAgora1:hover{
   background-color: rgb(0, 150, 57);
 }
 .localidadLibreAgora2{
-  background-color: rgb(255, 102, 0);
+  background-color: rgb(0, 162, 255);
   margin-top: 3px;
 }
 .localidadLibreAgora2:hover{
-  background-color: rgb(172, 69, 1);
+  background-color: rgb(2, 112, 175);
 }
 .cuadros7{
   background-color: rgb(0, 150, 57);
@@ -838,4 +852,33 @@ cursor: pointer;
 
 .amarillo:hover{
   background-color:rgb(255, 153, 0) ;
+}
+.ver{
+  display: none;
+}
+.ver p,
+.ver p{
+  color:#ed701c;
+  font-weight: bolder;
+  font-size: 20px;
+
+}
+@media(max-width:510px){
+  .tabla thead tr th{
+      font-size: 14px;
+  }
+  .tabla button{
+      width: 100%;
+      border-radius: 0px;
+  }
+
+}
+@media(max-width:515px){
+  .esconder{
+      overflow: scroll;
+      z-index: 1;
+  }
+  .ver{
+      display: block;
+  }
 }

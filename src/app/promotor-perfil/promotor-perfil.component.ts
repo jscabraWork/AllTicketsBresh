@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Etapa } from '../eventos/eventos-perfil/etapa.model';
+import { EtapasDataService } from '../service/data/etapas-data.service';
 import { PromotorDataService } from '../service/data/promotor-data.service';
 import { HardcodedAutheticationService } from '../service/hardcoded-authetication.service';
 import { Promotor } from './promotor.model';
@@ -14,6 +16,7 @@ export class PromotorPerfilComponent implements OnInit {
   tickets=false
   palcos = false
   datos = true
+
   constructor(private servicio: PromotorDataService, private autenticador: HardcodedAutheticationService) { }
   
   ngOnInit(): void {
@@ -46,4 +49,5 @@ export class PromotorPerfilComponent implements OnInit {
     })
   }
   
+
 }

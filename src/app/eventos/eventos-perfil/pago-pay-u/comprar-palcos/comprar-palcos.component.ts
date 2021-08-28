@@ -159,7 +159,15 @@ export class ComprarPalcosComponent implements OnInit {
           proceso: null,
           disponible: null,
           idLocalidad: null,
-          reserva:null
+          reserva:null,
+          precioAlterno:null,
+          servicioAlterno:null,	  
+          servicioIvaAlterno:null,
+          adiciones: null,
+          maximoAdiciones: null,
+          precioAdicion: null,
+          servicioAdicion: null,
+          servicioIvaAdicion:null,
         },
       ],
       servicioPorcentaje: null,
@@ -192,7 +200,15 @@ export class ComprarPalcosComponent implements OnInit {
           proceso: null,
           disponible: null,
           idLocalidad: null,
-          reserva:null
+          reserva:null,
+          precioAlterno:null,
+          servicioAlterno:null,	  
+          servicioIvaAlterno:null,
+          adiciones: null,
+          maximoAdiciones: null,
+          precioAdicion: null,
+          servicioAdicion: null,
+          servicioIvaAdicion:null,
         },
       ],
       servicioPorcentaje: null,
@@ -224,7 +240,15 @@ export class ComprarPalcosComponent implements OnInit {
           proceso: null,
           disponible: null,
           idLocalidad: null,
-          reserva:null
+          reserva:null,
+          precioAlterno:null,
+          servicioAlterno:null,	  
+          servicioIvaAlterno:null,
+          adiciones: null,
+          maximoAdiciones: null,
+          precioAdicion: null,
+          servicioAdicion: null,
+          servicioIvaAdicion:null,
         },
       ],
       servicioPorcentaje: null,
@@ -256,7 +280,15 @@ export class ComprarPalcosComponent implements OnInit {
           proceso: null,
           disponible: null,
           idLocalidad: null,
-          reserva:null
+          reserva:null,
+          precioAlterno:null,
+          servicioAlterno:null,	  
+          servicioIvaAlterno:null,
+          adiciones: null,
+          maximoAdiciones: null,
+          precioAdicion: null,
+          servicioAdicion: null,
+          servicioIvaAdicion:null,
         },
       ],
       servicioPorcentaje: null,
@@ -288,7 +320,15 @@ export class ComprarPalcosComponent implements OnInit {
           proceso: null,
           disponible: null,
           idLocalidad: null,
-          reserva:null
+          reserva:null,
+          precioAlterno:null,
+          servicioAlterno:null,	  
+          servicioIvaAlterno:null,
+          adiciones: null,
+          maximoAdiciones: null,
+          precioAdicion: null,
+          servicioAdicion: null,
+          servicioIvaAdicion:null,
         },
       ],
       servicioPorcentaje: null,
@@ -311,7 +351,15 @@ export class ComprarPalcosComponent implements OnInit {
       proceso: null,
       disponible: null,
       idLocalidad: null,
-      reserva:null
+      reserva:null,
+      precioAlterno:null,
+      servicioAlterno:null,	  
+      servicioIvaAlterno:null,
+      adiciones: null,
+      maximoAdiciones: null,
+      precioAdicion: null,
+      servicioAdicion: null,
+      servicioIvaAdicion:null,
     };
 
     this.usuarioEntidad = {
@@ -372,7 +420,11 @@ export class ComprarPalcosComponent implements OnInit {
 
       this.service.getEventoId(this.miId).subscribe((response) => {
         this.handleGetSuccesfull(response);
-
+        if(!this.evento.mapa){
+          this.servicioLocalidad.getLocaliddadPorId(this.idLocalidad,this.evento.id).subscribe((response) => {
+            this.localidadCargada =response
+          })
+        }
       
 
 
@@ -413,41 +465,99 @@ export class ComprarPalcosComponent implements OnInit {
         //       this.cargadoTodo = true;
         //     });
         // }
-        if (this.evento.mapa == 'mapa4') {
+        // if (this.evento.mapa == 'mapa4') {
+        //   this.etapaServicio
+        //     .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+        //     .subscribe((response) => {
+        //       this.etapas = response;
+        //       this.ponerNumerosMapa4();
+
+        //       for (let i = 0; i < this.etapas.length; i += 1) {
+        //         for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+        //           if (this.etapas[i].localidades[j].nombre == 'Palcos VIP') {
+        //             this.localidadCargadaGeneral =
+        //               this.etapas[i].localidades[j];
+        //           }
+
+        //           if (
+        //             this.etapas[i].localidades[j].nombre == 'Palcos Platino'
+        //           ) {
+        //             this.localidadCargada = this.etapas[i].localidades[j];
+        //           }
+        //         }
+        //       }
+
+        //       this.cargarLocalidadEnMapa4();
+        //       this.cargadoTodo = true;
+        //     });
+        // }
+
+
+        // if (this.evento.mapa == 'mapa5') {
+          
+          
+        //   this.etapaServicio
+        //     .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+        //     .subscribe((response) => {
+        //       this.ponerNumerosMapa5();
+        //       this.etapas = response;
+
+              
+
+        //       for (let i = 0; i < this.etapas.length; i += 1) {
+        //         for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+        //           if (
+        //             this.etapas[i].localidades[j].nombre == 'Palcos VIP'
+        //           ) {
+        //             this.localidadCargadaGeneral =
+        //               this.etapas[i].localidades[j];
+                      
+        //           }
+
+        //           else if (this.etapas[i].localidades[j].nombre == 'Palcos Exclusive') {
+        //             this.localidadCargada = this.etapas[i].localidades[j];
+                    
+        //           }
+
+        //           else if (this.etapas[i].localidades[j].nombre == 'Palcos Preferencial') {
+        //             this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                 
+        //           }
+
+
+        //           else if (this.etapas[i].localidades[j].nombre == 'General') {
+        //             this.localidadCargadaBoletas =
+        //               this.etapas[i].localidades[j];
+                     
+        //           }
+
+        //           else if (this.etapas[i].localidades[j].nombre == 'Platino') {
+        //             this.localidadCargadaBoletasVIP =
+        //               this.etapas[i].localidades[j];
+                 
+        //           }
+        //         }
+        //       }
+
+        //       this.cargarLocalidadEnMapa5();
+        //       this.cargadoTodo = true;
+        //     });
+        // }
+
+
+
+
+
+
+        if (this.evento.mapa == 'mapa6') {
+        
+          this.ponerNumerosMapa6();
           this.etapaServicio
             .getAllEtapasVisiblesDeEvento(this.evento.id, true)
             .subscribe((response) => {
-              this.etapas = response;
-              this.ponerNumerosMapa4();
-
-              for (let i = 0; i < this.etapas.length; i += 1) {
-                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
-                  if (this.etapas[i].localidades[j].nombre == 'Palcos VIP') {
-                    this.localidadCargadaGeneral =
-                      this.etapas[i].localidades[j];
-                  }
-
-                  if (
-                    this.etapas[i].localidades[j].nombre == 'Palcos Platino'
-                  ) {
-                    this.localidadCargada = this.etapas[i].localidades[j];
-                  }
-                }
-              }
-
-              this.cargarLocalidadEnMapa4();
-              this.cargadoTodo = true;
-            });
-        }
-
-
-        if (this.evento.mapa == 'mapa5') {
-          
-          
-          this.etapaServicio
-            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-            .subscribe((response) => {
-              this.ponerNumerosMapa5();
+      
               this.etapas = response;
 
               
@@ -457,31 +567,31 @@ export class ComprarPalcosComponent implements OnInit {
 
 
                   if (
-                    this.etapas[i].localidades[j].nombre == 'Palcos VIP'
+                    this.etapas[i].localidades[j].nombre == 'Primera Fila'
                   ) {
                     this.localidadCargadaGeneral =
                       this.etapas[i].localidades[j];
                       
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'Palcos Exclusive') {
+                  else if (this.etapas[i].localidades[j].nombre == 'Segunda Fila') {
                     this.localidadCargada = this.etapas[i].localidades[j];
                     
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'Palcos Preferencial') {
+                  else if (this.etapas[i].localidades[j].nombre == 'Tercera Fila') {
                     this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
                  
                   }
 
 
-                  else if (this.etapas[i].localidades[j].nombre == 'General') {
+                  else if (this.etapas[i].localidades[j].nombre == 'Cuarta Fila') {
                     this.localidadCargadaBoletas =
                       this.etapas[i].localidades[j];
                      
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'Platino') {
+                  else if (this.etapas[i].localidades[j].nombre == 'Zona Play') {
                     this.localidadCargadaBoletasVIP =
                       this.etapas[i].localidades[j];
                  
@@ -489,42 +599,92 @@ export class ComprarPalcosComponent implements OnInit {
                 }
               }
 
-              this.cargarLocalidadEnMapa5();
+              this.cargarLocalidadEnMapa6();
+              this.cargadoTodo = true;
+            });
+        }
+
+        if (this.evento.mapa == 'mapa7') {
+        
+          this.ponerNumerosMapa7();
+          this.etapaServicio
+            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+            .subscribe((response) => {
+
+              this.etapas = response;
+
+              
+
+              for (let i = 0; i < this.etapas.length; i += 1) {
+                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                  if (
+                    this.etapas[i].localidades[j].nombre == 'First Rows'
+                  ) {
+                    this.localidadCargadaGeneral =
+                      this.etapas[i].localidades[j];
+          
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'A') {
+                    this.localidadCargada = this.etapas[i].localidades[j];
+
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'B') {
+                    this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+   
+                  }
+
+
+                  else if (this.etapas[i].localidades[j].nombre == 'C') {
+                    this.localidadCargadaBoletas =
+                      this.etapas[i].localidades[j];
+   
+                  }
+
+          
+                }
+              }
+
+              this.cargarLocalidadEnMapa7();
               this.cargadoTodo = true;
             });
         }
 
 
-        if (this.evento.mapa == 'mapa1' || this.evento.mapa == 'mapa2') {
-          this.cargarMapa1()
-          this.etapaServicio
-          .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-          .subscribe((response) => {
-            this.etapas = response;
 
-            for (let i = 0; i < this.etapas.length; i += 1) {
-              for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+        // if (this.evento.mapa == 'mapa1' || this.evento.mapa == 'mapa2') {
+        //   this.cargarMapa1()
+        //   this.etapaServicio
+        //   .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+        //   .subscribe((response) => {
+        //     this.etapas = response;
+
+        //     for (let i = 0; i < this.etapas.length; i += 1) {
+        //       for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
                
-                if (this.etapas[i].localidades[j].nombre == 'Palco'|| this.etapas[i].localidades[j].nombre == 'Palcos') {
+        //         if (this.etapas[i].localidades[j].nombre == 'Palco'|| this.etapas[i].localidades[j].nombre == 'Palcos') {
                   
-                  this.localidadCargada =
-                    this.etapas[i].localidades[j];
+        //           this.localidadCargada =
+        //             this.etapas[i].localidades[j];
                     
               
-                }
+        //         }
 
-                else if (
-                  this.etapas[i].localidades[j].nombre == 'Perreo al aire libre'
-                ) {
-                  this.localidadCargadaBoletas = this.etapas[i].localidades[j];
-                }
-              }
-            }
+        //         else if (
+        //           this.etapas[i].localidades[j].nombre == 'Perreo al aire libre'
+        //         ) {
+        //           this.localidadCargadaBoletas = this.etapas[i].localidades[j];
+        //         }
+        //       }
+        //     }
 
-            this.cargarLocalidadMapa1();
-            this.cargadoTodo = true;
-          });
-        }
+        //     this.cargarLocalidadMapa1();
+        //     this.cargadoTodo = true;
+        //   });
+        // }
 
         if (this.autenticador.getUsuario() != null) {
           this.usuarioA = this.autenticador.getUsuario();
@@ -594,19 +754,15 @@ export class ComprarPalcosComponent implements OnInit {
       if (this.contadorPalcos < 2 && !this.cargando) {
         this.cargando = true;
         if (this.palco.nombre != this.localidad.nombre) {
-          this.referenceCode = 'PALCO: ' + this.usuarioEntidad.usuario + '/';
+   
           if (this.localidad == null) {
             alert('Agregar un Palco para continuar');
           } else {
             this.palcoServicio.reservarPalco(this.localidad.id).subscribe(
               (response) => {
                 this.palco = response;
-                this.referenceCode =
-                  this.referenceCode +
-                  this.palco.nombre +
-                  ':' +
-                  this.palco.id +
-                  '/';
+
+                this.referenceCode = "PALCO;" + this.usuarioEntidad.numeroDocumento+","+this.palco.id +","+this.evento.nombre+","+new Date();
                 this.cargando = false;
 
                 this.valorTotal =
@@ -647,6 +803,7 @@ export class ComprarPalcosComponent implements OnInit {
     }
   }
 
+  
   AbrirCarrito(): void {
     if (this.evento.adicionales.length == 0) {
       this.carrito();
@@ -719,7 +876,7 @@ export class ComprarPalcosComponent implements OnInit {
   darCantidadDePalcos(localidad: Localidad) {
     var contador = 0;
     for (var i = 0; i < localidad.palcos.length; i = i + 1) {
-      if (!localidad.palcos[i].vendido && !localidad.palcos[i].reservado) {
+      if (!localidad.palcos[i].vendido && !localidad.palcos[i].reservado&& !localidad.palcos[i].proceso) {
         contador = contador + 1;
       }
     }
@@ -770,7 +927,127 @@ export class ComprarPalcosComponent implements OnInit {
     }
   }
 
+  ponerNumerosMapa6() {
+    for (let i = 1; i < 7; i += 1) {
+      this.lista1[i - 1] = {
+        valor: i ,
+        localidad: 'vip',
+      };
+      this.lista2[i - 1] = {
+        valor: i+6 ,
+        localidad: 'pre',
+      };
+      this.lista3[i - 1] = {
+        valor: i +12,
+        localidad: 'pre',
+      };
+      this.lista4[i - 1] = {
+        valor: i +18,
+        localidad: 'pre',
+      };
+     
+    }
 
+  }
+  ponerNumerosMapa7() {
+    for (let i = 1; i < 13; i += 1) {
+      this.lista1[i - 1] = {
+        valor:"C"+ i ,
+        localidad: 'pre',
+      };
+      this.lista2[i - 1] = {
+        valor:"C"+ (i+12) ,
+        localidad: 'pre',
+      };
+      this.lista3[i - 1] = {
+        valor:"C"+ (i +24),
+        localidad: 'pre',
+      };
+      this.lista7[i-1] = {
+        valor:"B"+ i ,
+        localidad: 'vip',
+       };
+       this.lista9[i-1] = {
+        valor:"B"+ (i+23) ,
+        localidad: 'vip',
+       };
+    }
+    for (let i = 1; i < 12; i += 1) {
+      this.lista8[i-1] = {
+        valor:"B"+ (i+12) ,
+        localidad: 'vip',
+       };
+       this.lista10[i-1] = {
+        valor:"B"+ (i+35) ,
+        localidad: 'vip',
+       };
+       this.lista14[i-1] = {
+        valor:"A"+ (i+35) ,
+        localidad: 'vip',
+       };
+    }
+    this.lista16[0] = {
+      valor:"A"+ (75) ,
+      localidad: 'vip',
+     };
+     this.lista15[0] = {
+      valor:"A"+ (74) ,
+      localidad: 'vip',
+     };
+    let j=0
+    for (let i = 12; i > 1; i = i-1) {
+
+      this.lista4[i - i+j] = {
+        valor:"C"+ (i +35),
+        localidad: 'pre',
+      };
+      this.lista5[i - i+j] = {
+        valor:"C"+ (i +46),
+        localidad: 'pre',
+      };
+
+      this.lista12[i-i+j] = {
+        valor:"B"+ (i+45) ,
+        localidad: 'vip',
+       };
+       this.lista11[i-i+j] = {
+        valor:"B"+ (i+56) ,
+        localidad: 'vip',
+       };
+     
+
+      
+       j++
+    }
+    j=0
+    for (let i = 13; i > 1; i = i-1) {
+
+       this.lista13[i-i+j] = {
+        valor:"A"+ (i+52) ,
+        localidad: 'vip',
+       };
+       j++
+    }
+
+    j=0
+    for (let i = 11; i > 1; i = i-1) {
+      if(i<5){
+      this.lista6[i - i+j] = {
+        valor:"C"+ (i +57),
+        localidad: 'pre',
+      };
+    }
+    else{
+      this.lista6[i - i+j] = {
+        valor:"C"+ (i +58),
+        localidad: 'pre',
+      };
+    }
+    
+       j++
+    }
+  
+  }
   // ponerNumerosMapa3() {
   //   for (let i = 1; i < 10; i += 1) {
   //     this.lista1[i - 1] = {
@@ -2151,9 +2428,59 @@ export class ComprarPalcosComponent implements OnInit {
       }
     }
   }
+  cargarLocalidadEnMapa7() {
 
+
+  }
 
   
+  cargarLocalidadEnMapa6() {
+
+    for(var i = 0; i < this.localidadCargadaGeneral.palcos.length; i++){
+      if (
+        this.localidadCargadaGeneral.palcos[i].vendido ||
+        this.localidadCargadaGeneral.palcos[i].reservado ||
+        !this.localidadCargadaGeneral.palcos[i].disponible
+      ) {
+        this.lista1[i].valor = 'v';
+      } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+        this.lista1[i].valor = 'p';
+      }
+    }
+    for(var i = 0; i < this.localidadCargada.palcos.length; i++){
+      if (
+        this.localidadCargada.palcos[i].vendido ||
+        this.localidadCargada.palcos[i].reservado ||
+        !this.localidadCargada.palcos[i].disponible
+      ) {
+        this.lista2[i].valor = 'v';
+      } else if (this.localidadCargada.palcos[i].proceso) {
+        this.lista2[i].valor = 'p';
+      }
+    }
+    for(var i = 0; i < this.localidadCargadaPreferecial.palcos.length; i++){
+      if (
+        this.localidadCargadaPreferecial.palcos[i].vendido ||
+        this.localidadCargadaPreferecial.palcos[i].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i].disponible
+      ) {
+        this.lista3[i].valor = 'v';
+      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
+        this.lista3[i].valor = 'p';
+      }
+    }
+    for(var i = 0; i < this.localidadCargadaBoletas.palcos.length; i++){
+      if (
+        this.localidadCargadaBoletas.palcos[i].vendido ||
+        this.localidadCargadaBoletas.palcos[i].reservado ||
+        !this.localidadCargadaBoletas.palcos[i].disponible
+      ) {
+        this.lista4[i].valor = 'v';
+      } else if (this.localidadCargadaBoletas.palcos[i].proceso) {
+        this.lista4[i].valor = 'p';
+      }
+    }
+  }
 
   cargarLocalidadEnMapa5() {
 

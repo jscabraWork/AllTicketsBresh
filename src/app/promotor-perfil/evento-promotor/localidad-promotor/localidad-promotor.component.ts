@@ -27,6 +27,8 @@ export class LocalidadPromotorComponent implements OnInit {
   promotor: Promotor
   localidad: Localidad
   idLocalidad
+  cargando:boolean
+  uso:boolean
   constructor(private servicio: PromotorDataService,
     private autenticador: HardcodedAutheticationService
     , private route: ActivatedRoute,
@@ -38,6 +40,8 @@ export class LocalidadPromotorComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.uso=true
+    this.cargando=false
     this.etapas= [];
     this.localidad ={
       id:null,
@@ -106,15 +110,7 @@ export class LocalidadPromotorComponent implements OnInit {
 
 
 
-    this.user = this.autenticador.getPromotor()
-    this.servicio.getPromotorByUsuario(this.user).subscribe(response => {
 
-      this.promotor = response
-
-    },
-      error => {
-        alert('Sucedio un error por favor intente más tarde')
-      })
 
 
 
@@ -123,7 +119,19 @@ export class LocalidadPromotorComponent implements OnInit {
       this.idLocalidad = params.get('idLocalidad')
       this.service.getEventoId(this.miId).subscribe(response => {
         this.handleGetSuccesfull(response);
+        this.user = this.autenticador.getPromotor()
 
+        this.servicio.getPromotorByUsuario(this.user).subscribe(response => {
+    
+          this.promotor = response
+          this.palcoServicio.revisarUsoBeneficio(this.promotor.numeroDocumento,this.evento.nombre).subscribe(response => {
+            this.uso = response
+          })
+
+        },
+          error => {
+            alert('Sucedio un error por favor intente más tarde')
+          })
         
 
         this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(r => {
@@ -161,7 +169,8 @@ export class LocalidadPromotorComponent implements OnInit {
 
   agregarPalcoIndividual(numero) {
 
-
+    if(!this.cargando){
+      this.cargando = true
     this.palcoServicio
       .getPalcoParaCompraIndividual(this.evento.nombre, numero)
       .subscribe((response) => {
@@ -172,7 +181,10 @@ export class LocalidadPromotorComponent implements OnInit {
         this.palcoServicio.reservarPalcoExacto(response.id).subscribe(response=>{
           response
           
-          this.reservar(a)
+          this.palcoServicio.acomodarPreciosOriginales(a.id).subscribe(response=>{
+            response
+            this.reservar(a)
+          })
         });
       }
       else{
@@ -193,9 +205,49 @@ export class LocalidadPromotorComponent implements OnInit {
           this.ngOnInit();
         }
       );
+    }
   }
 
+  agregarPalcoIndividualPromotor(numero) {
 
+    if(!this.cargando){
+      this.cargando = true
+    this.palcoServicio
+      .getPalcoParaCompraIndividual(this.evento.nombre, numero)
+      .subscribe((response) => {
+        let a = response;
+        console.log(a)
+        if(!a.reservado && !a.proceso && !a.vendido){
+        console.log("A")
+        this.palcoServicio.reservarPalcoExacto(response.id).subscribe(response=>{
+          response
+          this.palcoServicio.acomodarPreciosAlternos(a.id).subscribe(response=>{
+            response
+            this.reservar(a)
+          })
+          
+        });
+      }
+      else{
+        alert(
+          'Alguien acaba de seleccionar este palco, intenta seleccionar otro'
+        );
+      }
+        
+      },
+
+        (error) => {
+          console.log(error)
+          error;
+          alert(
+            'Alguien acaba de seleccionar este palco, intenta seleccionar otro'
+          );
+
+          this.ngOnInit();
+        }
+      );
+    }
+  }
 
   reservar(response: Palco) {
     const dialogRef = this.dialog.open(ReservarComponent, {

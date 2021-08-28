@@ -110,7 +110,17 @@ export class EventoPromotorComponent implements OnInit {
             this.localidades = this.localidades.concat(response[i].localidades)
                       
           }
+          this.etapaServicio.getAllEtapasVisiblesPromotor(this.evento.id,true).subscribe(response=>{
           
+          this.etapas= this.etapas.concat(response)
+            console.log(this.etapas)
+
+            for(let i=0; i< response.length; i++){
+            
+              this.localidades = this.localidades.concat(response[i].localidades)
+                        
+            }
+          })
 
           })
         

@@ -24,7 +24,11 @@ export class PalcosDataService {
     return this.http.get<Palco>(`${API_URL}/evento/nombre/${pNombre}/palco/numero/${pNumero}`);
   }
   getAllPalcosVendidosDeUnaLocalidad(pIdLocalidad, pVendido){
-    return this.http.get<Palco[]>(`${API_URL}/localidad/${pIdLocalidad}/palcos/vendido/${pVendido}}`)
+    return this.http.get<Palco[]>(`${API_URL}/localidad/${pIdLocalidad}/palcos/vendido/${pVendido}`)
+  }
+
+  getAllPalcosPromotorEvento(pIdPromotor, pNombre){
+    return this.http.get<Palco[]>(`${API_URL}/palcos/promotor/${pIdPromotor}/${pNombre}`)
   }
 
   getClientesDeUnPalco(pIdPalco)
@@ -84,7 +88,9 @@ export class PalcosDataService {
 
 
 
-
+revisarUsoBeneficio(numeroDocumento,pNombre){
+  return this.http.get<boolean>(`${API_URL}/promotor/uso-beneficio/${numeroDocumento}/${pNombre}`);
+}
 
 
 aumentarPersonaPalco(idPalco){
@@ -112,8 +118,13 @@ pasoMuchoTiempoPaca(idPalco){
 }
   
 
+acomodarPreciosAlternos(pIdPalco){
+  return this.http.get(`${API_URL}/localidad/palcos/${pIdPalco}/alternos`);
+}
 
-
+acomodarPreciosOriginales(pIdPalco){
+  return this.http.get(`${API_URL}/localidad/palcos/${pIdPalco}/originales`);
+}
 
 pagarPalcosAPromotor(codigoVenta:string){
   return this.http.put(`${API_URL}/palcosPromotorPagar/${codigoVenta}`, null)

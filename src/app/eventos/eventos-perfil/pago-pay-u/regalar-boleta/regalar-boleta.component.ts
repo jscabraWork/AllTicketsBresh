@@ -123,6 +123,7 @@ export class RegalarBoletaComponent implements OnInit {
       localidades: [],
       nombre: 'PRUEBA',
       visible: null,
+      promotorVenta:null
     };
 
     this.route.paramMap.subscribe((params) => {

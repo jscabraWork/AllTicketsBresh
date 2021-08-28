@@ -32,10 +32,13 @@ export class AgregarAmigosComponent implements OnInit {
   
 
   valorAPagar=0
+  valorPagarAdicion=0
+  seleccionAdicion
+  listaAdiciones:number[]
   constructor(private route:ActivatedRoute, private autenticador: HardcodedAutheticationService, private dataServicio:UsuariosDataService, private palcoServicio: PalcosDataService) { }
 
   ngOnInit(): void {
-
+    this.listaAdiciones=[]
     this.IVA = IVA
 
     this.clienteAgregado={
@@ -82,7 +85,17 @@ export class AgregarAmigosComponent implements OnInit {
        proceso:null,
        disponible:null,
        idLocalidad:null,
-       reserva:null
+       reserva:null,
+       precioAlterno:null,
+       servicioAlterno:null,	  
+       servicioIvaAlterno:null,
+       adiciones: null,
+       maximoAdiciones: null,
+       precioAdicion: null,
+       servicioAdicion: null,
+       servicioIvaAdicion:null,
+       
+       
     }
     this.user= this.autenticador.getUsuario();
     
@@ -98,7 +111,10 @@ export class AgregarAmigosComponent implements OnInit {
   refrescarPalco(){
     this.palcoServicio.getPalco(0, this.idPalco).subscribe(response=>{ this.palco=response;
       //PALCO;1020823136,3010,Guess Who’s Back,Tue Aug 17 2021 15:30:33 GMT-0500 (hora estándar de Colombia),arckenFRAT,-1
-      this.referenceCode="APORTEPALCO;"+this.usuario.numeroDocumento+"," +this.palco.id+","+this.palco.nombreEvento+","+new Date()+",00000,-1";
+      let cantidad = this.palco.maximoAdiciones - this.palco.personasMaximas;
+      for(let i=1;i<=cantidad;i++){
+        this.listaAdiciones.push(i)
+      }
     this.refrescar()
     
     })
@@ -116,6 +132,13 @@ export class AgregarAmigosComponent implements OnInit {
   }
    }
   
+
+   cambiarTotalAdicion(){
+
+    this.valorPagarAdicion = this.seleccionAdicion * (this.palco.precioAdicion+this.palco.servicioAdicion+this.palco.servicioIvaAdicion);
+
+   }
+
   refrescar(){
     this.palcoServicio.getClientesDeUnPalco(this.idPalco).subscribe(response=> this.clientes=response)
   }
@@ -172,12 +195,13 @@ export class AgregarAmigosComponent implements OnInit {
 window: any = window;
 handler = this.window.ePayco.checkout.configure({
   key: '7c7542634fcbfa55f6852b0d6ae4a98e',
-  test: true,
+  test: false,
 });
 
 epaycoPalcosUsuarios() {
+  this.referenceCode="APORTEPALCO;"+this.usuario.numeroDocumento+"," +this.palco.id+","+this.palco.nombreEvento+","+new Date()+",00000,-1";
   if(this.valorAPagar!=0){
-    if(this.palco.precioParcialPagado+ this.valorAPagar <= (this.palco.precio+ this.palco.servicio +this.palco.servicio*0.19))
+    if(this.palco.precioParcialPagado+ this.valorAPagar <= (this.palco.precio+ this.palco.servicio +this.palco.servicioIva))
     {
   var data = {
     //Parametros compra (obligatorio)
@@ -224,6 +248,53 @@ else{
 }
 onCloseEpaycoModal() {
   alert('Close ePayco Modal!!!!!!!');
+}
+
+
+epaycoPalcosUsuariosAdicion() {
+
+  this.referenceCode="ADICIONPALCO;"+this.seleccionAdicion+"," +this.palco.id+","+this.palco.nombreEvento+","+new Date()+",00000,-1";
+  if(this.valorPagarAdicion!=0){
+  
+  var data = {
+    //Parametros compra (obligatorio)
+    name: this.palco.nombreEvento,
+    description:
+    'Aporte al Palco para ' +
+    this.palco.nombreEvento +
+    ' En la localidad ' +
+    this.palco.nombre,
+    currency: 'cop',
+    invoice: this.referenceCode,
+    amount: this.valorPagarAdicion,
+    tax_base: '0',
+    tax: '0',
+    country: 'co',
+    lang: 'es',
+
+    //Onpage="false" - Standard="true"
+    external: 'false',
+
+    //Atributos opcionales
+
+    response: `${respuesta}/eventos/respuesta`,
+    confirmation:`${API_URL2}/epayco`,
+
+    //Atributos cliente
+    name_billing: this.usuario.nombre,
+    address_billing: this.usuario.direccion,
+    type_doc_billing: 'cc',
+    mobilephone_billing: this.usuario.celular,
+    number_doc_billing: this.usuario.numeroDocumento,
+  };
+
+  this.handler.onCloseModal = this.onCloseEpaycoModal;
+  this.handler.open(data);
+
+}
+else{
+  alert("Agrega un valor a aportar")
+}
 }
 
 }

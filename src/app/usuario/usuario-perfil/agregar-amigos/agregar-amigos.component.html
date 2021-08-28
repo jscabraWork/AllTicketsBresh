@@ -70,7 +70,38 @@
 
                 <section class="container mt-5">
                     <div class="row">
-                        <div class="col-12 arriba p-4 border rounded">
+
+                        <div class="col-12 arriba p-4 border rounded" *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicioIva) && palco.personasMaximas < palco.maximoAdiciones">
+                            <h3><strong>Compra Adiciones</strong></h3>
+                            <h5 class="pl-4 pr-4" style="color:white"> <strong>Puedes comprar maximo {{palco.adiciones}} adiciones</strong></h5> 
+                        </div>
+                        <div  class="col-12 fondoBlancoCliente border " *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicioIva)  && palco.personasMaximas < palco.maximoAdiciones">
+                           
+
+
+                            <h5 class="pt-4 pl-4 pr-4"> <strong>Precio por una adición: </strong>{{palco.precioAdicion +palco.servicioAdicion +palco.servicioIvaAdicion |currency:'COP'}}</h5> 
+                            
+
+                            <div class="ml-4" >
+                                <h5><strong>Selecciona cuantas adiciones desea:</strong></h5> 
+                                <select class="float-center ml-4 mb-4" (change)="cambiarTotalAdicion()" type="text" class= "form-control "name ="tipo" required="required" style="width: 100px;"  [(ngModel)]="seleccionAdicion">
+                                    <option value=""> </option>
+                                    <option *ngFor="let numero of listaAdiciones" value={{numero}}>{{numero}}</option>
+                                </select>
+                                <h5 class="mt-4"><strong>Costo: </strong>{{valorPagarAdicion | currency:'COP'}} </h5>
+                            </div>
+                            <img class="btn-epayco"  *ngIf="palco.id!=null"  (click)="epaycoPalcosUsuariosAdicion()" src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png" alt="botón epayco">
+
+                           
+                        </div>
+
+
+
+
+
+
+
+                        <div class="col-12 arriba p-4 border rounded  mt-5">
                             <h3><strong>Integrantes del palco</strong></h3>
                         </div>
                         <div class="col-12 fondoBlancoCliente border "  *ngFor="let cliente of clientes">

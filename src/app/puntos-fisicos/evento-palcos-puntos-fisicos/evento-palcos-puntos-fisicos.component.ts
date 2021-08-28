@@ -42,7 +42,8 @@ valorBoletas=0
       id:null,
       localidades:[],
       nombre:"",
-      visible:null    
+      visible:null,
+      promotorVenta:null    
     }
     
     this.evento ={
@@ -93,7 +94,15 @@ valorBoletas=0
       proceso:null,
       disponible:null,
       idLocalidad:null, 
-      reserva:null
+      reserva:null,
+      precioAlterno:null,
+      servicioAlterno:null,	  
+      servicioIvaAlterno:null,
+      adiciones: null,
+      maximoAdiciones: null,
+      precioAdicion: null,
+      servicioAdicion: null,
+      servicioIvaAdicion:null,
     }
     this.user=this.autenticador.getPuntoFisico();
     this.servicio.getPuntoPorUsuario(this.user).subscribe(response=>{this.puntoFisico=response;

@@ -80,7 +80,15 @@ export class ReservasPromotorComponent implements OnInit {
       proceso:null,
       disponible:null,
       idLocalidad:null,
-      reserva:null
+      reserva:null,
+      precioAlterno:null,
+      servicioAlterno:null,	  
+      servicioIvaAlterno:null,
+      adiciones: null,
+      maximoAdiciones: null,
+      precioAdicion: null,
+      servicioAdicion: null,
+      servicioIvaAdicion:null,
     };
 
     this.promotor = {
@@ -106,7 +114,12 @@ export class ReservasPromotorComponent implements OnInit {
       this.miId = params.get("id")
       this.reservasService.getReserva(this.miId).subscribe((response) => {
         this.reserva = response
-        this.user = this.autenticador.getUsuario();
+
+    if(this.reserva==null){
+      alert("Esta reserva no existe")
+    }
+   
+    this.user = this.autenticador.getUsuario();
     if(this.user)
     {
     this.clienteService.getCliente(this.user).subscribe((response) => {
@@ -142,12 +155,15 @@ export class ReservasPromotorComponent implements OnInit {
 
     })
     }
+
+
+
     else{
       alert("Debes ingresar a tu cuenta AllTickets para realizar la compra, en caso de no tener registraté")
       this.openDialog2()
       
     }
-      }
+  }
       )
 
     })

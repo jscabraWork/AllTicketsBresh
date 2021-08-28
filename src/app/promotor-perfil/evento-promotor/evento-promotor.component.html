@@ -3,7 +3,7 @@
 			
 			
     <h1><strong>{{evento.nombre}}</strong></h1> 
-    <small *ngFor="let etapa of etapas" style="font-size: 24px;"> <strong> {{etapa.nombre}} </strong></small>
+    <small *ngFor="let etapa of etapas" style="font-size: 24px;"> <strong> {{etapa.nombre}} </strong><br></small>
 
     
     
@@ -19,7 +19,7 @@
 
             <th class="border ">Nombre</th>
             <th class="border ">Precio</th>
-            <th class="border ">Ver Palcos</th>               
+            <th  class="border ">Ver </th>               
                               
         </tr>
     </thead>
@@ -30,7 +30,12 @@
             <td>{{localidad.precio +localidad.servicio + localidad.servicioPorcentaje| number: '1.0-0'}} COP</td>
             
             
-            <td class="border"> <button class="btn action_button" routerLink="{{localidad.id}}">Ver Palcos</button></td> 
+            <td *ngIf="localidad.palcos.length>0" class="border"> <button class="btn action_button" routerLink="{{localidad.id}}">Ver Palcos</button></td> 
+            <td *ngIf="!evento?.mapa &&localidad.boletas.length>0" class="border"> 
+                <a href="https://allticketscol.com/eventos/evento/{{evento?.id}}/pago/{{localidad?.id}}/{{promotor?.usuario}}/promotor">
+                    https://allticketscol.com/eventos/evento/{{evento?.id}}/pago/{{localidad?.id}}/{{promotor?.usuario}}/promotor
+                </a>
+            </td> 
         </tr>
     </tbody>
 </table>

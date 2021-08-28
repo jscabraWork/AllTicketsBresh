@@ -14,6 +14,10 @@ export class PromotorDataService {
     return this.http.get<Promotor[]>((`${API_URL}/promotores`)); 
   }
 
+  getAllPromotoresByEventoId(pIdEvento){
+    return this.http.get<Promotor[]>((`${API_URL}/promotores/eventos/${pIdEvento}`)); 
+  }
+
   getPromotorById(pId)
   {
     return this.http.get<Promotor>((`${API_URL}/promotores/${pId}`)); 

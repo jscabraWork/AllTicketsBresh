@@ -21,5 +21,13 @@ export interface Palco {
 	  proceso:boolean,
 	  disponible:boolean,
 	  idLocalidad:number,
-	  reserva:Reserva
+	  reserva:Reserva,
+	  precioAlterno:number,
+	  servicioAlterno:number,	  
+	  servicioIvaAlterno:number,
+	  adiciones: number,
+      maximoAdiciones: number,
+      precioAdicion: number,
+	  servicioAdicion: number,
+	  servicioIvaAdicion:number,
 }

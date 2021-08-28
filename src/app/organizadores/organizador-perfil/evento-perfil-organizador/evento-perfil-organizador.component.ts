@@ -4,6 +4,7 @@ import { Evento } from './../../../eventos/evento.model';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LocalidadesDataService } from 'src/app/service/data/localidades-data.service';
+import { kill } from 'process';
 
 
 
@@ -19,9 +20,10 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   evento:Evento
   boletas:[]
   miId:string
-  dineroRecaudado:number=0
+  dineroRecaudado:number
   localidades:Localidad[]=[]
   ngOnInit( ): void {
+    this.dineroRecaudado =0
     this.evento ={
       id: "",
       nombre:"",
@@ -60,6 +62,23 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
         this.servicioLocalidad.getAllLocalidadesDeEvento(this.miId).subscribe(
           response=>{
             this.localidades = response;
+            for(var j=0; j< this.localidades.length; j++){
+            for(var i =0; i< this.localidades[j].boletas.length;i++)
+
+            {
+              if(  this.localidades[j].boletas[i].vendida==true){
+                this.dineroRecaudado = this.dineroRecaudado + this.localidades[j].precio;
+              }
+            }
+            for (var k =0; k< this.localidades[j].palcos.length;k=1+k){
+              if(this.localidades[j].palcos[k].vendido ==true){
+                
+                this.dineroRecaudado = this.dineroRecaudado + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))*this.localidades[j].palcos[k].precio
+              }
+            }
+
+          }
+    
           }
         )
       });
@@ -116,7 +135,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     {
       if(  localidad.boletas[i].vendida==true){
         contador =contador+ localidad.precio;
-        this.dineroRecaudado = this.dineroRecaudado + localidad.precio;
+        
       }
     }
    
@@ -158,8 +177,8 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     var contador =0;
     for (var i =0; i< localidad.palcos.length;i=1+i){
       if(localidad.palcos[i].vendido ==true){
-        contador = contador +localidad.palcos[i].precio;
-        this.dineroRecaudado = this.dineroRecaudado + localidad.palcos[i].precio;
+        contador = contador +((localidad.palcos[i].precioParcialPagado)/(localidad.palcos[i].servicio+localidad.palcos[i].servicioIva+localidad.palcos[i].precio))*localidad.palcos[i].precio
+        
       }
     }
     return contador;

@@ -96,7 +96,15 @@ export class CarritoDeComprasComponent implements OnInit {
       proceso:null,
       disponible:null,
       idLocalidad:null,
-      reserva:null
+      reserva:null,
+      precioAlterno:null,
+      servicioAlterno:null,	  
+      servicioIvaAlterno:null,
+      adiciones: null,
+      maximoAdiciones: null,
+      precioAdicion: null,
+      servicioAdicion: null,
+      servicioIvaAdicion:null,
     };
 
     this.boletas = this.data.boletas;

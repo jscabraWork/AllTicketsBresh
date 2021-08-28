@@ -23,7 +23,8 @@ etapa:Etapa
       id:null,
       localidades:[],
       nombre:null,
-      visible:null    
+      visible:null,
+      promotorVenta:null    
     }
 
   }

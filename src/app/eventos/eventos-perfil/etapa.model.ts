@@ -8,5 +8,6 @@ export interface Etapa {
 	nombre:string
 	evento: Evento;
 	visible:boolean;
+	promotorVenta:boolean
 
 }

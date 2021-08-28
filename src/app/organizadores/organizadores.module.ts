@@ -15,6 +15,8 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BoletasPatrocinioComponent } from './organizador-perfil/evento-perfil-organizador/boletas-patrocinio/boletas-patrocinio.component';
+import { PromotoresOrganizadorComponent } from './organizador-perfil/evento-perfil-organizador/promotores-organizador/promotores-organizador.component';
+import { PalcosPromtorOrganizadorComponent } from './organizador-perfil/evento-perfil-organizador/promotores-organizador/palcos-promtor-organizador/palcos-promtor-organizador.component';
 
 
 
@@ -41,6 +43,18 @@ const routes: Routes=[
         {
           path:'organizador/eventos/:id',
           component:EventoPerfilOrganizadorComponent,
+          canActivate:[RouteGuardOrganizadorService]
+
+        },
+        {
+          path:'organizador/eventos/:id/promotores',
+          component:PromotoresOrganizadorComponent,
+          canActivate:[RouteGuardOrganizadorService]
+
+        },
+        {
+          path:'organizador/eventos/:id/promotores/:idPromotor',
+          component:PalcosPromtorOrganizadorComponent,
           canActivate:[RouteGuardOrganizadorService]
 
         },
@@ -72,7 +86,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[  OrganizadoresComponent,OrganizadorPerfilComponent, EventoPerfilOrganizadorComponent, BoletasPatrocinioComponent],
+    declarations:[  OrganizadoresComponent,OrganizadorPerfilComponent, EventoPerfilOrganizadorComponent, BoletasPatrocinioComponent, PromotoresOrganizadorComponent, PalcosPromtorOrganizadorComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

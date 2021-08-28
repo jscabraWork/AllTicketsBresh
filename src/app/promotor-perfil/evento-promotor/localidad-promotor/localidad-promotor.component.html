@@ -19,16 +19,20 @@
 
             <th class="border ">Numero de palco</th>
             <th class="border ">Precio</th>
-            <th class="border " >Reservar</th>               
+            <th class="border " >Reservar</th> 
+                           
             
         </tr>
     </thead>
     <tbody>
         <tr class="border"*ngFor = "let palco of localidad.palcos" >
             
-            <td *ngIf="!palco.vendido &&!palco.proceso  && (!palco.reserva|| palco.reserva.numeroPromotor == promotor.numeroDocumento )" class="border"> <strong>{{palco.numeroDentroDeEvento}}</strong></td> 
-            <td *ngIf="!palco.vendido&&!palco.proceso && (!palco.reserva|| palco.reserva.numeroPromotor == promotor.numeroDocumento )">{{palco.precio +palco.servicio + palco.servicioIva| number: '1.0-0'}} COP</td> 
-            <td class="border" *ngIf="!palco.vendido&&!palco.proceso  && (!palco.reserva|| palco.reserva.numeroPromotor == promotor.numeroDocumento )"> <button [disabled]="palco.reserva" class="btn action_button ml-2 mt-2" (click)="agregarPalcoIndividual(palco.numeroDentroDeEvento)">Reservar</button> <button [disabled]="!palco.reserva" class="btn action_button ml-2 mt-2" (click)="elminarReserva(palco.reserva.id)">Eliminar Reserva</button></td> 
+            <td *ngIf="palco.disponible&&!palco.vendido &&!palco.proceso  && (!palco.reserva|| palco.reserva.numeroPromotor == promotor.numeroDocumento )" class="border"> <strong>{{palco.numeroDentroDeEvento}}</strong></td> 
+            <td *ngIf="palco.disponible&&!palco.vendido&&!palco.proceso && (!palco.reserva|| palco.reserva.numeroPromotor == promotor.numeroDocumento )">Precio: {{palco.precio +palco.servicio + palco.servicioIva| number: '1.0-0'}} COP
+                <br>
+               <span *ngIf="palco.precioAlterno"> Precio para promotores: {{palco.precioAlterno +palco.servicioAlterno + palco.servicioIvaAlterno| number: '1.0-0'}} COP</span>
+            </td> 
+            <td class="border" *ngIf="palco.disponible&&!palco.vendido&&!palco.proceso  && (!palco.reserva|| palco.reserva.numeroPromotor == promotor.numeroDocumento )"> <button [disabled]="palco.reserva"  class="btn action_button ml-2 mt-2" (click)="agregarPalcoIndividual(palco.numeroDentroDeEvento)">Reservar</button> <button *ngIf="palco.precioAlterno &&!uso" [disabled]="palco.reserva" class="btn action_button ml-2 mt-2" (click)="agregarPalcoIndividualPromotor(palco.numeroDentroDeEvento)">Reservar Precio Promotor</button> <button [disabled]="!palco.reserva" class="btn action_button ml-2 mt-2" (click)="elminarReserva(palco.reserva.id)">Eliminar Reserva</button></td> 
         </tr>
     </tbody>
 </table>

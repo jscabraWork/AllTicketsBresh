@@ -23,6 +23,9 @@ export class EtapasDataService {
     return this.http.get<Etapa[]>(`${API_URL}/etapas/evento/${pIdEvento}/visible/${pVisible}`)
   }
 
+  getAllEtapasVisiblesPromotor(pIdEvento:string, pVenta){
+    return this.http.get<Etapa[]>(`${API_URL}/etapas/evento/${pIdEvento}/visible/promotor/${pVenta}`)
+  }
   addEtapa(pIdEvento,etapa){
     return this.http.post(`${API_URL}/etapas/evento/${pIdEvento}`,etapa)
   }

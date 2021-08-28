@@ -98,7 +98,15 @@ export class AdicionalComponent implements OnInit {
       proceso:null,
       disponible:null,
       idLocalidad:null,
-      reserva:null
+      reserva:null,
+      precioAlterno:null,
+      servicioAlterno:null,	  
+      servicioIvaAlterno:null,
+      adiciones: null,
+      maximoAdiciones: null,
+      precioAdicion: null,
+      servicioAdicion: null,
+      servicioIvaAdicion:null,
     };
 
     this.palcoBackup = {
@@ -118,7 +126,15 @@ export class AdicionalComponent implements OnInit {
       proceso:null,
       disponible:null,
       idLocalidad:null,
-      reserva:null
+      reserva:null,
+      precioAlterno:null,
+      servicioAlterno:null,	  
+      servicioIvaAlterno:null,
+      adiciones: null,
+      maximoAdiciones: null,
+      precioAdicion: null,
+      servicioAdicion: null,
+      servicioIvaAdicion:null,
     };
     if (this.data.palco) {
     this.palcoBackup = Object.assign({}, this.data.palco);

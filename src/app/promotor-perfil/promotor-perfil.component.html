@@ -104,12 +104,13 @@
             
             <h5 class="pl-4">
                 {{eventoP.nombre}}:
-                <a *ngIf="!eventoP.oculto" href="https://allticketscol.com/eventos/evento/{{eventoP.id}}/pago/palco/mapa/{{promotor?.usuario}}">
+                <a *ngIf="!eventoP.oculto && eventoP.mapa" href="https://allticketscol.com/eventos/evento/{{eventoP.id}}/pago/palco/mapa/{{promotor?.usuario}}">
                     https://allticketscol.com/eventos/evento/{{eventoP.id}}/pago/palco/mapa/{{promotor?.usuario}}
                 </a>
                 <button class="action_button rounded-pill shadow texto" routerLink="{{eventoP.id}}">
                     Vender
-                </button>   
+                </button>  
+
             </h5>
         </div>
 

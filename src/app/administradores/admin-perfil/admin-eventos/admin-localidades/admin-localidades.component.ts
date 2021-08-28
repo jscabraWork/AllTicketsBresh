@@ -30,7 +30,8 @@ export class AdminLocalidadesComponent implements OnInit {
       id:null,
       localidades:[],
       nombre:null,
-      visible:null
+      visible:null,
+      promotorVenta:null
     }
   }
 

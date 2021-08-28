@@ -73,7 +73,8 @@ IVA
       id:null,
       localidades:[],
       nombre:"",
-      visible:null    
+      visible:null ,
+      promotorVenta:null   
     }
     this.user=this.autenticador.getPuntoFisico();
     this.servicio.getPuntoPorUsuario(this.user).subscribe(response=>{this.puntoFisico=response;
