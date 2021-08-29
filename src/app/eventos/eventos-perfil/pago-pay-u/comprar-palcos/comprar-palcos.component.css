@@ -67,7 +67,9 @@ td {
   align-items: center;
   justify-content: center;
 }
-
+.margenl10{
+  margin-right: 60pxtarimaBooth;
+}
 .grid a {
   font-weight: bold;
   text-decoration: none;
@@ -492,19 +494,63 @@ transform: rotate(30deg);
   font-weight: bold;
   font-size: 20px;
 }
-
+.margenl{
+  margin-left: 184px;
+}
+.izquierda{
+width: 15%;
+float:left;
+margin-top: 230px;
+}
+.arriba{
+width:85%;
+float:left
+}
 .tarimaBooth {
   float: left;
   background-color: #333;
   height: 40px;
   color: white;
   
-  width: 273px;
+  width: 135px;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
 }
 
+.tarimaBooth2 {
+  float: left;
+  background-color: #333;
+  height: 50px;
+  color: white;
+  margin-top: 0px;
+  width: 135px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+.tarimaBooth3 {
+  float: left;
+  background-color: #333;
+  height: 50px;
+  color: white;
+  margin-top: -10px;
+  width: 135px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+.margenIzqFrat{
+  margin-left: 510px;
+}
+.ml-6{
+  margin-left: 185px;
+  
+}
+
+.ml-7{
+  margin-left: 40px;
+}
 .margen2izquierda{
   margin-left: 140px;
   margin-right: 143px;
@@ -667,6 +713,12 @@ float:left;
 cursor: pointer;
 
 }
+.marge213{
+margin-left: 65px;
+}
+.marge214{
+  margin-left: 112.5px;
+  }
 .localidadLibreLargaPerreo4,
 .localidadLibreLargaPerreo5,
 .localidadLibreLargaPerreo6,
