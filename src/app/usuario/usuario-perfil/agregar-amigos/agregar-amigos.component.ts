@@ -8,6 +8,7 @@ import { Palco } from './../../../administradores/admin-perfil/admin-eventos/adm
 import { Cliente } from './../../cliente.model';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-agregar-amigos',
   templateUrl: './agregar-amigos.component.html',
@@ -28,19 +29,21 @@ export class AgregarAmigosComponent implements OnInit {
   ApiKey
   referenceCode:string
   porcentaje
-  
+  borrar:boolean
   
 
   valorAPagar=0
   valorPagarAdicion=0
   seleccionAdicion
   listaAdiciones:number[]
+  entrarPersonas:number
   constructor(private route:ActivatedRoute, private autenticador: HardcodedAutheticationService, private dataServicio:UsuariosDataService, private palcoServicio: PalcosDataService) { }
 
   ngOnInit(): void {
+    this.entrarPersonas =0
     this.listaAdiciones=[]
     this.IVA = IVA
-
+    this.borrar=false
     this.clienteAgregado={
       boletas:[],
       celular:null,
@@ -97,11 +100,14 @@ export class AgregarAmigosComponent implements OnInit {
        
        
     }
+
     this.user= this.autenticador.getUsuario();
     
     this.route.paramMap.subscribe( params =>{
       this.idPalco =params.get('idPalco');
     this.dataServicio.getCliente(this.user).subscribe(response => {this.usuario=response;
+      
+
       this.refrescarPalco()
     })
   })
@@ -115,6 +121,7 @@ export class AgregarAmigosComponent implements OnInit {
       for(let i=1;i<=cantidad;i++){
         this.listaAdiciones.push(i)
       }
+     
     this.refrescar()
     
     })
@@ -140,7 +147,12 @@ export class AgregarAmigosComponent implements OnInit {
    }
 
   refrescar(){
-    this.palcoServicio.getClientesDeUnPalco(this.idPalco).subscribe(response=> this.clientes=response)
+    this.palcoServicio.getClientesDeUnPalco(this.idPalco).subscribe(response=> {
+      this.clientes=response
+      if(this.clientes[0].numeroDocumento==this.usuario.numeroDocumento){
+        this.borrar =true
+      }
+    })
   }
 
   buscarCliente(){
@@ -153,6 +165,8 @@ export class AgregarAmigosComponent implements OnInit {
     }
      })
   }
+
+
 
   agregarCliente(){
     var clienteEncontrado = false;
@@ -297,4 +311,16 @@ else{
 }
 }
 
+
+quitarCliente(idCliente){
+  this.palcoServicio.quitarClientesAlPalco(this.palco.id,idCliente).subscribe((response) => {
+    response
+    alert("Has Eliminado al cliente "+idCliente)
+    this.ngOnInit()
+  },
+  (error)=>{
+    alert(error)
+  }
+  )
+}
 }

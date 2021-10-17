@@ -7,7 +7,10 @@
         <label for="nombre">Nombre</label>
         <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="localidad.nombre">
     </fieldset>
-
+    <fieldset class="form-group">
+        <label for="precio">Palcos a vender en esta localidad</label>
+        <input type="number" class= "form-control"name ="maximo" required="required"  [(ngModel)]="localidad.maximoVender">
+    </fieldset>
     <fieldset class="form-group">
         <label for="precio">Precio</label>
         <input type="number" class= "form-control"name ="precio" required="required"  [(ngModel)]="localidad.precio">
@@ -16,11 +19,11 @@
 
     <fieldset class="form-group">
         <label for="precio">Servicio</label>
-        <input type="number" class= "form-control"name ="precio" required="required"  [(ngModel)]="localidad.servicio">
+        <input type="number" class= "form-control"name ="servicio" required="required"  [(ngModel)]="localidad.servicio">
     </fieldset>
     <fieldset class="form-group">
         <label for="precio">Servicio Porecentaje para IVA</label>
-        <input type="number" class= "form-control"name ="precio" required="required"  [(ngModel)]="localidad.servicioPorcentaje">
+        <input type="number" class= "form-control"name ="servicioIVA" required="required"  [(ngModel)]="localidad.servicioPorcentaje">
     </fieldset>
     <button class="btn btn-success" type="submit">Guardar</button>
 </form>

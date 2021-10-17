@@ -61,6 +61,10 @@ import { AgregarFechaAperturaComponent } from './admin-perfil/admin-eventos/agre
 import { AdminAgregarEventosPromotorComponent } from './admin-perfil/admin-promotores/admin-agregar-eventos-promotor/admin-agregar-eventos-promotor.component';
 import { AdminAdicionalesComponent } from './admin-perfil/admin-adicionales/admin-adicionales.component';
 import { AgregarAdicionalComponent } from './admin-perfil/admin-adicionales/agregar-adicional/agregar-adicional.component';
+import { AgregarAdicionesPalcosComponent } from './admin-perfil/admin-eventos/admin-localidades/agregar-adiciones-palcos/agregar-adiciones-palcos.component';
+import { AgregarAlternosPalcosComponent } from './admin-perfil/admin-eventos/admin-localidades/agregar-alternos-palcos/agregar-alternos-palcos.component';
+import { AgregarOrganizadorAEventoComponent } from './admin-perfil/admin-eventos/agregar-organizador-aevento/agregar-organizador-aevento.component';
+
 
 
 
@@ -76,7 +80,7 @@ const routes: Routes = [
 
 
       {
-        path: 'admin/admin/mapas',
+        path: 'admin/:admin/mapas',
         component: MapasComponent
       },
       {
@@ -173,6 +177,14 @@ const routes: Routes = [
         path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/localidad/:idLocalidad',
         component: UpdateLocalidadComponent
       },
+    {
+      path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/localidad/:idLocalidad/adiciones',
+      component: AgregarAdicionesPalcosComponent
+    },
+    {
+      path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/localidad/:idLocalidad/alternos',
+      component: AgregarAlternosPalcosComponent
+    },
 
       {
         path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/agregar',
@@ -309,7 +321,11 @@ const routes: Routes = [
     AgregarFechaAperturaComponent,
     AdminAgregarEventosPromotorComponent,
     AdminAdicionalesComponent,
-    AgregarAdicionalComponent
+    AgregarAdicionalComponent,
+    AgregarAdicionesPalcosComponent,
+    AgregarAlternosPalcosComponent,
+    AgregarOrganizadorAEventoComponent,
+
   ],
   imports: [
     CommonModule,

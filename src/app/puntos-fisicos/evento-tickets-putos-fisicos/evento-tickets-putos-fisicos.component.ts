@@ -70,7 +70,7 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
       terminosYCondiciones:"",
       recomendaciones:"",
       ciudadIdTexto:null,
-      organizadorid:null,
+      
       imagen:null,
       imagenes:[],
       artistas:"",
@@ -89,7 +89,9 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
       fechaApertura:null,
       urlMapa:null,
       adicionales:[],
-      oculto:null
+      oculto:null,
+      dineroEntregado:null,
+      ciudadNombre:null
     }
     this.localidad ={
       id:null,
@@ -101,7 +103,8 @@ export class EventoTicketsPutosFisicosComponent implements OnInit {
       boletasPatrocinio:[],
       palcos:[],
       servicioPorcentaje:null,
-      efectivo:false
+      efectivo:false,
+      maximoVender:null
     }
 
         this.etapa={

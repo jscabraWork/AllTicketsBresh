@@ -17,7 +17,7 @@
             </h4>
 
           </div>
-          
+
           <div class="">
             
            
@@ -56,7 +56,7 @@
 
               </h5>
               <div class="pl-md-4 pb-5 mt-3">
-                <h5 class="frase">Pagar con tarjeta</h5>
+                <h5 class="frase">Pagar con tarjeta credito o debito</h5>
                 <img class="btn-epayco" *ngIf="usuarioEntidad && boletas" (click)="epaycoTicketsUsuarios()"
                   src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
                   alt="botón epayco">
@@ -70,6 +70,7 @@
                   
 
                   <h5 class="frase" *ngIf="efectivo">Pagar con efectivo</h5>
+
                   <img class="btn-epayco" *ngIf="usuarioEntidad && boletas && efectivo" (click)="epaycoTicketsUsuarios2()"
                   src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
                   alt="botón epayco">

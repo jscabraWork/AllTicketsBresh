@@ -1,21 +1,24 @@
 
 
 
-    <section class="container mt-5">
+    <section class="container-fluid mt-5">
         <h2>Todos los usuarios</h2>
         
-        <div class="container">
+        <div class="row">
+            <div class="col-12">
         <table class="table mt-3">
     
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
+
                     <th>Correo</th>
                    <th>Usuario</th>
                    <th>Contraseña</th>
                    <th>Celular</th>
-                    
+                   <th>Ver Perfil</th>
+                    <th>Borrar</th>
                 </tr>
         
         
@@ -30,14 +33,15 @@
                     <td> {{usuario?.usuario }}</td>
                     <td>{{usuario?.contrasena}}</td>
                     <td>{{usuario?.celular}}</td>
+                    <td><button  class="btn btn-warning" routerLink="usuario/admin/{{usuario.usuario}}" > Ver Perfil</button></td>
                     <td><button  class="btn btn-danger" (click)="deleteUsuario(usuario?.numeroDocumento)" > Delete</button></td>
-                    <td *ngFor="let palco of usuario.palcos">{{palco.id}}</td>
                 </tr>
         
         
             </tbody>
         
         </table>
+    </div>
     </div>
     
     </section>

@@ -25,6 +25,7 @@ import { HttpInterceptBasicAuthService } from '../service/http/http-intercept-ba
 import { CountdownModule } from 'ngx-countdown';
 import { AdicionalComponent } from './eventos-perfil/pago-pay-u/adicional/adicional.component';
 import { CantidadBoletasComponent } from './eventos-perfil/pago-pay-u/cantidad-boletas/cantidad-boletas.component';
+import { LocalidadSeleccionComponent } from './eventos-perfil/pago-pay-u/localidad-seleccion/localidad-seleccion.component';
 
 
 
@@ -88,7 +89,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent, AdicionalComponent, CantidadBoletasComponent ],
+    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent, AdicionalComponent, CantidadBoletasComponent, LocalidadSeleccionComponent ],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

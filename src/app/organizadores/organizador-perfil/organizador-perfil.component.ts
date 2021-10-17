@@ -16,11 +16,18 @@ export class OrganizadorPerfilComponent implements OnInit {
   organizador:Organizador;
  
   
-  constructor(private route: ActivatedRoute, private organizadorDataService:OrganizadorDataService, private autenticador: HardcodedAutheticationService) { }
+  constructor(private route: ActivatedRoute, private organizadorDataService:OrganizadorDataService, public autenticador: HardcodedAutheticationService) { }
 
   ngOnInit(): void {
 
+    if(this.autenticador.getOrganizador()){
     this.usuario =this.autenticador.getOrganizador();
+  }
+  else if(this.autenticador.getAdmin()){
+    this.route.paramMap.subscribe( params =>{
+      this.usuario =params.get('user');
+    })
+  }
     this.organizadorDataService.getOrganizadorUsuario(this.usuario).subscribe(response => this.organizador=response);
  
   

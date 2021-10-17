@@ -14,6 +14,7 @@ import { IVA } from 'src/app/app.constants';
 import * as countdown from 'countdown'
 import { Time } from 'src/app/models/time.model';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { CiudadesDataService } from '../../service/data/ciudades-data.service';
 @Component({
   selector: 'app-eventos-perfil',
   templateUrl: './eventos-perfil.component.html',
@@ -30,7 +31,9 @@ export class EventosPerfilComponent implements OnInit {
   localidades:Localidad[] = [];
   time:Time =null;
   mapaV:boolean
-  constructor(private route: ActivatedRoute, private dialog: MatDialog, private service:EventoDataService, private sanitizer: DomSanitizer, private etapaServicio:EtapasDataService) { }
+  organizadorId
+
+  constructor(private route: ActivatedRoute, private dialog: MatDialog, private service:EventoDataService, private sanitizer: DomSanitizer,private servicioCiudad: CiudadesDataService ,private etapaServicio:EtapasDataService) { }
 
   ngOnInit(): void {
     
@@ -46,7 +49,7 @@ export class EventosPerfilComponent implements OnInit {
       terminosYCondiciones:"",
       recomendaciones:"",
       ciudadIdTexto:null,
-      organizadorid:null,
+      
       imagen:null,
       imagenes:[],
       artistas:"",
@@ -68,14 +71,20 @@ export class EventosPerfilComponent implements OnInit {
       fechaApertura:null,
       urlMapa:null,
       adicionales:[],
-      oculto:null
+      oculto:null,
+      dineroEntregado:null,
+      ciudadNombre:null
     }
  
     
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
      
-      this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
+      this.service.getEventoIdPerfil(this.miId).subscribe( response => {
+        
+        this.handleGetSuccesfull(response);
+
+ 
         this.mapaUrl = this.getSafeUrl(this.evento.urlMapa);
        if(this.evento.urlMapa!='no'){
          this.mapaV =true
@@ -142,8 +151,11 @@ openDialog(): void {
 }
 
 handleGetSuccesfull(response){
-  if(response.visible || response.oculto){
-  this.evento=response;
+  
+  if(response.evento.visible || response.evento.oculto){
+    console.log(response)
+  this.evento=response.evento;
+  this.organizadorId = response.organizadorId
 }
 }
 
@@ -155,31 +167,19 @@ manejar(response){
 
 
 
-numeroBoletasPorVenderYNoReservadas(localidad:Localidad){
-
-  var contador =0;
-  for(var i =0; i< localidad.boletas.length;i++)
-
-  {
-    if( localidad.boletas[i].reservado==false && localidad.boletas[i].vendida==false){
-      contador = contador+1;
-    }
-  }
- 
-  return contador;
-
-}
 
 
-darCantidadDePalcos(localidad:Localidad){
-  var contador =0;
+
+darCantidadDePalcosDisponiblesEtapas(localidad:Localidad){
+  var contador =localidad.maximoVender;
   for(var i =0; i < localidad.palcos.length; i=i+1){
-    if(localidad.palcos[i].vendido==false && localidad.palcos[i].reservado==false && localidad.palcos[i].proceso==false && localidad.palcos[i].disponible==true){
+    if(localidad.palcos[i].vendido==true || localidad.palcos[i].proceso==true|| localidad.palcos[i].reservado==true){
 
-      contador = contador+1;
+      contador = contador-1;
     }
   }
   return contador;
 }
+
 
 }

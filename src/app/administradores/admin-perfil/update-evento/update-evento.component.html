@@ -2,6 +2,7 @@
 <div class="container ">
     <h1>Evento</h1>
 <form (ngSubmit)="!todoForm.invalid && saveEvento()" #todoForm="ngForm">
+    <h3>Organizadores del evento : {{organizadorID}}</h3>
     <fieldset class="form-group" >
         <label for="id">PullEp</label>
         <input type="text" class= "form-control"name ="id" required="required" [(ngModel)]="evento.id">
@@ -13,22 +14,22 @@
 
 <fieldset class="form-group">
     <label for="fechaI">Fecha Inicio del evento</label>
-    <input type="date"  class= "form-control" name="fecha" required="required" [(ngModel)]="evento.fecha">
+    <input type="date"  class= "form-control" name="fechaI" required="required" [(ngModel)]="evento.fecha">
 </fieldset>
 
 <fieldset class="form-group">
     <label for="fechaF">Fecha Fin del evento</label>
-    <input type="date"  class= "form-control" name="fecha" required="required" [(ngModel)]="evento.fechaFin">
+    <input type="date"  class= "form-control" name="fechaF" required="required" [(ngModel)]="evento.fechaFin">
 </fieldset>
 
 <fieldset class="form-group">
     <label for="horaI">Hora Inicio</label>
-    <input type="time"  class= "form-control" name="fecha" required="required"  [(ngModel)]="evento.horaInicio" >
+    <input type="time"  class= "form-control" name="horaI" required="required"  [(ngModel)]="evento.horaInicio" >
 </fieldset>
 
 <fieldset class="form-group">
     <label for="horaF">Hora Fin</label>
-    <input type="time"  class= "form-control" name="fecha" required="required" [(ngModel)]="evento.horaFin">
+    <input type="time"  class= "form-control" name="horaF" required="required" [(ngModel)]="evento.horaFin">
 </fieldset>
 
 <fieldset class="form-group">
@@ -67,10 +68,7 @@
     <label for="ciudad">Ciudad ID</label>
     <input type="text" class= "form-control"name ="ciudad" required="required" [(ngModel)]="evento.ciudadIdTexto">
 </fieldset>
-<fieldset class="form-group">
-    <label for="organizador">Organizador ID</label>
-    <input type="text" class= "form-control"name ="organizador" required="required" [(ngModel)]="evento.organizadorid">
-</fieldset>
+
 
 
 <fieldset class="form-group">
@@ -87,11 +85,26 @@
         <option value="mapa9">Mapa 9</option>
         <option value="mapa10">Mapa 10</option>
         <option value="mapa11">Mapa 11</option>
+        <option value="mapa12">Mapa 12</option>
+        <option value="mapa13">Mapa 13</option>
+        <option value="mapa14">Mapa 14</option>
+        <option value="mapa15">Mapa 15</option>
+        <option value="mapa16">Mapa 16</option>
+        <option value="mapa17">Mapa 17</option>
+        <option value="mapa18">Mapa 18</option>
+        <option value="mapa19">Mapa 19</option>
+        <option value="mapa20">Mapa 20</option>
         <option value=""></option>
 
     </select>
 </fieldset>
 
+<fieldset class="form-group">
+    <label for="lugar">Dinero Entregado</label>
+    <input type="number" class= "form-control"name ="Dinero Entregado" required="required" [(ngModel)]="evento.dineroEntregado">
+</fieldset>
 <button class="btn btn-success" type="submit">Guardar</button>
+
+
 </form>
 </div>

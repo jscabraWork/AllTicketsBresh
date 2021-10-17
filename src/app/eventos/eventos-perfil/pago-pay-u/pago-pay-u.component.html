@@ -36,7 +36,7 @@
               <tr>
                 <th>Nombre</th>
                 <th>Cantidad</th>
-                <th>Disponibles</th>
+               
                 <th>Precio + Servicio + IVA</th>
 
 
@@ -50,7 +50,7 @@
                   {{boletasLocalidadCantidadSeleccionada(localidad)}}
                   <button class=" rounded-circle" (click)="reservarBoletasPorLocalidad(localidad)">+</button>
                 </td>
-                <td>{{numeroBoletasPorVenderYNoReservadas(localidad)}}</td>
+ 
                 <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio|
                     currency:'COP'}} </strong> + <strong>{{localidad.servicioPorcentaje|currency:'COP'}}</strong></td>
 

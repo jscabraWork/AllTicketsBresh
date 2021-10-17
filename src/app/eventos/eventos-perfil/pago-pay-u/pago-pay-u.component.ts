@@ -27,7 +27,6 @@ import { IVA } from 'src/app/app.constants';
 })
 export class PagoPayUComponent implements OnInit {
 miId;
-IVA
 valorTotal:number
 usuarioA:string
 usuarioEntidad: Cliente
@@ -35,11 +34,9 @@ evento:Evento;
 boletas:Boleta[]=[]
 localidadesCompradas:Localidad[]=[]
 usuarioBoolean:boolean
-merchantId:number
-accountId:number
 referenceCode:string =""
 signature:string
-ApiKey:string
+
 valorLocalidadAgregada:number 
 contadorBoletas 
 etapa:Etapa[]=[]
@@ -50,7 +47,7 @@ idLocalidad
 idEtapa
 localidad:Localidad
 codigoVenta
-url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
+
   constructor(private route: ActivatedRoute,public dialog: MatDialog, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService ) { }
 
   ngOnInit(): void {
@@ -62,10 +59,10 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
     
     this.usuarioBoolean=true;
     this.referenceCode= ""
-    this.IVA = IVA
-    this.merchantId=703263  // 508029
-    this.accountId=706326 //  512321
-    this.ApiKey="tyrs5RFaKLs72kHWaZW3WB91B0"// 4Vj8eK4rloUd272L48hsrarnUA
+
+
+
+    
     this.evento ={
       id: "",
       nombre:"",
@@ -76,7 +73,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       terminosYCondiciones:"",
       recomendaciones:"",
       ciudadIdTexto:null,
-      organizadorid:null,
+      
       imagen:null,
       imagenes:[],
       artistas:"",
@@ -95,7 +92,9 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       fechaApertura:null,
       urlMapa:null,
       adicionales:[],
-      oculto:null
+      oculto:null,
+      dineroEntregado:null,
+      ciudadNombre:null
     }
     this.localidad ={
       id:null,
@@ -107,7 +106,8 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
       boletasPatrocinio:[],
       palcos:[],
       servicioPorcentaje:null,
-      efectivo:false
+      efectivo:false,
+      maximoVender:null
     }
     this.usuarioEntidad= {
       nombre: "",
@@ -208,21 +208,6 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 
   }
 
-  numeroBoletasPorVenderYNoReservadas(localidad:Localidad){
-
-    var contador =0;
-    for(var i =0; i< localidad.boletas.length;i++)
-
-    {
-      if( localidad.boletas[i].reservado==false && localidad.boletas[i].vendida==false){
-        contador = contador+1;
-      }
-    }
-   
-    return contador;
- 
-  }
-
   manejar(response){
     this.etapa =response;
   }
@@ -250,7 +235,7 @@ url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
     alert("Solo puedes comprar 6 boletas máximo por Evento")
   }
   else if(this.cargando){
-    alert("Estamos un poco atareados el día de hoy, estamos cargando");
+    alert("Revisa tu conexión a internet");
   }
   }
 
@@ -383,14 +368,12 @@ AbrirCarrito(): void {
 
   dialogRef.afterClosed().subscribe(result => {
   
-      this.servicioBoletas.rechazarReservaBoletaInstantaneamente(this.boletas).subscribe(response=> response)
-
+      this.servicioBoletas.rechazarReservaBoletaInstantaneamente(this.boletas).subscribe(response=> {
     
-    
-    this.dialog.closeAll();
-    this.ngOnInit()
-
-
+        response
+        this.dialog.closeAll();
+        this.ngOnInit()}
+        )
 
    
   });

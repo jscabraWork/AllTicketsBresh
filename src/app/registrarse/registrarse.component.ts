@@ -22,7 +22,7 @@ export class RegistrarseComponent implements OnInit {
       nombre: null,
       numeroDocumento: null,
       tipoDocumento: "Cedula",
-      usuario: null,
+      usuario: "",
       contrasena:null,
       celular:null,
       correo:null,
@@ -37,6 +37,11 @@ export class RegistrarseComponent implements OnInit {
 
   saveUsuario(){
     
+
+if(!this.usuario.usuario.includes(" "))
+{
+
+
     var md5 = new Md5()
 
     var contra = this.usuario.contrasena;
@@ -55,8 +60,17 @@ export class RegistrarseComponent implements OnInit {
       }
     
     )
-   
+  
+
+
+  }
+  else{
+    alert("El usuario no permite espacios en blanco")
+  }
     
+
+
+
 
   }
 

@@ -10,20 +10,23 @@
 
         <fieldset class="form-group">
             <label for="servicio">Personas Por Palco</label>
-            <input type="number" class= "form-control"name ="servicio" required="required"  [(ngModel)]="palco.personasMaximas">
+            <input type="number" class= "form-control"name ="personasMaximo" required="required"  [(ngModel)]="palco.personasMaximas">
         </fieldset>
 
         <fieldset class="form-group">
             <label for="servicio">Numero Maximo de agregar el palco</label>
-            <input type="text" class= "form-control"name ="servicio" required="required"  [(ngModel)]="numeroArriba">
+            <input type="text" class= "form-control"name ="numeroArriba" required="required"  [(ngModel)]="numeroArriba">
         </fieldset>
 
         <fieldset class="form-group">
             <label for="servicio">Numero Minimo de agregar al palco</label>
-            <input type="number" class= "form-control"name ="servicio" required="required"  [(ngModel)]="numeroAbajo">
+            <input type="number" class= "form-control"name ="numeroAbajo" required="required"  [(ngModel)]="numeroAbajo">
         </fieldset>
 
-        
+        <fieldset class="form-group">
+            <label for="servicio">Tiene una letra antes del numero?</label>
+            <input type="text" class= "form-control"name ="Letra"   [(ngModel)]="letra">
+        </fieldset>
 
         
         <button class="btn btn-success" type="submit">Guardar</button>

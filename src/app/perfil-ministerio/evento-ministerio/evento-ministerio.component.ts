@@ -27,7 +27,7 @@ export class EventoMinisterioComponent implements OnInit {
       terminosYCondiciones:"",
       recomendaciones:"",
       ciudadIdTexto:null,
-      organizadorid:null,
+      
       imagen:null,
       imagenes:[],
       artistas:"",
@@ -46,7 +46,9 @@ export class EventoMinisterioComponent implements OnInit {
       fechaApertura:null,
       urlMapa:null,
       adicionales:[],
-      oculto:null
+      oculto:null,
+      dineroEntregado:null,
+      ciudadNombre:null
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');

@@ -36,7 +36,9 @@
                             <th class="border">Etapa de Venta</th>
                             <th class="border ">Nombre</th>
                             <th class="border " *ngIf="evento.adicionales.length ==0">Precio General (Sin variaciones)</th>
-                            <th class="border ">Tickets vendidas</th>               
+                            <th
+                             class="border ">Tickets vendidas</th>
+                             <th class="border ">Tickets En proceso de compra</th>               
                             <th class="border ">Tickets por vender</th>
                             <th class="border"> Personas que han entrado</th>
                             <th class="border ">Tickets totales</th>
@@ -50,6 +52,7 @@
                             <th class="border">Palcos En Transacción</th>
 
                             <th class="border">Dinero De Palcos</th>
+                            <th class="border">Dinero a recaudar</th>
                             <th class="border">Personas en Palcos</th>
                            <!-- <th class="border">Tickets Patrocinios</th>   -->
                                  
@@ -65,8 +68,9 @@
                             <td class="border"> <strong>{{localidad?.nombre }}</strong></td> 
                             <td class="border" *ngIf="evento.adicionales.length ==0"> <strong>{{localidad?.precio| currency:'COP'}}</strong></td> 
 
-                            <td class="border"> <strong>{{numeroBoletasPorVender(localidad,true)}}</strong></td> 
-                            <td class="border"> <strong>{{numeroBoletasPorVender(localidad,false)}}</strong></td> 
+                            <td class="border"> <strong>{{numeroBoletasVendidas(localidad)}}</strong></td> 
+                            <td class="border"> <strong>{{numeroBoletasEnProceso(localidad)}}</strong></td> 
+                            <td class="border"> <strong>{{numeroBoletasPorVender(localidad)}}</strong></td> 
 
                             <td class="border"><strong>{{numeroBoletasUtilizadas(localidad)}}</strong></td>
 
@@ -83,6 +87,7 @@
 
 
                             <td class="border">{{dineroRecaudadoPalcos(localidad)|currency:'COP'}}</td>
+                            <td class="border">{{dineroARecaudarPalcos(localidad)|currency:'COP'}}</td>
                             <td class="border">{{personasEnPalco(localidad)}}</td>
                             <!-- <td class="border"><button class=" action_button" routerLink="patrocinio/{{localidad?.id}}">Tickets patrocinio</button></td>-->
                            
@@ -95,7 +100,11 @@
                 </table>
             </div>    
         <div class="col-12" >
-            <p class="border p-3" style="background-color: white;"><strong>Dinero Total Recaudado: {{dineroRecaudado |currency:'COP'}} </strong></p>
+            <p class="border p-3" style="background-color: white;"><strong>Dinero Total Recaudado: {{dineroRecaudado |currency:'COP'}} </strong>
+            <br>
+            <strong>Dinero Entregado: {{evento?.dineroEntregado |currency:'COP'}} </strong>
+        </p>
+  
             <button class="ml-3 btn action_button" routerLink="promotores">Ver promotores</button>
         </div>
     </div>    

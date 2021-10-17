@@ -38,7 +38,8 @@ dineroRecaudado=1;
         precio:null,
         servicio:null,
         servicioPorcentaje:null,
-        efectivo:false
+        efectivo:false,
+        maximoVender:null
       }
       this.refrescar();
 })

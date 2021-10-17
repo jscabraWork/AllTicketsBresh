@@ -1,8 +1,9 @@
 import { Palco } from './../../administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
-import { API_URL } from './../../app.constants';
+import { API_URL, API_URL2 } from './../../app.constants';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cliente } from 'src/app/usuario/cliente.model';
+import { Localidad } from 'src/app/administradores/admin-perfil/admin-eventos/admin-localidades/localidad.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,12 +36,17 @@ export class PalcosDataService {
   {
     return this.http.get<Cliente[]>(`${API_URL}/palcos/clientes/${pIdPalco}`)
   }
-  agregarPalcosALocalidad(pIdLocalidad:number, palco:Palco, numeroArriba:number, numeroAbajo:number){
-    return this.http.post(`${API_URL}/localidad/${pIdLocalidad}/palcos/${numeroArriba}/${numeroAbajo}`,palco)
+  agregarPalcosALocalidad(pIdLocalidad:number, palco:Palco, numeroArriba:number, numeroAbajo:number, letra){
+    return this.http.post(`${API_URL}/localidad/${pIdLocalidad}/palcos/${numeroArriba}/${numeroAbajo}/${letra}`,palco)
 
 
 
   }
+
+getLocalidadDelPalco(pIdPalco){
+  return this.http.get<Localidad>(`${API_URL}/palco/${pIdPalco}/localidad`)
+}
+
   borrarPalco(pIdPalco, pIdEvento){
     return this.http.delete(`${API_URL}/eventos/${pIdEvento}/palcos/${pIdPalco}`)
   }
@@ -66,7 +72,11 @@ export class PalcosDataService {
   agregarClientesAlPalco(idPalco, pIdCliente){
     return this.http.put(`${API_URL}/palcos/${idPalco}/agregarCliente/${pIdCliente}`,null)
   }
-
+  
+  quitarClientesAlPalco(idPalco, pIdCliente){
+    return this.http.put(`${API_URL}/palco/quitar/${idPalco}/${pIdCliente}`,null)
+  }
+  
   marcarComoReservado(idPalco){
     return this.http.put(`${API_URL}/palcos/${idPalco}/marcarVendido`,null)
   }
@@ -150,7 +160,11 @@ pagarPalco(transaccion:string, valorPagado:number, aceptada:string){
 }
 
 voltear(pIdLocalidad){
-  return this.http.get<Cliente[]>(`${API_URL}/voltear/${pIdLocalidad}`)
+  return this.http.get(`${API_URL}/voltear/${pIdLocalidad}`)
+}
+
+mandarQRPalco(pIdPalco){
+  return this.http.get(`${API_URL2}/palco/qrs/${pIdPalco}`)
 }
 
 }

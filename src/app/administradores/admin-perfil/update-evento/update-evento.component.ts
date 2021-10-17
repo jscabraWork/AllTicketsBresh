@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class UpdateEventoComponent implements OnInit {
   miId:string;
   selectedFile:File=null;
+  organizadorID
   constructor(private route: ActivatedRoute,private servicio: EventoDataService, private router: Router) { }
 
   evento:Evento;
@@ -31,7 +32,7 @@ this.evento ={
   terminosYCondiciones:"",
   recomendaciones:"",
   ciudadIdTexto:null,
-  organizadorid:null,
+  
   imagen:null,
   imagenes:[],
   artistas:"",
@@ -50,13 +51,16 @@ this.evento ={
   imagenFinal:null,
   urlMapa:null,
   adicionales:[],
-  oculto:null
+  oculto:null,
+  dineroEntregado:null,
+  ciudadNombre:null
 }
-this.servicio.getEventoId(this.miId).subscribe( response => this.handleGetSuccesfull(response));
+this.servicio.getEventoIdPerfil(this.miId).subscribe( response => this.handleGetSuccesfull(response));
   }
 
   handleGetSuccesfull(response){
-    this.evento=response;
+    this.evento=response.evento;
+    this.organizadorID = response.organizadorId
   }
   saveEvento(){
 

@@ -34,7 +34,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
       terminosYCondiciones:"",
       recomendaciones:"",
       ciudadIdTexto:null,
-      organizadorid:null,
+      
       imagen:null,
       imagenes:[],
       artistas:"",
@@ -53,7 +53,9 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
       fechaApertura:null,
       urlMapa:null,
       adicionales:[],
-      oculto:null
+      oculto:null,
+      dineroEntregado:null,
+      ciudadNombre:null
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
@@ -63,13 +65,17 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
           response=>{
             this.localidades = response;
             for(var j=0; j< this.localidades.length; j++){
-            for(var i =0; i< this.localidades[j].boletas.length;i++)
+
+
+            for(var i =0; i< this.localidades[j].boletas.length;i=i+1)
 
             {
               if(  this.localidades[j].boletas[i].vendida==true){
-                this.dineroRecaudado = this.dineroRecaudado + this.localidades[j].precio;
+                this.dineroRecaudado = this.dineroRecaudado + this.localidades[j].boletas[i].precio;
               }
             }
+
+
             for (var k =0; k< this.localidades[j].palcos.length;k=1+k){
               if(this.localidades[j].palcos[k].vendido ==true){
                 
@@ -77,8 +83,10 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
               }
             }
 
+
+
+
           }
-    
           }
         )
       });
@@ -95,13 +103,42 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   }
 
 
-  numeroBoletasPorVender(localidad:Localidad, vendida:boolean){
+  numeroBoletasPorVender(localidad:Localidad){
 
     var contador =0;
     for(var i =0; i< localidad.boletas.length;i++)
   
     {
-      if(  localidad.boletas[i].vendida==vendida){
+      if(  localidad.boletas[i].vendida==false && localidad.boletas[i].reservado==false){
+        contador = contador+1;
+      }
+    }
+   
+    return contador;
+  
+  }
+  numeroBoletasVendidas(localidad:Localidad){
+
+    var contador =0;
+    for(var i =0; i< localidad.boletas.length;i++)
+  
+    {
+      if(  localidad.boletas[i].vendida==true){
+        contador = contador+1;
+      }
+    }
+   
+    return contador;
+  
+  }
+
+  numeroBoletasEnProceso(localidad:Localidad){
+
+    var contador =0;
+    for(var i =0; i< localidad.boletas.length;i++)
+  
+    {
+      if(  localidad.boletas[i].reservado==true){
         contador = contador+1;
       }
     }
@@ -134,7 +171,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   
     {
       if(  localidad.boletas[i].vendida==true){
-        contador =contador+ localidad.precio;
+        contador =contador+ localidad.boletas[i].precio;
         
       }
     }
@@ -180,6 +217,19 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
         contador = contador +((localidad.palcos[i].precioParcialPagado)/(localidad.palcos[i].servicio+localidad.palcos[i].servicioIva+localidad.palcos[i].precio))*localidad.palcos[i].precio
         
       }
+    }
+    return contador;
+  }
+
+  dineroARecaudarPalcos(localidad:Localidad){
+    var contador =0;
+    for (var i =0; i< localidad.palcos.length;i=1+i){
+     
+      if(localidad.palcos[i].disponible){
+        contador = contador+ localidad.palcos[i].precio
+      }
+        
+      
     }
     return contador;
   }

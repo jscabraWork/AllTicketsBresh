@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Palco } from '../administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
 import { Etapa } from '../eventos/eventos-perfil/etapa.model';
 import { EtapasDataService } from '../service/data/etapas-data.service';
 import { PromotorDataService } from '../service/data/promotor-data.service';
@@ -49,5 +50,7 @@ export class PromotorPerfilComponent implements OnInit {
     })
   }
   
-
+darDineroRecaudado(palco:Palco){
+  return ((palco.precioParcialPagado)/(palco.servicio+palco.servicioIva+palco.precio))*palco.precio
+}
 }

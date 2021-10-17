@@ -29,6 +29,7 @@ export class LocalidadPromotorComponent implements OnInit {
   idLocalidad
   cargando:boolean
   uso:boolean
+  vender:boolean 
   constructor(private servicio: PromotorDataService,
     private autenticador: HardcodedAutheticationService
     , private route: ActivatedRoute,
@@ -40,6 +41,7 @@ export class LocalidadPromotorComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.vender =false
     this.uso=true
     this.cargando=false
     this.etapas= [];
@@ -53,7 +55,8 @@ export class LocalidadPromotorComponent implements OnInit {
       boletasPatrocinio:[],
       palcos:[],
       servicioPorcentaje:null,
-      efectivo:false
+      efectivo:false,
+      maximoVender:null
     }
     this.promotor = {
       boletasVendidas: [],
@@ -83,7 +86,7 @@ export class LocalidadPromotorComponent implements OnInit {
       terminosYCondiciones: "",
       recomendaciones: "",
       ciudadIdTexto: null,
-      organizadorid: null,
+      
       imagen: null,
       imagenes: [],
       artistas: "",
@@ -105,7 +108,9 @@ export class LocalidadPromotorComponent implements OnInit {
       fechaApertura: null,
       urlMapa: null,
       adicionales: [],
-      oculto: null
+      oculto: null,
+      dineroEntregado:null,
+      ciudadNombre:null
     }
 
 
@@ -137,15 +142,37 @@ export class LocalidadPromotorComponent implements OnInit {
         this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(r => {
           this.manejar(r);
 
-          for (let i = 0; i < this.etapas.length; i++) {
-            console.log(this.etapas.length);
-            for (let j = 0; j < this.etapas[i].localidades.length; j++) {
 
-              if (this.etapas[i].localidades[j].id == this.idLocalidad) {
-                this.localidad = this.etapas[i].localidades[j];
+          this.etapaServicio.getAllEtapasVisiblesPromotor(this.evento.id,true).subscribe(response=>{
+          
+            this.etapas= this.etapas.concat(response)
+    
+            for (let i = 0; i < this.etapas.length; i++) {
+              console.log(this.etapas.length);
+              for (let j = 0; j < this.etapas[i].localidades.length; j++) {
+  
+                if (this.etapas[i].localidades[j].id == this.idLocalidad) {
+                  this.localidad = this.etapas[i].localidades[j];
+                }
               }
             }
-          }
+         
+              var contador =this.localidad.maximoVender;
+              for(var i =0; i < this.localidad.palcos.length; i=i+1){
+                if(this.localidad.palcos[i].vendido==true || this.localidad.palcos[i].proceso==true|| this.localidad.palcos[i].reservado==true){
+            
+                  contador = contador-1;
+                }
+              }
+         
+            if(contador>0){
+              this.vender=true
+            }
+            })
+
+
+         
+
 
         })
 
@@ -156,6 +183,9 @@ export class LocalidadPromotorComponent implements OnInit {
 
     })
   }
+
+  
+
 
   handleGetSuccesfull(response) {
     if (response.visible || response.oculto) {

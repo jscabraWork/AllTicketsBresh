@@ -19,7 +19,7 @@ export class AgregarEventoComponent implements OnInit {
   evento:Evento;
   horaInicio
   fecha:Date = new Date()
-
+  idOrganizador
 
 
   ngOnInit(): void {
@@ -35,7 +35,6 @@ export class AgregarEventoComponent implements OnInit {
       terminosYCondiciones:"",
       recomendaciones:"",
       ciudadIdTexto:null,
-      organizadorid:null,
       imagen:null,
       imagenes:null,
       artistas:"",
@@ -54,7 +53,9 @@ export class AgregarEventoComponent implements OnInit {
       fechaApertura:null,
       urlMapa:null,
       adicionales:[],
-      oculto:null
+      oculto:null,
+      dineroEntregado:0,
+      ciudadNombre:null
       
     }
 
@@ -67,7 +68,7 @@ export class AgregarEventoComponent implements OnInit {
 
   saveEvento(){
     
-    this.servicio.addEventoId(this.evento).subscribe(data=>console.log(data))
+    this.servicio.addEventoId(this.evento,this.idOrganizador).subscribe(data=>console.log(data))
     alert("se creo el evento "+ this.evento.nombre);
     this.route.navigate(['administradores/admin/eventos/lista']);
 

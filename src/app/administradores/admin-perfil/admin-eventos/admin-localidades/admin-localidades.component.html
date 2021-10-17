@@ -1,4 +1,4 @@
-<section class="container mt-5">
+<section class="container-fluid mt-5">
     <div class="row">
         <h1>Todas las Localidades del Evento {{miId}}</h1>
         <br>
@@ -18,6 +18,8 @@
                         <th>Boletas</th>
                         <th>Palcos</th>
                         <th>Modificar</th>
+                        <th>Agregar Adiciones</th>
+                        <th>Agregar Alternos</th>
                         <th>Efectivo</th>
                         <th>Borrar</th>
                         
@@ -37,6 +39,8 @@
                         <td><button class="btn btn-success" routerLink="/administradores/admin/eventos/lista/localidad/boletas/{{miId}}/{{localidad?.id}}/{{localidad?.nombre}}"> Boletas</button></td>
                         <td><button class="btn btn-success" routerLink="{{localidad.id}}/palcos"> Palcos</button></td>
                         <td><button class="btn btn-warning" routerLink="localidad/{{localidad.id}}"> Modificar</button> </td>
+                        <td><button class="btn btn-warning" routerLink="localidad/{{localidad.id}}/adiciones"> Adiciones</button> </td>
+                        <td><button class="btn btn-warning" routerLink="localidad/{{localidad.id}}/alternos"> Alternos</button> </td>
                         <td><button class="btn btn-warning" (click)="cambiarEfectivo(localidad.id)"> {{localidad.efectivo | booleans}}</button></td>
                         <td><button  class="btn btn-danger" (click)="borrarLocalidad(localidad.id)" > Delete</button></td>
             

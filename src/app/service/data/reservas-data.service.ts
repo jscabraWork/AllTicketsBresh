@@ -13,6 +13,9 @@ export class ReservasDataService {
   getAllReservas(){
     return this.http.get(`${API_URL}/reservas`)
   }
+  getAllReservasNoVendidasDePromotorPorEvento(pIdPromotor,nombreEvento){
+    return this.http.get<Reserva[]>(`${API_URL}/reservas/promotor/${pIdPromotor}/${nombreEvento}`)
+  }
   getReserva(pIdReserva:number){
     return this.http.get<Reserva>(`${API_URL}/reservas/${pIdReserva}`)
   }

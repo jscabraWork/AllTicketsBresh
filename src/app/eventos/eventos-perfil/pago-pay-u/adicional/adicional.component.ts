@@ -59,7 +59,7 @@ export class AdicionalComponent implements OnInit {
       terminosYCondiciones: '',
       recomendaciones: '',
       ciudadIdTexto: null,
-      organizadorid: null,
+      
       imagen: null,
       imagenes: [],
       artistas: '',
@@ -78,7 +78,9 @@ export class AdicionalComponent implements OnInit {
       fechaApertura:null,
       urlMapa:null,
       adicionales:[],
-      oculto:null
+      oculto:null,
+      dineroEntregado:null,
+      ciudadNombre:null
     };
 
     this.palco = {

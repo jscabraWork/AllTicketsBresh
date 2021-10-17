@@ -17,6 +17,7 @@ import { NgModule } from '@angular/core';
 import { BoletasPatrocinioComponent } from './organizador-perfil/evento-perfil-organizador/boletas-patrocinio/boletas-patrocinio.component';
 import { PromotoresOrganizadorComponent } from './organizador-perfil/evento-perfil-organizador/promotores-organizador/promotores-organizador.component';
 import { PalcosPromtorOrganizadorComponent } from './organizador-perfil/evento-perfil-organizador/promotores-organizador/palcos-promtor-organizador/palcos-promtor-organizador.component';
+import { ReservasComponent } from './organizador-perfil/evento-perfil-organizador/promotores-organizador/reservas/reservas.component';
 
 
 
@@ -36,7 +37,7 @@ const routes: Routes=[
           canActivate:[RouteGuardOrganizadorService]
         },
         {
-          path: 'organizador/admin/:user',
+          path: 'organizador/admin/perfil/:user',
           component: OrganizadorPerfilComponent,
           canActivate:[RouteGuardAdminService]
         },
@@ -55,6 +56,12 @@ const routes: Routes=[
         {
           path:'organizador/eventos/:id/promotores/:idPromotor',
           component:PalcosPromtorOrganizadorComponent,
+          canActivate:[RouteGuardOrganizadorService]
+
+        },
+        {
+          path:'organizador/eventos/:id/promotores/:idPromotor/reservas',
+          component:ReservasComponent,
           canActivate:[RouteGuardOrganizadorService]
 
         },
@@ -86,7 +93,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[  OrganizadoresComponent,OrganizadorPerfilComponent, EventoPerfilOrganizadorComponent, BoletasPatrocinioComponent, PromotoresOrganizadorComponent, PalcosPromtorOrganizadorComponent],
+    declarations:[  OrganizadoresComponent,OrganizadorPerfilComponent, EventoPerfilOrganizadorComponent, BoletasPatrocinioComponent, PromotoresOrganizadorComponent, PalcosPromtorOrganizadorComponent, ReservasComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

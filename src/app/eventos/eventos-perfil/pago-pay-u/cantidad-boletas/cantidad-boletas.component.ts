@@ -44,7 +44,7 @@ export class CantidadBoletasComponent implements OnInit {
       terminosYCondiciones: '',
       recomendaciones: '',
       ciudadIdTexto: null,
-      organizadorid: null,
+      
       imagen: null,
       imagenes: [],
       artistas: '',
@@ -63,7 +63,9 @@ export class CantidadBoletasComponent implements OnInit {
       fechaApertura:null,
       urlMapa:null,
       adicionales:[],
-      oculto:null
+      oculto:null,
+      dineroEntregado:null,
+      ciudadNombre:null
     };
     this.usuarioEntidad = this.data.usuarioEntidad;
     this.boletasCantidad =1

@@ -47,7 +47,7 @@ IVA
       terminosYCondiciones:"",
       recomendaciones:"",
       ciudadIdTexto:null,
-      organizadorid:null,
+
       imagen:null,
       imagenes:[],
       artistas:"",
@@ -66,7 +66,9 @@ IVA
       fechaApertura:null,
       urlMapa:null,
       adicionales:[],
-      oculto:null
+      oculto:null,
+      dineroEntregado:null,
+      ciudadNombre:null
     }
     this.etapa={
       evento:null,
@@ -83,15 +85,7 @@ IVA
       this.miId =params.get('id');})
       this.eventosServicio.getEventoId(this.miId).subscribe(response=> 
         {
-          if(response.visible)
-        {
-          this.evento =response
-          this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
-       
-          
-          
-          })
-        }
+          this.handle(response)
         }
         
         );
@@ -99,7 +93,17 @@ IVA
     
     });
   }
-
+  handle(response){
+    if(response.visible)
+    {
+      this.evento =response.evento
+      this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
+   
+      
+      
+      })
+    }
+  }
 
   manejar(response){
     this.etapa=response

@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CambiarPerfilComponent } from './usuario-perfil/cambiar-perfil/cambiar-perfil.component';
+import { ModificarUsuarioAdminComponent } from './modificar-usuario-admin/modificar-usuario-admin.component';
 
 
 
@@ -30,15 +31,12 @@ const routes: Routes=[
           component: UsuarioComponent,
           canActivate:[RouteGuardAdminService]
         },
+
         {
           path: 'usuario/:user',
           component: UsuarioPerfilComponent,
           canActivate:[RouteGuardUsuarioService]
         },
-       
-
-     
-
 
         {
           path: 'usuario/admin/:user',
@@ -64,7 +62,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[  UsuarioComponent,UsuarioPerfilComponent,  AgregarAmigosComponent, CambiarPerfilComponent],
+    declarations:[  UsuarioComponent,UsuarioPerfilComponent,  AgregarAmigosComponent, CambiarPerfilComponent, ModificarUsuarioAdminComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

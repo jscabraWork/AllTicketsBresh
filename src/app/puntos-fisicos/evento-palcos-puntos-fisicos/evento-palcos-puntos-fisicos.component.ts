@@ -56,7 +56,7 @@ valorBoletas=0
       terminosYCondiciones:"",
       recomendaciones:"",
       ciudadIdTexto:null,
-      organizadorid:null,
+
       imagen:null,
       imagenes:[],
       artistas:"",
@@ -75,7 +75,9 @@ valorBoletas=0
       fechaApertura:null,
       urlMapa:null,
       adicionales:[],
-      oculto:null
+      oculto:null,
+      dineroEntregado:null,
+      ciudadNombre:null
     }
     this.palco={
       id:null,
@@ -109,7 +111,8 @@ valorBoletas=0
     
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');})
-      this.eventosServicio.getEventoId(this.miId).subscribe(response=> this.evento =response);
+      this.eventosServicio.getEventoId(this.miId).subscribe(response=> this.handle(response));
+      
       this.etapaServicio.getAllEtapasVisiblesDeEvento(this.miId, true).subscribe(response =>{this.manejar(response);
         var i =0;
         while(i < this.etapa.localidades.length){
@@ -130,7 +133,9 @@ valorBoletas=0
     this.etapa=response
   }
 
-  
+  handle(response){
+    this.evento =response
+  }
   agregarALaLista(localidad:Localidad){
 
     this.localidad =localidad;

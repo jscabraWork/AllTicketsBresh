@@ -32,7 +32,7 @@ export class AdminEtapasComponent implements OnInit {
         terminosYCondiciones:"",
         recomendaciones:"",
         ciudadIdTexto:null,
-        organizadorid:null,
+        
         imagen:null,
         imagenes:[],
         artistas:"",
@@ -51,7 +51,9 @@ export class AdminEtapasComponent implements OnInit {
         fechaApertura:null,
         urlMapa:null,
         adicionales:[],
-        oculto:null
+        oculto:null,
+        dineroEntregado:null,
+        ciudadNombre:null
       }
     this.refrescar()
     })

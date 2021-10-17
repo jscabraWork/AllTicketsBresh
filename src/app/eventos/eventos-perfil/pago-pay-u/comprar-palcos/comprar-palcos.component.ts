@@ -19,6 +19,7 @@ import { Md5 } from 'ts-md5';
 import { LocalidadesDataService } from 'src/app/service/data/localidades-data.service';
 import { AdicionalComponent } from '../adicional/adicional.component';
 import { CantidadBoletasComponent } from '../cantidad-boletas/cantidad-boletas.component';
+import { LocalidadSeleccionComponent } from '../localidad-seleccion/localidad-seleccion.component';
 
 @Component({
   selector: 'app-comprar-palcos',
@@ -92,6 +93,24 @@ export class ComprarPalcosComponent implements OnInit {
   lista52: any[] = [];
   lista53: any[] = [];
   lista54: any[] = [];
+  lista55: any[] = [];
+  lista56: any[] = [];
+  lista57: any[] = [];
+  lista58: any[] = [];
+  lista59: any[] = [];
+  lista60: any[] = [];
+  lista61: any[] = [];
+  lista62: any[] = [];
+  lista63: any[] = [];
+  lista64: any[] = [];
+  lista65: any[] = [];
+  lista66: any[] = [];
+  lista67: any[] = [];
+  lista68: any[] = [];
+  lista69: any[] = [];
+  lista70: any[] = [];
+  lista71: any[] = [];
+  lista72: any[] = [];
   miId;
   valorTotal: number;
   usuarioA: string;
@@ -139,6 +158,8 @@ export class ComprarPalcosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.cargando=false
+    this.cargadoTodo =false
     this.lista1 = [];
     this.lista2 = [];
     this.lista3 = [];
@@ -205,6 +226,25 @@ export class ComprarPalcosComponent implements OnInit {
     this.lista52 = [];
     this.lista53 = [];
     this.lista54 = [];
+    this.lista55 = [];
+    this.lista56 = [];
+    this.lista57 = [];
+    this.lista58 = [];
+    this.lista59 = [];
+    this.lista60 = [];
+    this.lista61 = [];
+    this.lista62 = [];
+    this.lista63 = [];
+    this.lista64 = [];
+    this.lista65 = [];
+    this.lista66 = [];
+    this.lista67 = [];
+    this.lista68 = [];
+    this.lista69 = [];
+    this.lista70 = [];
+    this.lista71 = [];
+    this.lista72 = [];
+
     this.codigoVenta = ''
     this.contadorBoletas = 0;
     this.valorBoletas = 0;
@@ -257,6 +297,7 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
+      maximoVender:null
     };
 
     this.localidadCargadaPreferecial = {
@@ -298,6 +339,7 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
+      maximoVender:null
     };
     this.localidadCargadaGeneral = {
       id: null,
@@ -338,6 +380,7 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
+      maximoVender:null
     };
     this.localidadCargadaBoletas = {
       id: null,
@@ -378,6 +421,7 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
+      maximoVender:null
     };
     this.localidadCargadaBoletasVIP = {
       id: null,
@@ -418,6 +462,7 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
+      maximoVender:null
     };
     this.palco = {
       id: null,
@@ -470,7 +515,7 @@ export class ComprarPalcosComponent implements OnInit {
       terminosYCondiciones: '',
       recomendaciones: '',
       ciudadIdTexto: null,
-      organizadorid: null,
+      
       imagen: null,
       imagenes: [],
       artistas: '',
@@ -493,7 +538,9 @@ export class ComprarPalcosComponent implements OnInit {
       fechaApertura: null,
       urlMapa: null,
       adicionales: [],
-      oculto: null
+      oculto: null,
+      dineroEntregado:null,
+      ciudadNombre:null
     };
     this.codigoVenta == '';
     this.route.paramMap.subscribe((params) => {
@@ -505,131 +552,14 @@ export class ComprarPalcosComponent implements OnInit {
 
       this.service.getEventoId(this.miId).subscribe((response) => {
         this.handleGetSuccesfull(response);
+        
+        
         if (!this.evento.mapa) {
           this.servicioLocalidad.getLocaliddadPorId(this.idLocalidad, this.evento.id).subscribe((response) => {
             this.localidadCargada = response
           })
         }
 
-
-
-
-
-        // if (this.evento.mapa == 'mapa3') {
-        //   this.etapaServicio
-        //     .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-        //     .subscribe((response) => {
-        //       this.etapas = response;
-
-        //       this.ponerNumerosMapa3();
-
-        //       for (let i = 0; i < this.etapas.length; i += 1) {
-        //         for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
-        //           if (
-        //             this.etapas[i].localidades[j].nombre == 'Palcos General'
-        //           ) {
-        //             this.localidadCargadaGeneral =
-        //               this.etapas[i].localidades[j];
-        //           }
-
-        //           if (this.etapas[i].localidades[j].nombre == 'Palcos VIP') {
-        //             this.localidadCargada = this.etapas[i].localidades[j];
-        //           }
-        //           if (this.etapas[i].localidades[j].nombre == 'Zona Libre') {
-        //             this.localidadCargadaBoletas =
-        //               this.etapas[i].localidades[j];
-        //           }
-        //           if (this.etapas[i].localidades[j].nombre == 'Zona Libre VIP') {
-        //             this.localidadCargadaBoletasVIP =
-        //               this.etapas[i].localidades[j];
-        //           }
-        //         }
-        //       }
-
-        //       this.cargarLocalidadEnMapa3();
-        //       this.cargadoTodo = true;
-        //     });
-        // }
-        // if (this.evento.mapa == 'mapa4') {
-        //   this.etapaServicio
-        //     .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-        //     .subscribe((response) => {
-        //       this.etapas = response;
-        //       this.ponerNumerosMapa4();
-
-        //       for (let i = 0; i < this.etapas.length; i += 1) {
-        //         for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
-        //           if (this.etapas[i].localidades[j].nombre == 'Palcos VIP') {
-        //             this.localidadCargadaGeneral =
-        //               this.etapas[i].localidades[j];
-        //           }
-
-        //           if (
-        //             this.etapas[i].localidades[j].nombre == 'Palcos Platino'
-        //           ) {
-        //             this.localidadCargada = this.etapas[i].localidades[j];
-        //           }
-        //         }
-        //       }
-
-        //       this.cargarLocalidadEnMapa4();
-        //       this.cargadoTodo = true;
-        //     });
-        // }
-
-
-        // if (this.evento.mapa == 'mapa5') {
-
-
-        //   this.etapaServicio
-        //     .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-        //     .subscribe((response) => {
-        //       this.ponerNumerosMapa5();
-        //       this.etapas = response;
-
-
-
-        //       for (let i = 0; i < this.etapas.length; i += 1) {
-        //         for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
-
-
-        //           if (
-        //             this.etapas[i].localidades[j].nombre == 'Palcos VIP'
-        //           ) {
-        //             this.localidadCargadaGeneral =
-        //               this.etapas[i].localidades[j];
-
-        //           }
-
-        //           else if (this.etapas[i].localidades[j].nombre == 'Palcos Exclusive') {
-        //             this.localidadCargada = this.etapas[i].localidades[j];
-
-        //           }
-
-        //           else if (this.etapas[i].localidades[j].nombre == 'Palcos Preferencial') {
-        //             this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
-
-        //           }
-
-
-        //           else if (this.etapas[i].localidades[j].nombre == 'General') {
-        //             this.localidadCargadaBoletas =
-        //               this.etapas[i].localidades[j];
-
-        //           }
-
-        //           else if (this.etapas[i].localidades[j].nombre == 'Platino') {
-        //             this.localidadCargadaBoletasVIP =
-        //               this.etapas[i].localidades[j];
-
-        //           }
-        //         }
-        //       }
-
-        //       this.cargarLocalidadEnMapa5();
-        //       this.cargadoTodo = true;
-        //     });
-        // }
 
 
 
@@ -689,7 +619,46 @@ export class ComprarPalcosComponent implements OnInit {
             });
         }
 
-        if (this.evento.mapa == 'mapa7') {
+        else if (this.evento.mapa == 'mapa8') {
+
+          this.ponerNumerosMapa8();
+          this.etapaServicio
+            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+            .subscribe((response) => {
+
+              this.etapas = response;
+
+
+
+              for (let i = 0; i < this.etapas.length; i += 1) {
+                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                  if (
+                    this.etapas[i].localidades[j].nombre == 'Palco Oro'
+                  ) {
+                    this.localidadCargadaGeneral =
+                      this.etapas[i].localidades[j];
+
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'Palco Plata') {
+                    this.localidadCargada = this.etapas[i].localidades[j];
+
+                  }
+                  else if (this.etapas[i].localidades[j].nombre == 'VIP') {
+                    this.localidadCargadaBoletasVIP =
+                      this.etapas[i].localidades[j];
+
+                  }
+                }
+              }
+
+              this.cargarLocalidadEnMapa8();
+              this.cargadoTodo = true;
+            });
+        }
+        else if (this.evento.mapa == 'mapa7') {
 
           this.ponerNumerosMapa7();
           this.etapaServicio
@@ -709,19 +678,19 @@ export class ComprarPalcosComponent implements OnInit {
                   ) {
                     this.localidadCargadaGeneral =
                       this.etapas[i].localidades[j];
-                    console.log(this.localidadCargadaGeneral)
+                    
 
                   }
 
                   else if (this.etapas[i].localidades[j].nombre == 'A') {
                     this.localidadCargada = this.etapas[i].localidades[j];
-                    console.log(this.localidadCargada)
+                    
 
                   }
 
                   else if (this.etapas[i].localidades[j].nombre == 'B') {
                     this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
-                    console.log(this.localidadCargadaPreferecial)
+                    
 
                   }
 
@@ -729,7 +698,7 @@ export class ComprarPalcosComponent implements OnInit {
                   else if (this.etapas[i].localidades[j].nombre == 'C') {
                     this.localidadCargadaBoletas =
                       this.etapas[i].localidades[j];
-                    console.log(this.localidadCargadaBoletas)
+                    
                   }
 
 
@@ -741,38 +710,126 @@ export class ComprarPalcosComponent implements OnInit {
             });
         }
 
+        
+      
 
 
-        // if (this.evento.mapa == 'mapa1' || this.evento.mapa == 'mapa2') {
-        //   this.cargarMapa1()
-        //   this.etapaServicio
-        //   .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-        //   .subscribe((response) => {
-        //     this.etapas = response;
+        else if (this.evento.mapa == 'mapa10') {
 
-        //     for (let i = 0; i < this.etapas.length; i += 1) {
-        //       for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+          this.ponerNumerosMapa10();
+          this.etapaServicio
+            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+            .subscribe((response) => {
 
-        //         if (this.etapas[i].localidades[j].nombre == 'Palco'|| this.etapas[i].localidades[j].nombre == 'Palcos') {
-
-        //           this.localidadCargada =
-        //             this.etapas[i].localidades[j];
+              this.etapas = response;
 
 
-        //         }
 
-        //         else if (
-        //           this.etapas[i].localidades[j].nombre == 'Perreo al aire libre'
-        //         ) {
-        //           this.localidadCargadaBoletas = this.etapas[i].localidades[j];
-        //         }
-        //       }
-        //     }
+              for (let i = 0; i < this.etapas.length; i += 1) {
+                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
 
-        //     this.cargarLocalidadMapa1();
-        //     this.cargadoTodo = true;
-        //   });
-        // }
+
+                  if (
+                    this.etapas[i].localidades[j].nombre == 'PALCOS BACKSTAGE'
+                  ) {
+                    this.localidadCargadaGeneral =
+                      this.etapas[i].localidades[j];
+                     
+
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'PALCOS PABLO FIERRO') {
+                    this.localidadCargada = this.etapas[i].localidades[j];
+
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'EARLY') {
+                    this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                    
+
+                  }
+
+
+                  else if (this.etapas[i].localidades[j].nombre == 'ANYTIME') {
+                    this.localidadCargadaBoletas =
+                      this.etapas[i].localidades[j];
+                    
+                  }
+                  else if (this.etapas[i].localidades[j].nombre == 'BACKSTAGE TICKETS') {
+                    this.localidadCargadaBoletasVIP =
+                      this.etapas[i].localidades[j];
+                    
+                  }
+
+                 
+                }
+              }
+
+              this.cargarLocalidadEnMapa10();
+              this.cargadoTodo = true;
+            });
+        }
+
+
+
+
+
+        else if (this.evento.mapa == 'mapa11') {
+
+          this.ponerNumerosMapa11();
+          this.etapaServicio
+            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+            .subscribe((response) => {
+
+              this.etapas = response;
+
+
+
+              for (let i = 0; i < this.etapas.length; i += 1) {
+                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                  if (
+                    this.etapas[i].localidades[j].nombre == 'Palcos FRAT'
+                  ) {
+                    this.localidadCargadaGeneral =
+                      this.etapas[i].localidades[j];
+                }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'Palcos A') {
+                    this.localidadCargada = this.etapas[i].localidades[j];
+                    
+
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'Palcos B') {
+                    this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                    
+
+                  }
+
+
+                  else if (this.etapas[i].localidades[j].nombre == 'Palcos C') {
+                    this.localidadCargadaBoletas =
+                      this.etapas[i].localidades[j];
+                      
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'Palcos D') {
+                    this.localidadCargadaBoletasVIP =
+                      this.etapas[i].localidades[j];
+                    
+                    
+                  }
+                }
+              }
+
+              this.cargarLocalidadEnMapa11();
+              this.cargadoTodo = true;
+            });
+        }
+
+        
 
         if (this.autenticador.getUsuario() != null) {
           this.usuarioA = this.autenticador.getUsuario();
@@ -821,6 +878,7 @@ export class ComprarPalcosComponent implements OnInit {
   }
 
   handleGetSuccesfull(response) {
+   
     if (response.visible || response.oculto) {
       this.evento = response;
     }
@@ -961,59 +1019,19 @@ export class ComprarPalcosComponent implements OnInit {
     this.etapas = response;
   }
 
-  darCantidadDePalcos(localidad: Localidad) {
-    var contador = 0;
-    for (var i = 0; i < localidad.palcos.length; i = i + 1) {
-      if (!localidad.palcos[i].vendido && !localidad.palcos[i].reservado && !localidad.palcos[i].proceso) {
-        contador = contador + 1;
+
+
+  darCantidadDePalcosDisponiblesEtapas(localidad:Localidad){
+    var contador =localidad.maximoVender;
+    for(var i =0; i < localidad.palcos.length; i=i+1){
+      if(localidad.palcos[i].vendido==true || localidad.palcos[i].proceso==true|| localidad.palcos[i].reservado==true){
+  
+        contador = contador-1;
       }
     }
     return contador;
   }
-
-
-  ponerNumerosMapa5() {
-
-    for (let i = 1; i < 6; i += 1) {
-      this.lista1[i - 1] = {
-        valor: i,
-        localidad: 'vip',
-      };
-      this.lista2[i - 1] = {
-        valor: i + 5,
-        localidad: 'vip',
-      };
-      this.lista3[i - 1] = {
-        valor: i + 10,
-        localidad: 'pre',
-      };
-      this.lista4[i - 1] = {
-        valor: i + 15,
-        localidad: 'pre',
-      };
-      this.lista5[i - 1] = {
-        valor: i + 20,
-        localidad: 'pre',
-      };
-      this.lista6[i - 1] = {
-        valor: i + 25,
-        localidad: 'pre',
-      };
-
-      this.lista7[i - 1] = {
-        valor: i + 30,
-        localidad: '',
-      };
-      this.lista8[i - 1] = {
-        valor: i + 35,
-        localidad: '',
-      };
-      this.lista9[i - 1] = {
-        valor: i + 40,
-        localidad: '',
-      };
-    }
-  }
+  
 
   ponerNumerosMapa6() {
     for (let i = 1; i < 7; i += 1) {
@@ -1037,6 +1055,424 @@ export class ComprarPalcosComponent implements OnInit {
     }
 
   }
+
+
+  ponerNumerosMapa8() {
+
+    for (let i = 0; i < 6; i += 1) {
+      this.lista10[i] = {
+        valor: "v",
+        localidad: 'v',
+      };
+    }
+
+    for (let i = 1; i < 8; i += 1) {
+      this.lista1[i - 1] = {
+        valor: i+12,
+        localidad: 'vip',
+      };
+      this.lista2[i - 1] = {
+        valor: i + 19,
+        localidad: 'vip',
+      };
+      this.lista3[i - 1] = {
+        valor: i + 26,
+        localidad: 'vip',
+      };
+      this.lista4[i - 1] = {
+        valor: i + 33,
+        localidad: 'vip',
+      };
+      this.lista5[i - 1] = {
+        valor: i + 40,
+        localidad: 'oro',
+      };
+      this.lista6[i - 1] = {
+        valor: i + 47,
+        localidad: 'oro',
+      };
+      this.lista7[i - 1] = {
+        valor: i + 54,
+        localidad: 'oro',
+      };
+    }
+
+  }
+
+
+
+  ponerNumerosMapa10(){
+
+
+    this.lista1[0]={
+      valor:"A",
+      localidad:'oro'
+    }
+    this.lista1[1]={
+      valor:"B",
+      localidad:'oro'
+    }
+    this.lista1[2]={
+      valor:"C",
+      localidad:'oro'
+    }
+    this.lista1[3]={
+      valor:"D",
+      localidad:'oro'
+    }
+    for(let i=0;i<2;i++) {
+      this.lista2[i]={
+        valor:i+1,
+        localidad:'vip'
+      }
+      this.lista3[i]={
+        valor:i+3,
+        localidad:'vip'
+      }
+      this.lista4[i]={
+        valor:i+5,
+        localidad:'vip'
+      }
+      this.lista5[i]={
+        valor:i+7,
+        localidad:'vip'
+      }
+    }
+ 
+}
+
+
+
+ponerNumerosMapa11() {
+  for (let i = 1; i <15; i++) {
+    this.lista1[i - 1] = {
+      valor: "D" + i,
+      localidad: 'pre',
+    };
+    this.lista2[i - 1] = {
+      valor: "D" + (i+14),
+      localidad: 'pre',
+    };
+    this.lista3[i - 1] = {
+      valor: "D" + (i+28),
+      localidad: 'pre',
+    };
+    this.lista4[i - 1] = {
+      valor: "D" + (i+42),
+      localidad: 'pre',
+    };
+    this.lista5[i - 1] = {
+      valor: "D" + (i+56),
+      localidad: 'pre',
+    };
+    this.lista6[i - 1] = {
+      valor: "D" + (i+70),
+      localidad: 'pre',
+    };
+    this.lista7[i - 1] = {
+      valor: "D" + (i+84),
+      localidad: 'pre',
+    };
+    this.lista8[i - 1] = {
+      valor: "D" + (i+98),
+      localidad: 'pre',
+    };
+    this.lista9[i - 1] = {
+      valor: "D" + (i+112),
+      localidad: 'pre',
+    };
+    this.lista10[i - 1] = {
+      valor: "D" + (i+126),
+      localidad: 'pre',
+    };
+    this.lista11[i - 1] = {
+      valor: "D" + (i+140),
+      localidad: 'pre',
+    };
+    this.lista12[i - 1] = {
+      valor: "D" + (i+154),
+      localidad: 'pre',
+    };
+  }
+
+
+
+  for (let i = 1; i <4; i++) {
+
+    this.lista24[i - 1] = {
+      valor: "C" + (i+55),
+      localidad: 'vip',
+    };
+    this.lista31[i - 1] = {
+      valor: "C" + (i+87),
+      localidad: 'vip',
+    };
+    this.lista32[i - 1] = {
+      valor: "C" + (i+90),
+      localidad: 'vip',
+    };
+
+    this.lista55[i - 1] = {
+      valor: "F" + (i+14),
+      localidad: 'prem',
+    };
+    this.lista56[i - 1] = {
+      valor: "F" + (i+17),
+      localidad: 'prem',
+    };
+    this.lista57[i - 1] = {
+      valor: "F" + (i+20),
+      localidad: 'prem',
+    };
+    this.lista58[i - 1] = {
+      valor: "F" + (i+23),
+      localidad: 'prem',
+    };
+    this.lista59[i - 1] = {
+      valor: "F" + (i+26),
+      localidad: 'prem',
+    };
+  }
+
+  for(let i =1; i<5;i++){
+    this.lista25[i - 1] = {
+      valor: "C" + (i+58),
+      localidad: 'vip',
+    };
+  }
+
+  for(let i =1; i<6;i++){
+    this.lista13[i - 1] = {
+      valor: "C" + (i),
+      localidad: 'vip',
+    };
+    this.lista14[i - 1] = {
+      valor: "C" + (i+5),
+      localidad: 'vip',
+    };
+    this.lista15[i - 1] = {
+      valor: "C" + (i+10),
+      localidad: 'vip',
+    };
+    this.lista16[i - 1] = {
+      valor: "C" + (i+15),
+      localidad: 'vip',
+    };
+    this.lista17[i - 1] = {
+      valor: "C" + (i+20),
+      localidad: 'vip',
+    };
+    this.lista18[i - 1] = {
+      valor: "C" + (i+25),
+      localidad: 'vip',
+    };
+    this.lista19[i - 1] = {
+      valor: "C" + (i+30),
+      localidad: 'vip',
+    };
+    this.lista20[i - 1] = {
+      valor: "C" + (i+35),
+      localidad: 'vip',
+    };
+    this.lista21[i - 1] = {
+      valor: "C" + (i+40),
+      localidad: 'vip',
+    };
+    this.lista22[i - 1] = {
+      valor: "C" + (i+45),
+      localidad: 'vip',
+    };
+    this.lista23[i - 1] = {
+      valor: "C" + (i+50),
+      localidad: 'vip',
+    };
+
+
+    this.lista26[i - 1] = {
+      valor: "C" + (i+62),
+      localidad: 'vip',
+    };
+    this.lista27[i - 1] = {
+      valor: "C" + (i+67),
+      localidad: 'vip',
+    };
+    this.lista28[i - 1] = {
+      valor: "C" + (i+72),
+      localidad: 'vip',
+    };
+    
+    this.lista29[i - 1] = {
+      valor: "C" + (i+77),
+      localidad: 'vip'
+    };
+    this.lista30[i - 1] = {
+      valor: "C" + (i+82),
+      localidad: 'vip',
+    };
+
+   
+    this.lista33[i - 1] = {
+      valor: "C" + (i+93),
+      localidad: 'vip',
+    };
+    this.lista34[i - 1] = {
+      valor: "C" + (i+98),
+      localidad: 'vip',
+    };
+    this.lista35[i - 1] = {
+      valor: "C" + (i+103),
+      localidad: 'vip',
+    };
+    this.lista36[i - 1] = {
+      valor: "C" + (i+108),
+      localidad: 'vip',
+    };
+  }
+
+  for(let i =1; i<12;i++){
+
+    this.lista37[i - 1] = {
+      valor: "A" + (i),
+      localidad: 'oro',
+    };
+    this.lista38[i - 1] = {
+      valor: "A" + (i+11),
+      localidad: 'oro',
+    };
+    this.lista39[i - 1] = {
+      valor: "A" + (i+22),
+      localidad: 'oro',
+    };
+
+
+    this.lista50[i - 1] = {
+      valor: "A" + (i+104),
+      localidad: 'oro',
+    };
+    this.lista51[i - 1] = {
+      valor: "A" + (i+115),
+      localidad: 'oro',
+    };
+    this.lista52[i - 1] = {
+      valor: "A" + (i+126),
+      localidad: 'oro',
+    };
+    this.lista62[i - 1] = {
+      valor: "B" + (i),
+      localidad: 'oro',
+    };
+    this.lista63[i - 1] = {
+      valor: "B" + (i+11),
+      localidad: 'oro',
+    };
+    this.lista64[i - 1] = {
+      valor: "B" + (i+22),
+      localidad: 'oro',
+    };
+    this.lista65[i - 1] = {
+      valor: "B" + (i+33),
+      localidad: 'oro',
+    };
+    this.lista66[i - 1] = {
+      valor: "B" + (i+44),
+      localidad: 'oro',
+    };
+    this.lista67[i - 1] = {
+      valor: "B" + (i+55),
+      localidad: 'oro',
+    };
+    this.lista68[i - 1] = {
+      valor: "B" + (i+66),
+      localidad: 'oro',
+    };
+    this.lista69[i - 1] = {
+      valor: "B" + (i+77),
+      localidad: 'oro',
+    };
+    this.lista70[i - 1] = {
+      valor: "B" + (i+88),
+      localidad: 'oro',
+    };
+    this.lista71[i - 1] = {
+      valor: "B" + (i+99),
+      localidad: 'oro',
+    };
+    this.lista72[i - 1] = {
+      valor: "B" + (i+110),
+      localidad: 'oro',
+    };
+  }
+
+  for(let i =1; i<13;i++){
+    this.lista40[i - 1] = {
+      valor: "A" + (i+33),
+      localidad: 'oro',
+    };
+    this.lista41[i - 1] = {
+      valor: "A" + (i+45),
+      localidad: 'oro',
+    };
+
+    this.lista49[i - 1] = {
+      valor: "A" + (i+92),
+      localidad: 'oro',
+    };
+
+  }
+
+  for(let i =1; i<6;i++){
+    this.lista42[i - 1] = {
+      valor: "A" + (i+57),
+      localidad: 'oro',
+    };
+    this.lista43[i - 1] = {
+      valor: "A" + (i+62),
+      localidad: 'oro',
+    };
+    this.lista44[i - 1] = {
+      valor: "A" + (i+67),
+      localidad: 'oro',
+    };
+    this.lista45[i - 1] = {
+      valor: "A" + (i+72),
+      localidad: 'oro',
+    };
+    this.lista46[i - 1] = {
+      valor: "A" + (i+77),
+      localidad: 'oro',
+    };
+    this.lista47[i - 1] = {
+      valor: "A" + (i+82),
+      localidad: 'oro',
+    };
+    this.lista48[i - 1] = {
+      valor: "A" + (i+87),
+      localidad: 'oro',
+    };
+  }
+
+
+  for (let i = 1; i <8; i++) {
+    this.lista53[i - 1] = {
+      valor: "F" + (i),
+      localidad: 'prem',
+    };
+    this.lista54[i - 1] = {
+      valor: "F" + (i+7),
+      localidad: 'prem',
+    };
+
+    this.lista60[i - 1] = {
+      valor: "F" + (i+29),
+      localidad: 'prem',
+    };
+    this.lista61[i - 1] = {
+      valor: "F" + (i+36),
+      localidad: 'prem',
+    };
+  }
+
+}
   ponerNumerosMapa7() {
     for (let i = 1; i < 13; i += 1) {
       this.lista1[i - 1] = {
@@ -1736,1391 +2172,67 @@ export class ComprarPalcosComponent implements OnInit {
 
 
 
-
-
-
-
-
-  // ponerNumerosMapa3() {
-  //   for (let i = 1; i < 10; i += 1) {
-  //     this.lista1[i - 1] = {
-  //       valor: i + 3,
-  //       localidad: '',
-  //     };
-  //     this.lista3[i - 1] = {
-  //       valor: i + 28,
-  //       localidad: '',
-  //     };
-  //     this.lista5[i - 1] = {
-  //       valor: i + 53,
-  //       localidad: '',
-  //     };
-  //     this.lista7[i - 1] = {
-  //       valor: i + 78,
-  //       localidad: '',
-  //     };
-  //     this.lista9[i - 1] = {
-  //       valor: i + 103,
-  //       localidad: '',
-  //     };
-  //     this.lista11[i - 1] = {
-  //       valor: i + 128,
-  //       localidad: '',
-  //     };
-  //     this.lista13[i - 1] = {
-  //       valor: i + 153,
-  //       localidad: '',
-  //     };
-  //     this.lista15[i - 1] = {
-  //       valor: i + 178,
-  //       localidad: '',
-  //     };
-  //     this.lista17[i - 1] = {
-  //       valor: i + 203,
-  //       localidad: '',
-  //     };
-  //     this.lista19[i - 1] = {
-  //       valor: i + 228,
-  //       localidad: '',
-  //     };
-  //     this.lista21[i - 1] = {
-  //       valor: i + 253,
-  //       localidad: '',
-  //     };
-  //     this.lista23[i - 1] = {
-  //       valor: i + 278,
-  //       localidad: '',
-  //     };
-  //     this.lista25[i - 1] = {
-  //       valor: i + 303,
-  //       localidad: '',
-  //     };
-  //     this.lista27[i - 1] = {
-  //       valor: i + 328,
-  //       localidad: '',
-  //     };
-  //     this.lista29[i - 1] = {
-  //       valor: i + 353,
-  //       localidad: '',
-  //     };
-
-  //   }
-
-  //   for (let i = 1; i < 11; i += 1) {
-  //     this.lista2[i - 1] = {
-  //       valor: i + 12,
-  //       localidad: '',
-  //     };
-
-  //     this.lista4[i - 1] = {
-  //       valor: i + 37,
-  //       localidad: '',
-  //     };
-  //     this.lista6[i - 1] = {
-  //       valor: i + 62,
-  //       localidad: '',
-  //     };
-  //     this.lista8[i - 1] = {
-  //       valor: i + 87,
-  //       localidad: '',
-  //     };
-  //     this.lista10[i - 1] = {
-  //       valor: i + 112,
-  //       localidad: '',
-  //     };
-  //     this.lista12[i - 1] = {
-  //       valor: i + 137,
-  //       localidad: '',
-  //     };
-  //     this.lista14[i - 1] = {
-  //       valor: i + 162,
-  //       localidad: '',
-  //     };
-  //     this.lista16[i - 1] = {
-  //       valor: i + 187,
-  //       localidad: '',
-  //     };
-  //     this.lista18[i - 1] = {
-  //       valor: i + 212,
-  //       localidad: '',
-  //     };
-  //     this.lista20[i - 1] = {
-  //       valor: i + 237,
-  //       localidad: '',
-  //     };
-  //     this.lista22[i - 1] = {
-  //       valor: i + 262,
-  //       localidad: '',
-  //     };
-  //     this.lista24[i - 1] = {
-  //       valor: i + 287,
-  //       localidad: '',
-  //     };
-  //     this.lista26[i - 1] = {
-  //       valor: i + 312,
-  //       localidad: '',
-  //     };
-  //     this.lista28[i - 1] = {
-  //       valor: i + 337,
-  //       localidad: '',
-  //     };
-  //     this.lista30[i - 1] = {
-  //       valor: i + 362,
-  //       localidad: '',
-  //     };
-
-  //   }
-  // }
-
-  // cargarLocalidadEnMapa3() {
-  //   if (
-  //     this.localidadCargada.nombre == 'Palcos VIP' &&
-  //     this.evento.mapa == 'mapa3'
-  //   ) {
-  //     for (let i = 0; i < this.localidadCargada.palcos.length; i += 1) {
-  //       if (0 <= i && i <= 5) {
-  //         this.lista1[i + 3].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista1[i + 3].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista1[i + 3].valor = 'p';
-  //         }
-  //       }
-  //        else if (6 <= i && i <= 12) {
-  //         this.lista2[i - 6].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista2[i - 6].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista2[i - 6].valor = 'p';
-  //         }
-  //       } else if (13 <= i && i <= 18) {
-  //         this.lista3[i - 10].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista3[i - 10].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista3[i - 10].valor = 'p';
-  //         }
-  //       } else if (19 <= i && i <= 25) {
-  //         this.lista4[i - 19].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista4[i - 19].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista4[i - 19].valor = 'p';
-  //         }
-  //       } else if (26 <= i && i <= 31) {
-  //         this.lista5[i - 23].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista5[i - 23].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista5[i - 23].valor = 'p';
-  //         }
-  //       } else if (32 <= i && i <= 38) {
-  //         this.lista6[i - 32].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista6[i - 32].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista6[i - 32].valor = 'p';
-  //         }
-  //       } else if (39 <= i && i <= 44) {
-  //         this.lista7[i - 36].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista7[i - 36].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista7[i - 36].valor = 'p';
-  //         }
-  //       } else if (45 <= i && i <= 51) {
-  //         this.lista8[i - 45].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista8[i - 45].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista8[i - 45].valor = 'p';
-  //         }
-  //       } else if (52 <= i && i <= 57) {
-  //         this.lista9[i - 49].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista9[i - 49].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista9[i - 49].valor = 'p';
-  //         }
-  //       } else if (58 <= i && i <= 64) {
-  //         this.lista10[i - 58].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista10[i - 58].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista10[i - 58].valor = 'p';
-  //         }
-  //       } else if (65 <= i && i <= 70) {
-  //         this.lista11[i - 62].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista11[i - 62].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista11[i - 62].valor = 'p';
-  //         }
-  //       } else if (71 <= i && i <= 77) {
-  //         this.lista12[i - 71].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista12[i - 71].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista12[i - 71].valor = 'p';
-  //         }
-  //       } else if (78 <= i && i <= 83) {
-  //         this.lista13[i - 75].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista13[i - 75].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista13[i - 75].valor = 'p';
-  //         }
-  //       } else if (84 <= i && i <= 90) {
-  //         this.lista14[i - 84].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista14[i - 84].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista14[i - 84].valor = 'p';
-  //         }
-  //       } else if (91 <= i && i <= 96) {
-  //         this.lista15[i - 88].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista15[i - 88].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista15[i - 88].valor = 'p';
-  //         }
-  //       } else if (97 <= i && i <= 103) {
-  //         this.lista16[i - 97].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista16[i - 97].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista16[i - 97].valor = 'p';
-  //         }
-  //       } else if (104 <= i && i <= 109) {
-  //         this.lista17[i - 101].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista17[i - 101].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista17[i - 101].valor = 'p';
-  //         }
-  //       } else if (110 <= i && i <= 116) {
-  //         this.lista18[i - 110].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista18[i - 110].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista18[i - 110].valor = 'p';
-  //         }
-  //       } else if (117 <= i && i <= 122) {
-  //         this.lista19[i - 114].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista19[i - 114].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista19[i - 114].valor = 'p';
-  //         }
-  //       } else if (123 <= i && i <= 129) {
-  //         this.lista20[i - 123].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista20[i - 123].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista20[i - 123].valor = 'p';
-  //         }
-  //       } else if (130 <= i && i <= 135) {
-  //         this.lista21[i - 127].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista21[i - 127].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista21[i - 127].valor = 'p';
-  //         }
-  //       } else if (136 <= i && i <= 142) {
-  //         this.lista22[i - 136].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista22[i - 136].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista22[i - 136].valor = 'p';
-  //         }
-  //       } else if (143 <= i && i <= 148) {
-  //         this.lista23[i - 140].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista23[i - 140].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista23[i - 140].valor = 'p';
-  //         }
-  //       } else if (149 <= i && i <= 155) {
-  //         this.lista24[i - 149].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista24[i - 149].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista24[i - 149].valor = 'p';
-  //         }
-  //       } else if (156 <= i && i <= 161) {
-  //         this.lista25[i - 153].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista25[i - 153].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista25[i - 153].valor = 'p';
-  //         }
-  //       } else if (162 <= i && i <= 168) {
-  //         this.lista26[i - 162].localidad = 'vip';
-  //         if (
-  //           this.localidadCargada.palcos[i].vendido ||
-  //           this.localidadCargada.palcos[i].reservado ||
-  //           !this.localidadCargada.palcos[i].disponible
-  //         ) {
-  //           this.lista26[i - 162].valor = 'v';
-  //         } else if (this.localidadCargada.palcos[i].proceso) {
-  //           this.lista26[i - 162].valor = 'p';
-  //         }
-  //       }
-  //     }
-  //   }
-
-  //   if (
-  //     this.localidadCargadaGeneral.nombre == 'Palcos General' &&
-  //     this.evento.mapa == 'mapa3'
-  //   ) {
-  //     for (let i = 0; i < this.localidadCargadaGeneral.palcos.length; i += 1) {
-  //       if (0 <= i && i <= 2) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista1[i].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista1[i].valor = 'p';
-  //         }
-  //       } else if (6 <= i && i <= 8) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista2[i + 1].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista2[i + 1].valor = 'p';
-  //         }
-  //       } else if (12 <= i && i <= 14) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista3[i - 12].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista3[i - 12].valor = 'p';
-  //         }
-  //       } else if (18 <= i && i <= 20) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista4[i - 11].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista4[i - 11].valor = 'p';
-  //         }
-  //       } else if (24 <= i && i <= 26) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista5[i - 24].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista5[i - 24].valor = 'p';
-  //         }
-  //       } else if (30 <= i && i <= 32) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista6[i - 23].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista6[i - 23].valor = 'p';
-  //         }
-  //       } else if (36 <= i && i <= 38) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista7[i - 36].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista7[i - 36].valor = 'p';
-  //         }
-  //       } else if (42 <= i && i <= 44) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista8[i - 35].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista8[i - 35].valor = 'p';
-  //         }
-  //       } else if (48 <= i && i <= 50) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista9[i - 48].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista9[i - 48].valor = 'p';
-  //         }
-  //       } else if (54 <= i && i <= 56) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista10[i - 47].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista10[i - 47].valor = 'p';
-  //         }
-  //       } else if (60 <= i && i <= 62) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista11[i - 60].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista11[i - 60].valor = 'p';
-  //         }
-  //       } else if (66 <= i && i <= 68) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista12[i - 59].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista12[i - 59].valor = 'p';
-  //         }
-  //       } else if (72 <= i && i <= 74) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista13[i - 72].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista13[i - 72].valor = 'p';
-  //         }
-  //       } else if (78 <= i && i <= 80) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista14[i - 71].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista14[i - 71].valor = 'p';
-  //         }
-  //       } else if (84 <= i && i <= 86) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista15[i - 84].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista15[i - 84].valor = 'p';
-  //         }
-  //       } else if (90 <= i && i <= 92) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista16[i - 83].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista16[i - 83].valor = 'p';
-  //         }
-  //       } else if (96 <= i && i <= 98) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista17[i - 96].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista17[i - 96].valor = 'p';
-  //         }
-  //       } else if (102 <= i && i <= 104) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista18[i - 95].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista18[i - 95].valor = 'p';
-  //         }
-  //       } else if (108 <= i && i <= 110) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista19[i - 108].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista19[i - 108].valor = 'p';
-  //         }
-  //       } else if (114 <= i && i <= 116) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista20[i - 107].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista20[i - 107].valor = 'p';
-  //         }
-  //       } else if (120 <= i && i <= 122) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista21[i - 120].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista21[i - 120].valor = 'p';
-  //         }
-  //       } else if (126 <= i && i <= 128) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista22[i - 119].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista22[i - 119].valor = 'p';
-  //         }
-  //       } else if (132 <= i && i <= 134) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista23[i - 132].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista23[i - 132].valor = 'p';
-  //         }
-  //       } else if (138 <= i && i <= 140) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista24[i - 131].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista24[i - 131].valor = 'p';
-  //         }
-  //       } else if (144 <= i && i <= 146) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista25[i - 144].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista25[i - 144].valor = 'p';
-  //         }
-  //       } else if (150 <= i && i <= 152) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista26[i - 143].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista26[i - 143].valor = 'p';
-  //         }
-  //       } else if (156 <= i && i <= 164) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista27[i - 156].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista27[i - 156].valor = 'p';
-  //         }
-  //       } else if (168 <= i && i <= 177) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista28[i - 168].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista28[i - 168].valor = 'p';
-  //         }
-  //       } else if (181 <= i && i <= 189) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i + 3].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i + 3].disponible == false
-  //         ) {
-  //           this.lista29[i - 181].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i + 3].proceso) {
-  //           this.lista29[i - 181].valor = 'p';
-  //         }
-  //       } else if (193 <= i && i <= 202) {
-  //         if (
-  //           this.localidadCargadaGeneral.palcos[i].vendido ||
-  //           this.localidadCargadaGeneral.palcos[i].reservado ||
-  //           this.localidadCargadaGeneral.palcos[i].disponible == false
-  //         ) {
-  //           this.lista30[i - 193].valor = 'v';
-  //         } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-  //           this.lista30[i - 193].valor = 'p';
-  //         }
-  //       } 
-  //     }
-  //   }
-  // }
-
-  cargarMapa1() {
-    for (let i = 1; i < 13; i += 1) {
-      this.lista1[i - 1] = i;
-      this.lista2[i - 1] = i + 12;
-    }
-    for (let i = 1; i < 15; i += 1) {
-      this.lista3[i - 1] = i + 24;
-      this.lista4[i - 1] = i + 38;
-      this.lista5[i - 1] = i + 52;
-      this.lista6[i - 1] = i + 66;
-    }
-    for (let i = 1; i < 8; i += 1) {
-      this.lista7[i - 1] = i + 80;
-      this.lista8[i - 1] = i + 87;
-    }
-    for (let i = 1; i < 7; i += 1) {
-      this.lista9[i - 1] = i + 94;
-      this.lista10[i - 1] = i + 100;
-      this.lista11[i - 1] = i + 106;
-      this.lista12[i - 1] = i + 112;
-    }
-
-    for (let i = 1; i < 10; i += 1) {
-      this.lista13[i - 1] = i + 118;
-      this.lista14[i - 1] = i + 127;
-      this.lista15[i - 1] = i + 136;
-      this.lista16[i - 1] = i + 145;
-    }
-
-    for (let i = 1; i < 17; i += 1) {
-      this.lista17[i - 1] = i + 154;
-    }
-    for (let i = 1; i < 15; i += 1) {
-      this.lista18[i - 1] = i + 170;
-    }
-
-    for (let i = 1; i < 3; i += 1) {
-      this.lista19[i - 1] = i + 184;
-    }
-  }
-
-  cargarLocalidadMapa1() {
-    for (let j = 0; j < this.localidadCargada.palcos.length; j = j + 1) {
+  cargarLocalidadEnMapa10(){
+    for(let i=0; i < this.localidadCargadaGeneral.palcos.length; i=i+1) {
       if (
-        this.localidadCargada.palcos[j].vendido ||
-        this.localidadCargada.palcos[j].reservado ||
-        !this.localidadCargada.palcos[j].disponible
+        this.localidadCargadaGeneral.palcos[i].vendido ||
+        this.localidadCargadaGeneral.palcos[i].reservado ||
+        !this.localidadCargadaGeneral.palcos[i].disponible
       ) {
-        if (j >= 0 && j <= 11) {
-          this.lista1[j] = 'v';
-        } else if (j > 11 && j <= 23) {
-          this.lista2[j - 12] = 'v';
-        } else if (j > 23 && j <= 37) {
-          this.lista3[j - 24] = 'v';
-        } else if (j > 37 && j <= 51) {
-          this.lista4[j - 38] = 'v';
-        } else if (j > 51 && j <= 65) {
-          this.lista5[j - 52] = 'v';
-        } else if (j > 65 && j <= 79) {
-          this.lista6[j - 66] = 'v';
-        } else if (j > 79 && j <= 86) {
-          this.lista7[j - 80] = 'v';
-        } else if (j > 86 && j <= 93) {
-          this.lista8[j - 87] = 'v';
-        } else if (j > 93 && j <= 99) {
-          this.lista9[j - 94] = 'v';
-        } else if (j > 99 && j <= 105) {
-          this.lista10[j - 100] = 'v';
-        } else if (j > 105 && j <= 111) {
-          this.lista11[j - 106] = 'v';
-        } else if (j > 111 && j <= 117) {
-          this.lista12[j - 112] = 'v';
-        } else if (j > 117 && j <= 126) {
-          this.lista13[j - 118] = 'v';
-        } else if (j > 126 && j <= 135) {
-          this.lista14[j - 127] = 'v';
-        } else if (j > 135 && j <= 144) {
-          this.lista15[j - 136] = 'v';
-        } else if (j > 144 && j <= 153) {
-          this.lista16[j - 145] = 'v';
-        } else if (j > 153 && j <= 169) {
-          this.lista17[j - 154] = 'v';
-        } else if (j > 169 && j <= 183) {
-          this.lista18[j - 170] = 'v';
-        } else if (j > 183 && j <= 185) {
-          this.lista19[j - 184] = 'v';
-        }
-      } else if (this.localidadCargada.palcos[j].proceso) {
-        if (j >= 0 && j <= 11) {
-          this.lista1[j] = 'p';
-        } else if (j > 11 && j <= 23) {
-          this.lista2[j - 12] = 'p';
-        } else if (j > 23 && j <= 37) {
-          this.lista3[j - 24] = 'p';
-        } else if (j > 37 && j <= 51) {
-          this.lista4[j - 38] = 'p';
-        } else if (j > 51 && j <= 65) {
-          this.lista5[j - 52] = 'p';
-        } else if (j > 65 && j <= 79) {
-          this.lista6[j - 66] = 'p';
-        } else if (j > 79 && j <= 86) {
-          this.lista7[j - 80] = 'p';
-        } else if (j > 86 && j <= 93) {
-          this.lista8[j - 87] = 'p';
-        } else if (j > 93 && j <= 99) {
-          this.lista9[j - 94] = 'p';
-        } else if (j > 99 && j <= 105) {
-          this.lista10[j - 100] = 'p';
-        } else if (j > 105 && j <= 111) {
-          this.lista11[j - 106] = 'p';
-        } else if (j > 111 && j <= 117) {
-          this.lista12[j - 112] = 'p';
-        } else if (j > 117 && j <= 126) {
-          this.lista13[j - 118] = 'p';
-        } else if (j > 126 && j <= 135) {
-          this.lista14[j - 127] = 'p';
-        } else if (j > 135 && j <= 144) {
-          this.lista15[j - 136] = 'p';
-        } else if (j > 144 && j <= 153) {
-          this.lista16[j - 145] = 'p';
-        } else if (j > 153 && j <= 169) {
-          this.lista17[j - 154] = 'p';
-        } else if (j > 169 && j <= 183) {
-          this.lista18[j - 170] = 'p';
-        } else if (j > 183 && j <= 185) {
-          this.lista19[j - 184] = 'p';
-        }
+        this.lista1[i].valor = 'v';
+      } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+        this.lista1[i].valor = 'p';
       }
     }
-  }
-
-  ponerNumerosMapa4() {
-    for (let i = 1; i < 26; i += 1) {
-      this.lista1[i - 1] = {
-        valor: i,
-        localidad: '',
-      };
-      this.lista2[i - 1] = {
-        valor: i + 25,
-        localidad: '',
-      };
-      this.lista3[i - 1] = {
-        valor: i + 50,
-        localidad: '',
-      };
-      this.lista4[i - 1] = {
-        valor: i + 75,
-        localidad: '',
-      };
-      this.lista5[i - 1] = {
-        valor: i + 100,
-        localidad: '',
-      };
-      this.lista6[i - 1] = {
-        valor: i + 125,
-        localidad: '',
-      };
-      this.lista7[i - 1] = {
-        valor: i + 150,
-        localidad: '',
-      };
-      this.lista8[i - 1] = {
-        valor: i + 175,
-        localidad: '',
-      };
-      this.lista9[i - 1] = {
-        valor: i + 200,
-        localidad: '',
-      };
-      this.lista10[i - 1] = {
-        valor: i + 225,
-        localidad: '',
-      };
-      this.lista11[i - 1] = {
-        valor: i + 250,
-        localidad: '',
-      };
-      this.lista12[i - 1] = {
-        valor: i + 275,
-        localidad: '',
-      };
-      this.lista13[i - 1] = {
-        valor: i + 300,
-        localidad: '',
-      };
-      this.lista14[i - 1] = {
-        valor: i + 325,
-        localidad: '',
-      };
-      this.lista15[i - 1] = {
-        valor: i + 350,
-        localidad: '',
-      };
-      this.lista16[i - 1] = {
-        valor: i + 375,
-        localidad: '',
-      };
-      this.lista17[i - 1] = {
-        valor: i + 400,
-        localidad: '',
-      };
-      this.lista18[i - 1] = {
-        valor: i + 425,
-        localidad: '',
-      };
-    }
-  }
-
-  cargarLocalidadEnMapa4() {
-    if (
-      this.localidadCargada.nombre == 'Palcos Platino' &&
-      this.evento.mapa == 'mapa4'
-    ) {
-      for (let i = 0; i < this.localidadCargada.palcos.length; i += 1) {
-        if (0 <= i && i <= 13) {
-          this.lista1[i + 6].localidad = 'vip';
-          if (
-            this.localidadCargada.palcos[i].vendido ||
-            this.localidadCargada.palcos[i].reservado ||
-            !this.localidadCargada.palcos[i].disponible
-          ) {
-            this.lista1[i + 6].valor = 'v';
-          } else if (this.localidadCargada.palcos[i].proceso) {
-            this.lista1[i + 6].valor = 'p';
-          }
-        } else if (14 <= i && i <= 27) {
-          this.lista2[i - 8].localidad = 'vip';
-          if (
-            this.localidadCargada.palcos[i].vendido ||
-            this.localidadCargada.palcos[i].reservado ||
-            !this.localidadCargada.palcos[i].disponible
-          ) {
-            this.lista2[i - 8].valor = 'v';
-          } else if (this.localidadCargada.palcos[i].proceso) {
-            this.lista2[i - 8].valor = 'p';
-          }
-        } else if (28 <= i && i <= 41) {
-          this.lista3[i - 22].localidad = 'vip';
-          if (
-            this.localidadCargada.palcos[i].vendido ||
-            this.localidadCargada.palcos[i].reservado ||
-            !this.localidadCargada.palcos[i].disponible
-          ) {
-            this.lista3[i - 22].valor = 'v';
-          } else if (this.localidadCargada.palcos[i].proceso) {
-            this.lista3[i - 22].valor = 'p';
-          }
-        } else if (42 <= i && i <= 55) {
-          this.lista4[i - 36].localidad = 'vip';
-          if (
-            this.localidadCargada.palcos[i].vendido ||
-            this.localidadCargada.palcos[i].reservado ||
-            !this.localidadCargada.palcos[i].disponible
-          ) {
-            this.lista4[i - 36].valor = 'v';
-          } else if (this.localidadCargada.palcos[i].proceso) {
-            this.lista4[i - 36].valor = 'p';
-          }
-        } else if (56 <= i && i <= 69) {
-          this.lista5[i - 50].localidad = 'vip';
-          if (
-            this.localidadCargada.palcos[i].vendido ||
-            this.localidadCargada.palcos[i].reservado ||
-            !this.localidadCargada.palcos[i].disponible
-          ) {
-            this.lista5[i - 50].valor = 'v';
-          } else if (this.localidadCargada.palcos[i].proceso) {
-            this.lista5[i - 50].valor = 'p';
-          }
-        } else if (70 <= i && i <= 83) {
-          this.lista6[i - 64].localidad = 'vip';
-          if (
-            this.localidadCargada.palcos[i].vendido ||
-            this.localidadCargada.palcos[i].reservado ||
-            !this.localidadCargada.palcos[i].disponible
-          ) {
-            this.lista6[i - 64].valor = 'v';
-          } else if (this.localidadCargada.palcos[i].proceso) {
-            this.lista6[i - 64].valor = 'p';
-          }
-        } else if (84 <= i && i <= 97) {
-          this.lista7[i - 78].localidad = 'vip';
-          if (
-            this.localidadCargada.palcos[i].vendido ||
-            this.localidadCargada.palcos[i].reservado ||
-            !this.localidadCargada.palcos[i].disponible
-          ) {
-            this.lista7[i - 78].valor = 'v';
-          } else if (this.localidadCargada.palcos[i].proceso) {
-            this.lista7[i - 78].valor = 'p';
-          }
-        } else if (98 <= i && i <= 111) {
-          this.lista8[i - 92].localidad = 'vip';
-          if (
-            this.localidadCargada.palcos[i].vendido ||
-            this.localidadCargada.palcos[i].reservado ||
-            !this.localidadCargada.palcos[i].disponible
-          ) {
-            this.lista8[i - 92].valor = 'v';
-          } else if (this.localidadCargada.palcos[i].proceso) {
-            this.lista8[i - 92].valor = 'p';
-          }
-        } else if (112 <= i && i <= 125) {
-          this.lista9[i - 106].localidad = 'vip';
-          if (
-            this.localidadCargada.palcos[i].vendido ||
-            this.localidadCargada.palcos[i].reservado ||
-            !this.localidadCargada.palcos[i].disponible
-          ) {
-            this.lista9[i - 106].valor = 'v';
-          } else if (this.localidadCargada.palcos[i].proceso) {
-            this.lista9[i - 106].valor = 'p';
-          }
-        } else if (126 <= i && i <= 139) {
-          this.lista10[i - 120].localidad = 'vip';
-          if (
-            this.localidadCargada.palcos[i].vendido ||
-            this.localidadCargada.palcos[i].reservado ||
-            !this.localidadCargada.palcos[i].disponible
-          ) {
-            this.lista10[i - 120].valor = 'v';
-          } else if (this.localidadCargada.palcos[i].proceso) {
-            this.lista10[i - 120].valor = 'p';
-          }
-        } else if (140 <= i && i <= 153) {
-          this.lista11[i - 134].localidad = 'vip';
-          if (
-            this.localidadCargada.palcos[i].vendido ||
-            this.localidadCargada.palcos[i].reservado ||
-            !this.localidadCargada.palcos[i].disponible
-          ) {
-            this.lista11[i - 134].valor = 'v';
-          } else if (this.localidadCargada.palcos[i].proceso) {
-            this.lista11[i - 134].valor = 'p';
-          }
-        }
-
-        if (
-          this.localidadCargadaGeneral.nombre == 'Palcos VIP' &&
-          this.evento.mapa == 'mapa4'
-        ) {
-          for (
-            let i = 0;
-            i < this.localidadCargadaGeneral.palcos.length;
-            i += 1
-          ) {
-            if (0 <= i && i <= 5) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista1[i].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista1[i].valor = 'p';
-              }
-            } else if (6 <= i && i <= 10) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista1[i + 14].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista1[i + 14].valor = 'p';
-              }
-            } else if (11 <= i && i <= 16) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista2[i - 11].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista2[i - 11].valor = 'p';
-              }
-            } else if (17 <= i && i <= 21) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista2[i + 3].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista2[i + 3].valor = 'p';
-              }
-            } else if (22 <= i && i <= 27) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista3[i - 22].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista3[i - 22].valor = 'p';
-              }
-            } else if (28 <= i && i <= 32) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista3[i - 8].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista3[i - 8].valor = 'p';
-              }
-            } else if (33 <= i && i <= 38) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista4[i - 33].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista4[i - 33].valor = 'p';
-              }
-            } else if (39 <= i && i <= 43) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista4[i - 19].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista4[i - 19].valor = 'p';
-              }
-            } else if (44 <= i && i <= 49) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista5[i - 44].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista5[i - 44].valor = 'p';
-              }
-            } else if (50 <= i && i <= 54) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista5[i - 30].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista5[i - 30].valor = 'p';
-              }
-            } else if (55 <= i && i <= 60) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista6[i - 55].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista6[i - 55].valor = 'p';
-              }
-            } else if (61 <= i && i <= 65) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista6[i - 41].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista6[i - 41].valor = 'p';
-              }
-            } else if (66 <= i && i <= 71) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista7[i - 66].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista7[i - 66].valor = 'p';
-              }
-            } else if (72 <= i && i <= 76) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista7[i - 52].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista7[i - 52].valor = 'p';
-              }
-            } else if (77 <= i && i <= 82) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista8[i - 77].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista8[i - 77].valor = 'p';
-              }
-            } else if (83 <= i && i <= 87) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista8[i - 63].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista8[i - 63].valor = 'p';
-              }
-            } else if (88 <= i && i <= 93) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista9[i - 88].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista9[i - 88].valor = 'p';
-              }
-            } else if (94 <= i && i <= 98) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista9[i - 74].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista9[i - 74].valor = 'p';
-              }
-            } else if (99 <= i && i <= 104) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista10[i - 99].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista10[i - 99].valor = 'p';
-              }
-            } else if (105 <= i && i <= 109) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista10[i - 85].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista10[i - 85].valor = 'p';
-              }
-            } else if (110 <= i && i <= 115) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista11[i - 110].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista11[i - 110].valor = 'p';
-              }
-            } else if (116 <= i && i <= 120) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista11[i - 96].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista11[i - 96].valor = 'p';
-              }
-            } else if (121 <= i && i <= 145) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista12[i - 121].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista12[i - 121].valor = 'p';
-              }
-            } else if (146 <= i && i <= 170) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista13[i - 146].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista13[i - 146].valor = 'p';
-              }
-            } else if (171 <= i && i <= 195) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista14[i - 171].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista14[i - 171].valor = 'p';
-              }
-            } else if (196 <= i && i <= 220) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista15[i - 196].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista15[i - 196].valor = 'p';
-              }
-            } else if (221 <= i && i <= 245) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista16[i - 221].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista16[i - 221].valor = 'p';
-              }
-            } else if (246 <= i && i <= 270) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista17[i - 246].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista17[i - 246].valor = 'p';
-              }
-            } else if (271 <= i && i <= 295) {
-              if (
-                this.localidadCargadaGeneral.palcos[i].vendido ||
-                this.localidadCargadaGeneral.palcos[i].reservado ||
-                this.localidadCargadaGeneral.palcos[i].disponible == false
-              ) {
-                this.lista18[i - 271].valor = 'v';
-              } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-                this.lista18[i - 271].valor = 'p';
-              }
-            }
-          }
-        }
+    for(let i =0;i < 2;i=i+1){
+      if (
+        this.localidadCargada.palcos[i].vendido ||
+        this.localidadCargada.palcos[i].reservado ||
+        !this.localidadCargada.palcos[i].disponible
+      ) {
+        this.lista2[i].valor = 'v';
+      } else if (this.localidadCargada.palcos[i].proceso) {
+        this.lista2[i].valor = 'p';
       }
+
+      if (
+        this.localidadCargada.palcos[i+2].vendido ||
+        this.localidadCargada.palcos[i+2].reservado ||
+        !this.localidadCargada.palcos[i+2].disponible
+      ) {
+        this.lista3[i].valor = 'v';
+      } else if (this.localidadCargada.palcos[i+2].proceso) {
+        this.lista3[i].valor = 'p';
+      }
+
+
+      if (
+        this.localidadCargada.palcos[i+4].vendido ||
+        this.localidadCargada.palcos[i+4].reservado ||
+        !this.localidadCargada.palcos[i+4].disponible
+      ) {
+        this.lista4[i].valor = 'v';
+      } else if (this.localidadCargada.palcos[i+4].proceso) {
+        this.lista4[i].valor = 'p';
+      }
+
+      if (
+        this.localidadCargada.palcos[i+6].vendido ||
+        this.localidadCargada.palcos[i+6].reservado ||
+        !this.localidadCargada.palcos[i+6].disponible
+      ) {
+        this.lista5[i].valor = 'v';
+      } else if (this.localidadCargada.palcos[i+6].proceso) {
+        this.lista5[i].valor = 'p';
+      }
+
+
     }
   }
+
+  
+
+
   cargarLocalidadEnMapa7() {
     for (let i = 0; i <46; i++) {
       if (0 <= i && i < 12) {
@@ -3135,7 +2247,8 @@ export class ComprarPalcosComponent implements OnInit {
         }
       }
 
-      if (12 <= i && i < 24) {
+      if (12 <= i && i < 23) {
+        
         if (
           this.localidadCargadaPreferecial.palcos[i].vendido ||
           this.localidadCargadaPreferecial.palcos[i].reservado ||
@@ -3148,7 +2261,8 @@ export class ComprarPalcosComponent implements OnInit {
 
       }
 
-      if (24 <= i && i < 36) {
+      if (23 <= i && i < 35) {
+        
         if (
           this.localidadCargadaPreferecial.palcos[i].vendido ||
           this.localidadCargadaPreferecial.palcos[i].reservado ||
@@ -3163,7 +2277,7 @@ export class ComprarPalcosComponent implements OnInit {
 
 
       }
-      if (36 <= i && i < 47) {
+      if (35 <= i && i < 47) {
         if (
           this.localidadCargadaPreferecial.palcos[i].vendido ||
           this.localidadCargadaPreferecial.palcos[i].reservado ||
@@ -3597,7 +2711,7 @@ export class ComprarPalcosComponent implements OnInit {
     if (
       this.localidadCargada.palcos[84].vendido ||
       this.localidadCargada.palcos[84].reservado ||
-      this.localidadCargada.palcos[84].disponible
+      !this.localidadCargada.palcos[84].disponible
     ) {
       this.lista28[1].valor = 'v';
     } else if (this.localidadCargada.palcos[84].proceso) {
@@ -3624,13 +2738,15 @@ export class ComprarPalcosComponent implements OnInit {
       this.lista28[3].valor = 'p'
     }
 
-
-
-
-
-
-
-
+    if (
+      this.localidadCargada.palcos[17].vendido ||
+      this.localidadCargada.palcos[17].reservado ||
+      !this.localidadCargada.palcos[17].disponible
+    ) {
+      this.lista30[0].valor = 'v';
+    } else if (this.localidadCargada.palcos[17].proceso) {
+      this.lista30[0].valor = 'p'
+    }
 
 
 
@@ -3640,9 +2756,9 @@ export class ComprarPalcosComponent implements OnInit {
       this.localidadCargada.palcos[18].reservado ||
       !this.localidadCargada.palcos[18].disponible
     ) {
-      this.lista30[0].valor = 'v';
+      this.lista33[0].valor = 'v';
     } else if (this.localidadCargada.palcos[18].proceso) {
-      this.lista30[0].valor = 'p'
+      this.lista33[0].valor = 'p'
     }
 
     if (
@@ -3653,7 +2769,10 @@ export class ComprarPalcosComponent implements OnInit {
       this.lista33[1].valor = 'v';
     } else if (this.localidadCargada.palcos[51].proceso) {
       this.lista33[1].valor = 'p'
-    } if (
+    }
+    
+    
+    if (
       this.localidadCargada.palcos[80].vendido ||
       this.localidadCargada.palcos[80].reservado ||
       !this.localidadCargada.palcos[80].disponible
@@ -3662,11 +2781,6 @@ export class ComprarPalcosComponent implements OnInit {
     } else if (this.localidadCargada.palcos[80].proceso) {
       this.lista33[2].valor = 'p'
     }
-
-
-
-
-
 
     if (
       this.localidadCargada.palcos[90].vendido ||
@@ -3682,8 +2796,9 @@ export class ComprarPalcosComponent implements OnInit {
     if (
       this.localidadCargada.palcos[82].vendido ||
       this.localidadCargada.palcos[82].reservado ||
-      this.localidadCargada.palcos[82].disponible
+      !this.localidadCargada.palcos[82].disponible
     ) {
+      
       this.lista32[1].valor = 'v';
     } else if (this.localidadCargada.palcos[82].proceso) {
       this.lista32[1].valor = 'p'
@@ -3708,8 +2823,6 @@ export class ComprarPalcosComponent implements OnInit {
     } else if (this.localidadCargada.palcos[27].proceso) {
       this.lista32[3].valor = 'p'
     }
-
-
 
 
     if (
@@ -4009,29 +3122,14 @@ export class ComprarPalcosComponent implements OnInit {
     }
 
     if (
-      this.localidadCargadaGeneral.palcos[0].vendido ||
-      this.localidadCargadaGeneral.palcos[0].reservado ||
-      !this.localidadCargadaGeneral.palcos[0].disponible
+      this.localidadCargadaGeneral.palcos[27].vendido ||
+      this.localidadCargadaGeneral.palcos[27].reservado ||
+      !this.localidadCargadaGeneral.palcos[27].disponible
     ) {
       this.lista51[1].valor = 'v';
-    } else if (this.localidadCargadaGeneral.palcos[0].proceso) {
+    } else if (this.localidadCargadaGeneral.palcos[27].proceso) {
       this.lista51[1].valor = 'p'
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     
     if (
@@ -4053,10 +3151,6 @@ export class ComprarPalcosComponent implements OnInit {
     } else if (this.localidadCargadaGeneral.palcos[15].proceso) {
       this.lista48[1].valor = 'p'
     }
-
-
-
-
 
 
     for(let i =11;i>=1;i--){
@@ -4113,19 +3207,6 @@ export class ComprarPalcosComponent implements OnInit {
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   if (
     this.localidadCargadaGeneral.palcos[8].vendido ||
     this.localidadCargadaGeneral.palcos[8].reservado ||
@@ -4147,11 +3228,6 @@ export class ComprarPalcosComponent implements OnInit {
   }
 
 
-
-
-
-
-
   if (
     this.localidadCargadaGeneral.palcos[38].vendido ||
     this.localidadCargadaGeneral.palcos[38].reservado ||
@@ -4161,11 +3237,6 @@ export class ComprarPalcosComponent implements OnInit {
   } else if (this.localidadCargadaGeneral.palcos[8].proceso) {
     this.lista47[0].valor = 'p'
   }
-
-
-
-
-
 
 
   if (
@@ -4188,9 +3259,6 @@ export class ComprarPalcosComponent implements OnInit {
     this.lista46[1].valor = 'p'
   }
 
-
-
-
   if (
     this.localidadCargadaGeneral.palcos[12].vendido ||
     this.localidadCargadaGeneral.palcos[12].reservado ||
@@ -4200,8 +3268,6 @@ export class ComprarPalcosComponent implements OnInit {
   } else if (this.localidadCargadaGeneral.palcos[12].proceso) {
     this.lista46[2].valor = 'p'
   }
-
-
 
   if (
     this.localidadCargadaGeneral.palcos[11].vendido ||
@@ -4243,7 +3309,7 @@ export class ComprarPalcosComponent implements OnInit {
   }
 
 
-for(let i =7;i >= 0;i--){
+for(let i =7;i >0;i--){
   if (
     this.localidadCargadaGeneral.palcos[i+29].vendido ||
     this.localidadCargadaGeneral.palcos[i+29].reservado ||
@@ -4262,20 +3328,18 @@ for(let i =7;i >= 0;i--){
 
 
 
-
-
-
-
   if (
     this.localidadCargadaGeneral.palcos[14].vendido ||
     this.localidadCargadaGeneral.palcos[14].reservado ||
     !this.localidadCargadaGeneral.palcos[14].disponible
-  ) {
+  )
+
+  {
+
     this.lista47[1].valor = 'v';
   } else if (this.localidadCargadaGeneral.palcos[14].proceso) {
     this.lista47[1].valor = 'p'
   }
-
 
 
 
@@ -4764,13 +3828,89 @@ for(let i =7;i >= 0;i--){
   } else if (this.localidadCargada.palcos[74].proceso) {
     this.lista16[0].valor = 'p'
   }
+}
 
-  
+cargarLocalidadEnMapa8() {
 
+
+  for(let i=0;i<7;i++) {
+    if (
+      this.localidadCargadaGeneral.palcos[i].vendido ||
+      this.localidadCargadaGeneral.palcos[i].reservado ||
+      !this.localidadCargadaGeneral.palcos[i].disponible
+    ) {
+      this.lista1[i].valor = 'v';
+    } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+      this.lista1[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaGeneral.palcos[i+7].vendido ||
+      this.localidadCargadaGeneral.palcos[i+7].reservado ||
+      !this.localidadCargadaGeneral.palcos[i+7].disponible
+    ) {
+      this.lista2[i].valor = 'v';
+    } else if (this.localidadCargadaGeneral.palcos[i+7].proceso) {
+      this.lista2[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargadaGeneral.palcos[i+14].vendido ||
+      this.localidadCargadaGeneral.palcos[i+14].reservado ||
+      !this.localidadCargadaGeneral.palcos[i+14].disponible
+    ) {
+      this.lista3[i].valor = 'v';
+    } else if (this.localidadCargadaGeneral.palcos[i+14].proceso) {
+      this.lista3[i].valor = 'p';
+    }
+
+
+    if (
+      this.localidadCargadaGeneral.palcos[i+21].vendido ||
+      this.localidadCargadaGeneral.palcos[i+21].reservado ||
+      !this.localidadCargadaGeneral.palcos[i+21].disponible
+    ) {
+      this.lista4[i].valor = 'v';
+    } else if (this.localidadCargadaGeneral.palcos[i+21].proceso) {
+      this.lista4[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargada.palcos[i].vendido ||
+      this.localidadCargada.palcos[i].reservado ||
+      !this.localidadCargada.palcos[i].disponible
+    ) {
+      this.lista5[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i].proceso) {
+      this.lista5[i].valor = 'p';
+    }
+
+
+    if (
+      this.localidadCargada.palcos[i+7].vendido ||
+      this.localidadCargada.palcos[i+7].reservado ||
+      !this.localidadCargada.palcos[i+7].disponible
+    ) {
+      this.lista6[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+7].proceso) {
+      this.lista6[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargada.palcos[i+14].vendido ||
+      this.localidadCargada.palcos[i+14].reservado ||
+      !this.localidadCargada.palcos[i+14].disponible
+    ) {
+      this.lista7[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+14].proceso) {
+      this.lista7[i].valor = 'p';
+    }
+  }
 
   
 
 }
+
+
   cargarLocalidadEnMapa6() {
 
     for (var i = 0; i < this.localidadCargadaGeneral.palcos.length; i++) {
@@ -4819,128 +3959,723 @@ for(let i =7;i >= 0;i--){
     }
   }
 
-  cargarLocalidadEnMapa5() {
 
-    for (var i = 0; i < this.localidadCargada.palcos.length; i = i + 1) {
+  cargarLocalidadEnMapa11() {
 
-      if (i >= 0 && i < 5) {
-        if (
-          this.localidadCargada.palcos[i].vendido ||
-          this.localidadCargada.palcos[i].reservado ||
-          !this.localidadCargada.palcos[i].disponible
-        ) {
-          this.lista1[i].valor = 'v';
-        } else if (this.localidadCargada.palcos[i].proceso) {
-          this.lista1[i].valor = 'p';
-        }
+    for(let i = 0; i < 7;i++){
+      
+      if (
+        this.localidadCargadaGeneral.palcos[i].vendido ||
+        this.localidadCargadaGeneral.palcos[i].reservado ||
+        !this.localidadCargadaGeneral.palcos[i].disponible
+      ) {
+        this.lista53[i].valor = 'v';
+      } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+        this.lista53[i].valor = 'p';
       }
-      else if (i >= 5 && i < 10) {
-        if (
-          this.localidadCargada.palcos[i].vendido ||
-          this.localidadCargada.palcos[i].reservado ||
-          !this.localidadCargada.palcos[i].disponible
-        ) {
-          this.lista2[i - 5].valor = 'v';
-        } else if (this.localidadCargada.palcos[i].proceso) {
-          this.lista2[i - 5].valor = 'p';
-        }
+      
+      if (
+        this.localidadCargadaGeneral.palcos[i+7].vendido ||
+        this.localidadCargadaGeneral.palcos[i+7].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+7].disponible
+      ) {
+        this.lista54[i].valor = 'v';
+      } else if (this.localidadCargadaGeneral.palcos[i+7].proceso) {
+        this.lista54[i].valor = 'p';
+      }
+
+      if (
+        this.localidadCargadaGeneral.palcos[i+29].vendido ||
+        this.localidadCargadaGeneral.palcos[i+29].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+29].disponible
+      ) {
+        this.lista60[i].valor = 'v';
+      } else if (this.localidadCargadaGeneral.palcos[i+29].proceso) {
+        this.lista60[i].valor = 'p';
+      }
+
+      if (
+        this.localidadCargadaGeneral.palcos[i+36].vendido ||
+        this.localidadCargadaGeneral.palcos[i+36].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+36].disponible
+      ) {
+        this.lista61[i].valor = 'v';
+      } else if (this.localidadCargadaGeneral.palcos[i+36].proceso) {
+        this.lista61[i].valor = 'p';
       }
     }
 
-
-    for (var i = 0; i < this.localidadCargadaGeneral.palcos.length; i = i + 1) {
-
-
-      if (i >= 0 && i < 5) {
-        if (
-          this.localidadCargadaGeneral.palcos[i].vendido ||
-          this.localidadCargadaGeneral.palcos[i].reservado ||
-          !this.localidadCargadaGeneral.palcos[i].disponible
-        ) {
-          this.lista3[i].valor = 'v';
-        } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-          this.lista3[i].valor = 'p';
-        }
-      }
-      else if (i >= 5 && i < 10) {
-        if (
-          this.localidadCargadaGeneral.palcos[i].vendido ||
-          this.localidadCargadaGeneral.palcos[i].reservado ||
-          !this.localidadCargadaGeneral.palcos[i].disponible
-        ) {
-          this.lista4[i - 5].valor = 'v';
-        } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-          this.lista4[i - 5].valor = 'p';
-        }
+    for (var i = 0; i < 14; i++) {
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i].disponible
+      ) {
+        this.lista1[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i].proceso) {
+        this.lista1[i].valor = 'p';
       }
 
-      else if (i >= 10 && i < 15) {
-        if (
-          this.localidadCargadaGeneral.palcos[i].vendido ||
-          this.localidadCargadaGeneral.palcos[i].reservado ||
-          !this.localidadCargadaGeneral.palcos[i].disponible
-        ) {
-          this.lista5[i - 10].valor = 'v';
-        } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-          this.lista5[i - 10].valor = 'p';
-        }
+
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i+14].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+14].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+14].disponible
+      ) {
+        this.lista2[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+14].proceso) {
+        this.lista2[i].valor = 'p';
       }
 
-      else if (i >= 15 && i < 20) {
-        if (
-          this.localidadCargadaGeneral.palcos[i].vendido ||
-          this.localidadCargadaGeneral.palcos[i].reservado ||
-          !this.localidadCargadaGeneral.palcos[i].disponible
-        ) {
-          this.lista6[i - 15].valor = 'v';
-        } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
-          this.lista6[i - 15].valor = 'p';
-        }
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i+28].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+28].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+28].disponible
+      ) {
+        this.lista3[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+28].proceso) {
+        this.lista3[i].valor = 'p';
       }
+      
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i+42].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+42].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+42].disponible
+      ) {
+        this.lista4[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+42].proceso) {
+        this.lista4[i].valor = 'p';
+      }
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i+56].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+56].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+56].disponible
+      ) {
+        this.lista5[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+56].proceso) {
+        this.lista5[i].valor = 'p';
+      }
+ 
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i+70].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+70].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+70].disponible
+      ) {
+        this.lista6[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+70].proceso) {
+        this.lista6[i].valor = 'p';
+      }
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i+84].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+84].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+84].disponible
+      ) {
+        this.lista7[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+84].proceso) {
+        this.lista7[i].valor = 'p';
+      }
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i+98].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+98].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+98].disponible
+      ) {
+        this.lista8[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+98].proceso) {
+        this.lista8[i].valor = 'p';
+      }
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i+112].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+112].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+112].disponible
+      ) {
+        this.lista9[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+112].proceso) {
+        this.lista9[i].valor = 'p';
+      }
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i+126].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+126].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+126].disponible
+      ) {
+        this.lista10[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+126].proceso) {
+        this.lista10[i].valor = 'p';
+      }
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i+140].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+140].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+140].disponible
+      ) {
+        this.lista11[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+140].proceso) {
+        this.lista11[i].valor = 'p';
+      }
+      if (
+        this.localidadCargadaBoletasVIP.palcos[i+154].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+154].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+154].disponible
+      ) {
+        this.lista12[i].valor = 'v';
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+154].proceso) {
+        this.lista12[i].valor = 'p';
+      }
+  }
 
+  for (var i = 0; i < 5; i++) {
+    if (
+      this.localidadCargadaBoletas.palcos[i].vendido ||
+      this.localidadCargadaBoletas.palcos[i].reservado ||
+      !this.localidadCargadaBoletas.palcos[i].disponible
+    ) {
+      this.lista13[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i].proceso) {
+      this.lista13[i].valor = 'p';
     }
-    for (var i = 0; i < this.localidadCargadaPreferecial.palcos.length; i = i + 1) {
-
-      if (i >= 0 && i < 5) {
-        if (
-          this.localidadCargadaPreferecial.palcos[i].vendido ||
-          this.localidadCargadaPreferecial.palcos[i].reservado ||
-          !this.localidadCargadaPreferecial.palcos[i].disponible
-        ) {
-          this.lista7[i].valor = 'v';
-        } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
-          this.lista7[i].valor = 'p';
-        }
-      }
-      else if (i >= 5 && i < 10) {
-        if (
-          this.localidadCargadaPreferecial.palcos[i].vendido ||
-          this.localidadCargadaPreferecial.palcos[i].reservado ||
-          !this.localidadCargadaPreferecial.palcos[i].disponible
-        ) {
-          this.lista8[i - 5].valor = 'v';
-        } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
-          this.lista8[i - 5].valor = 'p';
-        }
-      }
-
-      else if (i >= 10 && i < 15) {
-        if (
-          this.localidadCargadaPreferecial.palcos[i].vendido ||
-          this.localidadCargadaPreferecial.palcos[i].reservado ||
-          !this.localidadCargadaPreferecial.palcos[i].disponible
-        ) {
-          this.lista9[i - 10].valor = 'v';
-        } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
-          this.lista9[i - 10].valor = 'p';
-        }
-      }
 
 
+    if (
+      this.localidadCargadaBoletas.palcos[i+5].vendido ||
+      this.localidadCargadaBoletas.palcos[i+5].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+5].disponible
+    ) {
+      this.lista14[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+5].proceso) {
+      this.lista14[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+10].vendido ||
+      this.localidadCargadaBoletas.palcos[i+10].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+10].disponible
+    ) {
+      this.lista15[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+10].proceso) {
+      this.lista15[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+15].vendido ||
+      this.localidadCargadaBoletas.palcos[i+15].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+15].disponible
+    ) {
+      this.lista16[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+15].proceso) {
+      this.lista16[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+20].vendido ||
+      this.localidadCargadaBoletas.palcos[i+20].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+20].disponible
+    ) {
+      this.lista17[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+20].proceso) {
+      this.lista17[i].valor = 'p';
     }
 
+    if (
+      this.localidadCargadaBoletas.palcos[i+25].vendido ||
+      this.localidadCargadaBoletas.palcos[i+25].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+25].disponible
+    ) {
+      this.lista18[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+25].proceso) {
+      this.lista18[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+30].vendido ||
+      this.localidadCargadaBoletas.palcos[i+30].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+30].disponible
+    ) {
+      this.lista19[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+30].proceso) {
+      this.lista19[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+35].vendido ||
+      this.localidadCargadaBoletas.palcos[i+35].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+35].disponible
+    ) {
+      this.lista20[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+35].proceso) {
+      this.lista20[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+40].vendido ||
+      this.localidadCargadaBoletas.palcos[i+40].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+40].disponible
+    ) {
+      this.lista21[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+40].proceso) {
+      this.lista21[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+45].vendido ||
+      this.localidadCargadaBoletas.palcos[i+45].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+45].disponible
+    ) {
+      this.lista22[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+45].proceso) {
+      this.lista22[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+50].vendido ||
+      this.localidadCargadaBoletas.palcos[i+50].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+50].disponible
+    ) {
+      this.lista23[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+50].proceso) {
+      this.lista23[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargadaBoletas.palcos[i+62].vendido ||
+      this.localidadCargadaBoletas.palcos[i+62].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+62].disponible
+    ) {
+      this.lista26[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+62].proceso) {
+      this.lista26[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+67].vendido ||
+      this.localidadCargadaBoletas.palcos[i+67].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+67].disponible
+    ) {
+      this.lista27[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+67].proceso) {
+      this.lista27[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargadaBoletas.palcos[i+72].vendido ||
+      this.localidadCargadaBoletas.palcos[i+72].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+72].disponible
+    ) {
+      this.lista28[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+72].proceso) {
+      this.lista28[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+77].vendido ||
+      this.localidadCargadaBoletas.palcos[i+77].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+77].disponible
+    ) {
+      this.lista29[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+77].proceso) {
+      this.lista29[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+82].vendido ||
+      this.localidadCargadaBoletas.palcos[i+82].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+82].disponible
+    ) {
+      this.lista30[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+82].proceso) {
+      this.lista30[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargadaBoletas.palcos[i+93].vendido ||
+      this.localidadCargadaBoletas.palcos[i+93].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+93].disponible
+    ) {
+      this.lista33[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+93].proceso) {
+      this.lista33[i].valor = 'p';
+    }
+    
+    if (
+      this.localidadCargadaBoletas.palcos[i+98].vendido ||
+      this.localidadCargadaBoletas.palcos[i+98].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+98].disponible
+    ) {
+      this.lista34[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+98].proceso) {
+      this.lista34[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+103].vendido ||
+      this.localidadCargadaBoletas.palcos[i+103].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+103].disponible
+    ) {
+      this.lista35[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+103].proceso) {
+      this.lista35[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+108].vendido ||
+      this.localidadCargadaBoletas.palcos[i+108].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+108].disponible
+    ) {
+      this.lista36[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+108].proceso) {
+      this.lista36[i].valor = 'p';
+    }
+
+
+
+    if (
+      this.localidadCargada.palcos[i+57].vendido ||
+      this.localidadCargada.palcos[i+57].reservado ||
+      !this.localidadCargada.palcos[i+57].disponible
+    ) {
+      this.lista42[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+57].proceso) {
+      this.lista42[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargada.palcos[i+62].vendido ||
+      this.localidadCargada.palcos[i+62].reservado ||
+      !this.localidadCargada.palcos[i+62].disponible
+    ) {
+      this.lista43[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+62].proceso) {
+      this.lista43[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargada.palcos[i+67].vendido ||
+      this.localidadCargada.palcos[i+67].reservado ||
+      !this.localidadCargada.palcos[i+67].disponible
+    ) {
+      this.lista44[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+67].proceso) {
+      this.lista44[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargada.palcos[i+72].vendido ||
+      this.localidadCargada.palcos[i+72].reservado ||
+      !this.localidadCargada.palcos[i+72].disponible
+    ) {
+      this.lista45[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+72].proceso) {
+      this.lista45[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargada.palcos[i+77].vendido ||
+      this.localidadCargada.palcos[i+77].reservado ||
+      !this.localidadCargada.palcos[i+77].disponible
+    ) {
+      this.lista46[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+77].proceso) {
+      this.lista46[i].valor = 'p';
+    }
+    if (
+      this.localidadCargada.palcos[i+82].vendido ||
+      this.localidadCargada.palcos[i+82].reservado ||
+      !this.localidadCargada.palcos[i+82].disponible
+    ) {
+      this.lista47[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+82].proceso) {
+      this.lista47[i].valor = 'p';
+    }
+    if (
+      this.localidadCargada.palcos[i+87].vendido ||
+      this.localidadCargada.palcos[i+87].reservado ||
+      !this.localidadCargada.palcos[i+87].disponible
+    ) {
+      this.lista48[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+87].proceso) {
+      this.lista48[i].valor = 'p';
+    }
+  }
+  for(let i =0;i<3;i++) {
+
+    if (
+      this.localidadCargadaGeneral.palcos[i+14].vendido ||
+      this.localidadCargadaGeneral.palcos[i+14].reservado ||
+      !this.localidadCargadaGeneral.palcos[i+14].disponible
+    ) {
+      this.lista55[i].valor = 'v';
+    } else if (this.localidadCargadaGeneral.palcos[i+14].proceso) {
+      this.lista55[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaGeneral.palcos[i+17].vendido ||
+      this.localidadCargadaGeneral.palcos[i+17].reservado ||
+      !this.localidadCargadaGeneral.palcos[i+17].disponible
+    ) {
+      this.lista56[i].valor = 'v';
+    } else if (this.localidadCargadaGeneral.palcos[i+17].proceso) {
+      this.lista56[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaGeneral.palcos[i+20].vendido ||
+      this.localidadCargadaGeneral.palcos[i+20].reservado ||
+      !this.localidadCargadaGeneral.palcos[i+20].disponible
+    ) {
+      this.lista57[i].valor = 'v';
+    } else if (this.localidadCargadaGeneral.palcos[i+20].proceso) {
+      this.lista57[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargadaGeneral.palcos[i+23].vendido ||
+      this.localidadCargadaGeneral.palcos[i+23].reservado ||
+      !this.localidadCargadaGeneral.palcos[i+23].disponible
+    ) {
+      this.lista58[i].valor = 'v';
+    } else if (this.localidadCargadaGeneral.palcos[i+23].proceso) {
+      this.lista58[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaGeneral.palcos[i+26].vendido ||
+      this.localidadCargadaGeneral.palcos[i+26].reservado ||
+      !this.localidadCargadaGeneral.palcos[i+26].disponible
+    ) {
+      this.lista59[i].valor = 'v';
+    } else if (this.localidadCargadaGeneral.palcos[i+26].proceso) {
+      this.lista59[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+55].vendido ||
+      this.localidadCargadaBoletas.palcos[i+55].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+55].disponible
+    ) {
+      this.lista24[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+55].proceso) {
+      this.lista24[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+87].vendido ||
+      this.localidadCargadaBoletas.palcos[i+87].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+87].disponible
+    ) {
+      this.lista31[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+87].proceso) {
+      this.lista31[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaBoletas.palcos[i+90].vendido ||
+      this.localidadCargadaBoletas.palcos[i+90].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+90].disponible
+    ) {
+      this.lista32[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+90].proceso) {
+      this.lista32[i].valor = 'p';
+    }
 
   }
+  for(let i =0;i<4;i++) {
+    if (
+      this.localidadCargadaBoletas.palcos[i+58].vendido ||
+      this.localidadCargadaBoletas.palcos[i+58].reservado ||
+      !this.localidadCargadaBoletas.palcos[i+58].disponible
+    ) {
+      this.lista25[i].valor = 'v';
+    } else if (this.localidadCargadaBoletas.palcos[i+58].proceso) {
+      this.lista25[i].valor = 'p';
+    }
+  }
+    
+  for(let i =0;i <11;i++){
+
+    
+    if (
+      this.localidadCargada.palcos[i].vendido ||
+      this.localidadCargada.palcos[i].reservado ||
+      !this.localidadCargada.palcos[i].disponible
+    ) {
+      this.lista37[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i].proceso) {
+      this.lista37[i].valor = 'p';
+    }
+    if (
+      this.localidadCargada.palcos[i+11].vendido ||
+      this.localidadCargada.palcos[i+11].reservado ||
+      !this.localidadCargada.palcos[i+11].disponible
+    ) {
+      this.lista38[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+11].proceso) {
+      this.lista38[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargada.palcos[i+22].vendido ||
+      this.localidadCargada.palcos[i+22].reservado ||
+      !this.localidadCargada.palcos[i+22].disponible
+    ) {
+      this.lista39[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+22].proceso) {
+      this.lista39[i].valor = 'p';
+    }
+
+
+
+
+
+
+    if (
+      this.localidadCargadaPreferecial.palcos[i].vendido ||
+      this.localidadCargadaPreferecial.palcos[i].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i].disponible
+    ) {
+      this.lista62[i].valor = 'v';
+    } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
+      this.lista62[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargadaPreferecial.palcos[i+11].vendido ||
+      this.localidadCargadaPreferecial.palcos[i+11].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i+11].disponible
+    ) {
+      this.lista63[i].valor = 'v';
+    } else if (this.localidadCargadaPreferecial.palcos[i+11].proceso) {
+      this.lista63[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargadaPreferecial.palcos[i+22].vendido ||
+      this.localidadCargadaPreferecial.palcos[i+22].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i+22].disponible
+    ) {
+      this.lista64[i].valor = 'v';
+    } else if (this.localidadCargadaPreferecial.palcos[i+22].proceso) {
+      this.lista64[i].valor = 'p';
+    }
+    
+    if (
+      this.localidadCargadaPreferecial.palcos[i+33].vendido ||
+      this.localidadCargadaPreferecial.palcos[i+33].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i+33].disponible
+    ) {
+      this.lista65[i].valor = 'v';
+    } else if (this.localidadCargadaPreferecial.palcos[i+33].proceso) {
+      this.lista65[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaPreferecial.palcos[i+44].vendido ||
+      this.localidadCargadaPreferecial.palcos[i+44].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i+44].disponible
+    ) {
+      this.lista66[i].valor = 'v';
+    } else if (this.localidadCargadaPreferecial.palcos[i+44].proceso) {
+      this.lista66[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaPreferecial.palcos[i+55].vendido ||
+      this.localidadCargadaPreferecial.palcos[i+55].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i+55].disponible
+    ) {
+      this.lista67[i].valor = 'v';
+    } else if (this.localidadCargadaPreferecial.palcos[i+55].proceso) {
+      this.lista67[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargadaPreferecial.palcos[i+66].vendido ||
+      this.localidadCargadaPreferecial.palcos[i+66].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i+66].disponible
+    ) {
+      this.lista68[i].valor = 'v';
+    } else if (this.localidadCargadaPreferecial.palcos[i+66].proceso) {
+      this.lista68[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaPreferecial.palcos[i+77].vendido ||
+      this.localidadCargadaPreferecial.palcos[i+77].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i+77].disponible
+    ) {
+      this.lista69[i].valor = 'v';
+    } else if (this.localidadCargadaPreferecial.palcos[i+77].proceso) {
+      this.lista69[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaPreferecial.palcos[i+88].vendido ||
+      this.localidadCargadaPreferecial.palcos[i+88].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i+88].disponible
+    ) {
+      this.lista70[i].valor = 'v';
+    } else if (this.localidadCargadaPreferecial.palcos[i+88].proceso) {
+      this.lista70[i].valor = 'p';
+    }
+    if (
+      this.localidadCargadaPreferecial.palcos[i+99].vendido ||
+      this.localidadCargadaPreferecial.palcos[i+99].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i+99].disponible
+    ) {
+      this.lista71[i].valor = 'v';
+    } else if (this.localidadCargadaPreferecial.palcos[i+99].proceso) {
+      this.lista71[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargadaPreferecial.palcos[i+110].vendido ||
+      this.localidadCargadaPreferecial.palcos[i+110].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i+110].disponible
+    ) {
+      this.lista72[i].valor = 'v';
+    } else if (this.localidadCargadaPreferecial.palcos[i+110].proceso) {
+      this.lista72[i].valor = 'p';
+    }
+
+    if (
+      this.localidadCargada.palcos[i+104].vendido ||
+      this.localidadCargada.palcos[i+104].reservado ||
+      !this.localidadCargada.palcos[i+104].disponible
+    ) {
+      this.lista50[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+104].proceso) {
+      this.lista50[i].valor = 'p';
+    }
+    if (
+      this.localidadCargada.palcos[i+115].vendido ||
+      this.localidadCargada.palcos[i+115].reservado ||
+      !this.localidadCargada.palcos[i+115].disponible
+    ) {
+      this.lista51[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+115].proceso) {
+      this.lista51[i].valor = 'p';
+    }
+    if (
+      this.localidadCargada.palcos[i+126].vendido ||
+      this.localidadCargada.palcos[i+126].reservado ||
+      !this.localidadCargada.palcos[i+126].disponible
+    ) {
+      this.lista52[i].valor = 'v';
+    } else if (this.localidadCargada.palcos[i+126].proceso) {
+      this.lista52[i].valor = 'p';
+    }
+  }
+  
+  for(let i =0; i<12;i++) {
+
+  if (
+    this.localidadCargada.palcos[i+33].vendido ||
+    this.localidadCargada.palcos[i+33].reservado ||
+    !this.localidadCargada.palcos[i+33].disponible
+  ) {
+    this.lista40[i].valor = 'v';
+  } else if (this.localidadCargada.palcos[i+33].proceso) {
+    this.lista40[i].valor = 'p';
+  }
+
+  if (
+    this.localidadCargada.palcos[i+45].vendido ||
+    this.localidadCargada.palcos[i+45].reservado ||
+    !this.localidadCargada.palcos[i+45].disponible
+  ) {
+    this.lista41[i].valor = 'v';
+  } else if (this.localidadCargada.palcos[i+45].proceso) {
+    this.lista41[i].valor = 'p';
+  }
+
+  if (
+    this.localidadCargada.palcos[i+92].vendido ||
+    this.localidadCargada.palcos[i+92].reservado ||
+    !this.localidadCargada.palcos[i+92].disponible
+  ) {
+    this.lista49[i].valor = 'v';
+  } else if (this.localidadCargada.palcos[i+92].proceso) {
+    this.lista49[i].valor = 'p';
+  }
+  }
+
+  }
+
+
   agregarPalcoIndividual(numero) {
     if (
       numero != 'v' &&
@@ -4956,11 +4691,23 @@ for(let i =7;i >= 0;i--){
             .getPalcoParaCompraIndividual(this.evento.nombre, numero)
             .subscribe((response) => {
               this.palco = response;
+
+
+
+
               this.referenceCode =
                 'PALCO;' + this.usuarioEntidad.numeroDocumento + ',';
               if (this.palco == null) {
                 alert('Agregar un Palco para continuar');
               } else {
+
+
+
+                this.palcoServicio.getLocalidadDelPalco(this.palco.id).subscribe((response=>{response
+
+
+
+         if(this.darCantidadDePalcosDisponiblesEtapas(response) >0){
                 this.palcoServicio.reservarPalcoExacto(this.palco.id).subscribe(
                   (response) => {
                     response;
@@ -4982,18 +4729,25 @@ for(let i =7;i >= 0;i--){
                     this.localidad = null;
                     this.valorLocalidadAgregada = 0;
                     this.valorBoletas = 0;
-                    this.AbrirCarrito();
-                    if (!this.localidadCargada.efectivo) {
-                      this.palcoServicio
-                        .rechazarReservaPalco(this.palco.id)
-                        .subscribe((response) => response);
-                    } else {
-                      this.palcoServicio
-                        .rechazarReservaPalcoEfectivo(this.palco.id)
-                        .subscribe((response) => {
-                          response;
-                        });
-                    }
+
+                 
+                   
+
+                    
+
+                      this.AbrirCarrito();
+                      if (!this.localidadCargada.efectivo) {
+                        this.palcoServicio
+                          .rechazarReservaPalco(this.palco.id)
+                          .subscribe((response) => response);
+                      } else {
+                        this.palcoServicio
+                          .rechazarReservaPalcoEfectivo(this.palco.id)
+                          .subscribe((response) => {
+                            response;
+                          });
+                      }
+                  
                   },
 
                   (error) => {
@@ -5005,6 +4759,20 @@ for(let i =7;i >= 0;i--){
                     this.ngOnInit();
                   }
                 );
+              
+                      
+                  }
+                else{
+                  this.cargando = false;
+                  this.ngOnInit();
+                  alert("La etapa de esta localidad se ha agotado, espera unos minutos que se abrira la nueva etapa")
+                }
+                }))
+
+
+
+
+
               }
             });
         } else {
@@ -5015,6 +4783,8 @@ for(let i =7;i >= 0;i--){
       }
     }
   }
+
+  
   abrirTickets(localidad: Localidad) {
     if (!this.usuarioBoolean) {
       if (this.contadorBoletas < 6 && !this.cargando && this.cargadoTodo) {
@@ -5031,6 +4801,58 @@ for(let i =7;i >= 0;i--){
       this.openDialog();
     }
   }
+
+
+
+
+
+
+  seleccionarLocalidad(localidad1: Localidad, localidad2: Localidad) {
+    if (!this.usuarioBoolean) {
+      if (this.contadorBoletas < 6 && !this.cargando && this.cargadoTodo) {
+        this.referenceCode = 'TICKET;' + this.usuarioEntidad.numeroDocumento + ',';
+        this.seleccion(localidad1,localidad2);
+      }
+      else {
+        alert('Solo puedes comprar 6 Tickets máximo por este Evento');
+      }
+    }
+
+    else {
+      alert('Ingresa a tu cuenta AllTickets para poder realizar la compra')
+      this.openDialog();
+    }
+  }
+
+
+
+  seleccion(localidad1: Localidad, localidad2: Localidad) {
+   
+
+    const dialogRef = this.dialog.open(LocalidadSeleccionComponent, {
+      width: '600px',
+
+
+      data: {
+        localidad1: localidad1,
+        localidad2: localidad2,
+        referenceCode: this.referenceCode,
+        codigoVenta: this.codigoVenta,
+        usuarioEntidad: this.usuarioEntidad,
+        contadorBoletas: this.contadorBoletas,
+        evento: this.evento,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.dialog.closeAll();
+
+      this.ngOnInit();
+
+    });
+  }
+
+
 
   cantidadBoletas(localidad: Localidad) {
     let efectivo = localidad.efectivo;

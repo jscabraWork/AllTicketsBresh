@@ -14,7 +14,6 @@ export interface Evento {
     terminosYCondiciones:string,
     recomendaciones:string,
     ciudadIdTexto:number,
-    organizadorid:number,
     imagen:Foto,
     imagenes:Foto[],
     artistas,
@@ -33,6 +32,8 @@ export interface Evento {
     fechaApertura:Date,
     urlMapa:string,
     adicionales:Adicionales[],
-    oculto:boolean
+    oculto:boolean,
+    dineroEntregado:number,
+    ciudadNombre:string
 
 }

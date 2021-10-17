@@ -1,0 +1,31 @@
+.contenedor2:hover p{
+    display:initial ;
+
+}
+.contenedor2 p {
+    display: none;
+}
+
+@media(max-width:392px){
+    .titulos{
+        font-size: 18px;
+    }
+}
+
+
+
+  .sold_out {
+      top: 2em;
+      left: -4em;
+      display: block;
+     position: absolute;
+      z-index:10;
+      margin-left: 43%;
+      margin-top:-4%;
+      overflow: hidden;
+      width: 180px;
+      height: 180px;
+    transform: rotate(30deg);
+
+       }
+

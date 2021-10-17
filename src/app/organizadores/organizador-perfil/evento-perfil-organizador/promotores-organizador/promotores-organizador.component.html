@@ -28,7 +28,8 @@
                         <th class="border">Numero de documento</th>
                         <th class="border ">Usuario</th>
                         <th class="border ">Nombre</th>
-                        <th class="border ">Ver ventas</th>               
+                        <th class="border ">Ver ventas</th>
+                        <th class="border ">Ver Reservas Activas</th>               
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +38,8 @@
                         <td class="border"><strong>{{promotor?.numeroDocumento }}</strong></td>
                         <td class="border"> <strong>{{promotor?.usuario }}</strong></td> 
                         <td class="border"> <strong>{{promotor?.nombre}}</strong></td> 
-                        <td class="border"><button class="btn action_button"routerLink="{{promotor.numeroDocumento}}">Ver Ventas</button></td>  
+                        <td class="border"><button class="btn action_button"routerLink="{{promotor.numeroDocumento}}"[disabled]="!darPalcosPromotorEvento(promotor)" >Ver Ventas</button></td>  
+                        <td class="border"><button class="btn action_button"routerLink="{{promotor.numeroDocumento}}/reservas" >Ver Reservas Activas</button></td>  
                     </tr>
 
                 </tbody>

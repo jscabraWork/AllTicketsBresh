@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <h1>Localidad</h1>
+<form (ngSubmit)="!todoForm.invalid &&saveLocalidad()" #todoForm="ngForm">
+        
+ 
+    <fieldset class="form-group">
+        <label for="nombre">Precio</label>
+        <input type="number" class= "form-control"name ="precio" required="required"  [(ngModel)]="precio">
+    </fieldset>
+    <fieldset class="form-group">
+        <label for="nombre">Servicio</label>
+        <input type="number" class= "form-control"name ="servicio" required="required"  [(ngModel)]="servicio">
+    </fieldset>
+    <fieldset class="form-group">
+        <label for="precio">IVA</label>
+        <input type="number" class= "form-control"name ="iva" required="required"  [(ngModel)]="iva">
+    </fieldset>
+    <fieldset class="form-group">
+        <label for="nombre">Cuantas adiciones maximo</label>
+        <input type="number" class= "form-control"name ="adiciones" required="required"  [(ngModel)]="adiciones">
+    </fieldset>
+    <fieldset class="form-group">
+        <label for="nombre">Maximo en un palco</label>
+        <input type="number" class= "form-control"name ="maximo" required="required"  [(ngModel)]="maximo">
+    </fieldset>
+    <button class="btn btn-success" type="submit">Guardar</button>
+</form>
+</div>

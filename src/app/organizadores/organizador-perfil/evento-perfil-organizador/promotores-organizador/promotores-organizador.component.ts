@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Palco } from 'src/app/administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
+import { Boleta } from 'src/app/eventos/boleta.model';
 import { Evento } from 'src/app/eventos/evento.model';
 import { Promotor } from 'src/app/promotor-perfil/promotor.model';
 import { EventoDataService } from 'src/app/service/data/evento-data.service';
@@ -32,7 +33,7 @@ export class PromotoresOrganizadorComponent implements OnInit {
       terminosYCondiciones:"",
       recomendaciones:"",
       ciudadIdTexto:null,
-      organizadorid:null,
+      
       imagen:null,
       imagenes:[],
       artistas:"",
@@ -51,7 +52,9 @@ export class PromotoresOrganizadorComponent implements OnInit {
       fechaApertura:null,
       urlMapa:null,
       adicionales:[],
-      oculto:null
+      oculto:null,
+      dineroEntregado:null,
+      ciudadNombre:null
     }
 
     this.route.paramMap.subscribe( params =>{
@@ -71,4 +74,25 @@ export class PromotoresOrganizadorComponent implements OnInit {
   handleGetSuccesfull(response){
     this.evento=response;
   }
+
+  darPalcosPromotorEvento(promotor:Promotor){
+    let palcos:Palco[]=promotor.palcosVendidos;
+    let boletas:Boleta[] =promotor.boletasVendidas;
+    let retorno: boolean = false;
+    console.log(palcos)
+    for(let i=0;i<palcos.length &&!retorno;i++){
+      if(palcos[i].nombreEvento==this.evento.nombre){
+        retorno=true
+      }
+    }
+    for(let j=0;j< boletas.length&&!retorno;j++){
+      if(boletas[j].nombreEvento==this.evento.nombre){
+        retorno=true
+      }
+    }
+    return retorno;
+  }
+
+
+  
 }

@@ -3,6 +3,10 @@ import { EventoDataService } from './../service/data/evento-data.service';
 import { Evento } from './evento.model';
 import { Component, OnInit } from '@angular/core';
 import { EpaycoService } from '../service/epayco.service';
+import { CiudadesDataService } from '../service/data/ciudades-data.service';
+import { take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Ciudad } from '../ciudades/ciudad.model';
 
 
 @Component({
@@ -18,28 +22,33 @@ export class EventosComponent implements OnInit {
 
   eventos: Evento []= [];
   
-  constructor(private service: EventoDataService) { }
+  constructor(private service: EventoDataService, private servicioCiudad: CiudadesDataService ) { }
 
   ngOnInit(): void {
 
-  
-  /* this.eventoservice.getEventos().subscribe(response => {
-      this.eventos = response; } 
-      ,error  => {alert(">Ocurrio un error!")}
-      );*/
+
 
       this.service.getAllEventosVisibles().subscribe(
         response => {this.handleSuccesfullGet(response);
+         
         }
       )
       
 
   }
+   getCiudad(ciudadid:number) {
+    let a =this.servicioCiudad.getCiudad(ciudadid).subscribe(response=>{
+   
+      return response.nombre;
+      
+    });
+    
+    
+  
+  }
 
   handleSuccesfullGet(response){
     this.eventos= response;
-    
-
 
     
   }

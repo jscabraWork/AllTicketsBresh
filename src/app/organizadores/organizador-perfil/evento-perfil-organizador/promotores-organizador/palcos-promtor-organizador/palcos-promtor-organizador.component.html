@@ -25,6 +25,7 @@
               <th class="border">Numero</th>
               <th class="border">Documento de la compra</th>
               <th class="border">Recaudado</th>
+              <th class="border">Precio completo</th>
             </tr>
           </thead>
           <tbody>
@@ -42,6 +43,29 @@
                   <strong>{{ darPrecioPagar(palco)| currency:'COP'}}</strong>
          
               </td>
+              <td class="border">
+                <strong>{{palco?.precio| currency:'COP'}}</strong>
+
+            </td>
+            </tr>
+            <tr *ngFor="let boleta of boletas">
+              <td class="border">
+                <strong>{{ boleta?.localidadNombre }}</strong>
+              </td>
+              <td class="border">
+                <strong>{{ boleta?.seccionSilla }}</strong>
+              </td>
+              <td class="border">
+                <strong>NA</strong>
+              </td>
+              <td class="border">
+                  <strong>{{ boleta?.precio| currency:'COP'}}</strong>
+         
+              </td>
+              <td class="border">
+                <strong>{{boleta?.precio| currency:'COP'}}</strong>
+
+            </td>
             </tr>
           </tbody>
         </table>

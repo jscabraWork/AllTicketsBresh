@@ -26,7 +26,7 @@
                 onmouseover="javascript:this.style.opacity=0.4;this.opacity=40" />
                
             </a>
-            <p class="centrado2"><strong> {{evento?.descripcion|resumir}}</strong></p>
+            <p style="font-size:22px;" class="centrado2"><strong> Compra ya tus Tickets para el evento {{evento.nombre}}</strong></p>
             
             </div>
             
@@ -46,6 +46,7 @@
       
         <div class="col-6 border-right">
             <p class="fechas"><strong>{{evento?.fecha|date}} </strong></p>
+            <p class="fechas"><strong>Ciudad: {{evento?.ciudadNombre }}</strong></p> 
     
            </div>
             <div class="col-6 pb-5">

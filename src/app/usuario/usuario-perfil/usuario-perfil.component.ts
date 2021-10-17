@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CambiarPerfilComponent } from './cambiar-perfil/cambiar-perfil.component';
+import { BoletasDataService } from 'src/app/service/data/boletas-data.service';
+import { PalcosDataService } from 'src/app/service/data/palcos-data.service';
 
 @Component({
   selector: 'app-usuario-perfil',
@@ -19,7 +21,7 @@ export class UsuarioPerfilComponent implements OnInit {
   palcos = false
   datos = true
  
-  constructor(private route:ActivatedRoute, private autenticador: HardcodedAutheticationService, private dataServicio:UsuariosDataService, private dialog:MatDialog) { }
+  constructor(private route:ActivatedRoute, private autenticador: HardcodedAutheticationService, private dataServicio:UsuariosDataService, private dialog:MatDialog, private boletaService: BoletasDataService, private palcoServicio: PalcosDataService) { }
 
   ngOnInit(): void {
     this.usuario= {
@@ -36,7 +38,15 @@ export class UsuarioPerfilComponent implements OnInit {
         palcos:[]
     }
 
+    if(this.autenticador.getUsuario()){
     this.user= this.autenticador.getUsuario();
+  }
+  else if(this.autenticador.getAdmin()){
+    this.route.paramMap.subscribe( params =>{
+      this.user =params.get('user');
+    })
+  }
+
     this.dataServicio.getCliente(this.user).subscribe(response => this.usuario=response)
 
   }
@@ -67,6 +77,20 @@ export class UsuarioPerfilComponent implements OnInit {
     });
   }
 
+  mandarQR(idBoleta){
 
+    alert("Se ha enviado el QR de la boleta " + idBoleta +" al correo " +this.usuario.correo)
+    this.boletaService.mandarQRBoleta(idBoleta).subscribe(response=>{
+      response
+      
+    })
+  }
 
+  mandarQRPalco(idPalco, numeroPalco){
+    alert("Se ha enviado el QR del " + numeroPalco +" al correo " +this.usuario.correo)
+    this.palcoServicio.mandarQRPalco(idPalco).subscribe(response=>{
+      response
+      
+    })
+  }
 }

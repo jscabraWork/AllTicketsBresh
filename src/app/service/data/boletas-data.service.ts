@@ -137,4 +137,9 @@ entro(){
   return this.http.get(`${API_URL}/entro`)
 }
 
+
+mandarQRBoleta(pIdBoleta){
+  return this.http.get(`${API_URL}/boleta/qrs/${pIdBoleta}`)
+}
+
 }

@@ -33,7 +33,8 @@
                     <td class="border"> <strong>{{evento?.fecha }} Hora: {{evento?.fecha.horaInicio}}</strong></td> 
                     <td class="border"> <strong>{{evento?.lugar }}</strong></td> 
                     
-                    <td class="border"> <button class="btn action_button" routerLink="/organizadores/organizador/eventos/{{evento?.id}}">Ver Perfil</button></td> 
+                    <td class="border" *ngIf="this.autenticador.getOrganizador()"> <button class="btn action_button"  routerLink="/organizadores/organizador/eventos/{{evento?.id}}">Ver Perfil</button></td> 
+                    <td class="border" *ngIf="this.autenticador.getAdmin()"> <button class="btn action_button"  routerLink="/organizadores/organizador/admin/eventos/{{evento?.id}}">Ver Perfil</button></td> 
                 </tr>
             </tbody>
         </table>

@@ -8,6 +8,7 @@ import { AgregarFotosBannerComponent } from './agregar-fotos-banner/agregar-foto
 import { AdminMensajeComponent } from './admin-mensaje/admin-mensaje.component';
 import { AgregarImagenFinalComponent } from './agregar-imagen-final/agregar-imagen-final.component';
 import { AgregarFechaAperturaComponent } from './agregar-fecha-apertura/agregar-fecha-apertura.component';
+import { AgregarOrganizadorAEventoComponent } from './agregar-organizador-aevento/agregar-organizador-aevento.component';
 
 @Component({
   selector: 'app-admin-eventos',
@@ -39,6 +40,13 @@ export class AdminEventosComponent implements OnInit {
   }
   cambiarVisibilidad(pId){
     this.service.cambiarVisibilidad(pId).subscribe(response=>{
+      response;
+      this.refresecarEventos();
+    })
+  }
+
+  cambiarOculto(pId){
+    this.service.cambiarOculto(pId).subscribe(response=>{
       response;
       this.refresecarEventos();
     })
@@ -156,6 +164,26 @@ export class AdminEventosComponent implements OnInit {
   agregarFechaApertura(evento:Evento) {
 
     const dialogRef = this.dialog.open(AgregarFechaAperturaComponent
+    ,
+      {
+        width: '600px',
+        height: '380px',
+        data: {
+          id: evento.id
+        }
+      })
+    dialogRef.afterClosed().subscribe(result => {
+      result
+      this.ngOnInit()
+    })
+  }
+
+  agregarOrganizador(evento:Evento) {
+    var portada = ""
+    if (evento.mapaImagen != null) {
+      portada = evento.mapaImagen.url
+    }
+    const dialogRef = this.dialog.open(AgregarOrganizadorAEventoComponent
     ,
       {
         width: '600px',

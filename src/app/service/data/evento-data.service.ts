@@ -3,6 +3,7 @@ import { Evento } from './../../eventos/evento.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Foto } from 'src/app/models/foto.model';
+import { Ciudad } from 'src/app/ciudades/ciudad.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,17 @@ urlGetOne=`${API_URL}/eventos/`;
 
   getEventoId(id:string){
     
-    return this.http.get<Evento>(this.urlGetOne+id);
+    return this.http.get(`${API_URL}/eventos/${id}`);
   }
+  getEventoIdPerfil(id:string){
+    
+    return this.http.get(`${API_URL}/eventos/perfil/${id}`);
+  }
+  getCiudadDeEvento(id:string){
+    
+    return this.http.get<Ciudad>(this.urlGetOne+"ciudad/"+id);
+  }
+
   deleteEvento(id:string){
     return this.http.delete(`${API_URL}/eventos/${id}`);
   }
@@ -44,11 +54,14 @@ urlGetOne=`${API_URL}/eventos/`;
     
     return this.http.put(`${API_URL}/eventos/soldout/${id}`,null);
   }
-
-  
-  addEventoId( evento){
+  cambiarOculto(pId:string){
     
-    return this.http.post(`${API_URL}/eventos`,evento);
+    return this.http.get(`${API_URL}/eventos/oculto/${pId}`);
+  }
+
+  addEventoId( evento, idOrganizador){
+    
+    return this.http.post(`${API_URL}/eventos/organizador/${idOrganizador}`,evento);
   }
 
 
@@ -71,4 +84,9 @@ urlGetOne=`${API_URL}/eventos/`;
   eliminarPromotorAEvento(idEvento, idPromotor){
     return this.http.put(`${API_URL}/evento/promotor/eliminar/${idEvento}/${idPromotor}`,null)
   }
+
+  agregarOrganizadorAlEvento(id,idOrganizador){
+    return this.http.put(`${API_URL}/eventos/${id}/organizaor/${idOrganizador}`,null)
+  }
+
 }

@@ -256,4 +256,50 @@ export class ReservasPromotorComponent implements OnInit {
         
       }
 
+      epaycoPalcosUsuarios2() {
+
+        if(this.pagar2 == false){
+          this.pagar2 = true;
+        this.handler=this.window.ePayco.checkout.configure({
+          key: 'c3b3aa9c8c34f800c0d0701f24fc5e33',
+          test: false,
+        });
+        var data = {
+          //Parametros compra (obligatorio)
+          name: this.palco.nombreEvento,
+          description:
+          '1 Palco para ' +
+          this.palco.nombreEvento +
+          ' En la localidad ' +
+          this.palco.nombre,
+          currency: 'cop',
+          amount: this.valorAPagar,
+          invoice:this.referenceCode,
+          tax_base: '0',
+          tax: '0',
+          country: 'co',
+          lang: 'es',
+    
+          //Onpage="false" - Standard="true"
+          external: 'false',
+    
+          //Atributos opcionales
+    
+         // response: "http://localhost:4200/eventos/respuesta",
+         response: `${respuesta}/eventos/respuesta`,
+          confirmation:`${API_URL2}/epayco`,
+    
+          //Atributos cliente
+          name_billing: this.usuario.nombre,
+          address_billing: this.usuario.direccion,
+          type_doc_billing: 'cc',
+          mobilephone_billing: this.usuario.celular,
+          number_doc_billing: this.usuario.numeroDocumento,
+        };
+    
+        this.handler.onCloseModal = this.onCloseEpaycoModal;
+        this.handler.open(data);
+      }
+    }
+
 }

@@ -30,7 +30,15 @@ organizador:Organizador;
 
     var contra = this.organizador.contrasena;
     this.organizador.contrasena = md5.appendStr(contra).end().toString();
-    this.servicio.addOrganizador(this.organizador).subscribe(data=> console.log(data))
+    this.servicio.addOrganizador(this.organizador).subscribe((data)=>
+       {console.log(data)}
+       , error =>{
+         console.log(error)
+        alert("No se agrego el promotor");
+            
+      }
+       
+       )
     this.router.navigate(['organizadores'])
     alert(' Se agrego el organizador '+ this.organizador.nombre)
 

@@ -34,8 +34,18 @@ export class LocalidadesDataService {
     
     return this.http.post(`${API_URL}/eventos/${pEvento}/localidades/etapas/${pIdEtapa}`,localidad); 
   }
+  setAdiciones(pIdLocalidad:number,precio,servicio,servicioIVA,adiciones,maximoAdiciones){
+
+    return this.http.get<Etapa> (`${API_URL}/eventos/localidades/adiciones/localidad/${pIdLocalidad}/${precio}/${servicio}/${servicioIVA}/${adiciones}/${maximoAdiciones}`)
+  }
+
+  setAlternoss(pIdLocalidad:number,precio,servicio,servicioIVA){
+
+    return this.http.get<Etapa> (`${API_URL}/eventos/localidades/localidad/${pIdLocalidad}/${precio}/${servicio}/${servicioIVA}`)
+  }
 
 
+  
   deleteEvento(idEvento:string, pIdLocalidad:number){
     return this.http.delete(`${API_URL}/eventos/${idEvento}/localidades/${pIdLocalidad}`); 
   }

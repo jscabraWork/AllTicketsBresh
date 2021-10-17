@@ -19,11 +19,12 @@
                     
                     <input type="text" class= "form-control "name ="nombre" placeholder="Nombre" required="required"  [(ngModel)]="usuario.nombre">
                 </fieldset>
-                    <select type="text" class= "form-control colorGris "name ="tipoDocumento" required="required" placeholder="Tipo de documento" [(ngModel)]="usuario.tipoDocumento">
+                    <select class= "form-control colorGris "name ="tipoDocumento" required="required" placeholder="Tipo de documento" [(ngModel)]="usuario.tipoDocumento">
                         
-                        <option value="Cedula" >Cedula</option>
+                        <option value="Cedula" >Cédula</option>
                         <option value="Tarjeta de identidad">Tarjeta de Identidad</option>
                         <option value="Pasaporte">Pasaporte</option>
+                        <option value="Cedula de Extranjería ">Cédula de extranjería</option>
                     </select>    
                 </fieldset>
                 <fieldset class="form-group">
@@ -31,15 +32,10 @@
                     <input class= "form-control "name ="id" placeholder="Numero De Documento" required="required"  [(ngModel)]="usuario.numeroDocumento">
                 </fieldset>    
                 
-               
-
-                
-
-               
-
                 <fieldset class="form-group">
                     
                     <input type="text" class= "form-control "name ="usuario" placeholder="Usuario" required="required"  [(ngModel)]="usuario.usuario">
+                    <small class="colorLetras" *ngIf="this.usuario.usuario.includes(' ')">No se permiten espacios en blanco para el usuario</small>
                 </fieldset>
 
                 <fieldset class="form-group">
@@ -51,11 +47,13 @@
                 <fieldset class="form-group">
                     
                     <input  placeholder="Celular" class= "form-control "name ="celular" required="required"  [(ngModel)]="usuario.celular">
+                    
                 </fieldset>
 
                 <fieldset class="form-group">
                     
                     <input type="email" placeholder="Correo" class= "form-control "name ="correo" required="required"  [(ngModel)]="usuario.correo">
+                    <small class="colorLetras">Verifica que hayas escrito bien tu correo, ahí llegaran tus tickets</small>
                 </fieldset>
 
 

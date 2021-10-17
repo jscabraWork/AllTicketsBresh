@@ -10,6 +10,6 @@ export interface Localidad {
     boletasPatrocinio:Boleta[],
     palcos:Palco[],
     servicioPorcentaje:number,
-    efectivo:boolean
-   
+    efectivo:boolean,
+    maximoVender:number
 }

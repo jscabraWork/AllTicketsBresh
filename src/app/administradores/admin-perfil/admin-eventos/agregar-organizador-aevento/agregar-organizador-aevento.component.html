@@ -1,0 +1,8 @@
+<form (ngSubmit)="!todoForm.invalid && guardar()" #todoForm="ngForm">
+    <fieldset class="form-group">
+        <input type="number" [(ngModel)]="idOrganizador" placeholder="Numero de documento del Organizador" class="form-control" name="anio"> 
+    </fieldset>
+ 
+
+    <button class="btn btn-success">Agregar Organizador</button>
+</form>
