@@ -19,6 +19,7 @@ export class ReservarComponent implements OnInit {
   promotorId
   reservado:boolean
   pagar:boolean
+  cargando:boolean 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private palcoServicio: PalcosDataService,
@@ -27,6 +28,7 @@ export class ReservarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.cargando=false
     this.pagar=false
     this.reservado =false
     this.palco = {
@@ -69,17 +71,25 @@ export class ReservarComponent implements OnInit {
   }
 
   reservar() {
+
+    if(!this.cargando){
+
+      this.cargando=true
     let link ="https://allticketscol.com/reservas/";
     
     this.servicioReserva.postReserva(this.reserva,this.promotorId,this.palco.id).subscribe(response=>{
+      
       link = link +response.id
       this.reservado =true;
-      this.palcoServicio.rechazarReservaPalcoInmediatamente(this.palco.id).subscribe(response=>{
-      response
       this.palcoServicio.marcarComoReservado(this.palco.id).subscribe(response=>{
         response
+      
+      this.palcoServicio.rechazarReservaPalcoInmediatamente(this.palco.id).subscribe(response=>{
+      response
+     
       })
-      })
+    })
+
       const dialogRef = this.dialog.open(LinkComponent, {
         data: {
           link: link
@@ -91,6 +101,8 @@ export class ReservarComponent implements OnInit {
       });
   
     })
+  }
+
 
   }
 

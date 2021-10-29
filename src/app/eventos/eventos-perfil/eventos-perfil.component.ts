@@ -101,12 +101,12 @@ export class EventosPerfilComponent implements OnInit {
           
           for(let i=0; i< response.length; i++){
             
-            if(this.evento.id =='No-Pullep2')
+            if(this.evento.id =='LPC116')
             {
-              console.log(response[i])
-              this.localidades =[]
-              this.localidades = this.localidades.concat(response[i].localidades[0])
-            console.log(this.localidades)
+
+              if(i!=0){
+              this.localidades = this.localidades.concat(response[i].localidades)
+            }
             
           }
           else{
@@ -164,7 +164,22 @@ manejar(response){
 }
 
 
+numeroBoletasPorVender(localidad:Localidad){
 
+  var contador =0;
+  let disponible = false;
+  for(var i =0; i< localidad.boletas.length && !disponible;i++)
+
+  {
+    if(  localidad.boletas[i].vendida==false && localidad.boletas[i].reservado==false){
+      contador = contador+1;
+      disponible = true
+    }
+  }
+ 
+  return disponible;
+
+}
 
 
 

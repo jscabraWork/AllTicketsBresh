@@ -32,7 +32,10 @@
                 <br>
                <span *ngIf="palco.precioAlterno"> Precio para promotores: {{palco.precioAlterno +palco.servicioAlterno + palco.servicioIvaAlterno| number: '1.0-0'}} COP</span>
             </td> 
-            <td class="border" *ngIf="palco.disponible&&!palco.vendido&&!palco.proceso  && (!palco.reserva|| palco.reserva.numeroPromotor == promotor.numeroDocumento )"> <button [disabled]="palco.reserva || !vender"  class="btn action_button ml-2 mt-2" (click)="agregarPalcoIndividual(palco.numeroDentroDeEvento)">Reservar</button> <button *ngIf="palco.precioAlterno &&!uso" [disabled]="palco.reserva || !vender" class="btn action_button ml-2 mt-2" (click)="agregarPalcoIndividualPromotor(palco.numeroDentroDeEvento)">Reservar Precio Promotor</button> <button [disabled]="!palco.reserva" class="btn action_button ml-2 mt-2" (click)="elminarReserva(palco.reserva.id)">Eliminar Reserva</button></td> 
+            <td class="border" *ngIf="palco.disponible&&!palco.vendido&&!palco.proceso  && (!palco.reserva|| palco.reserva.numeroPromotor == promotor.numeroDocumento )"> <button [disabled]="palco.reserva || !vender"  class="btn action_button ml-2 mt-2" (click)="agregarPalcoIndividual(palco.numeroDentroDeEvento)">Reservar</button> <button *ngIf="palco.precioAlterno &&!uso" [disabled]="palco.reserva || !vender" class="btn action_button ml-2 mt-2" (click)="agregarPalcoIndividualPromotor(palco.numeroDentroDeEvento)">Reservar Precio Promotor</button> <button [disabled]="!palco.reserva" class="btn action_button ml-2 mt-2" (click)="elminarReserva(palco.reserva.id)">Eliminar Reserva</button>
+                <p *ngIf="palco.reserva"><a  href="https://allticketscol.com/reservas/{{palco.reserva.id}}">https://allticketscol.com/reservas/{{palco.reserva.id}}</a></p>
+            </td> 
+            
         </tr>
     </tbody>
 </table>

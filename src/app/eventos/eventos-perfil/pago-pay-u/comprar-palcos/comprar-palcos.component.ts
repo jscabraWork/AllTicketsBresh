@@ -3885,25 +3885,7 @@ cargarLocalidadEnMapa8() {
     }
 
 
-    if (
-      this.localidadCargada.palcos[i+7].vendido ||
-      this.localidadCargada.palcos[i+7].reservado ||
-      !this.localidadCargada.palcos[i+7].disponible
-    ) {
-      this.lista6[i].valor = 'v';
-    } else if (this.localidadCargada.palcos[i+7].proceso) {
-      this.lista6[i].valor = 'p';
-    }
 
-    if (
-      this.localidadCargada.palcos[i+14].vendido ||
-      this.localidadCargada.palcos[i+14].reservado ||
-      !this.localidadCargada.palcos[i+14].disponible
-    ) {
-      this.lista7[i].valor = 'v';
-    } else if (this.localidadCargada.palcos[i+14].proceso) {
-      this.lista7[i].valor = 'p';
-    }
   }
 
   

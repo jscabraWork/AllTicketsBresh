@@ -798,30 +798,7 @@
         {{lista10[0].valor}}
       </div>
 
-      <div class="clearFix"></div>
-      <div (click)="abrirTickets(localidadCargadaBoletasVIP)" class="localidadLibreAgora5">
-
-      </div>
-      <div *ngFor="let item of lista6">
-        <div class="cuadros2 "
-          [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros3':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
-          (click)="agregarPalcoIndividual(item.valor)">
-          {{item.valor}}
-        </div>
-      </div>
-
-
-      <div class="clearFix"></div>
-      <div (click)="abrirTickets(localidadCargadaBoletasVIP)" class="localidadLibreAgora5">
-
-      </div>
-      <div *ngFor="let item of lista7">
-        <div class="cuadros2 "
-          [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros3':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
-          (click)="agregarPalcoIndividual(item.valor)">
-          {{item.valor}}
-        </div>
-      </div>
+     
 
 
       <div class="clearFix"></div>
@@ -832,8 +809,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 

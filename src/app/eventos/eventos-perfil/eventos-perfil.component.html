@@ -216,6 +216,17 @@
 
 
 				<hr>
+				
+				<div class="pt-2 ">
+					<h5 *ngIf="localidad.palcos.length>0 "><strong>Quedan Disponibles En esta etapa</strong></h5>
+
+					<p class="precioLocalidades" *ngIf="localidad.palcos.length>0"> <strong>
+							{{ darCantidadDePalcosDisponiblesEtapas(localidad)}}</strong></p>
+
+					
+							
+				</div>
+
 
 				<div class="pt-2 " *ngIf="evento.adicionales.length == 0">
 

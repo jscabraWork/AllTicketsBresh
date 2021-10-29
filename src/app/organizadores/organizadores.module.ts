@@ -71,6 +71,7 @@ const routes: Routes=[
           canActivate:[RouteGuardAdminService]
 
         },
+        
         {
           path:'organizador/eventos/:id/patrocinio/:idLocalidad',
           component:BoletasPatrocinioComponent,
@@ -82,6 +83,24 @@ const routes: Routes=[
         {
           path:'organizador/admin/eventos/:id/patrocinio/:idLocalidad',
           component:BoletasPatrocinioComponent,
+          canActivate:[RouteGuardAdminService]
+
+        },
+        {
+          path:'organizador/admin/eventos/:id/promotores',
+          component:PromotoresOrganizadorComponent,
+          canActivate:[RouteGuardAdminService]
+
+        },
+        {
+          path:'organizador/admin/eventos/:id/promotores/:idPromotor',
+          component:PalcosPromtorOrganizadorComponent,
+          canActivate:[RouteGuardAdminService]
+
+        },
+        {
+          path:'organizador/admin/eventos/:id/promotores/:idPromotor/reservas',
+          component:ReservasComponent,
           canActivate:[RouteGuardAdminService]
 
         },

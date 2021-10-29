@@ -16,6 +16,11 @@
                     <input type="text" class= "form-control" placeholder="Nombre" name ="nombre" required="required"  [(ngModel)]="usuario.nombre">
                 </fieldset>
                 <fieldset class="form-group">
+                    
+                    <input type="email" placeholder="Correo" class= "form-control "name ="correo" required="required"  [(ngModel)]="usuario.correo">
+                </fieldset>
+
+                <fieldset class="form-group">
                   
                     <input type="password" placeholder="Contraseña" class= "form-control "name ="contrasena" required="required"  [(ngModel)]="usuario.contrasena">
                 </fieldset>
@@ -25,15 +30,7 @@
                     <input type="tel"placeholder="Celular"   class= "form-control "name ="celular" required="required"  [(ngModel)]="usuario.celular">
                 </fieldset>
 
-                <fieldset class="form-group">
-                    
-                    <input type="email" placeholder="Correo" class= "form-control "name ="correo" required="required"  [(ngModel)]="usuario.correo">
-                </fieldset>
-
-                <fieldset class="form-group">
-             
-                    <input type="text" placeholder="Dirección" class= "form-control "name ="direccion" required="required"  [(ngModel)]="usuario.direccion">
-                </fieldset>
+       
 
                 <div style="text-align: center;">
                     <button class="btn botonLogin mt-2" type="submit">Guardar</button>

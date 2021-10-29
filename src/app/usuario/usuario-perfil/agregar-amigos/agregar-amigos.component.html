@@ -5,7 +5,7 @@
                 
                 <section class="container  mt-5" >
                     <div class="row  rounded" >
-                        <div class="col-12 arriba p-4 border rounded">
+                        <div class="col-12 arriba p-3 border rounded">
                             <h3><strong>{{palco.nombre}}</strong></h3>
                         </div>
                         <div class="col-12 border fondoBlancoCliente" >
@@ -32,7 +32,7 @@
 
                             <div class="mt-4 mb-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicioIva)" style="text-align: center;">
                                 <h6><strong>Palco Por Pagar</strong></h6>
-                                <h6><strong>Recuerda que cuentas con un plazo de 24 horas para pagar el 50% y 72 horas para pagar el 100%.</strong></h6>
+                                <h6><strong>Recuerda que cuentas con un plazo de 120 horas para pagar el 100%.</strong></h6>
                             </div>
                             <hr>
                             <div style="text-align: center;" class="mb-4 " *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicioIva)">
@@ -71,7 +71,7 @@
                 <section class="container mt-5">
                     <div class="row">
 
-                        <div class="col-12 arriba p-4 border rounded" *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicioIva) && palco.personasMaximas < palco.maximoAdiciones">
+                        <div class="col-12 arriba p-2 border rounded" *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicioIva) && palco.personasMaximas < palco.maximoAdiciones">
                             <h3><strong>Compra Adiciones</strong></h3>
                             <h5 class="pl-4 pr-4" style="color:white"> <strong>Puedes comprar maximo {{palco.adiciones}} adiciones</strong></h5> 
                         </div>
@@ -101,20 +101,20 @@
 
 
 
-                        <div class="col-12 arriba p-4 border rounded  mt-5">
+                        <div class="col-12 arriba p-3 border rounded  mt-5">
                             <h3><strong>Integrantes del palco</strong></h3>
                         </div>
                         <div class="col-12 fondoBlancoCliente border "  *ngFor="let cliente of clientes">
-                           
-                            <h5 class="pt-4 pl-4 pr-4"> <strong>Nombre: </strong>{{cliente.nombre}}</h5> 
+                            <h5 *ngIf="cliente.numeroDocumento == clientes[0].numeroDocumento" class="colorLetras pt-4 pl-4"> <strong>Esta persona es el líder del palco, solo el líder puede agregar o borrar integrantes del palco</strong> </h5>
+                            <h5 class="pl-4 pr-4 pt-4"> <strong>Nombre: </strong>{{cliente.nombre}}</h5> 
                            <h5 class="pl-4 pr-4 pt-2"> <strong>{{cliente.tipoDocumento}}: </strong>{{cliente.numeroDocumento}}</h5>
                            <h5 class="pl-4 pr-4 pb-4 pt-2"> <strong>Correo: </strong>{{cliente.correo}}</h5> 
-                           <button *ngIf="borrar && cliente.numeroDocumento != usuario.numeroDocumento" class="btn btn-danger mb-3 ml-3"(click)="quitarCliente(cliente.numeroDocumento)"><strong> Eliminar Asistente</strong></button>
+                           <button *ngIf="borrar " class="btn btn-danger mb-3 ml-3"(click)="quitarCliente(cliente.numeroDocumento)"><strong> Eliminar Asistente</strong></button>
                         </div>
 
 
 
-                        <div class="col-12 arriba p-4 border rounded mt-5" *ngIf="borrar">
+                        <div class="col-12 arriba p-3 border rounded mt-5" *ngIf="borrar">
                             <h3><strong>Agrega a tu amigo</strong></h3>
                         </div>
 
@@ -125,7 +125,7 @@
         
                                 <fieldset class="form-group  ">
                                     <h5 class="colorLetras"> <strong>Para poder agregar a tus amigos al palco deben estar registrados en AllTickets</strong> </h5>
-                                    <label for="id"> <h5> <strong> Numero Documento </strong> </h5></label>
+                                    <label for="id"> <h5> <strong> Número Documento </strong> </h5></label>
                                     <input type="number" class= "form-control"name ="id" required="required"  [(ngModel)]="numeroDocumento">
                                 </fieldset>    
 
@@ -139,7 +139,7 @@
                             <h5 class="pt-4 pl-4 pr-4"> <strong>Nombre: </strong>{{clienteAgregado.nombre}}</h5> 
                             <h5 class="pl-4 pr-4 pt-2">  <strong *ngIf="clienteAgregado.numeroDocumento==null">No Documento: </strong> <strong *ngIf="clienteAgregado.numeroDocumento!=null">{{clienteAgregado.tipoDocumento}}: </strong>{{clienteAgregado.numeroDocumento}}</h5>
                             <h5 class="pl-4 pr-4 pb-4 pt-2"> <strong>Correo: </strong>{{clienteAgregado.correo}}</h5>
-                            <button class="action_button m-4"(click)="agregarCliente()" >Agregar Cliente</button>
+                            <button class="action_button m-4"(click)="agregarCliente()" >Agregar Asistente</button>
                         </div>
 
 

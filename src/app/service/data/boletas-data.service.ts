@@ -126,7 +126,10 @@ asignarBoletasPuntoFisico(numeroInterno:number, boletas){
   
 }
 
-
+asignarBoleta(cedula,idBoleta){
+  return this.http.get(`${API_URL}/boleta/asignar/${cedula}/${idBoleta}`)
+  
+}
 
 pagarBoletasAPuntoFisico(numeroInterno:number){
   return this.http.put(`${API_URL}/boletasPuntosFisicosPagas/${numeroInterno}`, null)

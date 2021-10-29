@@ -112,7 +112,9 @@
 #prueba h1 {
 
 	color: white;
-	position: relative
+	position: relative;
+ 
+    
 }
 
 #prueba small {
@@ -151,7 +153,7 @@
 }
 
 #prueba2 h1 {
-	font-size: 45px;
+
 	color: white;
 	position: relative
 }
@@ -255,11 +257,11 @@
 
     #prueba
     {
-        padding: 30px;
+        padding: 20px;
     }  
 
     #prueba h1 {
-        font-size: 35px;
+        font-size: 32px;
 
     }
 }
@@ -665,6 +667,7 @@
   
     text-align: center;
     color:white;
+
 
 }
 

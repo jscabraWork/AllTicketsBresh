@@ -16,7 +16,7 @@
     <p><strong>Palco Numero: </strong>{{palco?.numeroDentroDeEvento}}</p>
     <p><strong>Valor Total: </strong>{{palco?.precio + palco?.servicio + palco?.servicioIva | currency:'COP'}}</p>
     <div class="ml-4" >
-        <h5><strong>Selecciona el valor para aportar. Recuerda que debes reservar mínimo con el 50%, y completar el 100% en las próximas 72 horas.</strong></h5> 
+        <h5><strong>Selecciona el valor para aportar. Recuerda que debes reservar mínimo con el 50%, y completar el 100% en las próximas 120 horas.</strong></h5> 
         <select class="float-center ml-4 mb-4" (change)="cambiarTotal()" type="text" class= "form-control "name ="tipo" required="required" style="width: 100px;" [(ngModel)]="porcentaje">
             <option value=""> </option>
    

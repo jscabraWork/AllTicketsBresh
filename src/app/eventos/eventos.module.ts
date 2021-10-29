@@ -36,6 +36,7 @@ import { LocalidadSeleccionComponent } from './eventos-perfil/pago-pay-u/localid
 
 
 
+
 const routes: Routes=[
 
 {
@@ -98,6 +99,7 @@ const routes: Routes=[
         ReactiveFormsModule,
         MatIconModule,
         CountdownModule,
+        
          
       
         

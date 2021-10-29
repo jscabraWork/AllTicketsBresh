@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CambiarPerfilComponent } from './cambiar-perfil/cambiar-perfil.component';
 import { BoletasDataService } from 'src/app/service/data/boletas-data.service';
 import { PalcosDataService } from 'src/app/service/data/palcos-data.service';
+import { CambiarDuenoBoletaComponent } from './cambiar-dueno-boleta/cambiar-dueno-boleta.component';
 
 @Component({
   selector: 'app-usuario-perfil',
@@ -92,5 +93,31 @@ export class UsuarioPerfilComponent implements OnInit {
       response
       
     })
+  }
+
+
+  openDialog2(boleta){
+    const dialogRef = this.dialog.open(CambiarDuenoBoletaComponent, {
+      width: '600px',
+      height:'700px',
+      
+      data: { 
+        boleta: boleta,
+      
+      }       
+      
+      
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+     
+      
+      this.dialog.closeAll();
+      this.ngOnInit()
+  
+  
+  
+     
+    });
   }
 }

@@ -1,0 +1,37 @@
+<div class="container mt-2 mb-5">
+
+    <div class="row">
+        <div class="col-12 shadow-lg rounded p-4 fondoNegro">
+            <mat-icon class="float-right rounded pt-2 pb-2 pl-3 pr-3 botonesCerrar" mat-button mat-dialog-close>
+                cancel_presentation</mat-icon>
+            <div class="centrarTexto">
+                <h3 class="colorLetras"><strong>Ingresa el numero de documento del cliente que deseas buscar</strong></h3>
+                <h4>Recuerda que la personas debe estar registrada en All Tickets para poder asignarle el Ticket</h4>
+
+            </div>
+            <hr>
+
+
+            <form (ngSubmit)="!todoForm.invalid && buscarCliente()" class="mt-4" #todoForm="ngForm">
+                <fieldset class="form-group">
+                    <input type="number" class="form-control " name="nombre" required="required"
+                        [(ngModel)]="numeroDocumento">
+                </fieldset>
+
+                <div style="text-align: center;">
+                    <button class="btn botonLogin mt-2 mb-3" type="submit">Buscar</button>
+                </div>
+
+            </form>
+           
+                <div class="col-12 fondoBlancoCliente border" >
+                            
+                    <h5 class="pt-4 pl-4 pr-4"> <strong>Nombre: </strong>{{clienteNuevo.nombre}}</h5> 
+                    <h5 class="pl-4 pr-4 pt-2">  <strong >No Documento: </strong> <strong >{{clienteNuevo.tipoDocumento}}: </strong>{{clienteNuevo.numeroDocumento}}</h5>
+                    <h5 class="pl-4 pr-4 pb-4 pt-2"> <strong>Correo: </strong>{{clienteNuevo.correo}}</h5>
+                    <button class="action_button m-4"(click)="asignar()" >Dar Ticket</button>
+                </div>
+ 
+        </div>
+    </div>
+</div>

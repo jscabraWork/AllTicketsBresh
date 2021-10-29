@@ -313,6 +313,12 @@ else{
 
 
 quitarCliente(idCliente){
+
+  if(this.clientes.length ==1){
+    alert("No puedes eliminar al ultimo participante del palco")
+  }
+
+  else{
   this.palcoServicio.quitarClientesAlPalco(this.palco.id,idCliente).subscribe((response) => {
     response
     alert("Has Eliminado al cliente "+idCliente)
@@ -322,5 +328,7 @@ quitarCliente(idCliente){
     alert(error)
   }
   )
+}
+
 }
 }

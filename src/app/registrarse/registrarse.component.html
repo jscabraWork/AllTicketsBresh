@@ -31,12 +31,22 @@
                     
                     <input class= "form-control "name ="id" placeholder="Numero De Documento" required="required"  [(ngModel)]="usuario.numeroDocumento">
                 </fieldset>    
-                
                 <fieldset class="form-group">
                     
-                    <input type="text" class= "form-control "name ="usuario" placeholder="Usuario" required="required"  [(ngModel)]="usuario.usuario">
-                    <small class="colorLetras" *ngIf="this.usuario.usuario.includes(' ')">No se permiten espacios en blanco para el usuario</small>
+                    <input class= "form-control" id="bloquear2"name ="idconfirmacion" placeholder="Confirmar Numero De Documento" required="required"  [(ngModel)]="confimarcionDocumento">
+                    <small *ngIf="this.usuario.numeroDocumento!=confimarcionDocumento" class="colorLetras">Verifica el numero de documento</small>
+                </fieldset>   
+                <fieldset class="form-group">
+                    
+                    <input type="email" placeholder="Correo" class= "form-control "name ="correo" required="required"  [(ngModel)]="usuario.correo">
+                    <small class="colorLetras">Verifica que hayas escrito bien tu correo, ahí llegaran tus tickets</small>
                 </fieldset>
+                <fieldset class="form-group">
+                    
+                    <input type="email" id="bloquear" placeholder="Confirmar Correo" class= "form-control "name ="confirmacorreo" required="required"  [(ngModel)]="confimarcionCorreo">
+                    <small *ngIf="this.usuario.correo!=confimarcionCorreo" class="colorLetras">Verifica el correo</small>
+                </fieldset>
+
 
                 <fieldset class="form-group">
                     
@@ -50,17 +60,10 @@
                     
                 </fieldset>
 
-                <fieldset class="form-group">
-                    
-                    <input type="email" placeholder="Correo" class= "form-control "name ="correo" required="required"  [(ngModel)]="usuario.correo">
-                    <small class="colorLetras">Verifica que hayas escrito bien tu correo, ahí llegaran tus tickets</small>
-                </fieldset>
 
 
-                <fieldset class="form-group">
-                    
-                    <input type="text" placeholder="Dirección" class= "form-control "name ="direccion" required="required"  [(ngModel)]="usuario.direccion">
-                </fieldset>
+
+ 
                 <fieldset class="form-group pl-4">
                     <input type="checkbox" class="form-check-input" id="public" required="required">
                     <label class="form-check-label colorGris" (change) ="publicidad()" for="public">Acepto que me envien publicidad</label>

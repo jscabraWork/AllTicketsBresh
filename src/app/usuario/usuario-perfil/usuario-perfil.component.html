@@ -54,7 +54,7 @@
                 <div class=" arriba  ">
             
               
-                    <h3 class=" p-4"> 
+                    <h3 class=" p-3"> 
                       <strong> Mis Tickets</strong>
                      </h3>
                 
@@ -82,6 +82,7 @@
             <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
             <h5 class="pl-4 pb-2"><strong>Precio: </strong>{{boleta?.precio + boleta.servicio + boleta.servicioIva | currency:'COP'}}</h5>
             <button class="btn action_button ml-4 mb-4"(click)="mandarQR(boleta.id)">Enviar código QR</button>
+            <button class="btn action_button ml-4 mb-4"(click)="openDialog2(boleta)">Cambiar asistente</button>
         </div>
         
             
@@ -96,7 +97,7 @@
                 <div class=" arriba  ">
             
               
-                    <h3 class=" p-4"> 
+                    <h3 class=" p-3"> 
                       <strong> Mis Datos</strong>
                      </h3>
               </div>
@@ -106,18 +107,16 @@
 
             <h5 class="pt-4 pl-4"><strong>{{usuario?.tipoDocumento}}: </strong>{{usuario?.numeroDocumento}}</h5>
             <h5 class="pl-4"><strong>Nombre: </strong> {{usuario.nombre}}</h5>
-            <h5 class="pl-4" ><strong>Usuario: </strong>{{usuario?.usuario}}</h5>
             <h5 class="pl-4 "><strong>Correo: </strong> {{usuario.correo}}</h5>
-            <h5 class="pl-4"><strong>Celular: </strong> {{usuario.celular}}</h5>
-            <h5 class="pl-4" ><strong>Direccion: </strong>{{usuario?.direccion}}</h5>
             <h5 class="pl-4" ><strong>Contraseña: </strong>*************</h5>
+            <h5 class="pl-4"><strong>Celular: </strong> {{usuario.celular}}</h5>
         </div>  
             </div>  
         <div class="col-12" *ngIf="palcos">
             <div class=" arriba  ">
             
               
-                <h3 class=" p-4"> 
+                <h3 class=" p-3"> 
                   <strong> Mis Palcos</strong>
                  </h3>
             

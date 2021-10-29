@@ -19,7 +19,7 @@
           </div>
 
           <div class="">
-            
+  
            
             <div class="  eventoFondo carrito   fondoBlanco border " *ngFor="let boleta of boletas">
               <h5 class="pl-md-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
@@ -57,29 +57,46 @@
               </h5>
               <div class="pl-md-4 pb-5 mt-3">
                 <h5 class="frase">Pagar con tarjeta credito o debito</h5>
-                <img class="btn-epayco" *ngIf="usuarioEntidad && boletas" (click)="epaycoTicketsUsuarios()"
-                  src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
-                  alt="botón epayco">
+                <!-- <button class="btn action_button" *ngIf="usuarioEntidad && boletas" (click)="epaycoTicketsUsuarios()">Pagar</button>
 
 
 
-                <img class="btn-epayco" *ngIf="palco.id!=null" (click)="epaycoPalcosUsuarios()"
-                  src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
-                  alt="botón epayco">
+                <button class="btn action_button" *ngIf="palco.id!=null" (click)="epaycoPalcosUsuarios()">Pagar</button>
 
                   
 
                   <h5 class="frase" *ngIf="efectivo">Pagar con efectivo</h5>
 
-                  <img class="btn-epayco" *ngIf="usuarioEntidad && boletas && efectivo" (click)="epaycoTicketsUsuarios2()"
-                  src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
-                  alt="botón epayco">
+                  <button class="btn action_button" *ngIf="usuarioEntidad && boletas && efectivo" (click)="epaycoTicketsUsuarios2()">Pagar</button>
 
 
 
-                <img class="btn-epayco" *ngIf="palco.id!=null && efectivo" (click)="epaycoPalcosUsuarios2()"
-                  src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
-                  alt="botón epayco">
+                <button class="btn action_button" *ngIf="palco.id!=null && efectivo" (click)="epaycoPalcosUsuarios2()">Pagar</button> -->
+ 
+
+                  <form ngNoForm method="post" [action]="url" >
+                    <input name="merchantId" type="hidden" value="{{merchantId}}">
+                    <input name="accountId" type="hidden" value="{{accountId}}">
+                    <input name="description" type="hidden" value="{{descripcion}}">
+                    <input name="referenceCode" type="hidden" value="{{referenceCode}}">
+                    <input name="amount" type="hidden" value="{{valorTotal}}">
+                    <input name="tax" type="hidden" value="0">
+                    <input name="taxReturnBase" type="hidden" value="0">
+                    <input name="currency" type="hidden" value="COP">
+                    <input name="lng" type="hidden" value="es">
+                    <input name="signature" type="hidden" value="{{signature}}">
+                    <input name="test" type="hidden" value="0">
+                    <input name="buyerEmail" type="hidden" value="{{usuarioEntidad?.correo}}">
+                    <input name="buyerFullName" type="hidden" value="{{usuarioEntidad?.nombre}}">
+                    <input name="responseUrl" type="hidden" value="{{respuesta}}/eventos/respuesta">
+                    <input name="confirmationUrl" type="hidden" value="{{confirmacion}}">
+                    
+                   <input name="paymentMethods" type="hidden" value="{{metodos}}"> 
+                    
+                    <button name="Submit" class="btn action_button" type="submit"   value="Enviar" style="font-size:16px ;">Pagar</button>
+                    
+                  </form> 
+
               </div>
             </div>
 

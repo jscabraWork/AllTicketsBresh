@@ -8,11 +8,11 @@
 
             <h2>Busqueda</h2>
             <form (ngSubmit)="manejar()" #todoForm="ngForm">
-            <fieldset class="form-group">
-                <label for="servicio">Texto Lectura</label>
-                <input type="text" class= "form-control"name ="servicio" required="required"  [(ngModel)]="texto">
-            </fieldset>
-            <button class="btn btn-success"type="submit" >Buscar</button>
+                <fieldset class="form-group">
+                    <label for="servicio">Texto Lectura</label>
+                    <input type="text" class="form-control"  required="required" [(ngModel)]="texto">
+                </fieldset>
+                <button class="btn btn-success" type="submit">Buscar</button>
             </form>
         </div>
 
@@ -25,23 +25,26 @@
                 <h5><strong>Personas maximas en el palco: </strong> {{palco?.personasMaximas}}</h5>
                 <h5><strong>Personas adentro del palco: </strong> {{palco?.personasAdentro}}</h5>
                 <h5><strong>Cupos disponibles: </strong> {{palco?.personasMaximas -palco.personasAdentro}}</h5>
-
-                <h5>Selecciona el numero de personas que van a ingresar</h5>
-                <select class="float-center ml-4 mb-4"  type="text" class= "form-control "name ="tipo"  style="width: 100px;"  [(ngModel)]="entrarPersonas">
-                    <option value=0>0</option>
-                    <option *ngFor="let numero of cuposPalco" value={{numero}}>{{numero}}</option>
-                </select>
-                <button class="btn btn-success mt-3" (click)="ingresar()">Ingresar</button>
+                <div
+                    *ngIf="palco.precioParcialPagado >= (palco.precio + palco.servicio + palco.servicioIva) && (palco.personasMaximas != palco.personasAdentro)">
+                    <h5>Selecciona el numero de personas que van a ingresar</h5>
+                    <select class="float-center ml-4 mb-4" type="text" class="form-control " name="tipo"
+                        style="width: 100px;" [(ngModel)]="entrarPersonas">
+                        <option value=0>0</option>
+                        <option *ngFor="let numero of cuposPalco" value={{numero}}>{{numero}}</option>
+                    </select>
+                    <button class="btn btn-success mt-3" (click)="ingresar()">Ingresar</button>
+                </div>
             </div>
             <hr>
             <div *ngIf="palco?.id!=null &&palco!=null">
                 <div *ngFor="let cliente of listaClientes">
-                <h5><strong>Numero documento Cliente: </strong> {{cliente.numeroDocumento}}</h5>
-                <h5><strong>Nombre: </strong> {{cliente.nombre}}</h5>
-                <h5><strong>Celular: </strong> {{cliente.celular}}</h5>
-                <hr>
-                
-               </div> 
+                    <h5><strong>Numero documento Cliente: </strong> {{cliente.numeroDocumento}}</h5>
+                    <h5><strong>Nombre: </strong> {{cliente.nombre}}</h5>
+                    <h5><strong>Celular: </strong> {{cliente.celular}}</h5>
+                    <hr>
+
+                </div>
             </div>
 
             <div *ngIf="boleta?.id!=null &&boleta!=null">
@@ -52,15 +55,87 @@
             </div>
 
             <div *ngIf="boleta?.id!=null &&boleta!=null">
-                <div >
-                <h5><strong>Numero documento Cliente: </strong> {{cliente.numeroDocumento}}</h5>
-                <h5><strong>Nombre: </strong> {{cliente.nombre}}</h5>
-                <h5><strong>Celular: </strong> {{cliente.celular}}</h5>
-                <hr>
-                
-               </div> 
+                <div>
+                    <h5><strong>Numero documento Cliente: </strong> {{cliente.numeroDocumento}}</h5>
+                    <h5><strong>Nombre: </strong> {{cliente.nombre}}</h5>
+                    <h5><strong>Celular: </strong> {{cliente.celular}}</h5>
+                    <hr>
+
+                </div>
             </div>
         </div>
-        
+
+        <div class="col-12 mt-5">
+            <h2>Busqueda por numero de cedula</h2>
+            <form (ngSubmit)="manejarBusquedaCliente()" #todoForm="ngForm">
+                <fieldset class="form-group">
+                    <label for="servicio">Texto Lectura</label>
+                    <input type="text" class="form-control" name="numeroCC" required="required"
+                        [(ngModel)]="buscarNumeroCC">
+                </fieldset>
+                <button class="btn btn-success" type="submit">Buscar</button>
+            </form>
+        </div>
+
+        <div class="col-12 fondoBlanco border rounded mt-3 p-4">
+            <div *ngIf="clienteBuscar?.numeroDocumento!=null &&clienteBuscar!=null">
+                <div>
+                    <h5><strong>Numero documento Cliente: </strong> {{clienteBuscar.numeroDocumento}}</h5>
+                    <h5><strong>Nombre: </strong> {{clienteBuscar.nombre}}</h5>
+                    <h5><strong>Celular: </strong> {{clienteBuscar.celular}}</h5>
+                    <hr>
+
+                </div>
+            </div>
+
+
+            <div *ngIf="clienteBuscar?.numeroDocumento!=null &&clienteBuscar!=null">
+                <div *ngFor="let boleta of clienteBuscar.boletas">
+                    <div *ngIf="boleta.nombreEvento == evento.nombre">
+                        <h5 style="color:#ff2700; font-size:25px;" *ngIf="boleta.utilizada"> Ticket Utilizado</h5>
+                        <h5 style="color:#ff2700; font-size:25px;" *ngIf="!boleta.utilizada"> Ticket Valido</h5>
+                        <h4>TICKET</h4>
+                        <h5><strong>Ticket: </strong> {{boleta?.id}}</h5>
+                        <h5><strong>Localidad: </strong> {{boleta?.localidadNombre}}</h5>
+                        <h5><strong>Personas : </strong>1</h5>
+                        <button *ngIf="!boleta.utilizada" class="btn btn-success" type="submit"
+                            (click)="marcarComoUtilizada(boleta)">Utilizar</button>
+                        <hr>
+                    </div>
+
+                </div>
+                <div *ngFor="let palco of clienteBuscar.palcos">
+                    <div *ngIf="palco.nombreEvento == evento.nombre ">
+                        <h5 *ngIf="palco.precioParcialPagado <  (palco.precio + palco.servicio + palco.servicioIva)"
+                            style="color:#ff2700; font-size:25px;"><strong>El Palco no se ha pagado completo </strong>
+                        </h5>
+                        <h5 style="color:#ff2700; font-size:25px;"
+                            *ngIf="palco.personasMaximas == palco.personasAdentro"> PALCO LLENO</h5>
+                        <h4>PALCO</h4>
+                        <h5><strong>Palco: </strong> {{palco?.numeroDentroDeEvento}}</h5>
+                        <h5><strong>Localidad: </strong> {{palco?.nombre}}</h5>
+                        <h5><strong>Personas maximas en el palco: </strong> {{palco?.personasMaximas}}</h5>
+                        <h5><strong>Personas adentro del palco: </strong> {{palco?.personasAdentro}}</h5>
+                        <h5><strong>Cupos disponibles: </strong> {{palco?.personasMaximas -palco.personasAdentro}}</h5>
+
+                        <h5
+                            *ngIf="palco.precioParcialPagado >= (palco.precio + palco.servicio + palco.servicioIva) && (palco.personasMaximas != palco.personasAdentro)">
+                            Selecciona el numero de personas que van a ingresar</h5>
+                        <select
+                            *ngIf="palco.precioParcialPagado >= (palco.precio + palco.servicio + palco.servicioIva) && (palco.personasMaximas != palco.personasAdentro)"
+                            class="float-center ml-4 mb-4" type="text" class="form-control " name="tipo"
+                            style="width: 100px;" [(ngModel)]="entrarPersonas">
+                            <option value=0>0</option>
+                            <option *ngFor="let numero of manejuCupo(palco)" value={{numero}}>{{numero}}</option>
+                        </select>
+                        <button
+                            *ngIf="palco.precioParcialPagado >= (palco.precio + palco.servicio + palco.servicioIva) && (palco.personasMaximas != palco.personasAdentro)"
+                            class="btn btn-success mt-3" (click)="ingresarCC(palco)">Ingresar</button>
+                        <hr>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </section>

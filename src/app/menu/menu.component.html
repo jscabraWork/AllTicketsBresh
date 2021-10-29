@@ -39,7 +39,7 @@
 									</li>
 									
 									<li routerLinkActive="active" class=" m-lg-3">
-										<a routerLink='/como-comprar' class="nav-link">¿Comó comprar?</a>
+										<a routerLink='/como-comprar' class="nav-link">¿Cómo comprar?</a>
 									</li>
 								
 
@@ -59,7 +59,7 @@
 										<a  *ngIf="autenticacion.promotorLoggin()" routerLink='promotor/{{usuario}}' class="nav-link " (click)="cargarPromotor()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
 									</li>
 									<li routerLinkActive="active" class=" m-lg-3" *ngIf="!autenticacion.getPromotor()&&!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin() && !autenticacion.puntoFisicoLoggin() && !autenticacion.ministerioLoggin()">
-										<a   (click)="openDialog()" class="nav-link " style="color:#ed701c;cursor: pointer">Registraté</a>
+										<a   (click)="openDialog()" class="nav-link " style="color:#ed701c;cursor: pointer">Regístrate</a>
 										
 									</li>
 									

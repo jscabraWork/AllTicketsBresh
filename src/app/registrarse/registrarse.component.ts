@@ -14,10 +14,14 @@ import { TratamientoDatosComponent } from '../tratamiento-datos/tratamiento-dato
 })
 export class RegistrarseComponent implements OnInit {
   usuario:Cliente;
+  confimarcionCorreo:String
+  confimarcionDocumento:null
   constructor(private service:UsuariosDataService, private router:Router, public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
+    this.confimarcionCorreo =""
+    this.confimarcionDocumento =null
     this.usuario= {
       nombre: null,
       numeroDocumento: null,
@@ -31,21 +35,25 @@ export class RegistrarseComponent implements OnInit {
         boletas:[],
         palcos:[]
     }
-    
+    this.function()
   }
   
 
   saveUsuario(){
     
 
-if(!this.usuario.usuario.includes(" "))
+if(!this.usuario.correo.includes(" "))
 {
 
+  if(this.confimarcionCorreo==this.usuario.correo)
+  {
 
+    if(this.confimarcionDocumento==this.usuario.numeroDocumento){
     var md5 = new Md5()
 
     var contra = this.usuario.contrasena;
     this.usuario.contrasena = md5.appendStr(contra).end().toString();
+    this.usuario.usuario = this.usuario.correo
     this.service.createCliente(this.usuario).subscribe(response=>{
 
       response
@@ -62,16 +70,48 @@ if(!this.usuario.usuario.includes(" "))
     )
   
 
+  }
+  else{
+    alert("Verifica el numero de documento")
+  }
+  }
+  else{
+    alert("Verifica el correo")
+  }
+  
 
   }
   else{
-    alert("El usuario no permite espacios en blanco")
+    alert("El correo no permite espacios en blanco")
   }
     
 
 
 
 
+  }
+function() {
+    var myInput = document.getElementById('bloquear');
+    myInput.onpaste = function(e) {
+      e.preventDefault();
+      alert("esta acción está prohibida");
+    }
+    
+    myInput.oncopy = function(e) {
+      e.preventDefault();
+      alert("esta acción está prohibida");
+    }
+
+    var myInput = document.getElementById('bloquear2');
+    myInput.onpaste = function(e) {
+      e.preventDefault();
+      alert("esta acción está prohibida");
+    }
+    
+    myInput.oncopy = function(e) {
+      e.preventDefault();
+      alert("esta acción está prohibida");
+    }
   }
 
   publicidad(){
