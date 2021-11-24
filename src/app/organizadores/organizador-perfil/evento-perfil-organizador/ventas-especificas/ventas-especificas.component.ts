@@ -1,29 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Palco } from 'src/app/administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
-import { Boleta } from 'src/app/eventos/boleta.model';
 import { Evento } from 'src/app/eventos/evento.model';
-import { Promotor } from 'src/app/promotor-perfil/promotor.model';
 import { EventoDataService } from 'src/app/service/data/evento-data.service';
 import { PalcosDataService } from 'src/app/service/data/palcos-data.service';
-import { PromotorDataService } from 'src/app/service/data/promotor-data.service';
+import { Cliente } from 'src/app/usuario/cliente.model';
 
 @Component({
-  selector: 'app-promotores-organizador',
-  templateUrl: './promotores-organizador.component.html',
-  styleUrls: ['./promotores-organizador.component.css']
+  selector: 'app-ventas-especificas',
+  templateUrl: './ventas-especificas.component.html',
+  styleUrls: ['./ventas-especificas.component.css']
 })
-export class PromotoresOrganizadorComponent implements OnInit {
+export class VentasEspecificasComponent implements OnInit {
 
+
+  palcos:Palco[]=[]
+  clientes:Cliente[] = []
+  miId
+  idLocalidad
   evento:Evento
-  boletas:[]
-  miId:string
-  reservas:boolean[]
-  constructor(private route: ActivatedRoute, private service:PromotorDataService,private serviceEvento:EventoDataService) { }
-  promotores:Promotor[]
+  constructor(private servicioPalco:PalcosDataService,private route: ActivatedRoute,private serviceEvento:EventoDataService) { }
 
   ngOnInit(): void {
-    this.reservas =[]
     this.evento ={
       id: "",
       nombre:"",
@@ -60,44 +58,37 @@ export class PromotoresOrganizadorComponent implements OnInit {
 
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
-      this.service.getAllPromotoresByEventoIdParaOrganizador(this.miId).subscribe(response=>{
+      this.idLocalidad =params.get('idLocalidad');
+      this.servicioPalco.getAllPalcosVendidoDeLocalidad(this.idLocalidad).subscribe(response=>{
         this.manejar(response)
         this.serviceEvento.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
           
           
         });
       })
-    
-     
+ 
   })
-   
   }
+
+
   handleGetSuccesfull(response){
     this.evento=response;
   }
   manejar(response){
-    this.promotores = response.promotores
-    this.reservas = response.reservas
-    console.log(this.reservas)
-  }
-  darPalcosPromotorEvento(promotor:Promotor){
-    let palcos:Palco[]=promotor.palcosVendidos;
-    let boletas:Boleta[] =promotor.boletasVendidas;
-    let retorno: boolean = false;
-    console.log(palcos)
-    for(let i=0;i<palcos.length &&!retorno;i++){
-      if(palcos[i].nombreEvento==this.evento.nombre){
-        retorno=true
-      }
-    }
-    for(let j=0;j< boletas.length&&!retorno;j++){
-      if(boletas[j].nombreEvento==this.evento.nombre){
-        retorno=true
-      }
-    }
-    return retorno;
+    this.clientes = response.clientes
+
+    this.palcos = response.palcos
+
   }
 
-
+  dineroRecaudadoPalcos(palco:Palco){
+    var contador =0;
   
+      if(palco.vendido ==true){
+        contador = contador +((palco.precioParcialPagado)/(palco.servicio+palco.servicioIva+palco.precio))*palco.precio
+        
+      }
+   
+    return contador;
+  }
 }

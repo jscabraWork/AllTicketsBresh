@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { Palco } from 'src/app/administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
 
 import { Evento } from 'src/app/eventos/evento.model';
 import { Reserva } from 'src/app/models/reserva.model';
@@ -19,6 +20,7 @@ export class ReservasComponent implements OnInit {
 
   evento:Evento
   reservas:Reserva[]
+  palcos:Palco[]
   miId:string
   idPromotor
   constructor(private route: ActivatedRoute, private service:PromotorDataService,private serviceEvento:EventoDataService, private servicioReserva:ReservasDataService) { }
@@ -67,7 +69,7 @@ export class ReservasComponent implements OnInit {
        this.promotor = response
        this.serviceEvento.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
         this.servicioReserva.getAllReservasNoVendidasDePromotorPorEvento(this.promotor.numeroDocumento,this.evento.nombre).subscribe(response=>{
-          this.reservas = response
+          this.manejar(response)
         })
        });
      })
@@ -75,6 +77,10 @@ export class ReservasComponent implements OnInit {
       
   })
    
+  }
+  manejar(response){
+    this.reservas = response.reservas
+    this.palcos = response.palcos
   }
   handleGetSuccesfull(response){
     this.evento=response;

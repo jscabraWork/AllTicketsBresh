@@ -26,6 +26,7 @@
                 <th>Cantidad Pagada</th>
                 <th>Servicio</th>
                 <th>IVA</th>
+                <th>Plata a dar al organizador</th>
                 <th>Personas Adentro</th>
                 <th>Personas Maximas</th>
 
@@ -55,6 +56,7 @@
                 <td>{{palco?.precioParcialPagado|currency:'COP'}}</td>
                 <td>{{palco?.servicio | currency :'COP'}}</td>
                 <td>{{palco?.servicioIva | currency :'COP'}}</td>
+                <td>{{dineroRecaudadoPalcos(palco) | currency :'COP'}}</td>
                 <td>{{palco?.personasAdentro}}</td>
                 <td>{{palco?.personasMaximas}}</td>
                 <td>{{palco?.vendido  |booleans}}</td>

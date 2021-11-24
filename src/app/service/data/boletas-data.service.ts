@@ -73,6 +73,28 @@ export class BoletasDataService {
   }
 
 
+  reservarBoletaExacta(pIdBoleta){
+    return this.http.put <Boleta>(`${API_URL}/eventos/boletas/reservar/${pIdBoleta}`,null);
+  }
+
+
+
+  cambiarReserva(pIdBoleta){
+    return this.http.get <Boleta>(`${API_URL}/boleta/reserva/${pIdBoleta}`);
+  }
+  cambiarDisponible(pIdBoleta){
+    return this.http.get <Boleta>(`${API_URL}/boleta/disponible/${pIdBoleta}`);
+  }
+  cambiarReservado(pIdBoleta){
+    return this.http.get <Boleta>( `${API_URL}/boleta/proceso/${pIdBoleta}`);
+  }
+  cambiarVendido(pIdBoleta){
+    return this.http.get <Boleta>( `${API_URL}/boleta/vendido/${pIdBoleta}`);
+  }
+
+
+
+
   rechazarReservaBoletaInstantaneamente(  boletas:Boleta[] ){
 
     return this.http.put(`${API_URL}/reservar/rechazarI`, boletas);
@@ -104,9 +126,7 @@ export class BoletasDataService {
     return this.http.put(`${API_URL}/boletas/marcar/${pIdBoleta}`,null)
   }
 
-  reservarBoletaExacta(pEvento,pIdBoleta){
-    return this.http.put <Boleta>(this.url+ `${pEvento}/boletas/{pIdLocalidad}/reservar/${pIdBoleta}`,null);
-  }
+ 
 
   asignarBoletasPromotor(codigoVenta:string, boletas){
     return this.http.put(`${API_URL}/boletasPromotor/${codigoVenta}`, boletas)
@@ -119,11 +139,8 @@ pagarBoletasAPromotor(codigoVenta:string){
   
 }
 
-
-
-asignarBoletasPuntoFisico(numeroInterno:number, boletas){
-  return this.http.put(`${API_URL}/boletasPuntosFisicos/${numeroInterno}`, boletas)
-  
+comprarPuntoFiscoTicket(referenceCode){
+  return this.http.post(`${API_URL}/puntoFisico/tickets/recibir`,referenceCode)
 }
 
 asignarBoleta(cedula,idBoleta){

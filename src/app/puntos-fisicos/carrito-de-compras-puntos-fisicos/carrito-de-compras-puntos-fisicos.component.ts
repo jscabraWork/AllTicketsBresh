@@ -17,52 +17,67 @@ import { PuntoFisico } from '../puntoFisico.model';
   styleUrls: ['./carrito-de-compras-puntos-fisicos.component.css']
 })
 export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
+  codigoVenta = '';
+
+  referenceCode: string;
+
+  usuarioEntidad: Cliente;
+
+  evento: Evento;
+  boletas: Boleta[] = [];
+  valorTotal: number = 0;
+  palco: Palco;
 
 
-  IVA
-  evento:Evento;
-  boletas:Boleta[]=[]
-  palco:Palco
+  pagar:boolean;
+  cargando = true;
+  adicional:number
 
-  asistente: Asistente
-  valorTotal
-  puntoFisico:PuntoFisico
-
-  constructor( @Inject(MAT_DIALOG_DATA) public data: any,
-  private servicioBoletas: BoletasDataService,
-  private palcoServicio:PalcosDataService,
-  private dialog:MatDialog,
-  private servicio: PuntosFisicosDataService
-  ) { }
+  url
+  signature
+  descripcion:string
+  respuesta
+  confirmacion:string
+  metodos:string[]=[]
+  tax:number
+  cargandoPago=false
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private servicioBoletas: BoletasDataService,
+    private palcoServicio: PalcosDataService,
+    private dialog: MatDialog,
+    private servicioPunto: PuntosFisicosDataService
+  ) {}
 
   ngOnInit(): void {
-
-    this.IVA = IVA
+    this.tax=0
 
     
-    this.evento ={
-      id: "",
-      nombre:"",
-      fecha:null,
-      descripcion:"",
-      lugar:"",
-      video:"",
-      terminosYCondiciones:"",
-      recomendaciones:"",
-      ciudadIdTexto:null,
+    this.adicional =-1
 
-      imagen:null,
-      imagenes:[],
-      artistas:"",
-      fechaFin:null,
-      mapa:null,
-      localidades:[],
+    this.evento = {
+      id: '',
+      nombre: '',
+      fecha: null,
+      descripcion: '',
+      lugar: '',
+      video: '',
+      terminosYCondiciones: '',
+      recomendaciones: '',
+      ciudadIdTexto: null,
       
-      horaInicio:null,
-      horaFin:null,
-      etapas:[], 
-      mapaImagen:null,
-      visible:false,
+      imagen: null,
+      imagenes: [],
+      artistas: '',
+      fechaFin: null,
+      mapa: null,
+      localidades: [],
+
+      horaInicio: null,
+      horaFin: null,
+      etapas: [],
+      mapaImagen: null,
+      visible: false,
       soldout:false,
       mensaje:null,
       imagenFinal:null,
@@ -72,93 +87,148 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
       oculto:null,
       dineroEntregado:null,
       ciudadNombre:null
-    }
+    };
 
+    this.palco = {
+      id: null,
+      nombre: null,
+      nombreEvento: null,
+      personasAdentro: null,
+      personasMaximas: null,
+      precio: null,
+      precioParcialPagado: null,
+      reservado: null,
+      servicio: null,
+      vendido: null,
+      numeroDentroDeEvento: null,
+      fechaVendido: null,
+      servicioIva:null,
+      proceso:null,
+      disponible:null,
+      idLocalidad:null,
+      reserva:null,
+      precioAlterno:null,
+      servicioAlterno:null,	  
+      servicioIvaAlterno:null,
+      adiciones: null,
+      maximoAdiciones: null,
+      precioAdicion: null,
+      servicioAdicion: null,
+      servicioIvaAdicion:null,
+    };
 
-
-        this.palco={
-          id:null,
-          nombre:null,
-          nombreEvento:null,
-          personasAdentro:null,
-          personasMaximas:null,
-          precio:null,
-          precioParcialPagado:null,
-          reservado:null,
-          servicio:null,
-          vendido:null,
-          numeroDentroDeEvento:null,
-          fechaVendido : null,
-          servicioIva:null,
-          proceso:null,
-          disponible:null,
-          idLocalidad:null,
-          reserva:null,
-          precioAlterno:null,
-          servicioAlterno:null,	  
-          servicioIvaAlterno:null,
-          adiciones: null,
-          maximoAdiciones: null,
-          precioAdicion: null,
-          servicioAdicion: null,
-          servicioIvaAdicion:null,
-          
-        }
-
-        this.boletas=this.data.boletas;
-        this.evento = this.data.evento
-        this.valorTotal= this.data.valorTotal
-
-        this.puntoFisico = this.data.punto
-        if(this.data.palco)
-        {
-        this.palco= this.data.palco
-        }
-        if(this.data.asistente){
-          this.asistente = this.data.asistente
-        }
-
-  }
-
-  comprarBoletasAsistente(){
-
-    alert("A continuación entraras a Pay U para realizar tu pago")
-
-    for(var i =0; i < this.boletas.length;i=i+1){
-
-    this.servicioBoletas.comprarBoletaParaAsistente(this.evento.id, this.boletas[i].localidadIdNumero,this.boletas[i].id, this.asistente).subscribe(response=>{response
  
-    })
-
     
 
+    this.boletas = this.data.boletas;
+    if(this.boletas!=null){
+    if(this.boletas.length >0){
+      this.descripcion =this.boletas.length+ " boletas " +this.boletas[0].localidadNombre +" pare el evento " + this.evento.nombre
+
+      for(let i =0; i<this.boletas.length;i++){
+        this.tax =this.tax+ this.boletas[i].servicioIva 
+      }
+    }
   }
-  this.servicioBoletas.asignarBoletasPuntoFisico(this.puntoFisico.numeroDocumento,this.boletas).subscribe(response=>response)
 
+    this.evento = this.data.evento;
+
+
+    this.usuarioEntidad = this.data.usuarioEntidad;
+    if(this.data.adicional){
+    this.adicional = this.data.adicional;
   }
+    (this.referenceCode = this.data.referenceCode +','+this.codigoVenta),
+      (this.valorTotal = this.data.valorTotal);
 
+    if (this.data.palco) {
+      this.palco = this.data.palco;
+      this.descripcion = "Un palco " +this.palco.nombre +" pare el evento " + this.evento.nombre
 
-
-
-
-
-    pagar(){
-
-      alert("A continuación entraras a Pay U para realizar tu pago")
-        if(this.palco.id!=null){
-          var date= new Date()
-          this.palco.fechaVendido =date;
-  
-        }
-        else{
-          alert("Agrega algún Palco al Carrito")
-        }
+      this.tax = this.palco.servicioIva
+    }
     
+      this.codigoVenta = this.data.codigoVenta;
+      this.codigoVentaCuadrar();
+      this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.adicional
+ 
+
+
+
+
       
-     
-    }
 
-    cerrar(){
-      this.dialog.closeAll()
+      setTimeout(()=>{ 
+        
+        this.cerrar()
+        
+      }, 240000);
+  }
+
+
+  cerrar() {
+    this.dialog.closeAll();
+  }
+
+
+
+
+
+  codigoVentaCuadrar(){
+  
+    if(this.codigoVenta=='' || this.codigoVenta == null){
+      this.codigoVenta='00000'
     }
+  }
+
+
+pagarPalco(){
+  if(!this.cargandoPago){
+    this.cargandoPago=true
+  this.palcoServicio.comprarPuntoFiscoPalco(this.referenceCode).subscribe(response=>{
+    response
+    alert("Se vendio el palco: "+this.palco.numeroDentroDeEvento)
+    this.cargandoPago=false
+    
+  },
+  
+  error=>{
+    error
+    alert("Sucedio un error vuelve a intentar")
+  })
+  }
+  else{
+    alert("Cargando...")
+  }
 }
+  
+
+pagarBoletas(){
+  if(!this.cargandoPago){
+    this.cargandoPago=true
+  this.servicioBoletas.comprarPuntoFiscoTicket(this.referenceCode).subscribe(response=>{
+    response
+
+ 
+    alert("Se vendieron "+this.boletas.length +" boletas")
+    this.cargandoPago=false
+    
+  },
+  
+  error=>{
+    error
+    alert("Sucedio un error vuelve a intentar")
+  })
+  }
+  else{
+    alert("Cargando...")
+  }
+}
+
+ 
+
+  }
+
+
+
+

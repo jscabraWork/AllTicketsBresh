@@ -2,7 +2,11 @@
     <h1>Puntos Fisicos</h1>
 <form (ngSubmit)="!todoForm.invalid && savePunto()" #todoForm="ngForm">
         
-  
+    <fieldset class="form-group">
+        <label for="nombre">Id</label>
+        <input type="text" class= "form-control"name ="id" required="required"  [(ngModel)]="punto.numeroDocumento">
+    </fieldset>
+
     <fieldset class="form-group">
         <label for="nombre">Nombre</label>
         <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="punto.nombre">

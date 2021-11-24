@@ -18,6 +18,8 @@ import { BoletasPatrocinioComponent } from './organizador-perfil/evento-perfil-o
 import { PromotoresOrganizadorComponent } from './organizador-perfil/evento-perfil-organizador/promotores-organizador/promotores-organizador.component';
 import { PalcosPromtorOrganizadorComponent } from './organizador-perfil/evento-perfil-organizador/promotores-organizador/palcos-promtor-organizador/palcos-promtor-organizador.component';
 import { ReservasComponent } from './organizador-perfil/evento-perfil-organizador/promotores-organizador/reservas/reservas.component';
+import { ReservasOrganizadorComponent } from './organizador-perfil/evento-perfil-organizador/reservas-organizador/reservas-organizador.component';
+import { VentasEspecificasComponent } from './organizador-perfil/evento-perfil-organizador/ventas-especificas/ventas-especificas.component';
 
 
 
@@ -53,6 +55,45 @@ const routes: Routes=[
           canActivate:[RouteGuardOrganizadorService]
 
         },
+
+
+        {
+          path:'organizador/eventos/:id/reservas',
+          component:ReservasOrganizadorComponent,
+          canActivate:[RouteGuardOrganizadorService]
+
+        },
+        {
+          path:'organizador/admin/eventos/:id/reservas',
+          component:ReservasOrganizadorComponent,
+          canActivate:[RouteGuardAdminService]
+
+        },
+
+
+
+
+        {
+          path:'organizador/eventos/:id/localidad/:idLocalidad',
+          component:VentasEspecificasComponent,
+          canActivate:[RouteGuardOrganizadorService]
+
+        },
+        {
+          path:'organizador/admin/eventos/:id/localidad/:idLocalidad',
+          component:VentasEspecificasComponent,
+          canActivate:[RouteGuardAdminService]
+
+        },
+
+
+
+
+
+
+
+
+
         {
           path:'organizador/eventos/:id/promotores/:idPromotor',
           component:PalcosPromtorOrganizadorComponent,
@@ -112,7 +153,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[  OrganizadoresComponent,OrganizadorPerfilComponent, EventoPerfilOrganizadorComponent, BoletasPatrocinioComponent, PromotoresOrganizadorComponent, PalcosPromtorOrganizadorComponent, ReservasComponent],
+    declarations:[  OrganizadoresComponent,OrganizadorPerfilComponent, EventoPerfilOrganizadorComponent, BoletasPatrocinioComponent, PromotoresOrganizadorComponent, PalcosPromtorOrganizadorComponent, ReservasComponent, ReservasOrganizadorComponent, VentasEspecificasComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

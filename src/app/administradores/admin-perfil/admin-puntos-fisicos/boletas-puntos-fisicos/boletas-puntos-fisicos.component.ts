@@ -32,7 +32,8 @@ export class BoletasPuntosFisicosComponent implements OnInit {
       boletasCanjeadas:[],
       boletasVendidas:[],
       palcosCanjeados:[],
-      palcosVendidos:[]
+      palcosVendidos:[],
+      eventos:[]
     }
 
 

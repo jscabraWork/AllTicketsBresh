@@ -33,13 +33,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let promotor of promotores"  >
+                    <tr *ngFor="let promotor of promotores; let i =index"  >
                        
                         <td class="border"><strong>{{promotor?.numeroDocumento }}</strong></td>
                         <td class="border"> <strong>{{promotor?.usuario }}</strong></td> 
                         <td class="border"> <strong>{{promotor?.nombre}}</strong></td> 
                         <td class="border"><button class="btn action_button"routerLink="{{promotor.numeroDocumento}}"[disabled]="!darPalcosPromotorEvento(promotor)" >Ver Ventas</button></td>  
-                        <td class="border"><button class="btn action_button"routerLink="{{promotor.numeroDocumento}}/reservas" >Ver Reservas Activas</button></td>  
+                        <td class="border"><button class="btn action_button"routerLink="{{promotor.numeroDocumento}}/reservas"  [disabled]="!reservas[i]">Ver Reservas Activas
+                          
+                        </button></td>  
                     </tr>
 
                 </tbody>

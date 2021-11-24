@@ -1,5 +1,5 @@
 <div id="prueba">	
-    <h1><strong>Ventas promotor {{promotor?.nombre}}</strong></h1> 
+    <h1><strong>Reservas del evento {{evento?.nombre}}</strong></h1> 
 </div>
 
 
@@ -21,14 +21,20 @@
         >
           <thead>
             <tr class="border">
+                <th class="border">Nombre del promotor</th>
               <th class="border">Link de la reserva</th>
-              <th class="border">Documento de la compra</th>
+              <th class="border">Documento del comprador</th>
               <th>Numero Del palco</th>
           
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let reserva of reservas; let i =index">
+                <td class="border">
+                    <strong>
+                        {{promotores[i]?.nombre}}
+                    </strong>
+                  </td>
               <td class="border">
                 <strong>
                   <a href="https://allticketscol.com/reservas/{{reserva?.id}}">

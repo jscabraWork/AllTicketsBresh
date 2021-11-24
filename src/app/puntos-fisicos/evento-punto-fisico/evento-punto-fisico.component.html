@@ -2,7 +2,7 @@
 
     <div id="prueba">
         
-        <h1><strong>Tickets {{etapa.nombre}} de</strong></h1>
+        
         <h1><strong> {{evento?.nombre}}</strong></h1> 
         <small class="float-right "><strong>Pulep:</strong> {{evento?.id}}</small>
         
@@ -10,86 +10,34 @@
     </div>
 </section>
 
-
-
-
-<section>
-	<div class="mt-5  container ">
-		<div class="row">
-			
-			<div style="text-align: center;" class="col-12  rounded  "><h1><strong> Localidades</strong></h1> <hr class="aaaa"> </div>
-			
-		</div>
-	</div>
-
+<section class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <form (ngSubmit)="!todoForm.invalid && buscarCliente()" class="mt-4" #todoForm="ngForm">
+      <h3>Numero De Documento</h3>
+      <input type="text" class= "form-control "name ="id" placeholder="Numero de documento de cliente" required="required"  [(ngModel)]="ccDeBusqueda">
+      <button class="btn btn-success mt-2"   type="submit">Buscar</button>
+    </form>
+    </div>
+    <div class="col-12">
+      <h3>Datos del cliente encontrado:</h3>
+      <h4><strong>Nombre:</strong> {{usuarioEntidad?.nombre}}</h4>
+      <h4><strong>Correo:</strong>{{usuarioEntidad?.correo}} </h4>
+      <h4><strong>Celular:</strong>{{usuarioEntidad?.celular}} </h4>
+    </div>
+  </div>
 </section>
-
 <section class="container-fluid mt-5" >
     <div class="row " >
-  
+      <div class="col-12">
+        <p *ngIf="evento?.mapa =='mapa3'"><span class="cuadros cuadros10">#</span> PALCOS A</p>
+        <p *ngIf="evento?.mapa =='mapa3'"><span class="cuadros5 cuadros">#</span> Palcos B</p>
+        <p *ngIf="evento?.mapa =='mapa3'"><span class="colorVIP cuadros"></span>VIP</p>
+        <p *ngIf="evento?.mapa =='mapa3'"><span class="cuadros4 cuadros"></span>GENERAL</p>
+      </div>
     
-      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad "  *ngFor ="let localidad of etapa?.localidades" style="text-align: center;">
-	
-        <div class="localidades border rounded">
-        
-          <div routerLink="pago/{{localidad.id}}" class="tituloLocalidad" *ngIf="localidad.boletas.length>0 &&!evento.mapa" >
-            <h3><strong> {{localidad.nombre}} </strong></h3>
-          </div>
-          <div routerLink="pago/palco/{{localidad.id}}" class="tituloLocalidad" *ngIf="localidad.palcos.length>0 &&!evento.mapa" >
-            <h3><strong> {{localidad.nombre}} </strong></h3>
-          </div>
-      
-          <div routerLink="pago/mapa/{{localidad.id}}" class="tituloLocalidad" *ngIf="evento.mapa" >
-            <h3><strong> {{localidad.nombre}} </strong></h3>
-          </div>
-          <div class="pt-2 " *ngIf="localidad.palcos.length>0">
-            <h5><strong>Personas Por Palco</strong></h5>
-            
-            <p class="precioLocalidades"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
-          </div>
-      
-          <div class="pt-2 " *ngIf="localidad.boletas.length>0">
-            <h5><strong>Personas Por Ticket</strong></h5>
-            
-            <p class="precioLocalidades"> <strong> 1</strong></p>
-          </div>
-          <hr>
-          <div class="pt-2 ">
-            <h5><strong>Quedan Disponibles</strong></h5>
-            
-            <p class="precioLocalidades" *ngIf="localidad.boletas.length>0"> <strong> {{ numeroBoletasPorVenderYNoReservadas(localidad)}}</strong></p>
-            <p class="precioLocalidades" *ngIf="localidad.palcos.length>0"> <strong> {{ darCantidadDePalcos(localidad)}}</strong></p>
-          </div>
-      
-      
-      
-          <hr>
-          
-          <div class="pt-2 ">
-            
-            <h5><strong>Precio + Servicio +IVA</strong></h5>
-            <p class="precioLocalidades"> <strong> {{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio|currency:'COP'}} </strong>+ <strong>{{localidad.servicio*IVA |currency:'COP'}}</strong></p>
-          
-          </div>
-          <hr>
-          <div class="p-3 " *ngIf="localidad.boletas.length>0 &&!evento.mapa">
-            
-            
-            <button class="botonLogin rounded pt-2 pb-2" routerLink="pago/{{localidad.id}}">Comprar</button>
-          </div>
-      
-          <div class="p-3 " *ngIf="localidad.palcos.length>0 &&!evento.mapa">
-            
-            
-            <button class="botonLogin rounded pt-2 pb-2" routerLink="pago/palco/{{localidad.id}}">Comprar</button>
-          </div>
-        
-        </div>	
-      </div>
 
-      <div class="col-12 mt-5" style="text-align: center;">
-        <button *ngIf="evento.mapaImagen" class="action_button p-3" style="font-size: 15px;" (click)= "openDialog()">Mapa del evento</button>
-      </div>
+   
 
 
     </div>
@@ -97,3 +45,414 @@
 
 
 
+
+
+  
+
+<div class="contenedor-mapa mt-5 pb-5" *ngIf="evento?.mapa=='mapa3'">
+  
+  <div class="mapa" style="margin: 0px auto;">
+    <div class="tarimaPerreo">ESCENARIO PRINCIPAL</div>
+    <div class="clearFix"></div>
+    <div *ngFor="let item of lista5" class="margen-90" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
+        (click)="agregarPalcoIndividual(item.valor)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+
+
+<div class="flotar">
+    <div *ngFor="let item of lista3"  >
+      <div class="cuadrosSinf"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
+        (click)="agregarPalcoIndividual(item.valor)">
+        {{item.valor}}
+      </div>
+    </div>
+  </div>
+  <div class="flotar">
+    <div *ngFor="let item of lista1" >
+      <div class="cuadrosSinf"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
+        (click)="agregarPalcoIndividual(item.valor)">
+        {{item.valor}}
+      </div>
+    </div>
+    </div>
+    <div class="localidadLibreCuadroVIP"(click)="abrirTickets(localidadCargadaPreferecial)"></div>
+    <div class="flotar">
+    <div *ngFor="let item of lista2 " >
+      <div class="cuadrosSinf"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
+        (click)="agregarPalcoIndividual(item.valor)">
+        {{item.valor}}
+      </div>
+    </div>
+    </div>
+    
+   
+    <div class="flotar">
+    <div *ngFor="let item of lista4"  >
+      <div class="cuadrosSinf"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
+        (click)="agregarPalcoIndividual(item.valor)">
+        {{item.valor}}
+      </div>
+    </div>
+    </div>
+    
+    <div class="clearFix"></div>
+  
+    <div class="localidadLibreLargaVIP" (click)="abrirTickets(localidadCargadaPreferecial)">VIP</div>
+
+    <div class="clearFix"></div>
+  
+      <div class="localidadLibre" (click)="abrirTickets(localidadCargadaBoletas)">General</div>
+      <div class="clearFix"></div>
+  
+      <div class="localidadLibreCuadro" (click)="abrirTickets(localidadCargadaBoletas)"></div>
+  </div>
+</div>
+
+
+
+
+
+<div class="contenedor-mapa-largo mt-5 pb-5" *ngIf="evento?.mapa=='mapa4'">
+
+  
+  <div class="mapa-largo" style="margin: 0px auto;">
+    
+    <div *ngFor="let item of lista1" class="margenPF">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista2; let i = index" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem' , 'margenF6':i==9 ,'margenF': i ==24|| i ==19  , 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista3; let i = index" class="margenF">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem' , 'margenF6':i==8 , 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista4; let i = index" class="margenF">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem',  'margenF6': i ==24 || i==8 , 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista5; let i = index" class="margenF">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF6':i==7 , 'margenF': i==10 || i==23, 'margenF11': i ==22, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista6; let i = index"class="margenF">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF':i==23  ,'margenF2': i ==25, 'margenF6': i==7, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista7; let i = index" class="margenF">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF6': i ==26 || i==6, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista8; let i = index" class="margenF">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF3':i==8, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista9; let i = index"  class="margenF">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF5':i==7, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista10; let i = index" class="margenF" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF5':i==7, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista11; let i = index" class="margenF">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF16':i==6 ,'margenF6':  i==12, margenF11:i==18 , 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista12; let i = index"  class="margenF7">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF6':i==8, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista13;let i = index"  class="margenF2" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF2':i==5 ,'margenF11': i==22, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista14" class="margenF17" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista15" class="margenF17">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista16;let i = index" class="margenF8">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista17;let i = index"class="margenF9" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista18;let i = index" class="margenF6">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF6':i==4, 'margenF16': i==21, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista19;let i = index" class="margenF6" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem',  'margenF16':i==5 || i==20, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista20;let i = index" class="margenF16">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem' , 'margenF16':i==6,'margenF11': i==17, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista21" class="margenF10">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista22" class="margenF13">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista23" class="margenF4">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista24;let i = index" class="margenF20">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista25"  class="margenF13" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+
+    <div *ngFor="let item of lista31" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div *ngFor="let item of lista26; let i = index" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF12':i==0, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div *ngFor="let item of lista34; let i = index" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF15':i==0, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+
+    <div *ngFor="let item of lista32" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    
+    <div *ngFor="let item of lista27; let i = index" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF20':i==0, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+
+    <div *ngFor="let item of lista35; let i = index" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF9':i==0, 'margenF':i==1, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    <div *ngFor="let item of lista33" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div *ngFor="let item of lista28; let i = index" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF13':i==0, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div *ngFor="let item of lista36; let i = index" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF10':i==0, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista29; let i = index" >
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'margenF4':i==5, 'margenF9':i==16, 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    
+    <div *ngFor="let item of lista30" class="margenF21">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros3':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+        (click)="seleccionarTicketExacto(item)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    <button class="btn action_button mt-4" *ngIf="boletas.length>0" (click)="agregarAlCarritoTickets()">Agregar al carrito</button>
+  </div>
+</div>

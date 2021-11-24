@@ -404,7 +404,7 @@ export class CarritoDeComprasComponent implements OnInit {
   respuesta
   confirmacion:string
   metodos:string[]=[]
- 
+  tax:number
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private servicioBoletas: BoletasDataService,
@@ -413,14 +413,19 @@ export class CarritoDeComprasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.tax=0
     this.url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
 
     this.respuesta = respuesta
     this.referenceCode = this.referenceCode;
-    this.merchantId = 953461
-    this.accountId = 961097
+    // this.merchantId = 508029
+    // this.accountId = 512321
+
+   this.merchantId = 953461
+   this.accountId = 961103
+    
     this.pagar = false;
-    this.ApiKey = 'F5c8jP7X25o4KxCnPvGAwFxJjw'
+    this.ApiKey ='F5c8jP7X25o4KxCnPvGAwFxJjw' //'4Vj8eK4rloUd272L48hsrarnUA'
     var md5 = new Md5();
     
     this.adicional =-1
@@ -487,18 +492,26 @@ export class CarritoDeComprasComponent implements OnInit {
       servicioIvaAdicion:null,
     };
 
-    this.metodos = ['AMEX','CODENSA','DINERS','MASTERCARD','VISA','EFECTY','BALOTO','PSE']
+    this.metodos = ['PSE','VISA','AMEX','CODENSA','DINERS','MASTERCARD','VISA']
+    
 
     this.boletas = this.data.boletas;
     if(this.boletas!=null){
     if(this.boletas.length >0){
       this.descripcion =this.boletas.length+ " boletas " +this.boletas[0].localidadNombre +" pare el evento " + this.evento.nombre
-      this.confirmacion =API_URL+ '/epayco/tickets'
+      this.confirmacion =API_URL+ '/payu/tickets'
+      for(let i =0; i<this.boletas.length;i++){
+        this.tax =this.tax+ this.boletas[i].servicioIva 
+      }
     }
   }
 
     this.evento = this.data.evento;
     this.efectivo = this.data.efectivo
+    if(this.efectivo){
+      this.metodos.push('BALOTO')
+      this.metodos.push('Efecty')
+    }
     this.usuarioEntidad = this.data.usuarioEntidad;
     if(this.data.adicional){
     this.adicional = this.data.adicional;
@@ -509,21 +522,33 @@ export class CarritoDeComprasComponent implements OnInit {
     if (this.data.palco) {
       this.palco = this.data.palco;
       this.descripcion = "Un palco " +this.palco.nombre +" pare el evento " + this.evento.nombre
-      this.confirmacion =API_URL+ '/epayco'
+      this.confirmacion =API_URL+ '/payu'
+      this.tax = this.palco.servicioIva
     }
     
       this.codigoVenta = this.data.codigoVenta;
       this.codigoVentaCuadrar();
       this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.adicional
-      let valorEncriptar = this.ApiKey +"~"+ this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~"+'COP';
+      let valorEncriptar = this.ApiKey +"~"+ this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~"+'COP~';
+
       for(let i =0;i<this.metodos.length;i++){
-        valorEncriptar += "~"+this.metodos[i]
+        if(i <this.metodos.length-1){
+        valorEncriptar += this.metodos[i]+ ','
+      }
+      else{
+        valorEncriptar += this.metodos[i];
+      }
       }
 
-      console.log(valorEncriptar)
+      console.log(this.tax)
       this.signature = md5.appendStr(valorEncriptar).end().toString();
       
 
+      setTimeout(()=>{ 
+        
+        this.cerrar()
+        
+      }, 240000);
   }
 
 
@@ -547,20 +572,5 @@ export class CarritoDeComprasComponent implements OnInit {
     }
   }
   
-
-  onCloseEpaycoModal() {
-    this.pagar =false
-    console.log("pagar")
-    alert('Close ePayco Modal!!!!!!!');
-    
-  }
-
-
-
-
-
-
-
-
 
 }

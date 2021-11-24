@@ -14,7 +14,7 @@ export class ReservasDataService {
     return this.http.get(`${API_URL}/reservas`)
   }
   getAllReservasNoVendidasDePromotorPorEvento(pIdPromotor,nombreEvento){
-    return this.http.get<Reserva[]>(`${API_URL}/reservas/promotor/${pIdPromotor}/${nombreEvento}`)
+    return this.http.get(`${API_URL}/reservas/promotor/${pIdPromotor}/${nombreEvento}`)
   }
   getReserva(pIdReserva:number){
     return this.http.get<Reserva>(`${API_URL}/reservas/${pIdReserva}`)
@@ -29,4 +29,8 @@ export class ReservasDataService {
 getPalcoReserva(pIdReserva:number){
   return this.http.get<Palco>(`${API_URL}/reservas/palco/${pIdReserva}`)
 }
+getAllReservasParaOrganizador(pIdEvento){
+  return this.http.get((`${API_URL}/promotores/eventos/reservas/${pIdEvento}/organizador`)); 
+}
+
 }

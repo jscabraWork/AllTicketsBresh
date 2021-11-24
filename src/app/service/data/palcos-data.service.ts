@@ -17,6 +17,13 @@ export class PalcosDataService {
 
   }
 
+  getAllPalcosVendidoDeLocalidad(pIdLocalidad){
+    return this.http.get(`${API_URL}/localidad/ventas/${pIdLocalidad}/palcos`)
+
+  }
+
+
+
   getPalco(pIdLocalidad, pIdPalco){
     return this.http.get<Palco>(`${API_URL}/localidad/${pIdLocalidad}/palcos/${pIdPalco}`);
   }
@@ -143,9 +150,8 @@ pagarPalcosAPromotor(codigoVenta:string){
 
 
 
-asignarPalcoPuntoFisico(numeroInterno:number, palco){
-  return this.http.put(`${API_URL}/palcosPuntosFisicos/${numeroInterno}`, palco)
-  
+comprarPuntoFiscoPalco(referenceCode){
+  return this.http.post(`${API_URL}/puntoFisico/palcos/recibir`,referenceCode)
 }
 
 

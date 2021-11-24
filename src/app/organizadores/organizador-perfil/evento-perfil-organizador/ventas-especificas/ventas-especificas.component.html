@@ -1,0 +1,60 @@
+<div id="prueba">	
+    <h1><strong>Ventas del evento {{evento?.nombre}}</strong></h1> 
+</div>
+
+
+
+<div id="desplazate">
+    <p>
+      <--- Desplázate para ver toda la información --->
+    </p>
+</div>
+
+
+
+<section class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-12 esconder">
+        <table
+          class="tabla table mt-3 border rounded tabla"
+          style="text-align: center"
+        >
+          <thead>
+            <tr class="border">
+                <th class="border">Nombre del lider del palco</th>
+                <th class="border">Celular del lider del palco</th>
+              <th class="border">Numero Del palco</th>
+              <th class="border">Precio del Palco</th>
+              <th class="border">Dinero pagado del palco</th>
+          
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let palco of palcos; let i =index">
+                <td class="border">
+                    <strong>
+                        {{clientes[i]?.nombre}}
+                    </strong>
+                  </td>
+                  <td class="border">
+                    <strong>
+                        {{clientes[i]?.celular}}
+                    </strong>
+                  </td>
+              <td class="border">
+                <strong>{{ palco?.numeroDentroDeEvento }}</strong>
+              </td>
+        
+              <td class="border">
+                <strong>{{ palco?.precio|currency:'COP' }}</strong>
+              </td>
+              <td class="border">
+                <strong>{{ dineroRecaudadoPalcos(palco) |currency:'COP' }}</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  

@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Component, OnInit } from '@angular/core';
 import { LocalidadesDataService } from 'src/app/service/data/localidades-data.service';
+import { Palco } from './palco.model';
 
 @Component({
   selector: 'app-admin-palcos',
@@ -118,4 +119,15 @@ dineroRecaudado=1;
       this.refrescar()
     })
   }
+  dineroRecaudadoPalcos(palco:Palco){
+    var contador =0;
+  
+      if(palco.vendido ==true){
+        contador = contador +((palco.precioParcialPagado)/(palco.servicio+palco.servicioIva+palco.precio))*palco.precio
+        
+      }
+   
+    return contador;
+  }
+
 }

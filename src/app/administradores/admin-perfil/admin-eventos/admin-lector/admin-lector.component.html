@@ -50,6 +50,7 @@
             <div *ngIf="boleta?.id!=null &&boleta!=null">
                 <h4>TICKET</h4>
                 <h5><strong>Ticket: </strong> {{boleta?.id}}</h5>
+                <h5><strong>Numero: </strong> {{boleta?.seccionSilla}}</h5>
                 <h5><strong>Localidad: </strong> {{boleta?.localidadNombre}}</h5>
                 <h5><strong>Personas : </strong>1</h5>
             </div>
@@ -96,6 +97,7 @@
                         <h5 style="color:#ff2700; font-size:25px;" *ngIf="!boleta.utilizada"> Ticket Valido</h5>
                         <h4>TICKET</h4>
                         <h5><strong>Ticket: </strong> {{boleta?.id}}</h5>
+                        <h5><strong>Numero: </strong> {{boleta?.seccionSilla}}</h5>
                         <h5><strong>Localidad: </strong> {{boleta?.localidadNombre}}</h5>
                         <h5><strong>Personas : </strong>1</h5>
                         <button *ngIf="!boleta.utilizada" class="btn btn-success" type="submit"

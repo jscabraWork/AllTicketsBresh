@@ -1,194 +1,1576 @@
 
-            .aaaa{
-            
-                border: 2px solid #ed701c;
+
+.letraGrande span{
+    font-size: 18px;
+  }
+  
+  .fondoBlanco {
+    background-color: white;
+  }
+  
+  .divisionLocalidad {
+    text-align: right;
+    width: 600px;
+    text-align: center;
+    transition: all 1s;
+    position: relative;
+    width: 100%;
+  }
+  img {
+    width: 60px;
+    cursor: pointer;
+  }
+  .tituloActual{
+    font-weight: bold;
+  }
+  .tituloLocalidad {
+    background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28));
+    color: #fff;
+    padding: 3%;
+    width: 100%;
+  }
+  
+  .action_button:hover {
+    background: linear-gradient(
+      rgba(236, 158, 40, 0.87),
+      rgba(255, 80, 28, 0.87)
+    );
+  }
+  
+  p {
+    font-size: 20px;
+  }
+  .action_button {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    background: linear-gradient(#666, #333);
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  
+  th {
+    background: linear-gradient(#666, #333);
+    color: white;
+  }
+  td {
+    background-color: white;
+  }
+  
+  .grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 120px;
+    grid-template-rows: repeat(2, 80px);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .grid a {
+    font-weight: bold;
+    text-decoration: none;
+  
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 300ms;
+    background: linear-gradient(#ed701c, #f9b84f);
+    color: white;
+    transition: all 500ms;
+  }
+  .grid a:hover {
+    color: #ed701c;
+    background: white;
+    border: 1px solid #ed701c;
+  }
+  .grid img {
+    margin-left: 35px;
+    font-size: 50px;
+  }
+  
+  
+  
+  #convensiones,
+  #desplzate,
+  #desplazate{
+    margin-top:2%;
+    margin-left: 11%;
+    margin-bottom: 2%;
+  }
+  
+  #convensiones p{
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 50px 300px;
+    align-items: center;
+  }
+  
+  #desplzate p,
+  #desplazate p{
+    color:#ed701c;
+    font-weight: bolder;
+    font-size: 20px;
+  
+  }
+  
+  #desplzate,
+  #desplazate{
+    display:none;
+  }
+  
+  @media(max-width:1500px){
+      #desplzate{
+        display: block;
+      }
+  }
+  
+  
+  @media(max-width:1882px){
+    #desplazate{
+      display: block;
+    }
+  }
+  
+  
+  
+  .contenedor-mapa {
+    overflow: auto;
+    width: 90%;
+    text-align: center;
+    margin: 0px auto;
+    margin-left: 10%;
+  
+  
+  }
+  
+  @media(max-widht:1500px){
+    .contenedor-mapa {
+      overflow: scroll;
+  
+    
+    }
+  }
+  
+  
+  .contenedor-mapa6 {
+    
+    width: 90%;
+    text-align: center;
+    margin: 0px auto;
+    margin-left: 10%;
+  
+  
+  }
+  
+  @media(max-widht:600px){
+    .contenedor-mapa6 {
+      width:100%;
+      overflow: scroll;
+      margin-left: 0%;
+    
+    }
+  }
+  
+  
+  
+  .mapa {
+    margin: 0px auto;
+    width: 1500px;
+  
+  }
+  
+  .mapa3 {
+    margin: 0px auto;
+    width: 1350px;
+  
+  }
+  
+  
+  .centrar-mapa{
+    margin: 0px auto;
+    overflow: hidden;
+  }
+  .mapa5 {
+    margin: 0px auto;
+    
+  
+  }
+  .mapa6 {
+    margin: 0px auto;
+    width: 550px;
+  
+  }
+  .cuadros,
+  .cuadrosGrandes {
+    background-color: #ccc;
+  
+    width: 40px;
+    height: 40px;
+    
+    margin: 3px;
+    float: left;
+    font-size: 100%;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .cuadrosSinf {
+    background-color: #ccc;
+  
+    width: 40px;
+    height: 40px;
+    
+    margin: 3px;
+  
+    font-size: 100%;
+    cursor: pointer;
+    text-align: center;
+  }
+  .flotar{
+    float: left;
+  }
+  .cuadrosGrandes{
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .cuadros:hover {
+    background-color: #aaa;
+  }
+  
+  .cuadros2 {
+    background-color: #ccc;
+  
+    width: 40px;
+    height: 40px;
+    
+    margin: 3px;
+    float: left;
+    font-size: 100%;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .cuadros3 {
+    background-color: rgb(61, 92, 122);
+    color:white;
+  }
+  
+  
+  .cuadros4 {
+   background-color: green;
+    color:white;
+  }
+  .cuadros2:hover {
+    background-color: #aaa;
+  }
+  
+  .cuadros3:hover {
+    background-color: rgb(53, 60, 73);
+    
+  }
+  .cuadros5:hover {
+    background-color: rgb(121, 16, 60);
+    
+  }
+  
+  .cuadros4:hover {
+    background-color: rgb(4, 94, 4);
+     color:white;
+   }
+  
+  
+  .mesas{
+    
+  
+  
+    float:left;
+  }
+  
+  .tarima {
+    float: left;
+    background-color: #333;
+    height: 40px;
+    color: white;
+  
+    margin:3px 3px 0px 3px;
+    margin-left: 90px;
+    width: 290px;
+    text-align: center;
+    font-weight: bold;
+   
+  }
+  
+  
+  .tarimaFierro {
+    float: left;
+    background-color: #333;
+    height: 40px;
+    color: white;
+    margin:3px 3px 0px 3px;
+    margin-left: 50px;
+    width: 90px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .clearFix {
+    clear: both;
+    float: none;
+  }
+  .tarimaLarga,
+  .tarimaLarga2 {
+    background-color: #333;
+  
+    float: left;
+    margin-top: -3px;
+    height: 46px;
+    width: 40px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+  }
+  .tarimaLarga2{
+    height: 50px;
+  }
+  .parte2 .cuadros
+  {
+    margin-right: 4px;
+    margin-left: 3.2px;
+  }
+  .tarimaAncha {
+   
+    background-color: #333;
+   width: 420px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 470px;
+  
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  
+  
+  .dance
+  {
+    width: 200px;
+    height: 95px;
+    background-color:rgb(0, 106, 206);
+    color: white;
+    margin-top: 3px;
+    margin-bottom: -20px;
+    float: left;
+    font-weight: bold;
+    line-height: 95px;
+    cursor:pointer;
+  }
+  .cuadrosDF{
+    background-color:rgb(0, 106, 206);
+    color: white;
+  }
+  .parte3 .cuadros{
+    
+    margin-right: 8px;
+    margin-left: 8px;
+  }
+  
+  .tarimaDos {
+    float:left;
+    background-color: #333;
+   
+    line-height: 60px;
+    font-weight: bold;
+    margin:3px;
+    height: 40px;
+    margin-left: 4px;
+    text-align: center;
+    color: white;
+    width: 223px;
+  }
+  .margen-top-5{
+    margin-top: 30px;
+  }
+  .tarimaTres {
+    float:left;
+    background-color: #333;
+   
+    line-height: 40px;
+    font-weight: bold;
+    margin:3px;
+    margin-top: -6px;
+    height: 48px;
+    margin-left: 4px;
+    text-align: center;
+    color: white;
+    width: 223px;
+  }
+  
+  .parte8 {
+    margin-left: 276px;
+  }
+  
+  .parte8 .cuadros{
+    margin-right: 7.65px;
+    margin-left: 7.65px;
+  }
+  
+  .parte9{
+    margin-left: 220px;
+  }
+  
+  
+  
+  .parte8 .espacioDerecho:nth-child(2) .cuadros{
+    margin-right: 60px;
+  }
+  
+  .parte8 .espacioDerecho:nth-child(10) .cuadros{
+    margin-right: 60px;
+  }
+  
+  .parte9 .cuadros {
+    margin-right: 4.45px;
+    margin-left: 4.45px;
+  }
+  
+  .parte10 {
+  margin-left: 230px;
+  }
+  .parte10 .cuadros{
+    margin-right: 8px;
+    margin-left:8px ;
+  }
+  
+  .parte11 {
+   margin-left: 230px;
+  }
+  .parte11 .cuadros{
+    margin-right: 12.1px;
+    margin-left:12.1px ;
+  }
+  .parte12 {
+    margin-left: 42%;
+  }
+  
+  .vendido {
+    background-color: red;
+  }
+  .disponible {
+    background-color: #ccc;
+  }
+  .disponible,
+  .vendido {
+    padding: 5px;
+    margin: 10px auto;
+    height: 40px;
+    width: 90px;
+  }
+  
+  .sold_out {
+  
+    display: block;
+   
+    z-index:10;
+  
+    margin-left:35%;
+    position: absolute;
+    overflow: hidden;
+    width: 500px;
+    height: 500px;
+    margin-top: 180px;
+  transform: rotate(30deg);
+  
+     }
+    @media(max-width:1194px){
+      .sold_out{
+      margin-left: 30%;
+    }
+    }
+  
+    @media(max-width:940px){
+      .sold_out{
+      margin-left: 25%;
+    }
+    }
+    @media(max-width:727px){
+  
+      .sold_out{
         
-                height: 0px;
-                width: 70px;
-               
-                  }
-                  .fondoBlanco{
-                    background-color: white;
-                }
-
-                .tituloLocalidad{
-                  background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
-                  color:#FFF;
-                  padding: 3%;
-                  width: 100%;
-                  
-              }
-              .divisionLocalidad
-              {
-               
-                  
-                  text-align: right;
-                  width: 600px;
-                  text-align: center;
-                  transition: all 1s; 
-                  position: relative; 
-                  width: 100%;
-              }
-
-              
-.botonLogin{
-  background: linear-gradient(#F9B84A, #ed701c); 
-  width: 50%;
-  color:white;
-  border: white;
-  font-size: 22px;
-}
-
-#prueba9
-{
-
-
-  padding: 35px;
-  text-align: center;
-background-position: center center;
-background-size: cover;
-background-repeat: no-repeat;
-position: relative;
-
-}
-
-
-#prueba9:before {
-content:'';
-position: absolute;
-      top: 0;
-bottom: 0;
-left: 0;
-  right: 0;
-  background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
-
-}
-
-#prueba9 h1 {
-font-size: 35px;
-color: white;
-position: relative
-}
-
-
-
-
-
-
-
-
-
-
-      .ubicaciones {
-          text-align: center; 
-          
-          
-      }
-      .contenederoBlanco{
-          background-color: white;
-      }
-      h3{
-          font-size: 25px;
-      }
-
-      .Ahr{
-          width: 100%;
-      }
-
-      .localidades{
-          background-color: white;
-      }
-      .divisionLocalidad
-      {
-       
-          
-          text-align: right;
-          
-          text-align: center;
-          transition: all 1s; 
-          position: relative; 
-          width: 100%;
+        width: 400px;
+        height: 400px;
+        margin-top: 200px;
       }
   
-          .tituloLocalidad{
-              background: linear-gradient(#666, #333); 
-              color:#FFF;
-              padding: 3%;
-              width: 100%;
-              cursor: pointer;
-              
-          }
-
-          .divisionLocalidad:hover .tituloLocalidad{
-
-              background:linear-gradient(#ed701c, #F9B84f); 
-              
-          }
-          .divisionLocalidad:hover{
-              transform: scale(1.01);
-          }
-
-          
-
-          .precioLocalidades{
-              font-size:22px;
-              color:#ed701c;
-          }
-       p{
-           font-size: 17px;
-       }
-       .aaaa{
-          
-          border: 2px solid #ed701c;
+    }
   
-          height: 0px;
-          width: 70px;
-         
-            }
-       
-
-         
-     
-          .action_button:hover{
-              background:linear-gradient(#ed701c, #F9B84f); 
-          }
-
-
-          .action_button {
-              text-decoration: none; 
-              color: #fff; 
-              font-weight: bold; 
-              
-              background: linear-gradient(#666, #333); 
-             padding: 15px 20px;
-              font-size: 20px; 
-              text-transform: uppercase;
-          }
-
-          
-          @media(max-width:767px) and (min-width:576px){
-          
-              h1{
-                  font-size: 26px;
-              }
-              
-          }
-
-          
-          
-          @media(max-width:991px) and (min-width:768px){
-          
-              .largo{
-                  width: 103%;
-                  
-              }
-          }
-          
-          
-          @media(max-width:575px) and (min-width:0px){
-          
-              h1{
-                  font-size: 22px;
-              }
-          
-              }
+    @media(max-width:617px){
+  
+      .sold_out{
+  
+        width: 350px;
+        height: 350px;
+      }
+  
+      
+    }
+  
+    @media(max-width:529px){
+  
+      .sold_out{
+  
+        width: 330px;
+        height: 330px;
+      }
+    }
+  
+    
+    @media(max-width:473px){
+  
+      .sold_out{
+  
+        width: 280px;
+        height: 280px;
+      }
+    }
+  
+      
+    @media(max-width:407px){
+  
+      .sold_out{
+        margin-left: 10%;
+      }
+    }
+    .informacion{
+      text-align: left;
+      margin-left: 11%;
+    }
+  
+   .margenIzquierdo{
+     margin-left: 385px;
+   } 
+  
+   .tarimaMapa3 {
+    float: left;
+    background-color: #333;
+    height: 40px;
+    color: white;
+    
+    width: 330px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .margenl{
+    margin-left: 184px;
+  }
+  .izquierda{
+  width: 15%;
+  float:left;
+  margin-top: 230px;
+  }
+  .arriba{
+  width:85%;
+  float:left
+  }
+  .tarimaBooth {
+    float: left;
+    background-color: #333;
+    height: 40px;
+    color: white;
+    
+    width: 135px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .tarimaBooth5 {
+    float: left;
+    background-color: #333;
+    height: 40px;
+    color: white;
+    
+    width: 273px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  
+  
+  
+  .tarimaBooth9 {
+    float: left;
+    background-color: #333;
+    height: 60px;
+    color: white;
+    margin:5px;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: -20px;
+  }
+  
+  
+  .tarimaBooth10 {
+    float: left;
+    background-color: #333;
+    height: 40px;
+    color: white;
+    margin:5px;
+    width: 200px;
+    margin-left: 144px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .tarimaBooth12 {
+    float: left;
+    background-color: #333;
+    height: 40px;
+    color: white;
+    margin:5px;
+    width: 312px;
+    margin-left: 103px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .tarimaBooth11 {
+    float: left;
+    background-color: #333;
+    height: 40px;
+    color: white;
+    margin:5px;
+    width: 200px;
+    margin-left: 144px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: -10px;
+  }
+  .tarimaBooth2 {
+    float: left;
+    background-color: #333;
+    height: 50px;
+    color: white;
+    margin-top: 0px;
+    width: 135px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .tarimaBooth3 {
+    float: left;
+    background-color: #333;
+    height: 50px;
+    color: white;
+    margin-top: -10px;
+    width: 135px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .margenIzqFrat{
+    margin-left: 510px;
+  }
+  .ml-6{
+    margin-left: 185px;
+    
+  }
+  
+  .ml-7{
+    margin-left: 40px;
+  }
+  .margen2izquierda{
+    margin-left: 140px;
+    margin-right: 143px;
+  }
+  .tarimaAncha2 {
+   
+    background-color: #333;
+    width: 693px;
+    height: 25px;
+    line-height: 20px;
+    margin-top: -3px;  
+    float: left;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+  .tarimaAncha2 span{
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  
+  
+  
+  
+  .vacio {
+  
+  
+  
+    float: left;
+    margin-top: -3px;
+    height: 46px;
+    width: 40px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+  }
+  .patrocionador {
+    background-color: #ed701c;
+  
+    width: 25px;
+    height: 46px;
+    
+    margin: 3px;
+    margin-top: -3px;
+    float: left;
+    font-size: 100%;
+    
+    text-align: center;
+    color: white;font-weight: bold;
+  }
+  .patrocionador2{
+    
+    background-color: #ed701c;
+  
+    width: 25px;
+    height: 46px;
+    
+    margin: 3px;
+    margin-bottom: -3px;
+    
+    float: left;
+    font-size: 100%;
+    
+    text-align: center;
+    color: white;font-weight: bold;
+  }
+  
+  
+  .localidadLibre{
+    background-color: green;
+    width:549px;
+    height: 300px;
+    line-height:300px;
+    margin-bottom: -3px;
+    float: left;
+    text-align: center;
+    color: white;font-weight: bold;
+    cursor: pointer;
+    font-size: 35px;;
+  }
+  
+  .localidadLibreSOLDOUT{
+    background-color: red;
+    width:549px;
+    height: 300px;
+    line-height:300px;
+    margin-bottom: -3px;
+    float: left;
+    text-align: center;
+    color: white;font-weight: bold;
+    
+    font-size: 35px;;
+  }
+  
+  .localidadLibreCuadro{
+    background-color: green;
+    width:225px;
+    margin-left: 324px;
+    height: 300px;
+    line-height:300px;
+    margin-bottom: -3px;
+    float: left;
+    text-align: center;
+    color: white;font-weight: bold;
+    cursor: pointer;
+    font-size: 35px;;
+  }
+  .localidadLibre2{
+    background-color: green;
+    width:100px;
+    height: 22px;
+    margin:3px;
+    margin-bottom: -3px;
+    float: left;
+    text-align: center;
+    color: white;font-weight: bold;
+    cursor: pointer;
+    font-size: 35px;
+  }
+  .localidadLibre3{
+    background-color: green;
+    width:100px;
+    height: 22px;
+    margin:3px;
+    margin-bottom: -3px;
+    float: left;
+    font-size: 35px;
+    text-align: center;
+    color: white;font-weight: bold;
+    cursor: pointer;
+  }
+  .localidadLibreLarga{
+    background-color: green;
+    width:336px;
+    height: 100px;
+    margin:3px;
+    font-size: 30px;
+    
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  float:left;
+  }
+  
+  .localidadLibreLargaPerreo{
+    background-color: green;
+    width:550px;
+    height: 40px;
+    
+    font-size: 50px;
+    line-height: 300px;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  float:left;
+  }
+  .localidadLibreLargaPerreo2{
+    background-color: green;
+    width:650px;
+    height: 40px;
+    
+    font-size: 50px;
+    line-height: 300px;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  float:left;
+  }
+  .localidadLibreLargaPerreo3{
+    background-color: green;
+    width:1450px;
+    height: 80px;
+    
+    font-size: 40px;
+    line-height: 80px;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  
+  }
+  .marge213{
+  margin-left: 65px;
+  }
+  .marge214{
+    margin-left: 112.5px;
+    }
+  .localidadLibreLargaPerreo4,
+  .localidadLibreLargaPerreo5,
+  .localidadLibreLargaPerreo6,
+  .localidadLibreLargaPerreo7,
+  .localidadLibreLargaPerreo8,
+  .localidadLibreLargaPerreo9,
+  .localidadLibreLargaPerreo10,
+  .localidadLibreLargaPerreo11,
+  .localidadLibreLargaPerreo12{
+    background-color: blue;
+    width:100px;
+    height: 40px;
+    float:left;
+    font-size: 15px;
+    line-height: 40px;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  
+  }
+  .localidadLibreLargaPerreo5{
+    cursor:auto;
+  }
+  .localidadLibreLargaPerreo5{
+  line-height: 0px;
+  }
+  .localidadLibreLargaPerreo4,
+  .localidadLibreLargaPerreo6,
+  .localidadLibreLargaPerreo7,
+  .localidadLibreLargaPerreo10,
+  .localidadLibreLargaPerreo11,
+  .localidadLibreLargaPerreo12{
+    background-color: green;
+  }
+  
+  .localidadLibreLargaPerreo6{
+    width: 1250px;
+    height: 40px;
+  }
+  .localidadLibreLargaPerreo7{
+    width:150px;
+  }
+  .localidadLibreLargaPerreo8{
+    background-color: rgb(199, 62, 199);
+    cursor:auto;
+    font-size: 15px;
+    line-height: 40px;
+  }
+  .localidadLibreLargaPerreo9{
+    background-color: rgb(231, 139, 0);
+    cursor:auto;
+    width: 250px;
+    font-size: 15px;
+    line-height: 40px;
+  }
+  .localidadLibreLargaPerreo10{
+    width: 550px;
+  }
+  .localidadLibreLargaPerreo11{
+    width: 650px;
+  }
+  .localidadLibreLargaPerreo12{
+    width: 1450px;
+  }
+  
+  
+  .tarimaPerreo ,
+  .comidas{
+    float: left;
+    background-color: #333;
+    margin-left: 127px;
+    height: 40px;
+    color: white;
+    width: 300px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .comidas{
+    background-color: rgb(255, 60, 93);
+  }
+  .localidadLibreLargaVIP{
+    background-color: rgb(255, 60, 93);
+    width:457px;
+    height: 200px;
+    margin:3px;
+    font-size: 30px;
+    float:left;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  margin-top: -7px;
+  
+  }
+  .margen-90{
+    margin-left:185px;
+  }
+  .localidadLibreCuadroVIP{
+    background-color: rgb(255, 60, 93);
+    width:365px;
+    height: 230px;
+    margin:3px;
+    font-size: 30px;
+    float:left;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  
+  
+  }
+  .localidadLibreCuadroVIP2{
+    background-color: rgb(255, 60, 93);
+    width:109px;
+    height: 60px;
+    margin:3px;
+    font-size: 30px;
+    float:left;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  margin-top: -10px;
+  
+  }
+  .localidadLibreLarga2{
+    background-color: green;
+    width:372px;
+    height: 100px;
+    margin:3px;
+    font-size: 30px;
+    
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  float:left;
+  }
+  
+  
+  .libreVIPCorto {
+    background-color: rgb(255, 60, 93);
+    cursor: pointer;
+    width: 34px;
+    height: 46px;
+    
+    margin-top: 3px;
+    margin-bottom: -3px;
+    
+    float: left;
+    font-size: 100%;
+    
+    text-align: center;
+    color: white;font-weight: bold;
+  }
+  .cuadros5 {
+    background-color: rgb(187, 0, 131);
+     color:white;
+   }
+   .cuadros6 {
+    background-color: rgb(6, 202, 81);
+     color:white;
+   }
+   .cuadros6 {
+    background-color: rgb(255, 102, 0);
+     color:white;
+   }
+  
+  
+   .localidadLibreAgora1,
+   .localidadLibreAgora2{
+    background-color: rgb(3, 92, 37);
+    width:274px;
+    height: 300px;
+    
+    font-size: 26px;
+    line-height: 300px;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  
+  }
+  .cuadros10{
+    background-color: rgb(0, 162, 255);
+    color:white;
+  }
+  .cuadros12{
+    background-color: rgb(255, 0, 242);
+    color:white;
+  }
+  
+  .cuadros10:hover{
+    background-color: rgb(0, 162, 255);
+    color:white;
+  }
+  .localidadLibreAgora1:hover{
+    background-color: rgb(0, 150, 57);
+  }
+  .localidadLibreAgora2{
+    background-color: rgb(0, 162, 255);
+    margin-top: 3px;
+  }
+  .localidadLibreAgora2:hover{
+    background-color: rgb(2, 112, 175);
+  }
+  
+  .margenIzqRya{
+    margin-left: 45px;
+  }
+  
+  
+  .margenIzqRy2{
+    margin-left: 137px;
+  }
+  .margenIzqRy3{
+    margin-left: 430px;
+  }
+  
+  .localidadLibreAgora3{
+    background-color: rgb(0, 162, 255);
+  
+    width:370px;
+    height: 200px;
+   
+    font-size: 26px;
+    line-height: 200px;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  
+  }
+  
+  .localidadLibreAF{
+    background-color: rgb(0, 162, 255);
+    margin-left: 1px;
+    width:344px;
+    height: 47px;
+    float: left;
+  }
+  .localidadLibreAF2{
+    background-color: rgb(0, 162, 255);
+    width:50px;
+    height: 50px;
+    float: left;
+    margin-top: 3px;
+  }
+  .localidadLibreAF3{
+    background-color: rgb(0, 162, 255);
+    width:50px;
+    height: 50px;
+    float: left;
+    margin-top: -3px;
+  }
+  .localidadLibreAF4{
+    background-color: rgb(0, 162, 255);
+    width:50px;
+    height: 50px;
+    float: left;
+    margin-top: -6px;
+    margin-left: 1px;
+  }
+  .localidadLibreAF5{
+    background-color: rgb(0, 162, 255);
+    width:50px;
+    height: 50px;
+    float: left;
+    margin-top: -3px;
+  }
+  .localidadLibreAF6{
+    background-color: rgb(0, 162, 255);
+    width:50px;
+    height: 50px;
+    float: left;
+    margin-top: 3px;
+    margin-left: 1px;
+  }
+  .localidadLibreAF7{
+    background-color: rgb(0, 162, 255);
+    width:50px;
+    height: 50px;
+    float: left;
+    margin-top: -3px;
+    margin-left: 1px;
+  }
+  .localidadLibreAgora4{
+    background-color: rgb(0, 162, 255);
+  
+    width:465px;
+    height: 120px;
+  
+    font-size: 26px;
+    line-height: 120px;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  }
+  
+  
+  
+  .localidadLibrePABLO{
+    background-color: rgb(0, 162, 255);
+    float: left;
+    width:140px;
+    height: 40px;
+    margin-right: 3px;
+    margin-top: 3px;
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  }
+  .localidadLibrePABLO2{
+    background-color: rgb(0, 162, 255);
+    float: left;
+    width:140px;
+    height: 46px;
+    margin-right: 3px;
+    margin-top: -4px;
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  }
+  
+  .localidadLibrePABLO3{
+    background-color: rgb(255, 0, 191);
+    float: left;
+    width:180px;
+    height: 46px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    font-size: 16px;
+  
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  }
+  
+  .colorImportante{
+   background-color: rgb(255, 0, 191) !important;
+  }
+  
+  .localidadLibreAgora5{
+    background-color: rgb(0, 162, 255);
+  
+    width:100px;
+    height: 50px;
+   float:left;
+    font-size: 26px;
+    line-height: 120px;
+    text-align: center;
+    color: white;font-weight: bold;
+  cursor: pointer;
+  }
+  
+  
+  .mrml{
+  
+    margin-right:15.4px;
+  }
+  .mrml2{
+  
+    margin-right: 30.3px;
+  }
+  .mrml3{
+  
+    margin-right: 30.3px;
+  }
+  .margencuadrito{
+    margin-left: 45px;
+  }
+  .margencuadrito2{
+    margin-left: 100px;
+  }
+  .margencuadrito3{
+    margin-left: 42px;
+  }
+  
+  .margencuadrito4{
+    margin-left: 92px;
+  }
+  .margencuadrito5{
+    margin-left: 87px;
+  }
+  
+  .mra{
+    margin-right: 10px;
+  }
+  .sinml .mrml:first-child{
+    margin-left: 5px;
+  }
+  .cuadros7{
+    background-color: rgb(0, 150, 57);
+  }
+  .cuadros8{
+    background-color: rgb(255, 102, 0);
+  }
+  
+  .ver{
+    display: none;
+  }
+  .ver p,
+  .ver p{
+    color:#ed701c;
+    font-weight: bolder;
+    font-size: 20px;
+  
+  }
+  @media(max-width:510px){
+    .tabla thead tr th{
+        font-size: 14px;
+    }
+    .tabla button{
+        width: 100%;
+        border-radius: 0px;
+    }
+  
+  }
+  @media(max-width:515px){
+    .esconder{
+        overflow: scroll;
+        z-index: 1;
+    }
+    .ver{
+        display: block;
+    }
+  }
+  
+  .listaOr div:nth-child(2){
+  margin-left: 5px !important;
+  }
+  
+  
+  
+  .mapa-largo {
+    margin: 0px auto;
+    width: 1850px;
+  
+  }
+  
+  .contenedor-mapa-largo {
+    overflow: auto;
+    width: 98%;
+    text-align: center;
+    margin: 0px auto;
+    margin-left: 2%;
+    
+  }
+  
+  
+  .localidadC,
+  .localidadD,
+  .C1,
+  .C2,
+  .localidadA{
+    float:left;
+  }
+  
+  
+  .localidadD{
+    width: 650px;
+    margin-top: 105px;
+  }
+  
+  .localidadC{
+    width: 500px;
+    margin-top: 105px;
+  }
+  .localidadA{
+    width:700px;
+  }
+  .C1{
+    width: 250px;
+  }
+  
+  .C2{
+    width: 250px;
+  }
+  
+  .tarimaMaster {
+    float: left;
+    background-color: #333;
+    height: 40px;
+    color: white;
+    margin:3px;
+    width: 86px;
+    text-align: center;
+    font-weight: bold;
+    line-height:30px;
+  }
+  
+  .tarimaMaster2 {
+    float: left;
+    background-color: #333;
+    height: 62px;
+    color: white;
+    margin:3px;
+    margin-top: -19px;
+    width: 86px;
+    text-align: center;
+    font-weight: bold;
+    line-height:30px;
+  }
+  
+  .tarimaCuadrito {
+    float: left;
+    background-color: #333;
+    height: 47px;
+    color: white;
+    margin:3px;
+    margin-bottom: -4px;
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+    line-height:30px;
+  }
+  .tarimaCuadrito2 {
+    float: left;
+    background-color: #333;
+    height: 47px;
+    color: white;
+    margin:3px;
+    margin-top: -4px;
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+    line-height:30px;
+    
+  }
+  
+  .tarimaCuadrito3 {
+    float: left;
+    background-color: #333;
+    height: 47px;
+    color: white;
+    margin:3px;
+    margin-bottom: -4px;
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+    line-height:70px;
+  }
+  .tarimaCuadrito4 {
+    float: left;
+    background-color: #333;
+    height: 64px;
+    color: white;
+    margin:3px;
+    margin-top: -20px;
+    width: 40px;
+    text-align: center;
+    font-weight: bold;
+    line-height:70px;
+    
+  }
+  
+  .tarimaLargaCalentura {
+    float: left;
+    background-color: #333;
+    height: 55px;
+    color: white;
+    margin:3px;
+    margin-left: -3px;
+    width: 184px;
+    text-align: left;
+    font-weight: bold;
+    
+  }
+  
+  .cuadros10 {
+    background-color: rgb(46, 194, 240);
+    color:white;
+  }
+  
+  .cuadros10:hover {
+    background-color: rgb(37, 156, 192) ;
+    color:white;
+  }
+  .margenArrib{
+    margin-top: 50px ;
+  }
+  .localidadB,
+  .localidadA{
+  
+    margin-top: 15px;
+  }
+  .margenTopPequeno{
+    margin-top: 15px;
+  }
+  
+  .largo{
+    height:63px;
+    line-height:50px;
+  }
+  
+  .rojo {
+    background-color: red;
+    cursor: auto;
+  }
+  .rojo:hover {
+    background-color: red !important;
+  }
+  .amarillo{
+    background-color:rgb(255, 153, 0) ;
+    cursor: auto;
+  }
+  
+  .amarillo:hover{
+    background-color:rgb(255, 153, 0)!important ;
+  }
+  .colorVIP{
+    background-color: rgb(255, 60, 93);
+  }
+  
+  .margenF {
+    
+    margin-left: 47px;
+  }
+  .margenF2 {
+    margin-left: 95px;
+  }
+  
+  .margenF6 {
+    margin-left: 141px;
+  }
+  .margenF16 {
+    margin-left: 186px;
+  }
+  
+  .margenF3 {
+    margin-left: 923px;
+  }
+  .margenF4 {
+    margin-left: 463px;
+  }
+  .margenF5 {
+    margin-left: 968px;
+  }
+  .margenF7 {
+    margin-left: 415px;
+  }
+  .margenF17 {
+    margin-left: 370px;
+  }
+  .margenF8 {
+    margin-left: 324px;
+  }
+  .margenF9 {
+    margin-left: 277px;
+  }
+  .margenF10 {
+    margin-left: 371px;
+  }
+  .margenF14 {
+    margin-left: 189px;
+  }
+  .margenF11 {
+    margin-left: 235px;
+  }
+  .margenF15 {
+    margin-left: 228px;
+  }
+  .margenF12 {
+    margin-left: 420px;
+  }
+  .margenF13 {
+    margin-left: 509px;
+  }
+  
+  .margenF20 {
+    margin-left: 556px;
+  }
+  .margenF21 {
+    margin-left: 736px;
+  }
+  .margenPF{
+    margin-left: 1330px;
+  }
+  
+  .opaco{
+    opacity: 0.3;
+    cursor:default;
+    background-color: #ccc;
+  }
+  
+  .opaco:hover{
+    background-color: #ccc;
+   
+  }
+  
+  .seleccionado{
+    background-color: rgb(125, 255, 93);
+    color:white;
+  }
+  
+  .seleccionado:hover{
+    background-color: rgb(101, 201, 77);
+  }

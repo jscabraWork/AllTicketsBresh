@@ -24,7 +24,9 @@ export class AgregarPuntoComponent implements OnInit {
       boletasCanjeadas:[],
       boletasVendidas:[],
       palcosCanjeados:[],
-      palcosVendidos:[]
+      palcosVendidos:[],
+      eventos:[],
+      
     }
 
   }

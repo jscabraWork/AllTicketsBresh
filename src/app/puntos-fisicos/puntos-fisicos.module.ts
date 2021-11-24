@@ -11,12 +11,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { PuntosFisicosComponent } from './puntos-fisicos.component';
 import { EventoPuntoFisicoComponent } from './evento-punto-fisico/evento-punto-fisico.component';
-import { EventoPalcosPuntosFisicosComponent } from './evento-palcos-puntos-fisicos/evento-palcos-puntos-fisicos.component';
-import { EventoTicketsPutosFisicosComponent } from './evento-tickets-putos-fisicos/evento-tickets-putos-fisicos.component';
+
 import { CarritoDeComprasPuntosFisicosComponent } from './carrito-de-compras-puntos-fisicos/carrito-de-compras-puntos-fisicos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { CountdownModule } from 'ngx-countdown';
+import { CantidadBoletasPuntoFisicoComponent } from './cantidad-boletas-punto-fisico/cantidad-boletas-punto-fisico.component';
+
 
 
 
@@ -34,14 +36,7 @@ const routes: Routes=[
             path:':user/evento/:id',
             component: EventoPuntoFisicoComponent
         },
-        {
-            path:':user/evento/:id/pago/palco/:idLocalidad',
-            component: EventoPalcosPuntosFisicosComponent
-        },
-        {
-            path:':user/evento/:id/pago/:idLocalidad',
-            component: EventoTicketsPutosFisicosComponent
-        }
+             
       ]
 }
 
@@ -50,14 +45,15 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[  PuntosFisicosComponent, EventoPuntoFisicoComponent, EventoPalcosPuntosFisicosComponent, EventoTicketsPutosFisicosComponent, CarritoDeComprasPuntosFisicosComponent],
+    declarations:[  PuntosFisicosComponent, EventoPuntoFisicoComponent, CarritoDeComprasPuntosFisicosComponent, CantidadBoletasPuntoFisicoComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        MatIconModule
+        MatIconModule,
+        CountdownModule,
     ]
 
 })

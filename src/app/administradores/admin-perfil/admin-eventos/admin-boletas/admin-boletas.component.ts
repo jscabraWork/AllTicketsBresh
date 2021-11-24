@@ -63,13 +63,44 @@ export class AdminBoletasComponent implements OnInit {
 
   }
 
-  rechazarI(boleta:Boleta){
-    var boletas: Boleta[] = [];
-    boletas.push(boleta);
-    this.servicio.rechazarReservaBoletaInstantaneamente(boletas).subscribe(response=>{
+
+
+
+  cambiarReservado(boleta:Boleta){
+ 
+    this.servicio.cambiarReservado(boleta.id).subscribe(response=>{
       response
       this.refrescar()
       
     })
   }
+
+  cambiarReserva(boleta:Boleta){
+ 
+    this.servicio.cambiarReserva(boleta.id).subscribe(response=>{
+      response
+      this.refrescar()
+      
+    })
+  }
+
+  cambiarDisponible(boleta:Boleta){
+ 
+    this.servicio.cambiarDisponible(boleta.id).subscribe(response=>{
+      response
+      this.refrescar()
+      
+    })
+
+  }
+  cambiarVendido(boleta:Boleta){
+ 
+    this.servicio.cambiarVendido(boleta.id).subscribe(response=>{
+      response
+      this.refrescar()
+      
+    })
+
+  }
+
 }

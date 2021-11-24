@@ -109,7 +109,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     for(var i =0; i< localidad.boletas.length;i++)
   
     {
-      if(  localidad.boletas[i].vendida==false && localidad.boletas[i].reservado==false){
+      if(  localidad.boletas[i].vendida==false && localidad.boletas[i].reservado==false && localidad.boletas[i].disponible==true &&localidad.boletas[i].reserva==false){
         contador = contador+1;
       }
     }
@@ -131,7 +131,20 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     return contador;
   
   }
+  numeroBoletasReservadas(localidad:Localidad){
 
+    var contador =0;
+    for(var i =0; i< localidad.boletas.length;i++)
+  
+    {
+      if(  localidad.boletas[i].reserva==true){
+        contador = contador+1;
+      }
+    }
+   
+    return contador;
+  
+  }
   numeroBoletasEnProceso(localidad:Localidad){
 
     var contador =0;
@@ -162,7 +175,20 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     return contador;
   
   }
+  numeroBoletasTotales(localidad:Localidad){
 
+    var contador =0;
+    for(var i =0; i< localidad.boletas.length;i++)
+  
+    {
+      if(  localidad.boletas[i].disponible== true){
+        contador = contador+1;
+      }
+    }
+   
+    return contador;
+  
+  }
 
   dineroVendido(localidad:Localidad){
 

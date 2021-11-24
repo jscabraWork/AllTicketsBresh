@@ -29,10 +29,33 @@
         </select>
         <h5 class="mt-4"><strong>Dinero a Aportar: </strong>{{valorAPagar | currency:'COP'}} </h5>
     </div>
-    <h5 class="frase">Pagar con Tarjeta credito o debito</h5>
-    <img class="btn-epayco" *ngIf="palco.id!=null" (click)="epaycoPalcosUsuarios()"
-    src="https://369969691f476073508a-60bf0867add971908d4f26a64519c2aa.ssl.cf5.rackcdn.com/btns/epayco/boton_de_cobro_epayco.png"
-    alt="botón epayco">
+
+     <form ngNoForm method="post" [action]="url" >
+        <input name="merchantId" type="hidden" value="{{merchantId}}">
+        <input name="accountId" type="hidden" value="{{accountId}}">
+        <input name="description" type="hidden" value="{{descripcion}}">
+        <input name="referenceCode" type="hidden" value="{{referenceCode}}">
+        <input name="amount" type="hidden" value="{{valorAPagar}}">
+        <input name="tax" type="hidden" value="0">
+        <input name="taxReturnBase" type="hidden" value="0">
+        <input name="currency" type="hidden" value="COP">
+        <input name="lng" type="hidden" value="es">
+        <input name="signature" type="hidden" value="{{signature}}">
+        <input name="test" type="hidden" value="0">
+        <input name="buyerEmail" type="hidden" value="{{usuario?.correo}}">
+        <input name="buyerFullName" type="hidden" value="{{usuario?.nombre}}">
+        <input name="responseUrl" type="hidden" value="{{respuesta}}/eventos/respuesta">
+        <input name="confirmationUrl" type="hidden" value="{{confirmacion}}">
+        
+       <input name="paymentMethods" type="hidden" value="{{metodos}}"> 
+        
+        <button name="Submit" *ngIf="palco.id!=null" class="btn action_button" type="submit"   value="Enviar" style="font-size:16px ;">Pagar</button>
+        
+      </form>  
+
+      <!-- <button class="btn action_button" *ngIf="palco.id!=null" (click)="epaycoPalcosUsuarios()">
+          Pagar
+      </button> -->
 
 
 </div>

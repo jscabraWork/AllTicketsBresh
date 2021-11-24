@@ -83,7 +83,7 @@ export class EventosPerfilComponent implements OnInit {
       this.service.getEventoIdPerfil(this.miId).subscribe( response => {
         
         this.handleGetSuccesfull(response);
-
+        
  
         this.mapaUrl = this.getSafeUrl(this.evento.urlMapa);
        if(this.evento.urlMapa!='no'){
@@ -156,6 +156,7 @@ handleGetSuccesfull(response){
     console.log(response)
   this.evento=response.evento;
   this.organizadorId = response.organizadorId
+
 }
 }
 

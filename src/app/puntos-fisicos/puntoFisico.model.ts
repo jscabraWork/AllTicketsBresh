@@ -1,5 +1,6 @@
 import { Palco } from '../administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
 import { Boleta } from '../eventos/boleta.model';
+import { Evento } from '../eventos/evento.model';
 
 export interface PuntoFisico{
     nombre:string,
@@ -12,4 +13,5 @@ export interface PuntoFisico{
     boletasCanjeadas:Boleta[],
     palcosVendidos:Palco[],
     palcosCanjeados:Palco[],
+    eventos:Evento[],
 }

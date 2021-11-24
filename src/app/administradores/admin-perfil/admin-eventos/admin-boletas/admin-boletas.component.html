@@ -1,4 +1,4 @@
-<section class="container mt-5">
+<section class="container-fluid mt-5">
     <button class="btn btn-success" routerLink="/administradores/admin/eventos/lista">Atras</button>
 
     
@@ -19,11 +19,18 @@
                 <th>Precio</th>
                 <th>Vendida</th>
                 <th>Utilizada</th>
+                <th>Proceso</th>
+
                 <th>Reservada</th>
+                <th>Disponible</th>
+
                 <th>Servicio</th>
                 <th>IVA</th>
                 <th>Localidad</th>
-                <th>Modificar</th>
+                <th>Proceso</th>
+                <th>Reserva</th>
+                <th>Disponible</th>
+                <th>Vendido</th>
                 <th>Borrar</th>
                 
             </tr>
@@ -38,14 +45,22 @@
                 
                 <td>{{boleta?.seccionSilla}}</td>
                 <td>{{boleta?.precio | currency: 'COP'}}</td>
+
                 <td>{{boleta?.vendida |booleans}}</td>
+
                 <td>{{boleta?.utilizada |booleans}}</td>
                 <td>{{boleta?.reservado|booleans}}</td>
+                <td>{{boleta?.reserva|booleans}}</td>
+                <td>{{boleta?.disponible|booleans}}</td>
+
                 <td>{{boleta?.servicio | currency:'COP'}}</td>
                 <td>{{boleta?.servicioIva | currency:'COP'}}</td>
                 <td>{{boleta?.localidadNombre}}</td>
                 
-                <td><button class="btn btn-warning" (click)="rechazarI(boleta)"> Modificar</button></td>
+                <td><button class="btn btn-warning" (click)="cambiarReservado(boleta)"> Proceso</button></td>
+                <td><button class="btn btn-warning" (click)="cambiarReserva(boleta)"> Reservado</button></td>
+                <td><button class="btn btn-warning" (click)="cambiarDisponible(boleta)"> Disponible</button></td>
+                <td><button class="btn btn-warning" (click)="cambiarVendido(boleta)"> Vendido</button></td>
                 <td><button  class="btn btn-danger" (click)="borrarBoleta(boleta?.id)"> Delete</button></td>
     
             </tr>
