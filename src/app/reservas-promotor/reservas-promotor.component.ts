@@ -39,6 +39,7 @@ export class ReservasPromotorComponent implements OnInit {
   signature:string
   respuesta
   confirmacion:string
+  tax:number
   constructor(
     private autenticador: HardcodedAutheticationService
     , private route: ActivatedRoute,
@@ -174,7 +175,7 @@ export class ReservasPromotorComponent implements OnInit {
            }
      
            this.signature = md5.appendStr(valorEncriptar).end().toString();
-
+           this.tax = this.palco.servicioIva
 
           })
           
@@ -218,6 +219,7 @@ export class ReservasPromotorComponent implements OnInit {
   cambiarTotal(){
 
     this.valorAPagar = (this.porcentaje/100)*(this.palco.precio+this.palco.servicio+this.palco.servicioIva);
+    this.tax = (this.porcentaje/100)*this.palco.servicioIva
     var md5 = new Md5();
     let valorEncriptar = this.ApiKey +"~"+ this.merchantId+"~"+this.referenceCode+"~"+this.valorAPagar+"~"+'COP~';
 

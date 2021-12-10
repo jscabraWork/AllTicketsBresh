@@ -1,6 +1,4 @@
-
-
-.letraGrande span{
+.letraGrande span {
   font-size: 18px;
 }
 
@@ -20,7 +18,7 @@ img {
   width: 60px;
   cursor: pointer;
 }
-.tituloActual{
+.tituloActual {
   font-weight: bold;
 }
 .tituloLocalidad {
@@ -89,17 +87,15 @@ td {
   font-size: 50px;
 }
 
-
-
 #convensiones,
 #desplzate,
-#desplazate{
-  margin-top:2%;
+#desplazate {
+  margin-top: 2%;
   margin-left: 11%;
   margin-bottom: 2%;
 }
 
-#convensiones p{
+#convensiones p {
   margin: 0px;
   padding: 0px;
   display: grid;
@@ -108,32 +104,28 @@ td {
 }
 
 #desplzate p,
-#desplazate p{
-  color:#ed701c;
+#desplazate p {
+  color: #ed701c;
   font-weight: bolder;
   font-size: 20px;
-
 }
 
 #desplzate,
-#desplazate{
-  display:none;
+#desplazate {
+  display: none;
 }
 
-@media(max-width:1500px){
-    #desplzate{
-      display: block;
-    }
-}
-
-
-@media(max-width:1882px){
-  #desplazate{
+@media (max-width: 1500px) {
+  #desplzate {
     display: block;
   }
 }
 
-
+@media (max-width: 1882px) {
+  #desplazate {
+    display: block;
+  }
+}
 
 .contenedor-mapa {
   overflow: auto;
@@ -141,79 +133,67 @@ td {
   text-align: center;
   margin: 0px auto;
   margin-left: 10%;
-
-
 }
 
-@media(max-widht:1500px){
+@media (max-widht: 1500px) {
   .contenedor-mapa {
     overflow: scroll;
-
-  
   }
 }
 
-
 .contenedor-mapa6 {
-  
   width: 90%;
   text-align: center;
   margin: 0px auto;
   margin-left: 10%;
-
-
 }
 
-@media(max-widht:600px){
+@media (max-widht: 600px) {
   .contenedor-mapa6 {
-    width:100%;
+    width: 100%;
     overflow: scroll;
     margin-left: 0%;
-  
   }
 }
-
-
 
 .mapa {
   margin: 0px auto;
   width: 1500px;
-
 }
 
 .mapa3 {
   margin: 0px auto;
   width: 1350px;
-
 }
 
-
-.centrar-mapa{
+.centrar-mapa {
   margin: 0px auto;
   overflow: hidden;
 }
 .mapa5 {
   margin: 0px auto;
-  
-
 }
 .mapa6 {
   margin: 0px auto;
   width: 550px;
-
 }
 .cuadros,
-.cuadrosGrandes {
+.cuadrosGrandes,
+.cuadrosPalcos,
+.cuadrosPalcos3,
+.cuadrosPalcos4,
+.cuadrosPalcos5 {
   background-color: #ccc;
 
   width: 40px;
   height: 40px;
-  
+
   margin: 3px;
   float: left;
   font-size: 100%;
   cursor: pointer;
   text-align: center;
+  line-height: 40px;
 }
 
 .cuadrosSinf {
@@ -221,17 +201,17 @@ td {
 
   width: 40px;
   height: 40px;
-  
+
   margin: 3px;
 
   font-size: 100%;
   cursor: pointer;
   text-align: center;
 }
-.flotar{
+.flotar {
   float: left;
 }
-.cuadrosGrandes{
+.cuadrosGrandes {
   width: 80px;
   height: 80px;
   line-height: 80px;
@@ -247,7 +227,7 @@ td {
 
   width: 40px;
   height: 40px;
-  
+
   margin: 3px;
   float: left;
   font-size: 100%;
@@ -257,13 +237,12 @@ td {
 
 .cuadros3 {
   background-color: rgb(61, 92, 122);
-  color:white;
+  color: white;
 }
 
-
 .cuadros4 {
- background-color: green;
-  color:white;
+  background-color: green;
+  color: white;
 }
 .cuadros2:hover {
   background-color: #aaa;
@@ -271,24 +250,18 @@ td {
 
 .cuadros3:hover {
   background-color: rgb(53, 60, 73);
-  
 }
 .cuadros5:hover {
   background-color: rgb(121, 16, 60);
-  
 }
 
 .cuadros4:hover {
   background-color: rgb(4, 94, 4);
-   color:white;
- }
+  color: white;
+}
 
-
-.mesas{
-  
-
-
-  float:left;
+.mesas {
+  float: left;
 }
 
 .tarima {
@@ -297,25 +270,49 @@ td {
   height: 40px;
   color: white;
 
-  margin:3px 3px 0px 3px;
+  margin: 3px 3px 0px 3px;
   margin-left: 90px;
   width: 290px;
   text-align: center;
   font-weight: bold;
- 
 }
-
 
 .tarimaFierro {
   float: left;
   background-color: #333;
-  height: 40px;
+  height: 90px;
   color: white;
-  margin:3px 3px 0px 3px;
-  margin-left: 50px;
-  width: 90px;
+  margin: 3px;
+  float: left;
+  line-height: 90px;
+  width: 130px;
   text-align: center;
   font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.tarimaAlexis,
+.tarimaAlexis2 {
+  float: left;
+  background-color: #333;
+  height: 35px;
+
+  color: white;
+  margin: 3px;
+  margin-top: 45px;
+  margin-right: -3px;
+  float: left;
+
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+.tarimaAlexis {
+  margin-left: 20px;
+}
+.tarimaAlexis2 {
+  margin-left: -3px;
+  margin-right: 3px;
 }
 
 .clearFix {
@@ -334,18 +331,16 @@ td {
   color: white;
   font-weight: bold;
 }
-.tarimaLarga2{
+.tarimaLarga2 {
   height: 50px;
 }
-.parte2 .cuadros
-{
+.parte2 .cuadros {
   margin-right: 4px;
   margin-left: 3.2px;
 }
 .tarimaAncha {
- 
   background-color: #333;
- width: 420px;
+  width: 420px;
   height: 30px;
   line-height: 30px;
   margin-left: 470px;
@@ -355,54 +350,50 @@ td {
   text-align: center;
 }
 
-
-
-.dance
-{
+.dance {
   width: 200px;
   height: 95px;
-  background-color:rgb(0, 106, 206);
+  background-color: rgb(0, 106, 206);
   color: white;
   margin-top: 3px;
   margin-bottom: -20px;
   float: left;
   font-weight: bold;
   line-height: 95px;
-  cursor:pointer;
+  cursor: pointer;
 }
-.cuadrosDF{
-  background-color:rgb(0, 106, 206);
+.cuadrosDF {
+  background-color: rgb(0, 106, 206);
   color: white;
 }
-.parte3 .cuadros{
-  
+.parte3 .cuadros {
   margin-right: 8px;
   margin-left: 8px;
 }
 
 .tarimaDos {
-  float:left;
+  float: left;
   background-color: #333;
- 
+
   line-height: 60px;
   font-weight: bold;
-  margin:3px;
+  margin: 3px;
   height: 40px;
   margin-left: 4px;
   text-align: center;
   color: white;
   width: 223px;
 }
-.margen-top-5{
+.margen-top-5 {
   margin-top: 30px;
 }
 .tarimaTres {
-  float:left;
+  float: left;
   background-color: #333;
- 
+
   line-height: 40px;
   font-weight: bold;
-  margin:3px;
+  margin: 3px;
   margin-top: -6px;
   height: 48px;
   margin-left: 4px;
@@ -415,22 +406,20 @@ td {
   margin-left: 276px;
 }
 
-.parte8 .cuadros{
+.parte8 .cuadros {
   margin-right: 7.65px;
   margin-left: 7.65px;
 }
 
-.parte9{
+.parte9 {
   margin-left: 220px;
 }
 
-
-
-.parte8 .espacioDerecho:nth-child(2) .cuadros{
+.parte8 .espacioDerecho:nth-child(2) .cuadros {
   margin-right: 60px;
 }
 
-.parte8 .espacioDerecho:nth-child(10) .cuadros{
+.parte8 .espacioDerecho:nth-child(10) .cuadros {
   margin-right: 60px;
 }
 
@@ -440,19 +429,19 @@ td {
 }
 
 .parte10 {
-margin-left: 230px;
+  margin-left: 230px;
 }
-.parte10 .cuadros{
+.parte10 .cuadros {
   margin-right: 8px;
-  margin-left:8px ;
+  margin-left: 8px;
 }
 
 .parte11 {
- margin-left: 230px;
+  margin-left: 230px;
 }
-.parte11 .cuadros{
+.parte11 .cuadros {
   margin-right: 12.1px;
-  margin-left:12.1px ;
+  margin-left: 12.1px;
 }
 .parte12 {
   margin-left: 42%;
@@ -473,117 +462,101 @@ margin-left: 230px;
 }
 
 .sold_out {
-
   display: block;
- 
-  z-index:10;
 
-  margin-left:35%;
+  z-index: 10;
+
+  margin-left: 35%;
   position: absolute;
   overflow: hidden;
   width: 500px;
   height: 500px;
   margin-top: 180px;
-transform: rotate(30deg);
-
-   }
-  @media(max-width:1194px){
-    .sold_out{
+  transform: rotate(30deg);
+}
+@media (max-width: 1194px) {
+  .sold_out {
     margin-left: 30%;
   }
-  }
+}
 
-  @media(max-width:940px){
-    .sold_out{
+@media (max-width: 940px) {
+  .sold_out {
     margin-left: 25%;
   }
+}
+@media (max-width: 727px) {
+  .sold_out {
+    width: 400px;
+    height: 400px;
+    margin-top: 200px;
   }
-  @media(max-width:727px){
+}
 
-    .sold_out{
-      
-      width: 400px;
-      height: 400px;
-      margin-top: 200px;
-    }
-
+@media (max-width: 617px) {
+  .sold_out {
+    width: 350px;
+    height: 350px;
   }
+}
 
-  @media(max-width:617px){
-
-    .sold_out{
-
-      width: 350px;
-      height: 350px;
-    }
-
-    
+@media (max-width: 529px) {
+  .sold_out {
+    width: 330px;
+    height: 330px;
   }
+}
 
-  @media(max-width:529px){
-
-    .sold_out{
-
-      width: 330px;
-      height: 330px;
-    }
+@media (max-width: 473px) {
+  .sold_out {
+    width: 280px;
+    height: 280px;
   }
+}
 
-  
-  @media(max-width:473px){
-
-    .sold_out{
-
-      width: 280px;
-      height: 280px;
-    }
+@media (max-width: 407px) {
+  .sold_out {
+    margin-left: 10%;
   }
+}
+.informacion {
+  text-align: left;
+  margin-left: 11%;
+}
 
-    
-  @media(max-width:407px){
+.margenIzquierdo {
+  margin-left: 385px;
+}
 
-    .sold_out{
-      margin-left: 10%;
-    }
-  }
-  .informacion{
-    text-align: left;
-    margin-left: 11%;
-  }
-
- .margenIzquierdo{
-   margin-left: 385px;
- } 
-
- .tarimaMapa3 {
+.tarimaMapa3 {
   float: left;
   background-color: #333;
   height: 40px;
   color: white;
-  
+
   width: 330px;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
 }
-.margenl{
+.margenl {
   margin-left: 184px;
 }
-.izquierda{
-width: 15%;
-float:left;
-margin-top: 230px;
+.izquierda {
+  width: 15%;
+  float: left;
+  margin-top: 230px;
 }
-.arriba{
-width:85%;
-float:left
+.arriba {
+  width: 85%;
+  float: left;
 }
 .tarimaBooth {
   float: left;
   background-color: #333;
   height: 40px;
   color: white;
-  
+
   width: 135px;
   text-align: center;
   font-weight: bold;
@@ -595,22 +568,19 @@ float:left
   background-color: #333;
   height: 40px;
   color: white;
-  
+
   width: 273px;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
 }
 
-
-
-
 .tarimaBooth9 {
   float: left;
   background-color: #333;
   height: 60px;
   color: white;
-  margin:5px;
+  margin: 5px;
   width: 100px;
   text-align: center;
   font-weight: bold;
@@ -618,13 +588,12 @@ float:left
   margin-top: -20px;
 }
 
-
 .tarimaBooth10 {
   float: left;
   background-color: #333;
   height: 40px;
   color: white;
-  margin:5px;
+  margin: 5px;
   width: 200px;
   margin-left: 144px;
   text-align: center;
@@ -637,7 +606,7 @@ float:left
   background-color: #333;
   height: 40px;
   color: white;
-  margin:5px;
+  margin: 5px;
   width: 312px;
   margin-left: 103px;
   text-align: center;
@@ -650,7 +619,7 @@ float:left
   background-color: #333;
   height: 40px;
   color: white;
-  margin:5px;
+  margin: 5px;
   width: 200px;
   margin-left: 144px;
   text-align: center;
@@ -680,45 +649,37 @@ float:left
   font-weight: bold;
   font-size: 20px;
 }
-.margenIzqFrat{
+.margenIzqFrat {
   margin-left: 510px;
 }
-.ml-6{
+.ml-6 {
   margin-left: 185px;
-  
 }
 
-.ml-7{
+.ml-7 {
   margin-left: 40px;
 }
-.margen2izquierda{
+.margen2izquierda {
   margin-left: 140px;
   margin-right: 143px;
 }
 .tarimaAncha2 {
- 
   background-color: #333;
   width: 693px;
   height: 25px;
   line-height: 20px;
-  margin-top: -3px;  
+  margin-top: -3px;
   float: left;
   color: white;
   font-weight: bold;
   text-align: center;
 }
-.tarimaAncha2 span{
+.tarimaAncha2 span {
   margin-left: 15px;
   margin-right: 15px;
 }
 
-
-
-
 .vacio {
-
-
-
   float: left;
   margin-top: -3px;
   height: 46px;
@@ -732,151 +693,159 @@ float:left
 
   width: 25px;
   height: 46px;
-  
+
   margin: 3px;
   margin-top: -3px;
   float: left;
   font-size: 100%;
-  
+
   text-align: center;
-  color: white;font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
-.patrocionador2{
-  
+.patrocionador2 {
   background-color: #ed701c;
 
   width: 25px;
   height: 46px;
-  
+
   margin: 3px;
   margin-bottom: -3px;
-  
+
   float: left;
   font-size: 100%;
-  
+
   text-align: center;
-  color: white;font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 
-
-.localidadLibre{
+.localidadLibre {
   background-color: green;
-  width:549px;
+  width: 549px;
   height: 300px;
-  line-height:300px;
+  line-height: 300px;
   margin-bottom: -3px;
   float: left;
   text-align: center;
-  color: white;font-weight: bold;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 35px;;
+  font-size: 35px;
 }
 
-.localidadLibreSOLDOUT{
+.localidadLibreSOLDOUT {
   background-color: red;
-  width:549px;
+  width: 549px;
   height: 300px;
-  line-height:300px;
+  line-height: 300px;
   margin-bottom: -3px;
   float: left;
   text-align: center;
-  color: white;font-weight: bold;
-  
-  font-size: 35px;;
+  color: white;
+  font-weight: bold;
+
+  font-size: 35px;
 }
 
-.localidadLibreCuadro{
+.localidadLibreCuadro {
   background-color: green;
-  width:225px;
+  width: 225px;
   margin-left: 324px;
   height: 300px;
-  line-height:300px;
+  line-height: 300px;
   margin-bottom: -3px;
   float: left;
   text-align: center;
-  color: white;font-weight: bold;
-  cursor: pointer;
-  font-size: 35px;;
-}
-.localidadLibre2{
-  background-color: green;
-  width:100px;
-  height: 22px;
-  margin:3px;
-  margin-bottom: -3px;
-  float: left;
-  text-align: center;
-  color: white;font-weight: bold;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
   font-size: 35px;
 }
-.localidadLibre3{
+.localidadLibre2 {
   background-color: green;
-  width:100px;
+  width: 100px;
   height: 22px;
-  margin:3px;
+  margin: 3px;
+  margin-bottom: -3px;
+  float: left;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 35px;
+}
+.localidadLibre3 {
+  background-color: green;
+  width: 100px;
+  height: 22px;
+  margin: 3px;
   margin-bottom: -3px;
   float: left;
   font-size: 35px;
   text-align: center;
-  color: white;font-weight: bold;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
 }
-.localidadLibreLarga{
+.localidadLibreLarga {
   background-color: green;
-  width:336px;
+  width: 336px;
   height: 100px;
-  margin:3px;
+  margin: 3px;
   font-size: 30px;
-  
+
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
-float:left;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  float: left;
 }
 
-.localidadLibreLargaPerreo{
+.localidadLibreLargaPerreo {
   background-color: green;
-  width:550px;
+  width: 550px;
   height: 40px;
-  
+
   font-size: 50px;
   line-height: 300px;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
-float:left;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  float: left;
 }
-.localidadLibreLargaPerreo2{
+.localidadLibreLargaPerreo2 {
   background-color: green;
-  width:650px;
+  width: 650px;
   height: 40px;
-  
+
   font-size: 50px;
   line-height: 300px;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
-float:left;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  float: left;
 }
-.localidadLibreLargaPerreo3{
+.localidadLibreLargaPerreo3 {
   background-color: green;
-  width:1450px;
+  width: 1450px;
   height: 80px;
-  
+
   font-size: 40px;
   line-height: 80px;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
-
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
-.marge213{
-margin-left: 65px;
+.marge213 {
+  margin-left: 65px;
 }
-.marge214{
+.marge214 {
   margin-left: 112.5px;
-  }
+}
 .localidadLibreLargaPerreo4,
 .localidadLibreLargaPerreo5,
 .localidadLibreLargaPerreo6,
@@ -885,66 +854,65 @@ margin-left: 65px;
 .localidadLibreLargaPerreo9,
 .localidadLibreLargaPerreo10,
 .localidadLibreLargaPerreo11,
-.localidadLibreLargaPerreo12{
+.localidadLibreLargaPerreo12 {
   background-color: blue;
-  width:100px;
+  width: 100px;
   height: 40px;
-  float:left;
+  float: left;
   font-size: 15px;
   line-height: 40px;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
-
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
-.localidadLibreLargaPerreo5{
-  cursor:auto;
+.localidadLibreLargaPerreo5 {
+  cursor: auto;
 }
-.localidadLibreLargaPerreo5{
-line-height: 0px;
+.localidadLibreLargaPerreo5 {
+  line-height: 0px;
 }
 .localidadLibreLargaPerreo4,
 .localidadLibreLargaPerreo6,
 .localidadLibreLargaPerreo7,
 .localidadLibreLargaPerreo10,
 .localidadLibreLargaPerreo11,
-.localidadLibreLargaPerreo12{
+.localidadLibreLargaPerreo12 {
   background-color: green;
 }
 
-.localidadLibreLargaPerreo6{
+.localidadLibreLargaPerreo6 {
   width: 1250px;
   height: 40px;
 }
-.localidadLibreLargaPerreo7{
-  width:150px;
+.localidadLibreLargaPerreo7 {
+  width: 150px;
 }
-.localidadLibreLargaPerreo8{
+.localidadLibreLargaPerreo8 {
   background-color: rgb(199, 62, 199);
-  cursor:auto;
+  cursor: auto;
   font-size: 15px;
   line-height: 40px;
 }
-.localidadLibreLargaPerreo9{
+.localidadLibreLargaPerreo9 {
   background-color: rgb(231, 139, 0);
-  cursor:auto;
+  cursor: auto;
   width: 250px;
   font-size: 15px;
   line-height: 40px;
 }
-.localidadLibreLargaPerreo10{
+.localidadLibreLargaPerreo10 {
   width: 550px;
 }
-.localidadLibreLargaPerreo11{
+.localidadLibreLargaPerreo11 {
   width: 650px;
 }
-.localidadLibreLargaPerreo12{
+.localidadLibreLargaPerreo12 {
   width: 1450px;
 }
 
-
-.tarimaPerreo ,
-.comidas{
+.tarimaPerreo,
+.comidas {
   float: left;
   background-color: #333;
   margin-left: 127px;
@@ -954,255 +922,254 @@ line-height: 0px;
   text-align: center;
   font-weight: bold;
 }
-.comidas{
+.comidas {
   background-color: rgb(255, 60, 93);
 }
-.localidadLibreLargaVIP{
+.localidadLibreLargaVIP {
   background-color: rgb(255, 60, 93);
-  width:457px;
+  width: 457px;
   height: 200px;
-  margin:3px;
+  margin: 3px;
   font-size: 30px;
-  float:left;
+  float: left;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
-margin-top: -7px;
-
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: -7px;
 }
-.margen-90{
-  margin-left:185px;
+.margen-90 {
+  margin-left: 185px;
 }
-.localidadLibreCuadroVIP{
+.localidadLibreCuadroVIP {
   background-color: rgb(255, 60, 93);
-  width:365px;
+  width: 365px;
   height: 230px;
-  margin:3px;
+  margin: 3px;
   font-size: 30px;
-  float:left;
+  float: left;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
-
-
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
-.localidadLibreCuadroVIP2{
+.localidadLibreCuadroVIP2 {
   background-color: rgb(255, 60, 93);
-  width:109px;
+  width: 109px;
   height: 60px;
-  margin:3px;
+  margin: 3px;
   font-size: 30px;
-  float:left;
+  float: left;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
-margin-top: -10px;
-
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: -10px;
 }
-.localidadLibreLarga2{
+.localidadLibreLarga2 {
   background-color: green;
-  width:372px;
+  width: 372px;
   height: 100px;
-  margin:3px;
+  margin: 3px;
   font-size: 30px;
-  
-  text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
-float:left;
-}
 
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  float: left;
+}
 
 .libreVIPCorto {
   background-color: rgb(255, 60, 93);
   cursor: pointer;
   width: 34px;
   height: 46px;
-  
+
   margin-top: 3px;
   margin-bottom: -3px;
-  
+
   float: left;
   font-size: 100%;
-  
+
   text-align: center;
-  color: white;font-weight: bold;
+  color: white;
+  font-weight: bold;
 }
 .cuadros5 {
   background-color: rgb(187, 0, 131);
-   color:white;
- }
- .cuadros6 {
+  color: white;
+}
+.cuadros6 {
   background-color: rgb(6, 202, 81);
-   color:white;
- }
- .cuadros6 {
+  color: white;
+}
+.cuadros6 {
   background-color: rgb(255, 102, 0);
-   color:white;
- }
+  color: white;
+}
 
-
- .localidadLibreAgora1,
- .localidadLibreAgora2{
+.localidadLibreAgora1,
+.localidadLibreAgora2 {
   background-color: rgb(3, 92, 37);
-  width:274px;
+  width: 274px;
   height: 300px;
-  
+
   font-size: 26px;
   line-height: 300px;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
-
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
-.cuadros10{
+.cuadros10 {
   background-color: rgb(0, 162, 255);
-  color:white;
+  color: white;
 }
-.cuadros12{
+.cuadros12 {
   background-color: rgb(255, 0, 242);
-  color:white;
+  color: white;
 }
 
-.cuadros10:hover{
+.cuadros10:hover {
   background-color: rgb(0, 162, 255);
-  color:white;
+  color: white;
 }
-.localidadLibreAgora1:hover{
+.localidadLibreAgora1:hover {
   background-color: rgb(0, 150, 57);
 }
-.localidadLibreAgora2{
+.localidadLibreAgora2 {
   background-color: rgb(0, 162, 255);
   margin-top: 3px;
 }
-.localidadLibreAgora2:hover{
+.localidadLibreAgora2:hover {
   background-color: rgb(2, 112, 175);
 }
 
-.margenIzqRya{
+.margenIzqRya {
   margin-left: 45px;
 }
 
-
-.margenIzqRy2{
+.margenIzqRy2 {
   margin-left: 137px;
 }
-.margenIzqRy3{
+.margenIzqRy3 {
   margin-left: 430px;
 }
 
-.localidadLibreAgora3{
+.localidadLibreAgora3 {
   background-color: rgb(0, 162, 255);
 
-  width:370px;
+  width: 370px;
   height: 200px;
- 
+
   font-size: 26px;
   line-height: 200px;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
-
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.localidadLibreAF{
+.localidadLibreAF {
   background-color: rgb(0, 162, 255);
   margin-left: 1px;
-  width:344px;
+  width: 344px;
   height: 47px;
   float: left;
 }
-.localidadLibreAF2{
+.localidadLibreAF2 {
   background-color: rgb(0, 162, 255);
-  width:50px;
+  width: 50px;
   height: 50px;
   float: left;
   margin-top: 3px;
 }
-.localidadLibreAF3{
+.localidadLibreAF3 {
   background-color: rgb(0, 162, 255);
-  width:50px;
+  width: 50px;
   height: 50px;
   float: left;
   margin-top: -3px;
 }
-.localidadLibreAF4{
+.localidadLibreAF4 {
   background-color: rgb(0, 162, 255);
-  width:50px;
+  width: 50px;
   height: 50px;
   float: left;
   margin-top: -6px;
   margin-left: 1px;
 }
-.localidadLibreAF5{
+.localidadLibreAF5 {
   background-color: rgb(0, 162, 255);
-  width:50px;
+  width: 50px;
   height: 50px;
   float: left;
   margin-top: -3px;
 }
-.localidadLibreAF6{
+.localidadLibreAF6 {
   background-color: rgb(0, 162, 255);
-  width:50px;
+  width: 50px;
   height: 50px;
   float: left;
   margin-top: 3px;
   margin-left: 1px;
 }
-.localidadLibreAF7{
+.localidadLibreAF7 {
   background-color: rgb(0, 162, 255);
-  width:50px;
+  width: 50px;
   height: 50px;
   float: left;
   margin-top: -3px;
   margin-left: 1px;
 }
-.localidadLibreAgora4{
+.localidadLibreAgora4 {
   background-color: rgb(0, 162, 255);
 
-  width:465px;
+  width: 465px;
   height: 120px;
 
   font-size: 26px;
   line-height: 120px;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-
-
-.localidadLibrePABLO{
+.localidadLibrePABLO {
   background-color: rgb(0, 162, 255);
   float: left;
-  width:140px;
+  width: 140px;
   height: 40px;
   margin-right: 3px;
   margin-top: 3px;
   font-size: 18px;
   line-height: 40px;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
-.localidadLibrePABLO2{
+.localidadLibrePABLO2 {
   background-color: rgb(0, 162, 255);
   float: left;
-  width:140px;
+  width: 140px;
   height: 46px;
   margin-right: 3px;
   margin-top: -4px;
   font-size: 18px;
   line-height: 40px;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.localidadLibrePABLO3{
+.localidadLibrePABLO3 {
   background-color: rgb(255, 0, 191);
   float: left;
-  width:180px;
+  width: 180px;
   height: 46px;
   margin-right: 3px;
   margin-bottom: 3px;
@@ -1210,110 +1177,103 @@ cursor: pointer;
   font-size: 16px;
 
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.colorImportante{
- background-color: rgb(255, 0, 191) !important;
+.colorImportante {
+  background-color: rgb(255, 0, 191) !important;
 }
 
-.localidadLibreAgora5{
+.localidadLibreAgora5 {
   background-color: rgb(0, 162, 255);
 
-  width:100px;
+  width: 100px;
   height: 50px;
- float:left;
+  float: left;
   font-size: 26px;
   line-height: 120px;
   text-align: center;
-  color: white;font-weight: bold;
-cursor: pointer;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-
-.mrml{
-
-  margin-right:15.4px;
+.mrml {
+  margin-right: 15.4px;
 }
-.mrml2{
-
+.mrml2 {
   margin-right: 30.3px;
 }
-.mrml3{
-
+.mrml3 {
   margin-right: 30.3px;
 }
-.margencuadrito{
+.margencuadrito {
   margin-left: 45px;
 }
-.margencuadrito2{
+.margencuadrito2 {
   margin-left: 100px;
 }
-.margencuadrito3{
+.margencuadrito3 {
   margin-left: 42px;
 }
 
-.margencuadrito4{
+.margencuadrito4 {
   margin-left: 92px;
 }
-.margencuadrito5{
+.margencuadrito5 {
   margin-left: 87px;
 }
 
-.mra{
+.mra {
   margin-right: 10px;
 }
-.sinml .mrml:first-child{
+.sinml .mrml:first-child {
   margin-left: 5px;
 }
-.cuadros7{
+.cuadros7 {
   background-color: rgb(0, 150, 57);
 }
-.cuadros8{
+.cuadros8 {
   background-color: rgb(255, 102, 0);
 }
 
-.ver{
+.ver {
   display: none;
 }
 .ver p,
-.ver p{
-  color:#ed701c;
+.ver p {
+  color: #ed701c;
   font-weight: bolder;
   font-size: 20px;
-
 }
-@media(max-width:510px){
-  .tabla thead tr th{
-      font-size: 14px;
+@media (max-width: 510px) {
+  .tabla thead tr th {
+    font-size: 14px;
   }
-  .tabla button{
-      width: 100%;
-      border-radius: 0px;
+  .tabla button {
+    width: 100%;
+    border-radius: 0px;
   }
-
 }
-@media(max-width:515px){
-  .esconder{
-      overflow: scroll;
-      z-index: 1;
+@media (max-width: 515px) {
+  .esconder {
+    overflow: scroll;
+    z-index: 1;
   }
-  .ver{
-      display: block;
+  .ver {
+    display: block;
   }
 }
 
-.listaOr div:nth-child(2){
-margin-left: 5px !important;
+.listaOr div:nth-child(2) {
+  margin-left: 5px !important;
 }
-
-
 
 .mapa-largo {
   margin: 0px auto;
   width: 1850px;
-
 }
 
 .contenedor-mapa-largo {
@@ -1322,37 +1282,34 @@ margin-left: 5px !important;
   text-align: center;
   margin: 0px auto;
   margin-left: 2%;
-  
 }
-
 
 .localidadC,
 .localidadD,
 .C1,
 .C2,
-.localidadA{
-  float:left;
+.localidadA {
+  float: left;
 }
 
-
-.localidadD{
+.localidadD {
   width: 650px;
   margin-top: 105px;
 }
 
-.localidadC{
-  width: 500px;
+.localidadC {
+  width: 490px;
   margin-top: 105px;
 }
-.localidadA{
-  width:700px;
+.localidadA {
+  width: 650px;
 }
-.C1{
-  width: 250px;
+.C1 {
+  width: 230px;
 }
 
-.C2{
-  width: 250px;
+.C2 {
+  width: 240px;
 }
 
 .tarimaMaster {
@@ -1360,11 +1317,11 @@ margin-left: 5px !important;
   background-color: #333;
   height: 40px;
   color: white;
-  margin:3px;
+  margin: 3px;
   width: 86px;
   text-align: center;
   font-weight: bold;
-  line-height:30px;
+  line-height: 30px;
 }
 
 .tarimaMaster2 {
@@ -1372,12 +1329,12 @@ margin-left: 5px !important;
   background-color: #333;
   height: 62px;
   color: white;
-  margin:3px;
+  margin: 3px;
   margin-top: -19px;
   width: 86px;
   text-align: center;
   font-weight: bold;
-  line-height:30px;
+  line-height: 30px;
 }
 
 .tarimaCuadrito {
@@ -1385,25 +1342,24 @@ margin-left: 5px !important;
   background-color: #333;
   height: 47px;
   color: white;
-  margin:3px;
+  margin: 3px;
   margin-bottom: -4px;
   width: 80px;
   text-align: center;
   font-weight: bold;
-  line-height:30px;
+  line-height: 30px;
 }
 .tarimaCuadrito2 {
   float: left;
   background-color: #333;
   height: 47px;
   color: white;
-  margin:3px;
+  margin: 3px;
   margin-top: -4px;
   width: 80px;
   text-align: center;
   font-weight: bold;
-  line-height:30px;
-  
+  line-height: 30px;
 }
 
 .tarimaCuadrito3 {
@@ -1411,25 +1367,24 @@ margin-left: 5px !important;
   background-color: #333;
   height: 47px;
   color: white;
-  margin:3px;
+  margin: 3px;
   margin-bottom: -4px;
   width: 40px;
   text-align: center;
   font-weight: bold;
-  line-height:70px;
+  line-height: 70px;
 }
 .tarimaCuadrito4 {
   float: left;
   background-color: #333;
   height: 64px;
   color: white;
-  margin:3px;
+  margin: 3px;
   margin-top: -20px;
   width: 40px;
   text-align: center;
   font-weight: bold;
-  line-height:70px;
-  
+  line-height: 70px;
 }
 
 .tarimaLargaCalentura {
@@ -1437,38 +1392,36 @@ margin-left: 5px !important;
   background-color: #333;
   height: 55px;
   color: white;
-  margin:3px;
+  margin: 3px;
   margin-left: -3px;
   width: 184px;
   text-align: left;
   font-weight: bold;
-  
 }
 
 .cuadros10 {
   background-color: rgb(46, 194, 240);
-  color:white;
+  color: white;
 }
 
 .cuadros10:hover {
-  background-color: rgb(37, 156, 192) ;
-  color:white;
+  background-color: rgb(37, 156, 192);
+  color: white;
 }
-.margenArrib{
-  margin-top: 50px ;
+.margenArrib {
+  margin-top: 50px;
 }
 .localidadB,
-.localidadA{
-
+.localidadA {
+  margin-top: 7px;
+}
+.margenTopPequeno {
   margin-top: 15px;
 }
-.margenTopPequeno{
-  margin-top: 15px;
-}
 
-.largo{
-  height:63px;
-  line-height:50px;
+.largo {
+  height: 63px;
+  line-height: 50px;
 }
 
 .rojo {
@@ -1478,99 +1431,321 @@ margin-left: 5px !important;
 .rojo:hover {
   background-color: red !important;
 }
-.amarillo{
-  background-color:rgb(255, 153, 0) ;
+.amarillo {
+  background-color: rgb(255, 153, 0);
   cursor: auto;
 }
 
-.amarillo:hover{
-  background-color:rgb(255, 153, 0)!important ;
+.amarillo:hover {
+  background-color: rgb(255, 153, 0) !important ;
 }
-.colorVIP{
+.colorVIP {
   background-color: rgb(255, 60, 93);
 }
 
-.margenF {
-  
-  margin-left: 47px;
-}
-.margenF2 {
-  margin-left: 95px;
-}
-
-.margenF6 {
-  margin-left: 141px;
-}
-.margenF16 {
-  margin-left: 186px;
-}
-
-.margenF3 {
-  margin-left: 923px;
-}
-.margenF4 {
-  margin-left: 463px;
-}
-.margenF5 {
-  margin-left: 968px;
-}
-.margenF7 {
-  margin-left: 415px;
-}
-.margenF17 {
-  margin-left: 370px;
-}
-.margenF8 {
-  margin-left: 324px;
-}
-.margenF9 {
-  margin-left: 277px;
-}
-.margenF10 {
-  margin-left: 371px;
-}
-.margenF14 {
-  margin-left: 189px;
-}
-.margenF11 {
-  margin-left: 235px;
-}
-.margenF15 {
-  margin-left: 228px;
-}
-.margenF12 {
-  margin-left: 420px;
-}
-.margenF13 {
-  margin-left: 509px;
-}
-
-.margenF20 {
-  margin-left: 556px;
-}
-.margenF21 {
-  margin-left: 736px;
-}
-.margenPF{
-  margin-left: 1330px;
-}
-
-.opaco{
+.opaco {
   opacity: 0.3;
-  cursor:default;
+  cursor: default;
   background-color: #ccc;
 }
 
-.opaco:hover{
+.opaco:hover {
   background-color: #ccc;
- 
 }
 
-.seleccionado{
+.seleccionado {
   background-color: rgb(125, 255, 93);
-  color:white;
+  color: white;
 }
 
-.seleccionado:hover{
+.seleccionado:hover {
   background-color: rgb(101, 201, 77);
+}
+
+.doble {
+  width: 207px;
+  margin-left: 20px;
+}
+
+.ancho {
+  width: 86px;
+  height: 65px;
+  margin: 3px;
+  line-height: 60px;
+  font-weight: bold;
+}
+.alargado:first-child .cuadros {
+  height: 62px;
+  line-height: 62px;
+}
+
+.alargado2 .cuadros {
+  margin-top: 5px;
+  height: 43.5px;
+  line-height: 43.5px;
+}
+.alargado2:last-child .cuadros {
+  height: 67px;
+  line-height: 67px;
+}
+.alargado3 .cuadros {
+  margin-top: 5px;
+  height: 43.5px;
+  line-height: 43.5px;
+}
+.alargado3:last-child .cuadros {
+  height: 67px;
+  line-height: 67px;
+}
+
+.mt-40 {
+  margin-top: 46px;
+}
+.mitad {
+  width: 20px;
+  margin-left: -3px;
+  margin-top: 3px;
+}
+.espacioHorizontal {
+  float: left;
+  width: 17px;
+  height: 40px;
+  margin: 3px;
+}
+.tamanioAL {
+  width: 200px;
+  float: left;
+}
+.mt-6 {
+  margin-top: 23px;
+}
+
+.piso1-1 {
+  
+  width: 40px;
+  height: 153px;
+  float: left;
+  writing-mode: vertical-lr;
+  font-weight: bold;
+  transform: rotate(180deg);
+  margin-top: 141px;
+}
+
+
+
+.piso2-1 {
+  width: 40px;
+  height: 152px;
+  float: left;
+  writing-mode: vertical-lr;
+  font-weight: bold;
+  transform: rotate(180deg);
+}
+.piso2-2 {
+  width: 40px;
+  height: 92px;
+  float: left;
+
+  writing-mode: vertical-lr;
+  font-weight: bold;
+  transform: rotate(180deg);
+}
+
+.piso2-3 {
+  width: 40px;
+  height: 120px;
+  float: left;
+  writing-mode: vertical-lr;
+  font-weight: bold;
+}
+
+.piso2-4 {
+  width: 40px;
+  height: 140px;
+  float: left;
+  margin-top: 4px;
+  writing-mode: vertical-lr;
+  font-weight: bold;
+}
+
+.piso2-5 {
+  width: 136px;
+  height: 40px;
+
+  font-weight: bold;
+  margin-left: -28px;
+}
+
+.piso2-6 {
+  width: 130px;
+  height: 40px;
+  margin-left: 30px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.piso3-5 {
+  width: 202px;
+  height: 40px;
+
+  font-weight: bold;
+  margin-left: -94px;
+}
+
+.piso3-6 {
+  width: 173px;
+  height: 40px;
+  margin-left: 30px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.piso3-1 {
+  width: 40px;
+  height: 380px;
+  float: left;
+  writing-mode: vertical-lr;
+  font-weight: bold;
+  transform: rotate(180deg);
+}
+.piso3-2 {
+  margin-top: -10px;
+  width: 40px;
+  height: 375px;
+  float: left;
+  writing-mode: vertical-lr;
+  font-weight: bold;
+  transform: rotate(180deg);
+}
+.piso4-5 {
+  width: 242px;
+  height: 40px;
+
+  font-weight: bold;
+  margin-left: -134px;
+}
+
+.piso4-6 {
+  width: 223px;
+  height: 40px;
+  margin-left: 30px;
+  font-weight: bold;
+  font-size: 15px;
+}
+.rotar {
+  transform: rotate(0deg);
+}
+.margen-negativo {
+  margin-left: -140px;
+  width: 50px;
+}
+
+.margen-negativo2 {
+  margin-left: -92px;
+}
+.margen-negativo3 {
+  margin-left: -45px;
+}
+
+.margen-negativo4 {
+  margin-left: -137px;
+  width: 50px;
+}
+
+
+.mt-VIP {
+  margin-top: 138px;
+}
+.mt-VIP2 {
+  margin-top: 95px;
+}
+.mt-VIP3 {
+  margin-top: 260px;
+}
+.cuadrosPalcos {
+  background-color: #049b75;
+  color: #fff;
+}
+
+.cuadrosPalcos:hover {
+  background-color: #014e3b;
+  color: #fff;
+}
+.cuadrosPalcos3 {
+  background-color: #020086;
+  color: #fff;
+}
+.cuadrosPalcos3:hover {
+  background-color: #02013b;
+  color: #fff;
+}
+
+.cuadrosPalcos4 {
+  background-color: #f76402;
+  color: #fff;
+}
+
+.cuadrosPalcos4:hover {
+  background-color: #bd4b00;
+  color: #fff;
+}
+
+.cuadrosPalcos5 {
+  background-color: #d303b0;
+  color: #fff;
+}
+
+.cuadrosPalcos5:hover {
+  background-color: #880572;
+  color: #fff;
+}
+.piso1-2 {
+  
+  width: 40px;
+  height: 116px;
+  float: left;
+  writing-mode: vertical-lr;
+  font-weight: bold;
+  transform: rotate(180deg);
+  margin-top: 141px;
+}
+
+
+.piso1-3 {
+  
+  width: 40px;
+  height: 92px;
+  float: left;
+  writing-mode: vertical-lr;
+  font-weight: bold;
+  transform: rotate(180deg);
+
+}
+
+.piso1-4{
+  
+  width: 40px;
+  height: 120px;
+  float: left;
+  writing-mode: vertical-lr;
+  font-weight: bold;
+  transform: rotate(180deg);
+  margin-top: 50px;
+
+}
+.mitad2 {
+  width: 110px;
+  margin-left: -3px;
+  margin-top: 3px;
+}
+
+.mitad3 {
+  width: 130px;
+  margin-left: 30px;
+  margin-top: 3px;
+}
+
+.width-50 {
+  float: left;
+  width: 50px;
 }

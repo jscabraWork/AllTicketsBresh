@@ -1,0 +1,42 @@
+th{
+    background:linear-gradient(#666, #333);
+    color: white;
+}
+td{
+    background-color: white;
+}
+
+.tabla{
+    text-align: center;
+    width: 100%;
+}
+@media(max-width:1620px)
+{
+    .tabla{
+        width: 1620px;
+        
+    }
+    .esconder{
+        overflow-x: scroll;
+    }
+    
+}
+#desplzate p,
+#desplazate p{
+  color:#ed701c;
+  font-weight: bolder;
+  font-size: 20px;
+
+}
+
+#desplzate,
+#desplazate{
+  display:none;
+  text-align: center;
+}
+
+@media(max-width:1620px){
+    #desplazate{
+      display: block;
+    }
+}

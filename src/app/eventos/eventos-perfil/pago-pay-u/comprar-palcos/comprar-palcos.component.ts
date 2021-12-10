@@ -145,6 +145,8 @@ export class ComprarPalcosComponent implements OnInit {
 
   localidadCargadaBoletas: Localidad;
   localidadCargadaBoletasVIP: Localidad;
+  localidadCargadaBoletasVIPPiso1: Localidad;
+  localidadCargadaBoletasGeneralPiso2: Localidad;
   contadorBoletas;
   codigoVenta;
   boletas:Boleta[]
@@ -264,6 +266,90 @@ export class ComprarPalcosComponent implements OnInit {
     this.IVA = IVA;
 
     this.localidadCargada = {
+      id: null,
+      nombre: '',
+      precio: null,
+      boletas: [],
+      servicio: null,
+      nombreEtapa: null,
+      boletasPatrocinio: [],
+      palcos: [
+        {
+          id: null,
+          nombre: null,
+          nombreEvento: null,
+          personasAdentro: 6,
+          personasMaximas: null,
+          precio: null,
+          precioParcialPagado: null,
+          reservado: null,
+          servicio: null,
+          vendido: null,
+          numeroDentroDeEvento: null,
+          fechaVendido: null,
+          servicioIva: null,
+          proceso: null,
+          disponible: null,
+          idLocalidad: null,
+          reserva: null,
+          precioAlterno: null,
+          servicioAlterno: null,
+          servicioIvaAlterno: null,
+          adiciones: null,
+          maximoAdiciones: null,
+          precioAdicion: null,
+          servicioAdicion: null,
+          servicioIvaAdicion: null,
+        },
+      ],
+      servicioPorcentaje: null,
+      efectivo: false,
+      maximoVender:null
+    };
+
+    this.localidadCargadaBoletasVIPPiso1 = {
+      id: null,
+      nombre: '',
+      precio: null,
+      boletas: [],
+      servicio: null,
+      nombreEtapa: null,
+      boletasPatrocinio: [],
+      palcos: [
+        {
+          id: null,
+          nombre: null,
+          nombreEvento: null,
+          personasAdentro: 6,
+          personasMaximas: null,
+          precio: null,
+          precioParcialPagado: null,
+          reservado: null,
+          servicio: null,
+          vendido: null,
+          numeroDentroDeEvento: null,
+          fechaVendido: null,
+          servicioIva: null,
+          proceso: null,
+          disponible: null,
+          idLocalidad: null,
+          reserva: null,
+          precioAlterno: null,
+          servicioAlterno: null,
+          servicioIvaAlterno: null,
+          adiciones: null,
+          maximoAdiciones: null,
+          precioAdicion: null,
+          servicioAdicion: null,
+          servicioIvaAdicion: null,
+        },
+      ],
+      servicioPorcentaje: null,
+      efectivo: false,
+      maximoVender:null
+    };
+
+    this.localidadCargadaBoletasGeneralPiso2 = {
       id: null,
       nombre: '',
       precio: null,
@@ -702,8 +788,13 @@ export class ComprarPalcosComponent implements OnInit {
                     
 
                   }
+                  else if (this.etapas[i].localidades[j].nombre == 'Palcos Aranjuez Boleta Individial') {
+                    this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
+                    
 
-                  else if (this.etapas[i].localidades[j].nombre == 'General') {
+                  }
+                   
+                  else if (this.etapas[i].localidades[j].nombre == 'Palco Neaz Boleta Individial') {
                     this.localidadCargadaBoletas = this.etapas[i].localidades[j];
                     
 
@@ -783,32 +874,33 @@ export class ComprarPalcosComponent implements OnInit {
 
 
                   if (
-                    this.etapas[i].localidades[j].nombre == 'Palcos'
+                    this.etapas[i].localidades[j].nombre == 'Palcos Cinco Letras'
                   ) {
                 
                     this.localidadCargadaGeneral =
                       this.etapas[i].localidades[j];
                 }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'Platea') {
+                  else if (this.etapas[i].localidades[j].nombre == 'Palcos VIP') {
                     this.localidadCargada = this.etapas[i].localidades[j];
                     
 
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'Balcón Delantero') {
+                  else if (this.etapas[i].localidades[j].nombre == 'General') {
                     this.localidadCargadaBoletas = this.etapas[i].localidades[j];
                     
 
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'Balcón Posterior') {
-                    this.localidadCargadaPreferecial =
+
+                  else if (this.etapas[i].localidades[j].nombre == 'VIP') {
+                    this.localidadCargadaBoletasVIPPiso1 =
                       this.etapas[i].localidades[j];
                       
                   }
-                  else if (this.etapas[i].localidades[j].nombre == 'Segundo Balcón') {
-                    this.localidadCargadaBoletasVIP =
+                  else if (this.etapas[i].localidades[j].nombre == 'Palcos General') {
+                    this.localidadCargadaBoletasGeneralPiso2 =
                       this.etapas[i].localidades[j];
                       
                   }
@@ -1021,28 +1113,30 @@ export class ComprarPalcosComponent implements OnInit {
   }
   
   cargarLocalidadEnMapa2(){
-    for(let i=0;i<4;i++){
+    for(let i=0;i<3;i++){
       if (
-        this.localidadCargadaGeneral.palcos[i].vendido ||
-        this.localidadCargadaGeneral.palcos[i].reservado ||
-        !this.localidadCargadaGeneral.palcos[i].disponible
+        this.localidadCargadaGeneral.palcos[i+1].vendido ||
+        this.localidadCargadaGeneral.palcos[i+1].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+1].disponible
       ) {
         this.lista1[i].valor = 'v';
-      } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+      } else if (this.localidadCargadaGeneral.palcos[i+1].proceso) {
         this.lista1[i].valor = 'p';
       }
 
       if (
-        this.localidadCargadaGeneral.palcos[i+7].vendido ||
-        this.localidadCargadaGeneral.palcos[i+7].reservado ||
-        !this.localidadCargadaGeneral.palcos[i+7].disponible
+        this.localidadCargadaGeneral.palcos[i+8].vendido ||
+        this.localidadCargadaGeneral.palcos[i+8].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+8].disponible
       ) {
         this.lista3[i].valor = 'v';
-      } else if (this.localidadCargadaGeneral.palcos[i+7].proceso) {
+      } else if (this.localidadCargadaGeneral.palcos[i+8].proceso) {
         this.lista3[i].valor = 'p';
       }
     }
-    for(let i=0;i<3;i++){
+
+    
+    for(let i=0;i<2;i++){
       if (
         this.localidadCargadaGeneral.palcos[i+4].vendido ||
         this.localidadCargadaGeneral.palcos[i+4].reservado ||
@@ -1074,42 +1168,50 @@ export class ComprarPalcosComponent implements OnInit {
       }
 
 
+    }
+
+
+
+    for(let i=0;i<10;i++){
+    
+
+
 
       if (
-        this.localidadCargada.palcos[i].vendido ||
-        this.localidadCargada.palcos[i].reservado ||
-        !this.localidadCargada.palcos[i].disponible
+        this.localidadCargada.palcos[i+1].vendido ||
+        this.localidadCargada.palcos[i+1].reservado ||
+        !this.localidadCargada.palcos[i+1].disponible
       ) {
         this.lista6[i].valor = 'v';
-      } else if (this.localidadCargada.palcos[i].proceso) {
+      } else if (this.localidadCargada.palcos[i+1].proceso) {
         this.lista6[i].valor = 'p';
       }
 
       if (
-        this.localidadCargada.palcos[i+12].vendido ||
-        this.localidadCargada.palcos[i+12].reservado ||
-        !this.localidadCargada.palcos[i+12].disponible
+        this.localidadCargada.palcos[i+13].vendido ||
+        this.localidadCargada.palcos[i+13].reservado ||
+        !this.localidadCargada.palcos[i+13].disponible
       ) {
         this.lista7[i].valor = 'v';
-      } else if (this.localidadCargada.palcos[i+12].proceso) {
+      } else if (this.localidadCargada.palcos[i+13].proceso) {
         this.lista7[i].valor = 'p';
       }
     }
   }
   ponerNumerosMapa2() {
 
-    for(let i=1;i<5;i++){
-      this.lista1[i-1] = {
+    for(let i=2;i<5;i++){
+      this.lista1[i-2] = {
         valor:  i,
         localidad: 'oro',
       };
-      this.lista3[i-1] = {
+      this.lista3[i-2] = {
         valor:  i+7,
         localidad: 'oro',
       };
     }
 
-    for(let i=1;i<4;i++){
+    for(let i=1;i<3;i++){
       this.lista2[i-1] = {
         valor:  i+4,
         localidad: 'oro',
@@ -1125,11 +1227,16 @@ export class ComprarPalcosComponent implements OnInit {
         valor:  i+14,
         localidad: 'oro',
       };
-      this.lista6[i-1] = {
+  
+    }
+
+    for(let i=2;i<12;i++){
+ 
+      this.lista6[i-2] = {
         valor:  i+26,
         localidad: 'prem',
       };
-      this.lista7[i-1] = {
+      this.lista7[i-2] = {
         valor:  i+38,
         localidad: 'prem',
       };
@@ -1147,20 +1254,20 @@ export class ComprarPalcosComponent implements OnInit {
         localidad: 'prem',
       };
 
-    
-     
+      this.lista2[i-1] = {
+        valor: 'A'+ (i+5),
+        localidad: 'oro',
+      };
+      this.lista4[i-1] = {
+        valor: 'B'+ (i+5),
+        localidad: 'prem',
+      };
     }
    for(let i=0;i<5;i++){
-    this.lista2[i-1] = {
-      valor: 'A'+ (i+5),
-      localidad: 'oro',
-    };
+  
     
 
-    this.lista4[i-1] = {
-      valor: 'B'+ (i+5),
-      localidad: 'prem',
-    };
+
     this.lista5[i-1] = {
       valor: 'v',
       localidad: 'prem',
@@ -1168,1437 +1275,308 @@ export class ComprarPalcosComponent implements OnInit {
    }
   }
   cargarLocalidadEnMapa4(){
-
-    for(let i=0;i<3;i++){
-
-
-      if (
-        this.localidadCargadaGeneral.boletas[i].vendida 
-       || this.localidadCargadaGeneral.boletas[i].reserva 
-      ) {
-        this.lista31[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'norm',
-          seleccionado:false
-        };
-      } else if (this.localidadCargadaGeneral.boletas[i].reservado) {
-        this.lista31[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'norm',
-          seleccionado:false
-        };
-        
-      }
-      else if (!this.localidadCargadaGeneral.boletas[i].disponible) {
-        this.lista31[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'norm',
-          seleccionado:false
-        };
-        
-      }
-      else if (!this.localidadCargadaGeneral.boletas[i].reservado && !this.localidadCargadaGeneral.boletas[i].vendida) {
-        this.lista31[i] = {
-          id:this.localidadCargadaGeneral.boletas[i].id,
-          valor: this.localidadCargadaGeneral.boletas[i].seccionSilla,
-          localidad: 'norm',
-          seleccionado:false
-        };
-      }
-
-
-      if (
-        this.localidadCargadaGeneral.boletas[i+5].vendida 
-        || this.localidadCargadaGeneral.boletas[i+5].reserva 
-      ) {
-        this.lista33[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'norm',
-          seleccionado:false
-        };
-      } else if (this.localidadCargadaGeneral.boletas[i+5].reservado) {
-        this.lista33[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'norm',
-          seleccionado:false
-        };
-        
-      }
-      else if (!this.localidadCargadaGeneral.boletas[i+5].disponible) {
-        this.lista33[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'norm',
-          seleccionado:false
-        };
-        
-      }
-      else if (!this.localidadCargadaGeneral.boletas[i+5].reservado && !this.localidadCargadaGeneral.boletas[i+5].vendida) {
-        this.lista33[i] = {
-          id:this.localidadCargadaGeneral.boletas[i+5].id,
-          valor: this.localidadCargadaGeneral.boletas[i+5].seccionSilla,
-          localidad: 'norm',
-          seleccionado:false
-        };
-      }
-
-
-          
-    }
-
-    for(let i=0;i<2;i++){
-
-      
-      if (
-        this.localidadCargadaGeneral.boletas[i+3].vendida 
-        || this.localidadCargadaGeneral.boletas[i+3].reserva 
-      ) {
-        this.lista32[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'norm',
-          seleccionado:false
-        };
-      } else if (this.localidadCargadaGeneral.boletas[i+3].reservado) {
-        this.lista32[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'norm',
-          seleccionado:false
-        };
-        
-      }
-      else if (!this.localidadCargadaGeneral.boletas[i+3].disponible) {
-        this.lista32[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'norm',
-          seleccionado:false
-        };
-        
-      }
-      else if (!this.localidadCargadaGeneral.boletas[i+3].reservado && !this.localidadCargadaGeneral.boletas[i+3].vendida) {
-        this.lista32[i] = {
-          id:this.localidadCargadaGeneral.boletas[i+3].id,
-          valor: this.localidadCargadaGeneral.boletas[i+3].seccionSilla,
-          localidad: 'norm',
-          seleccionado:false
-        };
-      }
-
-
-      if (
-        this.localidadCargadaGeneral.boletas[i+10].vendida 
-        || this.localidadCargadaGeneral.boletas[i+10].reserva 
-      ) {
-        this.lista35[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'norm',
-          seleccionado:false
-        };
-      } else if (this.localidadCargadaGeneral.boletas[i+10].reservado) {
-        this.lista35[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'norm',
-          seleccionado:false
-        };
-        
-      }
-      else if (!this.localidadCargadaGeneral.boletas[i+10].disponible) {
-        this.lista35[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'norm',
-          seleccionado:false
-        };
-        
-      }
-
-      else if (!this.localidadCargadaGeneral.boletas[i+10].reservado && !this.localidadCargadaGeneral.boletas[i+10].vendida) {
-        this.lista35[i] = {
-          id:this.localidadCargadaGeneral.boletas[i+10].id,
-          valor: this.localidadCargadaGeneral.boletas[i+10].seccionSilla,
-          localidad: 'norm',
-          seleccionado:false
-        };
-      }
-
-
-      if (
-        this.localidadCargadaGeneral.boletas[i+8].vendida 
-       || this.localidadCargadaGeneral.boletas[i+8].reserva 
-      ) {
-        this.lista34[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'norm',
-          seleccionado:false
-        };
-      } else if (this.localidadCargadaGeneral.boletas[i+8].reservado) {
-        this.lista34[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'norm',
-          seleccionado:false
-        };
-        
-      }
-      else if (!this.localidadCargadaGeneral.boletas[i+8].disponible) {
-        this.lista34[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'norm',
-          seleccionado:false
-        };
-      }
-      else if (!this.localidadCargadaGeneral.boletas[i+8].reservado && !this.localidadCargadaGeneral.boletas[i+8].vendida) {
-        this.lista34[i] = {
-          id:this.localidadCargadaGeneral.boletas[i+8].id,
-          valor: this.localidadCargadaGeneral.boletas[i+8].seccionSilla,
-          localidad: 'norm',
-          seleccionado:false
-        };
-      }
-
-
-
-      if (
-        this.localidadCargadaGeneral.boletas[i+12].vendida 
-        || this.localidadCargadaGeneral.boletas[i+12].reserva 
-      ) {
-        this.lista36[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'norm',
-          seleccionado:false
-        };
-      } else if (this.localidadCargadaGeneral.boletas[i+12].reservado) {
-        this.lista36[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'norm',
-          seleccionado:false
-        };
-        
-      }
-      else if (!this.localidadCargadaGeneral.boletas[i+12].disponible) {
-        this.lista36[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'norm',
-          seleccionado:false
-        }}
-
-      else if (!this.localidadCargadaGeneral.boletas[i+12].reservado && !this.localidadCargadaGeneral.boletas[i+12].vendida) {
-        this.lista36[i] = {
-          id:this.localidadCargadaGeneral.boletas[i+12].id,
-          valor: this.localidadCargadaGeneral.boletas[i+12].seccionSilla,
-          localidad: 'norm',
-          seleccionado:false
-        };
-      }
-
-    }
-
-    
-
-    for(let i=0;i<10;i++){
-      
-      if (
-        this.localidadCargadaBoletasVIP.boletas[i].vendida 
-        || this.localidadCargadaBoletasVIP.boletas[i].reserva 
-      ) {
-        this.lista1[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'oro',
-          seleccionado:false
-        };
-      } else if (this.localidadCargadaBoletasVIP.boletas[i].reservado) {
-        this.lista1[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'oro',
-          seleccionado:false
-        };
-        
-      }
-      else if (!this.localidadCargadaBoletasVIP.boletas[i].disponible) {
-        this.lista1[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'oro',
-          seleccionado:false
-        };}
-
-      else if (!this.localidadCargadaBoletasVIP.boletas[i].reservado && !this.localidadCargadaBoletasVIP.boletas[i].vendida) {
-        this.lista1[i] = {
-          id:this.localidadCargadaBoletasVIP.boletas[i].id,
-          valor: this.localidadCargadaBoletasVIP.boletas[i].seccionSilla,
-          localidad: 'oro',
-          seleccionado:false
-        };
-      }
-    
-    }
-
-    for(let i=0;i<34;i++){
-      
-      if (
-        this.localidadCargadaBoletasVIP.boletas[i+10].vendida 
-        || this.localidadCargadaBoletasVIP.boletas[i+10].reserva 
-      ) {
-        this.lista2[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'oro',
-          seleccionado:false
-        };
-      } else if (this.localidadCargadaBoletasVIP.boletas[i+10].reservado) {
-        this.lista2[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'oro',
-          seleccionado:false
-        };
-        
-      }
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+10].disponible) {
-        this.lista2[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'oro',
-          seleccionado:false
-        };}
-
-
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+10].reservado && !this.localidadCargadaBoletasVIP.boletas[i+10].vendida) {
-        this.lista2[i] = {
-          id:this.localidadCargadaBoletasVIP.boletas[i+10].id,
-          valor: this.localidadCargadaBoletasVIP.boletas[i+10].seccionSilla,
-          localidad: 'oro',
-        };
-      }
-    
-    }
-
-
-    for(let i=0;i<24;i++){
-
-      if (
-        this.localidadCargadaPreferecial.boletas[i+174].vendida 
-      ||  this.localidadCargadaPreferecial.boletas[i+174].reserva 
-      ) {
-        this.lista17[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'prem',
-          seleccionado:false
-        };
-      } else if (this.localidadCargadaPreferecial.boletas[i+174].reservado) {
-        this.lista17[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'prem',
-          seleccionado:false,
-        };     
-      }
-      else if (!this.localidadCargadaPreferecial.boletas[i+174].disponible) {
-        this.lista17[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'prem',
-          seleccionado:false,
-        };}
-
-
-      else if (!this.localidadCargadaPreferecial.boletas[i+174].reservado && !this.localidadCargadaPreferecial.boletas[i+174].vendida) {
-        this.lista17[i] = {
-          id:this.localidadCargadaPreferecial.boletas[i+174].id,
-          valor: this.localidadCargadaPreferecial.boletas[i+174].seccionSilla,
-          localidad: 'prem',
-          seleccionado:false,
-        };
-      }
-
-      if (
-        this.localidadCargadaPreferecial.boletas[i+48].vendida 
-       || this.localidadCargadaPreferecial.boletas[i+48].reserva 
-      ) {
-        this.lista11[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'prem',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargadaPreferecial.boletas[i+48].reservado) {
-        this.lista11[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'prem',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargadaPreferecial.boletas[i+48].disponible) {
-        this.lista11[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'prem',
-          seleccionado:false,
-        };}
-
-
-      else if (!this.localidadCargadaPreferecial.boletas[i+48].reservado && !this.localidadCargadaPreferecial.boletas[i+48].vendida) {
-        this.lista11[i] = {
-          id:this.localidadCargadaPreferecial.boletas[i+48].id,
-          valor: this.localidadCargadaPreferecial.boletas[i+48].seccionSilla,
-          localidad: 'prem',
-          seleccionado:false,
-        };
-      }
-          
-      
-      if (
-        this.localidadCargadaBoletasVIP.boletas[i+44].vendida 
-        || this.localidadCargadaBoletasVIP.boletas[i+44].reserva 
-      ) {
-        this.lista3[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargadaBoletasVIP.boletas[i+44].reservado) {
-        this.lista3[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-        
-      }
-
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+44].disponible) {
-        this.lista3[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'oro',
-          seleccionado:false,
-        };}
-
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+44].reservado && !this.localidadCargadaBoletasVIP.boletas[i+44].vendida) {
-        this.lista3[i] = {
-          id:this.localidadCargadaBoletasVIP.boletas[i+44].id,
-          valor: this.localidadCargadaBoletasVIP.boletas[i+44].seccionSilla,
-          localidad: 'oro',
-          seleccionado:false,
-        };
-      }
-
-      if (
-        this.localidadCargada.boletas[i].vendida 
-        || this.localidadCargada.boletas[i].vendida 
-      ) {
-        this.lista21[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'vip',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargada.boletas[i].reservado) {
-        this.lista21[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'vip',
-          seleccionado:false,
-        };
-        
-      }
-
-      else if (!this.localidadCargada.boletas[i].disponible) {
-        this.lista21[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'vip',
-          seleccionado:false,
-        };
-        
-      }      
-      else if (!this.localidadCargada.boletas[i].reservado && !this.localidadCargada.boletas[i].vendida) {
-        this.lista21[i] = {
-          id:this.localidadCargada.boletas[i].id,
-          valor: this.localidadCargada.boletas[i].seccionSilla,
-          localidad: 'vip',
-          seleccionado:false,
-        };
-      }
-    }
-
-
-    for(let i=0;i<32;i++){
-      
-      if (
-        this.localidadCargadaBoletasVIP.boletas[i+68].vendida 
-        || this.localidadCargadaBoletasVIP.boletas[i+68].reserva 
-      ) {
-        this.lista4[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargadaBoletasVIP.boletas[i+68].reservado) {
-        this.lista4[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+68].disponible) {
-        this.lista4[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-        
-      }
-      
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+68].reservado && !this.localidadCargadaBoletasVIP.boletas[i+68].vendida) {
-        this.lista4[i] = {
-          id:this.localidadCargadaBoletasVIP.boletas[i+68].id,
-          valor: this.localidadCargadaBoletasVIP.boletas[i+68].seccionSilla,
-          localidad: 'oro',
-          seleccionado:false,
-        };
-      }
-
-
-
-
-      if (
-        this.localidadCargadaBoletasVIP.boletas[i+128].vendida 
-        || this.localidadCargadaBoletasVIP.boletas[i+128].reserva 
-      ) {
-        this.lista6[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargadaBoletasVIP.boletas[i+128].reservado) {
-        this.lista6[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+128].disponible) {
-        this.lista6[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+128].reservado && !this.localidadCargadaBoletasVIP.boletas[i+128].vendida) {
-        this.lista6[i] = {
-          id:this.localidadCargadaBoletasVIP.boletas[i+128].id,
-          valor: this.localidadCargadaBoletasVIP.boletas[i+128].seccionSilla,
-          localidad: 'oro',
-          seleccionado:false,
-        };
-      }
-
-
-      if (
-        this.localidadCargadaBoletasVIP.boletas[i+160].vendida 
-        ||
-        this.localidadCargadaBoletasVIP.boletas[i+160].reserva 
-      ) {
-        this.lista7[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargadaBoletasVIP.boletas[i+160].reservado) {
-        this.lista7[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+160].disponible) {
-        this.lista7[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+160].reservado && !this.localidadCargadaBoletasVIP.boletas[i+160].vendida) {
-        this.lista7[i] = {
-          id:this.localidadCargadaBoletasVIP.boletas[i+160].id,
-          valor: this.localidadCargadaBoletasVIP.boletas[i+160].seccionSilla,
-          localidad: 'oro',
-          seleccionado:false,
-        };
-      }
-         
-    }
-
-
-    for(let i=0;i<28;i++){
-      
-      if (
-        this.localidadCargadaBoletasVIP.boletas[i+100].vendida 
-        || this.localidadCargadaBoletasVIP.boletas[i+100].reserva 
-      ) {
-        this.lista5[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargadaBoletasVIP.boletas[i+100].reservado) {
-        this.lista5[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+100].disponible) {
-        this.lista5[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'oro',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargadaBoletasVIP.boletas[i+100].reservado && !this.localidadCargadaBoletasVIP.boletas[i+100].vendida) {
-        this.lista5[i] = {
-          id:this.localidadCargadaBoletasVIP.boletas[i+100].id,
-          valor: this.localidadCargadaBoletasVIP.boletas[i+100].seccionSilla,
-          localidad: 'oro',
-          seleccionado:false,
-        };
-      }
-         
-    }
-
-    for(let i=0;i<17;i++){
-      if (
-        this.localidadCargada.boletas[i+98].vendida 
-        ||this.localidadCargada.boletas[i+98].reserva 
-      ) {
-        this.lista26[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'vip',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargada.boletas[i+98].reservado) {
-        this.lista26[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'vip',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargada.boletas[i+98].disponible) {
-        this.lista26[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'vip',
-          seleccionado:false,
-        };
-        
-      }
-
-      else if (!this.localidadCargada.boletas[i+98].reservado && !this.localidadCargada.boletas[i+98].vendida) {
-        this.lista26[i] = {
-          id:this.localidadCargada.boletas[i+98].id,
-          valor: this.localidadCargada.boletas[i+98].seccionSilla,
-          localidad: 'vip',
-          seleccionado:false,
-        };
-      }
-
-      if (
-        this.localidadCargada.boletas[i+63].vendida 
-        || this.localidadCargada.boletas[i+63].reserva 
-      ) {
-        this.lista24[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'vip',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargada.boletas[i+63].reservado) {
-        this.lista24[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'vip',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargada.boletas[i+63].disponible) {
-        this.lista24[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'vip',
-          seleccionado:false,
-        };
-      }
-
-
-      else if (!this.localidadCargada.boletas[i+63].reservado && !this.localidadCargada.boletas[i+63].vendida) {
-        this.lista24[i] = {
-          id:this.localidadCargada.boletas[i+63].id,
-          valor: this.localidadCargada.boletas[i+63].seccionSilla,
-          localidad: 'vip',
-          seleccionado:false,
-        };
-      }
-      
-
-      if (
-        this.localidadCargadaPreferecial.boletas[i].vendida 
-        || this.localidadCargadaPreferecial.boletas[i].reserva 
-      ) {
-        this.lista8[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'prem',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargadaPreferecial.boletas[i].reservado) {
-        this.lista8[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'prem',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargadaPreferecial.boletas[i].disponible) {
-        this.lista8[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'prem',
-          seleccionado:false,
-        };}
-
-      else if (!this.localidadCargadaPreferecial.boletas[i].reservado && !this.localidadCargadaPreferecial.boletas[i].vendida) {
-        this.lista8[i] = {
-          id:this.localidadCargadaPreferecial.boletas[i].id,
-          valor: this.localidadCargadaPreferecial.boletas[i].seccionSilla,
-          localidad: 'prem',
-          seleccionado:false,
-        };
-      }
-
-    }
-
-
-
-    for(let i=0;i<15;i++){
-
-      if (
-        this.localidadCargadaPreferecial.boletas[i+33].vendida 
-        || this.localidadCargadaPreferecial.boletas[i+33].reserva 
-      ) {
-        this.lista10[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'prem',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargadaPreferecial.boletas[i+33].reservado) {
-        this.lista10[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'prem',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargadaPreferecial.boletas[i+33].disponible) {
-        this.lista10[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'prem',
-          seleccionado:false,
-        };
-      }
-      else if (!this.localidadCargadaPreferecial.boletas[i+33].reservado && !this.localidadCargadaPreferecial.boletas[i+33].vendida) {
-        this.lista10[i] = {
-          id:this.localidadCargadaPreferecial.boletas[i+33].id,
-          valor: this.localidadCargadaPreferecial.boletas[i+33].seccionSilla,
-          localidad: 'prem',
-          seleccionado:false,
-        };
-      }
-
-
-      if (
-        this.localidadCargadaPreferecial.boletas[i+72].vendida 
-        || this.localidadCargadaPreferecial.boletas[i+72].reserva 
-      ) {
-        this.lista12[i] = {
-          id:null,
-          valor: 'v',
-          localidad: 'prem',
-          seleccionado:false,
-        };
-      } else if (this.localidadCargadaPreferecial.boletas[i+72].reservado) {
-        this.lista12[i] = {
-          id:null,
-          valor: 'p',
-          localidad: 'prem',
-          seleccionado:false,
-        };
-        
-      }
-      else if (!this.localidadCargadaPreferecial.boletas[i+72].disponible) {
-        this.lista12[i] = {
-          id:null,
-          valor: 'l',
-          localidad: 'prem',
-          seleccionado:false,
-        };}
-      else if (!this.localidadCargadaPreferecial.boletas[i+72].reservado && !this.localidadCargadaPreferecial.boletas[i+72].vendida) {
-        this.lista12[i] = {
-          id:this.localidadCargadaPreferecial.boletas[i+72].id,
-          valor: this.localidadCargadaPreferecial.boletas[i+72].seccionSilla,
-          localidad: 'prem',
-          seleccionado:false,
-        };
-      }
-
-    }
-
-
-
-
-for(let i=0; i<14;i++){
-  if (
-    this.localidadCargada.boletas[i+115].vendida 
-    || this.localidadCargada.boletas[i+115].reserva 
-  ) {
-    this.lista27[i] = {
-      id:null,
-      valor: 'v',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  } else if (this.localidadCargada.boletas[i+115].reservado) {
-    this.lista27[i] = {
-      id:null,
-      valor: 'p',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-    
-  }
-
-  else if (!this.localidadCargada.boletas[i+115].disponible) {
-    this.lista27[i] = {
-      id:null,
-      valor: 'l',
-      localidad: 'vip',
-      seleccionado:false,
-    };}
-
-  else if (!this.localidadCargada.boletas[i+115].reservado && !this.localidadCargada.boletas[i+115].vendida) {
-    this.lista27[i] = {
-      id:this.localidadCargada.boletas[i+115].id,
-      valor: this.localidadCargada.boletas[i+115].seccionSilla,
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  }
-}
-
-  for(let i=0; i <19; i ++){
-      
+  for(let i=0;i<6;i++){
 
     if (
-      this.localidadCargadaPreferecial.boletas[i+114].vendida
-      || this.localidadCargadaPreferecial.boletas[i+114].reserva 
-    ) {
-      this.lista14[i] = {
-        id:null,
-        valor: 'v',
-        localidad: 'prem',
-        seleccionado:false,
-      };
-    } else if (this.localidadCargadaPreferecial.boletas[i+114].reservado) {
-      this.lista14[i] = {
-        id:null,
-        valor: 'p',
-        localidad: 'prem',
-        seleccionado:false,
-      };  
+      !this.localidadCargadaGeneral.palcos[i].vendido &&
+      !this.localidadCargadaGeneral.palcos[i].reservado &&
+      this.localidadCargadaGeneral.palcos[i].disponible &&
+      !this.localidadCargadaGeneral.palcos[i].proceso
+    ){
+      this.lista1[i] = {
+        valor:this.localidadCargadaGeneral.palcos[i].numeroDentroDeEvento,
+        localidad: 'oro',
+      }
     }
-    else if (!this.localidadCargadaPreferecial.boletas[i+114].disponible) {
-      this.lista14[i] = {
-        id:null,
-        valor: 'l',
-        localidad: 'prem',
-        seleccionado:false,
-      };  
+    else if (
+      this.localidadCargadaGeneral.palcos[i].vendido ||
+      this.localidadCargadaGeneral.palcos[i].reservado ||
+      !this.localidadCargadaGeneral.palcos[i].disponible
+    ) {
+      this.lista1[i] =  {
+        valor:'v',
+        localidad: 'oro',
+      }
+    } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+      this.lista1[i]= {
+        valor:'p',
+        localidad: 'oro',
+      }
     }
     
-
-    else if (!this.localidadCargadaPreferecial.boletas[i+114].reservado && !this.localidadCargadaPreferecial.boletas[i+114].vendida) {
-      this.lista14[i] = {
-        id:this.localidadCargadaPreferecial.boletas[i+114].id,
-        valor: this.localidadCargadaPreferecial.boletas[i+114].seccionSilla,
-        localidad: 'prem',
-        seleccionado:false,
-      };
-    }
-
 
     if (
-      this.localidadCargada.boletas[i+24].vendida 
-      || this.localidadCargada.boletas[i+24].reserva 
+      !this.localidadCargadaGeneral.palcos[i+6].vendido &&
+      !this.localidadCargadaGeneral.palcos[i+6].reservado &&
+      this.localidadCargadaGeneral.palcos[i+6].disponible &&
+      !this.localidadCargadaGeneral.palcos[i+6].proceso
+    ){
+      this.lista2[i] = {
+        valor:this.localidadCargadaGeneral.palcos[i+6].numeroDentroDeEvento,
+        localidad: 'oro',
+      }
+    }
+    else if (
+      this.localidadCargadaGeneral.palcos[i+6].vendido ||
+      this.localidadCargadaGeneral.palcos[i+6].reservado ||
+      !this.localidadCargadaGeneral.palcos[i+6].disponible
     ) {
-      this.lista22[i] = {
-        id:null,
-        valor: 'v',
-        localidad: 'vip',
-        seleccionado:false,
-      };
-    } else if (this.localidadCargada.boletas[i+24].reservado) {
-      this.lista22[i] = {
-        id:null,
-        valor: 'p',
-        localidad: 'vip',
-        seleccionado:false,
-      };
+      this.lista2[i] = {
+        valor:'v',
+        localidad: 'oro',
+      }
       
+    } else if (this.localidadCargadaGeneral.palcos[i+6].proceso) {
+      this.lista2[i] = {
+        valor:'p',
+        localidad: 'oro',
+      }
     }
-    else if (!this.localidadCargada.boletas[i+24].disponible) {
-      this.lista22[i] = {
-        id:null,
-        valor: 'l',
-        localidad: 'vip',
-        seleccionado:false,
-      };}
 
-    else if (!this.localidadCargada.boletas[i+24].reservado && !this.localidadCargada.boletas[i+24].vendida) {
-      this.lista22[i] = {
-        id:this.localidadCargada.boletas[i+24].id,
-        valor: this.localidadCargada.boletas[i+24].seccionSilla,
-        localidad: 'vip',
-        seleccionado:false,
-      };
-    }
-}
-
-
-for(let i=0; i <20; i ++){
-
-  
-
-  if (
-    this.localidadCargadaPreferecial.boletas[i+133].vendida 
-    || this.localidadCargadaPreferecial.boletas[i+133].reserva 
-  ) {
-    this.lista15[i] = {
-      id:null,
-      valor: 'v',
-      localidad: 'prem',
-      seleccionado:false,
-    };
-  } else if (this.localidadCargadaPreferecial.boletas[i+133].reservado) {
-    this.lista15[i] = {
-      id:null,
-      valor: 'p',
-      localidad: 'prem',
-      seleccionado:false,
-    };
-    
-  }
-  else if (!this.localidadCargadaPreferecial.boletas[i+133].disponible) {
-    this.lista15[i] = {
-      id:null,
-      valor: 'l',
-      localidad: 'prem',
-      seleccionado:false,
-    };}
-  else if (!this.localidadCargadaPreferecial.boletas[i+133].reservado && !this.localidadCargadaPreferecial.boletas[i+133].vendida) {
-    this.lista15[i] = {
-      id:this.localidadCargadaPreferecial.boletas[i+133].id,
-      valor: this.localidadCargadaPreferecial.boletas[i+133].seccionSilla,
-      localidad: 'prem',
-      seleccionado:false,
-    };
-  }
-
-
-  if (
-    this.localidadCargada.boletas[i+43].vendida 
-    || this.localidadCargada.boletas[i+43].reserva 
-  ) {
-    this.lista23[i] = {
-      id:null,
-      valor: 'v',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  } else if (this.localidadCargada.boletas[i+43].reservado) {
-    this.lista23[i] = {
-      id:null,
-      valor: 'p',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  }
-  else if (!this.localidadCargada.boletas[i+43].disponible) {
-    this.lista23[i] = {
-      id:null,
-      valor: 'l',
-      localidad: 'vip',
-      seleccionado:false,
-    };}
-
-  else if (!this.localidadCargada.boletas[i+43].reservado && !this.localidadCargada.boletas[i+43].vendida) {
-    this.lista23[i] = {
-      id:this.localidadCargada.boletas[i+43].id,
-      valor: this.localidadCargada.boletas[i+43].seccionSilla,
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  }
-}
-
-for(let i=0; i <21; i ++){
-      
-
-  if (
-    this.localidadCargadaPreferecial.boletas[i+153].vendida 
-    || this.localidadCargadaPreferecial.boletas[i+153].reserva 
-  ) {
-    this.lista16[i] = {
-      id:null,
-      valor: 'v',
-      localidad: 'prem',
-      seleccionado:false,
-    };
-  } else if (this.localidadCargadaPreferecial.boletas[i+153].reservado) {
-    this.lista16[i] = {
-      id:null,
-      valor: 'p',
-      localidad: 'prem',
-      seleccionado:false,
-    };
-    
-  }
-  else if (!this.localidadCargadaPreferecial.boletas[i+153].disponible) {
-    this.lista16[i] = {
-      id:null,
-      valor: 'l',
-      localidad: 'prem',
-      seleccionado:false,
-    };}
-  else if (!this.localidadCargadaPreferecial.boletas[i+153].reservado && !this.localidadCargadaPreferecial.boletas[i+153].vendida) {
-    this.lista16[i] = {
-      id:this.localidadCargadaPreferecial.boletas[i+153].id,
-      valor: this.localidadCargadaPreferecial.boletas[i+153].seccionSilla,
-      localidad: 'prem',
-      seleccionado:false,
-    };
-  }
-
-
-  if (
-    this.localidadCargada.boletas[i+142].vendida 
-    || this.localidadCargada.boletas[i+142].reserva 
-  ) {
-    this.lista29[i] = {
-      id:null,
-      valor: 'v',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  } else if (this.localidadCargada.boletas[i+142].reservado) {
-    this.lista29[i] = {
-      id:null,
-      valor: 'p',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-    }
-    else if (!this.localidadCargada.boletas[i+142].disponible) {
-      this.lista29[i] = {
-        id:null,
-        valor: 'l',
-        localidad: 'vip',
-        seleccionado:false,
-      };}
-
-  else if (!this.localidadCargada.boletas[i+142].reservado && !this.localidadCargada.boletas[i+142].vendida) {
-    this.lista29[i] = {
-      id:this.localidadCargada.boletas[i+142].id,
-      valor: this.localidadCargada.boletas[i+142].seccionSilla,
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  }
-}
-
-
-
-
-for(let i=0; i <26; i ++){
-
- 
-      
-
-  if (
-    this.localidadCargadaBoletas.boletas[i].vendida 
-    || this.localidadCargadaBoletas.boletas[i].reserva 
-  ) {
-    this.lista18[i] = {
-      id:null,
-      valor: 'v',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  } else if (this.localidadCargadaBoletas.boletas[i].reservado) {
-    this.lista18[i] = {
-      id:null,
-      valor: 'p',
-      localidad: 'vip',
-      seleccionado:false,
-    };    
-  }
-  else if (!this.localidadCargadaBoletas.boletas[i].disponible) {
-    this.lista18[i] = {
-      id:null,
-      valor: 'l',
-      localidad: 'vip',
-      seleccionado:false,
-    };}
-  else if (!this.localidadCargadaBoletas.boletas[i].reservado && !this.localidadCargadaBoletas.boletas[i].vendida) {
-    this.lista18[i] = {
-      id:this.localidadCargadaBoletas.boletas[i].id,
-      valor: this.localidadCargadaBoletas.boletas[i].seccionSilla,
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  }
-}
-
-for(let i=0;i <18;i++){
-  
-  if (
-    this.localidadCargada.boletas[i+80].vendida 
-    || this.localidadCargada.boletas[i+80].reserva
-  ) {
-    this.lista25[i] = {
-      id:null,
-      valor: 'v',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  } else if (this.localidadCargada.boletas[i+80].reservado) {
-    this.lista25[i] = {
-      id:null,
-      valor: 'p',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-    
-  }
-  else if (!this.localidadCargada.boletas[i+80].disponible) {
-    this.lista25[i] = {
-      id:null,
-      valor: 'l',
-      localidad: 'vip',
-      seleccionado:false,
-    };}
-
-  else if (!this.localidadCargada.boletas[i+80].reservado && !this.localidadCargada.boletas[i+80].vendida) {
-    this.lista25[i] = {
-      id:this.localidadCargada.boletas[i+80].id,
-      valor: this.localidadCargada.boletas[i+80].seccionSilla,
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  }
-}
-
-for(let i=0; i <25; i ++){
-      
-
-  if (
-    this.localidadCargadaBoletas.boletas[i+26].vendida 
-    || this.localidadCargadaBoletas.boletas[i+26].reserva
-  ) {
-    this.lista19[i] = {
-      id:null,
-      valor: 'v',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  } else if (this.localidadCargadaBoletas.boletas[i+26].reservado) {
-    this.lista19[i] = {
-      id:null,
-      valor: 'p',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-    
-  }
-  else if (!this.localidadCargadaBoletas.boletas[i+26].disponible) {
-    this.lista19[i] = {
-      id:null,
-      valor: 'l',
-      localidad: 'vip',
-      seleccionado:false,
-    };}
-
-  else if (!this.localidadCargadaBoletas.boletas[i+26].reservado && !this.localidadCargadaBoletas.boletas[i+26].vendida) {
-    this.lista19[i] = {
-      id:this.localidadCargadaBoletas.boletas[i+26].id,
-      valor: this.localidadCargadaBoletas.boletas[i+26].seccionSilla,
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  }
-}
-
-
-
-
-for(let i=0; i <23; i ++){
-
-  
-
-
-  if (
-    this.localidadCargadaBoletas.boletas[i+51].vendida 
-    || this.localidadCargadaBoletas.boletas[i+51].reserva
-  ) {
-    this.lista20[i] = {
-      id:null,
-      valor: 'v',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  } else if (this.localidadCargadaBoletas.boletas[i+51].reservado) {
-    this.lista20[i] = {
-      id:null,
-      valor: 'p',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-    
-  }
-  else if (!this.localidadCargadaBoletas.boletas[i+51].disponible) {
-    this.lista20[i] = {
-      id:null,
-      valor: 'l',
-      localidad: 'vip',
-      seleccionado:false,
-    };}
-
-  else if (!this.localidadCargadaBoletas.boletas[i+51].reservado && !this.localidadCargadaBoletas.boletas[i+51].vendida) {
-    this.lista20[i] = {
-      id:this.localidadCargadaBoletas.boletas[i+51].id,
-      valor: this.localidadCargadaBoletas.boletas[i+51].seccionSilla,
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  }
-
-
-
-}
-
-for(let i=0;i <13; i++) {
-
-
-  if (
-    this.localidadCargada.boletas[i+129].vendida 
-    || this.localidadCargada.boletas[i+129].reserva
-  ) {
-    this.lista28[i] = {
-      id:null,
-      valor: 'v',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  } else if (this.localidadCargada.boletas[i+129].reservado) {
-    this.lista28[i] = {
-      id:null,
-      valor: 'p',
-      localidad: 'vip',
-      seleccionado:false,
-    };
-    
-  }
-  else if (!this.localidadCargada.boletas[i+129].disponible) {
-    this.lista28[i] = {
-      id:null,
-      valor: 'l',
-      localidad: 'vip',
-      seleccionado:false,
-    };}
-
-  else if (!this.localidadCargada.boletas[i+129].reservado && !this.localidadCargada.boletas[i+129].vendida) {
-    this.lista28[i] = {
-      id:this.localidadCargada.boletas[i+129].id,
-      valor: this.localidadCargada.boletas[i+129].seccionSilla,
-      localidad: 'vip',
-      seleccionado:false,
-    };
-  }
-}
-
-  for(let i =0; i < 9; i++){
-    if (
-      this.localidadCargada.boletas[i+163].vendida 
-      || this.localidadCargada.boletas[i+163].reserva
-    ) {
-      this.lista30[i] = {
-        id:null,
-        valor: 'v',
-        localidad: 'vip',
-        seleccionado:false,
-      };
-    } else if (this.localidadCargada.boletas[i+163].reservado) {
-      this.lista30[i] = {
-        id:null,
-        valor: 'p',
-        localidad: 'vip',
-        seleccionado:false,
-      };
-      
-    }
-    else if (!this.localidadCargada.boletas[i+163].disponible) {
-      this.lista30[i] = {
-        id:null,
-        valor: 'l',
-        localidad: 'vip',
-        seleccionado:false,
-      };}
-
-    else if (!this.localidadCargada.boletas[i+163].reservado && !this.localidadCargada.boletas[i+163].vendida) {
-      this.lista30[i] = {
-        id:this.localidadCargada.boletas[i+163].id,
-        valor: this.localidadCargada.boletas[i+163].seccionSilla,
-        localidad: 'vip',
-        seleccionado:false,
-      };
-    }
-  }
-
-  for(let i =0;i <16; i++) {
-
-    
-    if (
-      this.localidadCargadaPreferecial.boletas[i+17].vendida 
-      || this.localidadCargadaPreferecial.boletas[i+17].reserva
-    ) {
-      this.lista9[i] = {
-        id:null,
-        valor: 'v',
-        localidad: 'prem',
-        seleccionado:false,
-      };
-    } else if (this.localidadCargadaPreferecial.boletas[i+17].reservado) {
-      this.lista9[i] = {
-        id:null,
-        valor: 'p',
-        localidad: 'prem',
-        seleccionado:false,
-      };
-      
-    }
-    else if (!this.localidadCargadaPreferecial.boletas[i+17].disponible) {
-      this.lista9[i] = {
-        id:null,
-        valor: 'l',
-        localidad: 'prem',
-        seleccionado:false,
-      };}
-
-    else if (!this.localidadCargadaPreferecial.boletas[i+17].reservado && !this.localidadCargadaPreferecial.boletas[i+17].vendida) {
-      this.lista9[i] = {
-        id:this.localidadCargadaPreferecial.boletas[i+17].id,
-        valor: this.localidadCargadaPreferecial.boletas[i+17].seccionSilla,
-        localidad: 'prem',
-        seleccionado:false,
-      };
-    }
    
 
+
+   
   }
 
-  for(let i=0; i<27; i++) {
+  for(let i=0;i <4;i++) {
+
+
     if (
-      this.localidadCargadaPreferecial.boletas[i+87].vendida 
-      || this.localidadCargadaPreferecial.boletas[i+87].reserva
-    ) {
-      this.lista13[i] = {
-        id:null,
-        valor: 'v',
+      !this.localidadCargada.palcos[i].vendido &&
+      !this.localidadCargada.palcos[i].reservado &&
+      this.localidadCargada.palcos[i].disponible &&
+      !this.localidadCargada.palcos[i].proceso
+    ){
+      this.lista3[i] = {
+        valor:this.localidadCargada.palcos[i].numeroDentroDeEvento,
         localidad: 'prem',
-        seleccionado:false,
-      };
-    } else if (this.localidadCargadaPreferecial.boletas[i+87].reservado) {
-      this.lista13[i] = {
-        id:null,
-        valor: 'p',
-        localidad: 'prem',
-        seleccionado:false,
-      };
-      
+      }
     }
-    else if (!this.localidadCargadaPreferecial.boletas[i+87].disponible) {
-      this.lista13[i] = {
-        id:null,
-        valor: 'l',
+    else if (
+      this.localidadCargada.palcos[i].vendido ||
+      this.localidadCargada.palcos[i].reservado ||
+      !this.localidadCargada.palcos[i].disponible
+    ) {
+      this.lista3[i] = {
+        valor:'v',
         localidad: 'prem',
-        seleccionado:false,
-      };}
+      }
+      
+    } else if (this.localidadCargada.palcos[i].proceso) {
+      this.lista3[i] = {
+        valor:'p',
+        localidad: 'prem',
+      }
+    }
 
-    else if (!this.localidadCargadaPreferecial.boletas[i+87].reservado && !this.localidadCargadaPreferecial.boletas[i+87].vendida) {
-      this.lista13[i] = {
-        id:this.localidadCargadaPreferecial.boletas[i+87].id,
-        valor: this.localidadCargadaPreferecial.boletas[i+87].seccionSilla,
+    if (
+      !this.localidadCargada.palcos[i+12].vendido &&
+      !this.localidadCargada.palcos[i+12].reservado &&
+      this.localidadCargada.palcos[i+12].disponible &&
+      !this.localidadCargada.palcos[i+12].proceso
+    ){
+      this.lista7[i] = {
+        valor:this.localidadCargada.palcos[i+12].numeroDentroDeEvento ,
         localidad: 'prem',
-        seleccionado:false,
-      };
+      }
+    }
+    else if (
+      this.localidadCargada.palcos[i+12].vendido ||
+      this.localidadCargada.palcos[i+12].reservado ||
+      !this.localidadCargada.palcos[i+12].disponible
+    ) {
+      this.lista7[i] = {
+        valor:'v',
+        localidad: 'prem',
+      }
+      
+    } else if (this.localidadCargada.palcos[i+12].proceso) {
+      this.lista7[i] = {
+        valor:'p',
+        localidad: 'prem',
+      }
+    }
+
+    if (
+      !this.localidadCargada.palcos[i+8].vendido &&
+      !this.localidadCargada.palcos[i+8].reservado &&
+      this.localidadCargada.palcos[i+8].disponible &&
+      !this.localidadCargada.palcos[i+8].proceso
+    ){
+      this.lista6[i] = {
+        valor:this.localidadCargada.palcos[i+8].numeroDentroDeEvento ,
+        localidad: 'prem',
+      }
+    }
+    else if (
+      this.localidadCargada.palcos[i+8].vendido ||
+      this.localidadCargada.palcos[i+8].reservado ||
+      !this.localidadCargada.palcos[i+8].disponible
+    ) {
+      this.lista6[i] = {
+        valor:'v',
+        localidad: 'prem',
+      }
+      
+    } else if (this.localidadCargada.palcos[i+8].proceso) {
+      this.lista6[i] = {
+        valor:'p',
+        localidad: 'prem',
+      }
+    }
+
+
+   
+
+    if (
+      !this.localidadCargada.palcos[i+4].vendido &&
+      !this.localidadCargada.palcos[i+4].reservado &&
+      this.localidadCargada.palcos[i+4].disponible &&
+      !this.localidadCargada.palcos[i+4].proceso
+    ){
+      this.lista8[i] = {
+        valor:this.localidadCargada.palcos[i+4].numeroDentroDeEvento,
+        localidad: 'prem',
+      }
+    }
+    else if (
+      this.localidadCargada.palcos[i+4].vendido ||
+      this.localidadCargada.palcos[i+4].reservado ||
+      !this.localidadCargada.palcos[i+4].disponible
+    ) {
+      this.lista8[i] = {
+        valor:'v',
+        localidad: 'prem',
+      }
+      
+    } else if (this.localidadCargada.palcos[i+4].proceso) {
+      this.lista8[i] = {
+        valor:'p',
+        localidad: 'prem',
+      }
+    }
+
+    if (
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i].vendido &&
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i].reservado &&
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i].disponible &&
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i].proceso
+    ){
+      this.lista9[i] = {
+        valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i].numeroDentroDeEvento,
+        localidad: 'vip',
+      }
+    }
+    else if (
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i].vendido ||
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i].reservado ||
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i].disponible
+    ) {
+      this.lista9[i] = {
+        valor:'v',
+        localidad: 'vip',
+      }
+      
+    } else if (this.localidadCargadaBoletasGeneralPiso2.palcos[i].proceso) {
+      this.lista9[i] = {
+        valor:'p',
+        localidad: 'vip',
+      }
+    }
+
+    if (
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+8].vendido &&
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+8].reservado &&
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i+8].disponible &&
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+8].proceso
+    ){
+      this.lista11[i] = {
+        valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+8].numeroDentroDeEvento,
+        localidad: 'vip',
+      }
+    }
+    else if (
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i+8].vendido ||
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i+8].reservado ||
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+8].disponible
+    ) {
+      this.lista11[i] = {
+        valor:'v',
+        localidad: 'vip',
+      }
+      
+    } else if (this.localidadCargadaBoletasGeneralPiso2.palcos[i+8].proceso) {
+      this.lista11[i] = {
+        valor:'p',
+        localidad: 'vip',
+      }
+    }
+
+    
+    if (
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+4].vendido &&
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+4].reservado &&
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i+4].disponible &&
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+4].proceso
+    ){
+      this.lista10[i] = {
+        valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+4].numeroDentroDeEvento,
+        localidad: 'vip',
+      }
+    }
+    else if (
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i+4].vendido ||
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i+4].reservado ||
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+4].disponible
+    ) {
+      this.lista10[i] = {
+        valor:'v',
+        localidad: 'vip',
+      }
+      
+    } else if (this.localidadCargadaBoletasGeneralPiso2.palcos[i+4].proceso) {
+      this.lista10[i] = {
+        valor:'p',
+        localidad: 'vip',
+      }
+    }
+
+
+
+
+    if (
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].vendido &&
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].reservado &&
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].disponible &&
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].proceso
+    ){
+      this.lista12[i] = {
+        valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].numeroDentroDeEvento,
+        localidad: 'vip',
+      }
+    }
+    else if (
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].vendido ||
+      this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].reservado ||
+      !this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].disponible
+    ) {
+      this.lista12[i] = {
+        valor:'v',
+        localidad: 'vip',
+      }
+      
+    } else if (this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].proceso) {
+      this.lista12[i] = {
+        valor:'p',
+        localidad: 'vip',
+      }
     }
   }
+    
+
+
+
 }
   cargarLocalidadEnMapa3(){
     for(let i=0;i<5;i++){
@@ -2623,11 +1601,6 @@ for(let i=0;i <13; i++) {
         this.lista3[i].valor = 'p';
       }
 
- 
-      
-    }
-    for(let i=0;i<4;i++){
-
       if (
         this.localidadCargadaGeneral.palcos[i+5].vendido ||
         this.localidadCargadaGeneral.palcos[i+5].reservado ||
@@ -2647,6 +1620,11 @@ for(let i=0;i <13; i++) {
       } else if (this.localidadCargada.palcos[i+5].proceso) {
         this.lista4[i].valor = 'p';
       }
+      
+    }
+    for(let i=0;i<4;i++){
+
+     
     }
 
   
@@ -3125,7 +2103,7 @@ ponerNumerosMapa11() {
   for(let i =1; i<12;i++){
 
     this.lista37[i - 1] = {
-      valor: "A" + (i),
+      valor: "B" + (i+121),
       localidad: 'oro',
     };
     this.lista38[i - 1] = {
@@ -3781,14 +2759,15 @@ ponerNumerosMapa11() {
 
     
     if (
-      this.localidadCargada.palcos[i].vendido ||
-      this.localidadCargada.palcos[i].reservado ||
-      !this.localidadCargada.palcos[i].disponible
+      this.localidadCargadaPreferecial.palcos[i+121].vendido ||
+      this.localidadCargadaPreferecial.palcos[i+121].reservado ||
+      !this.localidadCargadaPreferecial.palcos[i+121].disponible
     ) {
       this.lista37[i].valor = 'v';
-    } else if (this.localidadCargada.palcos[i].proceso) {
+    } else if (this.localidadCargadaPreferecial.palcos[i+121].proceso) {
       this.lista37[i].valor = 'p';
     }
+
     if (
       this.localidadCargada.palcos[i+11].vendido ||
       this.localidadCargada.palcos[i+11].reservado ||

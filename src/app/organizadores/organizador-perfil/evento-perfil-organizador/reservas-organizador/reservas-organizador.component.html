@@ -25,6 +25,7 @@
               <th class="border">Link de la reserva</th>
               <th class="border">Documento del comprador</th>
               <th>Numero Del palco</th>
+              <th>Eliminar Reserva</th>
           
             </tr>
           </thead>
@@ -49,6 +50,9 @@
         
               <td class="border">
                 <strong>{{ palcos[i].numeroDentroDeEvento }}</strong>
+              </td>
+              <td class="border">
+                <button class="btn action_button ml-2 mt-2" (click)="elminarReserva(reserva.id)">Eliminar Reserva</button>
               </td>
             </tr>
           </tbody>

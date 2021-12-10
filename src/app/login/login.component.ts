@@ -96,6 +96,17 @@ export class LoginComponent implements OnInit {
             
             
           }
+
+
+          else if(response.tipo=='coordinador')
+          {
+            sessionStorage.setItem('coordinador',this.username);
+            this.invalidLogin=false;
+            this.dialog.closeAll()
+            this.router.navigate(['perfilCoordinador',this.username]);
+            
+            
+          }
         
        }
        else{

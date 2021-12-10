@@ -42,6 +42,8 @@ export class AgregarAmigosComponent implements OnInit {
   descripcion
   respuesta:string
   confirmacion:string
+  tax:number  
+  taxAdicion:number
   constructor(private route:ActivatedRoute, private autenticador: HardcodedAutheticationService, private dataServicio:UsuariosDataService, private palcoServicio: PalcosDataService) { }
 
   ngOnInit(): void {
@@ -131,6 +133,8 @@ export class AgregarAmigosComponent implements OnInit {
 
   refrescarPalco(){
     this.palcoServicio.getPalco(0, this.idPalco).subscribe(response=>{ this.palco=response;
+      this.tax = this.palco.servicioIva
+      this.taxAdicion = this.palco.servicioIvaAdicion
       //PALCO;1020823136,3010,Guess Who’s Back,Tue Aug 17 2021 15:30:33 GMT-0500 (hora estándar de Colombia),arckenFRAT,-1
       let cantidad = this.palco.maximoAdiciones - this.palco.personasMaximas;
       for(let i=1;i<=cantidad;i++){
@@ -145,6 +149,7 @@ export class AgregarAmigosComponent implements OnInit {
     this.referenceCode="APORTEPALCO;"+this.usuario.numeroDocumento+"," +this.palco.id+","+this.palco.nombreEvento+","+new Date()+",00000,-1";
     this.descripcion = "Aporte Al Palco " +this.palco.nombre 
     this.valorAPagar = (this.porcentaje/100)*(this.palco.precio+this.palco.servicio+this.palco.servicioIva);
+    this.tax = (this.porcentaje/100)*this.palco.servicioIva
     var md5 = new Md5();
     let valorEncriptar = this.ApiKey +"~"+ this.merchantId+"~"+this.referenceCode+"~"+this.valorAPagar+"~"+'COP~';
 
@@ -176,6 +181,7 @@ export class AgregarAmigosComponent implements OnInit {
     this.referenceCode="ADICIONPALCO;"+this.seleccionAdicion+"," +this.palco.id+","+this.palco.nombreEvento+","+new Date()+",00000,-1";
     this.descripcion = "Adicion Al Palco " +this.palco.nombre 
     this.valorPagarAdicion = this.seleccionAdicion * (this.palco.precioAdicion+this.palco.servicioAdicion+this.palco.servicioIvaAdicion);
+    this.taxAdicion= this.seleccionAdicion*this.palco.servicioIvaAdicion
     var md5 = new Md5();
     let valorEncriptar = this.ApiKey +"~"+ this.merchantId+"~"+this.referenceCode+"~"+this.valorPagarAdicion+"~"+'COP~';
 

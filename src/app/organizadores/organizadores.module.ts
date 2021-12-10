@@ -20,6 +20,7 @@ import { PalcosPromtorOrganizadorComponent } from './organizador-perfil/evento-p
 import { ReservasComponent } from './organizador-perfil/evento-perfil-organizador/promotores-organizador/reservas/reservas.component';
 import { ReservasOrganizadorComponent } from './organizador-perfil/evento-perfil-organizador/reservas-organizador/reservas-organizador.component';
 import { VentasEspecificasComponent } from './organizador-perfil/evento-perfil-organizador/ventas-especificas/ventas-especificas.component';
+import { HistorialComponent } from './organizador-perfil/evento-perfil-organizador/historial/historial.component';
 
 
 
@@ -72,6 +73,18 @@ const routes: Routes=[
 
 
 
+        {
+          path:'organizador/eventos/:id/historial',
+          component:HistorialComponent,
+          canActivate:[RouteGuardOrganizadorService]
+
+        },
+        {
+          path:'organizador/admin/eventos/:id/historial',
+          component:HistorialComponent,
+          canActivate:[RouteGuardAdminService]
+
+        },
 
         {
           path:'organizador/eventos/:id/localidad/:idLocalidad',
@@ -153,7 +166,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[  OrganizadoresComponent,OrganizadorPerfilComponent, EventoPerfilOrganizadorComponent, BoletasPatrocinioComponent, PromotoresOrganizadorComponent, PalcosPromtorOrganizadorComponent, ReservasComponent, ReservasOrganizadorComponent, VentasEspecificasComponent],
+    declarations:[  OrganizadoresComponent,OrganizadorPerfilComponent, EventoPerfilOrganizadorComponent, BoletasPatrocinioComponent, PromotoresOrganizadorComponent, PalcosPromtorOrganizadorComponent, ReservasComponent, ReservasOrganizadorComponent, VentasEspecificasComponent, HistorialComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

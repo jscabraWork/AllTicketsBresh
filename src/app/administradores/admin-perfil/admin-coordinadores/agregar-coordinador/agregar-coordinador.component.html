@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <h1>Coordinador</h1>
+<form (ngSubmit)="!todoForm.invalid &&saveCoordinador()" #todoForm="ngForm">
+        
+        <fieldset class="form-group">
+            <label for="id">Numero Documento</label>
+            <input type="text" class= "form-control"name ="id" required="required"  [(ngModel)]="coordinador.numeroDocumento">
+        </fieldset>    
+    <fieldset class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="coordinador.nombre">
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="tipo">Tipo de Documento</label>
+        <select type="text" class= "form-control "name ="tipo" required="required"  [(ngModel)]="coordinador.tipoDocumento">
+            <option value="Cedula">Cedula</option>
+            <option value="TarjetaIdentidad">Tarjeta de Identidad</option>
+            <option value="Pasaporte">Pasaporte</option>
+        </select>    
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="nombre">Usuario</label>
+        <input type="text" class= "form-control"name ="usuario" required="required"  [(ngModel)]="coordinador.usuario">
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label for="nombre">Contraseña</label>
+        <input type="text" class= "form-control"name ="contrasena" required="required"  [(ngModel)]="coordinador.contrasena">
+    </fieldset>
+
+    <button class="btn btn-success" type="submit">Guardar</button>
+</form>
+</div>

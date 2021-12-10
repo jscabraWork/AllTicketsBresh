@@ -14,6 +14,7 @@ export class AdminBoletasComponent implements OnInit {
 
   miId;
   idLocalidad;
+  idEtapa
   nombre;
   boletas: Boleta[]=[];
   numeroDeBoletas:number;
@@ -26,7 +27,8 @@ export class AdminBoletasComponent implements OnInit {
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
       this.idLocalidad = params.get('idLocalidad');
-      this.nombre = params.get('nombreLocalidad');
+      this.idEtapa =params.get('idEtapa');
+      
       this.refrescar()
      
      

@@ -210,7 +210,8 @@
 				<div class="pt-2 " *ngIf="localidad.palcos.length>0">
 					<h5><strong>Personas Por Palco</strong></h5>
 
-					<p class="precioLocalidades"> <strong> {{ localidad.palcos[1].personasMaximas}}</strong></p>
+					<p class="precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
+					<p class="precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
 				</div>
 
 				<div class="pt-2 " *ngIf="localidad.boletas.length>0">
@@ -272,7 +273,8 @@
 				<div class="pt-2 " *ngIf="localidad.palcos.length>0">
 					<h5><strong>Personas Por Palco</strong></h5>
 
-					<p class="precioLocalidades"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
+					<p class="precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
+					<p class="precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
 				</div>
 
 				<div class="pt-2 " *ngIf="localidad.boletas.length>0">

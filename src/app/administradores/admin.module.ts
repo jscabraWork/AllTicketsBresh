@@ -64,6 +64,9 @@ import { AgregarAdicionalComponent } from './admin-perfil/admin-adicionales/agre
 import { AgregarAdicionesPalcosComponent } from './admin-perfil/admin-eventos/admin-localidades/agregar-adiciones-palcos/agregar-adiciones-palcos.component';
 import { AgregarAlternosPalcosComponent } from './admin-perfil/admin-eventos/admin-localidades/agregar-alternos-palcos/agregar-alternos-palcos.component';
 import { AgregarOrganizadorAEventoComponent } from './admin-perfil/admin-eventos/agregar-organizador-aevento/agregar-organizador-aevento.component';
+import { AdminCoordinadoresComponent } from './admin-perfil/admin-coordinadores/admin-coordinadores.component';
+import { AgregarCoordinadorComponent } from './admin-perfil/admin-coordinadores/agregar-coordinador/agregar-coordinador.component';
+import { UpdateCoordinadorComponent } from './admin-perfil/admin-coordinadores/update-coordinador/update-coordinador.component';
 
 
 
@@ -78,7 +81,10 @@ const routes: Routes = [
         component: AdministradoresComponent
       },
 
-
+      {
+        path: 'coordinadores',
+        component: AdminCoordinadoresComponent
+      },
       {
         path: 'admin/:admin/mapas',
         component: MapasComponent
@@ -87,9 +93,18 @@ const routes: Routes = [
         path: 'agregar/admin',
         component: AgregarAdministradorComponent
       },
+
+      {
+        path: 'coordinadores/agregar/cordi',
+        component: AgregarCoordinadorComponent
+      },
       {
         path: 'update/admin/:id',
         component: UpdateAdminComponent
+      },
+      {
+        path: 'coordinadores/update/cordi/:id',
+        component: UpdateCoordinadorComponent
       },
       {
         path: 'admin/:nombre',
@@ -149,6 +164,7 @@ const routes: Routes = [
 
       {
         path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/palcos/agregar',
+        
         component: AgregarPalcoComponent
       },
 
@@ -159,12 +175,12 @@ const routes: Routes = [
 
 
       {
-        path: 'admin/eventos/lista/localidad/boletas/:id/:idLocalidad/:nombreLocalidad',
+        path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/boletas',
         component: AdminBoletasComponent
       },
 
       {
-        path: 'admin/eventos/lista/localidad/boletas/:id/:idLocalidad/:nombreLocalidad/agregar',
+        path: 'admin/eventos/lista/etapas/:id/localidades/:idEtapa/:idLocalidad/boletas/agregar',
         component: AgregarBoletasComponent
       },
 
@@ -325,6 +341,9 @@ const routes: Routes = [
     AgregarAdicionesPalcosComponent,
     AgregarAlternosPalcosComponent,
     AgregarOrganizadorAEventoComponent,
+    AdminCoordinadoresComponent,
+    AgregarCoordinadorComponent,
+    UpdateCoordinadorComponent,
 
   ],
   imports: [

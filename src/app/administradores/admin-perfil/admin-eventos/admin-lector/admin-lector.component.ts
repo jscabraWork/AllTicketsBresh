@@ -121,7 +121,6 @@ export class AdminLectorComponent implements OnInit {
     console.log(response)
     if(response !=null)
     {
-    if (this.texto.includes(this.evento.nombre) && response.validoCliente ) {
       this.palco = response.palco;
       this.boleta = response.boleta;
       this.texto = '';
@@ -157,10 +156,7 @@ export class AdminLectorComponent implements OnInit {
     } else {
       this.mensaje = 'Codigo QR NO Valido';
     }
-  }
-  else {
-    this.mensaje = 'Codigo QR NO Valido';
-  }
+  
   }
 
   manejuCupo(palco: Palco) {

@@ -66,6 +66,13 @@ authenticate(username,password){
     return !(usuario==null);
   }
 
+  coordinadorLoggin(){
+    let usuario =sessionStorage.getItem('coordinador');
+    return !(usuario==null);
+  }
+
+
+
   ministerioLoggin(){
     let usuario =sessionStorage.getItem('ministerio');
     return !(usuario==null);
@@ -91,5 +98,6 @@ authenticate(username,password){
     sessionStorage.removeItem('administrador');
     sessionStorage.removeItem('ministerio');
     sessionStorage.removeItem('puntoF');
+    sessionStorage.removeItem('coordinador');
   }
 }

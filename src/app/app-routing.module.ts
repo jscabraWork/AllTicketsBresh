@@ -26,6 +26,9 @@ import { ComoComprarComponent } from './como-comprar/como-comprar.component';
 import { OlvidoComponent } from './olvido/olvido.component';
 import { TratamientoDatosComponent } from './tratamiento-datos/tratamiento-datos.component';
 import { ReservasPromotorComponent } from './reservas-promotor/reservas-promotor.component';
+import { RouteGuardCoordinadorService } from './service/route-guard-coordinador.service';
+import { CoordinadorPerfilComponent } from './coordinador-perfil/coordinador-perfil.component';
+import { AdminLectorComponent } from './administradores/admin-perfil/admin-eventos/admin-lector/admin-lector.component';
 
 
 const routes: Routes = [
@@ -127,6 +130,20 @@ const routes: Routes = [
     canActivate:[ RoutGuardPromotorService]
   },
   
+  {
+    path:'logoutCoordinador', component: LogoutComponent,
+    canActivate:[ RouteGuardCoordinadorService]
+  },
+
+  {
+    path:'perfilCoordinador/:nombre', component: CoordinadorPerfilComponent,
+    canActivate:[ RouteGuardCoordinadorService]
+  },
+
+  {
+    path:'perfilCoordinador/:nombre/lector/:id', component: AdminLectorComponent,
+    canActivate:[ RouteGuardCoordinadorService]
+  },
   {
     path:'perfilMinisterio', 
     loadChildren:() => import('./perfil-ministerio/ministerio.module').then(m => m.MinisterioModule),

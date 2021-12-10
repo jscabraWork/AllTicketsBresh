@@ -15,6 +15,7 @@ export class AgregarBoletasComponent implements OnInit {
   miId:string;
   idLocalidad
   nombre
+  idEtapa
   constructor(private route: ActivatedRoute,private servicio: BoletasDataService,  private router:Router) { }
 
   ngOnInit(): void {
@@ -39,8 +40,8 @@ export class AgregarBoletasComponent implements OnInit {
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
       this.idLocalidad= params.get('idLocalidad');
-      this.nombre= params.get('nombreLocalidad')
-    
+      
+      this.idEtapa =params.get('idEtapa');
      
   })
   }
@@ -49,7 +50,7 @@ export class AgregarBoletasComponent implements OnInit {
   agregarBoletas(){
     this.servicio.addMultiplesBoletas(this.miId,this.boleta, this.idLocalidad,this.cantidad).subscribe(data=>data)
     
-    this.router.navigate(['/administradores/admin/eventos/lista/localidad/boletas/'+this.miId+'/'+this.idLocalidad+'/'+this.nombre]);
+    this.router.navigate(['/administradores/admin/eventos/lista/etapas/'+this.miId+'/localidades/'+this.idEtapa+'/'+this.idLocalidad+'/boletas']);
     
   }
 

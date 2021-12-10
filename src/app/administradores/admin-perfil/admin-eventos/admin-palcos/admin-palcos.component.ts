@@ -16,6 +16,7 @@ import { Palco } from './palco.model';
 export class AdminPalcosComponent implements OnInit {
 localidad:Localidad
 miId
+idEtapa
 message
 miIdEvento
 palcosVendidos= 0;
@@ -28,7 +29,7 @@ dineroRecaudado=1;
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('idLocalidad');
       this.miIdEvento =params.get('id');
-
+      this.idEtapa =params.get('idEtapa');
       this.localidad={
         boletas:[],
         boletasPatrocinio:[],

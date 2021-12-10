@@ -1,0 +1,121 @@
+<div id="prueba">	
+    <h1><strong>Historial del evento {{evento?.nombre}}</strong></h1> 
+</div>
+
+
+
+<div id="desplazate">
+    <p>
+      <--- Desplázate para ver toda la información --->
+    </p>
+</div>
+
+
+
+<section class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-12 esconder">
+        <table
+          class="tabla table mt-3 border rounded tabla"
+          style="text-align: center"
+        >
+          <thead>
+            <tr class="border">
+                <th class="border">Numero de venta</th>
+                <th class="border">Localidad Venta</th>
+                <th class="border">Fecha de venta</th>
+                <th class="border">Tipo de compra</th>
+                <th class="border">Nombre del Comprador</th>
+              <th class="border">Celular del cliente</th>
+              <th class="border">Numero del palco o del ticket</th>
+              <th class="border">Metodo de pago</th>
+              <th class="border">Dinero recaudado</th>
+              <th class="border">Personas a asistir</th>
+          
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cliente of clientes; let i =index">
+                <td class="border">
+                    <strong>
+                        {{clientes.length-i}}
+                    </strong>
+                  </td>
+
+                  <td class="border" *ngIf="palcos[i]!=null">
+                    <strong>
+                        {{palcos[i]?.nombre}}
+                    </strong>
+                  </td>
+                  <td class="border" *ngIf="tickets[i]!=null">
+                    <strong>
+                        {{tickets[i]?.localidadNombre}}
+                    </strong>
+                  </td>
+
+                  <td class="border">
+                    <strong>
+                        {{fechas[i]}}
+                    </strong>
+                  </td>
+                <td class="border">
+                    <strong>
+                        {{mensajes[i]}}
+                    </strong>
+                  </td>
+         
+                <td class="border">
+                    <strong>
+                        {{cliente.nombre}}
+                    </strong>
+                  </td>
+                  <td class="border">
+                    <strong>
+                        {{cliente.celular}}
+                    </strong>
+                  </td>
+                  <td class="border" *ngIf="palcos[i]!=null">
+                    <strong>
+                        {{palcos[i]?.numeroDentroDeEvento}}
+                    </strong>
+                  </td>
+                  <td class="border" *ngIf="tickets[i]!=null">
+                    <strong>
+                        {{tickets[i]?.id}}
+                    </strong>
+                  </td>
+                  <td class="border">
+                    <strong>
+                        {{metodos[i]}}
+                    </strong>
+                  </td>
+
+                  <td class="border" *ngIf="palcos[i]!=null">
+                    <strong>
+                        {{dineroRecaudadoPalcos(palcos[i])|currency:'COP'}}
+                    </strong>
+                  </td>
+                  <td class="border" *ngIf="tickets[i]!=null">
+                    <strong>
+                        {{tickets[i]?.precio|currency:'COP'}}
+                    </strong>
+                  </td>
+
+
+                  <td class="border" *ngIf="palcos[i]!=null">
+                    <strong>
+                        {{palcos[i]?.personasMaximas}}
+                    </strong>
+                  </td>
+                  <td class="border" *ngIf="tickets[i]!=null">
+                    <strong>
+                        1
+                    </strong>
+                  </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  

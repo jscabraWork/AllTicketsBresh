@@ -26,6 +26,7 @@
               <th class="border">Numero Del palco</th>
               <th class="border">Precio del Palco</th>
               <th class="border">Dinero pagado del palco</th>
+              <th class="border">Cantidad personas a asistir</th>
           
             </tr>
           </thead>
@@ -50,6 +51,9 @@
               </td>
               <td class="border">
                 <strong>{{ dineroRecaudadoPalcos(palco) |currency:'COP' }}</strong>
+              </td>
+              <td class="border">
+                <strong>{{ palco?.personasMaximas}}</strong>
               </td>
             </tr>
           </tbody>

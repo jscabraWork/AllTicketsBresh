@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LocalidadesDataService } from 'src/app/service/data/localidades-data.service';
 import { kill } from 'process';
+import { HardcodedAutheticationService } from 'src/app/service/hardcoded-authetication.service';
 
 
 
@@ -15,15 +16,25 @@ import { kill } from 'process';
 })
 export class EventoPerfilOrganizadorComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private service:EventoDataService, private servicioLocalidad: LocalidadesDataService) { }
+  constructor(private route: ActivatedRoute, private service:EventoDataService, private servicioLocalidad: LocalidadesDataService, public autenticador: HardcodedAutheticationService ) { }
 
   evento:Evento
   boletas:[]
   miId:string
   dineroRecaudado:number
   localidades:Localidad[]=[]
+  dineroServicio:number
+  dineroIva:number
+  personas:number
+  personasAdentro:number
+  dineroVendidoVaca:number
   ngOnInit( ): void {
     this.dineroRecaudado =0
+    this.dineroServicio=0
+    this.dineroIva=0
+    this.personas=0
+    this.personasAdentro=0
+    this.dineroVendidoVaca=0
     this.evento ={
       id: "",
       nombre:"",
@@ -72,6 +83,13 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
             {
               if(  this.localidades[j].boletas[i].vendida==true){
                 this.dineroRecaudado = this.dineroRecaudado + this.localidades[j].boletas[i].precio;
+                this.dineroIva = this.dineroIva + this.localidades[j].boletas[i].servicioIva;
+                this.dineroServicio = this.dineroServicio + this.localidades[j].boletas[i].servicio;
+                this.personas = this.personas + 1;
+                if(this.localidades[j].boletas[i].utilizada==true){
+                  this.personasAdentro = this.personasAdentro + 1;
+                }
+                this.dineroVendidoVaca =this.dineroVendidoVaca+this.localidades[j].boletas[i].precio
               }
             }
 
@@ -80,6 +98,11 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
               if(this.localidades[j].palcos[k].vendido ==true){
                 
                 this.dineroRecaudado = this.dineroRecaudado + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))*this.localidades[j].palcos[k].precio
+                this.dineroIva = this.dineroIva + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))* this.localidades[j].palcos[k].servicioIva;
+                this.dineroServicio = this.dineroServicio + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))*this.localidades[j].palcos[k].servicio;
+                this.personas = this.personas + this.localidades[j].palcos[k].personasMaximas;
+                this.personasAdentro = this.personasAdentro + this.localidades[j].palcos[k].personasAdentro;
+                this.dineroVendidoVaca =this.dineroVendidoVaca+ this.localidades[j].palcos[k].precio
               }
             }
 
@@ -251,7 +274,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     var contador =0;
     for (var i =0; i< localidad.palcos.length;i=1+i){
      
-      if(localidad.palcos[i].disponible){
+      if(localidad.palcos[i].disponible && localidad.palcos[i].vendido ){
         contador = contador+ localidad.palcos[i].precio
       }
         

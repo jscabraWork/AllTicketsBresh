@@ -31,6 +31,11 @@
             
             
             <td *ngIf="localidad.palcos.length>0" class="border"> <button class="btn action_button" routerLink="{{localidad.id}}">Ver Palcos</button></td> 
+            <td *ngIf="evento?.mapa &&localidad.boletas.length>0 && localidad.palcos.length==0"  class="border">
+                <a href="https://allticketscol.com/eventos/evento/{{evento.id}}/pago/palco/mapa/{{promotor?.usuario}}">
+                    https://allticketscol.com/eventos/evento/{{evento.id}}/pago/palco/mapa/{{promotor?.usuario}}
+                </a>
+            </td>
             <td *ngIf="!evento?.mapa &&localidad.boletas.length>0" class="border"> 
                 <a href="https://allticketscol.com/eventos/evento/{{evento?.id}}/pago/{{localidad?.id}}/{{promotor?.usuario}}/promotor">
                     https://allticketscol.com/eventos/evento/{{evento?.id}}/pago/{{localidad?.id}}/{{promotor?.usuario}}/promotor

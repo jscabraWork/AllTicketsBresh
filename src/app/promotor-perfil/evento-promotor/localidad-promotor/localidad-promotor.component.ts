@@ -211,11 +211,18 @@ export class LocalidadPromotorComponent implements OnInit {
         this.palcoServicio.reservarPalcoExacto(response.id).subscribe(response=>{
           response
           
+          if((a.precio+a.servicio+a.servicioIva)<=this.localidad.precio+this.localidad.servicio+this.localidad.servicioPorcentaje){
           this.palcoServicio.acomodarPreciosOriginales(a.id).subscribe(response=>{
             response
             this.reservar(a)
           })
+        }
+        else{
+          this.reservar(a)
+        }
+
         });
+        
       }
       else{
         alert(

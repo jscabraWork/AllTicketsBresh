@@ -105,13 +105,27 @@
                 </table>
             </div>    
         <div class="col-12" >
-            <p class="border p-3" style="background-color: white;"><strong>Dinero Total Recaudado: {{dineroRecaudado |currency:'COP'}} </strong>
+        <p class="border p-3" style="background-color: white;">
+            <br>
+            <strong>Dinero Total Recaudado: {{dineroRecaudado |currency:'COP'}} </strong>
+            <br>
+            <strong>Dinero Total Vendido: {{dineroVendidoVaca |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Dinero Total Servicio: {{dineroServicio |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Dinero Total IVA: {{dineroIva |currency:'COP'}} </strong>
             <br>
             <strong>Dinero Entregado: {{evento?.dineroEntregado |currency:'COP'}} </strong>
+            <br>
+            <strong>Personas que van a asistir: {{personas}} </strong>
+            <br>
+            <strong>Personas adentro: {{personasAdentro}} </strong>
+   
         </p>
   
             <button class="ml-3 btn action_button" routerLink="promotores">Ver promotores</button>
             <button class="ml-3 btn action_button" routerLink="reservas">Ver reservas</button>
+            <button class="ml-3 btn action_button" routerLink="historial">Historial</button>
         </div>
     </div>    
 
