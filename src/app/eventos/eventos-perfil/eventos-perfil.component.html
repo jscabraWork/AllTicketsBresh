@@ -83,10 +83,16 @@
 
 
 
-				<p><strong>Fecha de Inicio:</strong> {{evento?.fecha|date}} <strong>Hora:
-					</strong>{{evento?.horaInicio| horas}}</p>
-				<p><strong>Fecha de Fin:</strong> {{evento?.fechaFin|date}} <strong>Hora Finalización:
-					</strong>{{evento?.horaFin | horas}}</p>
+				<p *ngIf="evento?.id!='AT2021-16'"><strong>Fecha de Inicio:</strong> {{evento?.fecha |date}} <strong>Hora:
+				</strong>{{evento?.horaInicio| horas}}</p>
+			<p *ngIf="evento?.id!='AT2021-16'"><strong>Fecha de Fin:</strong> {{evento?.fechaFin|date}} <strong>Hora Finalización:
+				</strong>{{evento?.horaFin | horas}}</p>
+
+				<p *ngIf="evento?.id=='AT2021-16'"><strong>Fecha de Inicio:</strong> Por Confirmar <strong>Hora:
+				</strong>Por Confirmar</p>
+			<p *ngIf="evento?.id=='AT2021-16'"><strong>Fecha de Fin:</strong> Por Confirmar <strong>Hora Finalización:
+				</strong>Por Confirmar</p>
+
 				<p><strong>Artistas:</strong> {{evento?.artistas}}</p>
 				<p><strong>Ciudad:</strong> {{evento?.ciudadNombre}}</p>
 				<p><strong>Lugar:</strong> {{evento?.lugar}}</p>
@@ -112,10 +118,17 @@
 
 
 
-				<p><strong>Fecha de Inicio:</strong> {{evento?.fecha|date}} <strong>Hora:
-					</strong>{{evento?.horaInicio| horas}}</p>
-				<p><strong>Fecha de Fin:</strong> {{evento?.fechaFin|date}} <strong>Hora Finalización:
-					</strong>{{evento?.horaFin | horas}}</p>
+				<p *ngIf="evento?.id!='AT2021-16'"><strong>Fecha de Inicio:</strong> {{evento?.fecha |date}} <strong>Hora:
+				</strong>{{evento?.horaInicio| horas}}</p>
+			<p *ngIf="evento?.id!='AT2021-16'"><strong>Fecha de Fin:</strong> {{evento?.fechaFin|date}} <strong>Hora Finalización:
+				</strong>{{evento?.horaFin | horas}}</p>
+
+				<p *ngIf="evento?.id=='AT2021-16'"><strong>Fecha de Inicio:</strong> Por Confirmar <strong>Hora:
+				</strong>Por Confirmar</p>
+			<p *ngIf="evento?.id=='AT2021-16'"><strong>Fecha de Fin:</strong> Por Confirmar <strong>Hora Finalización:
+				</strong>Por Confirmar</p>
+
+
 				<p><strong>Artistas:</strong> {{evento?.artistas}}</p>
 				<p><strong>Ciudad:</strong> {{evento?.ciudadNombre}}</p>
 				<p><strong>Lugar:</strong> {{evento?.lugar}}</p>
