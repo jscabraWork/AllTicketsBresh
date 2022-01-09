@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { Foto } from 'src/app/models/foto.model';
 import { Ciudad } from 'src/app/ciudades/ciudad.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -56,7 +57,7 @@ urlGetOne=`${API_URL}/eventos/`;
   }
   cambiarOculto(pId:string){
     
-    return this.http.get(`${API_URL}/eventos/oculto/${pId}`);
+    return this.http.put(`${API_URL}/eventos/oculto/${pId}`,null);
   }
 
   addEventoId( evento, idOrganizador){

@@ -14,9 +14,6 @@ export class PromotorDataService {
     return this.http.get<Promotor[]>((`${API_URL}/promotores`)); 
   }
 
-  getAllPromotoresByEventoId(pIdEvento){
-    return this.http.get<Promotor[]>((`${API_URL}/promotores/eventos/${pIdEvento}`)); 
-  }
 
   getAllPromotoresByEventoIdParaOrganizador(pIdEvento){
     return this.http.get((`${API_URL}/promotores/eventos/${pIdEvento}/organizador`)); 
@@ -40,10 +37,6 @@ export class PromotorDataService {
     return this.http.delete<Promotor>((`${API_URL}/promotores/${pId}`)); 
   }
 
-  getPromotorByCodigoVenta(pCodigoVenta)
-  {
-    return this.http.get<Promotor>((`${API_URL}/promotores/codigo/${pCodigoVenta}`)); 
-  }
 
   getPromotorByUsuario(pUsuario)
   {

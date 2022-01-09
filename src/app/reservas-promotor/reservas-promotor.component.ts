@@ -127,6 +127,8 @@ export class ReservasPromotorComponent implements OnInit {
     }
     this.confirmacion =API_URL+ '/payu'
     this.respuesta = respuesta
+
+    
     this.route.paramMap.subscribe(params => {
       this.miId = params.get("id")
       this.reservasService.getReserva(this.miId).subscribe((response) => {

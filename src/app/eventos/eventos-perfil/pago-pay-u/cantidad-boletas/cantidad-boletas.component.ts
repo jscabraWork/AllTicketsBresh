@@ -65,7 +65,9 @@ export class CantidadBoletasComponent implements OnInit {
       adicionales:[],
       oculto:null,
       dineroEntregado:null,
-      ciudadNombre:null
+      ciudadNombre:null,
+      localidadesProducto:[],
+      visibleAP:null,
     };
     this.usuarioEntidad = this.data.usuarioEntidad;
     this.boletasCantidad =1
@@ -109,7 +111,7 @@ siguiente(){
     }
 
     this.referenceCode = this.referenceCode + "-1"
-    this.referenceCode = this.referenceCode +"," + this.boletas[0].nombreEvento +"," + new Date()
+    this.referenceCode = this.referenceCode +"," + this.evento.id +"," + new Date()
     
     this.AbrirCarrito()
     this.servicioBoletas.rechazarReservaBoleta( this.boletas).subscribe(response=>response);

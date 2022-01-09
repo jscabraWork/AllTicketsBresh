@@ -58,6 +58,8 @@ export class HistorialComponent implements OnInit {
       oculto: null,
       dineroEntregado: null,
       ciudadNombre: null,
+      localidadesProducto:[],
+      visibleAP:null,
     };
     this.palcos = [];
     this.clientes = [];
@@ -68,7 +70,7 @@ export class HistorialComponent implements OnInit {
 
       this.serviceEvento.getEventoId(this.miId).subscribe((response) => {
         this.handleGetSuccesfull(response);
-        this.servicio.getHistorial('1', this.evento.nombre).subscribe((response) => {
+        this.servicio.getHistorial('1', this.evento.id).subscribe((response) => {
           this.manejar(response);
         });
       });

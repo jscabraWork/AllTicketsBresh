@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { RegalarBoletaComponent } from './eventos-perfil/pago-pay-u/regalar-boleta/regalar-boleta.component';
+
 import { ComprarPalcosComponent } from './eventos-perfil/pago-pay-u/comprar-palcos/comprar-palcos.component';
 import { VacaComponent } from './eventos-perfil/pago-pay-u/comprar-palcos/vaca/vaca.component';
 import { CarritoDeComprasComponent } from './eventos-perfil/pago-pay-u/carrito-de-compras/carrito-de-compras.component';
@@ -70,10 +70,7 @@ const routes: Routes=[
           path:'evento/:id/pago/palco/:idLocalidad/vaca',
           component: VacaComponent
         },*/
-        {
-          path:'evento/:id/pago/:idLocalidad/regalar',
-          component: RegalarBoletaComponent
-        },
+        
         {
           path:'respuesta',
           component: RespuestaComponent
@@ -90,7 +87,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, RegalarBoletaComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent, AdicionalComponent, CantidadBoletasComponent, LocalidadSeleccionComponent ],
+    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent, AdicionalComponent, CantidadBoletasComponent, LocalidadSeleccionComponent ],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

@@ -91,7 +91,9 @@ authenticate(username,password){
 
   }
   logout(){
-   
+    sessionStorage.removeItem('usuarioEntidad');
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     sessionStorage.removeItem('usuario');
     sessionStorage.removeItem('promotor');
     sessionStorage.removeItem('organizador');

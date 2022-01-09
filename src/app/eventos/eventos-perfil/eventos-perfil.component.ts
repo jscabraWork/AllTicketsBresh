@@ -73,7 +73,9 @@ export class EventosPerfilComponent implements OnInit {
       adicionales:[],
       oculto:null,
       dineroEntregado:null,
-      ciudadNombre:null
+      ciudadNombre:null,
+      localidadesProducto:[],
+      visibleAP:null,
     }
  
     
@@ -153,7 +155,7 @@ openDialog(): void {
 handleGetSuccesfull(response){
   
   if(response.evento.visible || response.evento.oculto){
-    console.log(response)
+    
   this.evento=response.evento;
   this.organizadorId = response.organizadorId
 

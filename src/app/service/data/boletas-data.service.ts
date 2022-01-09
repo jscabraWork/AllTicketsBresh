@@ -21,9 +21,13 @@ export class BoletasDataService {
   getAsistenteDeUnaBoleta(pIdBoleta:number){
     return this.http.get<Asistente>(`${API_URL}/boletas/asistente/${pIdBoleta}`);
   }
+
   getBoletaPorId(pId:number){
     return this.http.get<Boleta>(`${API_URL}/boletas/${pId}`);
   }
+
+
+
 
   getAllBoletasLocalidad(pEvento:string, pLocalidad:number){
     return this.http.get(this.url+`${pEvento}/localidades/${pLocalidad}/boletas`);
@@ -40,21 +44,6 @@ export class BoletasDataService {
     return this.http.delete(`${API_URL}/eventos/${idEvento}/localidades/${pIdLocalidad}/boletas/${pIdBoleta}`); 
   }
 
-
-  getBoletasVendidasYNoVendidas(pEvento:string, pLocalidad:number, vendida:boolean){
-
-    return this.http.get(this.url+`${pEvento}/localidades/${pLocalidad}/boletas/vendida/${vendida}`);  
-
-  }
-
-  getBoletasVendidasYReservado(pEvento:string, pLocalidad:number, vendida:boolean, reservado:boolean){
-
-    return this.http.get<Boleta[]>(this.url+`${pEvento}/localidades/${pLocalidad}/boletas/vendida/${vendida}/reservado/${reservado}`);  
-
-  }
-
-
-  
 
   reservarBoletaIndividual(pEvento:string, pIdLocalidad:number , pBoleta:Boleta){
 
@@ -80,16 +69,16 @@ export class BoletasDataService {
 
 
   cambiarReserva(pIdBoleta){
-    return this.http.get <Boleta>(`${API_URL}/boleta/reserva/${pIdBoleta}`);
+    return this.http.put <Boleta>(`${API_URL}/boleta/reserva/${pIdBoleta}`,null);
   }
   cambiarDisponible(pIdBoleta){
-    return this.http.get <Boleta>(`${API_URL}/boleta/disponible/${pIdBoleta}`);
+    return this.http.put <Boleta>(`${API_URL}/boleta/disponible/${pIdBoleta}`,null);
   }
   cambiarReservado(pIdBoleta){
-    return this.http.get <Boleta>( `${API_URL}/boleta/proceso/${pIdBoleta}`);
+    return this.http.put <Boleta>( `${API_URL}/boleta/proceso/${pIdBoleta}`,null);
   }
   cambiarVendido(pIdBoleta){
-    return this.http.get <Boleta>( `${API_URL}/boleta/vendido/${pIdBoleta}`);
+    return this.http.put <Boleta>( `${API_URL}/boleta/vendido/${pIdBoleta}`,null);
   }
 
 
@@ -106,13 +95,6 @@ export class BoletasDataService {
     return this.http.put(this.url+ `${pEvento}/boletas/comprar/${pCliente}`, pBoleta);
   }
 
-
-  
-  getBoletasDeUnClienteYDeUnaLocalidad(pEvento:string, pNombreL:string, pCliente:number){
-
-    return this.http.get<Boleta[]>(this.url+`${pEvento}/localidades/${pNombreL}/boletas/cliente/${pCliente}`);  
-
-  }
 
   addMultiplesBoletasPatrocinio(pEvento,  pIdLocalidad:number,cantidad:number, correoPatrocinio:string, nombrePatrocinador:string){
     return this.http.post(this.url+`${pEvento}/localidades/${pIdLocalidad}/boletas/${cantidad}/patrocinio/${correoPatrocinio}/${nombrePatrocinador}`, null); 

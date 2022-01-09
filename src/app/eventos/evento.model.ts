@@ -3,6 +3,7 @@ import { Palco } from './../administradores/admin-perfil/admin-eventos/admin-pal
 import { Localidad } from './../administradores/admin-perfil/admin-eventos/admin-localidades/localidad.model';
 import { Foto } from '../models/foto.model';
 import { Adicionales } from '../administradores/admin-perfil/admin-adicionales/adicionales.model';
+import { LocalidadProducto } from './localidadP.model';
 
 export interface Evento {
     id: string,
@@ -34,6 +35,8 @@ export interface Evento {
     adicionales:Adicionales[],
     oculto:boolean,
     dineroEntregado:number,
-    ciudadNombre:string
+    ciudadNombre:string,
+    localidadesProducto:LocalidadProducto[],
+    visibleAP:boolean
 
 }

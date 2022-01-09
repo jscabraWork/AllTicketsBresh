@@ -55,7 +55,9 @@ export class AgregarEventoComponent implements OnInit {
       adicionales:[],
       oculto:null,
       dineroEntregado:0,
-      ciudadNombre:null
+      ciudadNombre:null,
+      localidadesProducto:[],
+      visibleAP:null,
       
     }
 

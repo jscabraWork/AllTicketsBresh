@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { ContactanosComponent } from '../contactanos/contactanos.component';
 
 import { CalendarioComponent } from '../calendario/calendario.component';
+import { AuthService } from '../service/seguridad/auth.service';
 
 @Component({
   selector: 'app-menu',

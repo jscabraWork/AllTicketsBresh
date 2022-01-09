@@ -2,12 +2,11 @@ import { EventoDataService } from './../service/data/evento-data.service';
 
 import { Evento } from './evento.model';
 import { Component, OnInit } from '@angular/core';
-import { EpaycoService } from '../service/epayco.service';
-import { CiudadesDataService } from '../service/data/ciudades-data.service';
-import { take } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { Ciudad } from '../ciudades/ciudad.model';
 
+import { CiudadesDataService } from '../service/data/ciudades-data.service';
+
+import{DatePipe,registerLocaleData} from '@angular/common';
+import localeES from '@angular/common/locales/es';
 
 @Component({
   selector: 'app-eventos',
@@ -45,6 +44,22 @@ export class EventosComponent implements OnInit {
     
     
   
+  }
+
+  darFecha(evento:Evento):string{
+
+    registerLocaleData(localeES, 'es');
+    let dataPipe:DatePipe = new DatePipe('es');
+    let Word =dataPipe.transform(evento.fecha, 'EEE dd');
+    Word= Word[0].toUpperCase() + Word.substr(1).toLowerCase();
+
+    let Word2 =dataPipe.transform(evento.fecha, 'MMM');
+    Word2= Word2[0].toUpperCase() + Word2.substr(1).toLowerCase();
+
+
+    let fecha= Word  + " de " +Word2+" de "+dataPipe.transform(evento.fecha, 'yyyy');
+  
+    return fecha
   }
 
   handleSuccesfullGet(response){

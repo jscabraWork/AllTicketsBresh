@@ -53,7 +53,9 @@ export class AdminEtapasComponent implements OnInit {
         adicionales:[],
         oculto:null,
         dineroEntregado:null,
-        ciudadNombre:null
+        ciudadNombre:null,
+        localidadesProducto:[],
+        visibleAP:null,
       }
     this.refrescar()
     })

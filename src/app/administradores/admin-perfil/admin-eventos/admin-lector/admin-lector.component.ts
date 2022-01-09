@@ -72,6 +72,8 @@ export class AdminLectorComponent implements OnInit {
       oculto: null,
       dineroEntregado: null,
       ciudadNombre: null,
+      localidadesProducto:[],
+      visibleAP:null,
     };
 
     this.route.paramMap.subscribe((params) => {

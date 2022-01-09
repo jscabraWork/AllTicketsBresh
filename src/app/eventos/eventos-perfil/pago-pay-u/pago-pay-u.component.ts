@@ -94,7 +94,9 @@ codigoVenta
       adicionales:[],
       oculto:null,
       dineroEntregado:null,
-      ciudadNombre:null
+      ciudadNombre:null,
+      localidadesProducto:[],
+      visibleAP:null,
     }
     this.localidad ={
       id:null,
@@ -264,7 +266,7 @@ codigoVenta
           
           if(i == this.boletas.length-1){
             this.referenceCode = this.referenceCode + "-1"
-            this.referenceCode = this.referenceCode +"," + this.boletas[0].nombreEvento +"," + new Date()
+            this.referenceCode = this.referenceCode +"," + this.evento.id +"," + new Date()
             this.AbrirCarrito()  
           }
 

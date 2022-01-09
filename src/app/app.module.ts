@@ -46,6 +46,8 @@ import { CountdownModule } from 'ngx-countdown';
 import { TratamientoDatosComponent } from './tratamiento-datos/tratamiento-datos.component';
 import { ReservasPromotorComponent } from './reservas-promotor/reservas-promotor.component';
 import { CoordinadorPerfilComponent } from './coordinador-perfil/coordinador-perfil.component';
+import { TokenInterceptor } from './service/interceptors/token.interceptor';
+import { AuthInterceptor } from './service/interceptors/auth.interceptor';
 
 //SERVICIOS
 
@@ -126,8 +128,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   
   providers: [
    
-    {provide:HTTP_INTERCEPTORS, useClass: HttpInterceptBasicAuthService, multi: true  },
-    {provide: LOCALE_ID, useValue: 'es', } 
+    
+    {provide: LOCALE_ID, useValue: 'es', } ,
+    {provide:HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi:true},
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]
 })

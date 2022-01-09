@@ -45,7 +45,7 @@
         </div>
       
         <div class="col-6 border-right">
-            <p *ngIf="evento?.id!='AT2021-16'" class="fechas"><strong>{{evento?.fecha|date}} </strong></p>
+            <p *ngIf="evento?.id!='AT2021-16'" class="fechas pequenia"><strong>{{darFecha(evento)}} </strong></p>
             <p *ngIf="evento?.id=='AT2021-16'" class="fechas"><strong>Por Confirmar</strong></p>
             <p class="fechas"><strong>Ciudad: {{evento?.ciudadNombre }}</strong></p> 
     

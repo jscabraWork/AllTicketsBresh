@@ -21,27 +21,20 @@ export class LocalidadesDataService {
     return this.http.get<Localidad> (`${API_URL}/eventos/${pEvento}/localidades/localidad/${pIdLocalidad}`)
   }
 
-  
-  getEtapaPorIdLocalidad(pIdLocalidad:number){
 
-    return this.http.get<Etapa> (`${API_URL}/localidad/${pIdLocalidad}`)
-  }
 
-  getLocalidadVisibleId(pIdLocalidad:number){
-    return this.http.get<Localidad> (`${API_URL}/localidad/${pIdLocalidad}/visibles`)
-  }
   addLocalidadAEvento( localidad, pEvento:string, pIdEtapa:number){
     
     return this.http.post(`${API_URL}/eventos/${pEvento}/localidades/etapas/${pIdEtapa}`,localidad); 
   }
   setAdiciones(pIdLocalidad:number,precio,servicio,servicioIVA,adiciones,maximoAdiciones){
 
-    return this.http.get<Etapa> (`${API_URL}/eventos/localidades/adiciones/localidad/${pIdLocalidad}/${precio}/${servicio}/${servicioIVA}/${adiciones}/${maximoAdiciones}`)
+    return this.http.put<Etapa> (`${API_URL}/eventos/localidades/adiciones/localidad/${pIdLocalidad}/${precio}/${servicio}/${servicioIVA}/${adiciones}/${maximoAdiciones}`,null)
   }
 
   setAlternoss(pIdLocalidad:number,precio,servicio,servicioIVA){
 
-    return this.http.get<Etapa> (`${API_URL}/eventos/localidades/localidad/${pIdLocalidad}/${precio}/${servicio}/${servicioIVA}`)
+    return this.http.put<Etapa> (`${API_URL}/eventos/localidades/localidad/${pIdLocalidad}/${precio}/${servicio}/${servicioIVA}`,null)
   }
 
 
@@ -51,10 +44,7 @@ export class LocalidadesDataService {
   }
 
 
-  getAllLocalidadesDeEventoNombre(pEvento:string){
-    return this.http.get<Localidad[]>(`${API_URL}/eventos/nombre/${pEvento}/localidades`);
-  }
-
+ 
   modificarLocalidad(localidad:Localidad, pEvento, pIdLocalidad, pIdEtapa:number){
     return this.http.put(`${API_URL}/eventos/${pEvento}/localidades/${pIdLocalidad}/etapa/${pIdEtapa}`, localidad);
   }

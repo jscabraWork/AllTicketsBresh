@@ -631,7 +631,9 @@ export class ComprarPalcosComponent implements OnInit {
       adicionales: [],
       oculto: null,
       dineroEntregado:null,
-      ciudadNombre:null
+      ciudadNombre:null,
+      localidadesProducto:[],
+      visibleAP:null,
     };
     this.codigoVenta == '';
     this.route.paramMap.subscribe((params) => {
@@ -650,11 +652,6 @@ export class ComprarPalcosComponent implements OnInit {
             this.localidadCargada = response
           })
         }
-
-
-
-
-
 
 
         else if (this.evento.mapa == 'mapa11') {
@@ -911,6 +908,47 @@ export class ComprarPalcosComponent implements OnInit {
               this.cargadoTodo = true;
             });
         }
+
+        else if (this.evento.mapa == 'mapa20') {
+
+       
+          this.etapaServicio
+            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+            .subscribe((response) => {
+
+              this.etapas = response;
+
+
+
+              for (let i = 0; i < this.etapas.length; i += 1) {
+                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                  if (
+                    this.etapas[i].localidades[j].nombre == 'Palcos VIP'
+                  ) {
+                
+                    this.localidadCargadaGeneral =
+                      this.etapas[i].localidades[j];
+                }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'General') {
+                    this.localidadCargada = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'Palcos General') {
+                    this.localidadCargadaBoletas = this.etapas[i].localidades[j];
+                  }
+                
+                }
+              }
+
+              this.cargarLocalidadEnMapa20();
+              this.cargadoTodo = true;
+            });
+        }
+
+
         if (this.autenticador.getUsuario() != null) {
           this.usuarioA = this.autenticador.getUsuario();
           this.referenceCode = this.referenceCode + this.usuarioA + ': ';
@@ -988,7 +1026,7 @@ export class ComprarPalcosComponent implements OnInit {
               (response) => {
                 this.palco = response;
 
-                this.referenceCode = "PALCO;" + this.usuarioEntidad.numeroDocumento + "," + this.palco.id + "," + this.evento.nombre + "," + new Date();
+                this.referenceCode = "PALCO;" + this.usuarioEntidad.numeroDocumento + "," + this.palco.id + "," + this.evento.id + "," + new Date();
                 this.cargando = false;
 
                 this.valorTotal =
@@ -1274,6 +1312,110 @@ export class ComprarPalcosComponent implements OnInit {
     }
    }
   }
+
+  cargarLocalidadEnMapa20() {
+
+    for(let i=0;i<26;i++){
+      if (
+        !this.localidadCargadaGeneral.palcos[i].vendido &&
+        !this.localidadCargadaGeneral.palcos[i].reservado &&
+        this.localidadCargadaGeneral.palcos[i].disponible &&
+        !this.localidadCargadaGeneral.palcos[i].proceso
+      ){
+        this.lista1[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i].numeroDentroDeEvento,
+          localidad: 'oro',
+        }
+      }
+      
+      else if (
+        this.localidadCargadaGeneral.palcos[i].vendido ||
+        this.localidadCargadaGeneral.palcos[i].reservado ||
+        !this.localidadCargadaGeneral.palcos[i].disponible
+      ) {
+        this.lista1[i] =  {
+          valor:'v',
+          localidad: 'oro',
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+        this.lista1[i]= {
+          valor:'p',
+          localidad: 'oro',
+        }
+      }
+    }
+    
+    for(let i=0;i<10;i++){
+
+
+      
+
+
+
+
+      if (
+        !this.localidadCargadaBoletas.palcos[i].vendido &&
+        !this.localidadCargadaBoletas.palcos[i].reservado &&
+        this.localidadCargadaBoletas.palcos[i].disponible &&
+        !this.localidadCargadaBoletas.palcos[i].proceso
+      ){
+        this.lista4[i] = {
+          valor:this.localidadCargadaBoletas.palcos[i].numeroDentroDeEvento,
+          localidad: 'vip',
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletas.palcos[i].vendido ||
+        this.localidadCargadaBoletas.palcos[i].reservado ||
+        !this.localidadCargadaBoletas.palcos[i].disponible
+      ) {
+        this.lista4[i] =  {
+          valor:'v',
+          localidad: 'vip',
+        }
+      } else if (this.localidadCargadaBoletas.palcos[i].proceso) {
+        this.lista4[i]= {
+          valor:'p',
+          localidad: 'vip',
+        }
+      }
+
+    }
+
+
+    for(let i=0;i<6;i++){
+      if (
+        !this.localidadCargadaGeneral.palcos[i+20].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+20].reservado &&
+        this.localidadCargadaGeneral.palcos[i+20].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+20].proceso
+      ){
+        this.lista3[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i+20].numeroDentroDeEvento,
+          localidad: 'prem',
+        }
+      }
+      
+      else if (
+        this.localidadCargadaGeneral.palcos[i+20].vendido ||
+        this.localidadCargadaGeneral.palcos[i+20].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+20].disponible
+      ) {
+        this.lista3[i] =  {
+          valor:'v',
+          localidad: 'prem',
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i+20].proceso) {
+        this.lista3[i]= {
+          valor:'p',
+          localidad: 'prem',
+        }
+      }
+    }
+
+  }
+
   cargarLocalidadEnMapa4(){
   for(let i=0;i<6;i++){
 
@@ -1288,6 +1430,7 @@ export class ComprarPalcosComponent implements OnInit {
         localidad: 'oro',
       }
     }
+    
     else if (
       this.localidadCargadaGeneral.palcos[i].vendido ||
       this.localidadCargadaGeneral.palcos[i].reservado ||
@@ -3006,7 +3149,7 @@ if(!this.usuarioBoolean)
                       this.referenceCode +
                       this.palco.id +
                       ',' +
-                      this.palco.nombreEvento +
+                      this.evento.id +
                       ',' +
                       new Date();
                     this.cargando = false;
@@ -3200,7 +3343,7 @@ agregarAlCarritoTickets(){
   }
 
   this.referenceCode = this.referenceCode + "-1"
-  this.referenceCode = this.referenceCode +"," + this.boletas[0].nombreEvento +"," + new Date()
+  this.referenceCode = this.referenceCode +"," + this.evento.id +"," + new Date()
   
   this.AbrirCarritoTicket()
 }
