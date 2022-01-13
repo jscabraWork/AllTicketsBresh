@@ -129,6 +129,8 @@
             <br *ngIf="autenticador.getAdmin()">
             <strong *ngIf="autenticador.getAdmin()">Comision PayU: {{comisionPayU |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Impuesto de comision PayU: {{impuestoPayU |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
             <strong *ngIf="autenticador.getAdmin()">Dinero Servicio después de retenciones: {{dineroServicioDespuesDeComisiones |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()">
             <strong *ngIf="autenticador.getAdmin()">Retencion de fuente de All Tickets: {{retefuenteAT |currency:'COP'}} </strong>

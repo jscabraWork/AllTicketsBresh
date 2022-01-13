@@ -41,6 +41,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   dineroServicioDespuesDeComisiones:number
   ivaCuenta:number
   servicio:number
+  impuestoPayU:number
   ngOnInit( ): void {
     this.dineroRecaudado =0
     this.dineroServicio=0
@@ -58,6 +59,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     this.dineroEntregar=0
     this.dineroServicioDespuesDeComisiones=0
     this.ivaCuenta=0
+    this.impuestoPayU=0
     this.evento ={
       id: "",
       nombre:"",
@@ -138,10 +140,10 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
               this.manejoRetenciones(response)
               let dineroTotal = (this.dineroRecaudado+this.dineroIva+this.dineroServicio);
               this.comisionPayU = (dineroTotal*0.0265) + 600*this.cantidadTransacciones;
-              let impuestoPayU = (this.comisionPayU*0.19)
-              this.comisionPayU = this.comisionPayU + impuestoPayU;
+              this.impuestoPayU = (this.comisionPayU*0.19)
+              
 
-              this.servicio = this.dineroServicio - this.comisionPayU 
+              this.servicio = this.dineroServicio - this.comisionPayU - this.impuestoPayU;
               this.dineroServicioDespuesDeComisiones =this.servicio - this.retefuenteAT - this.reteIcaAT
               this.dineroEntregar = this.dineroRecaudado-this.retefuenteOrganizador-this.reteIcaOrganizador
               this.ivaCuenta = this.dineroIva - this.reteIva
