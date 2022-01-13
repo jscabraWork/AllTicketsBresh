@@ -58,6 +58,7 @@ export class AgregarFotosBannerComponent implements OnInit {
       }
       else if(event instanceof HttpResponse){
         this.fileInfo = this.servicio.getFiles();
+        this.message="Archivo subido con exito"
       }
     },
     error=>{

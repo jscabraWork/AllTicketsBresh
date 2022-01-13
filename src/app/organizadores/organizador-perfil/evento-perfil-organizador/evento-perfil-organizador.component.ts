@@ -27,14 +27,37 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   dineroIva:number
   personas:number
   personasAdentro:number
-  dineroVendidoVaca:number
+  
+  reteIcaOrganizador:number
+  retefuenteOrganizador:number
+
+  reteIcaAT:number
+  retefuenteAT:number
+  reteIva:number
+  cantidadTransacciones:number
+  comisionPayU:number
+
+  dineroEntregar:number
+  dineroServicioDespuesDeComisiones:number
+  ivaCuenta:number
+  servicio:number
   ngOnInit( ): void {
     this.dineroRecaudado =0
     this.dineroServicio=0
     this.dineroIva=0
     this.personas=0
     this.personasAdentro=0
-    this.dineroVendidoVaca=0
+    this.servicio=0
+    this.retefuenteAT=0
+    this.retefuenteOrganizador=0
+    this.reteIcaAT=0
+    this.reteIcaOrganizador=0
+    this.reteIva=0
+    this.cantidadTransacciones=0
+    this.comisionPayU =0
+    this.dineroEntregar=0
+    this.dineroServicioDespuesDeComisiones=0
+    this.ivaCuenta=0
     this.evento ={
       id: "",
       nombre:"",
@@ -76,48 +99,71 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
       this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
         this.servicioLocalidad.getAllLocalidadesDeEvento(this.miId).subscribe(
           response=>{
-            this.localidades = response;
-            for(var j=0; j< this.localidades.length; j++){
+            this.localidades = response;          
+          this.service.getRetenciones(this.evento.id).subscribe(
+            (response)=>{
+              for(var j=0; j< this.localidades.length; j++){
 
 
-            for(var i =0; i< this.localidades[j].boletas.length;i=i+1)
-
-            {
-              if(  this.localidades[j].boletas[i].vendida==true){
-                this.dineroRecaudado = this.dineroRecaudado + this.localidades[j].boletas[i].precio;
-                this.dineroIva = this.dineroIva + this.localidades[j].boletas[i].servicioIva;
-                this.dineroServicio = this.dineroServicio + this.localidades[j].boletas[i].servicio;
-                this.personas = this.personas + 1;
-                if(this.localidades[j].boletas[i].utilizada==true){
-                  this.personasAdentro = this.personasAdentro + 1;
+                for(var i =0; i< this.localidades[j].boletas.length;i=i+1)
+    
+                {
+                  if(  this.localidades[j].boletas[i].vendida==true){
+                    this.dineroRecaudado = this.dineroRecaudado + this.localidades[j].boletas[i].precio;
+                    this.dineroIva = this.dineroIva + this.localidades[j].boletas[i].servicioIva;
+                    this.dineroServicio = this.dineroServicio + this.localidades[j].boletas[i].servicio;
+                    this.personas = this.personas + 1;
+                    if(this.localidades[j].boletas[i].utilizada==true){
+                      this.personasAdentro = this.personasAdentro + 1;
+                    }
+                    
+                  }
                 }
-                this.dineroVendidoVaca =this.dineroVendidoVaca+this.localidades[j].boletas[i].precio
+    
+    
+                for (var k =0; k< this.localidades[j].palcos.length;k=1+k){
+                  if(this.localidades[j].palcos[k].vendido ==true){
+                    
+                    this.dineroRecaudado = this.dineroRecaudado + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))*this.localidades[j].palcos[k].precio
+                    this.dineroIva = this.dineroIva + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))* this.localidades[j].palcos[k].servicioIva;
+                    this.dineroServicio = this.dineroServicio + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))*this.localidades[j].palcos[k].servicio;
+                    this.personas = this.personas + this.localidades[j].palcos[k].personasMaximas;
+                    this.personasAdentro = this.personasAdentro + this.localidades[j].palcos[k].personasAdentro;
+                    
+                  }
+                  
+                 
+                }
               }
+              this.manejoRetenciones(response)
+              let dineroTotal = (this.dineroRecaudado+this.dineroIva+this.dineroServicio);
+              this.comisionPayU = (dineroTotal*0.0265) + 600*this.cantidadTransacciones;
+              let impuestoPayU = (this.comisionPayU*0.19)
+              this.comisionPayU = this.comisionPayU + impuestoPayU;
+
+              this.servicio = this.dineroServicio - this.comisionPayU 
+              this.dineroServicioDespuesDeComisiones =this.servicio - this.retefuenteAT - this.reteIcaAT
+              this.dineroEntregar = this.dineroRecaudado-this.retefuenteOrganizador-this.reteIcaOrganizador
+              this.ivaCuenta = this.dineroIva - this.reteIva
             }
-
-
-            for (var k =0; k< this.localidades[j].palcos.length;k=1+k){
-              if(this.localidades[j].palcos[k].vendido ==true){
-                
-                this.dineroRecaudado = this.dineroRecaudado + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))*this.localidades[j].palcos[k].precio
-                this.dineroIva = this.dineroIva + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))* this.localidades[j].palcos[k].servicioIva;
-                this.dineroServicio = this.dineroServicio + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))*this.localidades[j].palcos[k].servicio;
-                this.personas = this.personas + this.localidades[j].palcos[k].personasMaximas;
-                this.personasAdentro = this.personasAdentro + this.localidades[j].palcos[k].personasAdentro;
-                this.dineroVendidoVaca =this.dineroVendidoVaca+ this.localidades[j].palcos[k].precio
-              }
-            }
-
-
-
-
-          }
+          )
           }
         )
       });
      
   })
    
+  }
+
+  manejoRetenciones(response){
+    this.reteIcaAT = +response.reteicaAT as number
+    this.reteIcaOrganizador = +response.reteicaOrganiador as number
+    this.retefuenteAT = +response.retefuenteAT as number
+    this.retefuenteOrganizador = +response.retefuenteOrganizador as number
+    this.reteIva = +response.reteIva as number
+    this.cantidadTransacciones = response.cantidadTransacciones
+
+    
   }
   handleGetSuccesfull(response){
     this.evento=response;

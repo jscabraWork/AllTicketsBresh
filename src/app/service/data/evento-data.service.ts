@@ -32,6 +32,11 @@ urlGetOne=`${API_URL}/eventos/`;
     
     return this.http.get(`${API_URL}/eventos/perfil/${id}`);
   }
+
+  getRetenciones(id:string){
+    return this.http.get(`${API_URL}/retenciones/${id}`);
+  }
+
   getCiudadDeEvento(id:string){
     
     return this.http.get<Ciudad>(this.urlGetOne+"ciudad/"+id);

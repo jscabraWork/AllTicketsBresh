@@ -109,23 +109,46 @@
             <br>
             <strong>Dinero Total Recaudado: {{dineroRecaudado |currency:'COP'}} </strong>
             <br>
-            <strong>Dinero Total Vendido: {{dineroVendidoVaca |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Dinero Total Servicio: {{dineroServicio |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Dinero Total IVA: {{dineroIva |currency:'COP'}} </strong>
+            <strong>Dinero a entregar: {{dineroEntregar |currency:'COP'}} </strong>
             <br>
             <strong>Dinero Entregado: {{evento?.dineroEntregado |currency:'COP'}} </strong>
+            <br>
+            <strong>Retefuente realizada: {{retefuenteOrganizador |currency:'COP'}} </strong>
+            <br>
+            <strong>Reteica realizada: {{reteIcaOrganizador |currency:'COP'}} </strong>
             <br>
             <strong>Personas que van a asistir: {{personas}} </strong>
             <br>
             <strong>Personas adentro: {{personasAdentro}} </strong>
-   
+
+       
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Dinero Servicio antes de gastos: {{dineroServicio |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Dinero Servicio después de comisión PayU: {{servicio |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Comision PayU: {{comisionPayU |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Dinero Servicio después de retenciones: {{dineroServicioDespuesDeComisiones |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Retencion de fuente de All Tickets: {{retefuenteAT |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Retencion de ICA de All Tickets: {{reteIcaAT |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Dinero Total IVA: {{dineroIva |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Retencion de Iva: {{reteIva |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Dinero Total IVA en cuenta: {{ivaCuenta |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Cantidad de transacciones: {{cantidadTransacciones}} </strong>
+            
+            <br>
         </p>
   
-            <button class="ml-3 btn action_button" routerLink="promotores">Ver promotores</button>
-            <button class="ml-3 btn action_button" routerLink="reservas">Ver reservas</button>
-            <button class="ml-3 btn action_button" routerLink="historial">Historial</button>
+            <button class="ml-3 mt-3 btn action_button" routerLink="promotores">Ver promotores</button>
+            <button class="ml-3 mt-3 btn action_button" routerLink="reservas">Ver reservas</button>
+            <button class="ml-3 mt-3 btn action_button" routerLink="historial">Historial</button>
         </div>
     </div>    
 
