@@ -67,6 +67,7 @@ export class CantidadBoletasPuntoFisicoComponent implements OnInit {
       ciudadNombre:null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null
     };
     this.usuarioEntidad = this.data.usuarioEntidad;
     this.boletasCantidad =1

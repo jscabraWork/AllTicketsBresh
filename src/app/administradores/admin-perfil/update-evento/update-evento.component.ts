@@ -56,6 +56,7 @@ this.evento ={
   ciudadNombre:null,
   localidadesProducto:[],
   visibleAP:null,
+  terminado:null
 }
 this.servicio.getEventoIdPerfil(this.miId).subscribe( response => this.handleGetSuccesfull(response));
   }

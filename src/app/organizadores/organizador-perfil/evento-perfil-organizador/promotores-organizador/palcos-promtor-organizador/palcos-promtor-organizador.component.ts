@@ -59,6 +59,7 @@ export class PalcosPromtorOrganizadorComponent implements OnInit {
       ciudadNombre:null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null
     }
 
     this.route.paramMap.subscribe( params =>{

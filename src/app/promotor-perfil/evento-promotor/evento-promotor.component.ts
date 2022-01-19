@@ -86,6 +86,7 @@ export class EventoPromotorComponent implements OnInit {
       ciudadNombre:null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null
     }
 
     this.user= this.autenticador.getPromotor()

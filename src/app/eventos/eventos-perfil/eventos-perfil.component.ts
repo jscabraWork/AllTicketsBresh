@@ -76,6 +76,7 @@ export class EventosPerfilComponent implements OnInit {
       ciudadNombre:null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null
     }
  
     

@@ -89,6 +89,7 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
       ciudadNombre:null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null
     };
 
     this.palco = {

@@ -68,6 +68,7 @@ export class CantidadBoletasComponent implements OnInit {
       ciudadNombre:null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null
     };
     this.usuarioEntidad = this.data.usuarioEntidad;
     this.boletasCantidad =1

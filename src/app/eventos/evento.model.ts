@@ -37,6 +37,7 @@ export interface Evento {
     dineroEntregado:number,
     ciudadNombre:string,
     localidadesProducto:LocalidadProducto[],
-    visibleAP:boolean
+    visibleAP:boolean,
+    terminado:boolean
 
 }

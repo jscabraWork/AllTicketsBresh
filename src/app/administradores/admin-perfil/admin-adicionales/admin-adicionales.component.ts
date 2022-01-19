@@ -55,6 +55,7 @@ export class AdminAdicionalesComponent implements OnInit {
         ciudadNombre:null,
         localidadesProducto:[],
         visibleAP:null,
+        terminado:null
       }
     this.refrescar()
     })

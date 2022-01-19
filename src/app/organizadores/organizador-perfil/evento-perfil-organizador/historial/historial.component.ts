@@ -60,6 +60,7 @@ export class HistorialComponent implements OnInit {
       ciudadNombre: null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null
     };
     this.palcos = [];
     this.clientes = [];

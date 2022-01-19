@@ -464,6 +464,7 @@ export class CarritoDeComprasComponent implements OnInit {
       ciudadNombre:null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null
     };
 
     this.palco = {

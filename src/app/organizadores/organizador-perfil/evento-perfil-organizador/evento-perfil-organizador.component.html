@@ -107,15 +107,17 @@
         <div class="col-12" >
         <p class="border p-3" style="background-color: white;">
             <br>
-            <strong>Dinero Total Recaudado: {{dineroRecaudado |currency:'COP'}} </strong>
-            <br>
-            <strong>Dinero a entregar: {{dineroEntregar |currency:'COP'}} </strong>
-            <br>
-            <strong>Dinero Entregado: {{evento?.dineroEntregado |currency:'COP'}} </strong>
+            <strong>Dinero total recaudado: {{dineroRecaudado |currency:'COP'}} </strong>
             <br>
             <strong>Retefuente realizada: {{retefuenteOrganizador |currency:'COP'}} </strong>
             <br>
             <strong>Reteica realizada: {{reteIcaOrganizador |currency:'COP'}} </strong>
+            <br>
+            <strong>Dinero total recaudado después de retenciones: {{dineroEntregar |currency:'COP'}} </strong>
+            <br>
+            <strong>Dinero a entregar : {{dineroEntregar -evento?.dineroEntregado|currency:'COP'}} </strong>
+            <br>
+            <strong>Dinero entregado: {{evento?.dineroEntregado |currency:'COP'}} </strong>
             <br>
             <strong>Personas que van a asistir: {{personas}} </strong>
             <br>
@@ -123,25 +125,27 @@
 
        
             <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Dinero Servicio antes de gastos: {{dineroServicio |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()">Dinero servicio antes de gastos: {{dineroServicio |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Dinero Servicio después de comisión PayU: {{servicio |currency:'COP'}} </strong>
+      
+            <strong *ngIf="autenticador.getAdmin()">Comisión PayU: {{comisionPayU |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Comision PayU: {{comisionPayU |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()">Impuesto de comisión PayU: {{impuestoPayU |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Impuesto de comision PayU: {{impuestoPayU |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Dinero Servicio después de retenciones: {{dineroServicioDespuesDeComisiones |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()">Dinero servicio después de comisión PayU: {{servicio |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()">
             <strong *ngIf="autenticador.getAdmin()">Retencion de fuente de All Tickets: {{retefuenteAT |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()">
             <strong *ngIf="autenticador.getAdmin()">Retencion de ICA de All Tickets: {{reteIcaAT |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()">
+            <strong *ngIf="autenticador.getAdmin()">Dinero servicio después de retenciones: {{dineroServicioDespuesDeComisiones |currency:'COP'}} </strong>
+    
+            <br *ngIf="autenticador.getAdmin()">
             <strong *ngIf="autenticador.getAdmin()">Dinero Total IVA: {{dineroIva |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Retencion de Iva: {{reteIva |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()">Retencion de IVA: {{reteIva |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Dinero Total IVA en cuenta: {{ivaCuenta |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()">Dinero total IVA en cuenta: {{ivaCuenta |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()">
             <strong *ngIf="autenticador.getAdmin()">Cantidad de transacciones: {{cantidadTransacciones}} </strong>
             

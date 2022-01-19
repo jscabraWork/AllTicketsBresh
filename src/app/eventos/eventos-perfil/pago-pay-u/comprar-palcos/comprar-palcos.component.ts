@@ -634,6 +634,7 @@ export class ComprarPalcosComponent implements OnInit {
       ciudadNombre:null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null
     };
     this.codigoVenta == '';
     this.route.paramMap.subscribe((params) => {

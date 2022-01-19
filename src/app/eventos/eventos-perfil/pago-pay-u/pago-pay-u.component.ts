@@ -97,6 +97,7 @@ codigoVenta
       ciudadNombre:null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null,
     }
     this.localidad ={
       id:null,

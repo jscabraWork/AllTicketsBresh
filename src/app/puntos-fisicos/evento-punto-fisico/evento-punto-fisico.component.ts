@@ -275,6 +275,7 @@ ccDeBusqueda:number
       ciudadNombre:null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null
     }
 
     this.localidadCargada = {

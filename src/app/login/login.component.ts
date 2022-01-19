@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
   invalidLogin =false;
   constructor( private router: Router,
     public autenticacion: HardcodedAutheticationService,
-    public dialog: MatDialog, private auth:AuthService) { 
+    public dialog: MatDialog,
+    private auth:AuthService) { 
 
   }
 

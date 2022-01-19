@@ -17,6 +17,7 @@ export class EventoMinisterioComponent implements OnInit {
   miId:string
   dineroRecaudado:number=0
   ngOnInit(): void {
+    
     this.evento ={
       id: "",
       nombre:"",
@@ -51,6 +52,7 @@ export class EventoMinisterioComponent implements OnInit {
       ciudadNombre:null,
       localidadesProducto:[],
       visibleAP:null,
+      terminado:null
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
