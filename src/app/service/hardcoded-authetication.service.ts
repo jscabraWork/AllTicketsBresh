@@ -36,6 +36,10 @@ authenticate(username,password){
   getAdmin(){
     return sessionStorage.getItem('administrador');
   }
+
+  getContador(){
+    return sessionStorage.getItem('contador');
+  }
   getOrganizador(){
     return sessionStorage.getItem('organizador');
   }
@@ -84,7 +88,11 @@ authenticate(username,password){
     return !(usuario==null);
 
   }
+  contadorLoggin(){
+    let usuario =sessionStorage.getItem('contador');
+    return !(usuario==null);
 
+  }
  puntoFisicoLoggin(){
     let usuario =sessionStorage.getItem('puntoF');
     return !(usuario==null);
@@ -101,5 +109,6 @@ authenticate(username,password){
     sessionStorage.removeItem('ministerio');
     sessionStorage.removeItem('puntoF');
     sessionStorage.removeItem('coordinador');
+    sessionStorage.removeItem('contador');
   }
 }

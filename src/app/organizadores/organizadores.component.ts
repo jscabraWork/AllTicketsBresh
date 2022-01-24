@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganizadorDataService } from '../service/data/organizador-data.service';
+import { HardcodedAutheticationService } from '../service/hardcoded-authetication.service';
 
 @Component({
   selector: 'app-organizadores',
@@ -10,7 +11,7 @@ export class OrganizadoresComponent implements OnInit {
 
   organizadores=[];
   message:string;
-  constructor( private service: OrganizadorDataService ) { }
+  constructor( private service: OrganizadorDataService,public autenticacion: HardcodedAutheticationService ) { }
 
   ngOnInit(): void {
 this.refrescar();

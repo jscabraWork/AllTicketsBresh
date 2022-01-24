@@ -137,7 +137,7 @@ export class VacaComponent implements OnInit {
     this.accountId=706326 //  512321
     this.ApiKey="tyrs5RFaKLs72kHWaZW3WB91B0"
     this.localidad={
-    boletas:[],
+    
     boletasPatrocinio:[],
     id:null,
     nombre:null,
@@ -154,7 +154,7 @@ export class VacaComponent implements OnInit {
       id:null,
       nombre: "",
       precio:null,
-      boletas:[],
+      
       servicio:null,
       nombreEtapa:null,
       boletasPatrocinio:[],

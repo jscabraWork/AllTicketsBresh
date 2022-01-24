@@ -31,7 +31,7 @@ dineroRecaudado=1;
       this.miIdEvento =params.get('id');
       this.idEtapa =params.get('idEtapa');
       this.localidad={
-        boletas:[],
+        
         boletasPatrocinio:[],
         id:null,
         nombre:null,

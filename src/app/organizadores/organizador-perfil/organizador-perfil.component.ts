@@ -14,7 +14,7 @@ import { OrganizadorDataService } from 'src/app/service/data/organizador-data.se
 export class OrganizadorPerfilComponent implements OnInit {
   usuario="";
   organizador:Organizador;
- 
+ eventos:Evento[]
   
   constructor(private route: ActivatedRoute, private organizadorDataService:OrganizadorDataService, public autenticador: HardcodedAutheticationService) { }
 
@@ -23,15 +23,23 @@ export class OrganizadorPerfilComponent implements OnInit {
     if(this.autenticador.getOrganizador()){
     this.usuario =this.autenticador.getOrganizador();
   }
-  else if(this.autenticador.getAdmin()){
+  else if(this.autenticador.getAdmin()||this.autenticador.getContador()){
     this.route.paramMap.subscribe( params =>{
       this.usuario =params.get('user');
     })
   }
-    this.organizadorDataService.getOrganizadorUsuario(this.usuario).subscribe(response => this.organizador=response);
+    this.organizadorDataService.getOrganizadorUsuario(this.usuario).subscribe(response => {
+      this.organizador=response
+      this.organizadorDataService.darEventos(this.organizador.numeroDocumento).subscribe(response => {
+        
+        this.manejarEventos(response)
+      })
+    });
  
   
   }
 
- 
+ manejarEventos(response){
+   this.eventos = response.eventos
+ }
 }

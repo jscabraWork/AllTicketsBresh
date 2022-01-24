@@ -27,13 +27,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="border"*ngFor = "let evento of organizador?.eventos" >
+                <tr class="border"*ngFor = "let evento of eventos" >
                     <td class="border"><strong>{{evento?.id}}</strong></td>
                     <td class="border"> <strong>{{evento?.nombre }}</strong></td> 
                     <td class="border"> <strong>{{evento?.fecha }} Hora: {{evento?.fecha.horaInicio}}</strong></td> 
                     <td class="border"> <strong>{{evento?.lugar }}</strong></td> 
                     
                     <td class="border" *ngIf="this.autenticador.getOrganizador()"> <button class="btn action_button"  routerLink="/organizadores/organizador/eventos/{{evento?.id}}">Ver Perfil</button></td> 
+                    <td class="border" *ngIf="this.autenticador.getContador()"> <button class="btn action_button"  routerLink="organizador/eventos/{{evento.id}}">Ver Perfil</button></td> 
                     <td class="border" *ngIf="this.autenticador.getAdmin()"> <button class="btn action_button"  routerLink="/organizadores/organizador/admin/eventos/{{evento?.id}}">Ver Perfil</button></td> 
                 </tr>
             </tbody>

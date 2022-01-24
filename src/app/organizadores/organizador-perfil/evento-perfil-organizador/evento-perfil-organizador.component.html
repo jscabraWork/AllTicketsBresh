@@ -64,22 +64,22 @@
                 
                     </thead>
                     <tbody>
-                        <tr *ngFor="let localidad of localidades"  >
+                        <tr *ngFor="let localidad of localidades, let i = index"  >
 
                            
                             <td class="border"><strong>{{localidad?.nombreEtapa}}</strong></td>
                             <td class="border"> <strong>{{localidad?.nombre }}</strong></td> 
                             <td class="border" *ngIf="evento.adicionales.length ==0"> <strong>{{localidad?.precio| currency:'COP'}}</strong></td> 
 
-                            <td class="border"> <strong>{{numeroBoletasVendidas(localidad)}}</strong></td> 
-                            <td class="border"> <strong>{{numeroBoletasEnProceso(localidad)}}</strong></td> 
-                            <td class="border"> <strong>{{numeroBoletasReservadas(localidad)}}</strong></td> 
-                            <td class="border"> <strong>{{numeroBoletasPorVender(localidad)}}</strong></td> 
+                            <td class="border"> <strong>{{numeroBoletasVendidas(boletas[i])}}</strong></td> 
+                            <td class="border"> <strong>{{numeroBoletasEnProceso(boletas[i])}}</strong></td> 
+                            <td class="border"> <strong>{{numeroBoletasReservadas(boletas[i])}}</strong></td> 
+                            <td class="border"> <strong>{{numeroBoletasPorVender(boletas[i])}}</strong></td> 
 
-                            <td class="border"><strong>{{numeroBoletasUtilizadas(localidad)}}</strong></td>
+                            <td class="border"><strong>{{numeroBoletasUtilizadas(boletas[i])}}</strong></td>
 
-                            <td class="border">{{numeroBoletasTotales(localidad)}}</td> 
-                            <td class="border">{{dineroVendido(localidad)|currency:'COP'}}</td>
+                            <td class="border">{{numeroBoletasTotales(boletas[i])}}</td> 
+                            <td class="border">{{dineroVendido(boletas[i])|currency:'COP'}}</td>
                             <td class="border">{{localidad?.boletasPatrocinio.length}}</td>
                             <td class="border">{{localidad?.palcos?.length}}</td>
 
@@ -124,37 +124,37 @@
             <strong>Personas adentro: {{personasAdentro}} </strong>
 
        
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Dinero servicio antes de gastos: {{dineroServicio |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio antes de gastos: {{dineroServicio |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
       
-            <strong *ngIf="autenticador.getAdmin()">Comisión PayU: {{comisionPayU |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Impuesto de comisión PayU: {{impuestoPayU |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Dinero servicio después de comisión PayU: {{servicio |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Retencion de fuente de All Tickets: {{retefuenteAT |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Retencion de ICA de All Tickets: {{reteIcaAT |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Dinero servicio después de retenciones: {{dineroServicioDespuesDeComisiones |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Comisión PayU: {{comisionPayU |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Impuesto de comisión PayU: {{impuestoPayU |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio después de comisión PayU: {{servicio |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de fuente de All Tickets: {{retefuenteAT |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de ICA de All Tickets: {{reteIcaAT |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio después de retenciones: {{dineroServicioDespuesDeComisiones |currency:'COP'}} </strong>
     
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Dinero Total IVA: {{dineroIva |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Retencion de IVA: {{reteIva |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Dinero total IVA en cuenta: {{ivaCuenta |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()">
-            <strong *ngIf="autenticador.getAdmin()">Cantidad de transacciones: {{cantidadTransacciones}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero Total IVA: {{dineroIva |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de IVA: {{reteIva |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero total IVA en cuenta: {{ivaCuenta |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Cantidad de transacciones: {{cantidadTransacciones}} </strong>
             
             <br>
         </p>
   
-            <button class="ml-3 mt-3 btn action_button" routerLink="promotores">Ver promotores</button>
-            <button class="ml-3 mt-3 btn action_button" routerLink="reservas">Ver reservas</button>
-            <button class="ml-3 mt-3 btn action_button" routerLink="historial">Historial</button>
+            <button *ngIf="autenticador.getAdmin()||autenticador.getOrganizador()" class="ml-3 mt-3 btn action_button" routerLink="promotores">Ver promotores</button>
+            <button *ngIf="autenticador.getAdmin()||autenticador.getOrganizador()" class="ml-3 mt-3 btn action_button" routerLink="reservas">Ver reservas</button>
+            <button *ngIf="autenticador.getAdmin()||autenticador.getOrganizador()" class="ml-3 mt-3 btn action_button" routerLink="historial">Historial</button>
         </div>
     </div>    
 

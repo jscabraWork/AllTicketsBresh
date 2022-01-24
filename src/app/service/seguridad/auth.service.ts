@@ -123,6 +123,12 @@ export class AuthService {
       this.router.navigate(['perfilCoordinador', this._usuario.usuario]);
     }
 
+    else if (this._usuario.tipo == 'contador') {
+      sessionStorage.setItem('contador', this._usuario.usuario);
+      
+      this.dialog.closeAll();
+      this.router.navigate(['organizadores/contador']);
+    }
      sessionStorage.setItem('usuarioEntidad', JSON.stringify(this._usuario));
 
     // localStorage.setItem('usuario', JSON.stringify(this._usuario));

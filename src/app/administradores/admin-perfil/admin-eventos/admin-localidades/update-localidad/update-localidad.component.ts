@@ -21,7 +21,7 @@ export class UpdateLocalidadComponent implements OnInit {
       id:null,
       nombre: "",
       precio:null,
-      boletas:[],
+      
       servicio:null,
       nombreEtapa:null,
       boletasPatrocinio:[],

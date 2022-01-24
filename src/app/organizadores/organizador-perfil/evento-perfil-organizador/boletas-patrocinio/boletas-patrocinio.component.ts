@@ -27,7 +27,7 @@ export class BoletasPatrocinioComponent implements OnInit {
       id:null,
       nombre: "",
       precio:null,
-      boletas:[],
+      
       servicio:null,
       nombreEtapa:null,
       boletasPatrocinio:[],

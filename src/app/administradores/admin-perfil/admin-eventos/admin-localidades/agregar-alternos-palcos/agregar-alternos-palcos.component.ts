@@ -25,7 +25,7 @@ export class AgregarAlternosPalcosComponent implements OnInit {
       id:null,
       nombre: "",
       precio:null,
-      boletas:[],
+      
       servicio:null,
       nombreEtapa:null,
       boletasPatrocinio:[],

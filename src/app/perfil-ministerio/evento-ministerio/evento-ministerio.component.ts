@@ -73,39 +73,39 @@ export class EventoMinisterioComponent implements OnInit {
   }
 
 
-  numeroBoletasPorVender(localidad:Localidad, vendida:boolean){
+  // numeroBoletasPorVender(localidad:Localidad, vendida:boolean){
 
-    var contador =0;
-    for(var i =0; i< localidad.boletas.length;i++)
+  //   var contador =0;
+  //   for(var i =0; i< localidad.boletas.length;i++)
   
-    {
-      if(  localidad.boletas[i].vendida==vendida){
-        contador = contador+1;
-      }
-    }
+  //   {
+  //     if(  localidad.boletas[i].vendida==vendida){
+  //       contador = contador+1;
+  //     }
+  //   }
    
-    return contador;
+  //   return contador;
   
-  }
+  // }
 
 
 
 
-  dineroVendido(localidad:Localidad){
+  // dineroVendido(localidad:Localidad){
 
-    var contador =0;
-    for(var i =0; i< localidad.boletas.length;i++)
+  //   var contador =0;
+  //   for(var i =0; i< localidad.boletas.length;i++)
   
-    {
-      if(  localidad.boletas[i].vendida==true){
-        contador =contador+ localidad.precio;
-        this.dineroRecaudado = this.dineroRecaudado + localidad.precio;
-      }
-    }
+  //   {
+  //     if(  localidad.boletas[i].vendida==true){
+  //       contador =contador+ localidad.precio;
+  //       this.dineroRecaudado = this.dineroRecaudado + localidad.precio;
+  //     }
+  //   }
    
-    return contador;
+  //   return contador;
   
-  }
+  // }
 
   palcosVendidos(localidad:Localidad, vendido:boolean){
     var contador =0;

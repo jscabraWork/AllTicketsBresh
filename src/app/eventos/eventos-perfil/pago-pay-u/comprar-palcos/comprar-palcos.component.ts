@@ -12,10 +12,8 @@ import { HardcodedAutheticationService } from './../../../../service/hardcoded-a
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsuariosDataService } from './../../../../service/data/usuarios-data.service';
 import { Component, OnInit } from '@angular/core';
-import { updateFor } from 'typescript';
 import { Etapa } from '../../etapa.model';
 import { IVA } from 'src/app/app.constants';
-import { Md5 } from 'ts-md5';
 import { LocalidadesDataService } from 'src/app/service/data/localidades-data.service';
 import { AdicionalComponent } from '../adicional/adicional.component';
 import { CantidadBoletasComponent } from '../cantidad-boletas/cantidad-boletas.component';
@@ -269,7 +267,7 @@ export class ComprarPalcosComponent implements OnInit {
       id: null,
       nombre: '',
       precio: null,
-      boletas: [],
+      
       servicio: null,
       nombreEtapa: null,
       boletasPatrocinio: [],
@@ -311,7 +309,7 @@ export class ComprarPalcosComponent implements OnInit {
       id: null,
       nombre: '',
       precio: null,
-      boletas: [],
+      
       servicio: null,
       nombreEtapa: null,
       boletasPatrocinio: [],
@@ -353,7 +351,7 @@ export class ComprarPalcosComponent implements OnInit {
       id: null,
       nombre: '',
       precio: null,
-      boletas: [],
+      
       servicio: null,
       nombreEtapa: null,
       boletasPatrocinio: [],
@@ -395,7 +393,7 @@ export class ComprarPalcosComponent implements OnInit {
       id: null,
       nombre: '',
       precio: null,
-      boletas: [],
+      
       servicio: null,
       nombreEtapa: null,
       boletasPatrocinio: [],
@@ -436,7 +434,7 @@ export class ComprarPalcosComponent implements OnInit {
       id: null,
       nombre: '',
       precio: null,
-      boletas: [],
+      
       servicio: null,
       nombreEtapa: null,
       boletasPatrocinio: [],
@@ -477,7 +475,7 @@ export class ComprarPalcosComponent implements OnInit {
       id: null,
       nombre: '',
       precio: null,
-      boletas: [],
+      
       servicio: null,
       nombreEtapa: null,
       boletasPatrocinio: [],
@@ -518,7 +516,7 @@ export class ComprarPalcosComponent implements OnInit {
       id: null,
       nombre: '',
       precio: null,
-      boletas: [],
+      
       servicio: null,
       nombreEtapa: null,
       boletasPatrocinio: [],

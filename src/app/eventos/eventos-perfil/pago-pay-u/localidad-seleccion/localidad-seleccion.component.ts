@@ -28,7 +28,7 @@ export class LocalidadSeleccionComponent implements OnInit {
       id:null,
       nombre: "",
       precio:null,
-      boletas:[]=[],
+      
       servicio:null,
       nombreEtapa:null,
       boletasPatrocinio:[],
@@ -41,7 +41,7 @@ export class LocalidadSeleccionComponent implements OnInit {
       id:null,
       nombre: "",
       precio:null,
-      boletas:[]=[],
+      
       servicio:null,
       nombreEtapa:null,
       boletasPatrocinio:[],

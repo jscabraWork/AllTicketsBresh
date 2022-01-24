@@ -37,5 +37,14 @@ export class OrganizadorDataService {
     return this.http.post(`${API_URL}/organizadores`,orga);
   }
   
+  darEventos(pId){
+    return this.http.get(`${API_URL}/eventos/para-organizador/${pId}`)
+    
+  }
+  darEvento(pId){
+    return this.http.get(`${API_URL}/eventos/para-organizador/evento/${pId}`)
+    
+  }
 
+  
 }

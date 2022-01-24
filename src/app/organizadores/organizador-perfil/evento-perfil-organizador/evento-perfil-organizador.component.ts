@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
 import { LocalidadesDataService } from 'src/app/service/data/localidades-data.service';
 import { kill } from 'process';
 import { HardcodedAutheticationService } from 'src/app/service/hardcoded-authetication.service';
+import { OrganizadorDataService } from 'src/app/service/data/organizador-data.service';
+import { Boleta } from 'src/app/eventos/boleta.model';
 
 
 
@@ -16,10 +18,10 @@ import { HardcodedAutheticationService } from 'src/app/service/hardcoded-autheti
 })
 export class EventoPerfilOrganizadorComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private service:EventoDataService, private servicioLocalidad: LocalidadesDataService, public autenticador: HardcodedAutheticationService ) { }
+  constructor(private route: ActivatedRoute,private service: OrganizadorDataService, public autenticador: HardcodedAutheticationService, private eventoService:EventoDataService ) { }
 
   evento:Evento
-  boletas:[]
+  
   miId:string
   dineroRecaudado:number
   localidades:Localidad[]=[]
@@ -42,6 +44,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   ivaCuenta:number
   servicio:number
   impuestoPayU:number
+  boletas:[]
   ngOnInit( ): void {
     this.dineroRecaudado =0
     this.dineroServicio=0
@@ -99,31 +102,13 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
      
-      this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
-        this.servicioLocalidad.getAllLocalidadesDeEvento(this.miId).subscribe(
-          response=>{
-            this.localidades = response;          
-          this.service.getRetenciones(this.evento.id).subscribe(
+      this.service.darEvento(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
+           
+          this.eventoService.getRetenciones(this.evento.id).subscribe(
             (response)=>{
               for(var j=0; j< this.localidades.length; j++){
 
 
-                for(var i =0; i< this.localidades[j].boletas.length;i=i+1)
-    
-                {
-                  if(  this.localidades[j].boletas[i].vendida==true){
-                    this.dineroRecaudado = this.dineroRecaudado + this.localidades[j].boletas[i].precio;
-                    this.dineroIva = this.dineroIva + this.localidades[j].boletas[i].servicioIva;
-                    this.dineroServicio = this.dineroServicio + this.localidades[j].boletas[i].servicio;
-                    this.personas = this.personas + 1;
-                    if(this.localidades[j].boletas[i].utilizada==true){
-                      this.personasAdentro = this.personasAdentro + 1;
-                    }
-                    
-                  }
-                }
-    
-    
                 for (var k =0; k< this.localidades[j].palcos.length;k=1+k){
                   if(this.localidades[j].palcos[k].vendido ==true){
                     
@@ -138,6 +123,25 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
                  
                 }
               }
+
+
+             for(let j=0;j< this.boletas.length;j++){
+               let array = this.boletas[j] as [];
+              for(var i =0; i< array.length;i=i+1)
+              {
+                let boleta = array[i] as Boleta;
+                if(  boleta.vendida==true){
+                    this.dineroRecaudado = this.dineroRecaudado + boleta.precio;
+                    this.dineroIva = this.dineroIva + boleta.servicioIva;
+                    this.dineroServicio = this.dineroServicio + boleta.servicio;
+                    this.personas = this.personas + 1;
+                    if(boleta.utilizada==true){
+                      this.personasAdentro = this.personasAdentro + 1;
+                    }
+                  
+                }
+              }
+             }
               this.manejoRetenciones(response)
               let dineroTotal = (this.dineroRecaudado+this.dineroIva+this.dineroServicio);
               this.comisionPayU = (dineroTotal*0.0265) + 600*this.cantidadTransacciones;
@@ -154,7 +158,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
         )
       });
      
-  })
+
    
   }
 
@@ -169,21 +173,23 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     
   }
   handleGetSuccesfull(response){
-    this.evento=response;
+    this.evento=response.evento;
+    this.localidades = response.localidades;
+    this.boletas = response.boletas;
+    console.log(this.boletas)
+
   }
 
-  manejarRespuesta(response){
-    this.boletas= response
-  }
 
 
-  numeroBoletasPorVender(localidad:Localidad){
+
+  numeroBoletasPorVender(boleta:Boleta[]){
 
     var contador =0;
-    for(var i =0; i< localidad.boletas.length;i++)
+    for(var i =0; i< boleta.length;i++)
   
     {
-      if(  localidad.boletas[i].vendida==false && localidad.boletas[i].reservado==false && localidad.boletas[i].disponible==true &&localidad.boletas[i].reserva==false){
+      if(  boleta[i].vendida==false && boleta[i].reservado==false && boleta[i].disponible==true &&boleta[i].reserva==false){
         contador = contador+1;
       }
     }
@@ -191,13 +197,13 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     return contador;
   
   }
-  numeroBoletasVendidas(localidad:Localidad){
+  numeroBoletasVendidas(boleta:Boleta[]){
 
     var contador =0;
-    for(var i =0; i< localidad.boletas.length;i++)
+    for(var i =0; i< boleta.length;i++)
   
     {
-      if(  localidad.boletas[i].vendida==true){
+      if(  boleta[i].vendida==true){
         contador = contador+1;
       }
     }
@@ -205,13 +211,13 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     return contador;
   
   }
-  numeroBoletasReservadas(localidad:Localidad){
+  numeroBoletasReservadas(boleta:Boleta[]){
 
     var contador =0;
-    for(var i =0; i< localidad.boletas.length;i++)
+    for(var i =0; i< boleta.length;i++)
   
     {
-      if(  localidad.boletas[i].reserva==true){
+      if(  boleta[i].reserva==true){
         contador = contador+1;
       }
     }
@@ -219,43 +225,13 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     return contador;
   
   }
-  numeroBoletasEnProceso(localidad:Localidad){
+  numeroBoletasEnProceso(boleta:Boleta[]){
 
     var contador =0;
-    for(var i =0; i< localidad.boletas.length;i++)
+    for(var i =0; i< boleta.length;i++)
   
     {
-      if(  localidad.boletas[i].reservado==true){
-        contador = contador+1;
-      }
-    }
-   
-    return contador;
-  
-  }
-
-
-  numeroBoletasUtilizadas(localidad:Localidad){
-
-    var contador =0;
-    for(var i =0; i< localidad.boletas.length;i++)
-  
-    {
-      if(  localidad.boletas[i].utilizada== true){
-        contador = contador+1;
-      }
-    }
-   
-    return contador;
-  
-  }
-  numeroBoletasTotales(localidad:Localidad){
-
-    var contador =0;
-    for(var i =0; i< localidad.boletas.length;i++)
-  
-    {
-      if(  localidad.boletas[i].disponible== true){
+      if(  boleta[i].reservado==true){
         contador = contador+1;
       }
     }
@@ -264,14 +240,45 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   
   }
 
-  dineroVendido(localidad:Localidad){
+
+  numeroBoletasUtilizadas(boleta:Boleta[]){
 
     var contador =0;
-    for(var i =0; i< localidad.boletas.length;i++)
+    for(var i =0; i< boleta.length;i++)
   
     {
-      if(  localidad.boletas[i].vendida==true){
-        contador =contador+ localidad.boletas[i].precio;
+      if(boleta[i].utilizada== true){
+        contador = contador+1;
+      }
+    }
+   
+    return contador;
+  
+  }
+
+  numeroBoletasTotales(boleta:Boleta[]){
+
+    var contador =0;
+    for(var i =0; i< boleta.length;i++)
+  
+    {
+      if( boleta[i].disponible== true){
+        contador = contador+1;
+      }
+    }
+   
+    return contador;
+  
+  }
+
+  dineroVendido(boleta:Boleta[]){
+
+    var contador =0;
+    for(var i =0; i< boleta.length;i++)
+  
+    {
+      if( boleta[i].vendida==true){
+        contador =contador+ boleta[i].precio;
         
       }
     }

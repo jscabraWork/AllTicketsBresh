@@ -168,22 +168,22 @@ manejar(response){
 }
 
 
-numeroBoletasPorVender(localidad:Localidad){
+// numeroBoletasPorVender(localidad:Localidad){
 
-  var contador =0;
-  let disponible = false;
-  for(var i =0; i< localidad.boletas.length && !disponible;i++)
+//   var contador =0;
+//   let disponible = false;
+//   for(var i =0; i< localidad.boletas.length && !disponible;i++)
 
-  {
-    if(  localidad.boletas[i].vendida==false && localidad.boletas[i].reservado==false){
-      contador = contador+1;
-      disponible = true
-    }
-  }
+//   {
+//     if(  localidad.boletas[i].vendida==false && localidad.boletas[i].reservado==false){
+//       contador = contador+1;
+//       disponible = true
+//     }
+//   }
  
-  return disponible;
+//   return disponible;
 
-}
+// }
 
 
 

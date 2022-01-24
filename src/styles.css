@@ -586,7 +586,27 @@
   color:dimgray;
     
 }
-
+@media(max-width:1450px) {
+    .fechas{
+        font-size: 16px;
+      color:dimgray;
+        
+    }
+}
+@media(max-width:1000px) {
+    .fechas{
+        font-size: 14px;
+      color:dimgray;
+        
+    }
+}
+@media(max-width:288px) {
+    .fechas{
+        font-size: 12px;
+      color:dimgray;
+        
+    }
+}
 .pequenia{
     font-style: 12px !important;
 }

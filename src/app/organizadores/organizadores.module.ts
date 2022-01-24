@@ -21,6 +21,7 @@ import { ReservasComponent } from './organizador-perfil/evento-perfil-organizado
 import { ReservasOrganizadorComponent } from './organizador-perfil/evento-perfil-organizador/reservas-organizador/reservas-organizador.component';
 import { VentasEspecificasComponent } from './organizador-perfil/evento-perfil-organizador/ventas-especificas/ventas-especificas.component';
 import { HistorialComponent } from './organizador-perfil/evento-perfil-organizador/historial/historial.component';
+import { RouteGuardContadorService } from '../service/route-guard-contador.service';
 
 
 
@@ -35,19 +36,36 @@ const routes: Routes=[
           canActivate:[RouteGuardAdminService]
         },
         {
+          path:'contador',
+          component: OrganizadoresComponent,
+          canActivate:[RouteGuardContadorService]
+        },
+        {
           path: 'organizador/:user',
           component: OrganizadorPerfilComponent,
           canActivate:[RouteGuardOrganizadorService]
+        },
+        {
+          path: 'contador/organizador/perfil/:user',
+          component: OrganizadorPerfilComponent,
+          canActivate:[RouteGuardContadorService]
         },
         {
           path: 'organizador/admin/perfil/:user',
           component: OrganizadorPerfilComponent,
           canActivate:[RouteGuardAdminService]
         },
+        
         {
           path:'organizador/eventos/:id',
           component:EventoPerfilOrganizadorComponent,
-          canActivate:[RouteGuardOrganizadorService]
+          canActivate:[RouteGuardOrganizadorService] 
+
+        },
+        {
+          path:'contador/organizador/perfil/:user/organizador/eventos/:id',
+          component:EventoPerfilOrganizadorComponent,
+          canActivate:[RouteGuardContadorService] 
 
         },
         {

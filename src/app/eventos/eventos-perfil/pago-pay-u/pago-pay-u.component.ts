@@ -51,6 +51,7 @@ codigoVenta
   constructor(private route: ActivatedRoute,public dialog: MatDialog, private service:EventoDataService, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private autenticador: HardcodedAutheticationService, private router: Router,private dataServicio:UsuariosDataService ) { }
 
   ngOnInit(): void {
+    this.cargando=false;
     this.boletaBoolean=false
     this.valorTotal=0
     this.boletas=[]
@@ -103,7 +104,7 @@ codigoVenta
       id:null,
       nombre: "",
       precio:null,
-      boletas:[],
+      
       servicio:null,
       nombreEtapa:null,
       boletasPatrocinio:[],
@@ -247,7 +248,7 @@ codigoVenta
   reservarBoletasLocalidad(){
 
    
-  if(this.localidadesCompradas.length + this.contadorBoletas<7 && !this.usuarioBoolean && this.localidadesCompradas.length>0)
+  if(!this.cargando&&this.localidadesCompradas.length + this.contadorBoletas<7 && !this.usuarioBoolean && this.localidadesCompradas.length>0 )
     {
       this.cargando=true
       
@@ -257,7 +258,7 @@ codigoVenta
           
           if(response!=null){ 
             this.boletas =response
-            this.cargando= false
+            
             this.referenceCode = 'TICKET;'+this.usuarioEntidad.numeroDocumento + ',' ;
         for(var i=0; this.boletas.length>i;i=i+1)
         { 
