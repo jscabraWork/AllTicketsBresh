@@ -5,11 +5,13 @@
   border: white;
   font-size: 22px;
 }
-
+.precios{
+  font-size: 10px;
+  font-weight: bolder;
+}
 .botonComprar {
   background: linear-gradient(#f9b84a, #ed701c);
   width: 150px;
-  margin-left: 12px;
   color: white;
   border: white;
   font-size: 15px;
@@ -17,16 +19,19 @@
   
 }
 
-
+.localidades div h5,.localidades div p{
+  padding: 0px 10px;
+}
 
 #prueba9 {
-  padding: 35px;
+  padding: 10px;
   text-align: center;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
 }
+
 #contador .contenedor {
   margin: 0px auto;
 
@@ -91,6 +96,9 @@
   #contador .contenedor p span {
     font-size: 15px;
   }
+  .vid{
+    padding: 0;
+  }
 }
 
 @media (max-width: 465px) {
@@ -121,7 +129,7 @@
 }
 
 #prueba9 h1 {
-  font-size: 35px;
+  font-size: 30px;
   color: white;
   position: relative;
 }
@@ -171,7 +179,7 @@ h3 {
 .tituloLocalidad2 {
   background: linear-gradient(#666, #333);
   color: #fff;
-  padding: 3%;
+  padding: 5%;
   width: 100%;
 }
 
@@ -220,6 +228,23 @@ p {
   h1 {
     font-size: 22px;
   }
+  #prueba9 {
+    padding: 15px;
+    padding-bottom: 10px;
+  }
+  #prueba9 h1{
+    font-size: 19px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  .ubicaciones {
+    font-size: 25px;
+  }
+  .contenederoBlanco p{
+    font-size: 15px;
+  }
+  
 }
 
 th {
@@ -245,10 +270,7 @@ td {
   }
   
 }
-.precios{
-  font-size: 10px;
-  font-weight: bolder;
-}
+
 .margen-menor{
   margin-top: -12px;
 }
