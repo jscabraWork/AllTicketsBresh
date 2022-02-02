@@ -1,0 +1,21 @@
+.tituloEventos{
+    text-align: center;
+}
+.contenedorLista{
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0,0.3);
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+}
+.contenedorLista>thead>tr>th:first-child{
+    border-top-left-radius: 20px;
+}
+.contenedorLista>thead>tr>th:last-child{
+    border-top-right-radius: 20px;
+}
+.contenedorLista>thead{
+    color: white;
+}
+.contenedorLista>thead>tr{
+    background-color: rgba(16,36,56,1);
+}

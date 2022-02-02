@@ -1,17 +1,17 @@
 <section class="container-fluid mt-5">
 
     <div class="row">
-        <div class="col-12">
-            <h2>Todos los eventos</h2>
+        <div class="col-12 px-0">
+            <h2 class="tituloEventos"><strong>Todos los eventos</strong></h2>
             <div *ngIf='message' class="alert alert-success ">{{message}}</div>
             <div class="row">
-                <div class="col-12 mt-5" style="text-align: center;">
-                    <button routerLink="agregar" class="btn btn-success">Agregar Evento</button>
+                <div class="col-12 mt-4" style="text-align: center;">
+                    <button routerLink="agregar" class="btn btn-primary">Agregar Evento</button>
 
                 </div>
             </div>
-            <div class="container-fluid">
-                <table class="table mt-3">
+            <div class="container-fluid px-0">
+                <table class="table mt-3 contenedorLista">
 
                     <thead>
                         <tr>
@@ -63,10 +63,10 @@
                                     provisional</button></td>
 
                             <td><button (click)="cambiarSoldout(evento.id)"
-                                    class="btn btn-warning">{{evento.soldout|booleans}}</button></td>
-                            <td><button (click)="cambiarVisibilidad(evento.id)" class="btn btn-warning">
+                                    class="btn btn-info">{{evento.soldout|booleans}}</button></td>
+                            <td><button (click)="cambiarVisibilidad(evento.id)" class="btn btn-info">
                                     {{evento.visible |booleans}}</button></td>
-                             <td><button (click)="cambiarOculto(evento.id)" class="btn btn-warning">
+                             <td><button (click)="cambiarOculto(evento.id)" class="btn btn-info">
                                         {{evento.oculto |booleans}}</button></td>
 
                             <td><button class="btn btn-success" (click)="agregarMensajeOrganizador(evento)"> Agregar
