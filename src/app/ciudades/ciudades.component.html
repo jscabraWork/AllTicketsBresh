@@ -1,10 +1,9 @@
-        <div id="prueba">
-            <h1  ><strong >Ciudades</strong></h1>
-            
-        </div>
+<div id="prueba" class="bannerCiudad">
+    <h1 class="ciudadTitulo" ><strong >Ciudades</strong></h1>
+</div>
   
 
-<section class="container-fluid " style="margin-top: 5%; margin-bottom: 5%; text-align: center;">
+<section class="container-fluid " style="margin-top: 2%; margin-bottom: 5%; text-align: center;">
     <div class="row ">
         
 
@@ -17,9 +16,9 @@
             <a routerLink="/ciudades/eventos/{{ciudad.id}}" class="outerLink"> 
             <img src="{{ciudad?.imagen.url}}" *ngIf="ciudad.imagen" class=" rounded  darkableImage"onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1" 
             onmouseover="javascript:this.style.opacity=0.4;this.opacity=40" />
-           
+            <p class="centrado2"><strong> Acá encontrarás los mejores eventos de la ciudad de {{ciudad?.nombre}}. ¿Que estás esperando para comprar tu ticket?</strong></p>
         </a>
-        <p class="centrado2"><strong> Acá encontrarás los mejores eventos de la ciudad de {{ciudad?.nombre}}. ¿Que estás esperando para comprar tu ticket?</strong></p>
+        
         
         </div>
         
@@ -28,7 +27,7 @@
 
     <div class="border rounded container-fluid" style="background-color: white; height: 50%" >
      
-    <div class="row contenedor" >
+    <div class="row contenedor contenedorBot" >
         <div class="col-12" >
         <h2 class=" rounded titulos pt-3 pr-3 pl-3"  ><strong> <a class="titulos" routerLink="/ciudades/eventos/{{ciudad.id}}" >{{ciudad?.nombre |resumir2}}</a></strong></h2> 
         
@@ -37,13 +36,12 @@
      
     </div>
   
-    <div class="col-6 border-right">
+    <div class="col-6 border-right temperatura">
         <p class="fechas"><strong>Temperatura Promedio: {{ciudad?.temperatura}} °C </strong></p>
-
-       </div>
-        <div class="col-6 pb-5">
-            <button  class="action_button rounded-pill shadow texto"  routerLink="/ciudades/eventos/{{ciudad.id}}">Ver</button>
-        </div>
+    </div>
+    <div class="col-6 botonVer">
+        <button  class="action_button rounded-pill shadow texto"  routerLink="/ciudades/eventos/{{ciudad.id}}">Ver</button>
+    </div>
 
     </div>
       </div>
