@@ -18,28 +18,32 @@
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>
-                    <th>Modificar</th>
-                    <th>Pagar Al Promotor</th>
-                    <th>Ver Eventos del promotor</th>
-                    <th>Borrar</th>
-
+                    <th class="v-desktop">Modificar</th>
+                    <th class="v-desktop">Pagar Al Promotor</th>
+                    <th class="v-desktop">Ver Eventos del promotor</th>
+                    <th class="v-desktop">Borrar</th>
+                    <th class="v-mobile">Opciones</th>
                 </tr>
-
-
-
             </thead>
             <tbody>
 
                 <tr *ngFor="let promotor of promotores">
                     <td>{{promotor?.numeroDocumento}}</td>
                     <td>{{promotor?.nombre }}</td>
-                    <td><button routerLink='update/{{promotor.numeroDocumento}}' class="btn btn-warning">
+                    <td class="v-desktop"><button routerLink='update/{{promotor.numeroDocumento}}' class="btn btn-warning">
                             Modificar</button></td>
-                    <td><button class="btn btn-warning" routerLink='boletasAPagar/{{promotor.numeroDocumento}}'>Pagar
+                    <td class="v-desktop"><button class="btn btn-warning" routerLink='boletasAPagar/{{promotor.numeroDocumento}}'>Pagar
                         </button></td>
-                    <td><button class="btn btn-success" routerLink='agregar-evento/{{promotor.numeroDocumento}}'>Ver
+                    <td class="v-desktop"><button class="btn btn-success" routerLink='agregar-evento/{{promotor.numeroDocumento}}'>Ver
                         </button></td>
-                    <td><button (click)="borrar(promotor.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
+                    <td class="v-desktop"><button (click)="borrar(promotor.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
+                    
+                    <td class="options v-mobile">
+                        <a routerLink='update/{{promotor.numeroDocumento}}'><mat-icon>mode</mat-icon></a>
+                        <a routerLink='boletasAPagar/{{promotor.numeroDocumento}}'><mat-icon>monetization_on</mat-icon></a>
+                        <a routerLink='agregar-evento/{{promotor.numeroDocumento}}'><mat-icon>visibility</mat-icon></a>
+                        <a (click)="borrar(promotor.numeroDocumento)"><mat-icon>delete</mat-icon></a>
+                    </td>
                 </tr>
 
 

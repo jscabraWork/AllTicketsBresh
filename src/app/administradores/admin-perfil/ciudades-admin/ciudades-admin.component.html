@@ -15,14 +15,11 @@
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Temperatura</th>
-                <th>Foto</th>
-                <th>Modificar</th>
-                <th>Borrar</th>
-                
+                <th class="v-desktop">Foto</th>
+                <th class="v-desktop">Modificar</th>
+                <th class="v-desktop">Borrar</th> 
+                <th class="v-mobile">Opciones</th>
             </tr>
-    
-    
-    
         </thead>
         <tbody>
           
@@ -30,10 +27,16 @@
                 <td>{{ciudad?.id}}</td>
                 <td>{{ciudad?.nombre }}</td>
                 <td>{{ciudad?.temperatura}}</td>
-                <td><button class="btn btn-success" (click)="AgregarFotoCiudad(ciudad)">Agregar Foto De Ciudad</button></td>
-                <td><button routerLink="update/{{ciudad.id}}" class="btn btn-warning">  Modificar</button></td>
-                <td><button  class="btn btn-danger" (click)="deleteCiudad(ciudad.id)" > Delete</button></td>
+                <td class="v-desktop max-lg"><button class="btn btn-success" (click)="AgregarFotoCiudad(ciudad)">Agregar Foto De Ciudad</button></td>
+                <td class="v-desktop"><button routerLink="update/{{ciudad.id}}" class="btn btn-warning">  Modificar</button></td>
+                <td class="v-desktop"><button  class="btn btn-danger" (click)="deleteCiudad(ciudad.id)" > Delete</button></td>
     
+
+                <td class="options v-mobile">
+                    <a (click)="AgregarFotoCiudad(ciudad)"><mat-icon>add_a_photo</mat-icon></a>
+                    <a routerLink="update/{{ciudad.id}}"><mat-icon>mode</mat-icon></a>
+                    <a (click)="deleteCiudad(ciudad.id)" ><mat-icon>delete</mat-icon></a>
+                </td>
             </tr>
     
     

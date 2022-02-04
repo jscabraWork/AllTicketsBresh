@@ -1,0 +1,31 @@
+.v-mobile {
+    display: none;
+    min-width: 150px;
+}
+
+.v-desktop {
+    max-width: 120px;
+    width: 120px
+}
+
+.options a {
+    color: #102438;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.options a:hover {
+    color: #d14f14;
+}
+
+
+@media (max-width: 764px) {
+    .v-desktop {
+        display: none;
+    }
+
+    .v-mobile {
+        display: table-cell;
+    }
+
+}

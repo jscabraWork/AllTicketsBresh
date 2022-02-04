@@ -33,7 +33,7 @@
                     <td> {{usuario?.usuario }}</td>
                     <td>{{usuario?.contrasena}}</td>
                     <td>{{usuario?.celular}}</td>
-                    <td><button  class="btn btn-warning" routerLink="usuario/admin/{{usuario.usuario}}" > Ver Perfil</button></td>
+                    <td style="width: 130px;"><button  class="btn btn-warning" routerLink="usuario/admin/{{usuario.usuario}}" > Ver Perfil</button></td>
                     <td><button  class="btn btn-danger" (click)="deleteUsuario(usuario?.numeroDocumento)" > Delete</button></td>
                 </tr>
         

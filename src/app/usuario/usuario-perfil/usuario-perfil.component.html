@@ -1,29 +1,29 @@
-
-    <section class="container-fluid eventoFondo border shadow mb-5 mt-2" >
-        <section class="container ">
+<section class="container-fluid eventoFondo border shadow mb-5 mt-2">
+    <section class="container ">
         <div class="row">
-            <div class="col-12 mt-4" >
-                <div >
-             
-                    <div class="fondoImagen pt-3" style="border-radius: 10px;" >
-                        
-                        <img class="img-fluid bordeRedondeado"   src="../../../assets/images/img/Logo grande.png" alt="">
-                        
+            <div class="col-12 mt-4">
+                <div>
+
+                    <div class="fondoImagen pt-3" style="border-radius: 10px;">
+
+                        <img class="img-fluid bordeRedondeado" src="../../../assets/images/img/Logo grande.png" alt="">
+
                     </div>
                 </div>
                 <div class="centrarTexto centrado10 col-9 col-sm-8 col-md-6 col-lg-4">
-                    <img src="../../../assets/images/img/Persona 4.png" class="imagenes rounded-circle eventoFondo border"  alt="">
-                    
+                    <img src="../../../assets/images/img/Persona 4.png"
+                        class="imagenes rounded-circle eventoFondo border" alt="">
+
                 </div>
-                
-                
+
+
             </div>
             <div class="col-12">
                 <div class="centrarTexto">
                     <h1 class="mt-3 mt-md-2 mt-lg-3 pt-5"><strong>{{usuario.nombre}}</strong></h1>
                     <a (click)="openDialog()" class="descripcion">Cambiar mis datos</a>
                 </div>
-          
+
                 <hr>
             </div>
             <div class="col-12 menu2 mb-4 mt-3">
@@ -31,142 +31,169 @@
                 <section class="container centrarTexto">
                     <div class="row">
                         <div class="col-12 col-md-4 ">
-                            <p><a (click)="datos=true; palcos =false; tickets =false;" class="p-3 mr-3 ml-3 rounded elementosMenu">Información General</a></p>
+                            <p><a (click)="datos=true; palcos =false; tickets =false;"
+                                    class="p-3 mr-3 ml-3 rounded elementosMenu">Información General</a></p>
                         </div>
                         <div class="col-12 col-md-4">
-                            <p><a (click)="datos=false; palcos =true; tickets =false;" class="p-3 mr-3 ml-3 rounded elementosMenu">Mis Palcos</a></p>
+                            <p><a (click)="datos=false; palcos =true; tickets =false;"
+                                    class="p-3 mr-3 ml-3 rounded elementosMenu">Mis Palcos</a></p>
                         </div>
                         <div class="col-12 col-md-4">
-                            <p> <a (click)="datos=false; palcos =false; tickets =true;"  class="p-3 mr-3 ml-3 rounded elementosMenu">Mis Tickets</a></p>
+                            <p> <a (click)="datos=false; palcos =false; tickets =true;"
+                                    class="p-3 mr-3 ml-3 rounded elementosMenu">Mis Tickets</a></p>
                         </div>
                     </div>
                 </section>
-                
+
             </div>
         </div>
     </section>
-    </section>
-    <section class="container">
-        <div class="row">
-
-          
-            <div class="col-12" *ngIf="tickets">
-                <div class=" arriba  ">
-            
-              
-                    <h3 class=" p-3"> 
-                      <strong> Mis Tickets</strong>
-                     </h3>
-                
-              </div>
-                
-<section class="container " >
-    
-    <div class="row rounded" >
-        <div class="col-12 border eventoFondo" style="text-align: center;" *ngIf="usuario.boletas.length==0 ">
-            <h4 class="p-5"> <strong> No tienes ningún Ticket, compra uno y vive la experiencia All Tickets.</strong></h4>
-        </div>
-        <div class="col-12 border eventoFondo mt-3 " *ngFor="let boleta of usuario.boletas">
-            
-                <div style="text-align: center" class="pt-3">
-                    <h3 class="colorNaranja">
-                        <strong>
-                            Ticket
-                        </strong>
-                    </h3>
-                </div>
-
-            <h5 class="pl-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
-            <h5 class="pl-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
-            <h5 class="pl-4 "><strong>Boleta No:</strong> {{boleta.id}}  </h5>
-            <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}</h5>
-            <h5 class="pl-4 pb-2"><strong>Precio: </strong>{{boleta?.precio + boleta.servicio + boleta.servicioIva | currency:'COP'}}</h5>
-            <button class="btn action_button ml-4 mb-4"(click)="mandarQR(boleta.id)">Enviar código QR</button>
-            <button class="btn action_button ml-4 mb-4"(click)="openDialog2(boleta)">Cambiar asistente</button>
-        </div>
-        
-            
-    </div>
 </section>
+<section class="container">
+    <div class="row">
 
+
+        <div class="col-12" *ngIf="tickets">
+            <div class=" arriba  ">
+
+
+                <h3 class=" p-3">
+                    <strong> Mis Tickets</strong>
+                </h3>
 
             </div>
 
-            <div class="col-12  " *ngIf=datos  >
-                       
-                <div class=" arriba  ">
-            
-              
-                    <h3 class=" p-3"> 
-                      <strong> Mis Datos</strong>
-                     </h3>
-              </div>
-        <mat-icon class="float-right pr-5 pt-3" (click)="openDialog()">edit</mat-icon>    
+            <section class="container ">
 
-        <div class="eventoFondo border rounded p-4">
+                <div class="row rounded">
+                    <div class="col-12 border eventoFondo" style="text-align: center;"
+                        *ngIf="usuario.boletas.length==0 ">
+                        <h4 class="p-5"> <strong> No tienes ningún Ticket, compra uno y vive la experiencia All
+                                Tickets.</strong></h4>
+                    </div>
+                    <div class="col-12 border eventoFondo mt-3 " *ngFor="let boleta of usuario.boletas">
 
-            <h5 class="pt-4 pl-4"><strong>{{usuario?.tipoDocumento}}: </strong>{{usuario?.numeroDocumento}}</h5>
-            <h5 class="pl-4"><strong>Nombre: </strong> {{usuario.nombre}}</h5>
-            <h5 class="pl-4 "><strong>Correo: </strong> {{usuario.correo}}</h5>
-            <h5 class="pl-4" ><strong>Contraseña: </strong>*************</h5>
-            <h5 class="pl-4"><strong>Celular: </strong> {{usuario.celular}}</h5>
-        </div>  
-            </div>  
+                        <div style="text-align: center" class="pt-3">
+                            <h3 class="colorNaranja">
+                                <strong>
+                                    Ticket
+                                </strong>
+                            </h3>
+                        </div>
+
+                        <h5 class="pl-4 pt-4"><strong>Evento: </strong>{{boleta?.nombreEvento}}</h5>
+                        <h5 class="pl-4 "><strong>Localidad: </strong> {{boleta.localidadNombre}}</h5>
+                        <h5 class="pl-4 "><strong>Boleta No:</strong> {{boleta.id}} </h5>
+                        <h5 class="pl-4"><strong *ngIf="boleta.seccionSilla">Silla: </strong>{{boleta.seccionSilla}}
+                        </h5>
+                        <h5 class="pl-4 pb-2"><strong>Precio: </strong>{{boleta?.precio + boleta.servicio +
+                            boleta.servicioIva | currency:'COP'}}</h5>
+                        <button class="btn action_button ml-4 mb-4" (click)="mandarQR(boleta.id)">Enviar código
+                            QR</button>
+                        <button class="btn action_button ml-4 mb-4" (click)="openDialog2(boleta)">Cambiar
+                            asistente</button>
+                    </div>
+
+
+                </div>
+            </section>
+
+
+        </div>
+
+        <div class="col-12  " *ngIf=datos>
+
+            <div class=" arriba  ">
+
+
+                <h3 class=" p-3">
+                    <strong> Mis Datos</strong>
+                </h3>
+            </div>
+            <mat-icon class="float-right pr-5 pt-3" (click)="openDialog()">edit</mat-icon>
+
+            <div class="eventoFondo border rounded p-4">
+
+                <h5 class="pt-4 pl-4"><strong>{{usuario?.tipoDocumento}}: </strong>{{usuario?.numeroDocumento}}</h5>
+                <h5 class="pl-4"><strong>Nombre: </strong> {{usuario.nombre}}</h5>
+                <h5 class="pl-4 "><strong>Correo: </strong> {{usuario.correo}}</h5>
+                <h5 class="pl-4"><strong>Contraseña: </strong>*************</h5>
+                <h5 class="pl-4"><strong>Celular: </strong> {{usuario.celular}}</h5>
+            </div>
+        </div>
         <div class="col-12" *ngIf="palcos">
             <div class=" arriba  ">
-            
-              
-                <h3 class=" p-3"> 
-                  <strong> Mis Palcos</strong>
-                 </h3>
-            
-          </div>
-         <section class="container" >
-            <div class="row">
-                <div class="col-12 border eventoFondo" style="text-align: center;" *ngIf="usuario.palcos.length==0 ">
-                    <h4 class="p-5"> <strong> No tienes ningún Palco, compra uno y vive la experiencia All Tickets.</strong></h4>
-                </div>
-                <div class="col-12 border " *ngFor="let palco of usuario.palcos" >
-                    <div style="text-align: center; " class="pt-3">
-                        <h3 style="color:#ed701c">
-                            <strong>
-                                Palco
-                            </strong>
-                        </h3>
-                    </div>
-                    <h5 class="pt-4 pl-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>
-                    <h5 class="pl-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
-                    <h5 class="pl-4 "><strong>Palco No:</strong> {{palco.numeroDentroDeEvento}}</h5>
-                    <h5 class="pl-4"><strong>Personas por palco:</strong> {{palco.personasMaximas}}</h5>
-                    <h5 class="pl-4" ><strong>Precio: </strong>{{palco?.precio + palco?.servicio  +palco?.servicioIva|currency:'COP'}}</h5>
-                    <h5 class="pl-4 "><strong>Dinero recaudado: </strong> {{palco?.precioParcialPagado |currency:'COP'}}</h5>
-                    <div class="progress ml-4 mt-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicioIva)">
-                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicioIva))*100}}%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                            {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicioIva))*100}}%
-                        </div>
-                    </div>
 
-                    <div style="text-align: center;" class="progress ml-4 mt-4" *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicioIva)">
-                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicioIva))*100}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
-                        
-                    </div>
-                    <div class="mt-4" *ngIf= "palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicioIva)" style="text-align: center;">
-                        <h6><strong>Palco Pagado</strong></h6>
-                    </div>
 
-                    <div class="mt-4" *ngIf= "palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicioIva)" style="text-align: center;">
-                        <h6><strong>Palco Por Pagar</strong></h6>
-                        <h6><strong>Recuerda que cuentas con un plazo de 24 horas para pagar el 50% y 72 horas para pagar el 100%.</strong></h6>
-                    </div>
-                    
-                    <div style="text-align: center;" class="mt-5">
-                        <button class="action_button  rounded mb-4 " routerLink="amigos-palco/{{palco.id}}">Ver</button>
-                        <button *ngIf= "palco.precioParcialPagado>=(palco.precio+palco.servicio+palco.servicioIva)" class="action_button  rounded mb-4 ml-3 " (click)="mandarQRPalco(palco.id, palco.numeroDentroDeEvento)">Enviar Codigos QR</button>
-                    </div>
+                <h3 class=" p-3">
+                    <strong> Mis Palcos</strong>
+                </h3>
 
-                </div>
             </div>
-        </section> 
-    </div>  
+            <section class="container">
+                <div class="row">
+                    <div class="col-12 border eventoFondo" style="text-align: center;"
+                        *ngIf="usuario.palcos.length==0 ">
+                        <h4 class="p-5"> <strong> No tienes ningún Palco, compra uno y vive la experiencia All
+                                Tickets.</strong></h4>
+                    </div>
+                    <div class="col-12 border " *ngFor="let palco of usuario.palcos">
+                        <div style="text-align: center; " class="pt-3">
+                            <h3 style="color:#ed701c">
+                                <strong>
+                                    Palco
+                                </strong>
+                            </h3>
+                        </div>
+                        <h5 class="pt-4 pl-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>
+                        <h5 class="pl-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
+                        <h5 class="pl-4 "><strong>Palco No:</strong> {{palco.numeroDentroDeEvento}}</h5>
+                        <h5 class="pl-4"><strong>Personas por palco:</strong> {{palco.personasMaximas}}</h5>
+                        <h5 class="pl-4"><strong>Precio: </strong>{{palco?.precio + palco?.servicio
+                            +palco?.servicioIva|currency:'COP'}}</h5>
+                        <h5 class="pl-4 "><strong>Dinero recaudado: </strong> {{palco?.precioParcialPagado
+                            |currency:'COP'}}</h5>
+                        <div class="progress ml-4 mt-4"
+                            *ngIf="palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicioIva)">
+                            <div class="progress-bar progress-bar-striped bg-warning" role="progressbar"
+                                style="width: {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicioIva))*100}}%"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicioIva))*100}}%
+                            </div>
+                        </div>
+
+                        <div style="text-align: center;" class="progress ml-4 mt-4"
+                            *ngIf="palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicioIva)">
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                style="width: {{(palco.precioParcialPagado/(palco.precio+palco.servicio+palco.servicioIva))*100}}%"
+                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
+
+                        </div>
+                        <div class="mt-4"
+                            *ngIf="palco.precioParcialPagado==(palco.precio+palco.servicio+palco.servicioIva)"
+                            style="text-align: center;">
+                            <h6><strong>Palco Pagado</strong></h6>
+                        </div>
+
+                        <div class="mt-4"
+                            *ngIf="palco.precioParcialPagado!=(palco.precio+palco.servicio+palco.servicioIva)"
+                            style="text-align: center;">
+                            <h6><strong>Palco Por Pagar</strong></h6>
+                            <h6><strong>Recuerda que cuentas con un plazo de 24 horas para pagar el 50% y 72 horas para
+                                    pagar el 100%.</strong></h6>
+                        </div>
+
+                        <div style="text-align: center;" class="mt-5">
+                            <button class="action_button  rounded mb-4 "
+                                routerLink="amigos-palco/{{palco.id}}">Ver</button>
+                            <button *ngIf="palco.precioParcialPagado>=(palco.precio+palco.servicio+palco.servicioIva)"
+                                class="action_button  rounded mb-4 ml-3 "
+                                (click)="mandarQRPalco(palco.id, palco.numeroDentroDeEvento)">Enviar Codigos QR</button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
+    </div>
+</section>
