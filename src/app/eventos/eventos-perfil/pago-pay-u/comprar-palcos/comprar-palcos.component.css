@@ -1749,3 +1749,39 @@ td {
   float: left;
   width: 50px;
 }
+
+.mapa21Vip{
+  line-height: 180px;
+  width: 368px;
+  height: 180px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.mapa21Tesos{
+  background-color: blue;
+}
+
+
+.tarimaMapa21{
+  margin-left: 46px;
+  background-color: #333;
+  color: white;
+  width: 180px; 
+  height: 60px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.mapa21Vip2{
+  margin-top: 60px;
+  margin-right: 30px;
+}
+
+.margenultimo:last-child .cuadros{
+  margin-top: 20px;
+  }
