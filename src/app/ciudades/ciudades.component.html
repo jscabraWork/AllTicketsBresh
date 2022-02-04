@@ -1,101 +1,41 @@
-<<<<<<< HEAD
-<div id="prueba">
-    <h1><strong>Ciudades</strong></h1>
-
-</div>
-
-=======
 <div id="prueba" class="bannerCiudad">
     <h1 class="ciudadTitulo" ><strong >Ciudades</strong></h1>
 </div>
   
->>>>>>> 135f58ae4039301e22e3f87c6beff80fa0cff127
 
 <section class="container-fluid " style="margin-top: 2%; margin-bottom: 5%; text-align: center;">
     <div class="row ">
 
 
-<<<<<<< HEAD
         <div class="mt-5 mt-md-3 col-12 col-sm-12  col-md-6  pl-sm-5 pr-sm-5 pl-md-2 pr-md-2 col-lg-4 col-xl-3 contenedor8"
-            style="height: 400px" *ngFor="let ciudad of ciudades">
+        style="height: 100%" *ngFor="let ciudad of ciudades">
             <div class=" border rounded" style="background-color: black; width: 100%; height: 50%">
-
-
-                <div class="contenedor contenedor2">
-
-                    <a routerLink="/ciudades/eventos/{{ciudad.id}}" class="outerLink">
-                        <img src="{{ciudad?.imagen.url}}" *ngIf="ciudad.imagen" class=" rounded  darkableImage"
-                            onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1"
-                            onmouseover="javascript:this.style.opacity=0.4;this.opacity=40" />
-
+                <div class="contenedor contenedor2" >
+                    <a routerLink="/ciudades/eventos/{{ciudad.id}}" class="outerLink"> 
+                    <img src="{{ciudad?.imagen.url}}" *ngIf="ciudad.imagen" class=" rounded  darkableImage"onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1" 
+                    onmouseover="javascript:this.style.opacity=0.4;this.opacity=40" />
+                    <p class="centrado2"><strong> Acá encontrarás los mejores eventos de la ciudad de {{ciudad?.nombre}}. ¿Que estás esperando para comprar tu ticket?</strong></p>
                     </a>
-                    <p class="centrado2"><strong> Acá encontrarás los mejores eventos de la ciudad de
-                            {{ciudad?.nombre}}. ¿Que estás esperando para comprar tu ticket?</strong></p>
-
                 </div>
-
-
             </div>
 
-            <div class="border rounded container-fluid" style="background-color: white; height: 50%">
-
-                <div class="row contenedor">
+            <div class="border rounded container-fluid" style="background-color: white; height: 50%" >
+     
+                <div class="row contenedor contenedorBot" >
                     <div class="col-12">
-                        <h2 class=" rounded titulos pt-3 pr-3 pl-3"><strong> <a class="titulos"
-                                    routerLink="/ciudades/eventos/{{ciudad.id}}">{{ciudad?.nombre
-                                    |resumir2}}</a></strong></h2>
-
-                        <hr class="aaa">
-
-
+                    <h2 class=" rounded titulos pt-3 pr-3 pl-3"  ><strong> <a class="titulos" routerLink="/ciudades/eventos/{{ciudad.id}}" >{{ciudad?.nombre |resumir2}}</a></strong></h2> 
+                    <hr class="aaa" >
                     </div>
-
-                    <div class="col-6 border-right">
+                    <div class="col-6 border-right temperatura">
                         <p class="fechas"><strong>Temperatura Promedio: {{ciudad?.temperatura}} °C </strong></p>
-
                     </div>
-                    <div class="col-6 pb-5">
-                        <button class="action_button rounded-pill shadow texto"
-                            routerLink="/ciudades/eventos/{{ciudad.id}}">Ver</button>
+                    <div class="col-6 botonVer">
+                        <button  class="action_button rounded-pill shadow texto"  routerLink="/ciudades/eventos/{{ciudad.id}}">Ver</button>
                     </div>
-
                 </div>
+  
+                
             </div>
         </div>
-=======
-    
-        <div class="contenedor contenedor2" >
-        
-            <a routerLink="/ciudades/eventos/{{ciudad.id}}" class="outerLink"> 
-            <img src="{{ciudad?.imagen.url}}" *ngIf="ciudad.imagen" class=" rounded  darkableImage"onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1" 
-            onmouseover="javascript:this.style.opacity=0.4;this.opacity=40" />
-            <p class="centrado2"><strong> Acá encontrarás los mejores eventos de la ciudad de {{ciudad?.nombre}}. ¿Que estás esperando para comprar tu ticket?</strong></p>
-        </a>
-        
-        
-        </div>
-        
-      
-    </div>
-
-    <div class="border rounded container-fluid" style="background-color: white; height: 50%" >
-     
-    <div class="row contenedor contenedorBot" >
-        <div class="col-12" >
-        <h2 class=" rounded titulos pt-3 pr-3 pl-3"  ><strong> <a class="titulos" routerLink="/ciudades/eventos/{{ciudad.id}}" >{{ciudad?.nombre |resumir2}}</a></strong></h2> 
-        
-        <hr class="aaa" >
-
-     
-    </div>
-  
-    <div class="col-6 border-right temperatura">
-        <p class="fechas"><strong>Temperatura Promedio: {{ciudad?.temperatura}} °C </strong></p>
-    </div>
-    <div class="col-6 botonVer">
-        <button  class="action_button rounded-pill shadow texto"  routerLink="/ciudades/eventos/{{ciudad.id}}">Ver</button>
-    </div>
->>>>>>> 135f58ae4039301e22e3f87c6beff80fa0cff127
-
     </div>
 </section>

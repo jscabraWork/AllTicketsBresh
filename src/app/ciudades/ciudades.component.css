@@ -25,6 +25,8 @@ p.centrado2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .texto{
     width: 100%;
@@ -47,7 +49,14 @@ p.centrado2 {
 }
 @media(max-width:392px){
     .titulos{
-        font-size: 18px;
+        font-size: 25px;
+    }
+    .contenedor8{
+        padding: 0;
+        margin-top: 25px;
+    }
+    #prueba{
+        padding: 10px;
     }
 }
 
