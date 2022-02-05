@@ -2,6 +2,7 @@
     display:initial ;
 }
 .contenedor2 p {
+    display: none;
     background-color: rgba(0,0,0,0);
     text-shadow: 0px 0px 2px black;
 }

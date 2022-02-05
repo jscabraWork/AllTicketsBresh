@@ -101,7 +101,7 @@
 					<iframe   Set-Cookie: flavor=choco; SameSite=None; Secure  [src]='mapaUrl' width="100%" height="30%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 				</div>
 
-				<div style="text-align: center;" class="mt-4 mb-5">
+				<div style="text-align: center;" class="mt-4 mb-5 divBoton">
 					<button *ngIf="etapas.length > 0" style="font-size: 15px;" class="botonCompra action_button rounded shadow "
 						(click)="scroll()">Comprar Tickets</button>
 				</div>
@@ -141,7 +141,7 @@
 					width="100%" height="30%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 				</div>
 
-				<div style="text-align: center;" class="mt-4 mb-5">
+				<div style="text-align: center;" class="mt-4 mb-5 divBoton">
 					<button *ngIf="etapas.length > 0" style="font-size: 15px;" class="botonCompra action_button rounded shadow "
 						(click)="scroll()">Comprar Tickets</button>
 				</div>
@@ -162,11 +162,11 @@
 				<p><strong>ADVERTENCIA DE COMPRA:</strong> RECIBIRÁS UN CÓDIGO QR, REVISA SPAM! ESE CÓDIGO QR ES TU
 					ENTRADA!</p>
 					<p style="font-size:14px; text-align:right;"><strong>NIT de los responsables del evento:</strong> {{organizadorId}}</p>
-				<div class="col-12 mt-4 mb-4" style="text-align: center;">
-					<button *ngIf="evento?.mapaImagen?.url !=null" class="action_button" style="font-size: 15px;"
+				<div class="col-12 mt-4 mb-4 divBoton" style="text-align: center;">
+					<button *ngIf="evento?.mapaImagen?.url !=null" class="action_button botonCompra" style="font-size: 15px;"
 						(click)="openDialog()">>Zonas del evento</button>
 					<button *ngIf="(evento.mapa )&& etapas.length >0"
-						class="botonComprar rounded p-3 mt-3" routerLink="pago/palco/mapa">COMPRAR</button>
+						class="botonCompra orange rounded p-3 mt-3" routerLink="pago/palco/mapa">COMPRAR</button>
 
 				</div>
 
@@ -219,25 +219,25 @@
 					<h3><strong> {{localidad.nombre}} </strong></h3>
 				</div>
 				<div class="pt-2 " *ngIf="localidad.palcos.length>0">
-					<h5><strong>Personas Por Palco</strong></h5>
+					<h5 class="ticketTitulo"><strong>Personas Por Palco</strong></h5>
 
-					<p class="precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
-					<p class="precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
+					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
+					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
 				</div>
 
 				<div class="pt-2 " *ngIf="localidad.palcos.length==0">
-					<h5><strong>Personas Por Ticket</strong></h5>
+					<h5 class="ticketTitulo"><strong>Personas Por Ticket</strong></h5>
 
-					<p class="precioLocalidades"> <strong> 1</strong></p>
+					<p class="ticketNumero precioLocalidades"> <strong> 1</strong></p>
 				</div>
 
 
-				<hr>
+				<hr class="hrTicket">
 				
 				<div class="pt-2 ">
-					<h5 *ngIf="localidad.palcos.length>0 "><strong>Quedan Disponibles En esta etapa</strong></h5>
+					<h5 class="ticketTitulo" *ngIf="localidad.palcos.length>0 "><strong>Quedan Disponibles En esta etapa</strong></h5>
 
-					<p class="precioLocalidades" *ngIf="localidad.palcos.length>0"> <strong>
+					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos.length>0"> <strong>
 							{{ darCantidadDePalcosDisponiblesEtapas(localidad)}}</strong></p>
 
 					
@@ -247,8 +247,8 @@
 
 				<div class="pt-2 " *ngIf="evento.adicionales.length == 0">
 
-					<h5><strong>Precio Total</strong></h5>
-					<p class="precioLocalidades"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje  | number: '1.0-0'}} COP</strong></p>
+					<h5 class="ticketTitulo"><strong>Precio Total</strong></h5>
+					<p class="ticketNumero precioLocalidades"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje  | number: '1.0-0'}} COP</strong></p>
 					<p class="precios pr-3 pl-3 ">Precio + Servicio + IVA</p>
 					<p class="precios pr-3 pl-3 pb-3 margen-menor">{{localidad.precio| number: '1.0-0'}} COP + {{+localidad.servicio | number: '1.0-0'}} COP + {{localidad.servicioPorcentaje | number: '1.0-0'}} COP</p>
 				</div>
@@ -282,33 +282,33 @@
 				</div>
 
 				<div class="pt-2 " *ngIf="localidad.palcos.length>0">
-					<h5><strong>Personas Por Palco</strong></h5>
+					<h5 class="ticketTitulo"><strong>Personas Por Palco</strong></h5>
 
-					<p class="precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
-					<p class="precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
+					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
+					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
 				</div>
 
 				<div class="pt-2 " *ngIf="localidad.palcos.length==0">
-					<h5><strong>Personas Por Ticket</strong></h5>
+					<h5 class="ticketTitulo"><strong>Personas Por Ticket</strong></h5>
 
-					<p class="precioLocalidades"> <strong> 1</strong></p>
+					<p class="ticketNumero precioLocalidades"> <strong> 1</strong></p>
 				</div>
-				<hr>
+				<hr class="hrTicket">
 
 
 
 
-				<hr *ngIf="evento.adicionales.length < 0">
+				<hr class="hrTicket" *ngIf="evento.adicionales.length < 0">
 
 				<div class="pt-2 " *ngIf="evento.adicionales.length == 0">
 
-					<h5><strong>Precio Total</strong></h5>
-					<p class="precioLocalidades"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje| number: '1.0-0'}} COP</strong>
+					<h5 class="ticketTitulo"><strong>Precio Total</strong></h5>
+					<p class="ticketNumero precioLocalidades"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje| number: '1.0-0'}} COP</strong>
 					</p>
 					<p class="precios pr-3 pl-3 ">Precio + Servicio + IVA</p>
 					<p class="precios pr-3 pl-3 pb-3 margen-menor">{{localidad.precio | number: '1.0-0'}} COP + {{+localidad.servicio | number: '1.0-0'}} COP + {{localidad.servicioPorcentaje| number: '1.0-0'}} COP</p>
 				</div>
-				<hr>
+				<hr class="hrTicket">
 				<div class="p-3 " *ngIf="localidad.palcos.length==0 &&!evento.mapa">
 
 
@@ -318,7 +318,7 @@
 				<div class="p-3 " *ngIf="localidad.palcos.length>0" >
 
 
-					<button class="botonLogin botonCompra rounded pt-2 pb-2" routerLink="pago/palco/{{localidad.id}}" >
+					<button class="botonLogin btnLog botonCompra rounded pt-2 pb-2" routerLink="pago/palco/{{localidad.id}}" >
 						Comprar</button>
 				</div>
 
@@ -378,7 +378,7 @@
 <section class="container-fluid" 	*ngIf="etapas.length > 0 && localidades.length >= 0 && (evento.mapa)">
 	<div class="row">
 		<div class="col-12 centrarTexto mt-3">
-			<button class="botonLogin botonCompra rounded pt-2 pb-2" routerLink="pago/palco/mapa">Comprar</button>
+			<button class="botonLogin btnLog botonCompra rounded pt-2 pb-2" routerLink="pago/palco/mapa">Comprar</button>
 		</div>
 	</div>
 </section>
