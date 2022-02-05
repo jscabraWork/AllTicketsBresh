@@ -14,19 +14,23 @@
     margin-right: 0;
     margin-left: 0;
 }
+.tituloEvento{
+    width: 100%;
+}
 .fechaCiudad, .botonVer{
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 .fechaCiudad>p{
     padding: 0px 10px;
+    margin-bottom: 3px !important;
+    font-size: 14px;
 }
 .titulos{
-    font-size: 20px;
+    font-size: 19px;
 }
 .sold_out {
     top: 2em;
@@ -54,6 +58,9 @@
     }
     #prueba{
         padding: 10px;
+    }
+    .fechaCiudad>p{
+        font-size: 18px;
     }
 }
 

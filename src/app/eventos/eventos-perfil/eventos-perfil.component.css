@@ -21,6 +21,12 @@
   font-weight: bolder;
   
 }
+.orange{
+  background: linear-gradient(#f9b84a, #ed701c);
+  color: white;
+  border: white;
+  font-weight: bolder;
+}
 
 .localidades div h5,.localidades div p{
   padding: 0px 10px;
@@ -72,7 +78,7 @@
     width: 100%;
   }
   .nombreEvento{
-    height: 100px;
+    height: 100%;
   }
   .eventoVideo, .eventoVideo>div{
     padding: 0;
@@ -84,18 +90,55 @@
     margin-top: 20px !important;
     padding: 5px !important;
   }
+  .ubicaciones{
+    font-size: 20px !important;
+  }
   .botonCompra{
-    border-radius: 2em !important;
+    font-size: 13px !important;
+    padding: 10px 10px !important;
+  }
+  .orange{
+    background: linear-gradient(#f9b84a, #ed701c);
+    color: white;
+    border: white;
+    font-weight: bolder;
+    padding: 13px 13px !important;
+  }
+  .divBoton{
+    margin-bottom: 10px !important;
   }
   #prueba9{
     padding: 5px 5px !important;
   }
   #prueba9>h1{
     margin-bottom: 0.2rem;
-    margin-top: 0.2rem;
+    margin-top: 0.2rem; 
+    font-size: 16px !important;
+  }
+  .btnLog{
+    width: 30% !important;
+  }
+  .hrTicket{
+    margin-bottom: 0 !important;
   }
   .divisionLocalidad2{
     padding: 0;
+  }
+  .tituloLocalidad2, .tituloLocalidad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 3% !important;
+  }
+  .tituloLocalidad2>h3, .tituloLocalidad>h3{
+    font-size: 18px;
+    margin-bottom: 0 !important;
+  }
+  .ticketTitulo{
+    font-size: 17px !important;
+  }
+  .ticketNumero{
+    font-size: 20px !important;
   }
   .sinVideo{
     width: 100%;
@@ -109,6 +152,13 @@
   }
   .mapaEvento{
     width: 100%;
+  }
+  #prueba{
+    padding: 18px 5px !important;
+  }
+  #prueba>h1{
+    margin-bottom: 0 !important;
+    font-size: 18px;
   }
 }
 #contador .contenedor p {
