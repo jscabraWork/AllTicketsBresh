@@ -905,18 +905,18 @@ export class ComprarPalcosComponent implements OnInit {
 
 
                   if (
-                    this.etapas[i].localidades[j].nombre == 'PF'
+                    this.etapas[i].localidades[j].nombre == 'Palcos'
                   ) {
                 
                     this.localidadCargadaGeneral =
                       this.etapas[i].localidades[j];
                 }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'VIP PAMBELE') {
+                  else if (this.etapas[i].localidades[j].nombre == 'VIP') {
                     this.localidadCargada = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'GENERAL LOS TESOS') {
+                  else if (this.etapas[i].localidades[j].nombre == 'General') {
                     this.localidadCargadaBoletas = this.etapas[i].localidades[j];
                   }
                 
@@ -3196,7 +3196,7 @@ if(!this.usuarioBoolean)
       numero != 'l' ) {
       if (!this.cargando &&this.cargadoTodo) {
 
-
+        console.log(numero);
         
         if (this.contadorPalcos < 2 ) {
           this.cargando = true;
@@ -3204,7 +3204,8 @@ if(!this.usuarioBoolean)
             .getPalcoParaCompraIndividual(this.evento.nombre, numero)
             .subscribe((response) => {
               this.palco = response;
-
+              
+              console.log(this.palco)
 
 
 

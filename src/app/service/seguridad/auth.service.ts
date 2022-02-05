@@ -65,7 +65,7 @@ export class AuthService {
   guardarUsuario(accessToken: string): void {
     let objeto = this.obtenerDatosDelTocken(accessToken);
     this._usuario = new Usuario();
-    this._usuario.nombre = objeto.nombre;
+    this._usuario.nombre = "ALL TICKETS";
 
     this._usuario.usuario = objeto.user_name;
 
