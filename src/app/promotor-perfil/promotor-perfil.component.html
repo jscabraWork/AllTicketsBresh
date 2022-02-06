@@ -104,7 +104,7 @@
             
             <h5 class="pl-4">
                 {{eventoP.nombre}}:
-                <a *ngIf=" eventoP.mapa" href="https://allticketscol.com/eventos/evento/{{eventoP.id}}/pago/palco/mapa/{{promotor?.usuario}}">
+                <a class="link-large" *ngIf=" eventoP.mapa" href="https://allticketscol.com/eventos/evento/{{eventoP.id}}/pago/palco/mapa/{{promotor?.usuario}}">
                     https://allticketscol.com/eventos/evento/{{eventoP.id}}/pago/palco/mapa/{{promotor?.usuario}}
                 </a>
                 <button class="action_button rounded-pill shadow texto" routerLink="{{eventoP.id}}">

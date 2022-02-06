@@ -79,3 +79,8 @@ a:hover
     cursor: pointer;
     
 }
+
+.link-large{
+    overflow-wrap: break-word;
+    display: block;
+}
