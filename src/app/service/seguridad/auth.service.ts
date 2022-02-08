@@ -179,5 +179,6 @@ export class AuthService {
     sessionStorage.removeItem('ministerio');
     sessionStorage.removeItem('puntoF');
     sessionStorage.removeItem('coordinador');
+    sessionStorage.removeItem('contador');
   }
 }
