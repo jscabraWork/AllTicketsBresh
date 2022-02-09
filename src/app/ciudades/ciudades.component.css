@@ -48,6 +48,29 @@ p.centrado2 {
 .ciudadTitulo{
  margin: 0;
 }
+
+.bg-darkblue-gradient{
+    background: linear-gradient(#102438, #32587e);
+}
+
+.contenedor2 a{
+    position: relative;
+}
+.overlay{
+    
+    position:absolute;
+    background: black;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.hover-overlay:hover .overlay{
+    opacity: 0.5;
+}
+.contenedor2 p{
+    top: 50%;
+}
 @media(max-width:392px){
     .titulos{
         font-size: 25px;
@@ -58,9 +81,14 @@ p.centrado2 {
     }
     #prueba{
         padding: 10px;
-    }
+    }    
 }
 
+@media(max-width: 1064px){
+    .fechas strong{
+        font-size: 14pt;
+    }
+}
 
 
 

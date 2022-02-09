@@ -1,7 +1,7 @@
 <section class="container mt-5">
 
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 xs-text-center">
     <h2>Todos las etapas del evento {{evento?.nombre}}</h2>
     <button class="btn btn-success" routerLink="/administradores/admin/eventos/lista">Atras</button>
     <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
@@ -29,10 +29,10 @@
                 <td>{{etapa?.id}}</td>
                 <td>{{etapa?.nombre }}</td>
                 <td>{{etapa?.visible| booleans}}</td>
-               <td><button class="btn btn-success" routerLink="localidades/{{etapa.id}}">Localidades</button></td>
+               <td class="max-width"><button class="btn btn-success" routerLink="localidades/{{etapa.id}}">Localidades</button></td>
        
-                <td><button  class="btn btn-warning" (click)="hacerVisible(etapa.id)"> Hacer Visible</button></td>
-                <td><button  class="btn btn-danger" (click)="borrarEtapa(etapa.id)"> Delete</button></td>
+                <td class="max-width"><button  class="btn btn-warning" (click)="hacerVisible(etapa.id)"> Hacer Visible</button></td>
+                <td class="max-width"><button  class="btn btn-danger" (click)="borrarEtapa(etapa.id)"> Delete</button></td>
     
             </tr>
     

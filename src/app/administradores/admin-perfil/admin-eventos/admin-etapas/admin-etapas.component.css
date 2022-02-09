@@ -1,0 +1,29 @@
+.btn,
+.max-width {
+    width: 128px;
+}
+
+.btn-success {
+    background: #102438;
+    color: #ffffff;
+    border-color: initial;
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success:focus {
+    background: #e95511;
+    border-color: #ed701c;
+}
+
+
+@media (max-width: 654px) {
+    .xs-text-center {
+        text-align: center;
+    }
+
+    .xs-text-center table {
+        text-align: initial;
+    }
+
+}

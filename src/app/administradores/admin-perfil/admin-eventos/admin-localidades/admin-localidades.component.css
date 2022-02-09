@@ -1,0 +1,38 @@
+.btn,
+.max-width {
+    width: 128px;
+}
+
+.center-block{
+    display: block;
+    margin: auto;
+    width: fit-content;
+}
+
+/*Estilo de boton success*/
+.btn-success {
+    background: #102438;
+    color: #ffffff;
+    border-color: initial;
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success:focus {
+    background: #e95511 !important;
+    border-color: #ed701c !important;
+    box-shadow: none !important;
+}
+
+/* Fin estilo boton success*/
+
+@media (max-width: 654px) {
+    .xs-text-center {
+        text-align: center;
+    }
+
+    .xs-text-center table {
+        text-align: initial;
+    }
+
+}

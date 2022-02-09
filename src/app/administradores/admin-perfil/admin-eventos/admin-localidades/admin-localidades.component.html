@@ -1,56 +1,70 @@
-<section class="container-fluid mt-5">
+<section class="container-fluid mt-5 xs-text-center">
     <div class="row">
         <h1>Todas las Localidades del Evento {{miId}}</h1>
         <br>
-        
-        <div class="col-12" style="text-align: center;">
-            <button class="btn btn-success" routerLink="/administradores/admin/eventos/lista/etapas/{{miId}}">Atras</button>
-          
-            <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
-            <table class="table mt-3">
 
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Servicio</th>
-                        <th>Boletas</th>
-                        <th>Palcos</th>
-                        <th>Modificar</th>
-                        <th>Agregar Adiciones</th>
-                        <th>Agregar Alternos</th>
-                        <th>Efectivo</th>
-                        <th>Borrar</th>
-                        
-                    </tr>
+        <div class="col-12 pb-5 ">
+            <button class="btn btn-success"
+                routerLink="/administradores/admin/eventos/lista/etapas/{{miId}}">Atras</button>
+
+            <div *ngIf='message' class="alert alert-success ">{{message}}</div>
             
-            
-            
-                </thead>
-                <tbody>
-                  
-                    <tr *ngFor = "let localidad of etapa.localidades">
-                        <td>{{localidad?.id}}</td>
-                        <td>{{localidad?.nombre }}</td>
-                        <td>{{localidad?.precio| currency: 'COP'}}</td>
-                        
-                        <td>{{localidad?.servicio|currency:'COP'}}</td>
-                        <td><button class="btn btn-success" routerLink="{{localidad.id}}/boletas"> Boletas</button></td>
-                        <td><button class="btn btn-success" routerLink="{{localidad.id}}/palcos"> Palcos</button></td>
-                        <td><button class="btn btn-warning" routerLink="localidad/{{localidad.id}}"> Modificar</button> </td>
-                        <td><button class="btn btn-warning" routerLink="localidad/{{localidad.id}}/adiciones"> Adiciones</button> </td>
-                        <td><button class="btn btn-warning" routerLink="localidad/{{localidad.id}}/alternos"> Alternos</button> </td>
-                        <td><button class="btn btn-warning" (click)="cambiarEfectivo(localidad.id)"> {{localidad.efectivo | booleans}}</button></td>
-                        <td><button  class="btn btn-danger" (click)="borrarLocalidad(localidad.id)" > Delete</button></td>
-            
-                    </tr>
-            
-            
-                </tbody>
-            
-            </table>
-            <button class="btn btn-success " routerLink="agregar">Agregar Localidad</button>
+            <div class="mt-2 mb-5" style="overflow-x: auto;">
+                
+                <table class="table mt-3">
+
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Servicio</th>
+                            <th>Boletas</th>
+                            <th>Palcos</th>
+                            <th>Modificar</th>
+                            <th>Agregar Adiciones</th>
+                            <th>Agregar Alternos</th>
+                            <th>Efectivo</th>
+                            <th>Borrar</th>
+
+                        </tr>
+
+
+
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let localidad of etapa.localidades">
+                            <td>{{localidad?.id}}</td>
+                            <td>{{localidad?.nombre }}</td>
+                            <td>{{localidad?.precio| currency: 'COP'}}</td>
+
+                            <td>{{localidad?.servicio|currency:'COP'}}</td>
+                            <td><button class="btn btn-success" routerLink="{{localidad.id}}/boletas"> Boletas</button>
+                            </td>
+                            <td><button class="btn btn-success" routerLink="{{localidad.id}}/palcos"> Palcos</button>
+                            </td>
+                            <td><button class="btn btn-warning" routerLink="localidad/{{localidad.id}}">
+                                    Modificar</button> </td>
+                            <td><button class="btn btn-warning" routerLink="localidad/{{localidad.id}}/adiciones">
+                                    Adiciones</button> </td>
+                            <td><button class="btn btn-warning" routerLink="localidad/{{localidad.id}}/alternos">
+                                    Alternos</button> </td>
+                            <td><button class="btn btn-warning" (click)="cambiarEfectivo(localidad.id)">
+                                    {{localidad.efectivo | booleans}}</button></td>
+                            <td><button class="btn btn-danger" (click)="borrarLocalidad(localidad.id)"> Delete</button>
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <button class="btn btn-success center-block" routerLink="agregar">Agregar Localidad</button>
         </div>
     </div>
 </section>
