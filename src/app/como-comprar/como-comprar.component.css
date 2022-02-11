@@ -5,6 +5,97 @@
 .metodos img{
     display: inline-block;
     width: 70px;
-    margin: 5px;
+    margin: 5px;   
+}
+.contTitulos{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.videoInfo{
+    margin-top: 20px;
+    width: 70%;
+    height: 445px;
+}
+.titulos{
+    color: white;
+    border-radius: 20px;
+    width: 65%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: rgb(16,36,56);
+}
+.subtitulos{
+    color: white;
+    border-radius: 20px;
+    width: auto;
+    padding: 0px 20px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(rgba(236, 158, 40, 0.87), rgba(255, 80, 28, 0.87));
+}
+.titulos h2{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.subtitulos p{
+    font-size: 25px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+@media(max-width:770px){
+    .videoInfo{
+        width: 100%;
+        height: 60vw;
+    }
+    .metodos{
+        width: 100%;
+        padding: 0;
+    }
+    .container{
+        width: 100%;
+        margin: 0;
+        max-width: 100%;
+        padding: 0;
+    }
+    .contTitulos{
+        margin-top: 15px;
+    }
+    .titulos{
+        width: 100%;
+        height: 150%;
+        border-radius: 0;
+    }
+    .subtitulos{
+        width: 80%;
+        height: 7vw;
+    }
+    .row{
+        max-width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    #prueba {
+        padding: 10px !important;
+    }
+}
+@media(max-width:570px){
     
+    .titulos h2{
+        font-size: 4.5vw;
+    }
+    .subtitulos{
+        width: 80%;
+        height: 10vw;
+    }
+    .subtitulos p{
+        font-size: 4vw;
+    }
 }

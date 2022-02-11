@@ -1,107 +1,112 @@
 
 <div class="container ">
-    <h1>Evento</h1>
-<form (ngSubmit)="!todoForm.invalid && saveEvento()" #todoForm="ngForm">
-    <fieldset class="form-group" >
-        <label for="id">PullEp</label>
-        <input type="text" class= "form-control"name ="id" required="required" [(ngModel)]="evento.id">
-    </fieldset>
-<fieldset class="form-group">
-    <label for="nombre">Nombre</label>
-    <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="evento.nombre">
-</fieldset>
+    <div id="prueba"><h1>Nuevo Evento</h1></div>
+    <form (ngSubmit)="!todoForm.invalid && saveEvento()" #todoForm="ngForm">
+        <fieldset class="form-group" >
+            <label for="id">PullEp</label>
+            <input type="text" class= "form-control"name ="id" required="required" [(ngModel)]="evento.id">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="evento.nombre">
+        </fieldset>
 
-<fieldset class="form-group">
-    <label for="fechaI">Fecha Inicio del evento</label>
-    <input type="date"  class= "form-control" name="fecha" required="required" [(ngModel)]="evento.fecha">
-</fieldset>
+        <fieldset class="form-group">
+            <label for="fechaI">Fecha Inicio del evento</label>
+            <input type="date"  class= "form-control" name="fecha" required="required" [(ngModel)]="evento.fecha">
+        </fieldset>
 
-<fieldset class="form-group">
-    <label for="fechaF">Fecha Fin del evento</label>
-    <input type="date"  class= "form-control" name="fecha" required="required" [(ngModel)]="evento.fechaFin">
-</fieldset>
+        <fieldset class="form-group">
+            <label for="fechaF">Fecha Fin del evento</label>
+            <input type="date"  class= "form-control" name="fecha" required="required" [(ngModel)]="evento.fechaFin">
+        </fieldset>
 
+        <fieldset class="form-group">
+            <label for="horaI">Hora Inicio</label>
+            <input type="time"  class= "form-control" name="fecha" required="required"  [(ngModel)]="evento.horaInicio" >
+        </fieldset>
 
-<fieldset class="form-group">
-    <label for="horaI">Hora Inicio</label>
-    <input type="time"  class= "form-control" name="fecha" required="required"  [(ngModel)]="evento.horaInicio" >
-</fieldset>
+        <fieldset class="form-group">
+            <label for="horaF">Hora Fin</label>
+            <input type="time"  class= "form-control" name="fecha" required="required" [(ngModel)]="evento.horaFin">
+        </fieldset>
 
-<fieldset class="form-group">
-    <label for="horaF">Hora Fin</label>
-    <input type="time"  class= "form-control" name="fecha" required="required" [(ngModel)]="evento.horaFin">
-</fieldset>
+        <fieldset class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea   cols="30" rows="10"  class= "form-control"name ="descripcion" required="required" [(ngModel)]="evento.descripcion"></textarea>
+        </fieldset>
 
-<fieldset class="form-group">
-    <label for="descripcion">Descripción</label>
-    <textarea   cols="30" rows="10"  class= "form-control"name ="descripcion" required="required" [(ngModel)]="evento.descripcion"></textarea>
-</fieldset>
-<fieldset class="form-group">
-    <label for="lugar">Lugar</label>
-    <input type="text" class= "form-control"name ="lugar" required="required" [(ngModel)]="evento.lugar">
-</fieldset>
-<fieldset class="form-group">
-    <label for="lugar">URL mapa</label>
-    <input type="text" class= "form-control"name ="lugar" required="required" [(ngModel)]="evento.urlMapa">
-</fieldset>
-<fieldset class="form-group">
-    <label for="video">Video</label>
-    <input type="text" class= "form-control"name ="video"  [(ngModel)]="evento.video">
-</fieldset>
-<fieldset class="form-group">
-    <label for="tc">Terminos y Condiciones</label>
-    <input type="text" class= "form-control"name ="tc" required="required" [(ngModel)]="evento.terminosYCondiciones" >
-</fieldset>
-<fieldset class="form-group">
-    <label for="recomendaciones">Recomendaciones</label>
-    <input type="text" class= "form-control"name ="recomendaciones" required="required" [(ngModel)]="evento.recomendaciones">
-</fieldset>
+        <fieldset class="form-group">
+            <label for="lugar">Lugar</label>
+            <input type="text" class= "form-control"name ="lugar" required="required" [(ngModel)]="evento.lugar">
+        </fieldset>
 
+        <fieldset class="form-group">
+            <label for="lugar">URL mapa</label>
+            <input type="text" class= "form-control"name ="lugar" required="required" [(ngModel)]="evento.urlMapa">
+        </fieldset>
 
-<fieldset class="form-group">
-    <label for="recomendaciones">Artistas</label>
-    <input type="text" class= "form-control"name ="artistas" required="required" [(ngModel)]="evento.artistas">
-</fieldset>
+        <fieldset class="form-group">
+            <label for="video">Video</label>
+            <input type="text" class= "form-control"name ="video"  [(ngModel)]="evento.video">
+        </fieldset>
 
-<fieldset class="form-group">
-    <label for="ciudad">Ciudad ID</label>
-    <input type="text" class= "form-control"name ="ciudad" required="required" [(ngModel)]="evento.ciudadIdTexto">
-</fieldset>
-<fieldset class="form-group">
-    <label for="organizador">Organizador ID</label>
-    <input type="text" class= "form-control"name ="organizador" required="required" [(ngModel)]="idOrganizador">
-</fieldset>
+        <fieldset class="form-group">
+            <label for="tc">Terminos y Condiciones</label>
+            <input type="text" class= "form-control"name ="tc" required="required" [(ngModel)]="evento.terminosYCondiciones" >
+        </fieldset>
 
+        <fieldset class="form-group">
+            <label for="recomendaciones">Recomendaciones</label>
+            <input type="text" class= "form-control"name ="recomendaciones" required="required" [(ngModel)]="evento.recomendaciones">
+        </fieldset>
 
-<fieldset class="form-group">
-    <label for="mapa">Mapa</label>
-    <select type="text" class= "form-control "name ="tipo"   [(ngModel)]="evento.mapa">
-        <option value="mapa1">Mapa 1</option>
-        <option value="mapa2">Mapa 2</option>
-        <option value="mapa3">Mapa 3</option>
-        <option value="mapa4">Mapa 4</option>
-        <option value="mapa5">Mapa 5</option>
-        <option value="mapa6">Mapa 6</option>
-        <option value="mapa7">Mapa 7</option>
-        <option value="mapa8">Mapa 8</option>
-        <option value="mapa9">Mapa 9</option>
-        <option value="mapa10">Mapa 10</option>
-        <option value="mapa11">Mapa 11</option>
-        <option value="mapa12">Mapa 12</option>
-        <option value="mapa13">Mapa 13</option>
-        <option value="mapa14">Mapa 14</option>
-        <option value="mapa15">Mapa 15</option>
-        <option value="mapa16">Mapa 16</option>
-        <option value="mapa17">Mapa 17</option>
-        <option value="mapa18">Mapa 18</option>
-        <option value="mapa19">Mapa 19</option>
-        <option value="mapa20">Mapa 20</option>
-        <option value="mapa21">Mapa 21</option>
-        <option value=""></option>
+        <fieldset class="form-group">
+            <label for="recomendaciones">Artistas</label>
+            <input type="text" class= "form-control"name ="artistas" required="required" [(ngModel)]="evento.artistas">
+        </fieldset>
 
-    </select>
-</fieldset>
+        <fieldset class="form-group">
+            <label for="ciudad">Ciudad ID</label>
+            <input type="text" class= "form-control"name ="ciudad" required="required" [(ngModel)]="evento.ciudadIdTexto">
+        </fieldset>
 
-<button class="btn btn-success" type="submit">Guardar</button>
-</form>
+        <fieldset class="form-group">
+            <label for="organizador">Organizador ID</label>
+            <input type="text" class= "form-control"name ="organizador" required="required" [(ngModel)]="idOrganizador">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="mapa">Mapa</label>
+            <select type="text" class= "form-control "name ="tipo"   [(ngModel)]="evento.mapa">
+                <option value="mapa1">Mapa 1</option>
+                <option value="mapa2">Mapa 2</option>
+                <option value="mapa3">Mapa 3</option>
+                <option value="mapa4">Mapa 4</option>
+                <option value="mapa5">Mapa 5</option>
+                <option value="mapa6">Mapa 6</option>
+                <option value="mapa7">Mapa 7</option>
+                <option value="mapa8">Mapa 8</option>
+                <option value="mapa9">Mapa 9</option>
+                <option value="mapa10">Mapa 10</option>
+                <option value="mapa11">Mapa 11</option>
+                <option value="mapa12">Mapa 12</option>
+                <option value="mapa13">Mapa 13</option>
+                <option value="mapa14">Mapa 14</option>
+                <option value="mapa15">Mapa 15</option>
+                <option value="mapa16">Mapa 16</option>
+                <option value="mapa17">Mapa 17</option>
+                <option value="mapa18">Mapa 18</option>
+                <option value="mapa19">Mapa 19</option>
+                <option value="mapa20">Mapa 20</option>
+                <option value="mapa21">Mapa 21</option>
+                <option value=""></option>
+
+            </select>
+        </fieldset>
+
+        <div class="botonCrear">
+            <button class="btn btn-success" type="submit">Guardar</button>
+        </div>
+    </form>
 </div>

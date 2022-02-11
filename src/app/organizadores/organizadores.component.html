@@ -4,12 +4,12 @@
     <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
     <div class="row">
         <div class="col-12 mt-5" style="text-align: center;">
-    <button  routerLink="/administradores/admin/organizadores/lista/agregar" class="btn btn-success">Agregar Organizador</button>
+    <button  routerLink="/administradores/admin/organizadores/lista/agregar" class="btn btn-primary">Agregar Organizador</button>
     
     </div>
     </div>
     <div class="container">
-    <table class="table mt-3">
+    <table class="table mt-3 contenedorLista">
 
         <thead>
             <tr>
@@ -26,13 +26,13 @@
         </thead>
         <tbody>
           
-            <tr *ngFor = "let orga of organizadores">
-                <td>{{orga?.numeroDocumento}}</td>
-                <td>{{orga?.nombre }}</td>
-                <td><button *ngIf="autenticacion.adminLoggin() " routerLink= '/organizadores/organizador/admin/perfil/{{orga.usuario}}' class="btn btn-success"> Ver Ventas</button></td>
-                <td><button *ngIf="autenticacion.contadorLoggin() " routerLink= 'organizador/perfil/{{orga.usuario}}' class="btn btn-success"> Ver Ventas</button></td>
-                <td><button routerLink= '/administradores/admin/organizadores/lista/update/{{orga.numeroDocumento}}' class="btn btn-warning"> Modificar</button></td>
-                <td><button (click)="deleteOrganizador(orga?.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
+            <tr *ngFor = "let orga of organizadores"  class="filasEventos">
+                <td >{{orga?.numeroDocumento}}</td>
+                <td >{{orga?.nombre }}</td>
+                <td ><button *ngIf="autenticacion.adminLoggin() " routerLink= '/organizadores/organizador/admin/perfil/{{orga.usuario}}' class="btn btn-success"> Ver Ventas</button></td>
+                <!--<td><button *ngIf="autenticacion.contadorLoggin() " routerLink= 'organizador/perfil/{{orga.usuario}}' class="btn btn-success"> Ver Ventas</button></td>-->
+                <td ><button routerLink= '/administradores/admin/organizadores/lista/update/{{orga.numeroDocumento}}' class="btn btn-warning"> Modificar</button></td>
+                <td ><button (click)="deleteOrganizador(orga?.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
     
             </tr>
     
