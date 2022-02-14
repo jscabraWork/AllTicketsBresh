@@ -67,6 +67,7 @@ import { AgregarOrganizadorAEventoComponent } from './admin-perfil/admin-eventos
 import { AdminCoordinadoresComponent } from './admin-perfil/admin-coordinadores/admin-coordinadores.component';
 import { AgregarCoordinadorComponent } from './admin-perfil/admin-coordinadores/agregar-coordinador/agregar-coordinador.component';
 import { UpdateCoordinadorComponent } from './admin-perfil/admin-coordinadores/update-coordinador/update-coordinador.component';
+import { AgregarCuponComponent } from './admin-perfil/admin-eventos/admin-localidades/agregar-cupon/agregar-cupon.component';
 
 
 
@@ -344,6 +345,7 @@ const routes: Routes = [
     AdminCoordinadoresComponent,
     AgregarCoordinadorComponent,
     UpdateCoordinadorComponent,
+    AgregarCuponComponent,
 
   ],
   imports: [

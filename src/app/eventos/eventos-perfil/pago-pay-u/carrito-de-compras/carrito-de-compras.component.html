@@ -45,6 +45,8 @@
               <h5 class="pl-md-4 pb-4"><strong>Valor Total: </strong>{{palco?.precio + palco?.servicio + palco?.servicioIva|currency:'COP'}}</h5>
             </div>
 
+
+
             <div class="fondoBlanco shadow col-12">
               <h5 class="pt-5 pl-md-4 pr-5">
                 <strong>Valor Total:</strong> {{valorTotal |currency:'COP'}}
@@ -99,7 +101,16 @@
               </div>
             </div>
 
-
+            <div class="col-12 mt-2 mb-2"  *ngIf="boletas?.length>0">
+              <form (ngSubmit)="!todoForm.invalid &&validarCupon()" #todoForm="ngForm">
+        
+ 
+                <fieldset class="form-group"> 
+                    <input type="text" class= "form-control"name ="codigo" required="required" placeholder="¿Algún Cupon?"  [(ngModel)]="codigo">
+                    <button class="btn action_button mt-2" type="submit">Aplicar</button>
+                </fieldset>
+            </form>
+            </div>
           </div>
         </div>
       </div>

@@ -372,6 +372,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Asistente } from 'src/app/administradores/admin-perfil/admin-eventos/admin-lector/asistente.model';
 import { Md5 } from 'ts-md5';
+import { CuponDataService } from 'src/app/service/data/cupon-data.service';
+import { Cupon } from 'src/app/administradores/admin-perfil/admin-eventos/admin-localidades/agregar-cupon/cupon.model';
 
 
 @Component({
@@ -405,17 +407,20 @@ export class CarritoDeComprasComponent implements OnInit {
   confirmacion:string
   metodos:string[]=[]
   tax:number
+  cupon:Cupon
+  codigo:string
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private servicioBoletas: BoletasDataService,
     private palcoServicio: PalcosDataService,
-    private dialog: MatDialog
+    private dialog: MatDialog, 
+    private servicioCupon: CuponDataService
   ) {}
 
   ngOnInit(): void {
     this.tax=0
     this.url="https://checkout.payulatam.com/ppp-web-gateway-payu/"
-
+    this.codigo =""
     this.respuesta = respuesta
     this.referenceCode = this.referenceCode;
     // this.merchantId = 508029
@@ -430,6 +435,7 @@ export class CarritoDeComprasComponent implements OnInit {
     
     this.adicional =-1
 
+    this.cupon= new Cupon();
     this.evento = {
       id: '',
       nombre: '',
@@ -575,5 +581,51 @@ export class CarritoDeComprasComponent implements OnInit {
     }
   }
   
+  validarCupon(){
+    this.servicioCupon.validarCupon(this.codigo,this.boletas[0].id,this.boletas.length).subscribe(
+      response=>{
+        this.manejarCupon(response)
+      },
+      error=>{
+        alert("No se encuentra para esta localidad un cupon con el codigo "+ this.codigo)
+      }
+    )
+  }
+
+  manejarCupon(response){
+    var md5 = new Md5();
+    if( response.funciona==true){
+    this.cupon = response.cupon
+    this.valorTotal =0
+    for(let i =0; i < this.boletas.length; i++){
+      this.boletas[i].precio = this.cupon.precio
+      this.boletas[i].servicio = this.cupon.servicio
+      this.boletas[i].servicioIva = this.cupon.iva
+
+      this.valorTotal =this.valorTotal+ this.boletas[i].precio  + this.boletas[i].servicio +this.boletas[i].servicioIva
+    }
+
+
+
+    this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.cupon.codigoVenta
+
+    let valorEncriptar = this.ApiKey +"~"+ this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~"+'COP~';
+
+    for(let i =0;i<this.metodos.length;i++){
+      if(i <this.metodos.length-1){
+      valorEncriptar += this.metodos[i]+ ','
+    }
+    else{
+      valorEncriptar += this.metodos[i];
+    }
+    }
+
+    console.log(this.tax)
+    this.signature = md5.appendStr(valorEncriptar).end().toString();
+    }
+    else if( response.funciona==false){
+      alert("No se encuentra para esta localidad un cupon con el codigo "+ this.codigo)
+    }
+  }
 
 }
