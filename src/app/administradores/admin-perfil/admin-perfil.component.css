@@ -81,6 +81,6 @@ h3{
     text-decoration-color: white;
 }
 
-#gmo{
-    width: 100%;
+.table-responsive {
+    height: calc(100% + 58px) !important;
 }
