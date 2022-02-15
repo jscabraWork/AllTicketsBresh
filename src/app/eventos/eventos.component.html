@@ -3,54 +3,39 @@
         <h1 class="centrado4 rounded eventosTitulo" ><strong>Eventos</strong></h1>
     </div>
 </section>
-
-
-
      <section class="container-fluid " style="margin-top: 2%; margin-bottom: 5%; text-align: center;">
         <div class="row ">
-            
 
         <div class="mt-md-3 col-12 col-sm-12  col-md-6  pl-sm-5 pr-sm-5 pl-md-2 pr-md-2 col-lg-4 col-xl-3 contenedor8"  style="height: 430px" *ngFor="let evento of eventos">
-           <div class=" border rounded" style="background-color: black; width: 100%; height: 47%">
-
-        
-            <div class="contenedor contenedor2" >
-                <img *ngIf="evento.soldout" class="sold_out"src="../../assets/images/img/SOLDOUT.png" alt="">   
-            <a routerLink="/eventos/evento/{{evento.id}}" class="outerLink"> 
-                <img src="{{evento?.imagen.url}}" *ngIf="evento.imagen" class=" rounded  darkableImage"onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=1" 
-                onmouseover="javascript:this.style.opacity=0.4;this.opacity=40" />
-                <p style="font-size:22px;" class="centrado2"><strong> Compra ya tus Tickets para el evento {{evento.nombre}}</strong></p>
-            </a>
+           <div class="hover-overlay border rounded" style="background-color: black; width: 100%; height: 47%">
             
-            
-            </div>
-            
-          
-        </div>
-
-        <div class="border rounded container-fluid px-0" style="background-color: white; height: 50%" >
-         
-        <div class="row contenedor contenedorBot" >
-            <div class="col-12 tituloEvento" >
-            <h2 class=" rounded titulos pt-3 pr-3 pl-3"  ><strong> <a class="titulos" routerLink="/eventos/evento/{{evento.id}}">{{evento?.nombre |resumir2}}</a></strong></h2> 
-            
-            <hr class="aaa" >
-
-         
-        </div>
-      
-        <div class="col-6 border-right fechaCiudad">
-            <p *ngIf="evento?.id!='AT2021-16'" class="fechas "><strong>{{darFecha(evento)}} </strong></p>
-            <p *ngIf="evento?.id=='AT2021-16'" class="fechas"><strong>Por Confirmar</strong></p>
-            <p class="fechas"><strong>Ciudad: {{evento?.ciudadNombre }}</strong></p> 
-    
-           </div>
-            <div class="col-6 botonVer">
-                <button *ngIf="!evento.soldout" class="action_button rounded-pill shadow texto"  routerLink="/eventos/evento/{{evento.id}}">Comprar</button>
+               <div class="contenedor contenedor2" >
+                    <a routerLink="/eventos/evento/{{evento.id}}" class="outerLink"> 
+                        <img src="{{evento?.imagen.url}}" *ngIf="evento.imagen" class=" rounded  darkableImage" onmouseout="javascript:this.style.opacity=1;javascript:this.opacity=100" 
+                        onmouseover="javascript:this.style.opacity=0.4;this.opacity=40" />
+                        <div class="overlay"></div>
+                        <p class="centrado2"><strong> Compra ya tus Tickets para el evento {{evento.nombre}}</strong></p>
+                    </a>
+                </div>
             </div>
 
-        </div>
-          </div>
+            <div class="border rounded container-fluid px-0" style="background-color: white; height: 50%" >
+                
+                <div class="row contenedor contenedorBot" >
+                    <div class="col-12 tituloEvento" >
+                        <h2 class=" rounded titulos pt-3 pr-3 pl-3"  ><strong> <a class="titulos" routerLink="/eventos/evento/{{evento.id}}">{{evento?.nombre |resumir2}}</a></strong></h2>
+                        <hr class="aaa" >
+                    </div>
+                    <div class="col-6 border-right fechaCiudad">
+                        <p *ngIf="evento?.id!='AT2021-16'" class="fechas "><strong>{{darFecha(evento)}} </strong></p>
+                        <p *ngIf="evento?.id=='AT2021-16'" class="fechas"><strong>Por Confirmar</strong></p>
+                        <p class="fechas"><strong>Ciudad: {{evento?.ciudadNombre }}</strong></p> 
+                </div>
+                    <div class="col-6 botonVer">
+                        <button *ngIf="!evento.soldout" class="action_button rounded-pill shadow texto bg-darkblue-gradient"  routerLink="/eventos/evento/{{evento.id}}">Comprar</button>
+                    </div>
+                </div>
+            </div>
         </div>
         
     </div>

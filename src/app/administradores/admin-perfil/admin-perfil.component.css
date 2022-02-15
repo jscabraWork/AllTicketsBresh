@@ -1,3 +1,4 @@
+ 
 h3{
     text-align: center;
     border-bottom: 2px solid #e6e6e6;
@@ -41,6 +42,7 @@ h3{
     background-color: #17324e;
 }
 
+
 @media(max-width: 624px) {
    
     .menu-cards a {
@@ -54,4 +56,31 @@ h3{
     .menu-cards a:hover {
         background-color: #e6e6e6;
     }
+}
+
+#sidebarMenu {
+    word-break: break-all;
+    background-color: #17324e;
+}
+.infoDate {
+    padding: 20px;
+    width: 100%;
+    background: #9c67d9;
+    font-size: 1.4em;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.table-responsive{
+    background-color:#04264b ;
+}
+
+.flex-column{
+    background-color:#17324e;
+    text-decoration-color: white;
+}
+
+#gmo{
+    width: 100%;
 }

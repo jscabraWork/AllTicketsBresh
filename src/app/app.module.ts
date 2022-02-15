@@ -97,6 +97,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      TratamientoDatosComponent,
      ReservasPromotorComponent,
      CoordinadorPerfilComponent,
+    
 
   
 

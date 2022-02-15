@@ -1,5 +1,5 @@
-<section class="container mt-5">
-
+<section id="gmo" >
+<!-- 
 
     <h3>Lista</h3>
 
@@ -16,19 +16,19 @@
         <a routerLink="/administradores/promotores">Promotores</a>
     </div>
 
-    <!--
+
     <table class="table">
 
         <tbody>
             <tr>
-                <td> <a routerLink="/administradores"> Administradores</a></td>
+                <td> <a > Administradores</a></td>
             </tr>
             <tr>
                 <td> <a routerLink="/administradores/coordinadores"> Coordinadores</a></td>
 
             </tr>
             <tr>
-                <td> <a routerLink="/usuarios"> Usuarios</a></td>
+                <td> <a > Usuarios</a></td>
             </tr>
             <tr>
                 <td> <a routerLink="/organizadores"> Organizadores</a></td>
@@ -58,4 +58,105 @@
         </tbody>
     </table>
     -->
+    <div class="row">
+        <!-- lado izquierdo -->
+        <nav id="sidebarMenu" class="col-md-2 col-lg-2  d-md-block bg-light sidebar collapse">
+          <div class="position-sticky pt-3 table-responsive">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/administradores">
+                    Administradores
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/administradores/coordinadores">
+                    Coordinadores
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                    Usuarios
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/organizadores">
+                    Organizadores
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/administradores/admin/eventos/lista">
+                    Eventos
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/administradores/admin/ciudades/lista">
+                  Ciudades
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/administradores/puntosFisicos">
+                    Puntos Fisicos
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mapas">
+                    Mapas De Eventos
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/administradores/ministerios">
+                    Ministerios
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/administradores/promotores">
+                    Promotores
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- lado derecho -->
+        
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2>Analitics</h2>
+          </div>
+          <div class="row mt-5">
+            <div class="col-sm-4">
+              <!--<img src="https://images.pexels.com/photos/10581443/pexels-photo-10581443.jpeg?cs=srgb&dl=pexels-nikita-igonkin-10581443.jpg&fm=jpg" width="100%">-->
+              <div class="infoDate">
+                <i class="bi bi-app"></i>
+                <span>$2.750<br>Lorem ipsum
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <!--<img src="https://images.pexels.com/photos/10581443/pexels-photo-10581443.jpeg?cs=srgb&dl=pexels-nikita-igonkin-10581443.jpg&fm=jpg" width="100%">-->
+              <div class="infoDate">
+                <i class="bi bi-app"></i>
+                <span>$750<br>Lorem ipsum
+                </span>
+              </div> 
+            </div>
+            <div class="col-sm-4">
+              <!--<img src="https://images.pexels.com/photos/10581443/pexels-photo-10581443.jpeg?cs=srgb&dl=pexels-nikita-igonkin-10581443.jpg&fm=jpg" width="100%">-->
+            <div class="infoDate">
+              <i class="bi bi-app"></i>
+              <span>$5.450<br>Lorem ipsum
+              </span>
+            </div>
+          </div>
+          </div>
+          <h2>Reports</h2>
+          <div class="row mt-5">
+            <div class="col-sm-12 col-md-6">
+              <img src="https://www.cuadernosdeperiodistas.com/media/2014/05/porcentaje.jpg" width="100%">
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <img src="https://docs.tibco.com/pub/spotfire_web_player/6.0.0-november-2013/es-ES/WebHelp/GUID-418B2936-C878-4771-B874-FA8ECAA39941-display.png" width="100%">
+            </div>
+          </div>
+        </main>
+      </div>
 </section>
