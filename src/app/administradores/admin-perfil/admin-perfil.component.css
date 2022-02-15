@@ -1,4 +1,40 @@
- 
+
+main{
+    height: calc(100vh - 56px);
+    display: grid;
+}
+.row-1{
+    height: 40%;
+}
+.row-2{
+    height: 60%;
+}
+.row-2 img {
+    height: 13em;
+    width: auto;
+    filter:grayscale(1)
+}
+#sidebarMenu{
+    display:none !important;
+}
+.menu-mobile{
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background: #102438;
+}
+.menu-mobile li{
+    padding: 5px;
+}
+.menu-mobile a{
+    text-decoration: none;
+    color:rgba(255, 255, 255, 0.75);
+}
+.menu-mobile a:hover,
+.menu-mobile a:focus,
+.menu-mobile a:active{
+    color:rgba(255, 255, 255, 0.5)
+}
 h3{
     text-align: center;
     border-bottom: 2px solid #e6e6e6;
@@ -43,6 +79,69 @@ h3{
 }
 
 
+
+
+#sidebarMenu {
+    word-break: break-all;
+}
+#sidebarMenu a{
+    color:rgba(255, 255, 255, 0.5);
+    margin-left: 15px;
+}
+#sidebarMenu a:hover,
+#sidebarMenu a:focus,
+#sidebarMenu a:active{
+    color:rgba(255, 255, 255, 0.75);
+}
+
+#sidebarMenu a:hover {
+    background: #ed701c;
+    border-radius: 50px 0px 0px 50px;
+    box-shadow: #2c2933 -1px 8px 14px;
+}
+
+.infoDate {
+    padding: 10px 20px;
+    width: 100%;
+    background: #9c67d9;
+    font-size: 1.4em;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.table-responsive{
+    background-color:#102438 ;
+}
+
+.flex-column{
+    background-color:#102438;
+    text-decoration-color: white;
+}
+
+.table-responsive {
+    height: calc(100% + 58px) !important;
+    text-decoration: white;
+}
+
+.gmo{
+    text-decoration-color: white;
+}
+
+@media(min-width: 1300px){
+    .menu-mobile{
+        display: none;
+    }
+    #sidebarMenu{
+        display: block !important;
+    }
+}
+@media(min-width: 1300px){
+    main{
+        height: calc(100vh - 113px);
+    }
+}
+
 @media(max-width: 624px) {
    
     .menu-cards a {
@@ -56,31 +155,4 @@ h3{
     .menu-cards a:hover {
         background-color: #e6e6e6;
     }
-}
-
-#sidebarMenu {
-    word-break: break-all;
-    background-color: #17324e;
-}
-.infoDate {
-    padding: 20px;
-    width: 100%;
-    background: #9c67d9;
-    font-size: 1.4em;
-    color: white;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.table-responsive{
-    background-color:#04264b ;
-}
-
-.flex-column{
-    background-color:#17324e;
-    text-decoration-color: white;
-}
-
-.table-responsive {
-    height: calc(100% + 58px) !important;
 }

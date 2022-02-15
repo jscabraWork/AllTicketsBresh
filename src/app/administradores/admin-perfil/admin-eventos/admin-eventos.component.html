@@ -1,5 +1,4 @@
 <section class="container mt-5">
-
     <div class="row">
         <div class="col-12 px-0">
             <h2 class="tituloEventos"><strong>Todos los eventos</strong></h2>
@@ -7,85 +6,60 @@
             <div class="row">
                 <div class="col-12 mt-4" style="text-align: center;">
                     <button routerLink="agregar" class="btn btn-primary">Agregar Evento</button>
-
                 </div>
             </div>
             <div class="container px-0">
-                <table class="table mt-3 contenedorLista">
-
-                    <thead>
-                        <tr>
-                            <th>PullEp</th>
-                            <th>Nombre</th>
-                            <th>Fecha</th>
-                            <th>Organizador</th>
-                            <th>Etapas</th>
-                            <th>Adicionales</th>
-                            <th>Foto Perfil</th>
-                            <th>Foto Asistente Oficial</th>
-                            <th>Foto Mapa</th>
-                            <th>Fotos Banner</th>
-                            <th>Lector</th>
-                            <th>Soldout</th>                            
-                            <th>Visibilidad</th>
-                            <th>Oculto</th>
-                            <th>Agregar Mensaje</th>
-                            <th>Agregar fecha apertura</th>
-                            <th>Agregar Organizador</th>
-                            <th>Modificar</th>
-                            <th>Borrar</th>
-
-                        </tr>
-
-
-
-                    </thead>
-                    <tbody>
-
-                        <tr *ngFor="let evento of eventos" class="filasEventos">
-                            <td>{{evento?.id}}</td>
-                            <td>{{evento?.nombre }}</td>
-                            <td>{{evento?.fecha| date}}</td>
-                            <td>{{evento.organizadorid}}</td>
-                            <td><button class="btn btn-success" routerLink="etapas/{{evento.id}}"> Etapas</button></td>
-                            <td><button class="btn btn-success" routerLink="adicionales/{{evento.id}}">
-                                    Adicionales</button></td>
-                            <td><button class="btn btn-success" (click)="agregarFotoPortada(evento)">Agregar Foto
-                                    Perfil</button></td>
-                            <td><button class="btn btn-success" (click)="agregarFotoFinal(evento)">Agregar Foto
-                                    Asistente</button></td>
-
-                            <td><button class="btn btn-success" (click)="agregarFotoMapa(evento)">Agregar Foto
-                                    Mapa</button></td>
-                            <td><button class="btn btn-success" (click)="agregarFotosBanner(evento)">Agregar Fotos
-                                    Banner</button></td>
-                            <td><button class="btn btn-success" routerLink="lector/{{evento.id}}"> Lector
-                                    provisional</button></td>
-
-                            <td><button (click)="cambiarSoldout(evento.id)"
-                                    class="btn btn-info">{{evento.soldout|booleans}}</button></td>
-                            <td><button (click)="cambiarVisibilidad(evento.id)" class="btn btn-info">
-                                    {{evento.visible |booleans}}</button></td>
-                             <td><button (click)="cambiarOculto(evento.id)" class="btn btn-info">
-                                        {{evento.oculto |booleans}}</button></td>
-
-                            <td><button class="btn btn-success" (click)="agregarMensajeOrganizador(evento)"> Agregar
-                                    Mensaje</button></td>
-                            <td><button class="btn btn-success" (click)="agregarFechaApertura(evento)"> Agregar Fecha
-                                    apertura</button></td>
+                <div class="table-responsive">    
+                    <table class="table mt-3 contenedorLista">
+                        <thead>
+                            <tr>
+                                <th>PullEp</th>
+                                <th>Nombre</th>
+                                <th>Fecha</th>
+                                <th>Organizador</th>
+                                <th>Etapas</th>
+                                <th>Adicionales</th>
+                                <th>Foto Perfil</th>
+                                <th>Foto Asistente Oficial</th>
+                                <th>Foto Mapa</th>
+                                <th>Fotos Banner</th>
+                                <th>Lector</th>
+                                <th>Soldout</th>                            
+                                <th>Visibilidad</th>
+                                <th>Oculto</th>
+                                <th>Agregar Mensaje</th>
+                                <th>Agregar fecha apertura</th>
+                                <th>Agregar Organizador</th>
+                                <th>Modificar</th>
+                                <th>Borrar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let evento of eventos" class="filasEventos">
+                                <td>{{evento?.id}}</td>
+                                <td>{{evento?.nombre }}</td>
+                                <td>{{evento?.fecha| date}}</td>
+                                <td>{{evento.organizadorid}}</td>
+                                <td><button class="btn btn-success" routerLink="etapas/{{evento.id}}"> Etapas</button></td>
+                                <td><button class="btn btn-success" routerLink="adicionales/{{evento.id}}">Adicionales</button></td>
+                                <td><button class="btn btn-success" (click)="agregarFotoPortada(evento)">Agregar FotoPerfil</button></td>
+                                <td><button class="btn btn-success" (click)="agregarFotoFinal(evento)">Agregar FotoAsistente</button></td>
+                                <td><button class="btn btn-success" (click)="agregarFotoMapa(evento)">Agregar FotoMapa</button></td>
+                                <td><button class="btn btn-success" (click)="agregarFotosBanner(evento)">Agregar FotosBanner</button></td>
+                                <td><button class="btn btn-success" routerLink="lector/{{evento.id}}"> Lectorprovisional</button></td>
+                                <td><button (click)="cambiarSoldout(evento.id)"class="btn btn-info">{{evento.soldout|booleans}}</button></td>
+                                <td><button (click)="cambiarVisibilidad(evento.id)" class="btn btn-info">{{evento.visible |booleans}}</button></td>
+                                <td><button (click)="cambiarOculto(evento.id)" class="btn btn-info">{{evento.oculto |booleans}}</button></td>
+                                <td><button class="btn btn-success" (click)="agregarMensajeOrganizador(evento)"> AgregarMensaje</button></td>
+                                <td><button class="btn btn-success" (click)="agregarFechaApertura(evento)"> Agregar Fechaapertura</button></td>
                                 <td><button class="btn btn-success" (click)="agregarOrganizador(evento)"> Agregar Organizador</button></td>
-                            <td><button class="btn btn-warning" routerLink="update/{{evento.id}}"> Modificar</button>
-                            </td>
-                            <td><button (click)="deleteEvento(evento.id)" class="btn btn-danger"> Delete</button></td>
-
-                        </tr>
-
-
-                    </tbody>
-
-                </table>
+                                <td><button class="btn btn-warning" routerLink="update/{{evento.id}}"> Modificar</button></td>
+                                <td><button (click)="deleteEvento(evento.id)" class="btn btn-danger"> Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
         </div>
     </div>
 </section>

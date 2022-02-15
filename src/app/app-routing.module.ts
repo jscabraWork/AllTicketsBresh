@@ -84,7 +84,7 @@ const routes: Routes = [
   {
     path:'blog', component: BlogComponent
   },
-
+  
 {
   path:'terminosYcondiciones', component: TerminosYCondicionesComponent
 }
