@@ -30,8 +30,15 @@ p.centrado2 {
     margin-bottom: 20px;
 }
 .texto{
-    width: 100%;
+    width: 60%;
 }
+
+@media(max-width: 1516px){
+    .texto{
+        width: 80%;
+    }
+}
+
 .fechas{
     margin-bottom: 0;
 }
@@ -56,18 +63,7 @@ p.centrado2 {
 .contenedor2 a{
     position: relative;
 }
-.overlay{
-    
-    position:absolute;
-    background: black;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    top: 0;
-}
-.hover-overlay:hover .overlay{
-    opacity: 0.5;
-}
+
 .contenedor2 p{
     top: 50%;
 }
@@ -92,3 +88,16 @@ p.centrado2 {
 
 
 
+.oscurecer{
+    opacity: 1;
+    transition: all .3s;
+    z-index: -1;
+}
+
+.oscurecer:hover{
+    opacity: 0.4;
+}
+
+.contenedor2:hover .oscurecer{
+    opacity: 0.4;
+}
