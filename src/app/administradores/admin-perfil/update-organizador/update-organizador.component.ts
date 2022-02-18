@@ -18,7 +18,7 @@ export class UpdateOrganizadorComponent implements OnInit {
   ngOnInit(): void {
     this.organizador= {
       nombre: '',
-    numeroDocumento: -1,
+    numeroDocumento: null,
     tipoDocumento: '',
     usuario: '',
     contrasena: '',

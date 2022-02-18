@@ -136,7 +136,7 @@ localidadCargadaBoletasVIP: Localidad;
 etapas: Etapa[] = [];
 usuarioEntidad:Cliente
 
-ccDeBusqueda:number
+ccDeBusqueda:string
   constructor(private servicio: PuntosFisicosDataService ,private dialog:MatDialog, private etapaServicio:EtapasDataService,private servicioBoletas: BoletasDataService, private route: ActivatedRoute,private autenticador: HardcodedAutheticationService, private eventosServicio:EventoDataService,    private servicioLocalidad: LocalidadesDataService,    private palcoServicio: PalcosDataService, private clienteServicio: UsuariosDataService) { }
 
   ngOnInit(): void {

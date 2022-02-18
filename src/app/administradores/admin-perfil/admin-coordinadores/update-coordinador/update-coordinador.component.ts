@@ -21,7 +21,7 @@ export class UpdateCoordinadorComponent implements OnInit {
     this.coordinador={
       nombre: '',
       tipoDocumento:'',
-      numeroDocumento:-1,
+      numeroDocumento:null,
       usuario:'',
       contrasena:'',
       tipo:'' 

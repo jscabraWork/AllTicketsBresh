@@ -19,15 +19,15 @@ export class OrganizadorDataService {
     return this.http.get<Organizador>(`${API_URL}/organizadores/usuario/${usuario}`)
   }
 
-  getOrganizadorId(id:number){
+  getOrganizadorId(id:string){
     return this.http.get<Organizador>(`${API_URL}/organizadores/${id}`)
   }
 
-  deleteOrganizador(id:number){
+  deleteOrganizador(id:string){
 
     return this.http.delete(`${API_URL}/organizadores/${id}`);
   }
-  updateOrganizador(id:number, orga){
+  updateOrganizador(id:string, orga){
 
     return this.http.put(`${API_URL}/organizadores/${id}`,orga);
   }

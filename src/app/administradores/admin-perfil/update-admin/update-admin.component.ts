@@ -20,7 +20,7 @@ export class UpdateAdminComponent implements OnInit {
     this.administrador={
       nombre: '',
       tipoDocumento:'',
-      numeroDocumento:-1,
+      numeroDocumento:null,
       usuario:'',
       contrasena:'',
       tipo:'' 

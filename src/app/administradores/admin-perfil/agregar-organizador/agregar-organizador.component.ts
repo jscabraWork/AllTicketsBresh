@@ -16,7 +16,7 @@ organizador:Organizador;
   ngOnInit(): void {
     this.organizador= {
       nombre: '',
-    numeroDocumento: -1,
+    numeroDocumento: null,
     tipoDocumento: '',
     usuario: '',
     contrasena: '',

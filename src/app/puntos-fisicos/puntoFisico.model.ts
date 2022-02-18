@@ -4,7 +4,7 @@ import { Evento } from '../eventos/evento.model';
 
 export interface PuntoFisico{
     nombre:string,
-    numeroDocumento:number,
+    numeroDocumento:string,
     tipoDocumento:string,
     usuario:string,
     contrasena:string,

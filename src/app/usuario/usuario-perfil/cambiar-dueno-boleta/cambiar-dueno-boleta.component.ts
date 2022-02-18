@@ -14,7 +14,7 @@ export class CambiarDuenoBoletaComponent implements OnInit {
 
   clienteNuevo:Cliente
   boleta:Boleta
-  numeroDocumento:number
+  numeroDocumento:string
   constructor(  @Inject(MAT_DIALOG_DATA) public data: any,
   private dataServicio:UsuariosDataService,
   private dialog:MatDialog,

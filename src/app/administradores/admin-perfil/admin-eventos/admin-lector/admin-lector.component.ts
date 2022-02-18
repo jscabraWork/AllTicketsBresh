@@ -36,7 +36,7 @@ export class AdminLectorComponent implements OnInit {
   entrarPersonas: number;
   cargando: boolean;
   clienteBuscar: Cliente;
-  buscarNumeroCC: number;
+  buscarNumeroCC: string;
   ngOnInit(): void {
     this.reiniciar();
 

@@ -150,7 +150,7 @@ comprarPuntoFiscoPalco(referenceCode){
 
 
 
-pagarPalcosAPromotorPuntoFisico(numeroInterno:number){
+pagarPalcosAPromotorPuntoFisico(numeroInterno){
   return this.http.put(`${API_URL}/palcosPuntosFisicosPagar/${numeroInterno}`, null)
   
 }

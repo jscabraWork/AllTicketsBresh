@@ -28,7 +28,7 @@ this.refrescar();
 
     this.organizadores= response;
   }
-  deleteOrganizador(id:number){
+  deleteOrganizador(id:string){
     
     this.service.deleteOrganizador(id).subscribe(response => {this.refrescar(), this.message="se borro el organizador con el id " + id } ,error => {alert("Este organizador tiene eventos y no lo puedes borrar")});
 }

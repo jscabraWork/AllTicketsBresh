@@ -1,7 +1,7 @@
 import { Evento } from './../eventos/evento.model';
 export interface Organizador {
     nombre: string,
-    numeroDocumento: number,
+    numeroDocumento: string,
     tipoDocumento: string,
     usuario:string,
     contrasena: string,

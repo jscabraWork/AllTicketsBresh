@@ -25,7 +25,7 @@ export class UsuariosDataService {
     return this.http.post(`${API_URL}/clientes/correo/${contrasena}`, cliente)
   }
 
-  getClientePorId(pId:number){
+  getClientePorId(pId:string){
     return this.http.get<Cliente>(this.url+'/'+pId);
   }
 
@@ -43,12 +43,12 @@ export class UsuariosDataService {
   olvidoContrasenia(correo:string){
     return this.http.get(`${API_URL}/olvido/${correo}`)
   }
-  deleteUsuario(id:number){
+  deleteUsuario(id:string){
 
     return this.http.delete(`${API_URL}/clientes/${id}`);
   }
 
-  updateCliente(id:number, usuario){
+  updateCliente(id:string, usuario){
     return this.http.put(`${API_URL}/clientes/${id}`, usuario).pipe(
       catchError(e=>{
         

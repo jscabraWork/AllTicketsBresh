@@ -1,7 +1,7 @@
 export interface Admin {
     nombre: string,
     tipoDocumento:string,
-    numeroDocumento:number,
+    numeroDocumento:string,
     usuario:string,
     contrasena:string,
     tipo: string

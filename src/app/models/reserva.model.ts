@@ -1,6 +1,6 @@
 export interface Reserva{
     id:number,
-    documentoReserva:number,
+    documentoReserva:string,
     creationDate:Date,
-    numeroPromotor:number
+    numeroPromotor:string
 }

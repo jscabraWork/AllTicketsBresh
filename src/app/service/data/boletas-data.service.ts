@@ -130,7 +130,7 @@ asignarBoleta(cedula,idBoleta){
   
 }
 
-pagarBoletasAPuntoFisico(numeroInterno:number){
+pagarBoletasAPuntoFisico(numeroInterno){
   return this.http.put(`${API_URL}/boletasPuntosFisicosPagas/${numeroInterno}`, null)
   
 }

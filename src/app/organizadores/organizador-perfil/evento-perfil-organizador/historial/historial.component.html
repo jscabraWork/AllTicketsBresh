@@ -27,6 +27,7 @@
                 <th class="border">Tipo de compra</th>
                 <th class="border">Nombre del Comprador</th>
               <th class="border">Celular del cliente</th>
+              <th class="border">Correo del cliente</th>
               <th class="border">Numero del palco o del ticket</th>
               <th class="border">Metodo de pago</th>
               <th class="border">Dinero recaudado</th>
@@ -72,6 +73,11 @@
                   <td class="border">
                     <strong>
                         {{cliente.celular}}
+                    </strong>
+                  </td>
+                  <td class="border">
+                    <strong>
+                        {{cliente.correo}}
                     </strong>
                   </td>
                   <td class="border" *ngIf="palcos[i]!=null">
