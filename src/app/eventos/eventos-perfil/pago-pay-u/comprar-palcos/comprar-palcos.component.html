@@ -7,7 +7,7 @@
 
 
 
-<section class="container-fluid mt-5">
+<section class="container-fluid mt-5 palconomapa">
   <div class="row ">
 
     <div class="col-12  pl-5 pr-5" *ngIf="!evento?.mapa">
@@ -39,7 +39,7 @@
                 <td><strong>{{localidadCargada?.nombre }}</strong></td>
                 <td>
 
-                  <button class="rounded-circle" (click)="agregarALaLista(localidadCargada)">+</button>
+                  <button class="rounded-circle addPalco" (click)="agregarALaLista(localidadCargada)">+</button>
 
                 </td>
 

@@ -3,10 +3,10 @@
   width: 50%;
   color: white;
   border: white;
-  font-size: 22px;
+  font-size: 21px;
 }
 .precios{
-  font-size: 10px;
+  font-size: 9px;
   font-weight: bolder;
 }
 .largo{
@@ -17,7 +17,7 @@
   width: 150px;
   color: white;
   border: white;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bolder;
   
 }
@@ -40,7 +40,9 @@
   background-repeat: no-repeat;
   position: relative;
 }
-
+.addP>p{
+  font-size: 16px !important;
+}
 #contador .contenedor {
   margin: 0px auto;
 
@@ -91,10 +93,10 @@
     padding: 5px !important;
   }
   .ubicaciones{
-    font-size: 20px !important;
+    font-size: 19px !important;
   }
   .botonCompra{
-    font-size: 13px !important;
+    font-size: 12px !important;
     padding: 10px 10px !important;
   }
   .orange{
@@ -113,7 +115,7 @@
   #prueba9>h1{
     margin-bottom: 0.2rem;
     margin-top: 0.2rem; 
-    font-size: 16px !important;
+    font-size: 15px !important;
   }
   .btnLog{
     width: 30% !important;
@@ -131,14 +133,14 @@
     padding: 7px 3% !important;
   }
   .tituloLocalidad2>h3, .tituloLocalidad>h3{
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 0 !important;
   }
   .ticketTitulo{
-    font-size: 17px !important;
+    font-size: 16px !important;
   }
   .ticketNumero{
-    font-size: 20px !important;
+    font-size: 19px !important;
   }
   .sinVideo{
     width: 100%;
@@ -158,35 +160,38 @@
   }
   #prueba>h1{
     margin-bottom: 0 !important;
-    font-size: 18px;
+    font-size: 17px;
+  }
+  .addP>p{
+    font-size: 14px !important;
   }
 }
 #contador .contenedor p {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 19px;
   display: grid;
   float: left;
 }
 #contador .contenedor p span {
-  font-size: 22px;
+  font-size: 21px;
   color: #ff6600;
 }
 
 @media (max-width: 767px) {
   #contador .contenedor p {
-    font-size: 16px;
+    font-size: 17px;
   }
   #contador .contenedor p span {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 
 @media (max-width: 571px) {
   #contador .contenedor p {
-    font-size: 13px;
+    font-size: 12px;
   }
   #contador .contenedor p span {
-    font-size: 15px;
+    font-size: 14px;
   }
   .vid{
     padding: 0;
@@ -195,19 +200,19 @@
 
 @media (max-width: 465px) {
   #contador .contenedor p {
-    font-size: 10px;
+    font-size: 9px;
   }
   #contador .contenedor p span {
-    font-size: 12px;
+    font-size: 11px;
   }
 }
 
 @media (max-width: 381px) {
   #contador .contenedor p {
-    font-size: 8px;
+    font-size: 7px;
   }
   #contador .contenedor p span {
-    font-size: 10px;
+    font-size: 9px;
   }
 }
 #prueba9:before {
@@ -221,7 +226,7 @@
 }
 
 #prueba9 h1 {
-  font-size: 30px;
+  font-size: 29px;
   color: white;
   position: relative;
 }
@@ -233,7 +238,7 @@
   background-color: white;
 }
 h3 {
-  font-size: 25px;
+  font-size: 24px;
 }
 
 .Ahr {
@@ -276,11 +281,11 @@ h3 {
 }
 
 .precioLocalidades {
-  font-size: 22px;
+  font-size: 21px;
   color: #ed701c;
 }
 p {
-  font-size: 17px;
+  font-size: 16px;
 }
 .aaaa {
   border: 2px solid #ed701c;
@@ -306,7 +311,7 @@ p {
 
 @media (max-width: 767px) and (min-width: 576px) {
   h1 {
-    font-size: 26px;
+    font-size: 25px;
   }
 }
 
@@ -318,23 +323,23 @@ p {
 
 @media (max-width: 575px) and (min-width: 0px) {
   h1 {
-    font-size: 22px;
+    font-size: 21px;
   }
   #prueba9 {
     padding: 15px;
     padding-bottom: 10px;
   }
   #prueba9 h1{
-    font-size: 19px;
+    font-size: 18px;
   }
   h3 {
-    font-size: 20px;
+    font-size: 19px;
   }
   .ubicaciones {
-    font-size: 25px;
+    font-size: 24px;
   }
   .contenederoBlanco p{
-    font-size: 15px;
+    font-size: 14px !important;
   }
   
 }

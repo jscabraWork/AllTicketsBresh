@@ -1,14 +1,13 @@
-
-
-
     <section class="container mt-5">
-        <h2>Todos los Puntos Fisicos</h2>
-        <button class="btn btn-success" routerLink="agregar">Agregar</button>
+        <h2 class="tituloEventos">Todos los Puntos Fisicos</h2>
         <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
-        
+        <div class="row">
+            <div class="col-12 mt-5" style="text-align: center;">
+                <button  routerLink="agregar" class="btn btn-success">Agregar Punto Físico</button>
+            </div>
+        </div>
         <div class="container">
-        <table class="table mt-3">
-    
+        <table class="table mt-3 contenedorLista">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -18,15 +17,10 @@
                    <th>Pagar</th>
                    <th>Modificar</th>
                    <th>Borrar</th>
-                    
                 </tr>
-        
-        
-        
             </thead>
             <tbody>
-              
-                <tr *ngFor = "let punto of puntosFisicos">
+                <tr *ngFor = "let punto of puntosFisicos" class="filasEventos">
                     <td>{{punto?.numeroDocumento}}</td>
                     <td> {{punto?.nombre }}</td> 
                     <td> {{punto?.usuario }}</td>
@@ -35,11 +29,7 @@
                     <td><button  class="btn btn-warning" routerLink="update/{{punto.numeroDocumento}}"> Modificar</button></td>
                     <td><button  class="btn btn-danger" (click)= "borrarPunto(punto.numeroDocumento)"> Delete</button></td>
                 </tr>
-        
-        
             </tbody>
-        
         </table>
     </div>
-    
-    </section>
+</section>

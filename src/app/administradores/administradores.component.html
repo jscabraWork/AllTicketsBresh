@@ -1,46 +1,29 @@
-
-
-
 <section class="container mt-5">
     <h2>Todos los Administradores</h2>
     <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
-    
-    
+    <div class="row">
+        <div class="col-12 mt-5" style="text-align: center;">
+            <button  routerLink="agregar/admin" class="btn btn-success">Agregar Administrador</button>
+        </div>
+    </div>
     <div class="container">
-    <table class="table mt-3">
-
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Modificar</th>
-                <th>Borrar</th>
-                
-            </tr>
-    
-    
-    
-        </thead>
-        <tbody>
-          
-            <tr *ngFor = "let admin of administradores">
-                <td>{{admin?.numeroDocumento}}</td>
-                <td>{{admin?.nombre }}</td> 
-                <td><button routerLink= 'update/admin/{{admin.numeroDocumento}}' class="btn btn-warning"> Modificar</button></td>
-                <td><button (click)="borrarAdmin(admin.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
-            </tr>
-    
-    
-        </tbody>
-    
-    </table>
-</div>
-
-<div class="row">
-    <div class="col-12 mt-5" style="text-align: center;">
-<button  routerLink="agregar/admin" class="btn btn-success">Agregar Administrador</button>
-
-</div>
-</div>
-
+        <table class="table mt-3 contenedorLista">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Modificar</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let admin of administradores" class="filasEventos">
+                    <td>{{admin?.numeroDocumento}}</td>
+                    <td>{{admin?.nombre }}</td> 
+                    <td><button routerLink= 'update/admin/{{admin.numeroDocumento}}' class="btn btn-warning"> Modificar</button></td>
+                    <td><button (click)="borrarAdmin(admin.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </section>

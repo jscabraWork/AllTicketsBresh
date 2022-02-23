@@ -4,13 +4,13 @@
         <div class="col-sm-12 xs-text-center">
             <h2>Todas las etapas del evento {{evento?.nombre}}</h2>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-12" style="text-align: center;">
             <button class="btn btn-success" routerLink="/administradores/admin/eventos/lista">Atras</button>
         </div>
         <div class="col-sm-12">
             <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
             <div class="table-responsive">
-                <table class="table mt-3">
+                <table class="table mt-3 contenedorLista">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor = "let etapa of etapas">
+                        <tr *ngFor = "let etapa of etapas" class="filasEventos">
                             <td>{{etapa?.id}}</td>
                             <td>{{etapa?.nombre }}</td>
                             <td>{{etapa?.visible| booleans}}</td>
@@ -33,7 +33,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="row">
+            <div class="row wcien">
                 <div class="col-12 mt-5" style="text-align: center;">
                     <button  routerLink="agregar" class="btn btn-success">Agregar Etapa</button>
                 </div>

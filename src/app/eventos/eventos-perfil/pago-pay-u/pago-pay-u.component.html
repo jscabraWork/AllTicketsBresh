@@ -4,7 +4,6 @@
   <h1 style="font-size: 25px;"><strong>Hola {{usuarioEntidad?.nombre}}</strong></h1>
   <h1 *ngIf="codigoVenta" style="font-size: 25px;"><strong>Link {{codigoVenta}}</strong></h1>
   <small class="float-right pt-4"><strong>Pulep:</strong> {{evento?.id}}</small>
-  
 </div>
 <section class="container">
   <div class="row">
@@ -14,7 +13,7 @@
   </div>
 </section>
 
-<section class="container-fluid mt-5">
+<section class="container-fluid mt-5 palconomapa">
   <div class="row ">
 
     <div class="col-12  pl-5 pr-5" *ngIf="!evento?.mapa">
@@ -46,9 +45,9 @@
               <tr>
                 <td><strong>{{localidad?.nombre }}</strong></td>
                 <td>
-                  <button class="pr-2 pl-2 rounded-circle" (click)="quitaBoletaLocalidad(localidad)">-</button>
+                  <button class="pr-2 pl-2 rounded-circle  addPalco" (click)="quitaBoletaLocalidad(localidad)">-</button>
                   {{boletasLocalidadCantidadSeleccionada(localidad)}}
-                  <button class=" rounded-circle" (click)="reservarBoletasPorLocalidad(localidad)">+</button>
+                  <button class=" rounded-circle  addPalco" (click)="reservarBoletasPorLocalidad(localidad)">+</button>
                 </td>
  
                 <td><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio|

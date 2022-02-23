@@ -1,19 +1,13 @@
 <section class="container mt-5">
-
-
-    <h2>Todos los Promotores</h2>
+    <h2 class="tituloEventos">Todos los Promotores</h2>
     <div *ngIf='message' class="alert alert-success ">{{message}}</div>
-
     <div class="row">
-        <div class="col-12 mt-5" style="text-align: center;">
-            <button routerLink="agregar" class="btn btn-success">Agregar Promotor</button>
-
+        <div class="col-12 mt-5  btnAdd" style="text-align: center;">
+            <button routerLink="agregar" class="btn btn-primary">Agregar Promotor</button>
         </div>
     </div>
-
-    <div class="container">
-        <table class="table mt-3">
-
+    <div class="container containerTabla">
+        <table class="table mt-3 contenedorLista">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -26,8 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-
-                <tr *ngFor="let promotor of promotores">
+                <tr *ngFor="let promotor of promotores" class="filasEventos">
                     <td>{{promotor?.numeroDocumento}}</td>
                     <td>{{promotor?.nombre }}</td>
                     <td class="v-desktop"><button routerLink='update/{{promotor.numeroDocumento}}' class="btn btn-warning">
@@ -45,12 +38,7 @@
                         <a (click)="borrar(promotor.numeroDocumento)"><mat-icon>delete</mat-icon></a>
                     </td>
                 </tr>
-
-
             </tbody>
-
         </table>
     </div>
-
-
 </section>

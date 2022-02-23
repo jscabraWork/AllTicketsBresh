@@ -2,11 +2,11 @@
 
 
     <h1>Promotor {{promotor.numeroDocumento}} y {{promotor.nombre}}</h1>
-    <small>Boletas totales vendidas por el promotor: {{promotor.boletasVendidas.length}}</small> <br>
-    <small>Dinero que vendio en boletas {{dineroTotalBoletas | currency:'COP'}}</small> <br>
-    <button class="btn btn-warning" (click)="pagarBoletasAlPromotor()">Pagar</button>
+    <p>Boletas totales vendidas por el promotor: {{promotor.boletasVendidas.length}}</p> 
+    <p>Dinero que vendio en boletas {{dineroTotalBoletas | currency:'COP'}}</p> 
+    <div class="centrarBtn"><button class="btn btn-warning" (click)="pagarBoletasAlPromotor()">Pagar</button></div>
 
-    <table class="table mt-3">
+    <table class="table mt-3 contenedorLista">
 
         <thead>
             <tr>
@@ -25,7 +25,7 @@
         </thead>
         <tbody>
           
-            <tr *ngFor = "let boleta of promotor.boletasVendidas">
+            <tr *ngFor = "let boleta of promotor.boletasVendidas"  class="filasEventos">
                 <td>{{boleta?.id}}</td>
                 <td>{{boleta.nombreEvento}}</td>
                 <td>{{boleta.localidadNombre}}</td>
@@ -49,11 +49,11 @@
 
 
     <h1>Promotor {{promotor.numeroDocumento}} y {{promotor.nombre}}</h1>
-    <small>Palcos totales vendidas por el promotor: {{promotor.palcosVendidos.length}}</small> <br>
-    <small>Dinero que vendio en palcos {{dineroTotalPalcos | currency:'COP'}}</small> <br>
-    <button class="btn btn-warning" (click)="pagarPalcosAlPromotor()">Pagar</button>
+    <p>Palcos totales vendidas por el promotor: {{promotor.palcosVendidos.length}}</p> 
+    <p>Dinero que vendio en palcos {{dineroTotalPalcos | currency:'COP'}}</p> 
+    <div class="centrarBtn"><button class="btn btn-warning" (click)="pagarPalcosAlPromotor()">Pagar</button></div>
 
-    <table class="table mt-3">
+    <table class="table mt-3 contenedorLista">
 
         <thead>
             <tr>
@@ -72,16 +72,26 @@
         </thead>
         <tbody>
           
+            <tr>
+                <td>sdadada</td>
+                <td>adadadadadadadad</td>
+                <td>adadada</td>
+                <td>adadadad</td>
+                <td>adadadadada</td>
+            </tr>
+            <tr>
+                <td>sdaddadadadadadadaada</td>
+                <td>adadadadadadadad</td>
+                <td>adadada</td>
+                <td>adaadadaddadad</td>
+                <td>adadadadadadadaadadadaadadada</td>
+            </tr>
             <tr *ngFor = "let palco of promotor.palcosVendidos">
                 <td>{{palco?.id}}</td>
                 <td>{{palco.nombreEvento}}</td>
                 <td>{{palco.nombre}}</td>
                 <td>{{palco?.precio + palco?.servicio +palco?.servicio*IVA| currency: 'COP'}}</td>
                 <td>{{palco?.precioParcialPagado| currency: 'COP'}}</td>
-
-
- 
-    
             </tr>
     
     
@@ -96,10 +106,10 @@
 
 <section class="container mt-5">
     <h1>Promotor {{promotor.numeroDocumento}} y {{promotor.nombre}}</h1>
-    <small>Boletas totales historicas vendidas por el promotor: {{promotor.boletasCanjeadas.length}}</small> <br>
+    <p>Boletas totales historicas vendidas por el promotor: {{promotor.boletasCanjeadas.length}}</p> 
 
  
-    <table class="table mt-3">
+    <table class="table mt-3 contenedorLista">
 
         <thead>
             <tr>
@@ -133,10 +143,10 @@
 
 
     <h1>Promotor {{promotor.numeroDocumento}} y {{promotor.nombre}}</h1>
-    <small>Palcos totales Historicos vendidas por el promotor: {{promotor.palcosCanjeados.length}}</small> <br>
+    <p>Palcos totales Historicos vendidas por el promotor: {{promotor.palcosCanjeados.length}}</p>
 
 
-    <table class="table mt-3">
+    <table class="table mt-3 contenedorLista">
 
         <thead>
             <tr>

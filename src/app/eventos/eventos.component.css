@@ -31,10 +31,10 @@
 .fechaCiudad>p{
     padding: 0px 10px;
     margin-bottom: 5px !important;
-    font-size: 18px;
+    font-size: 15px;
 }
 .titulos{
-    font-size: 19px;
+    font-size: 17px;
 }
 .sold_out {
     top: 2em;
@@ -58,28 +58,6 @@
 .texto{
     width: 60%;
 }
-@media(max-width:392px){
-    .titulos{
-        font-size: 22px;
-    }
-    .contenedor8{
-        padding: 0;
-        margin-top: 25px;
-    }
-    #prueba{
-        padding: 10px;
-    }
-    .fechaCiudad>p{
-        font-size: 18px;
-    }
-}
-
-@media(max-width: 1516px){
-    .texto{
-        width: 80%;
-    }
-}
-
 .oscurecer{
     opacity: 1;
     transition: all .3s;
@@ -92,4 +70,25 @@
 
 .contenedor2:hover .oscurecer{
     opacity: 0.4;
+}
+@media(max-width:392px){
+    .titulos{
+        font-size: 20px;
+    }
+    .contenedor8{
+        padding: 0;
+        margin-top: 25px;
+    }
+    #prueba{
+        padding: 10px;
+    }
+    .fechaCiudad>p{
+        font-size: 15px;
+    }
+}
+
+@media(max-width: 1516px){
+    .texto{
+        width: 80%;
+    }
 }

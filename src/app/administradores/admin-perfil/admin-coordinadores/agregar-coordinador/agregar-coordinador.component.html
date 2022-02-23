@@ -1,5 +1,5 @@
-<div class="container mt-5">
-    <h1>Coordinador</h1>
+<div class="container ">
+    <h1 class="tituloEventos">Agregar Coordinador</h1>
 <form (ngSubmit)="!todoForm.invalid &&saveCoordinador()" #todoForm="ngForm">
         
         <fieldset class="form-group">
@@ -30,6 +30,8 @@
         <input type="text" class= "form-control"name ="contrasena" required="required"  [(ngModel)]="coordinador.contrasena">
     </fieldset>
 
-    <button class="btn btn-success" type="submit">Guardar</button>
+    <div class="botonCrear">
+        <button class="btn btn-success" type="submit">Guardar</button>
+    </div>
 </form>
 </div>

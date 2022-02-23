@@ -1,33 +1,29 @@
 <div class="container mt-5">
-    <h1>Puntos Fisicos</h1>
-<form (ngSubmit)="!todoForm.invalid && savePunto()" #todoForm="ngForm">
-        
-  
-    <fieldset class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="punto.nombre">
-    </fieldset>
-
-    <fieldset class="form-group">
-        <label for="tipo">Tipo de Documento</label>
-        <select type="text" class= "form-control "name ="tipo" required="required"  [(ngModel)]="punto.tipoDocumento">
-            <option value="Cedula">Cedula</option>
-            <option value="TarjetaIdentidad">Tarjeta de Identidad</option>
-            <option value="Pasaporte">Pasaporte</option>
-            <option value="NIT">NIT</option>
-        </select>    
-    </fieldset>
-
-    <fieldset class="form-group">
-        <label for="nombre">Usuario</label>
-        <input type="text" class= "form-control"name ="usuario" required="required"  [(ngModel)]="punto.usuario">
-    </fieldset>
-
-    <fieldset class="form-group">
-        <label for="nombre">Contraseña</label>
-        <input type="text" class= "form-control"name ="contrasena" required="required"  [(ngModel)]="punto.contrasena">
-    </fieldset>
-
-    <button class="btn btn-success" type="submit">Guardar</button>
-</form>
+    <h1 class="tituloEventos">Actualizar Puntos Fisicos</h1>
+    <form (ngSubmit)="!todoForm.invalid && savePunto()" #todoForm="ngForm">
+        <fieldset class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class= "form-control"name ="nombre" required="required"  [(ngModel)]="punto.nombre">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="tipo">Tipo de Documento</label>
+            <select type="text" class= "form-control "name ="tipo" required="required"  [(ngModel)]="punto.tipoDocumento">
+                <option value="Cedula">Cedula</option>
+                <option value="TarjetaIdentidad">Tarjeta de Identidad</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="NIT">NIT</option>
+            </select>    
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="nombre">Usuario</label>
+            <input type="text" class= "form-control"name ="usuario" required="required"  [(ngModel)]="punto.usuario">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="nombre">Contraseña</label>
+            <input type="text" class= "form-control"name ="contrasena" required="required"  [(ngModel)]="punto.contrasena">
+        </fieldset>
+        <div class="botonCrear">
+            <button class="btn btn-success" type="submit">Guardar</button>
+        </div>
+    </form>
 </div>

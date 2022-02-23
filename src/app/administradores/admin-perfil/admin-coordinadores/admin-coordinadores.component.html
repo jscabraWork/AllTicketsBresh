@@ -1,46 +1,30 @@
-
-
-
 <section class="container mt-5">
-    <h2>Todos los Coordinadores</h2>
+    <h2 class="tituloEventos">Todos los Coordinadores</h2>
     <div *ngIf ='message' class="alert alert-success ">{{message}}</div>
+    <div class="row">
+        <div class="col-12 mt-5 btnAdd" style="text-align: center;">
+            <button  routerLink="agregar/cordi" class="btn btn-primary">Agregar Coordinador</button>
+        </div>
+    </div>
+    <div class="container containerTabla">
+        <table class="table mt-3 contenedorLista">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Modificar</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let cordi of coordinadores"  class="filasEventos">
+                    <td>{{cordi?.numeroDocumento}}</td>
+                    <td>{{cordi?.nombre }}</td> 
+                    <td><button routerLink= 'update/cordi/{{cordi.numeroDocumento}}' class="btn btn-warning"> Modificar</button></td>
+                    <td><button (click)="borrarCoordinador(cordi.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     
-    
-    <div class="container">
-    <table class="table mt-3">
-
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Modificar</th>
-                <th>Borrar</th>
-                
-            </tr>
-    
-    
-    
-        </thead>
-        <tbody>
-          
-            <tr *ngFor = "let cordi of coordinadores">
-                <td>{{cordi?.numeroDocumento}}</td>
-                <td>{{cordi?.nombre }}</td> 
-                <td><button routerLink= 'update/cordi/{{cordi.numeroDocumento}}' class="btn btn-warning"> Modificar</button></td>
-                <td><button (click)="borrarCoordinador(cordi.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
-            </tr>
-    
-    
-        </tbody>
-    
-    </table>
-</div>
-
-<div class="row">
-    <div class="col-12 mt-5" style="text-align: center;">
-<button  routerLink="agregar/cordi" class="btn btn-success">Agregar Coordinador</button>
-
-</div>
-</div>
-
 </section>

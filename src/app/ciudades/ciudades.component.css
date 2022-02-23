@@ -41,13 +41,14 @@ p.centrado2 {
 
 .fechas{
     margin-bottom: 0;
+    font-size: 14px;
 }
 .contenedorBot{
     margin-right: 0;
     margin-left: 0;
 }
 .titulos{
-    font-size: 25px;
+    font-size: 20px;
 }
 #prueba{
  padding: 15px;
@@ -67,13 +68,16 @@ p.centrado2 {
 .contenedor2 p{
     top: 50%;
 }
-@media(max-width:392px){
+@media(max-width:400px){
     .titulos{
-        font-size: 25px;
+        font-size: 20px;
+    }
+    .fechas strong{
+        font-size: 16px !important;
     }
     .contenedor8{
         padding: 0;
-        margin-top: 25px;
+        margin-top: 25px !important;
     }
     #prueba{
         padding: 10px;
