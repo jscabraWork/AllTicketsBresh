@@ -6,7 +6,7 @@
     <small>Dinero que vendio en boletas {{dineroTotalBoletas | currency:'COP'}}</small> <br>
     <button class="btn btn-warning" (click)="pagarBoletas()" >Pagar</button>
 
-    <table class="table mt-3">
+    <table class="table mt-3 contenedorLista">
 
         <thead>
             <tr>
@@ -25,7 +25,7 @@
         </thead>
         <tbody>
           
-            <tr *ngFor = "let boleta of punto.boletasVendidas">
+            <tr *ngFor = "let boleta of punto.boletasVendidas" class="filasEventos">
                 <td>{{boleta?.id}}</td>
                 <td>{{boleta.nombreEvento}}</td>
                 <td>{{boleta.localidadNombre}}</td>
@@ -51,7 +51,7 @@
     <small>Boletas total historico vendidas por el punto: {{punto.boletasCanjeadas.length}}</small> <br>
    
 
-    <table class="table mt-3">
+    <table class="table mt-3 contenedorLista">
 
         <thead>
             <tr>
@@ -70,7 +70,7 @@
         </thead>
         <tbody>
           
-            <tr *ngFor = "let boleta of punto.boletasCanjeadas">
+            <tr *ngFor = "let boleta of punto.boletasCanjeadas" class="filasEventos">
                 <td>{{boleta?.id}}</td>
                 <td>{{boleta.nombreEvento}}</td>
                 <td>{{boleta.localidadNombre}}</td>
@@ -90,7 +90,7 @@
 
 
 
-<section class="container mt-5">
+<section class="container mt-5 contenedorLista">
 
 
     <h1>Punto Fisico {{punto.numeroDocumento}} y {{punto.nombre}}</h1>
@@ -117,7 +117,7 @@
         </thead>
         <tbody>
           
-            <tr *ngFor = "let palco of punto.palcosVendidos">
+            <tr *ngFor = "let palco of punto.palcosVendidos" class="filasEventos">
                 <td>{{palco?.id}}</td>
                 <td>{{palco.nombreEvento}}</td>
                 <td>{{palco.nombre}}</td>
@@ -142,7 +142,7 @@
     <small>Palcos total Historico vendidas por el punto: {{punto.palcosCanjeados.length}}</small> <br>
 
 
-    <table class="table mt-3">
+    <table class="table mt-3 contenedorLista">
 
         <thead>
             <tr>
@@ -161,7 +161,7 @@
         </thead>
         <tbody>
           
-            <tr *ngFor = "let palco of punto.palcosCanjeados">
+            <tr *ngFor = "let palco of punto.palcosCanjeados" class="filasEventos">
                 <td>{{palco?.id}}</td>
                 <td>{{palco.nombreEvento}}</td>
                 <td>{{palco.nombre}}</td>
