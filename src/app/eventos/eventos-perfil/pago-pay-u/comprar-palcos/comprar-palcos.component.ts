@@ -911,6 +911,54 @@ export class ComprarPalcosComponent implements OnInit {
             });
         }
 
+        else if (this.evento.mapa == 'mapa22') {
+          this.etapaServicio
+            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+            .subscribe((response) => {
+
+              this.etapas = response;
+
+              for (let i = 0; i < this.etapas.length; i += 1) {
+                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                  if (this.etapas[i].localidades[j].nombre == 'PATROCIONADORES') {
+                    this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'MONASTERY') {
+                    this.localidadCargadaGeneral = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'CHIMBITA') {
+                    this.localidadCargadaBoletasVIPPiso1 = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'FUMETEO') {
+                    this.localidadCargadaBoletasGeneralPiso2 = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'VACAXIONES MENORES') {
+                    this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'FRIKI') {
+                    this.localidadCargadaBoletas = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'JORDAN') {
+                    this.localidadCargada = this.etapas[i].localidades[j];
+                  }
+                
+                }
+              }
+  
+
+              this.cargarLocalidadEnMapa22();
+              this.cargadoTodo = true;
+            });
+        }
+
 
         if (this.autenticador.getUsuario() != null) {
           this.usuarioA = this.autenticador.getUsuario();
@@ -1466,6 +1514,160 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista3[i]= {
           valor:'p',
           localidad: 'oro',
+        }
+      }
+      
+
+    }
+    
+
+  }
+
+  cargarLocalidadEnMapa22() {
+
+    for(let i=0;i<8;i++){
+      if (
+        !this.localidadCargadaPreferecial.palcos[i].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i].reservado &&
+        this.localidadCargadaPreferecial.palcos[i].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i].proceso
+      ){
+        this.lista1[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
+          localidad: 'promo',
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i].vendido ||
+        this.localidadCargadaPreferecial.palcos[i].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i].disponible
+      ) {
+        this.lista1[i] =  {
+          valor:'v',
+          localidad: 'promo',
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
+        this.lista1[i]= {
+          valor:'p',
+          localidad: 'promo',
+        }
+      }
+    }
+
+    for(let i=0;i<10;i++){
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+8].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+8].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+8].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+8].proceso
+      ){
+        this.lista2[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+8].numeroDentroDeEvento,
+          localidad: 'promo',
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+8].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+8].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+8].disponible
+      ) {
+        this.lista2[i] =  {
+          valor:'v',
+          localidad: 'promo',
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+8].proceso) {
+        this.lista2[i]= {
+          valor:'p',
+          localidad: 'promo',
+        }
+      }
+    }
+
+
+    for(let i=0;i<24;i++){
+      if (
+        !this.localidadCargadaGeneral.palcos[i].vendido &&
+        !this.localidadCargadaGeneral.palcos[i].reservado &&
+        this.localidadCargadaGeneral.palcos[i].disponible &&
+        !this.localidadCargadaGeneral.palcos[i].proceso
+      ){
+        this.lista3[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i].numeroDentroDeEvento,
+          localidad: 'monastery',
+        }
+      }
+      
+      else if (
+        this.localidadCargadaGeneral.palcos[i].vendido ||
+        this.localidadCargadaGeneral.palcos[i].reservado ||
+        !this.localidadCargadaGeneral.palcos[i].disponible
+      ) {
+        this.lista3[i] =  {
+          valor:'v',
+          localidad: 'monastery',
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+        this.lista3[i]= {
+          valor:'p',
+          localidad: 'monastery',
+        }
+      }
+
+      if (
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i].proceso
+      ){
+        this.lista4[i] = {
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i].numeroDentroDeEvento,
+          localidad: 'oro',
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIPPiso1.palcos[i].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i].disponible
+      ) {
+        this.lista4[i] =  {
+          valor:'v',
+          localidad: 'oro',
+        }
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i].proceso) {
+        this.lista4[i]= {
+          valor:'p',
+          localidad: 'oro',
+        }
+      }
+
+      if (
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].vendido &&
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].reservado &&
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i].disponible &&
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].proceso
+      ){
+        this.lista5[i] = {
+          valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i].numeroDentroDeEvento,
+          localidad: 'fumeteo',
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i].vendido ||
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i].reservado ||
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].disponible
+      ) {
+        this.lista5[i] =  {
+          valor:'v',
+          localidad: 'fumeteo',
+        }
+      } else if (this.localidadCargadaBoletasGeneralPiso2.palcos[i].proceso) {
+        this.lista5[i]= {
+          valor:'p',
+          localidad: 'fumeteo',
         }
       }
       
