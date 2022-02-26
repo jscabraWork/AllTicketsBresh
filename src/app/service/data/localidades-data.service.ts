@@ -52,4 +52,8 @@ export class LocalidadesDataService {
   cambiarEfectivo(localidad:number){
     return this.http.put(`${API_URL}/localidad/efectivo/${localidad}`,null);
   }
+
+  mandarLocalidad(idLocalidad:number){
+    return this.http.get(`${API_URL}/localidad/qrs/${idLocalidad}`);
+  }
 }

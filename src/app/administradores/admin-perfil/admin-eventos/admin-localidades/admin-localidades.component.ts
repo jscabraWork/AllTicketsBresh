@@ -44,7 +44,12 @@ export class AdminLocalidadesComponent implements OnInit {
     this.servicio.deleteEvento(this.miId,idLocalidad).subscribe(data=>{this.refrescar(), this.message="se borro localidad " +idLocalidad});
     
   }
+  mandarQRSLocalidad(idLocalidad:number){
 
+
+    this.servicio.mandarLocalidad(idLocalidad).subscribe(data=>{this.refrescar(), this.message="Se enviaron los QRS de la localidad " +idLocalidad});
+    
+  }
   refrescar(){
     this.service.getEtapaPorId(this.idEtapa).subscribe(response => {this.etapa= response})
   }

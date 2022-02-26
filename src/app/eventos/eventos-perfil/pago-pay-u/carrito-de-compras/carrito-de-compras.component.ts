@@ -537,6 +537,10 @@ export class CarritoDeComprasComponent implements OnInit {
     
       this.codigoVenta = this.data.codigoVenta;
       this.codigoVentaCuadrar();
+      if(this.codigoVenta=='Jorgebresh' && this.boletas[0].localidadIdNumero==5395 ){
+        this.codigo = this.codigoVenta
+        this.validarCupon();
+      }
       this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.adicional
       let valorEncriptar = this.ApiKey +"~"+ this.merchantId+"~"+this.referenceCode+"~"+this.valorTotal+"~"+'COP~';
 

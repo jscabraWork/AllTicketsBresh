@@ -24,6 +24,7 @@
                             <th>Agregar Adiciones</th>
                             <th>Agregar Alternos</th>
                             <th>Efectivo</th>
+                            <th>Efectivo</th>
                             <th>Borrar</th>
 
                         </tr>
@@ -51,6 +52,8 @@
                                     Alternos</button> </td>
                             <td><button class="btn btn-warning" (click)="cambiarEfectivo(localidad.id)">
                                     {{localidad.efectivo | booleans}}</button></td>
+                             <td><button class="btn btn-warning" (click)="mandarQRSLocalidad(localidad.id)"> Enviar QRS</button>
+                            </td>
                             <td><button class="btn btn-danger" (click)="borrarLocalidad(localidad.id)"> Delete</button>
                             </td>
 
