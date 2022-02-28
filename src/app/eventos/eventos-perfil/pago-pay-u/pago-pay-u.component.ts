@@ -154,7 +154,14 @@ codigoVenta
             i=i+1;
           }
 
-          if(this.codigoVenta=='Jorgebresh' && this.localidad.id==5395){
+          if((this.codigoVenta=='Jorgebresh' 
+          || this.codigoVenta=='jovalle2022' 
+          || this.codigoVenta=='jerodriguez2022' 
+          || this.codigoVenta=='locampok2022' 
+          || this.codigoVenta=='asaporito2022' 
+          || this.codigoVenta=='cbartello2022' 
+          || this.codigoVenta=='jdcjimenez2022') 
+          && this.localidad.id==5395){
             //this.servicioCupon.validarCupon(this.codigoVenta).subscribe(response =>{this.manejarCupon(response)})
             this.localidad.precio = 30000
           }

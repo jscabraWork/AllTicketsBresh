@@ -1,151 +1,114 @@
 
-        .fondoBlanco{
-            background-color: white;
-        }
+.fondoBlanco{
+    background-color: white;
+}
 
-        .divisionLocalidad
-        {
-         
-            
-            text-align: right;
-            width: 600px;
-            text-align: center;
-            transition: all 1s; 
-            position: relative; 
-            width: 100%;
-        }
-        p{
-            font-size: 20px;
-        }
-        
-      .grid{
-          margin-top: 1rem;
-          display: grid;
-          grid-template-columns:120px;
-          grid-template-rows: repeat(2, 80px);
-          text-align: center;
-          align-items: center;
-          justify-content: center;
-          
-          
-
-      }
-      .grid a{
-          font-weight: bold;
-          text-decoration: none;
-        
-          padding:15px;
-          border-radius: 10px;
-          transition: all 300ms;
-          background: linear-gradient(#ed701c, #F9B84f) ;
-          color: white;
-          transition: all 500ms;
-      }
-      .grid a:hover{
-        color: #ed701c;
-        background: white;
-        border: 1px solid #ed701c;
-
-    }
-      .grid mat-icon{
-          margin-left: 35px;
-          font-size: 50px;
-      }
-        
-#prueba9
-{
-	
-
+.divisionLocalidad{
+    text-align: right;
+    width: 600px;
+    text-align: center;
+    transition: all 1s; 
+    position: relative; 
+    width: 100%;
+}
+p{
+    font-size: 20px;
+}
+.grid{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns:120px;
+    grid-template-rows: repeat(2, 80px);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.grid a{
+    font-weight: bold;
+    text-decoration: none;
+    padding:15px;
+    border-radius: 10px;
+    transition: all 300ms;
+    background: linear-gradient(#ed701c, #F9B84f) ;
+    color: white;
+    transition: all 500ms;
+}
+.grid a:hover{
+    color: #ed701c;
+    background: white;
+    border: 1px solid #ed701c;
+}
+.grid mat-icon{
+    margin-left: 35px;
+    font-size: 50px;
+}
+#prueba9{
     padding: 35px;
     text-align: center;
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	position: relative;
-
 }
-
-
 #prueba9:before {
 	content:'';
 	position: absolute;
-        top: 0;
+    top: 0;
 	bottom: 0;
 	left: 0;
     right: 0;
     background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
-	
 }
-
 #prueba9 h1 {
 	font-size: 35px;
 	color: white;
 	position: relative
 }
+.tituloLocalidad{
+    background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
+    color:#FFF;
+    padding: 3%;
+    width: 100%;
+}
+.tituloLocalidad2{
+    background: linear-gradient(#666, #333); 
+    color:#FFF;
+    padding: 3%;
+    width: 100%;
+}
+.action_button:hover{
+    background: linear-gradient(rgba(236, 158, 40, 0.87), rgba(255, 80, 28, 0.87)); 
+}
 
-
-
-            .tituloLocalidad{
-                background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
-                color:#FFF;
-                padding: 3%;
-                width: 100%;
-                
-            }
-
-            .tituloLocalidad2{
-                background: linear-gradient(#666, #333); 
-                color:#FFF;
-                padding: 3%;
-                width: 100%;
-                
-            }
-
-            .action_button:hover{
-                background: linear-gradient(rgba(236, 158, 40, 0.87), rgba(255, 80, 28, 0.87)); 
-            }
-
-            .precioLocalidades{
-                font-size:22px;
-                color:#ed701c;
-            }
-            .action_button {
-                text-decoration: none; 
-                color: #fff; 
-                font-weight: bold; 
-                border-radius: 5px; 
-                background: linear-gradient(#666, #333); 
-                font-size: 11px; 
-                text-transform: uppercase;
-            }
-
-
-
-            .boton{
-                background: linear-gradient(#666, #333); 
-                color:white;
-     
-            }
-
-            .aaaa{
-            
-                border: 2px solid #ed701c;
-        
-                height: 0px;
-                width: 70px;
-               
-                  }
-
-
-
-            th{
-                background:linear-gradient(#666, #333);
-                color: white;
-            }
-            td{
-                background-color: white;
-            }
-            
+.precioLocalidades{
+    font-size:22px;
+    color:#ed701c;
+}
+.action_button {
+    text-decoration: none; 
+    color: #fff; 
+    font-weight: bold; 
+    border-radius: 5px; 
+    background: linear-gradient(#666, #333); 
+    font-size: 11px; 
+    text-transform: uppercase;
+}
+.boton{
+    background: linear-gradient(#666, #333); 
+    color:white;
+}
+.aaaa{
+    border: 2px solid #ed701c;
+    height: 0px;
+    width: 70px;
+}
+th{
+    background:linear-gradient(#666, #333);
+    color: white;
+}
+td{
+    background-color: white;
+}
 .ver{
     display: none;
 }
@@ -161,11 +124,17 @@
     color: white;
     background: linear-gradient(#666, #333);
 }
+#prueba h1 strong{
+    font-size: 25px;
+}
 @media (max-width: 727px) {
     .palconomapa{
-      margin-top: 2rem !important;
+      margin-top: 1.5rem !important;
       padding: 0px !important;
     } 
+    .palconomapa strong, .palconomapa p{
+        font-size: 18px !important;
+    }
     .palconomapa>div{
       width: 100%;
       margin-left: 0px !important;
@@ -180,32 +149,39 @@
       margin-left: 0px !important;
       margin-right: 0px !important;
     }
-    .palconomapa>div>div>div>div{
-      padding-left: 0px !important;
-      padding-right: 0px !important;
-    }
     .esconder{
       padding: 0px !important;
+      width: 727px !important;
+      overflow-x: auto !important;
+      padding-left: 15px !important;
+    padding-right: 15px !important;
     }
+    .esconder>table{
+      width: 727px !important;
+      overflow-x: auto !important;
+      }
     #prueba{
       padding: 1px !important;
     }
-  }
+    .ver{
+        display: block;
+    }
+    #prueba h1{
+        font-size: 19px !important;
+        margin-bottom: 0px !important;
+        padding: 0px 5px !important;
+    }
+    #prueba h1 strong{
+        font-size: 19px;
+    }
+}
 @media(max-width:510px){
     .tabla thead tr th{
         font-size: 14px;
     }
-    .tabla button{
-        width: 100%;
-        border-radius: 0px;
-    }
-
 }
 @media(max-width:490px){
-    .esconder{
-        overflow: scroll;
-        z-index: 1;
-    }
+    
     .ver{
         display: block;
     }

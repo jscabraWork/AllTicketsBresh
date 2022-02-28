@@ -537,7 +537,14 @@ export class CarritoDeComprasComponent implements OnInit {
     
       this.codigoVenta = this.data.codigoVenta;
       this.codigoVentaCuadrar();
-      if(this.codigoVenta=='Jorgebresh' && this.boletas[0].localidadIdNumero==5395 ){
+      if((this.codigoVenta=='Jorgebresh' 
+      || this.codigoVenta=='jovalle2022' 
+      || this.codigoVenta=='jerodriguez2022' 
+      || this.codigoVenta=='locampok2022' 
+      || this.codigoVenta=='asaporito2022' 
+      || this.codigoVenta=='cbartello2022' 
+      || this.codigoVenta=='jdcjimenez2022') 
+      && this.boletas[0].localidadIdNumero==5395 ){
         this.codigo = this.codigoVenta
         this.validarCupon();
       }
