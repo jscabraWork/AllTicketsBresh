@@ -32,6 +32,12 @@ export class PalcosDataService {
     return this.http.get<Palco>(`${API_URL}/evento/nombre/${pNombre}/palco/numero/${pNumero}`);
   }
 
+
+  getPalcoParaCompraIndividualID( pId:number){
+    return this.http.get<Palco>(`${API_URL}/evento/palco/id/${pId}`);
+  }
+
+
   getAllPalcosPromotorEvento(pIdPromotor, pNombre){
     return this.http.get<Palco[]>(`${API_URL}/palcos/promotor/${pIdPromotor}/${pNombre}`)
   }

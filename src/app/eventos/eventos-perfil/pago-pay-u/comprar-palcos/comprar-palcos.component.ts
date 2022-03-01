@@ -1535,6 +1535,7 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista1[i] = {
           valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
           localidad: 'promo',
+          id:this.localidadCargadaPreferecial.palcos[i].id
         }
       }
       
@@ -1546,11 +1547,13 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista1[i] =  {
           valor:'v',
           localidad: 'promo',
+          id:'v'
         }
       } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
         this.lista1[i]= {
           valor:'p',
           localidad: 'promo',
+          id:'p'
         }
       }
     }
@@ -1565,6 +1568,7 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista2[i] = {
           valor:this.localidadCargadaPreferecial.palcos[i+8].numeroDentroDeEvento,
           localidad: 'promo',
+          id:this.localidadCargadaPreferecial.palcos[i+8].id
         }
       }
       
@@ -1576,11 +1580,13 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista2[i] =  {
           valor:'v',
           localidad: 'promo',
+          id:'v'
         }
       } else if (this.localidadCargadaPreferecial.palcos[i+8].proceso) {
         this.lista2[i]= {
           valor:'p',
           localidad: 'promo',
+          id:'p'
         }
       }
     }
@@ -1596,6 +1602,7 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista3[i] = {
           valor:this.localidadCargadaGeneral.palcos[i].numeroDentroDeEvento,
           localidad: 'monastery',
+          id:this.localidadCargadaGeneral.palcos[i].id
         }
       }
       
@@ -1607,11 +1614,13 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista3[i] =  {
           valor:'v',
           localidad: 'monastery',
+          id:'v'
         }
       } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
         this.lista3[i]= {
           valor:'p',
           localidad: 'monastery',
+          id:'p'
         }
       }
 
@@ -1624,6 +1633,7 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista4[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i].numeroDentroDeEvento,
           localidad: 'oro',
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i].id
         }
       }
       
@@ -1635,11 +1645,13 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista4[i] =  {
           valor:'v',
           localidad: 'oro',
+          id:'v'
         }
       } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i].proceso) {
         this.lista4[i]= {
           valor:'p',
           localidad: 'oro',
+          id:'p'
         }
       }
 
@@ -1652,6 +1664,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista5[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i].numeroDentroDeEvento,
           localidad: 'fumeteo',
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i].id
+          
         }
       }
       
@@ -1663,11 +1677,13 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista5[i] =  {
           valor:'v',
           localidad: 'fumeteo',
+          id:'v'
         }
       } else if (this.localidadCargadaBoletasGeneralPiso2.palcos[i].proceso) {
         this.lista5[i]= {
           valor:'p',
           localidad: 'fumeteo',
+          id:'p'
         }
       }
       
@@ -3336,6 +3352,136 @@ if(!this.usuarioBoolean)
 
 
   }
+
+
+
+
+
+
+  
+  agregarPalcoIndividualID(numero,id) {
+    
+    if(!this.usuarioBoolean)
+      {
+        if (
+          numero != 'v' &&
+          numero != 'p' &&
+          numero != 'l' ) {
+          if (!this.cargando &&this.cargadoTodo) {
+    
+            console.log(numero);
+            
+            if (this.contadorPalcos < 2 ) {
+              this.cargando = true;
+              this.palcoServicio
+                .getPalcoParaCompraIndividualID(id)
+                .subscribe((response) => {
+                  this.palco = response;
+                  
+                  console.log(this.palco)
+    
+    
+    
+                  this.referenceCode =
+                    'PALCO;' + this.usuarioEntidad.numeroDocumento + ',';
+                  if (this.palco == null) {
+                    alert('Agregar un Palco para continuar');
+                  } else {
+    
+    
+    
+                    this.palcoServicio.getLocalidadDelPalco(this.palco.id).subscribe((response=>{response
+    
+    
+    
+             if(this.darCantidadDePalcosDisponiblesEtapas(response) >0){
+                    this.palcoServicio.reservarPalcoExacto(this.palco.id).subscribe(
+                      (response) => {
+                        response;
+    
+                        this.referenceCode =
+                          this.referenceCode +
+                          this.palco.id +
+                          ',' +
+                          this.evento.id +
+                          ',' +
+                          new Date();
+                        this.cargando = false;
+    
+                        this.valorTotal =
+                          this.palco.precio +
+                          this.palco.servicio +
+                          this.palco.servicioIva;
+    
+                        this.localidad = null;
+                        this.valorLocalidadAgregada = 0;
+                        this.valorBoletas = 0;
+    
+                     
+                       
+    
+                        
+    
+                          this.AbrirCarrito();
+                          if (!this.localidadCargada.efectivo) {
+                            this.palcoServicio
+                              .rechazarReservaPalco(this.palco.id)
+                              .subscribe((response) => response);
+                          } else {
+                            this.palcoServicio
+                              .rechazarReservaPalcoEfectivo(this.palco.id)
+                              .subscribe((response) => {
+                                response;
+                              });
+                          }
+                      
+                      },
+    
+                      (error) => {
+                        error;
+                        alert(
+                          'Alguien acaba de seleccionar este palco, intenta seleccionar otro'
+                        );
+                        this.cargando = false;
+                        this.ngOnInit();
+                      }
+                    );
+                  
+                          
+                      }
+                    else{
+                      this.cargando = false;
+                      this.ngOnInit();
+                      alert("La etapa de esta localidad se ha agotado, espera unos minutos que se abrira la nueva etapa")
+                    }
+                    }))
+    
+                  }
+                });
+            } else {
+              alert('Solo puedes comprar 2 Palcos máximo por Evento');
+            }
+    
+          }
+          else {
+            alert('Cargando por favor espere')
+          }
+          } 
+        }
+    
+    
+        else
+        {
+          this.openDialog();
+          
+        }
+    
+    
+    
+      }
+
+
+
 
   
   abrirTickets(localidad: Localidad) {
