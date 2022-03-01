@@ -47,12 +47,6 @@ img {
   line-height: 95px;
   cursor: pointer;
 }
-.vacaxiones>p{
-  transform: rotate(90deg);
-  margin-left: -117px;
-  margin-top: 130px;
-  width: 314px;
-}
 .vacaxiones:hover{
   background-color: rgb(121, 16, 60);
 }
