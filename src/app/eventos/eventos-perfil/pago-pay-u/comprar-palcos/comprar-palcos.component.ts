@@ -922,7 +922,7 @@ export class ComprarPalcosComponent implements OnInit {
                 for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
 
 
-                  if (this.etapas[i].localidades[j].nombre == 'PATROCIONADORES') {
+                  if (this.etapas[i].localidades[j].nombre == 'PATROCINADORES') {
                     this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
                   }
 

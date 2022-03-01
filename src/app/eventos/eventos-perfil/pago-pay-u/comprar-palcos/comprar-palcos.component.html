@@ -112,7 +112,7 @@
   <p *ngIf="evento?.mapa =='mapa21'"><span class="cuadros4 cuadros">#</span>VIP PAMBELE</p>
   <p *ngIf="evento?.mapa =='mapa21'"><span class="cuadros cuadrosDF">#</span>GENERAL LOS TESOS</p>
   
-  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros7 cuadros">#</span>PROMOTORES</p>
+  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros7 cuadros">#</span>PATROCINADORES</p>
   <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros12 cuadros">#</span>MONASTERY</p>
   <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros10 cuadros">#</span>CHIMBITA</p>
   <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros8 cuadros">#</span>FUMETEO</p>
@@ -1327,8 +1327,11 @@
   <div class="mapa" style="margin: 0px auto;">
     <div class="tarimamap22">ESCENARIO</div>
     <div class="map22arriba">
+
       
       <div class="vacaxiones" (click)="abrirTickets(localidadCargadaBoletasVIP)">VACACIONES ZONA DE MENORES</div>
+
+
 
       <div class="cajaPrueba22">
         <div class="map22fila1"><div *ngFor="let item of lista1">
