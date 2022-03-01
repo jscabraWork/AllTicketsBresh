@@ -1083,6 +1083,120 @@ AbrirCarritoTicket(): void {
 
 
 
+
+      
+  agregarPalcoIndividualID(numero,id) {
+    
+    if(this.usuarioEntidad!=null && this.usuarioEntidad.numeroDocumento!=null)
+    {
+        if (
+          numero != 'v' &&
+          numero != 'p' &&
+          numero != 'l' ) {
+          if (!this.cargando &&this.cargadoTodo) {
+    
+    
+            
+      
+              this.cargando = true;
+              this.palcoServicio
+                .getPalcoParaCompraIndividualID(id)
+                .subscribe((response) => {
+                  this.palco = response;
+    
+                  this.referenceCode =
+                    'PALCO;' + this.usuarioEntidad.numeroDocumento + ',';
+                  if (this.palco == null) {
+                    alert('Agregar un Palco para continuar');
+                  } else {
+    
+    
+    
+                    this.palcoServicio.getLocalidadDelPalco(this.palco.id).subscribe((response=>{response
+    
+    
+    
+             if(this.darCantidadDePalcosDisponiblesEtapas(response) >0){
+                    this.palcoServicio.reservarPalcoExacto(this.palco.id).subscribe(
+                      (response) => {
+                        response;
+    
+                        this.referenceCode =
+                          this.referenceCode +
+                          this.palco.id +
+                          ',' +
+                          this.palco.nombreEvento +
+                          ',' +
+                          new Date();
+                        this.cargando = false;
+    
+                        this.valorTotal =
+                          this.palco.precio +
+                          this.palco.servicio +
+                          this.palco.servicioIva;
+    
+                 
+                     
+                       
+    
+                        
+    
+                          this.AbrirCarrito();
+                          if (!this.localidadCargada.efectivo) {
+                            this.palcoServicio
+                              .rechazarReservaPalco(this.palco.id)
+                              .subscribe((response) => response);
+                          } else {
+                            this.palcoServicio
+                              .rechazarReservaPalcoEfectivo(this.palco.id)
+                              .subscribe((response) => {
+                                response;
+                              });
+                          }
+                      
+                      },
+    
+                      (error) => {
+                        error;
+                        alert(
+                          'Alguien acaba de seleccionar este palco, intenta seleccionar otro'
+                        );
+                        this.cargando = false;
+                        this.ngOnInit();
+                      }
+                    );
+                  
+                          
+                      }
+                    else{
+                      this.cargando = false;
+                      this.ngOnInit();
+                      alert("La etapa de esta localidad se ha agotado, espera unos minutos que se abrira la nueva etapa")
+                    }
+                    }))
+    
+                  }
+                });
+          
+    
+          }
+          else {
+            alert('Cargando por favor espere')
+          }
+          } 
+       
+        }
+
+
+        else
+        {
+          alert('No hay un cliente activo, por favor buscalo')
+          
+        }
+    
+    
+      }
+
       
   darCantidadDePalcosDisponiblesEtapas(localidad:Localidad){
     var contador =localidad.maximoVender;
@@ -2189,6 +2303,11 @@ AbrirCarritoTicket(): void {
     }
   
     }
+
+
+
+
+    
 }
 
 
