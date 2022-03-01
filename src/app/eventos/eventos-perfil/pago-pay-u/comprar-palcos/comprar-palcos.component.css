@@ -47,12 +47,7 @@ img {
   line-height: 95px;
   cursor: pointer;
 }
-.vacaxiones>p{
-  transform: rotate(90deg);
-  margin-left: -117px;
-  margin-top: 130px;
-  width: 314px;
-}
+
 .vacaxiones:hover{
   background-color: rgb(121, 16, 60);
 }
@@ -71,6 +66,7 @@ img {
   width: 596px;
   height: 380px;
   margin-left: 110px;
+  float: left;
 }
 .map22fila1{
   margin-left: 92px;
