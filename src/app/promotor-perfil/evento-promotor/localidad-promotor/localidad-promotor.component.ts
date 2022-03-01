@@ -205,7 +205,7 @@ export class LocalidadPromotorComponent implements OnInit {
     if(!this.cargando){
       this.cargando = true
     this.palcoServicio
-      .getPalcoParaCompraIndividual(this.evento.nombre, numero)
+      .getPalcoParaCompraIndividualID(numero)
       .subscribe((response) => {
         let a = response;
         console.log(a)
