@@ -133,6 +133,8 @@ localidadCargadaPreferecial: Localidad;
 localidadCargadaBoletas: Localidad;
 localidadCargadaBoletasVIP: Localidad;
 
+localidadCargadaBoletasVIPPiso1: Localidad;
+localidadCargadaBoletasGeneralPiso2: Localidad;
 etapas: Etapa[] = [];
 usuarioEntidad:Cliente
 
@@ -321,6 +323,90 @@ ccDeBusqueda:string
     };
 
     this.localidadCargadaPreferecial = {
+      id: null,
+      nombre: '',
+      precio: null,
+      
+      servicio: null,
+      nombreEtapa: null,
+      boletasPatrocinio: [],
+      palcos: [
+        {
+          id: null,
+          nombre: null,
+          nombreEvento: null,
+          personasAdentro: 6,
+          personasMaximas: null,
+          precio: null,
+          precioParcialPagado: null,
+          reservado: null,
+          servicio: null,
+          vendido: null,
+          numeroDentroDeEvento: null,
+          fechaVendido: null,
+          servicioIva: null,
+          proceso: null,
+          disponible: null,
+          idLocalidad: null,
+          reserva: null,
+          precioAlterno: null,
+          servicioAlterno: null,
+          servicioIvaAlterno: null,
+          adiciones: null,
+          maximoAdiciones: null,
+          precioAdicion: null,
+          servicioAdicion: null,
+          servicioIvaAdicion: null,
+        },
+      ],
+      servicioPorcentaje: null,
+      efectivo: false,
+      maximoVender:null
+    };
+
+    this.localidadCargadaBoletasVIPPiso1 = {
+      id: null,
+      nombre: '',
+      precio: null,
+      
+      servicio: null,
+      nombreEtapa: null,
+      boletasPatrocinio: [],
+      palcos: [
+        {
+          id: null,
+          nombre: null,
+          nombreEvento: null,
+          personasAdentro: 6,
+          personasMaximas: null,
+          precio: null,
+          precioParcialPagado: null,
+          reservado: null,
+          servicio: null,
+          vendido: null,
+          numeroDentroDeEvento: null,
+          fechaVendido: null,
+          servicioIva: null,
+          proceso: null,
+          disponible: null,
+          idLocalidad: null,
+          reserva: null,
+          precioAlterno: null,
+          servicioAlterno: null,
+          servicioIvaAlterno: null,
+          adiciones: null,
+          maximoAdiciones: null,
+          precioAdicion: null,
+          servicioAdicion: null,
+          servicioIvaAdicion: null,
+        },
+      ],
+      servicioPorcentaje: null,
+      efectivo: false,
+      maximoVender:null
+    };
+
+    this.localidadCargadaBoletasGeneralPiso2 = {
       id: null,
       nombre: '',
       precio: null,
@@ -590,6 +676,54 @@ ccDeBusqueda:string
             });
         }
 
+        else if (this.evento.mapa == 'mapa22') {
+          this.etapaServicio
+            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+            .subscribe((response) => {
+
+              this.etapas = response;
+
+              for (let i = 0; i < this.etapas.length; i += 1) {
+                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                  if (this.etapas[i].localidades[j].nombre == 'PATROCINADORES') {
+                    this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'MONASTERY') {
+                    this.localidadCargadaGeneral = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'CHIMBITA') {
+                    this.localidadCargadaBoletasVIPPiso1 = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'FUMETEO') {
+                    this.localidadCargadaBoletasGeneralPiso2 = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'VACAXIONES MENORES') {
+                    this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'FRIKI') {
+                    this.localidadCargadaBoletas = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'JORDAN') {
+                    this.localidadCargada = this.etapas[i].localidades[j];
+                  }
+                
+                }
+              }
+  
+
+              this.cargarLocalidadEnMapa22();
+              this.cargadoTodo = true;
+            });
+        }
+
         else if (this.evento.mapa == 'mapa11') {
 
           this.ponerNumerosMapa11();
@@ -698,7 +832,175 @@ ccDeBusqueda:string
   }
   
 
+  cargarLocalidadEnMapa22() {
 
+    for(let i=0;i<8;i++){
+      if (
+        !this.localidadCargadaPreferecial.palcos[i].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i].reservado &&
+        this.localidadCargadaPreferecial.palcos[i].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i].proceso
+      ){
+        this.lista1[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
+          localidad: 'promo',
+          id:this.localidadCargadaPreferecial.palcos[i].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i].vendido ||
+        this.localidadCargadaPreferecial.palcos[i].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i].disponible
+      ) {
+        this.lista1[i] =  {
+          valor:'v',
+          localidad: 'promo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
+        this.lista1[i]= {
+          valor:'p',
+          localidad: 'promo',
+          id:'p'
+        }
+      }
+    }
+
+    for(let i=0;i<10;i++){
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+8].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+8].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+8].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+8].proceso
+      ){
+        this.lista2[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+8].numeroDentroDeEvento,
+          localidad: 'promo',
+          id:this.localidadCargadaPreferecial.palcos[i+8].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+8].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+8].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+8].disponible
+      ) {
+        this.lista2[i] =  {
+          valor:'v',
+          localidad: 'promo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+8].proceso) {
+        this.lista2[i]= {
+          valor:'p',
+          localidad: 'promo',
+          id:'p'
+        }
+      }
+    }
+
+
+    for(let i=0;i<24;i++){
+      if (
+        !this.localidadCargadaGeneral.palcos[i].vendido &&
+        !this.localidadCargadaGeneral.palcos[i].reservado &&
+        this.localidadCargadaGeneral.palcos[i].disponible &&
+        !this.localidadCargadaGeneral.palcos[i].proceso
+      ){
+        this.lista3[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i].numeroDentroDeEvento,
+          localidad: 'monastery',
+          id:this.localidadCargadaGeneral.palcos[i].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaGeneral.palcos[i].vendido ||
+        this.localidadCargadaGeneral.palcos[i].reservado ||
+        !this.localidadCargadaGeneral.palcos[i].disponible
+      ) {
+        this.lista3[i] =  {
+          valor:'v',
+          localidad: 'monastery',
+          id:'v'
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+        this.lista3[i]= {
+          valor:'p',
+          localidad: 'monastery',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i].proceso
+      ){
+        this.lista4[i] = {
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIPPiso1.palcos[i].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i].disponible
+      ) {
+        this.lista4[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i].proceso) {
+        this.lista4[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].vendido &&
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].reservado &&
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i].disponible &&
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].proceso
+      ){
+        this.lista5[i] = {
+          valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i].numeroDentroDeEvento,
+          localidad: 'fumeteo',
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i].id
+          
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i].vendido ||
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i].reservado ||
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].disponible
+      ) {
+        this.lista5[i] =  {
+          valor:'v',
+          localidad: 'fumeteo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasGeneralPiso2.palcos[i].proceso) {
+        this.lista5[i]= {
+          valor:'p',
+          localidad: 'fumeteo',
+          id:'p'
+        }
+      }
+      
+
+    }
+    
+
+  }
 
 seleccionarTicketExacto(item){
 
