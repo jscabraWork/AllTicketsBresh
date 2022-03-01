@@ -44,10 +44,10 @@ img {
   color: white;
   float: left;
   font-weight: bold;
-  line-height: 95px;
+  padding-top: 150px;
   cursor: pointer;
+  font-size: 12px;
 }
-
 
 .vacaxiones:hover{
   background-color: rgb(121, 16, 60);
@@ -67,7 +67,7 @@ img {
   width: 596px;
   height: 380px;
   margin-left: 110px;
-  float: left;
+  
 }
 .map22fila1{
   margin-left: 92px;
