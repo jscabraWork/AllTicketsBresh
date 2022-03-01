@@ -835,71 +835,19 @@ ccDeBusqueda:string
   cargarLocalidadEnMapa22() {
 
     for(let i=0;i<8;i++){
-      if (
-        !this.localidadCargadaPreferecial.palcos[i].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i].reservado &&
-        this.localidadCargadaPreferecial.palcos[i].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i].proceso
-      ){
-        this.lista1[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
-          localidad: 'promo',
-          id:this.localidadCargadaPreferecial.palcos[i].id
-        }
-      }
-      
-      else if (
-        this.localidadCargadaPreferecial.palcos[i].vendido ||
-        this.localidadCargadaPreferecial.palcos[i].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i].disponible
-      ) {
-        this.lista1[i] =  {
-          valor:'v',
-          localidad: 'promo',
-          id:'v'
-        }
-      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
-        this.lista1[i]= {
-          valor:'p',
-          localidad: 'promo',
-          id:'p'
-        }
+      this.lista1[i] = {
+        valor:'v',
+        localidad: 'promo',
+        id:'v'
       }
     }
-
     for(let i=0;i<10;i++){
-      if (
-        !this.localidadCargadaPreferecial.palcos[i+8].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+8].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+8].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+8].proceso
-      ){
-        this.lista2[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+8].numeroDentroDeEvento,
-          localidad: 'promo',
-          id:this.localidadCargadaPreferecial.palcos[i+8].id
-        }
-      }
-      
-      else if (
-        this.localidadCargadaPreferecial.palcos[i+8].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+8].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+8].disponible
-      ) {
-        this.lista2[i] =  {
-          valor:'v',
-          localidad: 'promo',
-          id:'v'
-        }
-      } else if (this.localidadCargadaPreferecial.palcos[i+8].proceso) {
-        this.lista2[i]= {
-          valor:'p',
-          localidad: 'promo',
-          id:'p'
-        }
+      this.lista2[i] = {
+        valor:'v',
+        localidad: 'promo',
+        id:'v'
       }
     }
-
 
     for(let i=0;i<24;i++){
       if (
