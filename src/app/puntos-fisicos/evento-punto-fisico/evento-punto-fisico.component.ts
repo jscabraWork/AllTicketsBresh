@@ -724,6 +724,38 @@ ccDeBusqueda:string
             });
         }
 
+        else if (this.evento.mapa == 'mapa1') {
+
+          this.etapaServicio
+            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+            .subscribe((response) => {
+
+              this.etapas = response;
+
+              for (let i = 0; i < this.etapas.length; i += 1) {
+                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                  if (this.etapas[i].localidades[j].nombre == 'Adicta al dolor') {
+                    this.localidadCargadaGeneral = this.etapas[i].localidades[j];
+                  }
+
+                  else if (this.etapas[i].localidades[j].nombre == 'Collar de Perlas') {
+                    this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
+                  }
+                  else if (this.etapas[i].localidades[j].nombre == 'Dias Nublados') {
+                    this.localidadCargadaBoletas = this.etapas[i].localidades[j];
+                  }
+                
+                }
+              }
+  
+
+              this.cargarLocalidadEnMapa1();
+              this.cargadoTodo = true;
+            });
+        }
+
         else if (this.evento.mapa == 'mapa11') {
 
           this.ponerNumerosMapa11();
@@ -786,6 +818,43 @@ ccDeBusqueda:string
 
   manejar(response){
     this.etapas=response
+  }
+
+
+  cargarLocalidadEnMapa1(){
+
+
+    for(let i=0;i<20;i++){
+      if (
+        !this.localidadCargadaGeneral.palcos[i].vendido &&
+        !this.localidadCargadaGeneral.palcos[i].reservado &&
+        this.localidadCargadaGeneral.palcos[i].disponible &&
+        !this.localidadCargadaGeneral.palcos[i].proceso
+      ){
+        this.lista1[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i].numeroDentroDeEvento,
+          localidad: 'oro',
+        }
+      }
+      
+      else if (
+        this.localidadCargadaGeneral.palcos[i].vendido ||
+        this.localidadCargadaGeneral.palcos[i].reservado ||
+        !this.localidadCargadaGeneral.palcos[i].disponible
+      ) {
+        this.lista1[i] =  {
+          valor:'v',
+          localidad: 'oro',
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+        this.lista1[i]= {
+          valor:'p',
+          localidad: 'oro',
+        }
+      }
+    }
+
+
   }
 
   darCantidadDePalcos(localidad:Localidad){
