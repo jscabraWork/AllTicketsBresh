@@ -48,11 +48,11 @@ export class BoletasPuntosFisicosComponent implements OnInit {
       this.dineroTotalBoletas=0
       this.dineroTotalPalcos=0
       for(var i =0; i < this.punto.boletasVendidas.length; i=i+1){
-        this.dineroTotalBoletas = this.dineroTotalBoletas + (this.punto.boletasVendidas[i].precio + this.punto.boletasVendidas[i].servicio + this.punto.boletasVendidas[i].servicio*this.IVA) 
+        this.dineroTotalBoletas = this.dineroTotalBoletas + (this.punto.boletasVendidas[i].precio + this.punto.boletasVendidas[i].servicio + this.punto.boletasVendidas[i].servicioIva) 
       }
   
       for(var i =0; i < this.punto.palcosVendidos.length; i=i+1){
-        this.dineroTotalPalcos = this.dineroTotalPalcos + (this.punto.palcosVendidos[i].precio + this.punto.palcosVendidos[i].servicio + this.punto.palcosVendidos[i].servicio*this.IVA) 
+        this.dineroTotalPalcos = this.dineroTotalPalcos + (this.punto.palcosVendidos[i].precio + this.punto.palcosVendidos[i].servicio + this.punto.palcosVendidos[i].servicioIva) 
       }
 
 
