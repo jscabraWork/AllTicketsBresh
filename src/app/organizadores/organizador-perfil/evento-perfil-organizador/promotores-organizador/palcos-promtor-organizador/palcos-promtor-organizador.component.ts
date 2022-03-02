@@ -69,7 +69,7 @@ export class PalcosPromtorOrganizadorComponent implements OnInit {
        this.promotor = response
        this.serviceEvento.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
         let boletas: Boleta[] = this.promotor.boletasVendidas
-        for(let j=0; boletas.length;j++){
+        for(let j=0; boletas.length>j;j++){
           if(boletas[j].nombreEvento==this.evento.nombre){
             this.boletas.push(boletas[j])
           }
