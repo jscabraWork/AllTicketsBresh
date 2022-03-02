@@ -49,11 +49,15 @@ if(!this.usuario.correo.includes(" "))
   {
 
     if(this.confimarcionDocumento==this.usuario.numeroDocumento){
+
+
+   if(!this.usuario.numeroDocumento.includes(" ") && !this.usuario.numeroDocumento.includes(".")){   
     var md5 = new Md5()
 
     var contra = this.usuario.contrasena;
     this.usuario.contrasena = md5.appendStr(contra).end().toString();
     this.usuario.usuario = this.usuario.correo
+    
     this.service.createCliente(this.usuario).subscribe(response=>{
 
       response
@@ -69,6 +73,12 @@ if(!this.usuario.correo.includes(" "))
     
     )
   
+
+    }
+    else{
+      alert("El número de documento no puede contener espacios ni puntos")
+    }
+
 
   }
   else{
