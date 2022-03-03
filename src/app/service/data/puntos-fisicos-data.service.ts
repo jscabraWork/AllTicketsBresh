@@ -19,7 +19,10 @@ export class PuntosFisicosDataService {
     return this.http.get<PuntoFisico>(`${API_URL}/puntosFisicos/${pId}`)
   }
 
-
+  getPuntoPorIdEvento(pId)
+  {
+    return this.http.get<PuntoFisico[]>(`${API_URL}/puntosFisicos/evento/${pId}`)
+  }
   getPuntoPorUsuario(pUsuario)
   {
     return this.http.get<PuntoFisico>(`${API_URL}/puntosFisicos/usuario/${pUsuario}`)

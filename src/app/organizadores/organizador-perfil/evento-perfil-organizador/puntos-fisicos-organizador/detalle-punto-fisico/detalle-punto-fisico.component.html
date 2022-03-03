@@ -1,0 +1,119 @@
+<div id="prueba">	
+    <h1><strong>Ventas del punto {{punto?.nombre}} en el evento {{evento?.nombre}}</strong></h1> 
+</div>
+<div class="container-fluid">
+<div class="row">
+    <div class="col-12 mt-3">
+        <h5><strong>Total tickets: </strong>{{totalBoletas}}</h5>
+        <h5><strong>Total palcos: </strong>{{totalPalcos}}</h5>
+    </div>
+</div>
+</div>
+
+
+<div id="desplazate">
+    <p>
+      <--- Desplázate para ver toda la información --->
+    </p>
+</div>
+
+
+
+<section class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-12 esconder">
+        <table
+          class="tabla table mt-3 border rounded tabla"
+          style="text-align: center"
+        >
+          <thead>
+            <tr class="border">
+                <th class="border">Tipo</th>
+              <th class="border">Numero Del palco o Boleta</th>
+              <th class="border">Precio del producto</th>
+              <th class="border">Dinero pagado del palco</th>
+              <th class="border">Cantidad personas a asistir</th>
+          
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let palco of punto?.palcosVendidos; let i =index">
+                <td class="border">
+                    <strong>Palco</strong>
+                  </td>
+              <td class="border">
+                <strong>{{ palco?.numeroDentroDeEvento }}</strong>
+              </td>
+        
+              <td class="border">
+                <strong>{{ palco?.precio|currency:'COP' }}</strong>
+              </td>
+              <td class="border">
+                <strong>{{ dineroRecaudadoPalcos(palco) |currency:'COP' }}</strong>
+              </td>
+              <td class="border">
+                <strong>{{ palco?.personasMaximas}}</strong>
+              </td>
+            </tr>
+            <tr *ngFor="let palco of punto?.palcosCanjeados; let i =index">
+                <td class="border">
+                    <strong>Palco</strong>
+                  </td>
+                <td class="border">
+                  <strong>{{ palco?.numeroDentroDeEvento }}</strong>
+                </td>
+          
+                <td class="border">
+                  <strong>{{ palco?.precio|currency:'COP' }}</strong>
+                </td>
+                <td class="border">
+                  <strong>{{ dineroRecaudadoPalcos(palco) |currency:'COP' }}</strong>
+                </td>
+                <td class="border">
+                  <strong>{{ palco?.personasMaximas}}</strong>
+                </td>
+              </tr>
+
+              <tr *ngFor="let boleta of punto?.boletasVendidas; let i =index">
+                <td class="border">
+                    <strong>Ticket</strong>
+                  </td>
+                <td class="border">
+                  <strong>{{ boleta?.id }}</strong>
+                </td>
+          
+                <td class="border">
+                  <strong>{{ boleta?.precio|currency:'COP' }}</strong>
+                </td>
+                <td class="border">
+                  <strong>NA</strong>
+                </td>
+                <td class="border">
+                  <strong>1</strong>
+                </td>
+              </tr>
+              <tr *ngFor="let boleta of punto?.boletasCanjeadas; let i =index">
+                <td class="border">
+                    <strong>Ticket</strong>
+                  </td>
+                <td class="border">
+                  <strong>{{ boleta?.id }}</strong>
+                </td>
+          
+                <td class="border">
+                  <strong>{{ boleta?.precio|currency:'COP' }}</strong>
+                </td>
+                <td class="border">
+                  <strong>NA</strong>
+                </td>
+                <td class="border">
+                  <strong>1</strong>
+                </td>
+              </tr>
+             
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  

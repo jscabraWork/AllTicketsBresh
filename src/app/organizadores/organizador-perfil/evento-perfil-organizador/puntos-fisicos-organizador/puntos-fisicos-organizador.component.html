@@ -1,0 +1,49 @@
+<div id="prueba">
+			
+			
+    <h1><strong>Puntos Fisicos del Evento {{evento.nombre}}</strong></h1> 
+    
+
+    
+    
+</div>
+
+
+
+<div id="desplazate">
+    <p>
+      <--- Desplázate para ver toda la información --->
+    </p>
+  </div>
+<section class="container-fluid mt-5">
+  
+    
+
+    <div class="row">
+        <div class="col-12 esconder">
+            <table class="tabla table mt-3 border rounded tabla"  style="text-align: center;">
+                <thead>
+                    <tr class="border ">
+                        
+                        <th class="border">Id</th>
+                        <th class="border ">Nombre</th>
+                        <th class="border ">Ver ventas</th>           
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let punto of puntos; let i =index"  >
+                       
+                        <td class="border"><strong>{{punto?.numeroDocumento }}</strong></td>
+                        <td class="border"> <strong>{{punto?.nombre}}</strong></td> 
+                        <td class="border"><button class="btn action_button"routerLink="{{punto.numeroDocumento}}" >Ver Ventas</button></td>  
+    
+                    </tr>
+
+                </tbody>
+            
+            </table>
+        </div>    
+</div>    
+
+
+</section>
