@@ -30,7 +30,7 @@ export class RegistrarseComponent implements OnInit {
       contrasena:null,
       celular:null,
       correo:null,
-        direccion:null,
+        
         publicidad:false,
         boletas:[],
         palcos:[]

@@ -33,7 +33,7 @@ export class UsuarioPerfilComponent implements OnInit {
       contrasena:"",
       celular:null,
       correo:"",
-        direccion:"",
+        
         publicidad:null,
         boletas:[],
         palcos:[]

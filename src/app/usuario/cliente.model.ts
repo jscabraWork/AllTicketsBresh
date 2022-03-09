@@ -11,7 +11,7 @@ export interface Cliente {
 
     celular:string,
 	correo:string,
-    direccion:string,
+    
     publicidad: boolean,
     boletas:Boleta[],
     palcos:Palco[]

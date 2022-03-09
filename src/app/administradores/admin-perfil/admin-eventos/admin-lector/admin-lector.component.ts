@@ -224,7 +224,7 @@ export class AdminLectorComponent implements OnInit {
       celular: null,
       contrasena: null,
       correo: null,
-      direccion: null,
+      
       nombre: null,
       numeroDocumento: null,
       palcos: [],
@@ -241,7 +241,7 @@ export class AdminLectorComponent implements OnInit {
       celular: null,
       contrasena: null,
       correo: null,
-      direccion: null,
+      
       nombre: null,
       numeroDocumento: null,
       palcos: [],
@@ -307,7 +307,7 @@ export class AdminLectorComponent implements OnInit {
       celular: null,
       contrasena: null,
       correo: null,
-      direccion: null,
+      
       nombre: null,
       numeroDocumento: null,
       palcos: [],

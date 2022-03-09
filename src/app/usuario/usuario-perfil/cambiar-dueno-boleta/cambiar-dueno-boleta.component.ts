@@ -26,7 +26,7 @@ export class CambiarDuenoBoletaComponent implements OnInit {
       celular:null,
       contrasena:null,
       correo:null,
-      direccion:null,
+      
       nombre:null,
       numeroDocumento:null,
       palcos:[],

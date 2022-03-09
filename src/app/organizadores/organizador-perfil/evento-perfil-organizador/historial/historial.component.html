@@ -25,6 +25,7 @@
                 <th class="border">Localidad Venta</th>
                 <th class="border">Fecha de venta</th>
                 <th class="border">Tipo de compra</th>
+                <th class="border">Numero de documento</th>
                 <th class="border">Nombre del Comprador</th>
               <th class="border">Celular del cliente</th>
               <th class="border">Correo del cliente</th>
@@ -64,7 +65,11 @@
                         {{mensajes[i]}}
                     </strong>
                   </td>
-         
+                  <td class="border">
+                    <strong>
+                        {{cliente.numeroDocumento}}
+                    </strong>
+                  </td>
                 <td class="border">
                     <strong>
                         {{cliente.nombre}}
