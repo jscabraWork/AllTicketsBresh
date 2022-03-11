@@ -4,8 +4,8 @@
 <div class="container-fluid">
 <div class="row">
     <div class="col-12 mt-3">
-        <h5><strong>Total tickets: </strong>{{totalBoletas}}</h5>
-        <h5><strong>Total palcos: </strong>{{totalPalcos}}</h5>
+        <h5><strong>Total tickets: </strong>{{darTotalTickets()}}</h5>
+        <h5><strong>Total palcos: </strong>{{darTotalPalcos()}}</h5>
     </div>
 </div>
 </div>
@@ -29,6 +29,7 @@
           <thead>
             <tr class="border">
                 <th class="border">Tipo</th>
+                <th class="border">Localidad</th>
               <th class="border">Numero Del palco o Boleta</th>
               <th class="border">Precio del producto</th>
               <th class="border">Dinero pagado del palco</th>
@@ -38,75 +39,89 @@
           </thead>
           <tbody>
             <tr *ngFor="let palco of punto?.palcosVendidos; let i =index">
-                <td class="border">
+              
+                <td class="border" *ngIf="palco.nombreEvento== this.evento.nombre">
                     <strong>Palco</strong>
                   </td>
-              <td class="border">
+                  <td class="border" *ngIf="palco.nombreEvento== this.evento.nombre">
+                    <strong>{{palco.nombre}}</strong>
+                  </td>
+              <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
                 <strong>{{ palco?.numeroDentroDeEvento }}</strong>
               </td>
         
-              <td class="border">
+              <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
                 <strong>{{ palco?.precio|currency:'COP' }}</strong>
               </td>
-              <td class="border">
+              <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
                 <strong>{{ dineroRecaudadoPalcos(palco) |currency:'COP' }}</strong>
               </td>
-              <td class="border">
+              <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
                 <strong>{{ palco?.personasMaximas}}</strong>
               </td>
+
             </tr>
             <tr *ngFor="let palco of punto?.palcosCanjeados; let i =index">
-                <td class="border">
+              <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
                     <strong>Palco</strong>
                   </td>
-                <td class="border">
+                  <td class="border" *ngIf="palco.nombreEvento== this.evento.nombre">
+                    <strong>{{palco.nombre}}</strong>
+                  </td>
+                  <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
                   <strong>{{ palco?.numeroDentroDeEvento }}</strong>
                 </td>
           
-                <td class="border">
+                <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
                   <strong>{{ palco?.precio|currency:'COP' }}</strong>
                 </td>
-                <td class="border">
+                <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
                   <strong>{{ dineroRecaudadoPalcos(palco) |currency:'COP' }}</strong>
                 </td>
-                <td class="border">
+                <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
                   <strong>{{ palco?.personasMaximas}}</strong>
                 </td>
               </tr>
 
               <tr *ngFor="let boleta of punto?.boletasVendidas; let i =index">
-                <td class="border">
+                <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                     <strong>Ticket</strong>
                   </td>
-                <td class="border">
+                  <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
+                    <strong>{{boleta.localidadNombre}}</strong>
+                  </td>
+                  <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                   <strong>{{ boleta?.id }}</strong>
                 </td>
           
-                <td class="border">
+                <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                   <strong>{{ boleta?.precio|currency:'COP' }}</strong>
                 </td>
-                <td class="border">
+                <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                   <strong>NA</strong>
                 </td>
-                <td class="border">
+                <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                   <strong>1</strong>
                 </td>
               </tr>
               <tr *ngFor="let boleta of punto?.boletasCanjeadas; let i =index">
-                <td class="border">
+                <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                     <strong>Ticket</strong>
                   </td>
-                <td class="border">
+                  <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
+                    <strong>{{boleta.localidadNombre}}</strong>
+                  </td>
+                  <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                   <strong>{{ boleta?.id }}</strong>
                 </td>
           
-                <td class="border">
+                <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                   <strong>{{ boleta?.precio|currency:'COP' }}</strong>
                 </td>
-                <td class="border">
+                <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                   <strong>NA</strong>
                 </td>
-                <td class="border">
+                <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                   <strong>1</strong>
                 </td>
               </tr>
