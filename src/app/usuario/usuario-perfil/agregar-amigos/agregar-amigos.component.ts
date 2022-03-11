@@ -66,7 +66,7 @@ export class AgregarAmigosComponent implements OnInit {
       celular:null,
       contrasena:null,
       correo:null,
-      direccion:null,
+      
       nombre:null,
       numeroDocumento:null,
       palcos:[],
@@ -83,7 +83,7 @@ export class AgregarAmigosComponent implements OnInit {
       contrasena:"",
       celular:null,
       correo:"",
-        direccion:"",
+        
         publicidad:null,
         boletas:[],
         palcos:[]

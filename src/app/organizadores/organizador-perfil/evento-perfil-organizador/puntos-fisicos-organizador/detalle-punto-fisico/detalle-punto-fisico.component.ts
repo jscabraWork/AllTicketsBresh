@@ -91,4 +91,35 @@ export class DetallePuntoFisicoComponent implements OnInit {
    
     return contador;
   }
+
+  darTotalTickets(){
+    let contador =0;
+    for(let i=0;i<this.punto.boletasCanjeadas.length;i++ ){
+      if(this.punto.boletasCanjeadas[i].nombreEvento == this.evento.nombre){
+        contador = contador +1
+      }
+    }
+    for(let i=0;i<this.punto.boletasVendidas.length;i++ ){
+      if(this.punto.boletasVendidas[i].nombreEvento == this.evento.nombre){
+        contador = contador +1
+      }
+    }
+    return contador;
+  }
+
+  
+  darTotalPalcos(){
+    let contador =0;
+    for(let i=0;i<this.punto.palcosCanjeados.length;i++ ){
+      if(this.punto.palcosCanjeados[i].nombreEvento == this.evento.nombre){
+        contador = contador +1
+      }
+    }
+    for(let i=0;i<this.punto.palcosVendidos.length;i++ ){
+      if(this.punto.palcosVendidos[i].nombreEvento == this.evento.nombre){
+        contador = contador +1
+      }
+    }
+    return contador;
+  }
 }

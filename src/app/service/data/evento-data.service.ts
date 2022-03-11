@@ -23,7 +23,9 @@ urlGetOne=`${API_URL}/eventos/`;
     return this.http.get<Evento[]>(this.urlGet+"/visibles");
   }
 
-
+  getAllEventosPuntoFisico(id){
+    return this.http.get<Evento[]>(`${API_URL}/eventos/${id}/pf`);
+  }
   getEventoId(id:string){
     
     return this.http.get(`${API_URL}/eventos/${id}`);
