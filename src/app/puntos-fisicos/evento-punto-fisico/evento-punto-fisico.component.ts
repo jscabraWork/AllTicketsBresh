@@ -900,7 +900,6 @@ ccDeBusqueda:string
     
   }
   
-
   cargarLocalidadEnMapa22() {
 
     for(let i=0;i<8;i++){
@@ -918,31 +917,31 @@ ccDeBusqueda:string
       }
     }
 
-    for(let i=0;i<24;i++){
+    for(let i=0;i<10;i++){
       if (
-        !this.localidadCargadaGeneral.palcos[i].vendido &&
-        !this.localidadCargadaGeneral.palcos[i].reservado &&
-        this.localidadCargadaGeneral.palcos[i].disponible &&
-        !this.localidadCargadaGeneral.palcos[i].proceso
+        !this.localidadCargadaGeneral.palcos[i+1].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+1].reservado &&
+        this.localidadCargadaGeneral.palcos[i+1].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+1].proceso
       ){
         this.lista3[i] = {
-          valor:this.localidadCargadaGeneral.palcos[i].numeroDentroDeEvento,
+          valor:this.localidadCargadaGeneral.palcos[i+1].numeroDentroDeEvento,
           localidad: 'monastery',
-          id:this.localidadCargadaGeneral.palcos[i].id
+          id:this.localidadCargadaGeneral.palcos[i+1].id
         }
       }
       
       else if (
-        this.localidadCargadaGeneral.palcos[i].vendido ||
-        this.localidadCargadaGeneral.palcos[i].reservado ||
-        !this.localidadCargadaGeneral.palcos[i].disponible
+        this.localidadCargadaGeneral.palcos[i+1].vendido ||
+        this.localidadCargadaGeneral.palcos[i+1].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+1].disponible
       ) {
         this.lista3[i] =  {
           valor:'v',
           localidad: 'monastery',
           id:'v'
         }
-      } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+      } else if (this.localidadCargadaGeneral.palcos[i+1].proceso) {
         this.lista3[i]= {
           valor:'p',
           localidad: 'monastery',
@@ -950,30 +949,32 @@ ccDeBusqueda:string
         }
       }
 
+
+
       if (
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i].vendido &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i].reservado &&
-        this.localidadCargadaBoletasVIPPiso1.palcos[i].disponible &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i].proceso
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+1].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+1].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+1].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+1].proceso
       ){
         this.lista4[i] = {
-          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i].numeroDentroDeEvento,
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+1].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+1].id
         }
       }
       
       else if (
-        this.localidadCargadaBoletasVIPPiso1.palcos[i].vendido ||
-        this.localidadCargadaBoletasVIPPiso1.palcos[i].reservado ||
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i].disponible
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+1].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+1].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+1].disponible
       ) {
         this.lista4[i] =  {
           valor:'v',
           localidad: 'oro',
           id:'v'
         }
-      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i].proceso) {
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+1].proceso) {
         this.lista4[i]= {
           valor:'p',
           localidad: 'oro',
@@ -981,43 +982,145 @@ ccDeBusqueda:string
         }
       }
 
+
       if (
-        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].vendido &&
-        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].reservado &&
-        this.localidadCargadaBoletasGeneralPiso2.palcos[i].disponible &&
-        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].proceso
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i+1].vendido &&
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i+1].reservado &&
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i+1].disponible &&
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i+1].proceso
       ){
         this.lista5[i] = {
-          valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i].numeroDentroDeEvento,
+          valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+1].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+1].id
           
         }
       }
       
       else if (
-        this.localidadCargadaBoletasGeneralPiso2.palcos[i].vendido ||
-        this.localidadCargadaBoletasGeneralPiso2.palcos[i].reservado ||
-        !this.localidadCargadaBoletasGeneralPiso2.palcos[i].disponible
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i+1].vendido ||
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i+1].reservado ||
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i+1].disponible
       ) {
         this.lista5[i] =  {
           valor:'v',
           localidad: 'fumeteo',
           id:'v'
         }
-      } else if (this.localidadCargadaBoletasGeneralPiso2.palcos[i].proceso) {
+      } else if (this.localidadCargadaBoletasGeneralPiso2.palcos[i+1].proceso) {
         this.lista5[i]= {
           valor:'p',
           localidad: 'fumeteo',
           id:'p'
         }
       }
+    }
+
+
+    for(let i=0;i<12;i++){
+     
+
+      if (
+        !this.localidadCargadaGeneral.palcos[i+12].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+12].reservado &&
+        this.localidadCargadaGeneral.palcos[i+12].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+12].proceso
+      ){
+        this.lista6[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i+12].numeroDentroDeEvento,
+          localidad: 'monastery',
+          id:this.localidadCargadaGeneral.palcos[i+12].id
+        }
+      }
       
+      else if (
+        this.localidadCargadaGeneral.palcos[i+12].vendido ||
+        this.localidadCargadaGeneral.palcos[i+12].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+12].disponible
+      ) {
+        this.lista6[i] =  {
+          valor:'v',
+          localidad: 'monastery',
+          id:'v'
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i+12].proceso) {
+        this.lista6[i]= {
+          valor:'p',
+          localidad: 'monastery',
+          id:'p'
+        }
+      }
+
+
+      if (
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+12].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+12].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+12].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+12].proceso
+      ){
+        this.lista7[i] = {
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+12].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+12].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+12].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+12].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+12].disponible
+      ) {
+        this.lista7[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+12].proceso) {
+        this.lista7[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+
+      if (
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].vendido &&
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].reservado &&
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].disponible &&
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].proceso
+      ){
+        this.lista8[i] = {
+          valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].numeroDentroDeEvento,
+          localidad: 'fumeteo',
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].id
+          
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].vendido ||
+        this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].reservado ||
+        !this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].disponible
+      ) {
+        this.lista8[i] =  {
+          valor:'v',
+          localidad: 'fumeteo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasGeneralPiso2.palcos[i+12].proceso) {
+        this.lista8[i]= {
+          valor:'p',
+          localidad: 'fumeteo',
+          id:'p'
+        }
+      }
 
     }
     
 
   }
+
 
 seleccionarTicketExacto(item){
 
@@ -2624,7 +2727,12 @@ AbrirCarritoTicket(): void {
     }
 
 
+    seleccionarLocalidadParaPalcoIndividual(id:number) {
+      this.servicioLocalidad.getLocaliddadPorId(id, this.evento.nombre).subscribe((response) => {
 
+        this.abrirTickets(response);
+      })
+    }
 
     
 }

@@ -30,7 +30,7 @@
                 <td >{{orga?.numeroDocumento}}</td>
                 <td >{{orga?.nombre }}</td>
                 <td ><button *ngIf="autenticacion.adminLoggin() " routerLink= '/organizadores/organizador/admin/perfil/{{orga.usuario}}' class="btn btn-success"> Ver Ventas</button></td>
-                <!--<td><button *ngIf="autenticacion.contadorLoggin() " routerLink= 'organizador/perfil/{{orga.usuario}}' class="btn btn-success"> Ver Ventas</button></td>-->
+                <td><button *ngIf="autenticacion.contadorLoggin() " routerLink= 'organizador/perfil/{{orga.usuario}}' class="btn btn-success"> Ver Ventas</button></td>
                 <td ><button routerLink= '/administradores/admin/organizadores/lista/update/{{orga.numeroDocumento}}' class="btn btn-warning"> Modificar</button></td>
                 <td ><button (click)="deleteOrganizador(orga?.numeroDocumento)" class="btn btn-danger"> Borrar</button></td>
     
