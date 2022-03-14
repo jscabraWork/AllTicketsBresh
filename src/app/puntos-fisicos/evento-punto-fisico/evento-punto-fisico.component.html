@@ -34,10 +34,12 @@
         <p *ngIf="evento?.mapa =='mapa3'"><span class="cuadros5 cuadros">#</span> Palcos B</p>
         <p *ngIf="evento?.mapa =='mapa3'"><span class="colorVIP cuadros"></span>VIP</p>
         <p *ngIf="evento?.mapa =='mapa3'"><span class="cuadros4 cuadros"></span>GENERAL</p>
+
         <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros7 cuadros">#</span>PATROCINADORES</p>
         <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros12 cuadros">#</span>MONASTERY</p>
         <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros10 cuadros">#</span>CHIMBITA</p>
         <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros8 cuadros">#</span>FUMETEO</p>
+        <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros">#</span>Boletas Individuales para Palcos</p>
         <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros13 cuadros">#</span>ZONA FRIKI</p>
         <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros14 cuadros">#</span>ZONA JORDAN</p>
         <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros5 cuadros">#</span>VACACIONES ZONA DE MENORES</p>
@@ -49,6 +51,13 @@
         <p *ngIf="evento?.mapa =='mapa1'"><span class="cuadros4 cuadros">#</span>Zona Días Nublados</p>
         <p *ngIf="evento?.mapa =='mapa1'"><span class="cuadros rojo">v</span>Vendido</p>
         <p *ngIf="evento?.mapa =='mapa1'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
+
+        <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadros cuadros10">#</span> PALCOS ALFOMBRA ROJA</p>
+        <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadros5 cuadros">#</span> Palcos DIAMANTE</p>
+        <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadros cuadrosPalcos3">#</span> PLATINO</p>
+        <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadrosPalcos cuadros">#</span> GERENAL</p>
+        <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadros rojo">v</span>Vendido</p>
+        <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
       </div>
     
 
@@ -1290,3 +1299,120 @@
 
   </div>
 </div>
+
+
+
+<div id="desplazate" *ngIf="evento?.mapa=='mapa2'">
+  <p>
+    <-- Desplázate en el mapa -->
+  </p>
+</div>
+<div class="contenedor-mapa mt-5 pb-5" *ngIf="evento?.mapa=='mapa2'">
+
+  <div class="mapa" style="margin: 0px auto;">
+    <div class="tarimamap2">TARIMA</div>
+    <div *ngFor="let item of lista1">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div *ngFor="let item of lista11">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div *ngFor="let item of lista2">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    <div *ngFor="let item of lista3">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div *ngFor="let item of lista12">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div *ngFor="let item of lista4">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    <div *ngFor="let item of lista5">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div *ngFor="let item of lista13">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div *ngFor="let item of lista6">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    <div *ngFor="let item of lista7">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    <div *ngFor="let item of lista8">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    <div *ngFor="let item of lista9">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    <div *ngFor="let item of lista10">
+      <div class="cuadros"
+        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
+        {{item.valor}}
+      </div>
+    </div>
+    <div class="clearFix"></div>
+    <div class="platmap2" (click)="abrirTickets(localidadCargadaBoletas)">PLATINO</div>
+    <div class="clearFix"></div>
+    <div class="generalmap2" (click)="abrirTickets(localidadCargada)">GENERAL</div>
+  </div>
+</div>
+
+

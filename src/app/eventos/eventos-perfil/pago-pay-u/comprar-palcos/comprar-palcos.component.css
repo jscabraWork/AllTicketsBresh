@@ -98,6 +98,40 @@ img {
 .jordanmap22:hover{
   background-color: rgb(10, 78, 44);
 }
+.tarimamap2{
+  margin-left: 94px;
+  width: 455px;
+  height: 72px;
+  background-color: #333;
+  color: white;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.platmap2, .generalmap2{
+  width: 638px;
+  height: 110px;
+  color: white;
+  margin-top: 10px;
+  float: left;
+  font-weight: bold;
+  line-height: 95px;
+  cursor: pointer;
+  margin-left: 3px;
+}
+.platmap2{
+  background-color: rgb(0,93,121);
+}
+.platmap2:hover{
+  background-color: rgb(9, 41, 51);
+}
+.generalmap2{
+  background-color: rgb(1,167,84);
+}
+.generalmap2:hover{
+  background-color: rgb(10, 78, 44);
+}
 .contmap1{
   width: 330px;
 }
