@@ -774,38 +774,7 @@ export class ComprarPalcosComponent implements OnInit {
           });
         }
 
-        else if (this.evento.mapa == 'mapa3') {
-
-          this.ponerNumerosMapa3();
-          this.etapaServicio
-            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-            .subscribe((response) => {
-              this.etapas = response;
-              for (let i = 0; i < this.etapas.length; i += 1) {
-                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
-                  if (
-                    this.etapas[i].localidades[j].nombre == 'Palcos A Main Stage '
-                  ) {
-                    this.localidadCargadaGeneral =
-                      this.etapas[i].localidades[j];
-                  }
-                  else if (this.etapas[i].localidades[j].nombre == 'Palcos B Main Stage') {
-                    this.localidadCargada = this.etapas[i].localidades[j];
-                  }
-                  else if (this.etapas[i].localidades[j].nombre == 'General') {
-                    this.localidadCargadaBoletas = this.etapas[i].localidades[j];
-                  }
-                  else if (this.etapas[i].localidades[j].nombre == 'VIP') {
-                    this.localidadCargadaPreferecial =
-                      this.etapas[i].localidades[j];
-                  }
-                }
-              }
-
-              this.cargarLocalidadEnMapa3();
-              this.cargadoTodo = true;
-            });
-        }
+        
 
 
         
@@ -1482,83 +1451,8 @@ export class ComprarPalcosComponent implements OnInit {
       }
     }
   }
-  ponerNumerosMapa2() {
-
-    for(let i=2;i<5;i++){
-      this.lista1[i-2] = {
-        valor:  i,
-        localidad: 'oro',
-      };
-      this.lista3[i-2] = {
-        valor:  i+7,
-        localidad: 'oro',
-      };
-    }
-
-    for(let i=1;i<3;i++){
-      this.lista2[i-1] = {
-        valor:  i+4,
-        localidad: 'oro',
-      };
-      this.lista4[i-1] = {
-        valor:  i+11,
-        localidad: 'oro',
-      };
-    }
-
-    for(let i=1;i<13;i++){
-      this.lista5[i-1] = {
-        valor:  i+14,
-        localidad: 'oro',
-      };
   
-    }
-
-    for(let i=2;i<12;i++){
- 
-      this.lista6[i-2] = {
-        valor:  i+26,
-        localidad: 'prem',
-      };
-      this.lista7[i-2] = {
-        valor:  i+38,
-        localidad: 'prem',
-      };
-    }
-  }
-  ponerNumerosMapa3() {
-    for(let i=1;i<6;i++){
-      this.lista1[i-1] = {
-        valor: 'A'+ i,
-        localidad: 'oro',
-      };
-
-      this.lista3[i-1] = {
-        valor: 'B'+ i,
-        localidad: 'prem',
-      };
-
-      this.lista2[i-1] = {
-        valor: 'A'+ (i+5),
-        localidad: 'oro',
-      };
-      this.lista4[i-1] = {
-        valor: 'B'+ (i+5),
-        localidad: 'prem',
-      };
-    }
-   for(let i=0;i<5;i++){
   
-    
-
-
-    this.lista5[i-1] = {
-      valor: 'v',
-      localidad: 'prem',
-    }
-   }
-  }
-
   cargarLocalidadEnMapa20() {
 
     for(let i=0;i<26;i++){
