@@ -1,7 +1,7 @@
 <section class="container mt-5">
     <div class="row">
         <div class="col-12">
-            <h1>Lector del evento {{evento.nombre}}</h1>
+            <h1 class="titulo-lector">Lector del evento {{evento.nombre}}</h1>
         </div>
         <div class="col-12">
 
@@ -25,6 +25,7 @@
                 <h5><strong>Personas maximas en el palco: </strong> {{palco?.personasMaximas}}</h5>
                 <h5><strong>Personas adentro del palco: </strong> {{palco?.personasAdentro}}</h5>
                 <h5><strong>Cupos disponibles: </strong> {{palco?.personasMaximas -palco.personasAdentro}}</h5>
+                <h5><strong>Evento: </strong> {{palco?.nombreEvento}}</h5>
                 <div
                     *ngIf="palco.precioParcialPagado >= (palco.precio + palco.servicio + palco.servicioIva) && (palco.personasMaximas != palco.personasAdentro)">
                     <h5>Selecciona el numero de personas que van a ingresar</h5>
@@ -52,6 +53,7 @@
                 <h5><strong>Ticket: </strong> {{boleta?.id}}</h5>
                 <h5><strong>Numero: </strong> {{boleta?.seccionSilla}}</h5>
                 <h5><strong>Localidad: </strong> {{boleta?.localidadNombre}}</h5>
+                <h5><strong>Evento: </strong> {{boleta?.nombreEvento}}</h5>
                 <h5><strong>Personas : </strong>1</h5>
             </div>
 
