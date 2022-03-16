@@ -1967,9 +1967,10 @@ td {
 
 .tarimaMapa21{
   margin-left: 46px;
+  margin-bottom: 20px;
   background-color: #333;
   color: white;
-  width: 180px; 
+  width: 220px;
   height: 60px;
   font-weight: bold;
   font-size: 20px;
