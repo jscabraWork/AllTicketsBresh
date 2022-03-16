@@ -108,7 +108,6 @@
   <p *ngIf="evento?.mapa =='mapa20'"><span class="cuadros4 cuadros">#</span>PALCOS GENERAL</p>
   <p *ngIf="evento?.mapa =='mapa20'"><span class="cuadros cuadrosDF">#</span>General</p>
 
-  <p *ngIf="evento?.mapa =='mapa21'"><span class="cuadros cuadros10">#</span>Primera Fila</p>
   <p *ngIf="evento?.mapa =='mapa21'"><span class="cuadros4 cuadros">#</span>VIP PAMBELE</p>
   <p *ngIf="evento?.mapa =='mapa21'"><span class="cuadros cuadrosDF">#</span>GENERAL LOS TESOS</p>
   
@@ -937,8 +936,11 @@
     <div class="platmap2" (click)="abrirTickets(localidadCargada)">PLATINO</div>
     <div class="clearFix"></div>
     <div class="generalmap2" (click)="abrirTickets(localidadCargadaBoletas)">GENERAL</div>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 816eb0c3f6e08e7090897a26cbc739432eca3b26
   </div>
 </div>
 
@@ -1332,27 +1334,7 @@
   <div class="flotar">
    <div class="tarimaMapa21">TARIMA</div>
 
-    <div *ngFor="let item of lista1">
-      <div class="cuadros"
-        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
-        (click)="agregarPalcoIndividual(item.valor)">
-        {{item.valor}}
-      </div>
-    </div> 
-
-    <div class="clearFix"></div>
-
-    <div *ngFor="let item of lista2">
-      <div class="cuadros"
-        [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
-        (click)="agregarPalcoIndividual(item.valor)">
-        {{item.valor}}
-      </div>
-    </div> 
-    
-    <div class="clearFix"></div>
-
-    <div class="mapa21Vip" (click)="abrirTickets(localidadCargada)">VIP PAMBELE</div>
+    <div class="mapa21Vip" (click)="abrirTickets(localidadCargadaGeneral)">VIP PAMBELE</div>
 
     <div class="clearFix"></div>
 
