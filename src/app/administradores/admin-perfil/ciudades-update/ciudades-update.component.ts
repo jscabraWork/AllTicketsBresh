@@ -21,7 +21,13 @@ export class CiudadesUpdateComponent implements OnInit {
   this.ciudad ={    id: 0,
     nombre:'string',
     imagen:null,
-    temperatura:0};
+    temperatura:0,
+    visible:true
+  }
+    
+    
+    
+    
   this.servicio.getCiudad(this.id).subscribe(response=> this.manejarCiudad(response));
   }
 

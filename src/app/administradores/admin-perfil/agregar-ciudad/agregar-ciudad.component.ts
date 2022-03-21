@@ -19,8 +19,8 @@ export class AgregarCiudadComponent implements OnInit {
       id: -1,
     nombre:'',
     imagen:null,
-    temperatura:-1
-
+    temperatura:-1,
+    visible:true
     }
   }
 

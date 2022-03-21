@@ -4,5 +4,6 @@ export interface Ciudad {
     id: number,
     nombre:string,
     imagen:Foto,
-    temperatura:number
+    temperatura:number,
+    visible:boolean
 }

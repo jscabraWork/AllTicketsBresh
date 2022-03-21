@@ -17,6 +17,9 @@ export class CiudadesDataService {
     return this.http.get(this.url);
   }
 
+  getCiudadesVisibles(){
+    return this.http.get(this.url+"/visibles");
+  }
   getCiudad(id:number)
   {
     return this.http.get<Ciudad>(this.urlGetOne+id);

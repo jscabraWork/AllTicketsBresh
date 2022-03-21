@@ -28,7 +28,7 @@ textoV:boolean=false;
    
  
      
-     this.service.getCiudades().subscribe( response => {this.handleGetSuccesfull(response)}
+     this.service.getCiudadesVisibles().subscribe( response => {this.handleGetSuccesfull(response)}
      , error =>{alert("Ocurrio un error")});
 
   }
