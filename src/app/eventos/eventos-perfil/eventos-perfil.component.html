@@ -1,5 +1,5 @@
 <!--BANNER-->
-<section class="Banner" content="width=device-width m-xs-5">
+<section class="Banner" content="width=device-width m-xs-5" *ngIf="evento?.imagenes != 'undefined'">
 	<div class="row">
 		<div class="col-12">
 			<section id="banner" class="carousel slide" data-ride="carousel">
@@ -116,7 +116,7 @@
 
 
 
-				<p *ngIf="evento?.id!='AT2021-16'"><strong>Fecha de Inicio:</strong> {{evento?.fecha |date}} <strong>Hora:
+				<p *ngIf="evento?.id!='AT2021-16' "><strong>Fecha de Inicio:</strong> {{evento?.fecha |date}} <strong>Hora:
 				</strong>{{evento?.horaInicio| horas}}</p>
 			<p *ngIf="evento?.id!='AT2021-16'"><strong>Fecha de Fin:</strong> {{evento?.fechaFin|date}} <strong>Hora Finalización:
 				</strong>{{evento?.horaFin | horas}}</p>
@@ -334,8 +334,8 @@
 
 
 
-<section class="container-fluid" *ngIf="evento.adicionales.length > 0">
-	<div class="row">
+<section class="container-fluid" *ngIf="evento.adicionales != undefined">
+	<div class="row"  *ngIf="evento.adicionales.length > 0">
 		<div class="col-12 esconder">
 			<table class="table mt-3 border rounded tabla" style="text-align: center;">
 				<thead>

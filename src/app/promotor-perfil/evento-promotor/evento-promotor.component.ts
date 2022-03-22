@@ -49,45 +49,7 @@ export class EventoPromotorComponent implements OnInit {
       eventos:[]
     }
 
-    this.evento ={
-      id: "",
-      nombre:"",
-      fecha:null,
-      descripcion:"",
-      lugar:"",
-      video:"",
-      terminosYCondiciones:"",
-      recomendaciones:"",
-      ciudadIdTexto:null,
-      
-      imagen:null,
-      imagenes:[],
-      artistas:"",
-      fechaFin:null,
-      mapa:null,
-      localidades:[],
-      horaInicio:"",
-      horaFin:"",
-      etapas:[],
-      mapaImagen: {
-        id:null,
-        name:null,
-        url:null
-      },
-      visible:false,
-      soldout:false,
-      mensaje:null,
-      imagenFinal:null,
-      fechaApertura:null,
-      urlMapa:null,
-      adicionales:[],
-      oculto:null,
-      dineroEntregado:null,
-      ciudadNombre:null,
-      localidadesProducto:[],
-      visibleAP:null,
-      terminado:null
-    }
+    this.evento = new Evento();
 
     this.user= this.autenticador.getPromotor()
     this.servicio.getPromotorByUsuario(this.user).subscribe( response=>{

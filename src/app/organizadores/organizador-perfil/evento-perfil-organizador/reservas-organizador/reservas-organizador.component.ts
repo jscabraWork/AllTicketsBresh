@@ -25,42 +25,7 @@ export class ReservasOrganizadorComponent implements OnInit {
   promotores: Promotor[] = [];
   evento: Evento;
   ngOnInit(): void {
-    this.evento = {
-      id: '',
-      nombre: '',
-      fecha: null,
-      descripcion: '',
-      lugar: '',
-      video: '',
-      terminosYCondiciones: '',
-      recomendaciones: '',
-      ciudadIdTexto: null,
-
-      imagen: null,
-      imagenes: [],
-      artistas: '',
-      fechaFin: null,
-      mapa: null,
-      localidades: [],
-
-      horaInicio: null,
-      horaFin: null,
-      etapas: [],
-      mapaImagen: null,
-      visible: false,
-      soldout: false,
-      mensaje: null,
-      imagenFinal: null,
-      fechaApertura: null,
-      urlMapa: null,
-      adicionales: [],
-      oculto: null,
-      dineroEntregado: null,
-      ciudadNombre: null,
-      localidadesProducto:[],
-      visibleAP:null,
-      terminado:null
-    };
+    this.evento = new Evento();
     this.route.paramMap.subscribe((params) => {
       this.miId = params.get('id');
       this.servicioReserva

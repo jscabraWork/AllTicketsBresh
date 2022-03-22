@@ -1,0 +1,88 @@
+.largo{
+    width: 528px;
+    height:192px;
+    border: 1px solid #ccc;
+    
+    
+    
+}
+.pulep,.lugar,.qr, .total{
+    rotate: 270deg;
+    width: 192px;
+    
+}
+.qr img{
+    width:70px;
+    
+}
+.lugar{
+    
+    
+    
+    margin-top: 83px;
+    margin-left: -80px;
+    text-align: left;
+}
+.pulep{
+    margin-top: -135px;
+    margin-left: -30px;
+}
+.pulep p{
+    font-size: 10px;
+}
+.qr{
+    margin-top: 50px;
+    margin-left: -20px;
+}
+.lugar p{
+    font-size: 8px;
+    
+}
+.evento{
+    margin-top: -110px;
+    margin-left: 100px;
+
+}
+.cliente{
+    margin-left: 120px;
+}
+.evento h2{
+    font-size: 20px;
+}
+.evento p,
+.cliente p{
+    font-size: 12px;
+}
+
+.precios{
+    margin-left: 320px;
+    margin-top: -105px;
+}
+.precios p
+{
+    font-size: 8px;
+}
+.precios h3{
+    font-size: 15px;
+}
+.logo{
+    margin-top: -20px;
+    margin-left: 105px;
+}
+.logo img{
+
+    width: 200px;
+    filter: grayscale(100%);
+}
+.total{
+    font-size: 15px;
+    margin-left: 410px;
+    margin-top: -30px;
+}
+.marco{
+    margin-top: -150px;margin-left: 400px;
+}
+.marco img{
+width: 50px;
+
+}

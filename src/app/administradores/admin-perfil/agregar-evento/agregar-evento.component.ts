@@ -25,43 +25,7 @@ export class AgregarEventoComponent implements OnInit {
   ngOnInit(): void {
 
     
-    this.evento ={
-      id: "",
-      nombre:"",
-      fecha:null,
-      descripcion:"",
-      lugar:"",
-      video:"",
-      terminosYCondiciones:"",
-      recomendaciones:"",
-      ciudadIdTexto:null,
-      imagen:null,
-      imagenes:null,
-      artistas:"",
-      fechaFin:null,
-      mapa:null,
-      localidades:[],
-      
-      horaInicio:null,
-      horaFin:null,
-      etapas:[],
-      mapaImagen:null,
-      visible:false,
-      soldout:false,
-      mensaje:null,
-      imagenFinal:null,
-      fechaApertura:null,
-      urlMapa:null,
-      adicionales:[],
-      oculto:null,
-      dineroEntregado:0,
-      ciudadNombre:null,
-      localidadesProducto:[],
-      visibleAP:null,
-      terminado:null
-      
-    }
-
+    this.evento = new Evento();
     
   }
 

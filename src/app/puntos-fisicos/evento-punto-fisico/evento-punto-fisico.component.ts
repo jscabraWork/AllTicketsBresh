@@ -243,42 +243,7 @@ ccDeBusqueda:string
       boletas: [],
       palcos: [],
     };  
-    this.evento ={
-      id: "",
-      nombre:"",
-      fecha:null,
-      descripcion:"",
-      lugar:"",
-      video:"",
-      terminosYCondiciones:"",
-      recomendaciones:"",
-      ciudadIdTexto:null,
-
-      imagen:null,
-      imagenes:[],
-      artistas:"",
-      fechaFin:null,
-      mapa:null,
-      localidades:[],
-      
-      horaInicio:null,
-      horaFin:null,
-      etapas:[],
-      mapaImagen:null,
-      visible:false,
-      soldout:false,
-      mensaje:null,
-      imagenFinal:null,
-      fechaApertura:null,
-      urlMapa:null,
-      adicionales:[],
-      oculto:null,
-      dineroEntregado:null,
-      ciudadNombre:null,
-      localidadesProducto:[],
-      visibleAP:null,
-      terminado:null
-    }
+    this.evento = new Evento();
 
     this.localidadCargada = {
       id: null,
@@ -617,7 +582,7 @@ ccDeBusqueda:string
     });
   }
   handle(response){
-    if(response.visible)
+    if(response.visible || response.oculto)
     {
   
       this.evento =response

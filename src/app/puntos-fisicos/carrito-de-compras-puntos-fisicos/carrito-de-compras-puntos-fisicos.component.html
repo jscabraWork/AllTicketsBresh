@@ -59,10 +59,11 @@
             
 
 
-                <button class="btn action_button" *ngIf="boletas" (click)="pagarBoletas()">Pagado</button>
-                <button class="btn action_button" *ngIf="palco.id!=null " (click)="pagarPalco()">Pagado</button>  
+                <button class="btn action_button" *ngIf="boletas && !evento.imprimir" (click)="pagarBoletas()">Pagado</button>
+                <button class="btn action_button" *ngIf="palco.id!=null  && !evento.imprimir" (click)="pagarPalco()">Pagado</button>  
 
-                 
+                <button class="btn action_button" *ngIf="boletas && evento.imprimir" (click)="pagarBoletasImprimir()">Pagado Imprimir</button>
+                <button class="btn action_button" *ngIf="palco.id!=null  && evento.imprimir" (click)="pagarPalco()">Pagado Imprimir</button>  
 
               </div>
             </div>

@@ -125,6 +125,10 @@ comprarPuntoFiscoTicket(referenceCode){
   return this.http.post(`${API_URL}/puntoFisico/tickets/recibir`,referenceCode)
 }
 
+comprarPuntoFiscoTicketImprimir(referenceCode){
+  return this.http.post(`${API_URL}/puntoFisico/tickets/recibir/imprimir`,referenceCode)
+}
+
 asignarBoleta(cedula,idBoleta){
   return this.http.get(`${API_URL}/boleta/asignar/${cedula}/${idBoleta}`)
   

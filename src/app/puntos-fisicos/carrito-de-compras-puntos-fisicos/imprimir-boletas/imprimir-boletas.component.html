@@ -1,0 +1,91 @@
+
+<section class="container-fluid">
+    <div class="row">
+      <div class="col-12 pl-4 pr-4">
+        <div class="row ">
+          <div class="divisionLocalidad col-12 ">
+ 
+  
+            <div class="">
+    
+             <div id="print-section">
+
+              <div class="largo fondoBlanco border " *ngFor="let boleta of boletas, let i = index" >
+
+
+                <div class="largo">
+                  <section class="lugar">
+                           <p><strong>Lugar:</strong><span> {{evento.lugar}}</span> </p>
+                  </section>
+                  <section class="pulep">
+                     <p> <strong> Pulep:</strong> {{evento.id}}</p>
+                  </section>
+                  <section class="qr">
+                      <img src="{{imagenes[i]}}" alt="">
+                  </section>
+                  <section class="evento">
+                      <h2>{{evento.nombre}}</h2>
+                      <p><strong>Localidad:</strong> {{boleta.localidadNombre}}</p>
+                  </section>
+                  <section class="cliente">
+                      <p><strong>Nombre:</strong> {{cliente.nombre}} </p>
+                      <p><strong>Fecha:</strong> {{evento?.fecha |date}}</p>
+                      <p><strong>Hora:</strong> {{evento?.horaInicio}} </p>
+                  </section>
+              
+                  <section class="precios">
+                      <p><strong>Precio:</strong> {{boleta.precio| number: '1.0-0'}} COP </p>
+                      <p><strong>Servicio:</strong> {{boleta.servicio| number: '1.0-0'}} COP</p>
+                      <p><strong>IVA:</strong> {{boleta.servicioIva| number: '1.0-0'}} COP</p>
+                      <h3><strong>No. Ticket:</strong> {{boleta.id}}</h3>
+                  </section>
+                  <section class="logo">
+                      <img src="https://allticketscol.com/assets/images/img/logo2.png" alt="">
+                  </section>
+                  <section class="marco">
+                      <img src="https://images.vexels.com/media/users/3/132303/isolated/preview/96fdf1a7f0eeb89a64ff8629e8651431-herramienta-espiral.png" alt="">
+                  </section>
+                  <section class="total">
+                      <p><strong>TOTAL:</strong> {{boleta.precio +boleta.servicio+boleta.servicioIva| number: '1.0-0'}} COP</p>
+                  </section>
+                 </div>
+
+
+
+
+
+              </div>
+
+              
+            </div>
+  
+  
+              <!-- <div class="col-12 border " *ngIf="palco.id!=null">
+                <h5 class="pt-4 pl-md-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>
+                <h5 class="pl-md-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
+                <h5 class="pl-md-4 "><strong>Palco No:</strong> {{palco.numeroDentroDeEvento}}</h5>
+                <h5 class="pl-md-4"><strong>Personas por palco:</strong> {{palco.personasMaximas}}</h5>
+                <h5 class="pl-md-4 "><strong>Precio: </strong> {{palco?.precio| currency:'COP'}} + <strong>Servicio:
+                  </strong> {{palco?.servicio| currency:'COP'}} + <strong>IVA</strong> {{palco?.servicioIva|currency:'COP'}}</h5>
+                <h5 class="pl-md-4 pb-4"><strong>Valor Total: </strong>{{palco?.precio + palco?.servicio + palco?.servicioIva|currency:'COP'}}</h5>
+              </div> -->
+  
+              <div class="fondoBlanco shadow col-12">
+
+                <div class="pl-md-4 pb-5 mt-3">
+
+  
+                </div>
+              </div>
+  
+  
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button printSectionId="print-section" [useExistingCss]="true" ngxPrint>print</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -10,6 +10,7 @@ import { PalcosDataService } from 'src/app/service/data/palcos-data.service';
 import { PuntosFisicosDataService } from 'src/app/service/data/puntos-fisicos-data.service';
 import { Cliente } from 'src/app/usuario/cliente.model';
 import { PuntoFisico } from '../puntoFisico.model';
+import { ImprimirBoletasComponent } from './imprimir-boletas/imprimir-boletas.component';
 
 @Component({
   selector: 'app-carrito-de-compras-puntos-fisicos',
@@ -55,42 +56,7 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
     
     this.adicional =-1
 
-    this.evento = {
-      id: '',
-      nombre: '',
-      fecha: null,
-      descripcion: '',
-      lugar: '',
-      video: '',
-      terminosYCondiciones: '',
-      recomendaciones: '',
-      ciudadIdTexto: null,
-      
-      imagen: null,
-      imagenes: [],
-      artistas: '',
-      fechaFin: null,
-      mapa: null,
-      localidades: [],
-
-      horaInicio: null,
-      horaFin: null,
-      etapas: [],
-      mapaImagen: null,
-      visible: false,
-      soldout:false,
-      mensaje:null,
-      imagenFinal:null,
-      fechaApertura:null,
-      urlMapa:null,
-      adicionales:[],
-      oculto:null,
-      dineroEntregado:null,
-      ciudadNombre:null,
-      localidadesProducto:[],
-      visibleAP:null,
-      terminado:null
-    };
+    this.evento = new Evento();
 
     this.palco = {
       id: null,
@@ -229,7 +195,44 @@ pagarBoletas(){
 }
 
  
+pagarBoletasImprimir(){
+  if(!this.cargandoPago){
+    this.cargandoPago=true
+  this.servicioBoletas.comprarPuntoFiscoTicketImprimir(this.referenceCode).subscribe(response=>{
+    const dialogRef = this.dialog.open(ImprimirBoletasComponent, {
+      width: '700px;',
+    
+  
+      data: {
+        response:response
+      },
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      this.dialog.closeAll();
+      this.servicioBoletas
+        .rechazarReservaBoletaInstantaneamente(this.boletas)
+        .subscribe((response) => {
+          response;
+          this.ngOnInit();
+        });
+    });
 
+ 
+    
+    this.cargandoPago=false
+    
+  },
+  
+  error=>{
+    error
+    alert("Sucedio un error vuelve a intentar")
+  })
+  }
+  else{
+    alert("Cargando...")
+  }
+}
   }
 
 

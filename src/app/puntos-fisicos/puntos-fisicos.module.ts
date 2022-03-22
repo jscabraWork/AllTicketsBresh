@@ -18,6 +18,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { CountdownModule } from 'ngx-countdown';
 import { CantidadBoletasPuntoFisicoComponent } from './cantidad-boletas-punto-fisico/cantidad-boletas-punto-fisico.component';
+import { ImprimirBoletasComponent } from './carrito-de-compras-puntos-fisicos/imprimir-boletas/imprimir-boletas.component';
+import { NgxPrintModule } from 'ngx-print';
+
+
 
 
 
@@ -45,7 +49,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[  PuntosFisicosComponent, EventoPuntoFisicoComponent, CarritoDeComprasPuntosFisicosComponent, CantidadBoletasPuntoFisicoComponent],
+    declarations:[  PuntosFisicosComponent, EventoPuntoFisicoComponent, CarritoDeComprasPuntosFisicosComponent, CantidadBoletasPuntoFisicoComponent, ImprimirBoletasComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 
@@ -54,6 +58,7 @@ const routes: Routes=[
         ReactiveFormsModule,
         MatIconModule,
         CountdownModule,
+        NgxPrintModule
     ]
 
 })
