@@ -6,7 +6,7 @@
           <div class="divisionLocalidad col-12 ">
  
   
-            <div class="">
+            <!-- <div class="">
     
              <div id="print-section">
 
@@ -60,7 +60,7 @@
             </div>
   
   
-              <!-- <div class="col-12 border " *ngIf="palco.id!=null">
+               <div class="col-12 border " *ngIf="palco.id!=null">
                 <h5 class="pt-4 pl-md-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>
                 <h5 class="pl-md-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
                 <h5 class="pl-md-4 "><strong>Palco No:</strong> {{palco.numeroDentroDeEvento}}</h5>
@@ -68,7 +68,7 @@
                 <h5 class="pl-md-4 "><strong>Precio: </strong> {{palco?.precio| currency:'COP'}} + <strong>Servicio:
                   </strong> {{palco?.servicio| currency:'COP'}} + <strong>IVA</strong> {{palco?.servicioIva|currency:'COP'}}</h5>
                 <h5 class="pl-md-4 pb-4"><strong>Valor Total: </strong>{{palco?.precio + palco?.servicio + palco?.servicioIva|currency:'COP'}}</h5>
-              </div> -->
+              </div> 
   
               <div class="fondoBlanco shadow col-12">
 
@@ -79,11 +79,31 @@
               </div>
   
   
-            </div>
+            </div> -->
           </div>
 
           <div class="col-12">
-            <button printSectionId="print-section" [useExistingCss]="true" ngxPrint>print</button>
+            <div class="content" role="main">
+
+              <div style="text-align:center">
+                <h2>Imprimir</h2>
+                <fieldset>
+                <legend>Client Printer:</legend>
+
+                <div id="installedPrinters">
+                  <label for="installedPrinterName">Select an installed Printer:</label>
+                  <select name="printer" id="printer" [(ngModel)]="selectedPrinter">
+                        <option disabled [ngValue]="undefined">Select printer</option>
+                        <option *ngFor="let printer of printers" [ngValue]="printer">{{ printer }}</option>
+                      </select>
+                </div>
+              </fieldset>
+                <br /><br />
+               <strong>OR</strong>&nbsp;<button (click)="doPrintPDF()">Print boletas</button>
+            </div>
+            
+            
+            </div>
           </div>
         </div>
       </div>

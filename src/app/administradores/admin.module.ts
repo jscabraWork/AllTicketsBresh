@@ -68,7 +68,7 @@ import { AdminCoordinadoresComponent } from './admin-perfil/admin-coordinadores/
 import { AgregarCoordinadorComponent } from './admin-perfil/admin-coordinadores/agregar-coordinador/agregar-coordinador.component';
 import { UpdateCoordinadorComponent } from './admin-perfil/admin-coordinadores/update-coordinador/update-coordinador.component';
 import { AgregarCuponComponent } from './admin-perfil/admin-eventos/admin-localidades/agregar-cupon/agregar-cupon.component';
-import { NgxPrintModule } from 'ngx-print';
+
 
 
 
@@ -355,8 +355,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     MatIconModule,
-    MatDialogModule,
-    NgxPrintModule
+    MatDialogModule
     
   ]
 

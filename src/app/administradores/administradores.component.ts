@@ -1,7 +1,7 @@
 import { AdministradoresWebDataService } from './../service/data/administradores-web-data.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {NgxPrintModule} from 'ngx-print';
+
 @Component({
   selector: 'app-administradores',
   templateUrl: './administradores.component.html',

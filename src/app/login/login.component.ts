@@ -34,13 +34,14 @@ export class LoginComponent implements OnInit {
 
   
   handleLogin(){
-    if(!this.usuario.usuario.includes(" ")){
+  
+    
     if(this.usuario.usuario==null || this.usuario.contrasena==null){
       alert('Username o Password vacios');
       return;
     }
 
-
+    this.usuario.usuario=this.usuario.usuario.trim();
     this.auth.login(this.usuario).subscribe(response => {
 
       this.auth.guardarUsuario(response.access_token);
@@ -59,10 +60,8 @@ export class LoginComponent implements OnInit {
     this.invalidLogin =true;
   }
   );
-}
-else{
-  alert('No se permiten espacios en el nombre de usuario');
-}
+
+
   }
   olvidoContrasenia(){
     const dialogRef = this.dialog.open(OlvidoComponent, {

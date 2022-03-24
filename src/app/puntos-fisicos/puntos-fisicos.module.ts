@@ -19,7 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CountdownModule } from 'ngx-countdown';
 import { CantidadBoletasPuntoFisicoComponent } from './cantidad-boletas-punto-fisico/cantidad-boletas-punto-fisico.component';
 import { ImprimirBoletasComponent } from './carrito-de-compras-puntos-fisicos/imprimir-boletas/imprimir-boletas.component';
-import { NgxPrintModule } from 'ngx-print';
+
 
 
 
@@ -40,6 +40,10 @@ const routes: Routes=[
             path:':user/evento/:id',
             component: EventoPuntoFisicoComponent
         },
+        {
+            path:':user/evento/:id/imprimir',
+            component: ImprimirBoletasComponent
+        },
              
       ]
 }
@@ -58,7 +62,7 @@ const routes: Routes=[
         ReactiveFormsModule,
         MatIconModule,
         CountdownModule,
-        NgxPrintModule
+        
     ]
 
 })
