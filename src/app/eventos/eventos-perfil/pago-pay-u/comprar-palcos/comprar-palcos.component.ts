@@ -1549,16 +1549,22 @@ export class ComprarPalcosComponent implements OnInit {
         }
       }
 
+      this.lista13[i] = {
+        valor:'v',
+        localidad: 'promo',
+        id:'v'
+      }
+
       if (
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+9].vendido &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+9].reservado &&
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+9].disponible &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+9].proceso
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+2].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+2].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+2].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+2].proceso
       ){
         this.lista10[i] = {
-          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+9].numeroDentroDeEvento,
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+2].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+9].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+2].id
         }
       }
       

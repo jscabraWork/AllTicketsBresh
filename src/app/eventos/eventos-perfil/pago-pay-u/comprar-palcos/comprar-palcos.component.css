@@ -1635,6 +1635,7 @@ td {
 .rojo {
   background-color: red;
   cursor: auto;
+  color: white;
 }
 .rojo:hover {
   background-color: red !important;
@@ -1642,6 +1643,7 @@ td {
 .amarillo {
   background-color: rgb(255, 153, 0);
   cursor: auto;
+  color: white;
 }
 
 .amarillo:hover {
