@@ -4,10 +4,10 @@ main{
     display: grid;
 }
 .row-1{
-    height: 40%;
+    height: 100%;
 }
 .row-2{
-    height: 60%;
+    height: 100%;
 }
 .row-2 img {
     height: 13em;
@@ -99,7 +99,17 @@ h3{
     border-radius: 50px 0px 0px 50px;
     box-shadow: #2c2933 -1px 8px 14px;
 }
-
+.dashb{
+    color: #ed701c !important;
+    font-weight: bold;
+    font-size: 20px;
+}
+.dashb:hover{
+    cursor: default;
+    background: #102438 !important;
+    border-radius: 50px 0px 0px 50px;
+    box-shadow: none !important;
+}
 .infoDate {
     padding: 10px 20px;
     width: 100%;
@@ -143,7 +153,23 @@ h3{
 }
 
 @media(max-width: 624px) {
-   
+    .flex-column{
+        padding-left: 0 !important;
+    }
+    .row{
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .row-1,.row-2{
+        min-width: 320px !important;
+    }
+    .mobileres{
+        height: auto;
+    }
+    .col-md-9{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
     .menu-cards a {
         padding: 10px;
         width: 100%;
@@ -154,5 +180,16 @@ h3{
     }
     .menu-cards a:hover {
         background-color: #e6e6e6;
+    }
+    .dashb{
+        color: #ed701c !important;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    .dashb:hover{
+        cursor: default;
+        background: #102438 !important;
+        border-radius: 50px 0px 0px 50px;
+        box-shadow: none !important;
     }
 }

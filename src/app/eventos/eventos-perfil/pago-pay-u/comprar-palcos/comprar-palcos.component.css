@@ -39,7 +39,7 @@ img {
 }
 .vacaxiones{
   width: 80px;
-  height: 370px;
+  height: 330px;
   background-color: rgb(187, 0, 131);
   color: white;
   float: left;
@@ -64,16 +64,26 @@ img {
   align-items: center;
 }
 .cajaPrueba22{
-  width: 596px;
-  height: 380px;
+  width: 515px;
+  height: 332px;
   margin-left: 110px;
-  
+}
+.caja2mapa22{
+  width: 375px;
+  height: 50px;
+  margin-left: 46px;
+}
+.caja3mapa22{
+  width: 555px;
+  height: 50px;
+  margin-top: -90px;
 }
 .map22fila1{
   margin-left: 92px;
 }
 .map22fila2{
   margin-left: 46px;
+  margin-top: -50px;
 }
 .frikimap22, .jordanmap22{
   width: 547px;
