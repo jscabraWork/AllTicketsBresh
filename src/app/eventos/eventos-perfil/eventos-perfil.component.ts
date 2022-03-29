@@ -32,6 +32,7 @@ export class EventosPerfilComponent implements OnInit {
   time:Time =null;
   mapaV:boolean
   organizadorId
+  pulep:boolean=false;
 
   constructor(private route: ActivatedRoute, private dialog: MatDialog, private service:EventoDataService, private sanitizer: DomSanitizer,private servicioCiudad: CiudadesDataService ,private etapaServicio:EtapasDataService) { }
 
@@ -122,6 +123,9 @@ handleGetSuccesfull(response){
   if(response.evento.visible || response.evento.oculto){
     
   this.evento=response.evento;
+  if(!this.evento.id.includes('AT202')){
+    this.pulep = true
+  }
   this.organizadorId = response.organizadorId
 
 }
