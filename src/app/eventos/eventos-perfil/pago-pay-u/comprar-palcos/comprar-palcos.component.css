@@ -48,7 +48,59 @@ img {
   cursor: pointer;
   font-size: 12px;
 }
-
+.chillmapa5{
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+  width: 175px !important;
+}
+.chillmapa51{
+  height: 43px !important;
+  margin-bottom: 0 !important;
+}
+.tarimamapa5dj{
+  margin-left: 49px;
+  margin-top: 6px;
+  width: 283px;
+  height: 75px;
+  background-color: #333;
+  color: white;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pistamapa5{
+  width: 400px;
+  display: flex;
+  position: relative;
+  margin-top: -45px;
+}
+.mesasmapa5{
+  position: absolute;
+  left: 163px;
+  top: 42px;
+}
+.sincroindividualt{
+  width: 284px;
+  height: 200px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 32px;
+}
+.sincroindividualb{
+  width: 376px;
+  height: 85px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-top: 0px;
+}
+.nmtop{
+  margin-top: 0 !important;
+}
+.filaspalcos{
+  display: flex;
+  flex-flow: column;
+}
 .vacaxiones:hover{
   background-color: rgb(121, 16, 60);
 }
