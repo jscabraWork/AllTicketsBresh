@@ -815,7 +815,7 @@ export class ComprarPalcosComponent implements OnInit {
                     this.localidadCargadaGeneral = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'CAMAS SINCRODESTINO') {
+                  else if (this.etapas[i].localidades[j].nombre == 'SOFAS SINCRODESTINO') {
                     this.localidadCargadaBoletas = this.etapas[i].localidades[j];
                   } 
 
@@ -825,6 +825,9 @@ export class ComprarPalcosComponent implements OnInit {
 
                   else if (this.etapas[i].localidades[j].nombre == 'SINCRODESTINO INDIVIDUAL') {
                     this.localidadCargadaBoletasGeneralPiso2 = this.etapas[i].localidades[j]; 
+                  }
+                  else if (this.etapas[i].localidades[j].nombre == 'Early') {
+                    this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j]; 
                   }
                 }
               }

@@ -126,6 +126,7 @@ handleGetSuccesfull(response){
   if(!this.evento.id.includes('AT202')){
     this.pulep = true
   }
+  
   this.organizadorId = response.organizadorId
 
 }
