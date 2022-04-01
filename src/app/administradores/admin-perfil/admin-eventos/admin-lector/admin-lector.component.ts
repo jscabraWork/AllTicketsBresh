@@ -39,7 +39,8 @@ export class AdminLectorComponent implements OnInit {
   buscarNumeroCC: string;
   ngOnInit(): void {
     this.reiniciar();
-
+    this.mensaje=""
+    this.texto=""
     this.evento = new Evento();
     this.route.paramMap.subscribe((params) => {
       this.miId = params.get('id');
@@ -326,7 +327,9 @@ export class AdminLectorComponent implements OnInit {
     };
     this.clienteService.getClientePorId(this.buscarNumeroCC).subscribe(
       (response) => {
+        
         this.clienteBuscar = response;
+        console.log(this.clienteBuscar)
         if (response == null) {
           alert('No encontramos esta cedula en nuestra base de datos');
         }

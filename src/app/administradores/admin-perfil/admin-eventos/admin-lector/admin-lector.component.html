@@ -10,7 +10,7 @@
             <form (ngSubmit)="manejar()" #todoForm="ngForm">
                 <fieldset class="form-group">
                     <label for="servicio">Texto Lectura</label>
-                    <input type="text" class="form-control"  required="required" [(ngModel)]="texto">
+                    <input type="text" class="form-control"  required="required" [(ngModel)]="texto" [ngModelOptions]="{standalone: true}">
                 </fieldset>
                 <button class="btn btn-success" type="submit">Buscar</button>
             </form>
@@ -93,14 +93,15 @@
 
 
             <div *ngIf="clienteBuscar?.numeroDocumento!=null &&clienteBuscar!=null">
-                <div>
-                    <div >
+                <div *ngFor="let boleta of clienteBuscar?.boletas"> 
+                    <div *ngIf="boleta.nombreEvento==evento.nombre" >
                         <h5 style="color:#ff2700; font-size:25px;" *ngIf="boleta.utilizada"> Ticket Utilizado</h5>
                         <h5 style="color:#ff2700; font-size:25px;" *ngIf="!boleta.utilizada"> Ticket Valido</h5>
                         <h4>TICKET</h4>
                         <h5><strong>Ticket: </strong> {{boleta?.id}}</h5>
-                        <h5><strong>Numero: </strong> {{boleta?.seccionSilla}}</h5>
+                        <h5 *ngIf="boleta?.seccionSilla"><strong>Numero: </strong> {{boleta?.seccionSilla}}</h5>
                         <h5><strong>Localidad: </strong> {{boleta?.localidadNombre}}</h5>
+                        <h5><strong>Evento: </strong> {{boleta?.nombreEvento}}</h5>
                         <h5><strong>Personas : </strong>1</h5>
                         <button *ngIf="!boleta.utilizada" class="btn btn-success" type="submit"
                             (click)="marcarComoUtilizada(boleta)">Utilizar</button>
