@@ -2546,7 +2546,7 @@ export class ComprarPalcosComponent implements OnInit {
       }
     }
 
-    for(let i=0;i<24;i++){
+    for(let i=0;i<16;i++){
       
       if (
         !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].vendido &&
