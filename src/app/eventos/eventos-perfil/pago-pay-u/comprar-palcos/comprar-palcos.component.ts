@@ -947,6 +947,10 @@ export class ComprarPalcosComponent implements OnInit {
                     this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
                   }
 
+                  else if (this.etapas[i].localidades[j].nombre == 'PALCOS INDIVIDUALES') {
+                    this.localidadCargada = this.etapas[i].localidades[j];
+                  }
+
                   else if (this.etapas[i].localidades[j].nombre == 'PREFERENCIAL') {
                     this.localidadCargadaBoletas = this.etapas[i].localidades[j];
                   }
@@ -1973,7 +1977,8 @@ export class ComprarPalcosComponent implements OnInit {
 
   cargarLocalidadEnMapa23() {
 
-    for(let i=0;i<4;i++){
+    
+    for(let i=0;i<5;i++){
       if (
         !this.localidadCargadaPreferecial.palcos[i].vendido &&
         !this.localidadCargadaPreferecial.palcos[i].reservado &&
@@ -2006,62 +2011,59 @@ export class ComprarPalcosComponent implements OnInit {
       }
       
       if (
-        !this.localidadCargadaPreferecial.palcos[i+4].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+4].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+4].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+4].proceso
+        !this.localidadCargadaPreferecial.palcos[i+5].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+5].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+5].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+5].proceso
       ){
         this.lista2[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+4].numeroDentroDeEvento,
+          valor:this.localidadCargadaPreferecial.palcos[i+5].numeroDentroDeEvento,
           localidad: 'monastery',
-          id:this.localidadCargadaPreferecial.palcos[i+4].id
+          id:this.localidadCargadaPreferecial.palcos[i+5].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i+4].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+4].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+4].disponible
+        this.localidadCargadaPreferecial.palcos[i+5].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+5].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+5].disponible
       ) {
         this.lista2[i] =  {
           valor:'v',
           localidad: 'monastery',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+4].proceso) {
+      } else if (this.localidadCargadaPreferecial.palcos[i+5].proceso) {
         this.lista2[i]= {
           valor:'p',
           localidad: 'monastery',
           id:'p'
         }
       }
-    }
-
-    for(let i=0;i<5;i++){
       if (
-        !this.localidadCargadaPreferecial.palcos[i+8].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+8].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+8].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+8].proceso
+        !this.localidadCargadaPreferecial.palcos[i+10].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+10].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+10].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+10].proceso
       ){
         this.lista3[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+8].numeroDentroDeEvento,
+          valor:this.localidadCargadaPreferecial.palcos[i+10].numeroDentroDeEvento,
           localidad: 'monastery',
-          id:this.localidadCargadaPreferecial.palcos[i+8].id
+          id:this.localidadCargadaPreferecial.palcos[i+10].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i+8].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+8].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+8].disponible
+        this.localidadCargadaPreferecial.palcos[i+10].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+10].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+10].disponible
       ) {
         this.lista3[i] =  {
           valor:'v',
           localidad: 'monastery',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+8].proceso) {
+      } else if (this.localidadCargadaPreferecial.palcos[i+10].proceso) {
         this.lista3[i]= {
           valor:'p',
           localidad: 'monastery',
@@ -2070,29 +2072,29 @@ export class ComprarPalcosComponent implements OnInit {
       }
       
       if (
-        !this.localidadCargadaPreferecial.palcos[i+13].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+13].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+13].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+13].proceso
+        !this.localidadCargadaPreferecial.palcos[i+15].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+15].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+15].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+15].proceso
       ){
         this.lista4[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+13].numeroDentroDeEvento,
+          valor:this.localidadCargadaPreferecial.palcos[i+15].numeroDentroDeEvento,
           localidad: 'monastery',
-          id:this.localidadCargadaPreferecial.palcos[i+13].id
+          id:this.localidadCargadaPreferecial.palcos[i+15].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i+13].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+13].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+13].disponible
+        this.localidadCargadaPreferecial.palcos[i+15].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+15].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+15].disponible
       ) {
         this.lista4[i] =  {
           valor:'v',
           localidad: 'monastery',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+13].proceso) {
+      } else if (this.localidadCargadaPreferecial.palcos[i+15].proceso) {
         this.lista4[i]= {
           valor:'p',
           localidad: 'monastery',
@@ -2579,7 +2581,7 @@ export class ComprarPalcosComponent implements OnInit {
     }
 
 
-    for(let i=0;i<88;i++){
+    for(let i=0;i<80;i++){
 
       if (
         !this.localidadCargadaBoletasGeneralPiso2.palcos[i].vendido &&
@@ -2614,8 +2616,9 @@ export class ComprarPalcosComponent implements OnInit {
       }
 
     }
+    
 
-    for(let i=0;i<220;i++){
+    for(let i=0;i<150;i++){
 
       if (
         !this.localidadCargadaBoletasVIP.palcos[i].vendido &&
@@ -2643,6 +2646,41 @@ export class ComprarPalcosComponent implements OnInit {
         }
       } else if (this.localidadCargadaBoletasVIP.palcos[i].proceso) {
         this.lista21[i]= {
+          valor:'p',
+          localidad: 'fumeteo',
+          id:'p'
+        }
+      }
+
+    }
+    for(let i=0;i<60;i++){
+
+      if (
+        !this.localidadCargada.palcos[i].vendido &&
+        !this.localidadCargada.palcos[i].reservado &&
+        this.localidadCargada.palcos[i].disponible &&
+        !this.localidadCargada.palcos[i].proceso
+      ){
+        this.lista22[i] = {
+          valor:this.localidadCargada.palcos[i].numeroDentroDeEvento,
+          localidad: 'fumeteo',
+          id:this.localidadCargada.palcos[i].id
+          
+        }
+      }
+      
+      else if (
+        this.localidadCargada.palcos[i].vendido ||
+        this.localidadCargada.palcos[i].reservado ||
+        !this.localidadCargada.palcos[i].disponible
+      ) {
+        this.lista22[i] =  {
+          valor:'v',
+          localidad: 'fumeteo',
+          id:'v'
+        }
+      } else if (this.localidadCargada.palcos[i].proceso) {
+        this.lista22[i]= {
           valor:'p',
           localidad: 'fumeteo',
           id:'p'

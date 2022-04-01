@@ -122,6 +122,116 @@ img {
   height: 332px;
   margin-left: 110px;
 }
+.nortemapa23{
+  width: 80px;
+  height: 1054px;
+  background-color: rgb(187, 0, 131);
+  color: white;
+  float: left;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-border-radius: 100px 0px 0px 100px;
+  -webkit-border-radius: 100px 0px 0px 100px ;
+  border-radius: 100px 0px 0px 100px;
+}
+.orientalmapa23, .occidentalmapa23{
+  background-color: rgb(187, 0, 131);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 280px;
+  width: 570px;
+  height: 95px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  -moz-border-radius: 100px 100px 0 0;
+  -webkit-border-radius: 100px 100px 0 0;
+  border-radius: 100px 100px 0 0;
+}
+.occidentalmapa23{
+  -moz-border-radius: 0 0 100px 100px ;
+  -webkit-border-radius: 0 0 100px 100px;
+  border-radius: 0 0 100px 100px ;
+}
+.cajaPrueba23{
+  width: 1000px;
+  height: 332px;
+  margin-left: 110px;
+  display: flex;
+}
+.tarimamap23{
+  margin-left: 54px;
+  width: 180px;
+  height: 177px;
+  background-color: #333;
+  color: white;
+  margin-top: 439px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.preferencialmap23{
+  width: 171px;
+  height: 1054px;
+  color: white;
+  float: left;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.platamapa23{
+  width: 400px;
+  height: 300pX;
+}
+.patrocinadormapa23{
+  width: 400px;
+  height: 505pX;
+  display: flex;
+  flex-flow: row;
+}
+.frentemapa23{
+ display: flex;
+ flex-flow: column;
+ height: 1053px;
+}
+.atrasmapa23{
+  display: flex;
+ flex-flow: row;
+ height: 1053px;
+}
+.top23{
+  align-items: end;
+}
+.bottom23{
+  align-items: flex-start;
+}
+.hausemix23{
+  width: 43px;
+  height: 115px;
+  background-color: #333;
+  color: white;
+  margin: 3px;
+  margin-top: -19px;
+  margin-bottom: -19px;
+}
+.top23list17{
+  padding-bottom: 22px;
+}
+.bot23list17{
+  padding-top: 22px;
+}
 .caja2mapa22{
   width: 375px;
   height: 50px;
