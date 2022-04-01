@@ -882,10 +882,12 @@ export class ComprarPalcosComponent implements OnInit {
 
                   if (this.etapas[i].localidades[j].nombre == 'PATROCINADORES') {
                     this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                    
                   }
 
                   else if (this.etapas[i].localidades[j].nombre == 'MONASTERY') {
                     this.localidadCargadaGeneral = this.etapas[i].localidades[j];
+                    
                   }
 
                   else if (this.etapas[i].localidades[j].nombre == 'CHIMBITA') {
@@ -1619,6 +1621,7 @@ export class ComprarPalcosComponent implements OnInit {
 
   }
 
+  
   cargarLocalidadEnMapa22() {
 
     for(let i=0;i<1;i++){
