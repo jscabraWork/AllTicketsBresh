@@ -156,21 +156,28 @@ img {
   -moz-border-radius: 100px 100px 0 0;
   -webkit-border-radius: 100px 100px 0 0;
   border-radius: 100px 100px 0 0;
+  background: radial-gradient(110% 50% at bottom, transparent 50%, 50%);
 }
+.occidentalmapa23{
+  background: radial-gradient(110% -50% at bottom, transparent 50%, rgb(187, 0, 131) 50%);
+}
+.orientalmapa23{
+  background: radial-gradient(110% 50% at bottom, transparent 50%, lightblue 50%);
+  }
 .occidentalmapa23{
   -moz-border-radius: 0 0 100px 100px ;
   -webkit-border-radius: 0 0 100px 100px;
   border-radius: 0 0 100px 100px ;
 }
 .cajaPrueba23{
-  width: 1000px;
+  width: 1415px;
   height: 332px;
   margin-left: 110px;
   display: flex;
 }
 .tarimamap23{
   margin-left: 54px;
-  width: 180px;
+  width: 111px;
   height: 177px;
   background-color: #333;
   color: white;
@@ -180,7 +187,7 @@ img {
   align-items: center;
 }
 .preferencialmap23{
-  width: 171px;
+  width: 145px;
   height: 1054px;
   color: white;
   float: left;
@@ -195,11 +202,10 @@ img {
   width: 185px;
 }
 .platamapa23{
-  width: 370px;
+  width: 325px;
 }
-.platamapa23{
-  width: 400px;
-  height: 300pX;
+.palcoindividualmapa23{
+  width: 141px;
 }
 .patrocinadormapa23{
   width: 400px;
@@ -560,7 +566,7 @@ td {
 }
 
 .cuadros3 {
-  background-color: rgb(61, 92, 122);
+  background-color: lightblue;
   color: white;
 }
 
@@ -573,7 +579,7 @@ td {
 }
 
 .cuadros3:hover {
-  background-color: rgb(53, 60, 73);
+  background-color: rgb(90, 145, 163);
 }
 .cuadros5:hover {
   background-color: rgb(121, 16, 60);
@@ -1198,7 +1204,7 @@ td {
   color: white;
 }
 .cuadros7:hover {
-  background-color: rgb(164,206,59);
+  background-color: rgb(111, 134, 50);
 }
 .cuadros8 {
   background-color: rgb(255, 102, 0);
