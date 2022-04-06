@@ -40,12 +40,11 @@ img {
 .vacaxiones{
   width: 80px;
   height: 330px;
-  background-color: rgb(187, 0, 131);
+  background-color: rgb(233, 22, 22);
   color: white;
   float: left;
   font-weight: bold;
   padding-top: 150px;
-  cursor: pointer;
   font-size: 12px;
 }
 .chillmapa5{
@@ -103,9 +102,9 @@ img {
   display: flex;
   flex-flow: column;
 }
-.vacaxiones:hover{
+/*.vacaxiones:hover{
   background-color: rgb(121, 16, 60);
-}
+}*/
 .tarimamap22{
   margin-left: 100px;
   width: 570px;
