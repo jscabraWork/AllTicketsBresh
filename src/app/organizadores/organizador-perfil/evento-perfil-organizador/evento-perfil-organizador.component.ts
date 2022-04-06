@@ -64,6 +64,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     this.ivaCuenta=0
     this.impuestoPayU=0
     this.evento = new Evento();
+    this.evento.adicionales =[];
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
      
