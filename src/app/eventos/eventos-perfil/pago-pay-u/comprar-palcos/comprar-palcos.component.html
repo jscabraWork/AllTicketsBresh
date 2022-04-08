@@ -462,7 +462,7 @@
           </div>
         </div>
       </div>
-      <div class="cuadros13 sincroindividualt"  (click)="seleccion(localidadCargadaBoletasGeneralPiso2,localidadCargadaBoletasVIP)"></div>
+      <div class="cuadros13 sincroindividualt"  (click)="seleccionarLocalidad(localidadCargadaBoletasGeneralPiso2,localidadCargadaBoletasVIP)"></div>
       <div class="filaspalcos"><div *ngFor="let item of lista6">
         <div class="cuadros"
           [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
@@ -472,7 +472,7 @@
       </div></div>
     </div>
     <div class="clearFix"></div>
-    <div class="cuadros13 sincroindividualb" (click)="seleccion(localidadCargadaBoletasGeneralPiso2,localidadCargadaBoletasVIP)">SINCRODESTINO INDIVIDUAL</div>
+    <div class="cuadros13 sincroindividualb" (click)="seleccionarLocalidad(localidadCargadaBoletasGeneralPiso2,localidadCargadaBoletasVIP)">SINCRODESTINO INDIVIDUAL</div>
   </div>
 </div>
 
