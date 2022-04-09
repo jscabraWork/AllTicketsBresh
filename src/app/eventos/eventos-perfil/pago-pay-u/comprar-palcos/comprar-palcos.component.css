@@ -40,7 +40,7 @@ img {
 .vacaxiones{
   width: 80px;
   height: 330px;
-  background-color: rgb(233, 22, 22);
+  background-color: #bb0083;
   color: white;
   float: left;
   font-weight: bold;
@@ -102,9 +102,9 @@ img {
   display: flex;
   flex-flow: column;
 }
-/*.vacaxiones:hover{
+.vacaxiones:hover{
   background-color: rgb(121, 16, 60);
-}*/
+}
 .tarimamap22{
   margin-left: 100px;
   width: 570px;
@@ -137,8 +137,10 @@ img {
   -webkit-border-radius: 100px 0px 0px 100px ;
   border-radius: 100px 0px 0px 100px;
 }
+.nortemapa23:hover{
+  background-color: rgb(121, 16, 60);
+}
 .orientalmapa23, .occidentalmapa23{
-  background-color: rgb(187, 0, 131);
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -158,11 +160,17 @@ img {
   background: radial-gradient(110% 50% at bottom, transparent 50%, 50%);
 }
 .occidentalmapa23{
-  background: radial-gradient(110% -50% at bottom, transparent 50%, rgb(187, 0, 131) 50%);
+  background-color: rgb(148,148,51);
+}
+.occidentalmapa23:hover{
+  background-color: rgb(88, 88, 41);
 }
 .orientalmapa23{
   background: radial-gradient(110% 50% at bottom, transparent 50%, lightblue 50%);
-  }
+}
+.orientalmapa23:hover{
+  background: radial-gradient(110% 50% at bottom, transparent 50%, rgb(86, 108, 116) 50%);
+}
 .occidentalmapa23{
   -moz-border-radius: 0 0 100px 100px ;
   -webkit-border-radius: 0 0 100px 100px;
@@ -175,12 +183,12 @@ img {
   display: flex;
 }
 .tarimamap23{
-  margin-left: 54px;
-  width: 111px;
-  height: 177px;
+  margin-left: 154px;
+  width: 106px;
+  height: 137px;
   background-color: #333;
   color: white;
-  margin-top: 439px;
+  margin-top: 462px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -203,8 +211,14 @@ img {
 .platamapa23{
   width: 325px;
 }
-.palcoindividualmapa23{
-  width: 141px;
+.top23list30{
+  padding-top: 45px;
+}
+.bot23list30{
+  padding-bottom: 45px;
+}
+.top23list32{
+  padding-top: 10px;
 }
 .patrocinadormapa23{
   width: 400px;
@@ -215,7 +229,7 @@ img {
 .frentemapa23{
  display: flex;
  flex-flow: column;
- height: 1053px;
+ height: 1032px;
 }
 .atrasmapa23{
   display: flex;
@@ -229,19 +243,57 @@ img {
   align-items: flex-start;
 }
 .hausemix23{
-  width: 43px;
-  height: 115px;
+  width: 56px;
+  height: 171px;
   background-color: #333;
   color: white;
   margin: 3px;
-  margin-top: -19px;
-  margin-bottom: -19px;
+  margin-top: -62px;
+  margin-bottom: -59px;
+  margin-left: 102px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.top23list17,.bot23list17,.top23list19,.bot23list19,.bot23list15,.top23list15,.top23list21{
+  margin-left: 3px;
+  margin-right: 3px;
 }
 .top23list17{
-  padding-bottom: 22px;
+  padding-bottom: 65px;
 }
 .bot23list17{
-  padding-top: 22px;
+  padding-top: 65px;
+}
+.top23list19{
+  padding-bottom: 35px;
+}
+.bot23list19{
+  padding-top: 35px;
+}
+.top23list15{
+  padding-bottom: 45px;
+}
+.bot23list15{
+  padding-top: 45px;
+}
+.top23list21{
+  margin-top: 56px;
+}
+.top23list28{
+  display: flex;
+  flex-flow: row-reverse wrap;
+  width: 230px;
+  margin-top: 10px;
+  height: 1010px;
+}
+.mapa23topbot{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 11px;
+  padding-bottom: 31px;
 }
 .caja2mapa22{
   width: 375px;
@@ -582,6 +634,13 @@ td {
 }
 .cuadros5:hover {
   background-color: rgb(121, 16, 60);
+}
+.cuadros9{
+  background-color: rgb(148,148,51);
+  color: white;
+}
+.cuadros9:hover{
+  background-color: rgb(88, 88, 41);
 }
 .cuadros13{
   background-color: rgb(0,93,121);
