@@ -1056,23 +1056,23 @@ export class ComprarPalcosComponent implements OnInit {
                     this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'PAL CENTRO Y PA DENTRO') {
+                  else if (this.etapas[i].localidades[j].nombre == 'ALFOMBRA ROJA') {
                     this.localidadCargadaGeneral = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'AYAYAY') {
+                  else if (this.etapas[i].localidades[j].nombre == 'DIAMANTE') {
                     this.localidadCargadaBoletasVIPPiso1 = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'PAPAAA') {
+                  else if (this.etapas[i].localidades[j].nombre == 'ORO') {
                     this.localidadCargadaBoletasGeneralPiso2 = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'SIRVALO PUES') {
+                  else if (this.etapas[i].localidades[j].nombre == 'PLATA') {
                     this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'SALUD COMPADRE') {
+                  else if (this.etapas[i].localidades[j].nombre == 'PALCOS INDIVIDUALES') {
                     this.localidadCargada = this.etapas[i].localidades[j];
                   }
 
