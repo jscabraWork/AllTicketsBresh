@@ -1060,11 +1060,11 @@ export class ComprarPalcosComponent implements OnInit {
                     this.localidadCargadaGeneral = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'AYAYAY') {
+                  else if (this.etapas[i].localidades[j].nombre == '¡AYAYAY!') {
                     this.localidadCargadaBoletasVIPPiso1 = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'PAPAAA') {
+                  else if (this.etapas[i].localidades[j].nombre == '¡PAPAAA!') {
                     this.localidadCargadaBoletasGeneralPiso2 = this.etapas[i].localidades[j];
                   }
 
@@ -1076,7 +1076,7 @@ export class ComprarPalcosComponent implements OnInit {
                     this.localidadCargada = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'PREFERENCIAL') {
+                  else if (this.etapas[i].localidades[j].nombre == 'PREFERENCIAL CON SILLA') {
                     this.localidadCargadaBoletas = this.etapas[i].localidades[j];
                   }
 
@@ -1086,7 +1086,7 @@ export class ComprarPalcosComponent implements OnInit {
                   else if (this.etapas[i].localidades[j].nombre == 'ORIENTAL') {
                     this.localidadCargadaOriente = this.etapas[i].localidades[j];
                   }
-                  else if (this.etapas[i].localidades[j].nombre == 'OCCIDENTAL') {
+                  else if (this.etapas[i].localidades[j].nombre == 'OCCIDENTAL PREFERENCIAL') {
                     this.localidadCargadaOccidente = this.etapas[i].localidades[j];
                   }
                 
@@ -2105,128 +2105,27 @@ export class ComprarPalcosComponent implements OnInit {
 
     
     for(let i=0;i<5;i++){
-      if (
-        !this.localidadCargadaPreferecial.palcos[i].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i].reservado &&
-        this.localidadCargadaPreferecial.palcos[i].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i].proceso
-      ){
+      
         this.lista1[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
-          localidad: 'monastery',
-          id:this.localidadCargadaPreferecial.palcos[i].id
-        }
-      }
-      
-      else if (
-        this.localidadCargadaPreferecial.palcos[i].vendido ||
-        this.localidadCargadaPreferecial.palcos[i].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i].disponible
-      ) {
-        this.lista1[i] =  {
           valor:'v',
           localidad: 'monastery',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
-        this.lista1[i]= {
-          valor:'p',
-          localidad: 'monastery',
-          id:'p'
-        }
-      }
-      
-      if (
-        !this.localidadCargadaPreferecial.palcos[i+5].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+5].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+5].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+5].proceso
-      ){
         this.lista2[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+5].numeroDentroDeEvento,
-          localidad: 'monastery',
-          id:this.localidadCargadaPreferecial.palcos[i+5].id
-        }
-      }
-      
-      else if (
-        this.localidadCargadaPreferecial.palcos[i+5].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+5].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+5].disponible
-      ) {
-        this.lista2[i] =  {
           valor:'v',
           localidad: 'monastery',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+5].proceso) {
-        this.lista2[i]= {
-          valor:'p',
-          localidad: 'monastery',
-          id:'p'
-        }
-      }
-      if (
-        !this.localidadCargadaPreferecial.palcos[i+10].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+10].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+10].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+10].proceso
-      ){
         this.lista3[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+10].numeroDentroDeEvento,
-          localidad: 'monastery',
-          id:this.localidadCargadaPreferecial.palcos[i+10].id
-        }
-      }
-      
-      else if (
-        this.localidadCargadaPreferecial.palcos[i+10].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+10].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+10].disponible
-      ) {
-        this.lista3[i] =  {
           valor:'v',
           localidad: 'monastery',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+10].proceso) {
-        this.lista3[i]= {
-          valor:'p',
-          localidad: 'monastery',
-          id:'p'
-        }
-      }
-      
-      if (
-        !this.localidadCargadaPreferecial.palcos[i+15].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+15].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+15].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+15].proceso
-      ){
         this.lista4[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+15].numeroDentroDeEvento,
-          localidad: 'monastery',
-          id:this.localidadCargadaPreferecial.palcos[i+15].id
-        }
-      }
-      
-      else if (
-        this.localidadCargadaPreferecial.palcos[i+15].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+15].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+15].disponible
-      ) {
-        this.lista4[i] =  {
           valor:'v',
           localidad: 'monastery',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+15].proceso) {
-        this.lista4[i]= {
-          valor:'p',
-          localidad: 'monastery',
-          id:'p'
-        }
-      }
     }
 
     for(let i=0;i<6;i++){

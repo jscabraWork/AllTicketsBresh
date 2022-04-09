@@ -129,7 +129,7 @@ img {
   float: left;
   font-weight: bold;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,9 +148,9 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  font-size: 20px;
   margin-left: 280px;
-  width: 570px;
+  width: 1100PX;
   height: 95px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -166,10 +166,10 @@ img {
   background-color: rgb(88, 88, 41);
 }
 .orientalmapa23{
-  background: radial-gradient(110% 50% at bottom, transparent 50%, lightblue 50%);
+  background: lightblue;
 }
 .orientalmapa23:hover{
-  background: radial-gradient(110% 50% at bottom, transparent 50%, rgb(86, 108, 116) 50%);
+  background: rgb(86, 108, 116);
 }
 .occidentalmapa23{
   -moz-border-radius: 0 0 100px 100px ;
@@ -200,7 +200,7 @@ img {
   float: left;
   font-weight: bold;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
