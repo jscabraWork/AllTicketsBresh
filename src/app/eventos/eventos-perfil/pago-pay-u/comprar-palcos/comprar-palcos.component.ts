@@ -3065,14 +3065,6 @@ export class ComprarPalcosComponent implements OnInit {
       }
     }
 
-    for(let i=0;i<60;i++){
-
-      
-
-      
-
-    }
-    
 
   }
 

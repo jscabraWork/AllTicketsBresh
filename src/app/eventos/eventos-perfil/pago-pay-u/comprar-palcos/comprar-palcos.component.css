@@ -181,6 +181,7 @@ img {
   height: 332px;
   margin-left: 110px;
   display: flex;
+  
 }
 .tarimamap23{
   margin-left: 154px;
@@ -531,7 +532,7 @@ td {
 
 .mapa {
   margin: 0px auto;
-  width: 1500px;
+  width: 1600px;
 }
 
 .mapa3 {
