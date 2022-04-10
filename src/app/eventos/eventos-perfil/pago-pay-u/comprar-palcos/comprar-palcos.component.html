@@ -119,12 +119,12 @@
   <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros rojo">v</span>Vendido</p>
   <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
 
-  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros">#</span>PATROCINADOR</p>
-  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros10 cuadros">#</span>PAL CENTRO Y PA DENTRO</p>
-  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros7 cuadros">#</span>AYAYAY</p>
-  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros8 cuadros">#</span>PAPAAA</p>
-  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros13 cuadros">#</span>SIRVALO PUES</p>
-  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros12 cuadros">#</span>SALUD COMPADRE</p>
+  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros">#</span>Palcos PATROCINADORES</p>
+  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros10 cuadros">#</span>Palcos PAL' CENTRO Y PA' DENTRO</p>
+  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros7 cuadros">#</span>Palcos AYAYAY</p>
+  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros8 cuadros">#</span>Palcos PAPAAA</p>
+  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros13 cuadros">#</span>Palcos SÍRVALO PUES</p>
+  <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros12 cuadros">#</span>Palco Ticket individual SALUD COMPADRE</p>
   <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros4 cuadros">#</span>PREFERENCIAL</p>
   <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros5 cuadros">#</span>NORTE</p>
   <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros3 cuadros">#</span>ORIENTE</p>
@@ -736,14 +736,14 @@
           <div class="top23list21"><div *ngFor="let item of lista33">
             <div class="cuadros"
               [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
-              (click)="agregarPalcoIndividualID(item.valor,item.id)">
+              (click)="seleccionarLocalidadParaPalcoIndividual(10288)">
               {{item.valor}}
             </div>
           </div></div>
           <div class="top23list32"><div *ngFor="let item of lista32">
             <div class="cuadros"
               [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
-              (click)="agregarPalcoIndividualID(item.valor,item.id)">
+              (click)="seleccionarLocalidadParaPalcoIndividual(10288)">
               {{item.valor}}
             </div>
           </div></div>
@@ -751,14 +751,14 @@
             <div class="top23list30"><div *ngFor="let item of lista30">
               <div class="cuadros"
                 [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
-                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                (click)="seleccionarLocalidadParaPalcoIndividual(10288)">
                 {{item.valor}}
               </div>
             </div></div>
             <div class="bot23list30"><div *ngFor="let item of lista31">
               <div class="cuadros"
                 [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
-                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                (click)="seleccionarLocalidadParaPalcoIndividual(10288)">
                 {{item.valor}}
               </div>
             </div></div>

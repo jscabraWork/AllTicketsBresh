@@ -3,12 +3,12 @@
         <h1 class="centrado4 rounded eventosTitulo"><strong>Eventos</strong></h1>
     </div>
 </section>
-<section class="container-fluid " style="margin-top: 2%; margin-bottom: 5%; text-align: center;">
+<section class="container-fluid " style="margin-top: 0%; margin-bottom: 5%; text-align: center;">
     <div class="row ">
 
-        <div class="mt-md-3 col-12 col-sm-12  col-md-6  pl-sm-5 pr-sm-5 pl-md-2 pr-md-2 col-lg-4 col-xl-3 contenedor8"
-            style="height: 430px" *ngFor="let evento of eventos">
-            <div class="hover-overlay border rounded" style="background-color: black; width: 100%; height: 47%">
+        <div class="mt-md-3 col-6 col-sm-6  col-md-6  pl-sm-5 pr-sm-5 pl-md-2 pr-md-2 col-lg-4 col-xl-3 contenedor8"
+            *ngFor="let evento of eventos">
+            <div class="hover-overlay border rounded imgagenperfil" style="background-color: black; width: 100%;">
 
                 <div class="contenedor contenedor2">
                     <img *ngIf="evento.soldout" class="sold_out"src="../../assets/images/img/SOLDOUT.png" alt=""> 
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div class="border rounded container-fluid px-0 gris" style="background-color: white; height: 50%">
+            <div class="border rounded container-fluid px-0 gris contenedorabajo" style="background-color: white; height: 50%">
 
                 <div class="row contenedor contenedorBot">
                     <div class="col-12 tituloEvento">
@@ -40,7 +40,7 @@
                         
                         <p class="fechas"><strong>Ciudad: {{evento?.ciudadNombre }}</strong></p>
                     </div>
-                    <div class="col-6 botonVer">
+                    <div class="col-12 col-sm-6 botonVer">
                         <button *ngIf="!evento.soldout"
                             class="action_button rounded-pill shadow texto bg-darkblue-gradient"
                             routerLink="/eventos/evento/{{evento.id}}">Comprar</button>
