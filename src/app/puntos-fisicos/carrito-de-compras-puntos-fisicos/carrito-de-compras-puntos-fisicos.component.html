@@ -59,16 +59,16 @@
             
 
 
-                <button class="btn action_button ml-1" *ngIf="boletas && !evento.imprimir" (click)="pagarBoletas()">Pagado con efectivo</button>
-                <button class="btn action_button ml-1" *ngIf="boletas && !evento.imprimir" (click)="pagarBoletas()">Pagado con datafono</button>
-                <button class="btn action_button ml-1" *ngIf="boletas && !evento.imprimir" (click)="pagarBoletas()">Pagado con transferencia</button>
+                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && !evento.imprimir" (click)="pagarBoletas()">Pagado con efectivo</button>
+                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && !evento.imprimir" (click)="pagarBoletas()">Pagado con datafono</button>
+                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && !evento.imprimir" (click)="pagarBoletas()">Pagado con transferencia</button>
                 <button class="btn action_button ml-1" *ngIf="palco.id!=null  && !evento.imprimir" (click)="pagarPalco()">Pagado con efectivo</button>
                 <button class="btn action_button ml-1" *ngIf="palco.id!=null  && !evento.imprimir" (click)="pagarPalco()">Pagado con datafono</button>
                 <button class="btn action_button ml-1" *ngIf="palco.id!=null  && !evento.imprimir" (click)="pagarPalco()">Pagado con transferencia</button>  
 
-                <button class="btn action_button ml-1" *ngIf="boletas && evento.imprimir" (click)="pagarBoletasImprimir()">Pagado Imprimir efectivo</button>
-                <button class="btn action_button ml-1" *ngIf="boletas && evento.imprimir" (click)="pagarBoletasImprimir()">Pagado Imprimir datafono</button>
-                <button class="btn action_button ml-1" *ngIf="boletas && evento.imprimir" (click)="pagarBoletasImprimir()">Pagado Imprimir transferencia</button>
+                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && evento.imprimir" (click)="pagarBoletasImprimir()">Pagado Imprimir efectivo</button>
+                <button class="btn action_button ml-1" *ngIf="boletas&&boletas.length>0 && evento.imprimir" (click)="pagarBoletasImprimir()">Pagado Imprimir datafono</button>
+                <button class="btn action_button ml-1" *ngIf="boletas&&boletas.length>0 && evento.imprimir" (click)="pagarBoletasImprimir()">Pagado Imprimir transferencia</button>
                 <button class="btn action_button ml-1" *ngIf="palco.id!=null  && evento.imprimir" (click)="pagarPalco()">Pagado Imprimir efectivo</button>
                 <button class="btn action_button ml-1" *ngIf="palco.id!=null  && evento.imprimir" (click)="pagarPalco()">Pagado Imprimir datafono</button>
                 <button class="btn action_button ml-1" *ngIf="palco.id!=null  && evento.imprimir" (click)="pagarPalco()">Pagado Imprimir transferencia</button>  
