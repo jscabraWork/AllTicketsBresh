@@ -174,7 +174,7 @@
 <div id="prueba9" class="mt-3">
 
 	<h1><strong>Ubicaciones y Precios</strong></h1>
-	<h1 *ngFor="let etapa of etapas"><strong>{{etapa?.nombre}}</strong></h1>
+	<!-- <h1 *ngFor="let etapa of etapas"><strong>{{etapa?.nombre}}</strong></h1> -->
 </div>
 
 <div class="container-fluid" *ngIf="fecha>fechaActual && etapas.length == 0">
@@ -195,10 +195,10 @@
 </div>
 
 
-<section class="container-fluid  mt-3  "
+<section class="container-fluid  mt-1  "
 	*ngIf="etapas.length > 0 && localidades.length >= 0 && (evento.mapa)">
 	<div class="row">
-		<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad2 " *ngFor="let localidad of localidades"
+		<div class="col-6 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad2 " *ngFor="let localidad of localidades"
 			style="text-align: center;">
 
 			<div class="localidades border rounded">
@@ -255,7 +255,7 @@
 </section>
 
 
-<section class="container-fluid  mt-3  " *ngIf="etapas.length > 0 && (!evento.mapa)">
+<section class="container-fluid  mt-1  " *ngIf="etapas.length > 0 && (!evento.mapa)">
 	<div class="row">
 
 

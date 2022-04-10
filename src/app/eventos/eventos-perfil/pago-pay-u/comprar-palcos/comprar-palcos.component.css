@@ -945,6 +945,26 @@ td {
     width: 280px;
     height: 280px;
   }
+  #prueba h1{
+    font-size: 16px !important;
+  }
+  .informacion{
+    padding-left: 5% !important;
+  }
+  .informacion h2{
+    font-size: 1.6rem !important;
+  }
+  .informacion h5{
+    font-size: 1rem !important;
+  }
+  #convensiones{
+    margin-left: 2% !important;
+  }
+  .contenedor-mapa{
+    margin-left: 1% !important;
+    margin-right: 1% !important;
+    width: auto;
+  }
 }
 
 @media (max-width: 407px) {

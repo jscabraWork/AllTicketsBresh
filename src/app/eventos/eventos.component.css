@@ -95,6 +95,7 @@
         padding: 3px !important;
         margin-top: 0px;
         padding-bottom: 0px !important;
+        height: auto;
     }
     img.darkableImage{
         height: 100% !important;
@@ -115,7 +116,7 @@
         height: auto;
     }
     .texto{
-        width: 60% !important;
+        width: 75% !important;
     }
     .centrado2{
         width: 90%;
@@ -123,6 +124,14 @@
         margin-bottom: 0px !important;
         height: 43%;
         font-size: 12px !important;
+    }
+    .botonVer{
+        margin-bottom: 50px;
+    }
+}
+@media(max-width:576px){
+    .border-right{
+        display: none;
     }
 }
 @media(max-width:425px){
@@ -147,6 +156,11 @@
     }
     .fechaCiudad>p{
         font-size: 15px;
+    }
+    .action_button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .border-right{
         display: none;

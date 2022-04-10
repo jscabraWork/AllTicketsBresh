@@ -6,7 +6,7 @@
   font-size: 21px;
 }
 .precios{
-  font-size: 9px;
+  font-size: 8px;
   font-weight: bolder;
 }
 .largo{
@@ -111,6 +111,7 @@
   }
   #prueba9{
     padding: 5px 5px !important;
+    margin-top: 4px !important;
   }
   #prueba9>h1{
     margin-bottom: 0.2rem;
@@ -124,7 +125,7 @@
     margin-bottom: 0 !important;
   }
   .divisionLocalidad2{
-    padding: 0;
+    padding: 4px !important;
   }
   .tituloLocalidad2, .tituloLocalidad{
     display: flex;
@@ -156,11 +157,14 @@
     width: 100%;
   }
   #prueba{
-    padding: 18px 5px !important;
+    padding: 13px 5px !important;
   }
   #prueba>h1{
     margin-bottom: 0 !important;
     font-size: 17px;
+  }
+  #prueba small {
+    font-size: 11px;
   }
   .addP>p{
     font-size: 14px !important;
@@ -199,11 +203,17 @@
 }
 
 @media (max-width: 465px) {
+  .ticketTitulo{
+    font-size: 14px !important;
+  }
   #contador .contenedor p {
     font-size: 9px;
   }
   #contador .contenedor p span {
     font-size: 11px;
+  }
+  .divBoton{
+    margin-top: 0px !important;
   }
 }
 
@@ -240,7 +250,13 @@
 h3 {
   font-size: 24px;
 }
-
+.tituloLocalidad2>h3{
+  font-size: 20px !important;
+  margin-bottom: 0px !important;
+}
+#prueba9>h1{
+  margin-bottom: 0px !important;
+}
 .Ahr {
   width: 100%;
 }
@@ -339,7 +355,19 @@ p {
     font-size: 24px;
   }
   .contenederoBlanco p{
-    font-size: 14px !important;
+    font-size: 12px !important;
+  }
+  .contenederoBlanco>div>p{
+    font-size: 12px !important;
+  }
+  iframe{
+    height: 100px !important;
+  }
+  .addP>p{
+    font-size: 12px !important;
+  }
+  .tituloLocalidad2>h3{
+    font-size: 15px !important;
   }
   
 }
