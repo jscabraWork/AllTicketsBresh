@@ -1,5 +1,5 @@
 import { Palco } from './../../administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
-import { API_URL, API_URL2 } from './../../app.constants';
+import { API_URL, API_URL2, API_URL3 } from './../../app.constants';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cliente } from 'src/app/usuario/cliente.model';
@@ -117,7 +117,10 @@ revisarUsoBeneficio(numeroDocumento,pNombre){
 reservarPalcoExacto(idPalco){
   return this.http.put<Palco>(`${API_URL}/palcos/palco/${idPalco}/reservar`,null)
 }
-
+reservarPalcoExactoMultiples(ids:number[]){
+  console.log(ids)
+  return this.http.put<Palco[]>(`${API_URL3}/palcos/palco/reservar/multples`,ids)
+}
 rechazarReservaPalcoEfectivo(idPalco){
   return this.http.put(`${API_URL}/palcos/${idPalco}/rechazar/efectivo`,null)
 }

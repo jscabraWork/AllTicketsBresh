@@ -26,6 +26,7 @@ import { CountdownModule } from 'ngx-countdown';
 import { AdicionalComponent } from './eventos-perfil/pago-pay-u/adicional/adicional.component';
 import { CantidadBoletasComponent } from './eventos-perfil/pago-pay-u/cantidad-boletas/cantidad-boletas.component';
 import { LocalidadSeleccionComponent } from './eventos-perfil/pago-pay-u/localidad-seleccion/localidad-seleccion.component';
+import { ManejoDiasComponent } from './eventos-perfil/pago-pay-u/comprar-palcos/manejo-dias/manejo-dias.component';
 
 
 
@@ -87,7 +88,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent, AdicionalComponent, CantidadBoletasComponent, LocalidadSeleccionComponent ],
+    declarations:[EventosPerfilComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent, AdicionalComponent, CantidadBoletasComponent, LocalidadSeleccionComponent, ManejoDiasComponent ],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

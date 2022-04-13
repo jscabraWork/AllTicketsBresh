@@ -1,0 +1,19 @@
+<div class="container border rounded">
+    <div class="row">
+        <section class="col-12 centrar tituloLocalidad">
+            <h5 >Selecciona los días que deseas asistir</h5>
+        </section>
+       
+        <section class="col-4 centrar mt-3" *ngFor="let palco of palcos">
+
+            <h5> <strong>
+                {{palco.nombre}}
+            </strong>
+            </h5>
+         
+           <button (click)="seleccionar(palco)" class="btnA mb-3 p-2">Seleccionar</button>
+
+        </section>
+     
+    </div>
+</div>

@@ -200,8 +200,8 @@ pagarBoletasImprimir(){
     this.cargandoPago=true
   this.servicioBoletas.comprarPuntoFiscoTicketImprimir(this.referenceCode).subscribe(response=>{
     const dialogRef = this.dialog.open(ImprimirBoletasComponent, {
-      width: '700px;',
-    
+      width: '100%;',
+      height:'900px',
   
       data: {
         response:response

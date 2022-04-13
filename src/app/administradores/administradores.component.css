@@ -68,3 +68,17 @@ table{
         padding: 0 !important;
     }
 }
+
+.rotar{
+    color:white;
+    transform: rotate(90deg);
+    width: 40px;
+}
+.pruebaA{
+    width:13.97cm;
+    height:5.08cm;
+    margin-left: 40px;
+    border:1px solid black;
+    background-color: red;
+    
+}

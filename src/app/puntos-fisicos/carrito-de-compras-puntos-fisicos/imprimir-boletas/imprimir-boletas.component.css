@@ -1,88 +1,139 @@
-.largo{
 
-    height:192px;
-    border: 1px solid #ccc;
+*{
+	margin: 0;
+	padding: 0;
+    border: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.contenedor-boleta{
+    display: flex;
+    width: 1584px;
+    height: 576px;
     
-    
-    
+    text-align: center;
 }
-.pulep,.lugar,.qr, .total{
-    rotate: 270deg;
-    width: 192px;
-    
+.izq,.mid,.der{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
 }
-.qr img{
-    width:70px;
-    
+.izq{
+    width: 394.5px; 
+    font-size: 29px;
 }
-.lugar{
-    
-    
-    
-    margin-top: 83px;
-    margin-left: -80px;
-    text-align: left;
+.izq h3{
+    height: 80px;
 }
-.pulep{
-    margin-top: -135px;
-    margin-left: -30px;
+.mid{
+    width: 789px;
+    font-size: 34px;
+    justify-content: space-between;
 }
-.pulep p{
-    font-size: 10px;
+.mid p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.qr{
-    margin-top: 50px;
-    margin-left: -20px;
+.midbot,.derbot,.derbot2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row;
 }
-.lugar p{
-    font-size: 8px;
-    
+.midbot{
+    width: 750px;
 }
-.evento{
-    margin-top: -110px;
-    margin-left: 100px;
-
+.derbot2{ 
+    width: 570px;
 }
-.cliente{
-    margin-left: 120px;
+.der{
+    height: 570px; 
+    width: 394.5px;
+    justify-content: space-around;
+    font-size: 52px;
 }
-.evento h2{
-    font-size: 20px;
+.rotar{
+    width: 570px; 
+    height: 394.5px;
+    transform: rotate(90deg);
+    transform-origin: center center;
 }
-.evento p,
-.cliente p{
-    font-size: 12px;
+.midarriba{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row;
+    height: 570px;
+    width: 789px;
 }
-
-.precios{
-    margin-left: 320px;
-    margin-top: -105px;
+.midizq{
+    font-size: 7px;
+    height: 570px;
+    width: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.precios p
-{
-    font-size: 8px;
+.rotarmidizq{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 570px;
+    height: 34px;
+    transform: rotate(90deg);
+    transform-origin: center center;
+    position: absolute;
+    font-size: 18px;
+    margin-top: 80px;
 }
-.precios h3{
-    font-size: 15px;
+.rotar h2{
+    height: 188px;
+}
+.midder{
+    height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-flow: column;
 }
 .logo{
-    margin-top: -20px;
-    margin-left: 105px;
+    width: 750px;
 }
-.logo img{
-
-    width: 200px;
-    filter: grayscale(100%);
+.codigo{
+    width: 355.05px;
 }
-.total{
-    font-size: 15px;
-    margin-left: 410px;
-    margin-top: -30px;
+.derbot{
+    height: 130px;
 }
-.marco{
-    margin-top: -150px;margin-left: 400px;
+.small{
+    font-size: 18px !important;
 }
-.marco img{
-width: 50px;
-
+.small2{
+    font-size: 15px !important;
+}
+.small3{
+    font-size: 16.5px !important;
+    margin-right: 30px;
+}
+.estrella{
+    width: 60px;
+    margin-bottom: -12px;
+}
+.estrella1{
+    width: 34px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+}
+.margen{
+    color: black;
+    background-color: black;
+    height: 3px;
+    width: 713px;
+}
+.tamanioLetra{
+    font-size: 90px;
 }

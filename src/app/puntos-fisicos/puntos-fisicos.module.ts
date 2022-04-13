@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { CountdownModule } from 'ngx-countdown';
 import { CantidadBoletasPuntoFisicoComponent } from './cantidad-boletas-punto-fisico/cantidad-boletas-punto-fisico.component';
 import { ImprimirBoletasComponent } from './carrito-de-compras-puntos-fisicos/imprimir-boletas/imprimir-boletas.component';
+import { EventosModule } from '../eventos/eventos.module';
+import { HoraPipe2 } from '../pipes/horas2.pipe';
 
 
 
@@ -53,7 +55,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[  PuntosFisicosComponent, EventoPuntoFisicoComponent, CarritoDeComprasPuntosFisicosComponent, CantidadBoletasPuntoFisicoComponent, ImprimirBoletasComponent],
+    declarations:[  PuntosFisicosComponent, EventoPuntoFisicoComponent, CarritoDeComprasPuntosFisicosComponent,HoraPipe2, CantidadBoletasPuntoFisicoComponent, ImprimirBoletasComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

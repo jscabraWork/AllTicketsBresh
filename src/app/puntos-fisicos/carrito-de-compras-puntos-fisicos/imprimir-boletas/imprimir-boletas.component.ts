@@ -7,6 +7,8 @@ import { Boleta } from 'src/app/eventos/boleta.model';
 import { Evento } from 'src/app/eventos/evento.model';
 import { PdfService } from 'src/app/service/data/pdf.service';
 import { Cliente } from 'src/app/usuario/cliente.model';
+import { jsPDF } from 'jspdf'
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-imprimir-boletas',
@@ -96,26 +98,50 @@ export class ImprimirBoletasComponent implements OnInit {
         // Set content to print...
         //Set PDF file... for more advanced PDF settings please refer to 
 		//https://www.neodynamic.com/Products/Help/JSPrintManager4.0/apiref/classes/jspm.printfilepdf.html
+    
     for(let i = 0; i < this.boletas.length; i++){
-      this.servicioPDF.getPdfBoleta(this.boletas[i].id,this.imagenes[i]).subscribe(response=>{
-        contador++;
-        var my_file = new PrintFilePDF(this.darSrc(response), FileSourceType.URL, 'MyFile'+this.boletas[i].id.toString()+contador+'.pdf', 1);
-		
-        cpj.files.push(my_file);
+      let data = document.getElementById("ticket"+i.toString());
+      
+      html2canvas(data as any).then(canvas => {
         
-        console.log(i)
-          console.log(cpj.files)
-         
-        // Send print job to printer!
-        if(i==this.boletas.length-1){
-          cpj.sendToClient();
-        }
-      },
-      error=>{
-        console.log(error);
-      })
-
+          var imgWidth = 13.97;
+          var pageHeight = 5.08;
+          var imgHeight = canvas.height * imgWidth / canvas.width;
+          var heightLeft = imgHeight;
+          
+          const contentDataURL = canvas.toDataURL('image/webp');
+          let pdfData = new jsPDF('l', 'cm', [13.97,5.08]);
+          
+          //let pdfData = new jsPDF('p', 'mm', 'a4');
+          var position = 0;
+          pdfData.addImage(contentDataURL, 'WEBP', 0, position, imgWidth, imgHeight,'ticket'+this.boletas[i].id, 'NONE')
+          
+          var blob = pdfData.save('a.pdf');
+          this.servicioPDF.upload(blob).subscribe(response=>{
+            console.log(response)
+          });
+      });
+ 
     }
+      // this.servicioPDF.getPdfBoleta(this.boletas[i].id,this.imagenes[i]).subscribe(response=>{
+      //   contador++;
+      //   var my_file = new PrintFilePDF(this.darSrc(response), FileSourceType.URL, 'MyFile'+this.boletas[i].id.toString()+contador+'.pdf', 1);
+		
+      //   cpj.files.push(my_file);
+        
+      //   console.log(i)
+      //     console.log(cpj.files)
+         
+      //   // Send print job to printer!
+      //   if(i==this.boletas.length-1){
+      //     cpj.sendToClient();
+      //   }
+      // },
+      // error=>{
+      //   console.log(error);
+      // })
+
+    
         
     }
   
@@ -123,7 +149,7 @@ export class ImprimirBoletasComponent implements OnInit {
 
 
   darSrc(response) {
-    console.log(response.src)
+    
     return response.src;
     //return "https://codigos-qrs.s3.amazonaws.com/1648001627864_973981020823136ticket.pdf"
   }

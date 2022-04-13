@@ -1,65 +1,101 @@
 
 <section class="container-fluid">
     <div class="row">
+      <div class="col-12">
+        <div class="content" role="main">
+
+          <div style="text-align:center">
+            <h2>Imprimir</h2>
+            <fieldset>
+            <legend>Client Printer:</legend>
+
+            <div id="installedPrinters">
+              <label for="installedPrinterName">Select an installed Printer:</label>
+              <select name="printer" id="printer" [(ngModel)]="selectedPrinter">
+                    <option disabled [ngValue]="undefined">Select printer</option>
+                    <option *ngFor="let printer of printers" [ngValue]="printer">{{ printer }}</option>
+                  </select>
+            </div>
+          </fieldset>
+            <br /><br />
+           <strong>OR</strong>&nbsp;<button (click)="doPrintPDF()">Print boletas</button>
+        </div>
+        
+        
+        </div>
+      </div>
+
       <div class="col-12 pl-4 pr-4">
         <div class="row ">
           <div class="divisionLocalidad col-12 ">
  
   
-            <!-- <div class="">
+             <div class="">
     
-             <div id="print-section">
-
-              <div class="largo fondoBlanco border " *ngFor="let boleta of boletas, let i = index" >
 
 
-                <div class="largo">
-                  <section class="lugar">
-                           <p><strong>Lugar:</strong><span> {{evento.lugar}}</span> </p>
-                  </section>
-                  <section class="pulep">
-                     <p> <strong> Pulep:</strong> {{evento.id}}</p>
-                  </section>
-                  <section class="qr">
-                      <img src="{{imagenes[i]}}" alt="">
-                  </section>
-                  <section class="evento">
-                      <h2>{{evento.nombre}}</h2>
-                      <p><strong>Localidad:</strong> {{boleta.localidadNombre}}</p>
-                  </section>
-                  <section class="cliente">
-                      <p><strong>Nombre:</strong> {{cliente.nombre}} </p>
-                      <p><strong>Fecha:</strong> {{evento?.fecha |date}}</p>
-                      <p><strong>Hora:</strong> {{evento?.horaInicio}} </p>
-                  </section>
-              
-                  <section class="precios">
-                      <p><strong>Precio:</strong> {{boleta.precio| number: '1.0-0'}} COP </p>
-                      <p><strong>Servicio:</strong> {{boleta.servicio| number: '1.0-0'}} COP</p>
-                      <p><strong>IVA:</strong> {{boleta.servicioIva| number: '1.0-0'}} COP</p>
-                      <h3><strong>No. Ticket:</strong> {{boleta.id}}</h3>
-                  </section>
-                  <section class="logo">
-                      <img src="https://allticketscol.com/assets/images/img/logo2.png" alt="">
-                  </section>
-                  <section class="marco">
-                      <img src="https://images.vexels.com/media/users/3/132303/isolated/preview/96fdf1a7f0eeb89a64ff8629e8651431-herramienta-espiral.png" alt="">
-                  </section>
-                  <section class="total">
-                      <p><strong>TOTAL:</strong> {{boleta.precio +boleta.servicio+boleta.servicioIva| number: '1.0-0'}} COP</p>
-                  </section>
-                 </div>
-
-
-
-
-
-              </div>
-
-              
+    
+              <div class="contenedor-boleta" *ngFor="let boleta of boletas, let i = index" id="ticket{{i}}">
+                <div class="izq">
+                    <h3>{{boleta.localidadNombre}}</h3>
+                    <img class="codigo" src="{{imagenes[i]}}" alt="">
+                    <p>Precio: ${{boleta.precio| number: '1.0-0'}}</p>
+                    <p>Servicio: ${{boleta.servicio| number: '1.0-0'}}</p>
+                    <p>IVA: ${{boleta.servicioIva| number: '1.0-0'}}</p>
+                    <p>Total: ${{boleta.precio+boleta.servicio+boleta.servicioIva| number: '1.0-0'}}</p>
+                    
+                </div>
+                <div class="mid">
+                    <div class="midarriba">
+                        <div class="midizq">
+                          <div class="rotarmidizq">
+                            <p>ALLTICKETS asegura que este Ticket es valido  <img class="estrella" src="../../../../assets/images/img/estrella.jpg" alt=""></p>
+                          </div>
+                        </div>
+                        <div class="midder">
+                            <img class="logo" src="../../../../assets/images/img/png 3.png" alt="">
+                            <div class="margen"></div>
+                            <p aling="left"><strong>{{evento.nombre}}</strong></p>
+                            <p>PULEP:{{evento.id}}</p>
+                            <div class="midbot">
+                                <p><strong>Inicio: {{evento.fecha|date}}</strong></p>
+                                <p><strong>{{evento?.horaInicio| horas2}}</strong></p>
+                            </div>
+                            <div class="midbot">
+                                <p><strong>{{evento?.fechaFin|date}} </strong></p>
+                                <p><strong>{{evento?.horaFin | horas2}}</strong></p>
+                            </div>
+                            <div class="midbot">
+                                <P>Total: ${{boleta.precio+boleta.servicio+boleta.servicioIva| number: '1.0-0'}}</P>
+                                <p>No. {{boleta.id}}</p>
+                            </div>
+                            <p aling="left"><strong>{{evento.lugar}}</strong></p>
+                            <p class="small">{{evento.terminosYCondiciones}}</p>
+                            <p class="small"> {{evento.recomendaciones}}.</p>
+                            <p class="small2">Venta solo valida en los puntos autorizados</p>
+                        </div>
+                        <div class="midizq">
+                          <div class="rotarmidizq">
+                            <p>Este código QR cuenta con seguridad ALLTICKETS</p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="der">
+                  <div class="rotar">
+                    <p class="small3">Este código QR cuenta con seguridad ALLTICKETS <img class="estrella" src="../../../../assets/images/img/estrella.jpg" alt=""></p>
+                    <h2 class="tamanioLetra">{{boleta.localidadNombre}}</h2>
+                    <div class="derbot">
+                        <P>Total: ${{boleta.precio+boleta.servicio+boleta.servicioIva| number: '1.0-0'}}</P>
+                        <p>No. {{boleta.id}}</p>
+                    </div>
+                    <p class="small">ALLTICKETS asegura que este Ticket es valido</p>
+                  </div>
+                </div>
             </div>
+
   
-  
+<!--   
                <div class="col-12 border " *ngIf="palco.id!=null">
                 <h5 class="pt-4 pl-md-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>
                 <h5 class="pl-md-4"><strong>Localidad: </strong> {{palco.nombre}}</h5>
@@ -68,7 +104,7 @@
                 <h5 class="pl-md-4 "><strong>Precio: </strong> {{palco?.precio| currency:'COP'}} + <strong>Servicio:
                   </strong> {{palco?.servicio| currency:'COP'}} + <strong>IVA</strong> {{palco?.servicioIva|currency:'COP'}}</h5>
                 <h5 class="pl-md-4 pb-4"><strong>Valor Total: </strong>{{palco?.precio + palco?.servicio + palco?.servicioIva|currency:'COP'}}</h5>
-              </div> 
+              </div>  -->
   
               <div class="fondoBlanco shadow col-12">
 
@@ -79,32 +115,10 @@
               </div>
   
   
-            </div> -->
-          </div>
-
-          <div class="col-12">
-            <div class="content" role="main">
-
-              <div style="text-align:center">
-                <h2>Imprimir</h2>
-                <fieldset>
-                <legend>Client Printer:</legend>
-
-                <div id="installedPrinters">
-                  <label for="installedPrinterName">Select an installed Printer:</label>
-                  <select name="printer" id="printer" [(ngModel)]="selectedPrinter">
-                        <option disabled [ngValue]="undefined">Select printer</option>
-                        <option *ngFor="let printer of printers" [ngValue]="printer">{{ printer }}</option>
-                      </select>
-                </div>
-              </fieldset>
-                <br /><br />
-               <strong>OR</strong>&nbsp;<button (click)="doPrintPDF()">Print boletas</button>
-            </div>
-            
-            
             </div>
           </div>
+
+
         </div>
       </div>
     </div>
