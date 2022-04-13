@@ -230,13 +230,15 @@
 
 
 				<div class="tituloLocalidad2" *ngIf="evento.mapa">
-					<h3><strong> {{localidad.nombre}} </strong></h3>
+					<h3><strong> {{localidad.nombre}}</strong></h3>
+					
 				</div>
 				<div class="pt-2 " *ngIf="localidad.palcos.length>0">
 					<h5 class="ticketTitulo"><strong>Personas Por Palco</strong></h5>
 
 					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
 					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
+					<p  class="ticketNumero precioLocalidades" *ngIf="localidad.id==10274"> <strong> (Incluye botella de tequila Olmeca)</strong></p>
 				</div>
 
 				<div class="pt-2 " *ngIf="localidad.palcos.length==0">
