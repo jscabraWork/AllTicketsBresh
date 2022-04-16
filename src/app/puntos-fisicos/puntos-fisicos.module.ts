@@ -21,6 +21,8 @@ import { CantidadBoletasPuntoFisicoComponent } from './cantidad-boletas-punto-fi
 import { ImprimirBoletasComponent } from './carrito-de-compras-puntos-fisicos/imprimir-boletas/imprimir-boletas.component';
 import { EventosModule } from '../eventos/eventos.module';
 import { HoraPipe2 } from '../pipes/horas2.pipe';
+import { ManejoDiasPuntoComponent } from './manejo-dias-punto/manejo-dias-punto.component';
+import { SeleccionarLocalidadPuntoComponent } from './seleccionar-localidad-punto/seleccionar-localidad-punto.component';
 
 
 
@@ -55,7 +57,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[  PuntosFisicosComponent, EventoPuntoFisicoComponent, CarritoDeComprasPuntosFisicosComponent,HoraPipe2, CantidadBoletasPuntoFisicoComponent, ImprimirBoletasComponent],
+    declarations:[  PuntosFisicosComponent, EventoPuntoFisicoComponent, CarritoDeComprasPuntosFisicosComponent,HoraPipe2, CantidadBoletasPuntoFisicoComponent, ImprimirBoletasComponent, ManejoDiasPuntoComponent, SeleccionarLocalidadPuntoComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

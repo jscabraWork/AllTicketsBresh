@@ -89,7 +89,9 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
  
     
 
+    if(this.data.boletas){
     this.boletas = this.data.boletas;
+  }
     if(this.boletas!=null){
     if(this.boletas.length >0){
       this.descripcion =this.boletas.length+ " boletas " +this.boletas[0].localidadNombre +" pare el evento " + this.evento.nombre

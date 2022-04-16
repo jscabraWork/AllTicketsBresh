@@ -1,0 +1,26 @@
+<div class="container border rounded">
+    <div class="row">
+        <section class="col-12 centrar tituloLocalidad">
+            <h5 >Selecciona el momento en que deseas llegar</h5>
+        </section>
+       
+        <section class="col-6 centrar mt-3">
+            <h5> <strong>
+                {{localidad1.nombre}}
+            </strong>
+            </h5>
+         
+           <button (click)="cantidadBoletas(localidad1)" class="btnA mb-3 p-2">Seleccionar</button>
+        </section>
+        <section class="col-6 centrar mt-3 ">
+            <h5>
+                <strong>
+                {{localidad2.nombre}} <br>
+                Antes de la 3 pm
+            </strong>    
+            </h5>
+       
+            <button (click)="cantidadBoletas(localidad2)"  class="btnA mb-3 p-2">Seleccionar</button>
+        </section>
+    </div>
+</div>

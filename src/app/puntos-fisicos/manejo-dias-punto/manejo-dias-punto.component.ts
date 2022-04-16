@@ -3,14 +3,15 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Palco } from 'src/app/administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
 import { Evento } from 'src/app/eventos/evento.model';
 import { PalcosDataService } from 'src/app/service/data/palcos-data.service';
-import { CarritoDeComprasComponent } from '../../carrito-de-compras/carrito-de-compras.component';
+import { CarritoDeComprasPuntosFisicosComponent } from '../carrito-de-compras-puntos-fisicos/carrito-de-compras-puntos-fisicos.component';
 
 @Component({
-  selector: 'app-manejo-dias',
-  templateUrl: './manejo-dias.component.html',
-  styleUrls: ['./manejo-dias.component.css']
+  selector: 'app-manejo-dias-punto',
+  templateUrl: './manejo-dias-punto.component.html',
+  styleUrls: ['./manejo-dias-punto.component.css']
 })
-export class ManejoDiasComponent implements OnInit {
+export class ManejoDiasPuntoComponent implements OnInit {
+
   palcos:Palco[]
   evento:Evento
   usuarioEntidad
@@ -51,7 +52,7 @@ export class ManejoDiasComponent implements OnInit {
     
 
 
-    const dialogRef = this.dialog.open(CarritoDeComprasComponent, {
+    const dialogRef = this.dialog.open(CarritoDeComprasPuntosFisicosComponent, {
       width: '100%',
       height: '85%',
 
@@ -79,4 +80,5 @@ export class ManejoDiasComponent implements OnInit {
     });
 
   }
+
 }
