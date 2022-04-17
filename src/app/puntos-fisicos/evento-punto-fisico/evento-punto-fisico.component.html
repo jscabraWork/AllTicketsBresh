@@ -2097,7 +2097,7 @@
     <div *ngFor="let item of lista1">
       <div class="cuadros"
         [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
-        (click)="agregarPalcoIndividualMultiplesDias(item.valor,item.id,item.id2,item.id3)">
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
         {{item.valor}}
       </div>
     </div>
@@ -2107,7 +2107,7 @@
     <div *ngFor="let item of lista2">
       <div class="cuadros"
         [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
-        (click)="agregarPalcoIndividualMultiplesDias(item.valor,item.id,item.id2,item.id3)">
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
         {{item.valor}}
       </div>
     </div>
@@ -2117,7 +2117,7 @@
     <div *ngFor="let item of lista3">
       <div class="cuadros"
         [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
-        (click)="agregarPalcoIndividualMultiplesDias(item.valor,item.id,item.id2,item.id3)">
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
         {{item.valor}}
       </div>
     </div>
@@ -2127,7 +2127,7 @@
     <div *ngFor="let item of lista4">
       <div class="cuadros"
         [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
-        (click)="agregarPalcoIndividualMultiplesDias(item.valor,item.id,item.id2,item.id3)">
+        (click)="agregarPalcoIndividualID(item.valor,item.id)">
         {{item.valor}}
       </div>
     </div>
@@ -2138,7 +2138,7 @@
       <div class="filaspalcos"><div *ngFor="let item of lista5">
         <div class="cuadros"
           [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
-          (click)="agregarPalcoIndividualMultiplesDias(item.valor,item.id,item.id2,item.id3)">
+          (click)="agregarPalcoIndividualID(item.valor,item.id)">
           {{item.valor}}
         </div>
       </div></div>
@@ -2151,16 +2151,18 @@
           </div>
         </div>
       </div>
-      <div class="cuadros13 sincroindividualt"  (click)="abrirTickets(localidadCargadaBoletasGeneralPiso2)"></div>
+      <div class="cuadros13 sincroindividualt"  (click)="seleccionarLocalidad(localidadCargadaBoletasGeneralPiso2,localidadCargadaBoletasVIP)"></div>
+      <!-- <div class="cuadros13 sincroindividualt"   (click)="abrirTickets(localidadCargadaBoletasGeneralPiso2)"></div> -->
       <div class="filaspalcos"><div *ngFor="let item of lista6">
         <div class="cuadros"
           [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem'}"
-          (click)="agregarPalcoIndividualMultiplesDias(item.valor,item.id,item.id2,item.id3)">
+          (click)="agregarPalcoIndividualID(item.valor,item.id)">
           {{item.valor}}
         </div>
       </div></div>
     </div>
     <div class="clearFix"></div>
-    <div class="cuadros13 sincroindividualb" (click)="abrirTickets(localidadCargadaBoletasGeneralPiso2)">SINCRODESTINO INDIVIDUAL</div>
+    <div class="cuadros13 sincroindividualb" (click)="seleccionarLocalidad(localidadCargadaBoletasGeneralPiso2,localidadCargadaBoletasVIP)">SINCRODESTINO INDIVIDUAL</div>
+    <!-- <div class="cuadros13 sincroindividualb" (click)="abrirTickets(localidadCargadaBoletasGeneralPiso2)">SINCRODESTINO INDIVIDUAL</div> -->
   </div>
 </div>
