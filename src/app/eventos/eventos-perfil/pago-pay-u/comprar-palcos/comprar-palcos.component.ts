@@ -1333,7 +1333,7 @@ export class ComprarPalcosComponent implements OnInit {
   }
   
   cargarLocalidadEnMapa2(){
-    for(let i=0;i<4;i++){
+    /*for(let i=0;i<4;i++){
       this.lista11[i] = {
         valor:'v',
         localidad: 'promo',
@@ -1351,41 +1351,73 @@ export class ComprarPalcosComponent implements OnInit {
         localidad: 'promo',
         id:'v'
       }
-    }
-    for(let i=0;i<5;i++){
-     
-
+    }*/
+    for(let i=0;i<3;i++){
       if (
-        !this.localidadCargadaPreferecial.palcos[i].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i].reservado &&
-        this.localidadCargadaPreferecial.palcos[i].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i].proceso
+        !this.localidadCargadaPreferecial.palcos[i+15].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+15].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+15].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+15].proceso
       ){
-        this.lista1[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
+        this.lista4[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+15].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i].id
+          id:this.localidadCargadaPreferecial.palcos[i+15].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i].vendido ||
-        this.localidadCargadaPreferecial.palcos[i].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i].disponible
+        this.localidadCargadaPreferecial.palcos[i+15].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+15].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+15].disponible
       ) {
-        this.lista1[i] =  {
+        this.lista4[i] =  {
           valor:'v',
           localidad: 'oro',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
-        this.lista1[i]= {
+      } else if (this.localidadCargadaPreferecial.palcos[i+15].proceso) {
+        this.lista4[i]= {
           valor:'p',
           localidad: 'oro',
           id:'p'
         }
       }
 
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+24].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+24].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+24].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+24].proceso
+      ){
+        this.lista6[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+24].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+24].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+24].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+24].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+24].disponible
+      ) {
+        this.lista6[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+24].proceso) {
+        this.lista6[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+    }
+
+    for(let i=0;i<4;i++){
 
       if (
         !this.localidadCargadaPreferecial.palcos[i+5].vendido &&
@@ -1420,31 +1452,71 @@ export class ComprarPalcosComponent implements OnInit {
 
     }
 
-    for(let i=0;i<6;i++){
+    for(let i=0;i<5;i++){
+     
+
       if (
-        !this.localidadCargadaPreferecial.palcos[i+10].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+10].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+10].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+10].proceso
+        !this.localidadCargadaPreferecial.palcos[i].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i].reservado &&
+        this.localidadCargadaPreferecial.palcos[i].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i].proceso
       ){
-        this.lista3[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+10].numeroDentroDeEvento,
+        this.lista1[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i+10].id
+          id:this.localidadCargadaPreferecial.palcos[i].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i+10].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+10].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+10].disponible
+        this.localidadCargadaPreferecial.palcos[i].vendido ||
+        this.localidadCargadaPreferecial.palcos[i].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i].disponible
+      ) {
+        this.lista1[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
+        this.lista1[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+      
+
+      
+
+    }
+
+    for(let i=0;i<6;i++){
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+9].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+9].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+9].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+9].proceso
+      ){
+        this.lista3[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+9].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+9].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+9].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+9].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+9].disponible
       ) {
         this.lista3[i] =  {
           valor:'v',
           localidad: 'oro',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+10].proceso) {
+      } else if (this.localidadCargadaPreferecial.palcos[i+9].proceso) {
         this.lista3[i]= {
           valor:'p',
           localidad: 'oro',
@@ -1452,61 +1524,32 @@ export class ComprarPalcosComponent implements OnInit {
         }
       }
 
-      if (
-        !this.localidadCargadaPreferecial.palcos[i+16].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+16].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+16].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+16].proceso
-      ){
-        this.lista4[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+16].numeroDentroDeEvento,
-          localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i+16].id
-        }
-      }
       
-      else if (
-        this.localidadCargadaPreferecial.palcos[i+16].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+16].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+16].disponible
-      ) {
-        this.lista4[i] =  {
-          valor:'v',
-          localidad: 'oro',
-          id:'v'
-        }
-      } else if (this.localidadCargadaPreferecial.palcos[i+16].proceso) {
-        this.lista4[i]= {
-          valor:'p',
-          localidad: 'oro',
-          id:'p'
-        }
-      }
 
       if (
-        !this.localidadCargadaPreferecial.palcos[i+22].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+22].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+22].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+22].proceso
+        !this.localidadCargadaPreferecial.palcos[i+18].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+18].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+18].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+18].proceso
       ){
         this.lista5[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+22].numeroDentroDeEvento,
+          valor:this.localidadCargadaPreferecial.palcos[i+18].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i+22].id
+          id:this.localidadCargadaPreferecial.palcos[i+18].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i+22].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+22].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+22].disponible
+        this.localidadCargadaPreferecial.palcos[i+18].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+18].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+18].disponible
       ) {
         this.lista5[i] =  {
           valor:'v',
           localidad: 'oro',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+22].proceso) {
+      } else if (this.localidadCargadaPreferecial.palcos[i+18].proceso) {
         this.lista5[i]= {
           valor:'p',
           localidad: 'oro',
@@ -1514,65 +1557,98 @@ export class ComprarPalcosComponent implements OnInit {
         }
       }
 
-      if (
-        !this.localidadCargadaPreferecial.palcos[i+28].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+28].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+28].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+28].proceso
-      ){
-        this.lista6[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+28].numeroDentroDeEvento,
-          localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i+28].id
-        }
-      }
       
-      else if (
-        this.localidadCargadaPreferecial.palcos[i+28].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+28].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+28].disponible
-      ) {
-        this.lista6[i] =  {
-          valor:'v',
-          localidad: 'oro',
-          id:'v'
-        }
-      } else if (this.localidadCargadaPreferecial.palcos[i+28].proceso) {
-        this.lista6[i]= {
-          valor:'p',
-          localidad: 'oro',
-          id:'p'
-        }
-      }
       
     }
+    for(let i=0;i<9;i++){
 
-    for(let i=0;i<14;i++){
       if (
-        !this.localidadCargadaPreferecial.palcos[i+34].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+34].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+34].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+34].proceso
+        !this.localidadCargadaPreferecial.palcos[i+27].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+27].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+27].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+27].proceso
       ){
         this.lista7[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+34].numeroDentroDeEvento,
+          valor:this.localidadCargadaPreferecial.palcos[i+27].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i+34].id
+          id:this.localidadCargadaPreferecial.palcos[i+27].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i+34].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+34].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+34].disponible
+        this.localidadCargadaPreferecial.palcos[i+27].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+27].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+27].disponible
       ) {
         this.lista7[i] =  {
           valor:'v',
           localidad: 'oro',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+34].proceso) {
+      } else if (this.localidadCargadaPreferecial.palcos[i+27].proceso) {
         this.lista7[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+36].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+36].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+36].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+36].proceso
+      ){
+        this.lista11[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+36].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+36].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+36].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+36].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+36].disponible
+      ) {
+        this.lista11[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+36].proceso) {
+        this.lista11[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+45].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+45].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+45].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+45].proceso
+      ){
+        this.lista12[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+45].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+45].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+45].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+45].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+45].disponible
+      ) {
+        this.lista12[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+45].proceso) {
+        this.lista12[i]= {
           valor:'p',
           localidad: 'oro',
           id:'p'
@@ -1608,27 +1684,27 @@ export class ComprarPalcosComponent implements OnInit {
         }
       }
       if (
-        !this.localidadCargadaGeneral.palcos[i+14].vendido &&
-        !this.localidadCargadaGeneral.palcos[i+14].reservado &&
-        this.localidadCargadaGeneral.palcos[i+14].disponible &&
-        !this.localidadCargadaGeneral.palcos[i+14].proceso
+        !this.localidadCargadaGeneral.palcos[i+9].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+9].reservado &&
+        this.localidadCargadaGeneral.palcos[i+9].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+9].proceso
       ){
         this.lista9[i] = {
-          valor:this.localidadCargadaGeneral.palcos[i+14].numeroDentroDeEvento,
+          valor:this.localidadCargadaGeneral.palcos[i+9].numeroDentroDeEvento,
           localidad: 'prem',
-          id:this.localidadCargadaGeneral.palcos[i+14].id
+          id:this.localidadCargadaGeneral.palcos[i+9].id
         }
       } else if (
-        this.localidadCargadaGeneral.palcos[i+14].vendido ||
-        this.localidadCargadaGeneral.palcos[i+14].reservado ||
-        !this.localidadCargadaGeneral.palcos[i+14].disponible
+        this.localidadCargadaGeneral.palcos[i+9].vendido ||
+        this.localidadCargadaGeneral.palcos[i+9].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+9].disponible
       ) {
         this.lista9[i] =  {
           valor:'v',
           localidad: 'prem',
           id:'v'
         }
-      } else if (this.localidadCargadaGeneral.palcos[i+14].proceso) {
+      } else if (this.localidadCargadaGeneral.palcos[i+9].proceso) {
         this.lista9[i]= {
           valor:'p',
           localidad: 'prem',
@@ -1636,34 +1712,125 @@ export class ComprarPalcosComponent implements OnInit {
         }
       }
       if (
-        !this.localidadCargadaGeneral.palcos[i+28].vendido &&
-        !this.localidadCargadaGeneral.palcos[i+28].reservado &&
-        this.localidadCargadaGeneral.palcos[i+28].disponible &&
-        !this.localidadCargadaGeneral.palcos[i+28].proceso
+        !this.localidadCargadaGeneral.palcos[i+18].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+18].reservado &&
+        this.localidadCargadaGeneral.palcos[i+18].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+18].proceso
       ){
         this.lista10[i] = {
-          valor:this.localidadCargadaGeneral.palcos[i+28].numeroDentroDeEvento,
+          valor:this.localidadCargadaGeneral.palcos[i+18].numeroDentroDeEvento,
           localidad: 'prem',
-          id:this.localidadCargadaGeneral.palcos[i+28].id
+          id:this.localidadCargadaGeneral.palcos[i+18].id
         }
       } else if (
-        this.localidadCargadaGeneral.palcos[i+28].vendido ||
-        this.localidadCargadaGeneral.palcos[i+28].reservado ||
-        !this.localidadCargadaGeneral.palcos[i+28].disponible
+        this.localidadCargadaGeneral.palcos[i+18].vendido ||
+        this.localidadCargadaGeneral.palcos[i+18].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+18].disponible
       ) {
         this.lista10[i] =  {
           valor:'v',
           localidad: 'prem',
           id:'v'
         }
-      } else if (this.localidadCargadaGeneral.palcos[i+28].proceso) {
+      } else if (this.localidadCargadaGeneral.palcos[i+18].proceso) {
         this.lista10[i]= {
           valor:'p',
           localidad: 'prem',
           id:'p'
         }
       }
+
+      if (
+        !this.localidadCargadaGeneral.palcos[i+27].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+27].reservado &&
+        this.localidadCargadaGeneral.palcos[i+27].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+27].proceso
+      ){
+        this.lista13[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i+27].numeroDentroDeEvento,
+          localidad: 'prem',
+          id:this.localidadCargadaGeneral.palcos[i+27].id
+        }
+      } else if (
+        this.localidadCargadaGeneral.palcos[i+27].vendido ||
+        this.localidadCargadaGeneral.palcos[i+27].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+27].disponible
+      ) {
+        this.lista13[i] =  {
+          valor:'v',
+          localidad: 'prem',
+          id:'v'
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i+27].proceso) {
+        this.lista13[i]= {
+          valor:'p',
+          localidad: 'prem',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaGeneral.palcos[i+36].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+36].reservado &&
+        this.localidadCargadaGeneral.palcos[i+36].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+36].proceso
+      ){
+        this.lista14[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i+36].numeroDentroDeEvento,
+          localidad: 'prem',
+          id:this.localidadCargadaGeneral.palcos[i+36].id
+        }
+      } else if (
+        this.localidadCargadaGeneral.palcos[i+36].vendido ||
+        this.localidadCargadaGeneral.palcos[i+36].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+36].disponible
+      ) {
+        this.lista14[i] =  {
+          valor:'v',
+          localidad: 'prem',
+          id:'v'
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i+36].proceso) {
+        this.lista14[i]= {
+          valor:'p',
+          localidad: 'prem',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaGeneral.palcos[i+45].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+45].reservado &&
+        this.localidadCargadaGeneral.palcos[i+45].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+45].proceso
+      ){
+        this.lista15[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i+45].numeroDentroDeEvento,
+          localidad: 'prem',
+          id:this.localidadCargadaGeneral.palcos[i+45].id
+        }
+      } else if (
+        this.localidadCargadaGeneral.palcos[i+45].vendido ||
+        this.localidadCargadaGeneral.palcos[i+45].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+45].disponible
+      ) {
+        this.lista15[i] =  {
+          valor:'v',
+          localidad: 'prem',
+          id:'v'
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i+45].proceso) {
+        this.lista15[i]= {
+          valor:'p',
+          localidad: 'prem',
+          id:'p'
+        }
+      }
+
     }
+
+    
+
   }
   
   
@@ -2638,29 +2805,29 @@ export class ComprarPalcosComponent implements OnInit {
       }
 
       if (
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].vendido &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].reservado &&
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+64].disponible &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].proceso
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+70].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].proceso
       ){
         this.lista20[i] = {
-          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+64].numeroDentroDeEvento,
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+70].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+64].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+70].id
         }
       }
       
       else if (
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+64].vendido ||
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+64].reservado ||
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].disponible
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+70].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+70].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].disponible
       ) {
         this.lista20[i] =  {
           valor:'v',
           localidad: 'promo',
           id:'v'
         }
-      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+64].proceso) {
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+70].proceso) {
         this.lista20[i]= {
           valor:'p',
           localidad: 'promo',
