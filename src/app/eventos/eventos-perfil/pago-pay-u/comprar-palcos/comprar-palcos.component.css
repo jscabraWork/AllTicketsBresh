@@ -358,6 +358,26 @@ img {
   justify-content: center;
   align-items: center;
 }
+.tarimamap8{
+  width: 392px;
+  height: 100px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tarimamap{
+  margin-left: 11px;
+  width: 392px;
+  height: 72px;
+  background-color: #333;
+  color: white;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .generalmap2{
   width: 105px;
   height: 669px;
@@ -408,10 +428,30 @@ img {
   margin-right: 3px;
   background-color: rgb(0,93,121);
 }
-.platmap2:hover,.genmap71:hover,.genmap72:hover{
+.vipmapa8{
+  width: 392px;
+  height: 113px;
+  color: white;
+  float: left;
+  font-weight: bold;
+  line-height: 95px;
+  cursor: pointer;
+  background-color: rgb(0,93,121);
+}
+.genmapa8{
+  width: 392px;
+  height: 113px;
+  color: white;
+  float: left;
+  font-weight: bold;
+  line-height: 95px;
+  cursor: pointer;
+  background-color: rgb(1,167,84);
+}
+.platmap2:hover,.genmap71:hover,.genmap72:hover,.vipmapa8:hover{
   background-color: rgb(9, 41, 51);
 }
-.generalmap2:hover{
+.generalmap2:hover,.genmapa8:hover{
   background-color: rgb(10, 78, 44);
 }
 .contenedormapa2{
@@ -439,6 +479,19 @@ img {
   justify-content: center;
   align-items: center;
   flex-flow: column;
+}
+.palcosmapa8a,.palcosmapa8b{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  position: absolute;
+}
+.palcosmapa8a{
+  margin-left: 25px;
+}
+.palcosmapa8b{
+  margin-left: 230px;
 }
 .contmap1{
   width: 330px;
