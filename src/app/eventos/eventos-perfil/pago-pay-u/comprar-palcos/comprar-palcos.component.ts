@@ -978,8 +978,11 @@ export class ComprarPalcosComponent implements OnInit {
                   this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
                 }
 
-                else if (this.etapas[i].localidades[j].nombre == 'GENERAL') {
+                else if (this.etapas[i].localidades[j].nombre == 'General') {
                   this.localidadCargadaGeneral = this.etapas[i].localidades[j];
+                }
+                else if (this.etapas[i].localidades[j].nombre == 'Meet and Greet') {
+                  this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
                 }
               
               }
@@ -1006,11 +1009,11 @@ export class ComprarPalcosComponent implements OnInit {
                   this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
                 }
 
-                else if (this.etapas[i].localidades[j].nombre == 'VIP') {
+                else if (this.etapas[i].localidades[j].nombre == 'VIP 1ra Etapa') {
                   this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
                 }
                 
-                else if (this.etapas[i].localidades[j].nombre == 'GENERAL') {
+                else if (this.etapas[i].localidades[j].nombre == 'General 1ra Etapa') {
                   this.localidadCargadaGeneral = this.etapas[i].localidades[j];
                 }
               
