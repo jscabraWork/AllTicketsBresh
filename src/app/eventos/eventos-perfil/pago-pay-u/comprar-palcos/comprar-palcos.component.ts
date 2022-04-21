@@ -961,7 +961,68 @@ export class ComprarPalcosComponent implements OnInit {
               this.cargadoTodo = true;
             });
         }
+        else if (this.evento.mapa == 'mapa7') {
+          this.etapaServicio
+          .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+          .subscribe((response) => {
 
+            this.etapas = response;
+
+            for (let i = 0; i < this.etapas.length; i += 1) {
+              for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                if (this.etapas[i].localidades[j].nombre == 'PALCOS + MEET AND GREET') {
+                  this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                }
+
+                else if (this.etapas[i].localidades[j].nombre == 'General') {
+                  this.localidadCargadaGeneral = this.etapas[i].localidades[j];
+                }
+                else if (this.etapas[i].localidades[j].nombre == 'Meet and Greet') {
+                  this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
+                }
+              
+              }
+            }
+
+
+            this.cargarLocalidadEnMapa7();
+            this.cargadoTodo = true;
+          });
+        }
+
+        else if (this.evento.mapa == 'mapa8') {
+          this.etapaServicio
+          .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+          .subscribe((response) => {
+
+            this.etapas = response;
+
+            for (let i = 0; i < this.etapas.length; i += 1) {
+              for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                if (this.etapas[i].localidades[j].nombre == 'PALCOS') {
+                  this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                }
+
+                else if (this.etapas[i].localidades[j].nombre == 'VIP 1ra Etapa') {
+                  this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
+                }
+                
+                else if (this.etapas[i].localidades[j].nombre == 'General 1ra Etapa') {
+                  this.localidadCargadaGeneral = this.etapas[i].localidades[j];
+                }
+              
+              }
+            }
+
+
+            this.cargarLocalidadEnMapa8();
+            this.cargadoTodo = true;
+          });
+        }
 
         else if (this.evento.mapa == 'mapa21') {
           this.etapaServicio
@@ -1830,6 +1891,144 @@ export class ComprarPalcosComponent implements OnInit {
     }
 
     
+
+  }
+
+  cargarLocalidadEnMapa7(){
+  
+    for(let i=0;i<3;i++){
+      if (
+        !this.localidadCargadaPreferecial.palcos[i].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i].reservado &&
+        this.localidadCargadaPreferecial.palcos[i].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i].proceso
+      ){
+        this.lista1[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i].vendido ||
+        this.localidadCargadaPreferecial.palcos[i].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i].disponible
+      ) {
+        this.lista1[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
+        this.lista1[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+3].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+3].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+3].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+3].proceso
+      ){
+        this.lista2[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+3].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+3].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+3].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+3].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+3].disponible
+      ) {
+        this.lista2[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+3].proceso) {
+        this.lista2[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+    }
+
+  }
+
+  cargarLocalidadEnMapa8(){
+  
+    for(let i=0;i<3;i++){
+      if (
+        !this.localidadCargadaPreferecial.palcos[i].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i].reservado &&
+        this.localidadCargadaPreferecial.palcos[i].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i].proceso
+      ){
+        this.lista1[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i].vendido ||
+        this.localidadCargadaPreferecial.palcos[i].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i].disponible
+      ) {
+        this.lista1[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
+        this.lista1[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+3].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+3].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+3].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+3].proceso
+      ){
+        this.lista2[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+3].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+3].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+3].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+3].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+3].disponible
+      ) {
+        this.lista2[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+3].proceso) {
+        this.lista2[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+    }
 
   }
   
