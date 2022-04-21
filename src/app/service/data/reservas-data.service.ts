@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Palco } from 'src/app/administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
 import { API_URL } from 'src/app/app.constants';
+import { Evento } from 'src/app/eventos/evento.model';
 import { Reserva } from 'src/app/models/reserva.model';
 
 @Injectable({
@@ -32,5 +33,8 @@ getPalcoReserva(pIdReserva:number){
 getAllReservasParaOrganizador(pIdEvento){
   return this.http.get((`${API_URL}/promotores/eventos/reservas/${pIdEvento}/organizador`)); 
 }
-
+getEventoReserva(pIdReserva:number){
+  return this.http.get<Evento>(`${API_URL}/reservas/evento/${pIdReserva}`)
+}
+ge
 }

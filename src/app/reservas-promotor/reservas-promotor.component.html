@@ -29,7 +29,7 @@
         </select>
         <h5 class="mt-4"><strong>Dinero a Aportar: </strong>{{valorAPagar | currency:'COP'}} </h5>
     </div>
-
+<!-- 
      <form ngNoForm method="post" [action]="url" >
         <input name="merchantId" type="hidden" value="{{merchantId}}">
         <input name="accountId" type="hidden" value="{{accountId}}">
@@ -51,11 +51,11 @@
         
         <button name="Submit" *ngIf="palco.id!=null" class="btn action_button" type="submit"   value="Enviar" style="font-size:16px ;">Pagar</button>
         
-      </form>  
+      </form>   -->
 
-      <!-- <button class="btn action_button" *ngIf="palco.id!=null" (click)="epaycoPalcosUsuarios()">
+      <button class="btn action_button" *ngIf="palco.id!=null" (click)="epaycoPalcosUsuarios()">
           Pagar
-      </button> -->
+      </button> 
 
 
 </div>

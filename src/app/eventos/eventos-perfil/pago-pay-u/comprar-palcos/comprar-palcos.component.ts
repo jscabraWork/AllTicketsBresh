@@ -5594,7 +5594,7 @@ agregarPalcoIndividualMultiplesDias(numero,id1,id2,id3) {
     }
 
     else {
-      alert('Ingresa a tu cuenta AllTickets para poder realizar la compra')
+      alert("Debes ingresar a tu cuenta AllTickets para realizar la compra, en caso de no tener registraté")
       this.openDialog();
     }
   }
@@ -5652,7 +5652,7 @@ seleccionarTicketExacto(item){
   }
 
   else {
-    alert('Ingresa a tu cuenta AllTickets para poder realizar la compra')
+    alert("Debes ingresar a tu cuenta AllTickets para realizar la compra, en caso de no tener registraté")
     this.openDialog();
   }
 }
@@ -5746,7 +5746,7 @@ AbrirCarritoTicket(): void {
     }
 
     else {
-      alert('Ingresa a tu cuenta AllTickets para poder realizar la compra')
+      alert("Debes ingresar a tu cuenta AllTickets para realizar la compra, en caso de no tener registraté")
       this.openDialog();
     }
   }

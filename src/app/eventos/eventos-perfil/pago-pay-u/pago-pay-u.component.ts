@@ -209,7 +209,7 @@ codigoVenta
    }
   
   else if(this.usuarioBoolean){
-    alert("Entra a tu cuenta AllTickets")
+    alert("Debes ingresar a tu cuenta AllTickets para realizar la compra, en caso de no tener registraté")
     this.openDialog();
   }
 
@@ -272,7 +272,7 @@ codigoVenta
   }
   
   else if(this.usuarioBoolean){
-    alert("Entra a tu cuenta All Tickets")
+    alert("Debes ingresar a tu cuenta AllTickets para realizar la compra, en caso de no tener registraté")
     this.openDialog()
   }
 
