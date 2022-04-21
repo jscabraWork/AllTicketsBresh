@@ -367,6 +367,15 @@ img {
   justify-content: center;
   align-items: center;
 }
+.tarimamap9{
+  width: 230px;
+  height: 75px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .tarimamap{
   margin-left: 11px;
   width: 392px;
@@ -427,6 +436,9 @@ img {
   margin-left: 3px;
   margin-right: 3px;
   background-color: rgb(0,93,121);
+}
+.mapa8vip{
+  position: relative !important;
 }
 .vipmapa8{
   width: 392px;
@@ -492,6 +504,37 @@ img {
 }
 .palcosmapa8b{
   margin-left: 230px;
+}
+.palcosmapa9{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  width: 50px;
+}
+.mapa9general{
+  display: flex;
+  flex-flow: row;
+}
+.genmapa9,.genmapa9bot{
+  color: white;
+  float: left;
+  font-weight: bold;
+  line-height: 95px;
+  cursor: pointer;
+  background-color: rgb(1,167,84);
+}
+.genmapa9{
+  width: 230px;
+  height: 135px;
+}
+.genmapa9bot{
+  width: 275px;
+  height: 50px;
+  margin-top: -3px;
+}
+.genmapa9:hover,.genmapa9bot:hover{
+  background-color: rgb(10, 78, 44);
 }
 .contmap1{
   width: 330px;
