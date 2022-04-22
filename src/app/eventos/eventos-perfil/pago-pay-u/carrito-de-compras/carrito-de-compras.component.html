@@ -59,7 +59,7 @@
               </h5>
               <div class="pl-md-4 pb-5 mt-3">
               
-                <!-- <button class="btn action_button" *ngIf="usuarioEntidad && boletas" (click)="epaycoTicketsUsuarios()">Pagar</button>
+                <button class="btn action_button" *ngIf="usuarioEntidad && boletas" (click)="epaycoTicketsUsuarios()">Pagar</button>
 
 
 
@@ -73,9 +73,9 @@
 
 
 
-                <button class="btn action_button" *ngIf="palco.id!=null && efectivo" (click)="epaycoPalcosUsuarios2()">Pagar</button>  -->
+                <button class="btn action_button" *ngIf="palco.id!=null && efectivo" (click)="epaycoPalcosUsuarios2()">Pagar</button> 
 
-                   <form ngNoForm method="post" [action]="url" >
+                   <!-- <form ngNoForm method="post" [action]="url" >
                     <input name="merchantId" type="hidden" value="{{merchantId}}">
                     <input name="accountId" type="hidden" value="{{accountId}}">
                     <input name="description" type="hidden" value="{{descripcion}}">
@@ -96,7 +96,7 @@
                     
                     <button name="Submit" class="btn action_button" type="submit"   value="Enviar" style="font-size:16px ;">Pagar</button>
                     
-                  </form>   
+                  </form>    -->
 
               </div>
             </div>
