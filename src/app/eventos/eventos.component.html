@@ -35,10 +35,10 @@
                         </h2>
                         <hr class="aaa">
                     </div>
-                    <div class="col-6 border-right fechaCiudad">
+                    <div class="col-12 col-sm-6 border-right fechaCiudad">
                         <p  class="fechas "><strong>{{darFecha(evento)}} </strong></p>
                         
-                        <p class="fechas"><strong>Ciudad: {{evento?.ciudadNombre }}</strong></p>
+                        <p class="fechas fechalugar"><strong>Ciudad: {{evento?.ciudadNombre }}</strong></p>
                     </div>
                     <div class="col-12 col-sm-6 botonVer">
                         <button *ngIf="!evento.soldout"

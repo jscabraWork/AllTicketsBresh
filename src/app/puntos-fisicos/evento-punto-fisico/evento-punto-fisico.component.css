@@ -72,7 +72,7 @@ img {
   width: 400px;
   display: flex;
   position: relative;
-  margin-top: -45px;
+  
 }
 .mesasmapa5{
   position: absolute;
@@ -81,10 +81,10 @@ img {
 }
 .sincroindividualt{
   width: 284px;
-  height: 200px;
+  height: 240px;
   margin-left: 3px;
   margin-right: 3px;
-  margin-top: 32px;
+  
   cursor: pointer;
 }
 .sincroindividualb{
@@ -181,6 +181,7 @@ img {
   height: 332px;
   margin-left: 110px;
   display: flex;
+  
 }
 .tarimamap23{
   margin-left: 154px;
@@ -943,6 +944,26 @@ td {
   .sold_out {
     width: 280px;
     height: 280px;
+  }
+  #prueba h1{
+    font-size: 16px !important;
+  }
+  .informacion{
+    padding-left: 5% !important;
+  }
+  .informacion h2{
+    font-size: 1.6rem !important;
+  }
+  .informacion h5{
+    font-size: 1rem !important;
+  }
+  #convensiones{
+    margin-left: 2% !important;
+  }
+  .contenedor-mapa{
+    margin-left: 1% !important;
+    margin-right: 1% !important;
+    width: auto;
   }
 }
 

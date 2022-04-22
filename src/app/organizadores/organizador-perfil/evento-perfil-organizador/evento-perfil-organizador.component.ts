@@ -45,6 +45,8 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   servicio:number
   impuestoPayU:number
   boletas:[]
+  comisionEpayco:number
+  impuestoEpayco:number
   ngOnInit( ): void {
     this.dineroRecaudado =0
     this.dineroServicio=0
@@ -62,7 +64,9 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     this.dineroEntregar=0
     this.dineroServicioDespuesDeComisiones=0
     this.ivaCuenta=0
+    this.comisionEpayco =0
     this.impuestoPayU=0
+    this.impuestoEpayco=0
     this.evento = new Evento();
     this.evento.adicionales =[];
     this.route.paramMap.subscribe( params =>{
@@ -110,13 +114,15 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
              }
               this.manejoRetenciones(response)
               let dineroTotal = (this.dineroRecaudado+this.dineroIva+this.dineroServicio);
-              this.comisionPayU = (dineroTotal*0.0265) + 600*this.cantidadTransacciones;
+             
               this.impuestoPayU = (this.comisionPayU*0.19)
-              
+              this.impuestoEpayco = (this.comisionEpayco*0.19)
 
-              this.servicio = this.dineroServicio - this.comisionPayU - this.impuestoPayU;
+              this.servicio = this.dineroServicio - this.comisionPayU - this.impuestoPayU - this.comisionEpayco -  this.impuestoEpayco;
+
               this.dineroServicioDespuesDeComisiones =this.servicio - this.retefuenteAT - this.reteIcaAT
               this.dineroEntregar = this.dineroRecaudado-this.retefuenteOrganizador-this.reteIcaOrganizador
+
               this.ivaCuenta = this.dineroIva - this.reteIva
             }
           )
@@ -136,7 +142,10 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     this.reteIva = +response.reteIva as number
     this.cantidadTransacciones = response.cantidadTransacciones
 
-    
+    this.comisionPayU = response.comisionPayu
+    this.comisionEpayco = response.comisionEpayco
+    console.log(response.comisionPayu);
+    console.log(response.comisionEpayco);    
   }
   handleGetSuccesfull(response){
     this.evento=response.evento;

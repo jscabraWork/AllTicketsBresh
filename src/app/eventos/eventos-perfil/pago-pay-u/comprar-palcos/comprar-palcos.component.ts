@@ -20,6 +20,7 @@ import { CantidadBoletasComponent } from '../cantidad-boletas/cantidad-boletas.c
 import { LocalidadSeleccionComponent } from '../localidad-seleccion/localidad-seleccion.component';
 import { BoletasDataService } from 'src/app/service/data/boletas-data.service';
 import { Boleta } from 'src/app/eventos/boleta.model';
+import { ManejoDiasComponent } from './manejo-dias/manejo-dias.component';
 
 @Component({
   selector: 'app-comprar-palcos',
@@ -937,11 +938,11 @@ export class ComprarPalcosComponent implements OnInit {
                     this.localidadCargada = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'PALCOS BACKSTAGE') {
+                  else if (this.etapas[i].localidades[j].nombre == 'Palcos Backstage Domingo') {
                     this.localidadCargadaGeneral = this.etapas[i].localidades[j];
                   }
 
-                  else if (this.etapas[i].localidades[j].nombre == 'SOFAS SINCRODESTINO') {
+                  else if (this.etapas[i].localidades[j].nombre == 'SOFAS SINCRODESTINO Domingo') {
                     this.localidadCargadaBoletas = this.etapas[i].localidades[j];
                   } 
 
@@ -952,9 +953,7 @@ export class ComprarPalcosComponent implements OnInit {
                   else if (this.etapas[i].localidades[j].nombre == 'SINCRODESTINO INDIVIDUAL') {
                     this.localidadCargadaBoletasGeneralPiso2 = this.etapas[i].localidades[j]; 
                   }
-                  else if (this.etapas[i].localidades[j].nombre == 'Early') {
-                    this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j]; 
-                  }
+                  
                 }
               }
 
@@ -962,35 +961,97 @@ export class ComprarPalcosComponent implements OnInit {
               this.cargadoTodo = true;
             });
         }
-
-        else if (this.evento.mapa == 'mapa21') {
+        else if (this.evento.mapa == 'mapa7') {
           this.etapaServicio
-            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-            .subscribe((response) => {
+          .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+          .subscribe((response) => {
 
-              this.etapas = response;
+            this.etapas = response;
 
-              for (let i = 0; i < this.etapas.length; i += 1) {
-                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+            for (let i = 0; i < this.etapas.length; i += 1) {
+              for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
 
 
-                  if (this.etapas[i].localidades[j].nombre == 'VIP') {
-                
-                    this.localidadCargadaGeneral =
-                      this.etapas[i].localidades[j];
+                if (this.etapas[i].localidades[j].nombre == 'PALCOS + MEET AND GREET') {
+                  this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
                 }
-                  else if (this.etapas[i].localidades[j].nombre == 'General') {
-                    this.localidadCargadaBoletas = this.etapas[i].localidades[j];
-                  }
-                
+
+                else if (this.etapas[i].localidades[j].nombre == 'General') {
+                  this.localidadCargadaGeneral = this.etapas[i].localidades[j];
                 }
+                else if (this.etapas[i].localidades[j].nombre == 'Meet and Greet') {
+                  this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
+                }
+              
               }
-  
+            }
 
-              this.cargarLocalidadEnMapa21();
-              this.cargadoTodo = true;
-            });
+
+            this.cargarLocalidadEnMapa7();
+            this.cargadoTodo = true;
+          });
         }
+
+        else if (this.evento.mapa == 'mapa8') {
+          this.etapaServicio
+          .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+          .subscribe((response) => {
+
+            this.etapas = response;
+
+            for (let i = 0; i < this.etapas.length; i += 1) {
+              for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                if (this.etapas[i].localidades[j].nombre == 'PALCOS') {
+                  this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                }
+
+                else if (this.etapas[i].localidades[j].nombre == 'VIP 1ra Etapa') {
+                  this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
+                }
+                
+                else if (this.etapas[i].localidades[j].nombre == 'General 1ra Etapa') {
+                  this.localidadCargadaGeneral = this.etapas[i].localidades[j];
+                }
+              
+              }
+            }
+
+
+            this.cargarLocalidadEnMapa8();
+            this.cargadoTodo = true;
+          });
+        }
+
+        else if (this.evento.mapa == 'mapa9') {
+          this.etapaServicio
+          .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+          .subscribe((response) => {
+
+            this.etapas = response;
+
+            for (let i = 0; i < this.etapas.length; i += 1) {
+              for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                if (this.etapas[i].localidades[j].nombre == 'PALCOS') {
+                  this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                }
+
+                else if (this.etapas[i].localidades[j].nombre == 'GENERAL') {
+                  this.localidadCargadaGeneral = this.etapas[i].localidades[j];
+                }
+              
+              }
+            }
+
+
+            this.cargarLocalidadEnMapa9();
+            this.cargadoTodo = true;
+          });
+        }
+
 
         else if (this.evento.mapa == 'mapa22') {
           this.etapaServicio
@@ -1257,6 +1318,37 @@ export class ComprarPalcosComponent implements OnInit {
     });
   }
 
+
+  multiplesPalcos(palcos:Palco[],ids:number[]) {
+    
+
+
+    const dialogRef = this.dialog.open(ManejoDiasComponent, {
+      width: '600px',
+
+      data: {
+        palcos: palcos,
+        evento: this.evento,
+        usuarioEntidad: this.usuarioEntidad,
+        codigoVenta: this.codigoVenta,
+        ids:ids
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.dialog.closeAll();
+      for(let i =0; i< palcos.length;i++){
+      this.palcoServicio
+        .rechazarReservaPalcoInmediatamente(palcos[i].id)
+        .subscribe((response) => {
+          response;
+          this.ngOnInit();
+        });
+      }
+    });
+  }
+
+
   adicionales() {
     const dialogRef = this.dialog.open(AdicionalComponent, {
       width: '100%',
@@ -1302,7 +1394,7 @@ export class ComprarPalcosComponent implements OnInit {
   }
   
   cargarLocalidadEnMapa2(){
-    for(let i=0;i<4;i++){
+    /*for(let i=0;i<4;i++){
       this.lista11[i] = {
         valor:'v',
         localidad: 'promo',
@@ -1320,41 +1412,73 @@ export class ComprarPalcosComponent implements OnInit {
         localidad: 'promo',
         id:'v'
       }
-    }
-    for(let i=0;i<5;i++){
-     
-
+    }*/
+    for(let i=0;i<3;i++){
       if (
-        !this.localidadCargadaPreferecial.palcos[i].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i].reservado &&
-        this.localidadCargadaPreferecial.palcos[i].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i].proceso
+        !this.localidadCargadaPreferecial.palcos[i+15].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+15].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+15].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+15].proceso
       ){
-        this.lista1[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
+        this.lista4[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+15].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i].id
+          id:this.localidadCargadaPreferecial.palcos[i+15].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i].vendido ||
-        this.localidadCargadaPreferecial.palcos[i].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i].disponible
+        this.localidadCargadaPreferecial.palcos[i+15].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+15].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+15].disponible
       ) {
-        this.lista1[i] =  {
+        this.lista4[i] =  {
           valor:'v',
           localidad: 'oro',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
-        this.lista1[i]= {
+      } else if (this.localidadCargadaPreferecial.palcos[i+15].proceso) {
+        this.lista4[i]= {
           valor:'p',
           localidad: 'oro',
           id:'p'
         }
       }
 
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+24].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+24].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+24].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+24].proceso
+      ){
+        this.lista6[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+24].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+24].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+24].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+24].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+24].disponible
+      ) {
+        this.lista6[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+24].proceso) {
+        this.lista6[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+    }
+
+    for(let i=0;i<4;i++){
 
       if (
         !this.localidadCargadaPreferecial.palcos[i+5].vendido &&
@@ -1389,31 +1513,71 @@ export class ComprarPalcosComponent implements OnInit {
 
     }
 
-    for(let i=0;i<6;i++){
+    for(let i=0;i<5;i++){
+     
+
       if (
-        !this.localidadCargadaPreferecial.palcos[i+10].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+10].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+10].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+10].proceso
+        !this.localidadCargadaPreferecial.palcos[i].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i].reservado &&
+        this.localidadCargadaPreferecial.palcos[i].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i].proceso
       ){
-        this.lista3[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+10].numeroDentroDeEvento,
+        this.lista1[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i+10].id
+          id:this.localidadCargadaPreferecial.palcos[i].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i+10].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+10].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+10].disponible
+        this.localidadCargadaPreferecial.palcos[i].vendido ||
+        this.localidadCargadaPreferecial.palcos[i].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i].disponible
+      ) {
+        this.lista1[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
+        this.lista1[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+      
+
+      
+
+    }
+
+    for(let i=0;i<6;i++){
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+9].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+9].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+9].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+9].proceso
+      ){
+        this.lista3[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+9].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+9].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+9].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+9].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+9].disponible
       ) {
         this.lista3[i] =  {
           valor:'v',
           localidad: 'oro',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+10].proceso) {
+      } else if (this.localidadCargadaPreferecial.palcos[i+9].proceso) {
         this.lista3[i]= {
           valor:'p',
           localidad: 'oro',
@@ -1421,61 +1585,32 @@ export class ComprarPalcosComponent implements OnInit {
         }
       }
 
-      if (
-        !this.localidadCargadaPreferecial.palcos[i+16].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+16].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+16].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+16].proceso
-      ){
-        this.lista4[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+16].numeroDentroDeEvento,
-          localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i+16].id
-        }
-      }
       
-      else if (
-        this.localidadCargadaPreferecial.palcos[i+16].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+16].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+16].disponible
-      ) {
-        this.lista4[i] =  {
-          valor:'v',
-          localidad: 'oro',
-          id:'v'
-        }
-      } else if (this.localidadCargadaPreferecial.palcos[i+16].proceso) {
-        this.lista4[i]= {
-          valor:'p',
-          localidad: 'oro',
-          id:'p'
-        }
-      }
 
       if (
-        !this.localidadCargadaPreferecial.palcos[i+22].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+22].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+22].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+22].proceso
+        !this.localidadCargadaPreferecial.palcos[i+18].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+18].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+18].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+18].proceso
       ){
         this.lista5[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+22].numeroDentroDeEvento,
+          valor:this.localidadCargadaPreferecial.palcos[i+18].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i+22].id
+          id:this.localidadCargadaPreferecial.palcos[i+18].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i+22].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+22].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+22].disponible
+        this.localidadCargadaPreferecial.palcos[i+18].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+18].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+18].disponible
       ) {
         this.lista5[i] =  {
           valor:'v',
           localidad: 'oro',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+22].proceso) {
+      } else if (this.localidadCargadaPreferecial.palcos[i+18].proceso) {
         this.lista5[i]= {
           valor:'p',
           localidad: 'oro',
@@ -1483,65 +1618,98 @@ export class ComprarPalcosComponent implements OnInit {
         }
       }
 
-      if (
-        !this.localidadCargadaPreferecial.palcos[i+28].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+28].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+28].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+28].proceso
-      ){
-        this.lista6[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+28].numeroDentroDeEvento,
-          localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i+28].id
-        }
-      }
       
-      else if (
-        this.localidadCargadaPreferecial.palcos[i+28].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+28].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+28].disponible
-      ) {
-        this.lista6[i] =  {
-          valor:'v',
-          localidad: 'oro',
-          id:'v'
-        }
-      } else if (this.localidadCargadaPreferecial.palcos[i+28].proceso) {
-        this.lista6[i]= {
-          valor:'p',
-          localidad: 'oro',
-          id:'p'
-        }
-      }
       
     }
+    for(let i=0;i<9;i++){
 
-    for(let i=0;i<14;i++){
       if (
-        !this.localidadCargadaPreferecial.palcos[i+34].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i+34].reservado &&
-        this.localidadCargadaPreferecial.palcos[i+34].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i+34].proceso
+        !this.localidadCargadaPreferecial.palcos[i+27].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+27].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+27].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+27].proceso
       ){
         this.lista7[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i+34].numeroDentroDeEvento,
+          valor:this.localidadCargadaPreferecial.palcos[i+27].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i+34].id
+          id:this.localidadCargadaPreferecial.palcos[i+27].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i+34].vendido ||
-        this.localidadCargadaPreferecial.palcos[i+34].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i+34].disponible
+        this.localidadCargadaPreferecial.palcos[i+27].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+27].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+27].disponible
       ) {
         this.lista7[i] =  {
           valor:'v',
           localidad: 'oro',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i+34].proceso) {
+      } else if (this.localidadCargadaPreferecial.palcos[i+27].proceso) {
         this.lista7[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+36].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+36].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+36].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+36].proceso
+      ){
+        this.lista11[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+36].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+36].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+36].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+36].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+36].disponible
+      ) {
+        this.lista11[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+36].proceso) {
+        this.lista11[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+45].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+45].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+45].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+45].proceso
+      ){
+        this.lista12[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+45].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+45].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+45].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+45].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+45].disponible
+      ) {
+        this.lista12[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+45].proceso) {
+        this.lista12[i]= {
           valor:'p',
           localidad: 'oro',
           id:'p'
@@ -1577,27 +1745,27 @@ export class ComprarPalcosComponent implements OnInit {
         }
       }
       if (
-        !this.localidadCargadaGeneral.palcos[i+14].vendido &&
-        !this.localidadCargadaGeneral.palcos[i+14].reservado &&
-        this.localidadCargadaGeneral.palcos[i+14].disponible &&
-        !this.localidadCargadaGeneral.palcos[i+14].proceso
+        !this.localidadCargadaGeneral.palcos[i+9].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+9].reservado &&
+        this.localidadCargadaGeneral.palcos[i+9].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+9].proceso
       ){
         this.lista9[i] = {
-          valor:this.localidadCargadaGeneral.palcos[i+14].numeroDentroDeEvento,
+          valor:this.localidadCargadaGeneral.palcos[i+9].numeroDentroDeEvento,
           localidad: 'prem',
-          id:this.localidadCargadaGeneral.palcos[i+14].id
+          id:this.localidadCargadaGeneral.palcos[i+9].id
         }
       } else if (
-        this.localidadCargadaGeneral.palcos[i+14].vendido ||
-        this.localidadCargadaGeneral.palcos[i+14].reservado ||
-        !this.localidadCargadaGeneral.palcos[i+14].disponible
+        this.localidadCargadaGeneral.palcos[i+9].vendido ||
+        this.localidadCargadaGeneral.palcos[i+9].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+9].disponible
       ) {
         this.lista9[i] =  {
           valor:'v',
           localidad: 'prem',
           id:'v'
         }
-      } else if (this.localidadCargadaGeneral.palcos[i+14].proceso) {
+      } else if (this.localidadCargadaGeneral.palcos[i+9].proceso) {
         this.lista9[i]= {
           valor:'p',
           localidad: 'prem',
@@ -1605,145 +1773,303 @@ export class ComprarPalcosComponent implements OnInit {
         }
       }
       if (
-        !this.localidadCargadaGeneral.palcos[i+28].vendido &&
-        !this.localidadCargadaGeneral.palcos[i+28].reservado &&
-        this.localidadCargadaGeneral.palcos[i+28].disponible &&
-        !this.localidadCargadaGeneral.palcos[i+28].proceso
+        !this.localidadCargadaGeneral.palcos[i+18].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+18].reservado &&
+        this.localidadCargadaGeneral.palcos[i+18].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+18].proceso
       ){
         this.lista10[i] = {
-          valor:this.localidadCargadaGeneral.palcos[i+28].numeroDentroDeEvento,
+          valor:this.localidadCargadaGeneral.palcos[i+18].numeroDentroDeEvento,
           localidad: 'prem',
-          id:this.localidadCargadaGeneral.palcos[i+28].id
+          id:this.localidadCargadaGeneral.palcos[i+18].id
         }
       } else if (
-        this.localidadCargadaGeneral.palcos[i+28].vendido ||
-        this.localidadCargadaGeneral.palcos[i+28].reservado ||
-        !this.localidadCargadaGeneral.palcos[i+28].disponible
+        this.localidadCargadaGeneral.palcos[i+18].vendido ||
+        this.localidadCargadaGeneral.palcos[i+18].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+18].disponible
       ) {
         this.lista10[i] =  {
           valor:'v',
           localidad: 'prem',
           id:'v'
         }
-      } else if (this.localidadCargadaGeneral.palcos[i+28].proceso) {
+      } else if (this.localidadCargadaGeneral.palcos[i+18].proceso) {
         this.lista10[i]= {
           valor:'p',
           localidad: 'prem',
           id:'p'
         }
       }
-    }
-  }
-  
-  
-  cargarLocalidadEnMapa20() {
 
-    for(let i=0;i<26;i++){
       if (
-        !this.localidadCargadaGeneral.palcos[i].vendido &&
-        !this.localidadCargadaGeneral.palcos[i].reservado &&
-        this.localidadCargadaGeneral.palcos[i].disponible &&
-        !this.localidadCargadaGeneral.palcos[i].proceso
+        !this.localidadCargadaGeneral.palcos[i+27].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+27].reservado &&
+        this.localidadCargadaGeneral.palcos[i+27].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+27].proceso
+      ){
+        this.lista13[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i+27].numeroDentroDeEvento,
+          localidad: 'prem',
+          id:this.localidadCargadaGeneral.palcos[i+27].id
+        }
+      } else if (
+        this.localidadCargadaGeneral.palcos[i+27].vendido ||
+        this.localidadCargadaGeneral.palcos[i+27].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+27].disponible
+      ) {
+        this.lista13[i] =  {
+          valor:'v',
+          localidad: 'prem',
+          id:'v'
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i+27].proceso) {
+        this.lista13[i]= {
+          valor:'p',
+          localidad: 'prem',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaGeneral.palcos[i+36].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+36].reservado &&
+        this.localidadCargadaGeneral.palcos[i+36].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+36].proceso
+      ){
+        this.lista14[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i+36].numeroDentroDeEvento,
+          localidad: 'prem',
+          id:this.localidadCargadaGeneral.palcos[i+36].id
+        }
+      } else if (
+        this.localidadCargadaGeneral.palcos[i+36].vendido ||
+        this.localidadCargadaGeneral.palcos[i+36].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+36].disponible
+      ) {
+        this.lista14[i] =  {
+          valor:'v',
+          localidad: 'prem',
+          id:'v'
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i+36].proceso) {
+        this.lista14[i]= {
+          valor:'p',
+          localidad: 'prem',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaGeneral.palcos[i+45].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+45].reservado &&
+        this.localidadCargadaGeneral.palcos[i+45].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+45].proceso
+      ){
+        this.lista15[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i+45].numeroDentroDeEvento,
+          localidad: 'prem',
+          id:this.localidadCargadaGeneral.palcos[i+45].id
+        }
+      } else if (
+        this.localidadCargadaGeneral.palcos[i+45].vendido ||
+        this.localidadCargadaGeneral.palcos[i+45].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+45].disponible
+      ) {
+        this.lista15[i] =  {
+          valor:'v',
+          localidad: 'prem',
+          id:'v'
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i+45].proceso) {
+        this.lista15[i]= {
+          valor:'p',
+          localidad: 'prem',
+          id:'p'
+        }
+      }
+
+    }
+
+    
+
+  }
+
+  cargarLocalidadEnMapa7(){
+  
+    for(let i=0;i<3;i++){
+      if (
+        !this.localidadCargadaPreferecial.palcos[i].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i].reservado &&
+        this.localidadCargadaPreferecial.palcos[i].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i].proceso
       ){
         this.lista1[i] = {
-          valor:this.localidadCargadaGeneral.palcos[i].numeroDentroDeEvento,
+          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
           localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i].id
         }
       }
       
       else if (
-        this.localidadCargadaGeneral.palcos[i].vendido ||
-        this.localidadCargadaGeneral.palcos[i].reservado ||
-        !this.localidadCargadaGeneral.palcos[i].disponible
+        this.localidadCargadaPreferecial.palcos[i].vendido ||
+        this.localidadCargadaPreferecial.palcos[i].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i].disponible
       ) {
         this.lista1[i] =  {
           valor:'v',
           localidad: 'oro',
+          id:'v'
         }
-      } else if (this.localidadCargadaGeneral.palcos[i].proceso) {
+      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
         this.lista1[i]= {
           valor:'p',
           localidad: 'oro',
+          id:'p'
         }
       }
-    }
-    
-    for(let i=0;i<10;i++){
-
-
-      
-
-
-
 
       if (
-        !this.localidadCargadaBoletas.palcos[i].vendido &&
-        !this.localidadCargadaBoletas.palcos[i].reservado &&
-        this.localidadCargadaBoletas.palcos[i].disponible &&
-        !this.localidadCargadaBoletas.palcos[i].proceso
+        !this.localidadCargadaPreferecial.palcos[i+3].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+3].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+3].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+3].proceso
       ){
-        this.lista4[i] = {
-          valor:this.localidadCargadaBoletas.palcos[i].numeroDentroDeEvento,
-          localidad: 'vip',
+        this.lista2[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+3].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+3].id
         }
       }
       
       else if (
-        this.localidadCargadaBoletas.palcos[i].vendido ||
-        this.localidadCargadaBoletas.palcos[i].reservado ||
-        !this.localidadCargadaBoletas.palcos[i].disponible
+        this.localidadCargadaPreferecial.palcos[i+3].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+3].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+3].disponible
       ) {
-        this.lista4[i] =  {
+        this.lista2[i] =  {
           valor:'v',
-          localidad: 'vip',
+          localidad: 'oro',
+          id:'v'
         }
-      } else if (this.localidadCargadaBoletas.palcos[i].proceso) {
-        this.lista4[i]= {
+      } else if (this.localidadCargadaPreferecial.palcos[i+3].proceso) {
+        this.lista2[i]= {
           valor:'p',
-          localidad: 'vip',
+          localidad: 'oro',
+          id:'p'
         }
       }
 
     }
 
+  }
 
-    for(let i=0;i<6;i++){
+  cargarLocalidadEnMapa8(){
+  
+    for(let i=0;i<3;i++){
       if (
-        !this.localidadCargadaGeneral.palcos[i+20].vendido &&
-        !this.localidadCargadaGeneral.palcos[i+20].reservado &&
-        this.localidadCargadaGeneral.palcos[i+20].disponible &&
-        !this.localidadCargadaGeneral.palcos[i+20].proceso
+        !this.localidadCargadaPreferecial.palcos[i].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i].reservado &&
+        this.localidadCargadaPreferecial.palcos[i].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i].proceso
       ){
-        this.lista3[i] = {
-          valor:this.localidadCargadaGeneral.palcos[i+20].numeroDentroDeEvento,
-          localidad: 'prem',
+        this.lista1[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i].id
         }
       }
       
       else if (
-        this.localidadCargadaGeneral.palcos[i+20].vendido ||
-        this.localidadCargadaGeneral.palcos[i+20].reservado ||
-        !this.localidadCargadaGeneral.palcos[i+20].disponible
+        this.localidadCargadaPreferecial.palcos[i].vendido ||
+        this.localidadCargadaPreferecial.palcos[i].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i].disponible
       ) {
-        this.lista3[i] =  {
+        this.lista1[i] =  {
           valor:'v',
-          localidad: 'prem',
+          localidad: 'oro',
+          id:'v'
         }
-      } else if (this.localidadCargadaGeneral.palcos[i+20].proceso) {
-        this.lista3[i]= {
+      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
+        this.lista1[i]= {
           valor:'p',
-          localidad: 'prem',
+          localidad: 'oro',
+          id:'p'
         }
       }
+
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+3].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+3].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+3].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+3].proceso
+      ){
+        this.lista2[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+3].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+3].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+3].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+3].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+3].disponible
+      ) {
+        this.lista2[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+3].proceso) {
+        this.lista2[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
     }
 
   }
 
-  cargarLocalidadEnMapa21() {
-    
+  cargarLocalidadEnMapa9(){
+  
+    for(let i=0;i<3;i++){
+      if (
+        !this.localidadCargadaPreferecial.palcos[i].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i].reservado &&
+        this.localidadCargadaPreferecial.palcos[i].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i].proceso
+      ){
+        this.lista1[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i].vendido ||
+        this.localidadCargadaPreferecial.palcos[i].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i].disponible
+      ) {
+        this.lista1[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
+        this.lista1[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+    }
 
   }
-
+  
   
   cargarLocalidadEnMapa22() {
 
@@ -2607,29 +2933,29 @@ export class ComprarPalcosComponent implements OnInit {
       }
 
       if (
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].vendido &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].reservado &&
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+64].disponible &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].proceso
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+70].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].proceso
       ){
         this.lista20[i] = {
-          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+64].numeroDentroDeEvento,
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+70].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+64].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+70].id
         }
       }
       
       else if (
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+64].vendido ||
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+64].reservado ||
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].disponible
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+70].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+70].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].disponible
       ) {
         this.lista20[i] =  {
           valor:'v',
           localidad: 'promo',
           id:'v'
         }
-      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+64].proceso) {
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+70].proceso) {
         this.lista20[i]= {
           valor:'p',
           localidad: 'promo',
@@ -3374,7 +3700,6 @@ export class ComprarPalcosComponent implements OnInit {
 
 
 }
-
 cargarLocalidadEnMapa5(){
   for(let i=0;i<2;i++){
 
@@ -3608,9 +3933,6 @@ cargarLocalidadEnMapa5(){
     }
   }
     
-
-
-
 }
   cargarLocalidadEnMapa3(){
     for(let i=0;i<5;i++){
@@ -5094,6 +5416,87 @@ if(!this.usuarioBoolean)
       }
 
 
+
+
+
+agregarPalcoIndividualMultiplesDias(numero,id1,id2,id3) {
+    
+      if(!this.usuarioBoolean)
+      {
+        if (
+          numero != 'v' &&
+          numero != 'p' &&
+          numero != 'l' ) {
+          if (!this.cargando &&this.cargadoTodo) {
+    
+            console.log(numero);
+            
+  
+
+              
+
+              this.cargando = true;
+              let ids:number[]=[id1,id2,id3];
+                    this.palcoServicio.reservarPalcoExactoMultiples(ids).subscribe(
+                      (response) => {
+                        if(response.length>0){
+                          
+    
+                          this.multiplesPalcos(response,ids);
+                          console.log(response)
+
+                          for(let i =0;i< response.length;i++) {
+                            this.palcoServicio
+                              .rechazarReservaPalco(response[i].id)
+                              .subscribe((response) => response);
+                            }
+                          }
+                          
+                          else{
+
+                            alert("No encontramos este palco disponible para ningún día")
+                            this.ngOnInit();
+                          }
+                      },
+    
+                      (error) => {
+                        error;
+                        console.log(error)
+                        alert(
+                      
+                          'Alguien acaba de seleccionar este palco, intenta seleccionar otro'
+                        );
+                        this.cargando = false;
+                        this.ngOnInit();
+                      }
+                    );
+
+                
+         
+    
+          }
+
+
+          else {
+            alert('Cargando por favor espere')
+          }
+          } 
+        }
+    
+    
+        else
+        {
+          this.openDialog();
+          
+        }
+    
+    
+    
+      }
+
+
+
+
       seleccionarLocalidadParaPalcoIndividual(id:number) {
         this.servicioLocalidad.getLocaliddadPorId(id, this.evento.nombre).subscribe((response) => {
 
@@ -5120,7 +5523,7 @@ if(!this.usuarioBoolean)
     }
 
     else {
-      alert('Ingresa a tu cuenta AllTickets para poder realizar la compra')
+      alert("Debes ingresar a tu cuenta AllTickets para realizar la compra, en caso de no tener registraté")
       this.openDialog();
     }
   }
@@ -5178,7 +5581,7 @@ seleccionarTicketExacto(item){
   }
 
   else {
-    alert('Ingresa a tu cuenta AllTickets para poder realizar la compra')
+    alert("Debes ingresar a tu cuenta AllTickets para realizar la compra, en caso de no tener registraté")
     this.openDialog();
   }
 }
@@ -5272,7 +5675,7 @@ AbrirCarritoTicket(): void {
     }
 
     else {
-      alert('Ingresa a tu cuenta AllTickets para poder realizar la compra')
+      alert("Debes ingresar a tu cuenta AllTickets para realizar la compra, en caso de no tener registraté")
       this.openDialog();
     }
   }

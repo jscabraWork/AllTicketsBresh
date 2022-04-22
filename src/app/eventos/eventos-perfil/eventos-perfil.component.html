@@ -1,3 +1,24 @@
+ <div *ngIf="evento.id=='DZP138'">
+  <!-- Meta Pixel Code -->
+  <script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '384815453142987');
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=384815453142987&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Meta Pixel Code -->
+</div> 
+
+
 <!--BANNER-->
 <section class="Banner" content="width=device-width m-xs-5" *ngIf="evento?.imagenes != 'undefined'">
 	<div class="row">
@@ -209,13 +230,15 @@
 
 
 				<div class="tituloLocalidad2" *ngIf="evento.mapa">
-					<h3><strong> {{localidad.nombre}} </strong></h3>
+					<h3><strong> {{localidad.nombre}}</strong></h3>
+					
 				</div>
 				<div class="pt-2 " *ngIf="localidad.palcos.length>0">
 					<h5 class="ticketTitulo"><strong>Personas Por Palco</strong></h5>
 
 					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
 					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
+					<p  class="ticketNumero precioLocalidades" *ngIf="localidad.id==10274"> <strong> (Incluye botella de tequila Olmeca)</strong></p>
 				</div>
 
 				<div class="pt-2 " *ngIf="localidad.palcos.length==0">
@@ -240,10 +263,11 @@
 
 				<div class="pt-2 " *ngIf="evento.adicionales.length == 0">
 
-					<h5 class="ticketTitulo"><strong>Precio Total</strong></h5>
+					<h5 class="ticketTitulo"><strong>Precio Total <span  *ngIf="localidad.id==10293"> (Precio por persona)</span></strong></h5>
 					<p class="ticketNumero precioLocalidades"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje  | number: '1.0-0'}} COP</strong></p>
 					<p class="precios pr-3 pl-3 ">Precio + Servicio + IVA</p>
 					<p class="precios pr-3 pl-3 pb-3 margen-menor">{{localidad.precio| number: '1.0-0'}} COP + {{+localidad.servicio | number: '1.0-0'}} COP + {{localidad.servicioPorcentaje | number: '1.0-0'}} COP</p>
+					
 				</div>
 
 

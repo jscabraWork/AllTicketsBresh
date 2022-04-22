@@ -1,0 +1,34 @@
+.centrar{
+    text-align: center;
+}
+.btnA{
+    background: linear-gradient(#666, #333); 
+    color: white;
+    font-weight: bold;
+    transition: all 300ms linear;
+}
+.btnA:hover{
+    background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
+}
+
+.btnB{
+    background: white; 
+    font-weight:bold;
+    color: #ed701c;
+    border-color: #ed701c;
+    transition: all 300ms linear;
+}
+.btnB:hover{
+    background: #ed701c; 
+    
+    color: white;
+
+}
+
+.tituloLocalidad{
+    background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
+    color:#FFF;
+    padding: 3%;
+    width: 100%;
+    
+}

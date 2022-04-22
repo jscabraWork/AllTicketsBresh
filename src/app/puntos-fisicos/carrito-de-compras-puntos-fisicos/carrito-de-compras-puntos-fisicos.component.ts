@@ -89,7 +89,9 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
  
     
 
+    if(this.data.boletas){
     this.boletas = this.data.boletas;
+  }
     if(this.boletas!=null){
     if(this.boletas.length >0){
       this.descripcion =this.boletas.length+ " boletas " +this.boletas[0].localidadNombre +" pare el evento " + this.evento.nombre
@@ -200,8 +202,8 @@ pagarBoletasImprimir(){
     this.cargandoPago=true
   this.servicioBoletas.comprarPuntoFiscoTicketImprimir(this.referenceCode).subscribe(response=>{
     const dialogRef = this.dialog.open(ImprimirBoletasComponent, {
-      width: '700px;',
-    
+      width: '100%;',
+      height:'900px',
   
       data: {
         response:response

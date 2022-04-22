@@ -132,6 +132,13 @@
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
             <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Impuesto de comisión PayU: {{impuestoPayU |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Comisión Epayco: {{comisionEpayco |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Impuesto de comisión Epayco: {{impuestoEpayco |currency:'COP'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+
+
             <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio después de comisión PayU: {{servicio |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
             <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de fuente de All Tickets: {{retefuenteAT |currency:'COP'}} </strong>

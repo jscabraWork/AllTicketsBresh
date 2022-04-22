@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { API_URL } from 'src/app/app.constants';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { API_URL, API_URL2 } from 'src/app/app.constants';
 import { Boleta } from './../../eventos/boleta.model';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +15,18 @@ export class PdfService {
 
 
 
+  }
+
+  upload(file): Observable<HttpEvent<any>>{
+    
+    const formData: FormData= new FormData();
+    formData.append('files', file);
+    formData.set("name"  ,"AA")
+    const req = new HttpRequest('POST',`${API_URL2}/subir/pdf`, formData,{
+      reportProgress:true,
+      responseType:'json'
+    })
+    return this.http.request(req);
   }
 
 }
