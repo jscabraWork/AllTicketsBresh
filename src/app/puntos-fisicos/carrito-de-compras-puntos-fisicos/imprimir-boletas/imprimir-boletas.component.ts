@@ -102,7 +102,9 @@ export class ImprimirBoletasComponent implements OnInit {
     for(let i = 0; i < this.boletas.length; i++){
       let data = document.getElementById("ticket"+i.toString());
       
-      html2canvas(data as any).then(canvas => {
+      html2canvas(data as any, { useCORS : true }).then(canvas => {
+    
+        
         
           var imgWidth = 13.97;
           var pageHeight = 5.08;
@@ -110,6 +112,7 @@ export class ImprimirBoletasComponent implements OnInit {
           var heightLeft = imgHeight;
           
           const contentDataURL = canvas.toDataURL('image/webp');
+          
           let pdfData = new jsPDF('l', 'cm', [13.97,5.08]);
           
           //let pdfData = new jsPDF('p', 'mm', 'a4');
