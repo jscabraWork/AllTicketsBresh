@@ -18,7 +18,7 @@
             </div>
           </fieldset>
             <br /><br />
-           <strong>OR</strong>&nbsp;<button (click)="doPrintPDF()">Print boletas</button>
+           <strong>OR</strong>&nbsp;<button class="btn btn-primary mb-5 p-3"(click)="doPrintPDF()">Print boletas</button>
         </div>
         
         
@@ -38,7 +38,7 @@
               <div class="contenedor-boleta" *ngFor="let boleta of boletas, let i = index" id="ticket{{i}}">
                 <div class="izq">
                     <h3>{{boleta.localidadNombre}}</h3>
-                    <img class="codigo" src="{{imagenes[i]}}" alt="">
+                    <img class="codigo" src="{{imagenes[i]}}"  alt="">
                     <p>Precio: ${{boleta.precio| number: '1.0-0'}}</p>
                     <p>Servicio: ${{boleta.servicio| number: '1.0-0'}}</p>
                     <p>IVA: ${{boleta.servicioIva| number: '1.0-0'}}</p>
@@ -95,6 +95,73 @@
             </div>
 
   
+
+
+
+
+
+
+            <div class="contenedor-boleta" *ngIf="palco" id="palco">
+              <div class="izq">
+                  <h3>{{palco.nombre}}</h3>
+                  <img class="codigo" src="{{imagen}}" alt="">
+                  <p>Precio: ${{palco.precio| number: '1.0-0'}}</p>
+                  <p>Servicio: ${{palco.servicio| number: '1.0-0'}}</p>
+                  <p>IVA: ${{palco.servicioIva| number: '1.0-0'}}</p>
+                  <p>Total: ${{palco.precio+palco.servicio+palco.servicioIva| number: '1.0-0'}}</p>
+                  
+              </div>
+              <div class="mid">
+                  <div class="midarriba">
+                      <div class="midizq">
+                        <div class="rotarmidizq">
+                          <p>ALLTICKETS asegura que este Ticket es valido  <img class="estrella" src="../../../../assets/images/img/estrella.jpg" alt=""></p>
+                        </div>
+                      </div>
+                      <div class="midder">
+                          <img class="logo" src="../../../../assets/images/img/png 3.png" alt="">
+                          <div class="margen"></div>
+                          <p aling="left"><strong>{{evento.nombre}}</strong></p>
+                          <p>PULEP:{{evento.id}}</p>
+                          <div class="midbot">
+                              <p><strong>Inicio: {{evento.fecha|date}}</strong></p>
+                              <p><strong>{{evento?.horaInicio| horas2}}</strong></p>
+                          </div>
+                          <div class="midbot">
+                              <p><strong>{{evento?.fechaFin|date}} </strong></p>
+                              <p><strong>{{evento?.horaFin | horas2}}</strong></p>
+                          </div>
+                          <div class="midbot">
+                              <P>Total: ${{palco.precio+palco.servicio+palco.servicioIva| number: '1.0-0'}}</P>
+                              <p>Palco No. {{palco.numeroDentroDeEvento}}</p>
+                          </div>
+                          <p aling="left"><strong>{{evento.lugar}}</strong></p>
+                          <p class="small">{{evento.terminosYCondiciones}}</p>
+                          <p class="small"> {{evento.recomendaciones}}.</p>
+                          <p class="small2">Venta solo valida en los puntos autorizados</p>
+                      </div>
+                      <div class="midizq">
+                        <div class="rotarmidizq">
+                          <p>Este código QR cuenta con seguridad ALLTICKETS</p>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="der">
+                <div class="rotar">
+                  <p class="small3">Este código QR cuenta con seguridad ALLTICKETS <img class="estrella" src="../../../../assets/images/img/estrella.jpg" alt=""></p>
+                  <h2 class="tamanioLetra">{{palco.nombre}}</h2>
+                  <div class="derbot">
+                      <P>Total: ${{palco.precio+palco.servicio+palco.servicioIva| number: '1.0-0'}}</P>
+                      <p>Palco No. {{palco.numeroDentroDeEvento}}</p>
+                  </div>
+                  <p class="small">ALLTICKETS asegura que este Ticket es valido</p>
+                </div>
+              </div>
+          </div>
+
+
+
 <!--   
                <div class="col-12 border " *ngIf="palco.id!=null">
                 <h5 class="pt-4 pl-md-4"><strong>Evento: </strong>{{palco?.nombreEvento}}</h5>

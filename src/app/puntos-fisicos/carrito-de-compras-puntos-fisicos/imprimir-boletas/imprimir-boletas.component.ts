@@ -32,13 +32,20 @@ export class ImprimirBoletasComponent implements OnInit {
     boletas:Boleta[] =[]
     palco:Palco
     cliente:Cliente
+    imagen: string
   ngOnInit(): void {
+
     this.evento= this.data.response.evento
     this.imagenes= this.data.response.imagenes
     this.boletas= this.data.response.boletas
     this.cliente= this.data.response.cliente
 
-
+    if(this.data.response.palco){
+      this.palco =this.data.response.palco;
+    }
+    if(this.data.response.imagen){
+      this.imagen =this.data.response.imagen;
+    }
         // WebSocket settings
         JSPrintManager.auto_reconnect = true;
         JSPrintManager.start();
@@ -99,10 +106,12 @@ export class ImprimirBoletasComponent implements OnInit {
         //Set PDF file... for more advanced PDF settings please refer to 
 		//https://www.neodynamic.com/Products/Help/JSPrintManager4.0/apiref/classes/jspm.printfilepdf.html
     
+
+    if(this.boletas){
     for(let i = 0; i < this.boletas.length; i++){
       let data = document.getElementById("ticket"+i.toString());
       
-      html2canvas(data as any, { useCORS : true }).then(canvas => {
+      html2canvas(data as any , {logging: false, useCORS: true, allowTaint: false, proxy: 'https://allticketscol.com/*'}).then(canvas => {
     
         
         
@@ -119,12 +128,41 @@ export class ImprimirBoletasComponent implements OnInit {
           var position = 0;
           pdfData.addImage(contentDataURL, 'WEBP', 0, position, imgWidth, imgHeight,'ticket'+this.boletas[i].id, 'NONE')
           
-          var blob = pdfData.save('a.pdf');
-          this.servicioPDF.upload(blob).subscribe(response=>{
-            console.log(response)
-          });
+          pdfData.save('ticket'+this.boletas[i].id+'.pdf');
+          // var blob = pdfData.save('a.pdf');
+          // this.servicioPDF.upload(blob).subscribe(response=>{
+          //   console.log(response)
+          // });
       });
  
+    }
+  }
+    if(this.palco){
+      let data = document.getElementById("palco");
+      
+      html2canvas(data as any , {logging: false, useCORS: true, allowTaint: false, proxy: 'https://allticketscol.com/*'}).then(canvas => {
+    
+        
+        
+          var imgWidth = 13.97;
+          var pageHeight = 5.08;
+          var imgHeight = canvas.height * imgWidth / canvas.width;
+          var heightLeft = imgHeight;
+          
+          const contentDataURL = canvas.toDataURL('image/webp');
+          
+          let pdfData = new jsPDF('l', 'cm', [13.97,5.08]);
+          
+          //let pdfData = new jsPDF('p', 'mm', 'a4');
+          var position = 0;
+          pdfData.addImage(contentDataURL, 'WEBP', 0, position, imgWidth, imgHeight,'ticket'+this.palco.id, 'NONE')
+          
+          pdfData.save('palco'+this.palco.id+'.pdf');
+          // var blob = pdfData.save('a.pdf');
+          // this.servicioPDF.upload(blob).subscribe(response=>{
+          //   console.log(response)
+          // });
+      });
     }
       // this.servicioPDF.getPdfBoleta(this.boletas[i].id,this.imagenes[i]).subscribe(response=>{
       //   contador++;

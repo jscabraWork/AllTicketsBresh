@@ -21,7 +21,9 @@ export class PalcosDataService {
     return this.http.get(`${API_URL}/localidad/ventas/${pIdLocalidad}/palcos`)
 
   }
-
+  comprarPuntoFiscoPalcoImprimir(referenceCode){
+    return this.http.post(`${API_URL}/puntoFisico/tickets/recibir/imprimir/palco`,referenceCode)
+  }
 
 
   getPalco(pIdLocalidad, pIdPalco){

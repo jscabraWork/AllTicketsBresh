@@ -235,6 +235,48 @@ pagarBoletasImprimir(){
     alert("Cargando...")
   }
 }
+
+
+
+
+pagarPalcosImprimir(){
+  if(!this.cargandoPago){
+    this.cargandoPago=true
+  this.palcoServicio.comprarPuntoFiscoPalcoImprimir(this.referenceCode).subscribe(response=>{
+    const dialogRef = this.dialog.open(ImprimirBoletasComponent, {
+      width: '100%;',
+      height:'900px',
+  
+      data: {
+        response:response
+      },
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      this.dialog.closeAll();
+      this.servicioBoletas
+        .rechazarReservaBoletaInstantaneamente(this.boletas)
+        .subscribe((response) => {
+          response;
+          this.ngOnInit();
+        });
+    });
+
+ 
+    
+    this.cargandoPago=false
+    
+  },
+  
+  error=>{
+    error
+    alert("Sucedio un error vuelve a intentar")
+  })
+  }
+  else{
+    alert("Cargando...")
+  }
+}
   }
 
 

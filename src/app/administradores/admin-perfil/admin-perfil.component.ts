@@ -1,6 +1,7 @@
 import { AdministradoresWebDataService } from './../../service/data/administradores-web-data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DashbordService } from 'src/app/service/data/dashbord.service';
 
 @Component({
   selector: 'app-admin-perfil',
@@ -11,7 +12,9 @@ export class AdminPerfilComponent implements OnInit {
   nombre= "";
   administradores=[];
   constructor(private route: ActivatedRoute,
-    private service: AdministradoresWebDataService) { }
+    private service: AdministradoresWebDataService,
+    private servicioDashbord: DashbordService
+    ) { }
 
   ngOnInit(): void {
     this.nombre =this.route.snapshot.params['nombre'];
