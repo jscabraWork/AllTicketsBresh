@@ -1547,11 +1547,6 @@ export class ComprarPalcosComponent implements OnInit {
           id:'p'
         }
       }
-
-      
-
-      
-
     }
 
     for(let i=0;i<6;i++){
