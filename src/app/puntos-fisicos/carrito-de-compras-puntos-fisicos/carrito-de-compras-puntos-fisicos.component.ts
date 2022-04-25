@@ -129,11 +129,11 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
 
       
 
-      setTimeout(()=>{ 
+      // setTimeout(()=>{ 
         
-        this.cerrar()
+      //   this.cerrar()
         
-      }, 240000);
+      // }, 240000);
   }
 
 
