@@ -108,17 +108,6 @@
   <p *ngIf="evento?.mapa =='mapa21'"><span class="cuadros cuadrosDF">#</span>GENERAL LOS TESOS</p>
   
 
-  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros7 cuadros">#</span>PATROCINADORES</p>
-  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros12 cuadros">#</span>MONASTERY</p>
-  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros10 cuadros">#</span>CHIMBITA</p>
-  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros8 cuadros">#</span>FUMETEO</p>
-  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros">#</span>Tickets Individuales para Palcos</p>
-  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros13 cuadros">#</span>ZONA FRIKI</p>
-  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros14 cuadros">#</span>ZONA JORDAN</p>
-  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros5 cuadros">#</span>VACACIONES ZONA DE MENORES</p>
-  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros rojo">v</span>Vendido</p>
-  <p *ngIf="evento?.mapa =='mapa22'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
-
   <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros">#</span>Palcos PATROCINADORES</p>
   <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros10 cuadros">#</span>Palcos PAL' CENTRO Y PA' DENTRO</p>
   <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros7 cuadros">#</span>Palcos AYAYAY</p>
@@ -142,6 +131,7 @@
   <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadros5 cuadros">#</span> Palcos DIAMANTE</p>
   <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadros cuadros13">#</span> PLATINO CON SILLA</p>
   <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadrosPalcos cuadros">#</span> GENERAL</p>
+  <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadros">#</span>Tickets Individuales</p>
   <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadros rojo">v</span>Vendido</p>
   <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
 
@@ -220,6 +210,11 @@
             {{item.valor}}
           </div>
         </div>
+        <div class="cuadros"
+        (click)="seleccionarLocalidadParaPalcoIndividual(11234)">
+            9
+      </div>
+
         <div class="clearFix"></div>
         <div *ngFor="let item of lista3">
           <div class="cuadros"
@@ -242,6 +237,11 @@
             {{item.valor}}
           </div>
         </div>
+
+        <div class="cuadros"
+        (click)="seleccionarLocalidadParaPalcoIndividual(11232)">
+            18
+      </div>
         <div class="clearFix"></div>
         <div *ngFor="let item of lista5">
           <div class="cuadros"
@@ -264,6 +264,10 @@
             {{item.valor}}
           </div>
         </div>
+        <div class="cuadros"
+        (click)="seleccionarLocalidadParaPalcoIndividual(11233)">
+            27
+      </div>
         <div class="clearFix"></div>
         <div *ngFor="let item of lista7">
           <div class="cuadros"
@@ -296,6 +300,10 @@
             {{item.valor}}
           </div>
         </div>
+        <div class="cuadros"
+        (click)="seleccionarLocalidadParaPalcoIndividual(11235)">
+            9
+      </div>
         <div class="clearFix"></div>
         <div *ngFor="let item of lista9">
           <div class="cuadros"
@@ -304,6 +312,10 @@
             {{item.valor}}
           </div>
         </div>
+        <div class="cuadros"
+        (click)="seleccionarLocalidadParaPalcoIndividual(11236)">
+            18
+      </div>
         <div class="clearFix"></div>
         <div *ngFor="let item of lista10">
           <div class="cuadros"
@@ -312,6 +324,10 @@
             {{item.valor}}
           </div>
         </div>
+        <div class="cuadros"
+        (click)="seleccionarLocalidadParaPalcoIndividual(11237)">
+            27
+      </div>
         <div class="clearFix"></div>
         <div *ngFor="let item of lista13">
           <div class="cuadros"
