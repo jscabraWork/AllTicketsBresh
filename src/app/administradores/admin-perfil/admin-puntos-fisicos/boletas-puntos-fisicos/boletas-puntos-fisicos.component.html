@@ -14,6 +14,7 @@
                 <th>Nombre del evento</th>
                 <th>Localidad</th>
                 <th>Precio</th>
+                <th>Metodo</th>
        
         
              
@@ -30,7 +31,7 @@
                 <td>{{boleta.nombreEvento}}</td>
                 <td>{{boleta.localidadNombre}}</td>
                 <td>{{boleta?.precio + boleta?.servicio  + boleta?.servicioIva| currency: 'COP'}}</td>
-
+                <td>{{boleta?.metodo }}</td>
 
  
     
