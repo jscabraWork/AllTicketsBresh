@@ -59,19 +59,20 @@
             
 
 
-                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && !evento.imprimir" (click)="pagarBoletas()">Pagado con efectivo</button>
-                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && !evento.imprimir" (click)="pagarBoletas()">Pagado con datafono</button>
-                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && !evento.imprimir" (click)="pagarBoletas()">Pagado con transferencia</button>
-                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && !evento.imprimir" (click)="pagarPalco()">Pagado con efectivo</button>
-                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && !evento.imprimir" (click)="pagarPalco()">Pagado con datafono</button>
-                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && !evento.imprimir" (click)="pagarPalco()">Pagado con transferencia</button>  
+                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && !evento.imprimir" (click)="pagarBoletas('Efectivo')">Pagado con efectivo</button>
+                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && !evento.imprimir" (click)="pagarBoletas('Datafono')">Pagado con datafono</button>
+                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && !evento.imprimir" (click)="pagarBoletas('Transferencia')">Pagado con transferencia</button>
+                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && !evento.imprimir" (click)="pagarPalco('Efectivo')">Pagado con efectivo</button>
+                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && !evento.imprimir" (click)="pagarPalco('Datafono')">Pagado con datafono</button>
+                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && !evento.imprimir" (click)="pagarPalco('Transferencia')">Pagado con transferencia</button>  
 
-                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && evento.imprimir" (click)="pagarBoletasImprimir()">Pagado Imprimir efectivo</button>
-                <button class="btn action_button ml-1" *ngIf="boletas&&boletas.length>0 && evento.imprimir" (click)="pagarBoletasImprimir()">Pagado Imprimir datafono</button>
-                <button class="btn action_button ml-1" *ngIf="boletas&&boletas.length>0 && evento.imprimir" (click)="pagarBoletasImprimir()">Pagado Imprimir transferencia</button>
-                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && evento.imprimir" (click)="pagarPalcosImprimir()">Pagado Imprimir efectivo</button>
-                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && evento.imprimir" (click)="pagarPalcosImprimir()">Pagado Imprimir datafono</button>
-                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && evento.imprimir" (click)="pagarPalcosImprimir()">Pagado Imprimir transferencia</button>  
+                <button class="btn action_button ml-1" *ngIf="boletas.length>0 &&boletas && evento.imprimir" (click)="pagarBoletasImprimir('Efectivo')">Pagado Imprimir efectivo</button>
+                <button class="btn action_button ml-1" *ngIf="boletas&&boletas.length>0 && evento.imprimir" (click)="pagarBoletasImprimir('Datafono')">Pagado Imprimir datafono</button>
+                <button class="btn action_button ml-1" *ngIf="boletas&&boletas.length>0 && evento.imprimir" (click)="pagarBoletasImprimir('Transferencia')">Pagado Imprimir transferencia</button>
+
+                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && evento.imprimir" (click)="pagarPalcosImprimir('Efectivo')">Pagado Imprimir efectivo</button>
+                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && evento.imprimir" (click)="pagarPalcosImprimir('Datafono')">Pagado Imprimir datafono</button>
+                <button class="btn action_button ml-1" *ngIf="palco.id!=null  && evento.imprimir" (click)="pagarPalcosImprimir('Transferencia')">Pagado Imprimir transferencia</button>  
 
               </div>
             </div>

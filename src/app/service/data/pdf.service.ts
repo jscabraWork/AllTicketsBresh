@@ -21,7 +21,7 @@ export class PdfService {
     
     const formData: FormData= new FormData();
     formData.append('files', file);
-    formData.set("name"  ,"AA")
+    
     const req = new HttpRequest('POST',`${API_URL2}/subir/pdf`, formData,{
       reportProgress:true,
       responseType:'json'

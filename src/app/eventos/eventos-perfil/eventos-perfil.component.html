@@ -178,7 +178,7 @@
 					<p style="font-size:14px; text-align:right;"><strong>NIT de los responsables del evento:</strong> {{organizadorId}}</p>
 				<div class="col-12 mt-4 mb-4 divBoton" style="text-align: center;">
 					<button *ngIf="evento?.mapaImagen?.url !=null" class="action_button botonCompra" style="font-size: 15px;"
-						(click)="openDialog()">>Zonas del evento</button>
+						(click)="openDialog()">Zonas del evento</button>
 					<button *ngIf="(evento.mapa )&& etapas.length >0"
 						class="botonCompra orange rounded p-3 mt-3" routerLink="pago/palco/mapa">COMPRAR</button>
 

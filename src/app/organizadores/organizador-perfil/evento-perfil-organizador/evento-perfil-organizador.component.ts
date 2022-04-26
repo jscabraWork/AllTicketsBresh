@@ -46,7 +46,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   impuestoPayU:number
   boletas:[]
   comisionEpayco:number
-  impuestoEpayco:number
+
   ngOnInit( ): void {
     this.dineroRecaudado =0
     this.dineroServicio=0
@@ -66,7 +66,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     this.ivaCuenta=0
     this.comisionEpayco =0
     this.impuestoPayU=0
-    this.impuestoEpayco=0
+  
     this.evento = new Evento();
     this.evento.adicionales =[];
     this.route.paramMap.subscribe( params =>{
@@ -116,9 +116,9 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
               let dineroTotal = (this.dineroRecaudado+this.dineroIva+this.dineroServicio);
              
               this.impuestoPayU = (this.comisionPayU*0.19)
-              this.impuestoEpayco = (this.comisionEpayco*0.19)
+           
 
-              this.servicio = this.dineroServicio - this.comisionPayU - this.impuestoPayU - this.comisionEpayco -  this.impuestoEpayco;
+              this.servicio = this.dineroServicio - this.comisionPayU - this.impuestoPayU - this.comisionEpayco ;
 
               this.dineroServicioDespuesDeComisiones =this.servicio - this.retefuenteAT - this.reteIcaAT
               this.dineroEntregar = this.dineroRecaudado-this.retefuenteOrganizador-this.reteIcaOrganizador

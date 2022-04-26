@@ -80,6 +80,7 @@ export class CarritoDeComprasComponent implements OnInit {
       precioAdicion: null,
       servicioAdicion: null,
       servicioIvaAdicion:null,
+      metodo:null
     };
 
     this.boletas = this.data.boletas;

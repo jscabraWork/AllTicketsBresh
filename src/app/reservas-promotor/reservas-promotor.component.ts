@@ -345,6 +345,7 @@ export class ReservasPromotorComponent implements OnInit {
       precioAdicion: null,
       servicioAdicion: null,
       servicioIvaAdicion:null,
+      metodo:null
     };
 
     this.promotor = {

@@ -57,7 +57,7 @@ this.palco={
     precioAdicion: null,
     servicioAdicion: null,
     servicioIvaAdicion:null,
-
+    metodo:null
 }
   }
 

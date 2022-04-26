@@ -30,4 +30,5 @@ export interface Palco {
       precioAdicion: number,
 	  servicioAdicion: number,
 	  servicioIvaAdicion:number,
+	  metodo:string
 }

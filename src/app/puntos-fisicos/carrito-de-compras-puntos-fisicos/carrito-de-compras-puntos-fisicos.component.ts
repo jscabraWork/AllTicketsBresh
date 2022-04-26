@@ -84,6 +84,7 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
       precioAdicion: null,
       servicioAdicion: null,
       servicioIvaAdicion:null,
+      metodo:null
     };
 
  
@@ -153,10 +154,10 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
   }
 
 
-pagarPalco(){
+pagarPalco(texto:string){
   if(!this.cargandoPago){
     this.cargandoPago=true
-  this.palcoServicio.comprarPuntoFiscoPalco(this.referenceCode).subscribe(response=>{
+  this.palcoServicio.comprarPuntoFiscoPalco(this.referenceCode,texto).subscribe(response=>{
     response
     alert("Se vendio el palco: "+this.palco.numeroDentroDeEvento)
     this.cargandoPago=false
@@ -174,10 +175,10 @@ pagarPalco(){
 }
   
 
-pagarBoletas(){
+pagarBoletas(texto:string){
   if(!this.cargandoPago){
     this.cargandoPago=true
-  this.servicioBoletas.comprarPuntoFiscoTicket(this.referenceCode).subscribe(response=>{
+  this.servicioBoletas.comprarPuntoFiscoTicket(this.referenceCode,texto).subscribe(response=>{
     response
 
  
@@ -197,10 +198,10 @@ pagarBoletas(){
 }
 
  
-pagarBoletasImprimir(){
+pagarBoletasImprimir(texto:string){
   if(!this.cargandoPago){
     this.cargandoPago=true
-  this.servicioBoletas.comprarPuntoFiscoTicketImprimir(this.referenceCode).subscribe(response=>{
+  this.servicioBoletas.comprarPuntoFiscoTicketImprimir(this.referenceCode,texto).subscribe(response=>{
     const dialogRef = this.dialog.open(ImprimirBoletasComponent, {
       width: '100%;',
       height:'900px',
@@ -239,10 +240,10 @@ pagarBoletasImprimir(){
 
 
 
-pagarPalcosImprimir(){
+pagarPalcosImprimir(texto:string){
   if(!this.cargandoPago){
     this.cargandoPago=true
-  this.palcoServicio.comprarPuntoFiscoPalcoImprimir(this.referenceCode).subscribe(response=>{
+  this.palcoServicio.comprarPuntoFiscoPalcoImprimir(this.referenceCode,texto).subscribe(response=>{
     const dialogRef = this.dialog.open(ImprimirBoletasComponent, {
       width: '100%;',
       height:'900px',

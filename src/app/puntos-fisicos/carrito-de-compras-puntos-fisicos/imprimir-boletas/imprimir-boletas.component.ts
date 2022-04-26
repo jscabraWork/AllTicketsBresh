@@ -9,6 +9,8 @@ import { PdfService } from 'src/app/service/data/pdf.service';
 import { Cliente } from 'src/app/usuario/cliente.model';
 import { jsPDF } from 'jspdf'
 import html2canvas from 'html2canvas';
+import { $ } from 'protractor';
+import { getTokenSourceMapRange } from 'typescript';
 
 @Component({
   selector: 'app-imprimir-boletas',
@@ -89,7 +91,7 @@ export class ImprimirBoletasComponent implements OnInit {
   // Do PDF printing...
   doPrintPDF() {
 
-    let contador =0;
+ 
     console.log(this.selectedPrinter);
    
     if (this.selectedPrinter !== 'undefined' && this.jspmWSStatus()) {
@@ -113,8 +115,7 @@ export class ImprimirBoletasComponent implements OnInit {
       
       html2canvas(data as any , {logging: false, useCORS: true, allowTaint: false, proxy: 'https://allticketscol.com/*'}).then(canvas => {
     
-        
-        
+  
           var imgWidth = 13.97;
           var pageHeight = 5.08;
           var imgHeight = canvas.height * imgWidth / canvas.width;
@@ -124,15 +125,33 @@ export class ImprimirBoletasComponent implements OnInit {
           
           let pdfData = new jsPDF('l', 'cm', [13.97,5.08]);
           
-          //let pdfData = new jsPDF('p', 'mm', 'a4');
+          
           var position = 0;
           pdfData.addImage(contentDataURL, 'WEBP', 0, position, imgWidth, imgHeight,'ticket'+this.boletas[i].id, 'NONE')
           
-          pdfData.save('ticket'+this.boletas[i].id+'.pdf');
-          // var blob = pdfData.save('a.pdf');
-          // this.servicioPDF.upload(blob).subscribe(response=>{
-          //   console.log(response)
-          // });
+          
+
+
+          var blob = new Blob([pdfData.output('blob')], { type : 'application/pdf'}); //this make the magic
+          
+          var blobURL = window.URL.createObjectURL(blob);
+ 
+        
+
+             var my_file = new PrintFilePDF(blobURL, FileSourceType.URL, 'TICKET'+this.boletas[i].id.toString()+i+'.pdf', 1);
+
+
+		
+        cpj.files.push(my_file);   
+        console.log(i)
+        console.log(cpj.files)
+        // Send print job to printer!
+        if(i == this.boletas.length-1){
+          cpj.sendToClient();
+        }
+          
+
+  
       });
  
     }
@@ -157,33 +176,26 @@ export class ImprimirBoletasComponent implements OnInit {
           var position = 0;
           pdfData.addImage(contentDataURL, 'WEBP', 0, position, imgWidth, imgHeight,'ticket'+this.palco.id, 'NONE')
           
-          pdfData.save('palco'+this.palco.id+'.pdf');
-          // var blob = pdfData.save('a.pdf');
-          // this.servicioPDF.upload(blob).subscribe(response=>{
-          //   console.log(response)
-          // });
-      });
-    }
-      // this.servicioPDF.getPdfBoleta(this.boletas[i].id,this.imagenes[i]).subscribe(response=>{
-      //   contador++;
-      //   var my_file = new PrintFilePDF(this.darSrc(response), FileSourceType.URL, 'MyFile'+this.boletas[i].id.toString()+contador+'.pdf', 1);
-		
-      //   cpj.files.push(my_file);
-        
-      //   console.log(i)
-      //     console.log(cpj.files)
-         
-      //   // Send print job to printer!
-      //   if(i==this.boletas.length-1){
-      //     cpj.sendToClient();
-      //   }
-      // },
-      // error=>{
-      //   console.log(error);
-      // })
 
-    
+          var blob = new Blob([pdfData.output('blob')], { type : 'application/pdf'}); //this make the magic
+          
+          var blobURL = window.URL.createObjectURL(blob);
         
+        for(let i=0;i<this.palco.personasMaximas;i++){
+          var my_file = new PrintFilePDF(blobURL, FileSourceType.URL, 'PALCO'+this.palco.id.toString()+i+'.pdf', 1);
+          cpj.files.push(my_file);   
+        }
+      
+
+        console.log(cpj.files)
+        // Send print job to printer!
+     
+          cpj.sendToClient();
+        
+
+
+      });
+    }        
     }
   
   }

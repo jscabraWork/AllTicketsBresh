@@ -114,7 +114,7 @@ export class AgregarAmigosComponent implements OnInit {
        precioAdicion: null,
        servicioAdicion: null,
        servicioIvaAdicion:null,
-       
+       metodo:null
        
     }
 

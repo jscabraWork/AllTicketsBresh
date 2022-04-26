@@ -57,6 +57,7 @@ export class ReservarComponent implements OnInit {
       precioAdicion: null,
       servicioAdicion: null,
       servicioIvaAdicion:null,
+      metodo:null
     };
     if (this.data.palco) {
       this.palco = this.data.palco;

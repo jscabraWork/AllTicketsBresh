@@ -301,6 +301,7 @@ export class ComprarPalcosComponent implements OnInit {
           precioAdicion: null,
           servicioAdicion: null,
           servicioIvaAdicion: null,
+          metodo:null
         },
       ],
       servicioPorcentaje: null,
@@ -343,6 +344,7 @@ export class ComprarPalcosComponent implements OnInit {
           precioAdicion: null,
           servicioAdicion: null,
           servicioIvaAdicion: null,
+          metodo:null
         },
       ],
       servicioPorcentaje: null,
@@ -385,6 +387,7 @@ export class ComprarPalcosComponent implements OnInit {
           precioAdicion: null,
           servicioAdicion: null,
           servicioIvaAdicion: null,
+          metodo:null
         },
       ],
       servicioPorcentaje: null,
@@ -427,6 +430,7 @@ export class ComprarPalcosComponent implements OnInit {
           precioAdicion: null,
           servicioAdicion: null,
           servicioIvaAdicion: null,
+          metodo:null
         },
       ],
       servicioPorcentaje: null,
@@ -468,6 +472,7 @@ export class ComprarPalcosComponent implements OnInit {
           precioAdicion: null,
           servicioAdicion: null,
           servicioIvaAdicion: null,
+          metodo:null
         },
       ],
       servicioPorcentaje: null,
@@ -509,6 +514,7 @@ export class ComprarPalcosComponent implements OnInit {
           precioAdicion: null,
           servicioAdicion: null,
           servicioIvaAdicion: null,
+          metodo:null
         },
       ],
       servicioPorcentaje: null,
@@ -550,6 +556,7 @@ export class ComprarPalcosComponent implements OnInit {
           precioAdicion: null,
           servicioAdicion: null,
           servicioIvaAdicion: null,
+          metodo:null
         },
       ],
       servicioPorcentaje: null,
@@ -591,6 +598,7 @@ export class ComprarPalcosComponent implements OnInit {
           precioAdicion: null,
           servicioAdicion: null,
           servicioIvaAdicion: null,
+          metodo:null
         },
       ],
       servicioPorcentaje: null,
@@ -632,6 +640,7 @@ export class ComprarPalcosComponent implements OnInit {
           precioAdicion: null,
           servicioAdicion: null,
           servicioIvaAdicion: null,
+          metodo:null
         },
       ],
       servicioPorcentaje: null,
@@ -673,6 +682,7 @@ export class ComprarPalcosComponent implements OnInit {
           precioAdicion: null,
           servicioAdicion: null,
           servicioIvaAdicion: null,
+          metodo:null
         },
       ],
       servicioPorcentaje: null,
@@ -705,6 +715,7 @@ export class ComprarPalcosComponent implements OnInit {
       precioAdicion: null,
       servicioAdicion: null,
       servicioIvaAdicion: null,
+      metodo:null
     };
 
     this.usuarioEntidad = {

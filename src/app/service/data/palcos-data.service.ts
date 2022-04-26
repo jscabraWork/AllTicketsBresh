@@ -21,8 +21,8 @@ export class PalcosDataService {
     return this.http.get(`${API_URL}/localidad/ventas/${pIdLocalidad}/palcos`)
 
   }
-  comprarPuntoFiscoPalcoImprimir(referenceCode){
-    return this.http.post(`${API_URL}/puntoFisico/tickets/recibir/imprimir/palco`,referenceCode)
+  comprarPuntoFiscoPalcoImprimir(referenceCode,metodo){
+    return this.http.post(`${API_URL}/puntoFisico/tickets/recibir/imprimir/palco/${metodo}`,referenceCode)
   }
 
 
@@ -155,8 +155,8 @@ pagarPalcosAPromotor(codigoVenta:string){
 
 
 
-comprarPuntoFiscoPalco(referenceCode){
-  return this.http.post(`${API_URL}/puntoFisico/palcos/recibir`,referenceCode)
+comprarPuntoFiscoPalco(referenceCode,metodo){
+  return this.http.post(`${API_URL}/puntoFisico/palcos/recibir/${metodo}`,referenceCode)
 }
 
 

@@ -36,6 +36,7 @@ export class AgregarBoletasComponent implements OnInit {
   disponible:null,
 	
 	reserva:null,
+  metodo:null
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');

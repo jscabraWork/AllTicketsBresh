@@ -121,12 +121,12 @@ pagarBoletasAPromotor(codigoVenta:string){
   
 }
 
-comprarPuntoFiscoTicket(referenceCode){
-  return this.http.post(`${API_URL}/puntoFisico/tickets/recibir`,referenceCode)
+comprarPuntoFiscoTicket(referenceCode,metodo){
+  return this.http.post(`${API_URL}/puntoFisico/tickets/recibir/${metodo}`,referenceCode)
 }
 
-comprarPuntoFiscoTicketImprimir(referenceCode){
-  return this.http.post(`${API_URL}/puntoFisico/tickets/recibir/imprimir`,referenceCode)
+comprarPuntoFiscoTicketImprimir(referenceCode, metodo){
+  return this.http.post(`${API_URL}/puntoFisico/tickets/recibir/imprimir/${metodo}`,referenceCode)
 }
 
 asignarBoleta(cedula,idBoleta){

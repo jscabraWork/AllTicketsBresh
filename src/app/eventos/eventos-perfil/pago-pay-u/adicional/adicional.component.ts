@@ -77,6 +77,7 @@ export class AdicionalComponent implements OnInit {
       precioAdicion: null,
       servicioAdicion: null,
       servicioIvaAdicion:null,
+      metodo:null
     };
 
     this.palcoBackup = {
@@ -105,6 +106,7 @@ export class AdicionalComponent implements OnInit {
       precioAdicion: null,
       servicioAdicion: null,
       servicioIvaAdicion:null,
+      metodo:null
     };
     if (this.data.palco) {
     this.palcoBackup = Object.assign({}, this.data.palco);

@@ -17,7 +17,8 @@ export interface Boleta {
 	nombreEvento:string,
 	servicio:number,
 	utilizada:boolean,
-	servicioIva:number
+	servicioIva:number,
+	metodo:string
 	
 
 

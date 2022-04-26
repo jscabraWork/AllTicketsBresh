@@ -135,17 +135,14 @@
 
             <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Comisión Epayco: {{comisionEpayco |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Impuesto de comisión Epayco: {{impuestoEpayco |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
 
-
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio después de comisión PayU: {{servicio |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio después de comisiones PayU y Epayco: {{servicio |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
             <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de fuente de All Tickets: {{retefuenteAT |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
             <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de ICA de All Tickets: {{reteIcaAT |currency:'COP'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio después de retenciones: {{dineroServicioDespuesDeComisiones |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio después de retenciones (Ganancias All Tickets): {{dineroServicioDespuesDeComisiones |currency:'COP'}} </strong>
     
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
             <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero Total IVA: {{dineroIva |currency:'COP'}} </strong>

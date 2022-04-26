@@ -241,6 +241,7 @@ export class AdminLectorComponent implements OnInit {
       precioAdicion: null,
       servicioAdicion: null,
       servicioIvaAdicion: null,
+      metodo:null
     };
     this.boleta = {
       id: null,
@@ -258,6 +259,7 @@ export class AdminLectorComponent implements OnInit {
       disponible:null,
 	
       reserva:null,
+      metodo:null
     };
     this.listaClientes = [];
   }
@@ -307,6 +309,7 @@ export class AdminLectorComponent implements OnInit {
       precioAdicion: null,
       servicioAdicion: null,
       servicioIvaAdicion: null,
+      metodo:null
     };
     this.boleta = {
       id: null,
@@ -324,6 +327,7 @@ export class AdminLectorComponent implements OnInit {
       disponible:null,
 	
       reserva:null,
+      metodo:null
     };
     this.clienteService.getClientePorId(this.buscarNumeroCC).subscribe(
       (response) => {
