@@ -1,3 +1,5 @@
+
+
 .contenedor2:hover p{
     display:initial ;
 }
@@ -6,8 +8,39 @@
     background-color: rgba(0,0,0,0);
     text-shadow: 0px 0px 2px black;
 }
-p.centrado2 {
-    width: 80%;
+.imagenperfil{
+    height: 47% !important;
+}
+.contenedor8{
+    height: 430px;
+}
+#prueba{
+    padding: 8px;
+}
+.eventosTitulo{
+    margin: 0;
+}
+.contenedorBot{
+    margin-right: 0;
+    margin-left: 0;
+}
+.tituloEvento{
+    width: 100%;
+}
+.fechaCiudad, .botonVer{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+.fechaCiudad>p{
+    padding: 0px 10px;
+    margin-bottom: 5px !important;
+    font-size: 15px;
+}
+.titulos{
+    font-size: 17px;
 }
 .sold_out {
     top: 2em;
@@ -22,76 +55,15 @@ p.centrado2 {
     height: 180px;
     transform: rotate(30deg);
 }
-.temperatura, .botonVer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.contenedorBot>div{
+    padding: 0;
+}
+.bg-darkblue-gradient{
+    background: linear-gradient(#102438, #32587e);
 }
 .texto{
     width: 60%;
 }
-
-@media(max-width: 1516px){
-    .texto{
-        width: 80%;
-    }
-}
-
-.fechas{
-    margin-bottom: 0;
-    font-size: 14px;
-}
-.contenedorBot{
-    margin-right: 0;
-    margin-left: 0;
-}
-.titulos{
-    font-size: 20px;
-}
-#prueba{
- padding: 15px;
-}
-.ciudadTitulo{
- margin: 0;
-}
-
-.bg-darkblue-gradient{
-    background: linear-gradient(#102438, #32587e);
-}
-
-.contenedor2 a{
-    position: relative;
-}
-
-.contenedor2 p{
-    top: 50%;
-}
-@media(max-width:400px){
-    .titulos{
-        font-size: 20px;
-    }
-    .fechas strong{
-        font-size: 16px !important;
-    }
-    .contenedor8{
-        padding: 0;
-        margin-top: 25px !important;
-    }
-    #prueba{
-        padding: 10px;
-    }    
-}
-
-@media(max-width: 1064px){
-    .fechas strong{
-        font-size: 14pt;
-    }
-}
-
-
-
 .oscurecer{
     opacity: 1;
     transition: all .3s;
@@ -104,4 +76,150 @@ p.centrado2 {
 
 .contenedor2:hover .oscurecer{
     opacity: 0.4;
+}
+
+@media(max-width: 1516px){
+    .texto{
+        width: 80%;
+    }
+}
+@media(max-width:770px){
+    .titulos{
+        font-size: 13px;
+        padding: 16px 5px 0px !important;
+    }
+    .imagenperfil{
+        height: 32% !important;
+    }
+    .contenedor8{
+        padding: 3px !important;
+        margin-top: 0px;
+        padding-bottom: 0px !important;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    img.darkableImage{
+        height: 100% !important;
+        min-height: 230px;
+    }
+    #prueba{
+        padding: 5px;
+    }
+    .fechaCiudad>p{
+        font-size: 15px;
+    }
+    .tituloEvento{
+        height: 70px;
+    }
+    .contenedorBot{
+        height: 100%;
+    }
+    .contenedorabajo{
+        height: auto;
+    }
+    .texto{
+        width: 75% !important;
+    }
+    .centrado2{
+        width: 90%;
+        padding: 5px;
+        margin-bottom: 0px !important;
+        height: 43%;
+        font-size: 12px !important;
+    }
+    .botonVer{
+        margin-bottom: 20px;
+    }
+}
+@media(max-width:576px){
+    .border-right{
+        border-right: none !important;
+    }
+    .fechalugar{
+        display: none;
+    }
+    .fechaCiudad{
+        height: 30px;
+        margin-top: 0px;
+    }
+    .titulos{
+        font-size: 12px;
+        padding: 16px 5px 0px !important;
+    }
+    .imagenperfil{
+        height: 32% !important;
+    }
+    .contenedor8{
+        padding: 3px !important;
+        margin-top: 10px;
+        padding-bottom: 0px !important;
+        height: auto;
+    }
+    img.darkableImage{
+        height: 100% !important;
+        min-height: 170px;
+    }
+    #prueba{
+        padding: 5px;
+    }
+    .fechaCiudad>p{
+        font-size: 11px;
+    }
+    .action_button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .tituloEvento{
+        height: 70px;
+    }
+    .contenedorBot{
+        height: 100%;
+    }
+    .contenedorabajo{
+        height: 60% !important;
+    }
+    .texto{
+        width: 60% !important;
+    }
+    .centrado2{
+        width: 90%;
+        padding: 5px;
+        margin-bottom: 0px !important;
+        height: 43%;
+        font-size: 12px !important;
+    }
+    .aaa{
+        margin: 10px auto;
+    }
+    .botonVer{
+        height: 40px;
+    }
+}
+@media(max-width:425px){
+    img.darkableImage{
+        height: 100% !important;
+        min-height: 100px;
+    }
+}
+@media(max-width:400px){
+    .titulos{
+        font-size: 12px;
+        padding: 10px 5px 0px !important;
+    }
+    .action_button{
+        padding: 10px 5px !important;
+    }
+}
+@media(max-width:330px){
+    .titulos{
+        font-size: 10px;
+        padding: 10px 5px 0px !important;
+    }
+    .fechaCiudad>p{
+        font-size: 10px;
+    }
+    .action_button{
+        padding: 7px 5px !important;
+    }
 }
