@@ -1,4 +1,5 @@
 
+
 *{
 	margin: 0;
 	padding: 0;
@@ -7,11 +8,12 @@
 	-moz-box-sizing: border-box; 
 	box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
 }
 .contenedor-boleta{
     display: flex;
-    width: 1584px;
-    height: 576px;
+    width: 2112px;
+    height: 768px;
     
     text-align: center;
 }
@@ -22,15 +24,25 @@
     flex-flow: column;
 }
 .izq{
-    width: 394.5px; 
-    font-size: 29px;
+    width: 526px; 
+    font-size: 46px;
+    margin-bottom: -20px;
 }
 .izq h3{
-    height: 80px;
+    padding-top: 15px;
+    height: 120px;
+    font-size: 45px;
+    z-index: 4;
+}
+.izq p{
+ 
+    font-size: 38px;
+    z-index: 2;
+   
 }
 .mid{
-    width: 789px;
-    font-size: 34px;
+    width: 1052px;
+    font-size: 45px;
     justify-content: space-between;
 }
 .mid p{
@@ -45,20 +57,20 @@
     flex-flow: row;
 }
 .midbot{
-    width: 750px;
+    width: 1000px;
 }
 .derbot2{ 
-    width: 570px;
+    width: 760px;
 }
 .der{
-    height: 570px; 
-    width: 394.5px;
+    height: 760px; 
+    width: 526px;
     justify-content: space-around;
-    font-size: 52px;
+    font-size: 69px;
 }
 .rotar{
-    width: 570px; 
-    height: 394.5px;
+    width: 760px; 
+    height: 526px;
     transform: rotate(90deg);
     transform-origin: center center;
 }
@@ -67,13 +79,13 @@
     justify-content: space-around;
     align-items: center;
     flex-flow: row;
-    height: 570px;
-    width: 789px;
+    height: 760px;
+    width: 1052px;
 }
 .midizq{
-    font-size: 7px;
-    height: 570px;
-    width: 34px;
+    font-size: 10px;
+    height: 760px;
+    width: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,58 +94,69 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 570px;
-    height: 34px;
+    width: 760px;
+    height: 45px;
     transform: rotate(90deg);
     transform-origin: center center;
     position: absolute;
-    font-size: 18px;
-    margin-top: 80px;
+    font-size: 26px;
+    margin-top: 155px;
+    margin-right: -40px;
 }
 .rotar h2{
-    height: 188px;
+    height: 251px;
 }
 .midder{
-    height: 570px;
+    height: 760px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-flow: column;
 }
 .logo{
-    width: 750px;
+    width: 1000px;
+    margin-top: 30px;
 }
 .codigo{
-    width: 355.05px;
+    width: 420.4px;
+    margin-bottom: -30px;
+    
+    z-index: 1;
 }
 .derbot{
-    height: 130px;
+    height: 174px;
 }
 .small{
-    font-size: 18px !important;
+
+    font-size: 32px !important;
 }
-.small2{
-    font-size: 15px !important;
+.small4{
+    margin-top: 10px;
+    margin-right: -140px;
+    font-size: 28px !important;
+}
+.derbot{
+    font-size: 46px !important;
 }
 .small3{
-    font-size: 16.5px !important;
-    margin-right: 30px;
+    font-size: 34px !important;
+    margin-right: 60px;
 }
 .estrella{
-    width: 60px;
-    margin-bottom: -12px;
+    width: 80px;
+    margin-bottom: -16px;
 }
 .estrella1{
-    width: 34px;
+    width: 45px;
     margin-bottom: 0px;
-    margin-left: 5px;
+    margin-left: 7px;
 }
 .margen{
     color: black;
     background-color: black;
-    height: 3px;
-    width: 713px;
+    height: 4px;
+    width: 951px;
 }
 .tamanioLetra{
-    font-size: 90px;
+    font-size: 100px;
 }
