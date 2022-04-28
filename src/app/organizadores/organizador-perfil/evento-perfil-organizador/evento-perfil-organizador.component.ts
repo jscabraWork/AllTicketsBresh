@@ -21,7 +21,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   constructor(private route: ActivatedRoute,private service: OrganizadorDataService, public autenticador: HardcodedAutheticationService, private eventoService:EventoDataService ) { }
 
   evento:Evento
-  
+  puntosF:boolean
   miId:string
   dineroRecaudado:number
   localidades:Localidad[]=[]
@@ -48,6 +48,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   comisionEpayco:number
 
   ngOnInit( ): void {
+    this.puntosF = false;
     this.dineroRecaudado =0
     this.dineroServicio=0
     this.dineroIva=0
@@ -76,6 +77,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
            
           this.eventoService.getRetenciones(this.evento.id).subscribe(
             (response)=>{
+
               for(var j=0; j< this.localidades.length; j++){
 
 
@@ -144,14 +146,17 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
 
     this.comisionPayU = response.comisionPayu
     this.comisionEpayco = response.comisionEpayco
-    console.log(response.comisionPayu);
-    console.log(response.comisionEpayco);    
+
+
+
   }
   handleGetSuccesfull(response){
     this.evento=response.evento;
     this.localidades = response.localidades;
     this.boletas = response.boletas;
-    console.log(this.boletas)
+    this.puntosF = response.puntosF
+
+    
 
   }
 

@@ -159,7 +159,7 @@
             <button *ngIf="autenticador.getAdmin()||autenticador.getOrganizador()" class="ml-3 mt-3 btn action_button" routerLink="promotores">Ver promotores</button>
             <button *ngIf="autenticador.getAdmin()||autenticador.getOrganizador()" class="ml-3 mt-3 btn action_button" routerLink="reservas">Ver reservas</button>
             <button *ngIf="autenticador.getAdmin()||autenticador.getOrganizador()" class="ml-3 mt-3 btn action_button" routerLink="historial">Historial</button>
-            <button *ngIf="autenticador.getAdmin()||autenticador.getOrganizador()" class="ml-3 mt-3 btn action_button" routerLink="puntos-fisicos">Puntos Fisicos</button>
+            <button *ngIf="(autenticador.getAdmin()||autenticador.getOrganizador() )&&puntosF" class="ml-3 mt-3 btn action_button" routerLink="puntos-fisicos">Puntos Fisicos</button>
         </div>
     </div>    
 

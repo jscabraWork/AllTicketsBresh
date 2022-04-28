@@ -48,6 +48,7 @@ import { ReservasPromotorComponent } from './reservas-promotor/reservas-promotor
 import { CoordinadorPerfilComponent } from './coordinador-perfil/coordinador-perfil.component';
 import { TokenInterceptor } from './service/interceptors/token.interceptor';
 import { AuthInterceptor } from './service/interceptors/auth.interceptor';
+import { MensajeLinkComponent } from './mensaje-link/mensaje-link.component';
 
 //SERVICIOS
 
@@ -96,7 +97,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      OlvidoComponent,
      TratamientoDatosComponent,
      ReservasPromotorComponent,
-     CoordinadorPerfilComponent
+     CoordinadorPerfilComponent,
+     MensajeLinkComponent
     
 
   

@@ -13,7 +13,7 @@ export class PerfilMinisterioComponent implements OnInit {
   constructor(private servicio: EventoDataService) { }
 
   ngOnInit(): void {
-    this.servicio.getAllEventos().subscribe(response=>{
+    this.servicio.getAllEventosVisibles().subscribe(response=>{
       this.eventos = response
     })
 

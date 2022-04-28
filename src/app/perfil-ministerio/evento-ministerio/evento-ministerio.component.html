@@ -17,28 +17,33 @@
 
 
 
-
+<div id="desplazate">
+    <p>
+      <--- Desplázate para ver toda la información --->
+    </p>
+  </div>
 
 <section class="container-fluid mt-5">
   
     
 
         <div class="row">
-            <div class="col-12">
-                <table class="table mt-3 border rounded tabla"  style="text-align: center;">
+            <div class="col-12 esconder">
+                <table class="tabla table mt-3 border rounded tabla"  style="text-align: center;">
                     <thead>
                         <tr class="border ">
                             
                             <th class="border">Etapa de Venta</th>
-                            <th class="border ">Nombre</th>
-                            <th class="border ">Precio</th>
-                            <th class="border ">Tickets vendidas</th>               
-                            <th class="border">Dinero De Tickets</th>
-                            <th class="border">Palcos Totales</th>
-                            <th class="border">Palcos Vendidos</th>
-                            <th class="border">Dinero De Palcos</th>
-                          
+                            <th class="border ">Nombre</th>              
+                            <th class="border ">Precio por ticket</th>                       
+                            <th
+                             class="border">Tickets vendidas</th>
+                            <th class="border ">Tickets por vender</th>
+
+                            <th class="border">Dinero De Recaudado</th>
+
                             
+                           <!-- <th class="border">Tickets Patrocinios</th>   -->
                                  
                         </tr>
                 
@@ -46,18 +51,27 @@
                 
                     </thead>
                     <tbody>
-                        <tr *ngFor="let localidad of evento?.localidades"  >
+                        <tr *ngFor="let localidad of localidades, let i = index"  >
+
                            
-                            <td class="border"><strong>{{localidad?.nombreEtapa}}</strong></td>
-                            <td class="border"> <strong>{{localidad?.nombre }}</strong></td> 
-                            <td class="border"> <strong>{{localidad?.precio| currency:'COP'}}</strong></td> 
-                            <!-- <td class="border"> <strong>{{numeroBoletasPorVender(localidad,true)}}</strong></td>  -->
-                            <!-- <td class="border">{{dineroVendido(localidad)|currency:'COP'}}</td> -->
-                            <td class="border">{{localidad?.palcos?.length}}</td>
-                            <td class="border">{{palcosVendidos(localidad, true)}}</td>
-                            <td class="border">{{dineroRecaudadoPalcos(localidad)|currency:'COP'}}</td>
-                   
-                         
+                            <td class="border "  *ngIf="localidad.palcos.length>0 || boletas[i].length>0"><strong>{{localidad?.nombreEtapa}}</strong></td>
+                            <td class="border " *ngIf="localidad.palcos.length>0 || boletas[i].length>0"> <strong>{{localidad?.nombre }}</strong></td> 
+                            <td class="border" *ngIf="evento.adicionales.length ==0 && boletas[i].length>0"> <strong>{{localidad?.precio| currency:'COP'}}</strong></td> 
+
+                            <td class="border" *ngIf="boletas[i].length>0"> <strong>{{numeroBoletasVendidas(boletas[i])}}</strong></td>  
+                            <td class="border" *ngIf="boletas[i].length>0"> <strong>{{numeroBoletasPorVender(boletas[i])}}</strong></td> 
+
+                            <td class="border" *ngIf="boletas[i].length>0">{{dineroVendido(boletas[i])|currency:'COP'}}</td>
+
+                            <td class="border"  *ngIf="localidad.palcos.length>0 && localidad.palcos[0].adiciones>0"> <strong>{{(localidad?.precio)/(localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones)| currency:'COP'}} </strong></td> 
+                            <td class="border"  *ngIf="localidad.palcos.length>0 && localidad.palcos[0].adiciones==0"> <strong>{{(localidad?.precio)/( localidad.palcos[0].personasMaximas)| currency:'COP'}} </strong></td> 
+                            <td class="border" *ngIf="localidad.palcos.length>0">{{palcosVendidos(localidad, true)}}</td>
+                            <td class="border" *ngIf="localidad.palcos.length>0">{{palcosVendidos(localidad, false)}}</td>
+                           
+                            <td class="border" *ngIf="localidad.palcos.length>0">{{dineroRecaudadoPalcos(localidad)|currency:'COP'}}</td>
+
+                            
+                            
                            
                         </tr>
                         
@@ -68,7 +82,10 @@
                 </table>
             </div>    
         <div class="col-12" >
-            <p class="border p-3" style="background-color: white;"><strong>Dinero Total Recaudado: {{dineroRecaudado |currency:'COP'}} </strong></p>
+        <p class="border p-3" style="background-color: white;">
+            <br>
+            <strong>Dinero total recaudado: {{dineroRecaudado |currency:'COP'}} </strong>
+            
         </div>
     </div>    
 

@@ -12,5 +12,7 @@ export class PayUDataService {
   getHistorial(response, nombreEvento){
     return this.http.get(`${API_URL}/payu/response/${response}/${nombreEvento}`);
   }
-
+  getHistorialEpayco(response, nombreEvento){
+    return this.http.get(`${API_URL}/epayco/response/${response}/${nombreEvento}`);
+  }
 }

@@ -8,4 +8,24 @@ td{
 
 .tabla{
     text-align: center;
+    width: 100%;
 }
+.esconder{
+    overflow-x: scroll;
+}
+
+#desplzate p,
+#desplazate p{
+  color:#ed701c;
+  font-weight: bolder;
+  font-size: 20px;
+
+}
+
+#desplzate,
+#desplazate{
+  display:block;
+  text-align: center;
+}
+
+

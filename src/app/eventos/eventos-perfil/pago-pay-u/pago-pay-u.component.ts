@@ -18,6 +18,8 @@ import {Md5} from 'ts-md5/dist/md5'
 import { Etapa } from '../etapa.model';
 import { IVA } from 'src/app/app.constants';
 import { CuponDataService } from 'src/app/service/data/cupon-data.service';
+import { MensajeComponent } from 'src/app/mensaje/mensaje.component';
+import { MensajeLinkComponent } from 'src/app/mensaje-link/mensaje-link.component';
 
 
 
@@ -104,6 +106,11 @@ codigoVenta
      
       this.service.getEventoId(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
         
+        if(this.evento.visibleAP){
+   
+          this.openDialogMensaje("Recuerda que desde YA puedes comprar los productos del evento con descuento en: ",this.evento.id)
+        }
+     
         this.etapaServicio.getAllEtapasVisiblesDeEvento(this.evento.id, true).subscribe(response =>{this.manejar(response);
           
           var i =0;
@@ -119,17 +126,7 @@ codigoVenta
             i=i+1;
           }
 
-          if((this.codigoVenta=='Jorgebresh' 
-          || this.codigoVenta=='jovalle2022' 
-          || this.codigoVenta=='jerodriguez2022' 
-          || this.codigoVenta=='locampok2022' 
-          || this.codigoVenta=='asaporito2022' 
-          || this.codigoVenta=='cbartello2022' 
-          || this.codigoVenta=='jdcjimenez2022') 
-          && this.localidad.id==5395){
-            //this.servicioCupon.validarCupon(this.codigoVenta).subscribe(response =>{this.manejarCupon(response)})
-            this.localidad.precio = 30000
-          }
+
 
         })
         if(this.autenticador.getUsuario()!=null ){
@@ -225,9 +222,11 @@ codigoVenta
 
   reservarBoletasLocalidad(){
 
-   
+
   if(!this.cargando&&this.localidadesCompradas.length + this.contadorBoletas<7 && !this.usuarioBoolean && this.localidadesCompradas.length>0 )
     {
+
+ 
       this.cargando=true
       
 
@@ -358,6 +357,24 @@ AbrirCarrito(): void {
         )
 
    
+  });
+}
+openDialogMensaje(mensaje,eventoId): void {
+  const dialogRef = this.dialog.open(MensajeLinkComponent, {
+
+    
+    width: '600px',
+    height:'250px',
+    data:{
+      mensaje:mensaje,
+      id:eventoId
+    }
+    
+  });
+
+
+  dialogRef.afterClosed().subscribe(result => {
+       
   });
 }
 

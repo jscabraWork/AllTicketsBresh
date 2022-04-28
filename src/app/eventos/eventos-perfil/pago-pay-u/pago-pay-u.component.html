@@ -23,6 +23,7 @@
 
           <p class="pl-3 pr-3">Por favor, indica el número de Tickets que deseas añadir a tu compra. El numero de
             Tickets se limita a 6 para cada persona en cada evento.</p>
+            <p *ngIf="evento?.visibleAP"><strong>Recuerda que desde YA puedes comprar los productos del evento con descuento en: <a class="colorNaranja" href="https://allproductscol.com/eventos/evento/{{evento?.id}}">https://allproductscol.com/eventos/evento/{{evento?.id}}</a> </strong></p>
         </div>
         <div class="col-12 esconder">
           <div class="ver" >
