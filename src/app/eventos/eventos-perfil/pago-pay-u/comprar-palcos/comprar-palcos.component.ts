@@ -1063,6 +1063,34 @@ export class ComprarPalcosComponent implements OnInit {
           });
         }
 
+        else if (this.evento.mapa == 'mapa10') {
+          this.etapaServicio
+          .getAllEtapasVisiblesDeEvento(this.evento.id, true)
+          .subscribe((response) => {
+
+            this.etapas = response;
+
+            for (let i = 0; i < this.etapas.length; i += 1) {
+              for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
+
+
+                if (this.etapas[i].localidades[j].nombre == 'PALCOS') {
+                  this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                }
+
+                else if (this.etapas[i].localidades[j].nombre == 'GENERAL') {
+                  this.localidadCargadaGeneral = this.etapas[i].localidades[j];
+                }
+              
+              }
+            }
+
+
+            this.cargarLocalidadEnMapa10();
+            this.cargadoTodo = true;
+          });
+        }
+
 
         else if (this.evento.mapa == 'mapa22') {
           this.etapaServicio
@@ -2083,6 +2111,268 @@ export class ComprarPalcosComponent implements OnInit {
   }
   
   
+  cargarLocalidadEnMapa10(){
+  
+    for(let i=0;i<7;i++){
+     
+      this.lista1[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista13[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista23[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista32[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+     
+    }
+
+    for(let i=0;i<16;i++){
+    
+      this.lista2[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista14[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+
+    for(let i=0;i<27;i++){
+    
+      this.lista3[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+      this.lista15[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    }
+
+    for(let i=0;i<30;i++){
+    
+      this.lista4[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista16[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+
+    for(let i=0;i<33;i++){
+    
+      this.lista5[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista17[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+
+    for(let i=0;i<36;i++){
+    
+      this.lista6[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista18[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+
+    for(let i=0;i<13;i++){
+    
+      this.lista7[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista19[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+    
+    for(let i=0;i<168;i++){
+    
+      this.lista8[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+
+    for(let i=0;i<4;i++){
+    
+      this.lista9[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+      this.lista10[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+      this.lista11[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+      this.lista12[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+
+    for(let i=0;i<96;i++){
+    
+      this.lista20[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista26[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista29[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+
+    for(let i=0;i<8;i++){
+    
+      this.lista21[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista25[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista30[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista34[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+    
+
+    for(let i=0;i<3;i++){
+    
+      this.lista22[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista24[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista31[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+
+      this.lista33[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+
+    for(let i=0;i<9;i++){
+    
+      this.lista27[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+
+    for(let i=0;i<20;i++){
+    
+      this.lista28[i] =  {
+        valor:'v',
+        localidad: 'oro',
+        id:'v'
+      }
+    
+    }
+
+  }
+  
+
   cargarLocalidadEnMapa22() {
 
     for(let i=0;i<1;i++){

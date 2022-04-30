@@ -118,7 +118,12 @@ export class EventoMinisterioComponent implements OnInit {
         contador = contador+1;
       }
     }
-   
+   if(boleta[0].localidadIdNumero==4822){
+     contador = contador -100
+   }
+   if(boleta[0].localidadIdNumero==4823){
+    contador = contador -200
+  }
     return contador;
   
   }
@@ -193,7 +198,12 @@ export class EventoMinisterioComponent implements OnInit {
         
       }
     }
-   
+    if(boleta[0].localidadIdNumero==4822){
+      contador = contador -(100*boleta[0].precio)
+    }
+    if(boleta[0].localidadIdNumero==4823){
+     contador = contador - (200*boleta[0].precio)
+   }
     return contador;
   
   }
