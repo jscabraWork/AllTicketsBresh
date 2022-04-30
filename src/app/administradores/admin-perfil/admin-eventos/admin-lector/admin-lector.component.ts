@@ -80,6 +80,7 @@ export class AdminLectorComponent implements OnInit {
 
       (error) => {
         this.mensaje = 'Codigo QR NO valido';
+        this.reiniciar()
       }
     );
   }

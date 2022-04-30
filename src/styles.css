@@ -17,7 +17,9 @@
     width: 70px;
 }
 
-
+.colorMorado{
+    color:#ff00c9;
+}
 @media(max-width:901px){
     .redes{
        
