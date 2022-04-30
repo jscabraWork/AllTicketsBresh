@@ -8,7 +8,7 @@ import { kill } from 'process';
 import { HardcodedAutheticationService } from 'src/app/service/hardcoded-authetication.service';
 import { OrganizadorDataService } from 'src/app/service/data/organizador-data.service';
 import { Boleta } from 'src/app/eventos/boleta.model';
-
+import * as XLSX from 'xlsx'; 
 
 
 @Component({
@@ -46,7 +46,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   impuestoPayU:number
   boletas:[]
   comisionEpayco:number
-
+  fileName
   ngOnInit( ): void {
     this.puntosF = false;
     this.dineroRecaudado =0
@@ -67,14 +67,14 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     this.ivaCuenta=0
     this.comisionEpayco =0
     this.impuestoPayU=0
-  
+    
     this.evento = new Evento();
     this.evento.adicionales =[];
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');
      
       this.service.darEvento(this.miId).subscribe( response => {this.handleGetSuccesfull(response);
-           
+        this.fileName='Ventas '+ this.evento.nombre+ '.xlsx';  
           this.eventoService.getRetenciones(this.evento.id).subscribe(
             (response)=>{
 
@@ -135,7 +135,20 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
 
    
   }
+  exportexcel(): void 
+  {
+     /* table id is passed over here */   
+     let element = document.getElementById('excel-table'); 
+     const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
 
+     /* generate workbook and add the worksheet */
+     const wb: XLSX.WorkBook = XLSX.utils.book_new();
+     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+     /* save to file */
+     XLSX.writeFile(wb, this.fileName);
+    
+  }
   manejoRetenciones(response){
     this.reteIcaAT = +response.reteicaAT as number
     this.reteIcaOrganizador = +response.reteicaOrganiador as number

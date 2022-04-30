@@ -11,13 +11,22 @@
 </div>
 
 
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <a style="cursor: pointer" (click)="exportexcel()">
+        <button class="btn action_button mt-5"> Descargar Excel</button>
+      </a>
+    </div>
+  </div>
+</div>
 <section class="container-fluid mt-5">
     <div class="row">
       <div class="col-12 esconder">
         <table
           class="tabla table mt-3 border rounded tabla"
           style="text-align: center"
+          id="excel-table"
         >
           <thead>
             <tr class="border">
