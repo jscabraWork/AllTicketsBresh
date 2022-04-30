@@ -310,7 +310,8 @@ export class ReservasPromotorComponent implements OnInit {
       
       publicidad: null,
       boletas: [],
-      palcos: []
+      palcos: [],
+      tipo:null
     }
 
     this.reserva = {

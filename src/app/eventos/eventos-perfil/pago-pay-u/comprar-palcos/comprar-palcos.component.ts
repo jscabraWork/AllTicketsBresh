@@ -730,6 +730,7 @@ export class ComprarPalcosComponent implements OnInit {
       publicidad: null,
       boletas: [],
       palcos: [],
+      tipo:null
     };
     this.evento = new Evento();
     this.codigoVenta == '';

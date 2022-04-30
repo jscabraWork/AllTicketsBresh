@@ -32,7 +32,8 @@ export class CambiarPerfilComponent implements OnInit {
         
         publicidad:null,
         boletas:[],
-        palcos:[]
+        palcos:[],
+        tipo:null
     }
     this.contra = this.data.usuario.contrasena;
     this.usuario= this.data.usuario;

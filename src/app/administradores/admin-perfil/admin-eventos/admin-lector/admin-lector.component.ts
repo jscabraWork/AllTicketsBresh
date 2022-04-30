@@ -196,6 +196,7 @@ export class AdminLectorComponent implements OnInit {
       publicidad: null,
       tipoDocumento: null,
       usuario: null,
+      tipo:null
     };
     this.cargando = false;
     this.entrarPersonas = 0;
@@ -213,6 +214,7 @@ export class AdminLectorComponent implements OnInit {
       publicidad: null,
       tipoDocumento: null,
       usuario: null,
+      tipo:null
     };
 
     this.palco = {
@@ -281,6 +283,7 @@ export class AdminLectorComponent implements OnInit {
       publicidad: null,
       tipoDocumento: null,
       usuario: null,
+      tipo:null
     };
 
     this.palco = {

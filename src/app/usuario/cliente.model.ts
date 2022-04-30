@@ -14,7 +14,8 @@ export interface Cliente {
     
     publicidad: boolean,
     boletas:Boleta[],
-    palcos:Palco[]
+    palcos:Palco[],
+    tipo:string
     
 
 

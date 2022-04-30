@@ -33,7 +33,8 @@ export class RegistrarseComponent implements OnInit {
         
         publicidad:false,
         boletas:[],
-        palcos:[]
+        palcos:[],
+        tipo:'usuario'
     }
     this.function()
   }

@@ -92,7 +92,8 @@ codigoVenta
         
         publicidad:null,
       boletas:[],
-      palcos:[]
+      palcos:[],
+      tipo:null
         }
 
 

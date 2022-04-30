@@ -32,7 +32,8 @@ export class CambiarDuenoBoletaComponent implements OnInit {
       palcos:[],
       publicidad:null,
       tipoDocumento:null,
-      usuario:null
+      usuario:null,
+      tipo:null
     }
     this.boleta = this.data.boleta
   }

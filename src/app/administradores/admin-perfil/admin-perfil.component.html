@@ -128,31 +128,62 @@
         <!-- <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">-->
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h2>Analitics</h2>
+          
         </div>
         <div class="row mt-2">
           <div class="col-sm-4">
             <!--<img src="https://images.pexels.com/photos/10581443/pexels-photo-10581443.jpeg?cs=srgb&dl=pexels-nikita-igonkin-10581443.jpg&fm=jpg" width="100%">-->
-            <div class="infoDate">
-              <i class="bi bi-app"></i>
-              <span>$2.750<br>Lorem ipsum
-              </span>
+            <div >
+              <h3><strong>Dinero de transacciones</strong></h3>
+              <p>
+                <span class="fuerte">PayU: </span> ${{totalPayU | number: '1.0-0'}}
+              </p> 
+              <p>
+                <span class="fuerte">Epayco: </span> ${{totalEpayco | number: '1.0-0'}}
+              </p> 
+              <p>
+                <span class="fuerte">Otros medios: </span> ${{(totalPalco + totalBoleta) - (totalPayU+totalEpayco) | number: '1.0-0'}}
+              </p> 
+              <p>
+                <span class="fuerte">Total: </span> ${{(totalPalco + totalBoleta) | number: '1.0-0'}} 
+              </p> 
             </div>
           </div>
           <div class="col-sm-4">
             <!--<img src="https://images.pexels.com/photos/10581443/pexels-photo-10581443.jpeg?cs=srgb&dl=pexels-nikita-igonkin-10581443.jpg&fm=jpg" width="100%">-->
             <div class="infoDate">
-              <i class="bi bi-app"></i>
-              <span>$750<br>Lorem ipsum
-              </span>
+              <h3><strong>Dinero de Servicio</strong></h3>
+              <p>
+                <span class="fuerte">Total: </span> ${{totalBoletaServico + totalServicioPalco | number: '1.0-0'}}
+              </p> 
+              <p>
+                <span class="fuerte">Comisión PayU: </span> ${{(comisionPSEPayU + comisionTarjetaPayU) | number: '1.0-0'}}
+              </p> 
+              <p>
+                <span class="fuerte">Comisión Epayco: </span> ${{(comisionPSEEPayco + comisionTarjetaEpayco) | number: '1.0-0'}}
+              </p> 
+
             </div>
           </div>
           <div class="col-sm-4">
             <!--<img src="https://images.pexels.com/photos/10581443/pexels-photo-10581443.jpeg?cs=srgb&dl=pexels-nikita-igonkin-10581443.jpg&fm=jpg" width="100%">-->
             <div class="infoDate">
-              <i class="bi bi-app"></i>
-              <span>$5.450<br>Lorem ipsum
-              </span>
+              <h3><strong>Dinero de IVA</strong></h3>
+              <p>
+                <span class="fuerte">Total recaudado: </span> ${{totalBoletaIVA+totalIVAPalco | number: '1.0-0'}}
+              </p> 
+              <p>
+                <span class="fuerte">Recaudado PayU: </span> ${{totalIVAPayU | number: '1.0-0'}}
+              </p> 
+              <p>
+                <span class="fuerte">Recaudado Epayco: </span> ${{totalIVAEpayco | number: '1.0-0'}}
+              </p> 
+              <p>
+                <span class="fuerte">Otros medios: </span> ${{totalBoletaIVA+totalIVAPalco-totalIVAPayU -totalIVAEpayco| number: '1.0-0'}}
+              </p> 
+              <p>
+                <span class="fuerte">Dinero de IVA: </span> ${{(totalBoletaIVA+totalIVAPalco )-(totalIVAPayU *0.15)-(totalIVAEpayco *0.15) | number: '1.0-0'}} 
+              </p> 
             </div>
           </div>
         </div>
@@ -161,15 +192,19 @@
         <h2>Reports</h2>
         <div class="row mt-2">
           <div class="col-sm-12 col-md-6">
-            <img src="https://www.cuadernosdeperiodistas.com/media/2014/05/porcentaje.jpg" width="100%">
-          </div>
-          <div class="col-sm-12 col-md-6">
-            <img
-              src="https://docs.tibco.com/pub/spotfire_web_player/6.0.0-november-2013/es-ES/WebHelp/GUID-418B2936-C878-4771-B874-FA8ECAA39941-display.png"
-              width="100%">
-          </div>
+            <canvas baseChart 
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType">
+          </canvas>
         </div>
-      </div>
+        <div class="col-sm-12 col-md-6">
+          
+        </div>
+          </div>
+
+        </div>
+      
     </main>
   </div>
 </section>

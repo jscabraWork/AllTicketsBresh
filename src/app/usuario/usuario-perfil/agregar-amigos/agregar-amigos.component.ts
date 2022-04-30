@@ -72,7 +72,8 @@ export class AgregarAmigosComponent implements OnInit {
       palcos:[],
       publicidad:null,
       tipoDocumento:null,
-      usuario:null
+      usuario:null,
+      tipo:null
     }
 
     this.usuario= {
@@ -86,7 +87,8 @@ export class AgregarAmigosComponent implements OnInit {
         
         publicidad:null,
         boletas:[],
-        palcos:[]
+        palcos:[],
+        tipo:null
     }
     this.palco={
        id:null,

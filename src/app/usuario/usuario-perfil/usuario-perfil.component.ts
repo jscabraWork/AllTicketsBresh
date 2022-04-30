@@ -36,7 +36,8 @@ export class UsuarioPerfilComponent implements OnInit {
         
         publicidad:null,
         boletas:[],
-        palcos:[]
+        palcos:[],
+        tipo:null
     }
 
     if(this.autenticador.getUsuario()){
@@ -48,8 +49,10 @@ export class UsuarioPerfilComponent implements OnInit {
     })
   }
 
-    this.dataServicio.getCliente(this.user).subscribe(response => this.usuario=response)
-
+    this.dataServicio.getCliente(this.user).subscribe(response => 
+{      console.log(response)
+      this.usuario=response}
+    )
   }
 
 

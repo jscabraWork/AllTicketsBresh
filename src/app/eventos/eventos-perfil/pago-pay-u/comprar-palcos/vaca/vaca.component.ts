@@ -203,7 +203,8 @@ export class VacaComponent implements OnInit {
         
         publicidad:null,
       boletas:[],
-      palcos:[]
+      palcos:[],
+      tipo:null
       
   
         }

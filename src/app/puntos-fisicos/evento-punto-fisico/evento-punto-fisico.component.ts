@@ -253,6 +253,7 @@ localidadesCompradas:Localidad[]
       publicidad: null,
       boletas: [],
       palcos: [],
+      tipo:null
     };  
     this.evento = new Evento();
 
