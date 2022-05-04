@@ -920,7 +920,7 @@ export class ComprarPalcosComponent implements OnInit {
             this.servicioLocalidad.getBoletasLocalidades(localidades).subscribe(response=>{
               this.localidadCargadaPreferecial.boletas=  response[0]
               this.localidadCargadaGeneral.boletas=  response[1]
-              
+
               this.cargarLocalidadEnMapa10();
               this.cargadoTodo = true;  
 
@@ -1906,11 +1906,6 @@ export class ComprarPalcosComponent implements OnInit {
   
     for(let i=0;i<7;i++){
      
-      this.lista1[i] =  {
-        valor:'v',
-        localidad: 'oro',
-        id:'v'
-      }
 
       if (
         this.localidadCargadaPreferecial.boletas[i].vendida 
