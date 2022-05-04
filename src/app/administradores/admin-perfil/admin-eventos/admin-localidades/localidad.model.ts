@@ -11,5 +11,6 @@ export interface Localidad {
     palcos:Palco[];
     servicioPorcentaje:number;
     efectivo:boolean;
-    maximoVender:number
+    maximoVender:number;
+    boletas:Boleta[]
 }

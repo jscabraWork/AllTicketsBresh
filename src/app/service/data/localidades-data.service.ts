@@ -3,6 +3,7 @@ import { API_URL } from './../../app.constants';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Etapa } from 'src/app/eventos/eventos-perfil/etapa.model';
+import { Boleta } from 'src/app/eventos/boleta.model';
 
 @Injectable({
   providedIn: 'root'
@@ -55,5 +56,9 @@ export class LocalidadesDataService {
 
   mandarLocalidad(idLocalidad:number){
     return this.http.get(`${API_URL}/localidad/qrs/${idLocalidad}`);
+  }
+
+  getBoletasLocalidades(localidades:number[]){
+    return this.http.put<Boleta[][]>(`${API_URL}/localidades/boletas`, localidades);
   }
 }

@@ -35,7 +35,8 @@ export class LocalidadSeleccionComponent implements OnInit {
       palcos:[],
       servicioPorcentaje:null,
       efectivo:false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     }
     this.localidad2 ={
       id:null,
@@ -48,7 +49,8 @@ export class LocalidadSeleccionComponent implements OnInit {
       palcos:[],
       servicioPorcentaje:null,
       efectivo:false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     }
 
     this.localidad1 = this.data.localidad1;

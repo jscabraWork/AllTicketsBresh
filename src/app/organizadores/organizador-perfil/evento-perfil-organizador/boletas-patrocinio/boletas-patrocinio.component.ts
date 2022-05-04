@@ -34,7 +34,8 @@ export class BoletasPatrocinioComponent implements OnInit {
       palcos:[],
       servicioPorcentaje:null,
       efectivo:false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     }
     this.route.paramMap.subscribe( params =>{
       this.miId =params.get('id');

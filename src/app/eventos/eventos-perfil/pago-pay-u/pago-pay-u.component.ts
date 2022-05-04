@@ -79,7 +79,8 @@ codigoVenta
       palcos:[],
       servicioPorcentaje:null,
       efectivo:false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     }
     this.usuarioEntidad= {
       nombre: "",

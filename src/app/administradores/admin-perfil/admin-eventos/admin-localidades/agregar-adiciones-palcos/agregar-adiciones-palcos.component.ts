@@ -33,7 +33,8 @@ export class AgregarAdicionesPalcosComponent implements OnInit {
       palcos:[],
       servicioPorcentaje:null,
       efectivo:false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     }
 
     this.route.paramMap.subscribe( params =>{

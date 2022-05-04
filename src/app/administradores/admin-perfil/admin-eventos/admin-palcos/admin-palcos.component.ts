@@ -41,7 +41,8 @@ dineroRecaudado=1;
         servicio:null,
         servicioPorcentaje:null,
         efectivo:false,
-        maximoVender:null
+        maximoVender:null,
+        boletas:[]
       }
       this.refrescar();
 })

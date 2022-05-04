@@ -152,6 +152,7 @@ export class ComprarPalcosComponent implements OnInit {
   contadorBoletas;
   codigoVenta;
   boletas:Boleta[]
+  
   constructor(
     private route: ActivatedRoute,
     private dialog: MatDialog,
@@ -306,7 +307,8 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     };
 
     this.localidadCargadaBoletasVIPPiso1 = {
@@ -349,7 +351,8 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     };
 
     this.localidadCargadaBoletasGeneralPiso2 = {
@@ -392,7 +395,8 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     };
 
     this.localidadCargadaPreferecial = {
@@ -435,7 +439,8 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     };
     this.localidadCargadaGeneral = {
       id: null,
@@ -477,7 +482,8 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     };
     this.localidadCargadaBoletas = {
       id: null,
@@ -519,7 +525,8 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     };
     this.localidadCargadaOriente = {
       id: null,
@@ -561,7 +568,8 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     };
     this.localidadCargadaOccidente = {
       id: null,
@@ -603,7 +611,8 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     };
     this.localidadCargadaNorte = {
       id: null,
@@ -645,7 +654,8 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     };
     this.localidadCargadaBoletasVIP = {
       id: null,
@@ -687,7 +697,8 @@ export class ComprarPalcosComponent implements OnInit {
       ],
       servicioPorcentaje: null,
       efectivo: false,
-      maximoVender:null
+      maximoVender:null,
+      boletas:[]
     };
     this.palco = {
       id: null,
@@ -752,92 +763,6 @@ export class ComprarPalcosComponent implements OnInit {
         }
 
 
-        else if (this.evento.mapa == 'mapa11') {
-
-          this.ponerNumerosMapa11();
-          this.etapaServicio
-            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-            .subscribe((response) => {
-
-              this.etapas = response;
-
-
-
-              for (let i = 0; i < this.etapas.length; i += 1) {
-                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
-
-
-                  if (
-                    this.etapas[i].localidades[j].nombre == 'Palcos FRAT'
-                  ) {
-                    this.localidadCargadaGeneral =
-                      this.etapas[i].localidades[j];
-                }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'Palcos A') {
-                    this.localidadCargada = this.etapas[i].localidades[j];
-                    
-
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'Palcos B') {
-                    this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
-                    
-
-                  }
-
-
-                  else if (this.etapas[i].localidades[j].nombre == 'Palcos C') {
-                    this.localidadCargadaBoletas =
-                      this.etapas[i].localidades[j];
-                      
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'Palcos D') {
-                    this.localidadCargadaBoletasVIP =
-                      this.etapas[i].localidades[j];
-                    
-                    
-                  }
-                }
-              }
-
-              this.cargarLocalidadEnMapa11();
-              this.cargadoTodo = true;
-            });
-        }
-
-        else if (this.evento.mapa == 'mapa1') {
-
-          this.etapaServicio
-            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-            .subscribe((response) => {
-
-              this.etapas = response;
-
-              for (let i = 0; i < this.etapas.length; i += 1) {
-                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
-
-
-                  if (this.etapas[i].localidades[j].nombre == 'Adicta al dolor') {
-                    this.localidadCargadaGeneral = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'Collar de Perlas') {
-                    this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
-                  }
-                  else if (this.etapas[i].localidades[j].nombre == 'Dias Nublados') {
-                    this.localidadCargadaBoletas = this.etapas[i].localidades[j];
-                  }
-                
-                }
-              }
-  
-
-              this.cargarLocalidadEnMapa1();
-              this.cargadoTodo = true;
-            });
-        }
         else if (this.evento.mapa == 'mapa2') {
           this.etapaServicio
           .getAllEtapasVisiblesDeEvento(this.evento.id, true)
@@ -877,102 +802,7 @@ export class ComprarPalcosComponent implements OnInit {
         
 
 
-        
-        else if (this.evento.mapa == 'mapa4') {
-
-       
-          this.etapaServicio
-            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-            .subscribe((response) => {
-
-              this.etapas = response;
-
-
-
-              for (let i = 0; i < this.etapas.length; i += 1) {
-                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
-
-
-                  if (
-                    this.etapas[i].localidades[j].nombre == 'Palcos Cinco Letras'
-                  ) {
-                
-                    this.localidadCargadaGeneral =
-                      this.etapas[i].localidades[j];
-                }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'Palcos VIP') {
-                    this.localidadCargada = this.etapas[i].localidades[j];
-                    
-
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'General') {
-                    this.localidadCargadaBoletas = this.etapas[i].localidades[j];
-                    
-
-                  }
-
-
-                  else if (this.etapas[i].localidades[j].nombre == 'VIP') {
-                    this.localidadCargadaBoletasVIPPiso1 =
-                      this.etapas[i].localidades[j];
-                      
-                  }
-                  else if (this.etapas[i].localidades[j].nombre == 'Palcos General') {
-                    this.localidadCargadaBoletasGeneralPiso2 =
-                      this.etapas[i].localidades[j];
-                      
-                  }
-                }
-              }
-
-              this.cargarLocalidadEnMapa4();
-              this.cargadoTodo = true;
-            });
-        }
-
-        else if (this.evento.mapa == 'mapa5') {
-
-       
-          this.etapaServicio
-            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-            .subscribe((response) => {
-
-              this.etapas = response;
-
-
-
-              for (let i = 0; i < this.etapas.length; i += 1) {
-                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
-
-                  if (this.etapas[i].localidades[j].nombre == 'ZONA CHILL') {
-                    this.localidadCargada = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'Palcos Backstage Domingo') {
-                    this.localidadCargadaGeneral = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'SOFAS SINCRODESTINO Domingo') {
-                    this.localidadCargadaBoletas = this.etapas[i].localidades[j];
-                  } 
-
-                  else if (this.etapas[i].localidades[j].nombre == 'MESAS VIP') {
-                    this.localidadCargadaBoletasVIPPiso1 = this.etapas[i].localidades[j]; 
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'SINCRODESTINO INDIVIDUAL') {
-                    this.localidadCargadaBoletasGeneralPiso2 = this.etapas[i].localidades[j]; 
-                  }
-                  
-                }
-              }
-
-              this.cargarLocalidadEnMapa5();
-              this.cargadoTodo = true;
-            });
-        }
+      
         else if (this.evento.mapa == 'mapa7') {
           this.etapaServicio
           .getAllEtapasVisiblesDeEvento(this.evento.id, true)
@@ -1070,78 +900,38 @@ export class ComprarPalcosComponent implements OnInit {
           .subscribe((response) => {
 
             this.etapas = response;
-
+            let localidades: number[] = [];
             for (let i = 0; i < this.etapas.length; i += 1) {
               for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
 
 
-                if (this.etapas[i].localidades[j].nombre == 'PALCOS') {
+                if (this.etapas[i].localidades[j].nombre == 'LUNETA') {
                   this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
+                  localidades.push(this.localidadCargadaPreferecial.id)
                 }
 
-                else if (this.etapas[i].localidades[j].nombre == 'GENERAL') {
+                else if (this.etapas[i].localidades[j].nombre == 'BALCON') {
                   this.localidadCargadaGeneral = this.etapas[i].localidades[j];
+                  localidades.push(this.localidadCargadaGeneral.id)
                 }
               
               }
             }
+            this.servicioLocalidad.getBoletasLocalidades(localidades).subscribe(response=>{
+              this.localidadCargadaPreferecial.boletas=  response[0]
+              this.localidadCargadaGeneral.boletas=  response[1]
+              
+              this.cargarLocalidadEnMapa10();
+              this.cargadoTodo = true;  
 
+            })
 
-            this.cargarLocalidadEnMapa10();
-            this.cargadoTodo = true;
+      
           });
         }
 
 
-        else if (this.evento.mapa == 'mapa22') {
-          this.etapaServicio
-            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-            .subscribe((response) => {
-
-              this.etapas = response;
-
-              for (let i = 0; i < this.etapas.length; i += 1) {
-                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
-
-
-                  if (this.etapas[i].localidades[j].nombre == 'PATROCINADORES') {
-                    this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
-                    
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'MONASTERY') {
-                    this.localidadCargadaGeneral = this.etapas[i].localidades[j];
-                    
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'CHIMBITA') {
-                    this.localidadCargadaBoletasVIPPiso1 = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'FUMETEO') {
-                    this.localidadCargadaBoletasGeneralPiso2 = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'VACAXIONES MENORES') {
-                    this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'FRIKI') {
-                    this.localidadCargadaBoletas = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'JORDAN') {
-                    this.localidadCargada = this.etapas[i].localidades[j];
-                  }
-                
-                }
-              }
-  
-
-              this.cargarLocalidadEnMapa22();
-              this.cargadoTodo = true;
-            });
-        }
+       
         else if (this.evento.mapa == 'mapa23') {
           this.etapaServicio
             .getAllEtapasVisiblesDeEvento(this.evento.id, true)
@@ -2121,6 +1911,45 @@ export class ComprarPalcosComponent implements OnInit {
         localidad: 'oro',
         id:'v'
       }
+
+      if (
+        this.localidadCargadaPreferecial.boletas[i].vendida 
+       || this.localidadCargadaPreferecial.boletas[i].reserva 
+      ) {
+        this.lista1[i] = {
+          id:null,
+          valor: 'v',
+          localidad: 'norm',
+          seleccionado:false
+        };
+      } else if (this.localidadCargadaPreferecial.boletas[i].reservado) {
+        this.lista1[i] = {
+          id:null,
+          valor: 'p',
+          localidad: 'norm',
+          seleccionado:false
+        };
+        
+      }
+      else if (!this.localidadCargadaPreferecial.boletas[i].disponible) {
+        this.lista1[i] = {
+          id:null,
+          valor: 'l',
+          localidad: 'norm',
+          seleccionado:false
+        };
+        
+      }
+      else if (!this.localidadCargadaPreferecial.boletas[i].reservado && !this.localidadCargadaPreferecial.boletas[i].vendida) {
+        this.lista1[i] = {
+          id:this.localidadCargadaPreferecial.boletas[i].id,
+          valor: this.localidadCargadaPreferecial.boletas[i].seccionSilla,
+          localidad: 'norm',
+          seleccionado:false
+        };
+      }
+
+      
 
       this.lista13[i] =  {
         valor:'v',
