@@ -389,7 +389,7 @@ img {
 }
 .generalmap2{
   width: 105px;
-  height: 669px;
+  height: 623px;
   color: white;
   margin-top: 80px;
   float: left;
@@ -594,6 +594,12 @@ img {
 .mapa10balconesmedio{
   align-items: center;
   margin-left: 50px;
+}
+.botonComprarBoleta{
+  margin-left: 10%;
+}
+.reverse{
+  flex-flow: wrap row-reverse !important;
 }
 .mapa10horizontalinv1
 ,.mapa10horizontalinv2
