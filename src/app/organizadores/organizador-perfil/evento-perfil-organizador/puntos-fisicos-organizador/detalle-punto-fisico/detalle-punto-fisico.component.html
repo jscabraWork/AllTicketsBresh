@@ -34,7 +34,7 @@
               <th class="border">Precio del producto</th>
               <th class="border">Dinero pagado del palco</th>
               <th class="border">Cantidad personas a asistir</th>
-          
+              <th class="border">Metodo de pago</th>
             </tr>
           </thead>
           <tbody>
@@ -59,7 +59,9 @@
               <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
                 <strong>{{ palco?.personasMaximas}}</strong>
               </td>
-
+              <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
+                <strong>{{ palco?.metodo}}</strong>
+              </td>
             </tr>
             <tr *ngFor="let palco of punto?.palcosCanjeados; let i =index">
               <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
@@ -80,6 +82,9 @@
                 </td>
                 <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
                   <strong>{{ palco?.personasMaximas}}</strong>
+                </td>
+                <td class="border"  *ngIf="palco.nombreEvento== this.evento.nombre">
+                  <strong>{{ palco?.metodo}}</strong>
                 </td>
               </tr>
 
@@ -103,6 +108,9 @@
                 <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                   <strong>1</strong>
                 </td>
+                <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
+                  <strong>{{boleta.metodo}}</strong>
+                </td>
               </tr>
               <tr *ngFor="let boleta of punto?.boletasCanjeadas; let i =index">
                 <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
@@ -123,6 +131,9 @@
                 </td>
                 <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
                   <strong>1</strong>
+                </td>
+                <td class="border"  *ngIf="boleta.nombreEvento== this.evento.nombre">
+                  <strong>{{boleta.metodo}}</strong>
                 </td>
               </tr>
              

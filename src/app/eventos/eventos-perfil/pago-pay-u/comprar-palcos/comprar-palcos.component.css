@@ -1707,3 +1707,20 @@ td {
   }
 
 }
+
+
+.generalsaturnalia,
+.vipsaturnalia{
+  background-color: #008000;
+  color:white;
+  line-height: 100px;
+  font-weight: bold;
+  text-align: center;
+  width: 230px;height: 100px;
+}
+.vipsaturnalia{
+  background-color: #bb0083;
+}
+.largos{
+  width: 72px;
+}
