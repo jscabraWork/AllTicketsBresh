@@ -853,7 +853,7 @@ export class ComprarPalcosComponent implements OnInit {
                   this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
                 }
                 
-                else if (this.etapas[i].localidades[j].nombre == 'General 1ra Etapa') {
+                else if (this.etapas[i].localidades[j].nombre == 'General 2da Etapa') {
                   this.localidadCargadaGeneral = this.etapas[i].localidades[j];
                 }
               
