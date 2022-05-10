@@ -969,10 +969,10 @@ export class ComprarPalcosComponent implements OnInit {
             this.servicioLocalidad.getBoletasLocalidades(localidades).subscribe(response=>{
               this.localidadCargadaPreferecial.boletas=  response[0]
               this.localidadCargadaBoletas.boletas= response[1]
-              this.localidadCargadaGeneral.boletas= response[2]
-              this.localidadCargadaBoletasVIPPiso1.boletas= response[3]
-              this.localidadCargadaBoletasGeneralPiso2.boletas= response[4]
-              this.localidadCargadaBoletasVIP.boletas= response[5]
+              this.localidadCargadaBoletasVIP.boletas= response[2]
+              this.localidadCargadaGeneral.boletas= response[3]
+              this.localidadCargadaBoletasVIPPiso1.boletas= response[4]
+              this.localidadCargadaBoletasGeneralPiso2.boletas= response[5]
 
               this.cargarLocalidadEnMapa10();
               this.cargadoTodo = true;  
