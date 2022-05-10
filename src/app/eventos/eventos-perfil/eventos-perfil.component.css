@@ -399,3 +399,12 @@ td {
 .margen-menor{
   margin-top: -12px;
 }
+
+.letraPequenia{
+  font-size: 14px !important;
+}
+@media(max-width:964px){
+  .letraPequenia{
+    font-size: 10px !important;
+  }
+}
