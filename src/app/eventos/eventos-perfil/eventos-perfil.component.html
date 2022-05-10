@@ -240,7 +240,8 @@
 
 					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
 					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
-					<p  class="ticketNumero precioLocalidades" *ngIf="localidad.id==10274"> <strong> (Incluye botella de tequila Olmeca)</strong></p>
+					<p  class="ticketNumero precioLocalidades letraPequenia" *ngIf="localidad.id==10274"> <strong> (Incluye botella de tequila Olmeca)</strong></p>
+					<p  class="ticketNumero precioLocalidades letraPequenia" *ngIf="localidad.id==16119 || localidad.id==16271"> <strong> (Incluye una botella de Aguardiente Antioqueño 750ml + 5 Redbull + 10 botellas de agua)</strong></p>
 				</div>
 
 				<div class="pt-2 " *ngIf="localidad.palcos.length==0">
