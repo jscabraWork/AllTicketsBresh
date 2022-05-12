@@ -308,7 +308,8 @@ export class ComprarPalcosComponent implements OnInit {
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
 
     this.localidadCargadaBoletasVIPPiso1 = {
@@ -352,7 +353,8 @@ export class ComprarPalcosComponent implements OnInit {
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
 
     this.localidadCargadaBoletasGeneralPiso2 = {
@@ -396,7 +398,8 @@ export class ComprarPalcosComponent implements OnInit {
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
 
     this.localidadCargadaPreferecial = {
@@ -440,7 +443,8 @@ export class ComprarPalcosComponent implements OnInit {
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaGeneral = {
       id: null,
@@ -483,7 +487,8 @@ export class ComprarPalcosComponent implements OnInit {
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaBoletas = {
       id: null,
@@ -526,7 +531,8 @@ export class ComprarPalcosComponent implements OnInit {
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaOriente = {
       id: null,
@@ -569,7 +575,8 @@ export class ComprarPalcosComponent implements OnInit {
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaOccidente = {
       id: null,
@@ -612,7 +619,8 @@ export class ComprarPalcosComponent implements OnInit {
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaNorte = {
       id: null,
@@ -655,7 +663,8 @@ export class ComprarPalcosComponent implements OnInit {
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaBoletasVIP = {
       id: null,
@@ -698,7 +707,8 @@ export class ComprarPalcosComponent implements OnInit {
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.palco = {
       id: null,
@@ -726,7 +736,7 @@ export class ComprarPalcosComponent implements OnInit {
       precioAdicion: null,
       servicioAdicion: null,
       servicioIvaAdicion: null,
-      metodo:null
+      metodo:null,
     };
 
     this.usuarioEntidad = {

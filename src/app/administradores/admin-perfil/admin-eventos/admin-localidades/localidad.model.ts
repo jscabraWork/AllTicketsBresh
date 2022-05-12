@@ -12,5 +12,6 @@ export interface Localidad {
     servicioPorcentaje:number;
     efectivo:boolean;
     maximoVender:number;
-    boletas:Boleta[]
+    boletas:Boleta[];
+    vaca:boolean
 }

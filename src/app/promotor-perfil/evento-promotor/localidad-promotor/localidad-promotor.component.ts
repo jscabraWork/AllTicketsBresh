@@ -57,7 +57,8 @@ export class LocalidadPromotorComponent implements OnInit {
       servicioPorcentaje:null,
       efectivo:false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     }
     this.promotor = {
       boletasVendidas: [],

@@ -148,7 +148,8 @@ export class VacaComponent implements OnInit {
     servicioPorcentaje:null,
     efectivo:false,
     maximoVender:null,
-    boletas:[]
+    boletas:[],
+    vaca:null
     }
 
     this.localidadCargada ={
@@ -163,7 +164,8 @@ export class VacaComponent implements OnInit {
       servicioPorcentaje:null,
       efectivo:false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
         }
     this.palco={
       id:null,

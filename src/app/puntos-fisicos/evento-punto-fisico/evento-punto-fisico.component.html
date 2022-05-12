@@ -1623,42 +1623,44 @@
 
     <div class="orientalmapa23" (click)="abrirTickets(localidadCargadaOriente)">Oriental</div>
     <div class="map22arriba">
-      <!-- <div class="nortemapa23" (click)="seleccionarLocalidadParaPalcoIndividual(11286)">Nortea</div> -->
+      
       <div class="nortemapa23" (click)="abrirTickets(localidadCargadaNorte)">Norte</div>
 
       <div class="cajaPrueba23">
         <div class="preferencialmap23 cuadros14" (click)="abrirTickets(localidadCargadaBoletas)">Preferencial con Silla</div>
         <div class="atrasmapa23">
-          <div class="top23list21"><div *ngFor="let item of lista33">
+          <div class="top23list21"><div *ngFor="let item of lista33; let i =index">
             <div class="cuadros"
               [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
-              (click)="seleccionarLocalidadParaPalcoIndividual(10288)">
+              (click)="seleccionarLocalidadParaPalcoIndividual(16954 + i)">
               {{item.valor}}
             </div>
           </div></div>
-          <div class="top23list32"><div *ngFor="let item of lista32">
+          <div class="top23list32"><div *ngFor="let item of lista32; let i =index">
             <div class="cuadros"
               [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
-              (click)="seleccionarLocalidadParaPalcoIndividual(10288)">
+              (click)="seleccionarLocalidadParaPalcoIndividual(16932+i)">
               {{item.valor}}
             </div>
           </div></div>
           <div class="mapa23topbot">
-            <div class="top23list30"><div *ngFor="let item of lista30">
+            <div class="top23list30"><div *ngFor="let item of lista30; let i =index">
               <div class="cuadros"
                 [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
-                (click)="seleccionarLocalidadParaPalcoIndividual(10288)">
+                (click)="seleccionarLocalidadParaPalcoIndividual(16914 +i)">
                 {{item.valor}}
               </div>
             </div></div>
-            <div class="bot23list30"><div *ngFor="let item of lista31">
+            <div class="bot23list30"><div *ngFor="let item of lista31; let i =index">
               <div class="cuadros"
                 [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
-                (click)="seleccionarLocalidadParaPalcoIndividual(10288)">
+                (click)="seleccionarLocalidadParaPalcoIndividual(16923 +i)">
                 {{item.valor}}
               </div>
             </div></div>
           </div>
+
+
           <div class="top23list21"><div *ngFor="let item of lista29">
             <div class="cuadros"
               [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo', 'cuadros13':item.localidad=='fumeteo'}"
@@ -1881,3 +1883,4 @@
 </div>
 
 </div>
+

@@ -80,7 +80,8 @@ codigoVenta
       servicioPorcentaje:null,
       efectivo:false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     }
     this.usuarioEntidad= {
       nombre: "",
@@ -94,7 +95,8 @@ codigoVenta
         publicidad:null,
       boletas:[],
       palcos:[],
-      tipo:null
+      tipo:null,
+      
         }
 
 

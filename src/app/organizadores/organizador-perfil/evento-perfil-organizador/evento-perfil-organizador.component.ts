@@ -47,7 +47,25 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   boletas:[]
   comisionEpayco:number
   fileName
+  localidadesAgrupadas:Localidad[]
+  localidad:Localidad
   ngOnInit( ): void {
+    this.localidad = {
+      id:null,
+      nombre: null,
+      precio:null,
+      
+      servicio:null,
+      nombreEtapa:null,
+      boletasPatrocinio:[],
+      palcos:[],
+      servicioPorcentaje:null,
+      efectivo:false,
+      maximoVender:null,
+      boletas:[],
+      vaca:true
+    };
+    this.localidadesAgrupadas=[]
     this.puntosF = false;
     this.dineroRecaudado =0
     this.dineroServicio=0
@@ -94,11 +112,43 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
                   
                  
                 }
+
+                if(this.localidades[j].vaca==true){
+                
+                  this.localidades[j].boletas = this.boletas[j]
+               
+                      this.localidadesAgrupadas.push(this.localidades[j])                   
               }
 
+          
 
+
+              }
+              if(this.localidadesAgrupadas.length>0){
+              this.localidad = {
+                id:null,
+                nombre: this.localidadesAgrupadas[0].nombre,
+                precio:this.localidadesAgrupadas[0].precio,
+                
+                servicio:this.localidadesAgrupadas[0].servicio,
+                nombreEtapa:this.localidadesAgrupadas[0].nombreEtapa,
+                boletasPatrocinio:[],
+                palcos:[],
+                servicioPorcentaje:this.localidadesAgrupadas[0].servicioPorcentaje,
+                efectivo:false,
+                maximoVender:null,
+                boletas:[],
+                vaca:false
+              };
+
+              for(let o = 0; this.localidadesAgrupadas.length>o;o++){
+                console.log(this.localidadesAgrupadas[o].boletas)
+                this.localidad.boletas=this.localidad.boletas.concat(this.localidadesAgrupadas[o].boletas)
+              }
+            }
              for(let j=0;j< this.boletas.length;j++){
                let array = this.boletas[j] as [];
+               this.localidades[j].boletas = this.boletas[j] ;
               for(var i =0; i< array.length;i=i+1)
               {
                 let boleta = array[i] as Boleta;

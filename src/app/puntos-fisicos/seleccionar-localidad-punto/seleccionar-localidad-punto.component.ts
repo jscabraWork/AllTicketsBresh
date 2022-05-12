@@ -36,7 +36,8 @@ export class SeleccionarLocalidadPuntoComponent implements OnInit {
       servicioPorcentaje:null,
       efectivo:false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     }
     this.localidad2 ={
       id:null,
@@ -50,7 +51,8 @@ export class SeleccionarLocalidadPuntoComponent implements OnInit {
       servicioPorcentaje:null,
       efectivo:false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     }
 
     this.localidad1 = this.data.localidad1;

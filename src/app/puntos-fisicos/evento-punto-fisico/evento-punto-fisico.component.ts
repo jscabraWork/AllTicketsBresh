@@ -298,7 +298,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaOriente = {
       id: null,
@@ -341,7 +342,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaOccidente = {
       id: null,
@@ -384,7 +386,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaNorte = {
       id: null,
@@ -427,7 +430,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaPreferecial = {
       id: null,
@@ -470,7 +474,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaOriente = {
       id: null,
@@ -513,7 +518,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaOccidente = {
       id: null,
@@ -556,7 +562,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaNorte = {
       id: null,
@@ -599,7 +606,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
 
     this.localidadCargadaBoletasVIPPiso1 = {
@@ -643,7 +651,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
 
     this.localidadCargadaBoletasGeneralPiso2 = {
@@ -687,7 +696,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaGeneral = {
       id: null,
@@ -730,7 +740,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaBoletas = {
       id: null,
@@ -773,7 +784,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.localidadCargadaBoletasVIP = {
       id: null,
@@ -817,7 +829,8 @@ localidadesCompradas:Localidad[]
       servicioPorcentaje: null,
       efectivo: false,
       maximoVender:null,
-      boletas:[]
+      boletas:[],
+      vaca:null
     };
     this.palco = {
       id: null,

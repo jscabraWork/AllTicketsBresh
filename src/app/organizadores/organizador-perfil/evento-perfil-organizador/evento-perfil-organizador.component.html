@@ -67,37 +67,71 @@
                         <tr *ngFor="let localidad of localidades, let i = index"  >
 
                            
-                            <td class="border"><strong>{{localidad?.nombreEtapa}}</strong></td>
-                            <td class="border"> <strong>{{localidad?.nombre }}</strong></td> 
-                            <td class="border" *ngIf="evento.adicionales.length ==0"> <strong>{{localidad?.precio| currency:'COP'}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"><strong>{{localidad?.nombreEtapa}}</strong></td>
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{localidad?.nombre }}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{localidad?.precio| currency:'COP'}}</strong></td> 
 
-                            <td class="border"> <strong>{{numeroBoletasVendidas(boletas[i])}}</strong></td> 
-                            <td class="border"> <strong>{{numeroBoletasEnProceso(boletas[i])}}</strong></td> 
-                            <td class="border"> <strong>{{numeroBoletasReservadas(boletas[i])}}</strong></td> 
-                            <td class="border"> <strong>{{numeroBoletasPorVender(boletas[i])}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasVendidas(boletas[i])}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasEnProceso(boletas[i])}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasReservadas(boletas[i])}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasPorVender(boletas[i])}}</strong></td> 
 
-                            <td class="border"><strong>{{numeroBoletasUtilizadas(boletas[i])}}</strong></td>
+                            <td class="border" *ngIf="localidad.vaca==false"><strong>{{numeroBoletasUtilizadas(boletas[i])}}</strong></td>
 
-                            <td class="border">{{numeroBoletasTotales(boletas[i])}}</td> 
-                            <td class="border">{{dineroVendido(boletas[i])|currency:'COP'}}</td>
-                            <td class="border">{{localidad?.boletasPatrocinio.length}}</td>
-                            <td class="border">{{localidad?.palcos?.length}}</td>
+                            <td class="border" *ngIf="localidad.vaca==false">{{numeroBoletasTotales(boletas[i])}}</td> 
+                            <td class="border" *ngIf="localidad.vaca==false">{{dineroVendido(boletas[i])|currency:'COP'}}</td>
+                            <td class="border" *ngIf="localidad.vaca==false">{{localidad?.boletasPatrocinio.length}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{localidad?.palcos?.length}}</td>
 
-                            <td class="border">{{palcosVendidos(localidad, true)}}</td>
-                            <td class="border">{{palcosVendidos(localidad, false)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{palcosVendidos(localidad, true)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{palcosVendidos(localidad, false)}}</td>
 
-                            <td class="border">{{palcosCortesias(localidad)}}</td>
-                            <td class="border">{{palcosEnProceso(localidad)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{palcosCortesias(localidad)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{palcosEnProceso(localidad)}}</td>
 
 
-                            <td class="border">{{dineroRecaudadoPalcos(localidad)|currency:'COP'}}</td>
-                            <td class="border">{{dineroARecaudarPalcos(localidad)|currency:'COP'}}</td>
-                            <td class="border">{{personasEnPalco(localidad)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{dineroRecaudadoPalcos(localidad)|currency:'COP'}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{dineroARecaudarPalcos(localidad)|currency:'COP'}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{personasEnPalco(localidad)}}</td>
                             <!-- <td class="border"><button class=" action_button" routerLink="patrocinio/{{localidad?.id}}">Tickets patrocinio</button></td>-->
-                            <td class="border"><button class=" action_button" routerLink="localidad/{{localidad?.id}}">Ver Ventas Especificas</button></td>
+                            <td class="border"*ngIf="localidad.vaca==false"><button class=" action_button" routerLink="localidad/{{localidad?.id}}">Ver Ventas Especificas</button></td>
                            
                         </tr>
                         
+
+                        <tr  >
+
+                           
+                            <td class="border" *ngIf="localidad.vaca==false"><strong>{{localidad?.nombreEtapa}}</strong></td>
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{localidad?.nombre }}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{localidad?.precio| currency:'COP'}}</strong></td> 
+
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasVendidas(localidad.boletas)}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasEnProceso(localidad.boletas)}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasReservadas(localidad.boletas)}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasPorVender(localidad.boletas)}}</strong></td> 
+
+                            <td class="border" *ngIf="localidad.vaca==false"><strong>{{numeroBoletasUtilizadas(localidad.boletas)}}</strong></td>
+
+                            <td class="border" *ngIf="localidad.vaca==false">{{numeroBoletasTotales(localidad.boletas)}}</td> 
+                            <td class="border" *ngIf="localidad.vaca==false">{{dineroVendido(localidad.boletas)|currency:'COP'}}</td>
+                            <td class="border" *ngIf="localidad.vaca==false">{{localidad?.boletasPatrocinio.length}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{localidad?.palcos?.length}}</td>
+
+                            <td class="border"*ngIf="localidad.vaca==false">{{palcosVendidos(localidad, true)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{palcosVendidos(localidad, false)}}</td>
+
+                            <td class="border"*ngIf="localidad.vaca==false">{{palcosCortesias(localidad)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{palcosEnProceso(localidad)}}</td>
+
+
+                            <td class="border"*ngIf="localidad.vaca==false">{{dineroRecaudadoPalcos(localidad)|currency:'COP'}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{dineroARecaudarPalcos(localidad)|currency:'COP'}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false">{{personasEnPalco(localidad)}}</td>
+                            <!-- <td class="border"><button class=" action_button" routerLink="patrocinio/{{localidad?.id}}">Tickets patrocinio</button></td>-->
+                            <td class="border"*ngIf="localidad.vaca==false"><button class=" action_button" routerLink="localidad/{{localidad?.id}}">Ver Ventas Especificas</button></td>
+                           
+                        </tr>
                 
                 
                     </tbody>
