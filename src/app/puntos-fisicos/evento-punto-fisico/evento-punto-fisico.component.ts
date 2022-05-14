@@ -1533,7 +1533,34 @@ localidadesCompradas:Localidad[]
         }
       }
 
-      
+      if (
+        !this.localidadCargadaGeneral.palcos[i+9].vendido &&
+        !this.localidadCargadaGeneral.palcos[i+9].reservado &&
+        this.localidadCargadaGeneral.palcos[i+9].disponible &&
+        !this.localidadCargadaGeneral.palcos[i+9].proceso
+      ){
+        this.lista9[i] = {
+          valor:this.localidadCargadaGeneral.palcos[i+9].numeroDentroDeEvento,
+          localidad: 'prem',
+          id:this.localidadCargadaGeneral.palcos[i+9].id
+        }
+      } else if (
+        this.localidadCargadaGeneral.palcos[i+9].vendido ||
+        this.localidadCargadaGeneral.palcos[i+9].reservado ||
+        !this.localidadCargadaGeneral.palcos[i+9].disponible
+      ) {
+        this.lista9[i] =  {
+          valor:'v',
+          localidad: 'prem',
+          id:'v'
+        }
+      } else if (this.localidadCargadaGeneral.palcos[i+9].proceso) {
+        this.lista9[i]= {
+          valor:'p',
+          localidad: 'prem',
+          id:'p'
+        }
+      }
       
     }
 
@@ -1566,34 +1593,7 @@ localidadesCompradas:Localidad[]
           id:'p'
         }
       }
-      if (
-        !this.localidadCargadaGeneral.palcos[i+9].vendido &&
-        !this.localidadCargadaGeneral.palcos[i+9].reservado &&
-        this.localidadCargadaGeneral.palcos[i+9].disponible &&
-        !this.localidadCargadaGeneral.palcos[i+9].proceso
-      ){
-        this.lista9[i] = {
-          valor:this.localidadCargadaGeneral.palcos[i+9].numeroDentroDeEvento,
-          localidad: 'prem',
-          id:this.localidadCargadaGeneral.palcos[i+9].id
-        }
-      } else if (
-        this.localidadCargadaGeneral.palcos[i+9].vendido ||
-        this.localidadCargadaGeneral.palcos[i+9].reservado ||
-        !this.localidadCargadaGeneral.palcos[i+9].disponible
-      ) {
-        this.lista9[i] =  {
-          valor:'v',
-          localidad: 'prem',
-          id:'v'
-        }
-      } else if (this.localidadCargadaGeneral.palcos[i+9].proceso) {
-        this.lista9[i]= {
-          valor:'p',
-          localidad: 'prem',
-          id:'p'
-        }
-      }
+      
       if (
         !this.localidadCargadaGeneral.palcos[i+18].vendido &&
         !this.localidadCargadaGeneral.palcos[i+18].reservado &&
