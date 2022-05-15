@@ -94,7 +94,7 @@
 
             <div *ngIf="clienteBuscar?.numeroDocumento!=null &&clienteBuscar!=null">
                 <div *ngFor="let boleta of clienteBuscar?.boletas"> 
-                    <div *ngIf="boleta.nombreEvento==evento.nombre" >
+                    <div >
                         <h5 style="color:#ff2700; font-size:25px;" *ngIf="boleta.utilizada"> Ticket Utilizado</h5>
                         <h5 style="color:#ff2700; font-size:25px;" *ngIf="!boleta.utilizada"> Ticket Valido</h5>
                         <h4>TICKET</h4>
