@@ -389,7 +389,7 @@ img {
 }
 .generalmap2{
   width: 105px;
-  height: 669px;
+  height: 623px;
   color: white;
   margin-top: 80px;
   float: left;
@@ -535,6 +535,135 @@ img {
 }
 .genmapa9:hover,.genmapa9bot:hover{
   background-color: rgb(10, 78, 44);
+}
+.tarimamap10{
+  width: 1860px;
+  height: 100px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  margin-bottom: 60px;
+}
+.pasillomap10{
+  width: 1860px;
+  height: 120px;
+  background-color: rgb(197, 179, 174);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  margin: 20px 0px;
+}
+.mapa10lunetas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+}
+.mapa10balcones{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+}
+.mapa10lunetasizquierda
+,.mapa10lunetasmedio
+,.mapa10lunetasderecha
+,.mapa10balconesizquierda
+,.mapa10balconesmedio
+,.mapa10balconesderecha{
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+}
+.mapa10lunetasizquierda,.mapa10balconesizquierda{
+  align-items: flex-end;
+}
+.mapa10lunetasmedio{
+  align-items: flex-start;
+  margin-left: 50px;
+}
+.mapa10lunetasderecha,.mapa10balconesderecha{
+  align-items: flex-start;
+  margin-left: 50px;
+}
+.mapa10balconesmedio{
+  align-items: center;
+  margin-left: 50px;
+}
+.botonComprarBoleta{
+  margin-left: 10%;
+}
+.reverse{
+  flex-flow: wrap row-reverse !important;
+}
+.mapa10horizontalinv1
+,.mapa10horizontalinv2
+,.mapa10horizontalinv3
+,.mapa10horizontalinv4
+,.mapa10horizontalinv5
+,.mapa10horizontalinv6
+,.mapa10horizontalinv7
+,.mapa10horizontalinv8
+,.mapa10horizontalinv9{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+}
+.mapa10horizontalinv2{
+  width: 369px;
+}
+.mapa10horizontalinv3{
+  width: 416px;
+}
+.mapa10horizontalinv4{
+  width: 463px;
+}
+.mapa10horizontalinv5{
+  width: 510px;
+}
+.mapa10horizontalinv6{
+  width: 555px;
+}
+.mapa10horizontalinv7{
+  width: 602px;
+}
+.mapa10horizontalinv8{
+  width: 187px;
+}
+.mapa10horizontalinv9{
+  width: 145px;
+}
+.map10midbot,.map10midbotbal{
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+}
+.mlmap10midbot{
+  margin-left: 181px;
+}
+.mlmap10midbotbalcon1{
+  margin-left: 43px;
+}
+.mlmap10midbotbalcon2{
+  margin-left: 90px;
+}
+.mlmap10midbotbalcon3{
+  margin-left: 188px;
+}
+.mlmap10midbotbalcon4{
+  margin-right: 43px;
+}
+.mlmap10midbotbalcon5{
+  margin-right: 90px;
+}
+.mlmap10midbotbalcon6{
+  margin-right: 188px;
 }
 .contmap1{
   width: 330px;
@@ -698,7 +827,7 @@ td {
 
 .mapa {
   margin: 0px auto;
-  width: 1600px;
+  width: 1860px;
 }
 
 .mapa3 {
@@ -1577,4 +1706,21 @@ td {
     grid-template-columns: 50px auto;
   }
 
+}
+
+
+.generalsaturnalia,
+.vipsaturnalia{
+  background-color: #008000;
+  color:white;
+  line-height: 100px;
+  font-weight: bold;
+  text-align: center;
+  width: 230px;height: 100px;
+}
+.vipsaturnalia{
+  background-color: #bb0083;
+}
+.largos{
+  width: 72px;
 }
