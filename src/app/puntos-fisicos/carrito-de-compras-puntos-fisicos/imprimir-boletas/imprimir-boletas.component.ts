@@ -136,18 +136,18 @@ export class ImprimirBoletasComponent implements OnInit {
           
           var blobURL = window.URL.createObjectURL(blob);
  
-          pdfData.save();
+        
 
-           //  var my_file = new PrintFilePDF(blobURL, FileSourceType.URL, 'TICKET'+this.boletas[i].id.toString()+i+'.pdf', 1);
+             var my_file = new PrintFilePDF(blobURL, FileSourceType.URL, 'TICKET'+this.boletas[i].id.toString()+i+'.pdf', 1);
 
 
 		
-        //cpj.files.push(my_file);   
+        cpj.files.push(my_file);   
         console.log(i)
         console.log(cpj.files)
         // Send print job to printer!
         if(i == this.boletas.length-1){
-       //   cpj.sendToClient();
+          cpj.sendToClient();
         }
           
 
