@@ -824,7 +824,7 @@ export class ComprarPalcosComponent implements OnInit {
                   this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
                 }
               
-                else if (this.etapas[i].localidades[j].nombre == 'General') {
+                else if (this.etapas[i].localidades[j].nombre == 'General'||this.etapas[i].localidades[j].nombre == 'Preventa General') {
                   this.localidadCargadaGeneral = this.etapas[i].localidades[j];
                 }
               }
