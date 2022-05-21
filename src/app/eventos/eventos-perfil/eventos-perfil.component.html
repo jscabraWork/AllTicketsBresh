@@ -323,10 +323,13 @@
 				<div class="pt-2 " *ngIf="evento.adicionales.length == 0">
 
 					<h5 class="ticketTitulo"><strong>Precio Total</strong></h5>
-					<p class="ticketNumero precioLocalidades"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje| number: '1.0-0'}} COP</strong>
+					<p class="ticketNumero precioLocalidades" *ngIf="evento.id!='AT2022-37'&& evento.id!='AT2022-36'"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje| number: '1.0-0'}} COP</strong>
+						<p class="ticketNumero precioLocalidades" *ngIf="evento.id=='AT2022-37'||evento.id=='AT2022-36'"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje| number: '1.0-0'}} USD</strong>
 					</p>
 					<p class="precios pr-3 pl-3 ">Precio + Servicio + IVA</p>
-					<p class="precios pr-3 pl-3 pb-3 margen-menor">{{localidad.precio | number: '1.0-0'}} COP + {{+localidad.servicio | number: '1.0-0'}} COP + {{localidad.servicioPorcentaje| number: '1.0-0'}} COP</p>
+					<p class="precios pr-3 pl-3 pb-3 margen-menor"  *ngIf="evento.id!='AT2022-37'&& evento.id!='AT2022-36'">{{localidad.precio | number: '1.0-0'}} COP + {{+localidad.servicio | number: '1.0-0'}} COP + {{localidad.servicioPorcentaje| number: '1.0-0'}} COP</p>
+					<p class="precios pr-3 pl-3 pb-3 margen-menor" *ngIf="evento.id=='AT2022-37'||evento.id=='AT2022-36'">{{localidad.precio | number: '1.0-0'}} USD + {{+localidad.servicio | number: '1.0-0'}} USD + {{localidad.servicioPorcentaje| number: '1.0-0'}} USD</p>
+
 				</div>
 				<hr class="hrTicket">
 				<div class="p-3 " *ngIf="localidad.palcos.length==0 &&!evento.mapa">

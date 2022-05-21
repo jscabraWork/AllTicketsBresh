@@ -137,6 +137,12 @@ export class CarritoDeComprasComponent implements OnInit {
 
     if(this.pagar == false){
     this.codigoVentaCuadrar()
+      let moneda = 'cop'
+      let pais ='co'
+      if(this.evento.id=='AT2022-36'||this.evento.id=='AT2022-37'){
+        moneda = 'usd'
+        pais='mx'
+      }
     this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.adicional
     var data = {
       //Parametros compra (obligatorio)
@@ -148,11 +154,11 @@ export class CarritoDeComprasComponent implements OnInit {
         ' En la localidad ' +
         this.boletas[0].localidadNombre,
       invoice: this.referenceCode,
-      currency: 'cop',
+      currency: moneda,
       amount: this.valorTotal,
       tax_base: (this.valorTotal- this.tax).toString(),
       tax: this.tax.toString(),
-      country: 'co',
+      country: pais,
       lang: 'es',
       
       //Onpage="false" - Standard="true"
