@@ -347,6 +347,17 @@ img {
   justify-content: center;
   align-items: center;
 }
+.tarimamap6{
+  margin-left: 250px;
+  width: 527px;
+  height: 110px;
+  background-color: #333;
+  color: white;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .tarimamap7{
   margin-left: 11px;
   width: 392px;
@@ -396,6 +407,20 @@ img {
   font-weight: bold;
   cursor: pointer;
   margin-left: 3px;
+  background-color: rgb(1,167,84);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.generalmap6{
+  width: 962px;
+  height: 260px;
+  color: white;
+  margin-top: 10px;
+  float: left;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
   background-color: rgb(1,167,84);
   display: flex;
   justify-content: center;
@@ -474,6 +499,32 @@ img {
   width: 415px;
   margin-left: 15px;
   margin-right: 10px;
+}
+.separadormapa6{
+  width: 983px;
+  height: 5px;
+  background-color: black;
+}
+.contenedormapa6{
+  margin-top: 40px;
+}
+.contenedormapa6top,.contenedormapa6mid,.mapa6ml{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+}
+.contenedormapa6top{
+  width: 890px;
+  margin-left: 37px;
+  margin-bottom: 10px;
+}
+.contenedormapa6mid{
+  width: 983px;
+  margin-bottom: 10px;
+}
+.mapa6ml{
+  margin-left: 45px;
 }
 .contenedormapa7{
   display: flex;
