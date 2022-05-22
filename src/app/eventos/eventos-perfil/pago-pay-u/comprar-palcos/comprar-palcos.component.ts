@@ -1132,41 +1132,11 @@ export class ComprarPalcosComponent implements OnInit {
                   this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
                   localidades.push(this.localidadCargadaPreferecial.id)
                 }
-
-                else if (this.etapas[i].localidades[j].nombre == 'General') {
-                  this.localidadCargadaBoletas = this.etapas[i].localidades[j];
-                  localidades.push(this.localidadCargadaBoletas.id)
-                }
-
-                /*else if (this.etapas[i].localidades[j].nombre == 'LUNETA DERECHA') {
-                  this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
-                  localidades.push(this.localidadCargadaBoletasVIP.id)
-                }
-
-                else if (this.etapas[i].localidades[j].nombre == 'BALCON IZQUIERDO') {
-                  this.localidadCargadaGeneral = this.etapas[i].localidades[j];
-                  localidades.push(this.localidadCargadaGeneral.id)
-                }
-
-                else if (this.etapas[i].localidades[j].nombre == 'BALCON CENTRO') {
-                  this.localidadCargadaBoletasVIPPiso1 = this.etapas[i].localidades[j];
-                  localidades.push(this.localidadCargadaBoletasVIPPiso1.id)
-                }
-
-                else if (this.etapas[i].localidades[j].nombre == 'BALCON DERECHO') {
-                  this.localidadCargadaBoletasGeneralPiso2 = this.etapas[i].localidades[j];
-                  localidades.push(this.localidadCargadaBoletasGeneralPiso2.id)
-                }*/
               
               }
             }
             this.servicioLocalidad.getBoletasLocalidades(localidades).subscribe(response=>{
               this.localidadCargadaPreferecial.boletas=  response[0]
-              this.localidadCargadaBoletas.boletas= response[1]
-              // this.localidadCargadaBoletasVIP.boletas= response[2]
-              // this.localidadCargadaGeneral.boletas= response[3]
-              // this.localidadCargadaBoletasVIPPiso1.boletas= response[4]
-              // this.localidadCargadaBoletasGeneralPiso2.boletas= response[5]
 
               this.cargarLocalidadEnMapa12();
               this.cargadoTodo = true;  
