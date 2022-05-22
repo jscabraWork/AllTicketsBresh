@@ -98,6 +98,9 @@ img {
 .nmtop{
   margin-top: 0 !important;
 }
+.mt15{
+  margin-top: 15px;
+}
 .filaspalcos{
   display: flex;
   flex-flow: column;
@@ -358,6 +361,18 @@ img {
   justify-content: center;
   align-items: center;
 }
+.tarimamap12{
+  margin-left: 520px;
+  width: 1160px;
+  height: 110px;
+  background-color: #333;
+  color: white;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .tarimamap7{
   margin-left: 11px;
   width: 392px;
@@ -500,6 +515,16 @@ img {
   margin-left: 15px;
   margin-right: 10px;
 }
+.contenedormapa12top{
+  width: 2025px;
+  margin-left: 90px;
+}
+.contenedormapa12mid{
+  width: 2230px;
+}
+.mapa12midrigth{
+  margin-left: 105px;
+}
 .separadormapa6{
   width: 983px;
   height: 5px;
@@ -508,7 +533,7 @@ img {
 .contenedormapa6{
   margin-top: 40px;
 }
-.contenedormapa6top,.contenedormapa6mid,.mapa6ml{
+.contenedormapa6top,.contenedormapa6mid,.mapa6ml,.contenedormapa12top,.contenedormapa12mid,.mapa12midrigth,.mapa12midleft{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -899,6 +924,7 @@ td {
 }
 .cuadros,
 .cuadrosGrandes,
+.cuadrosPequeños,
 .cuadrosPalcos,
 .cuadrosPalcos3,
 .cuadrosPalcos4,
@@ -938,6 +964,23 @@ td {
   line-height: 80px;
   font-weight: bold;
   font-size: 20px;
+}
+.cuadrosPequeños{
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.palcoBoletas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(144, 209, 221);
+  margin: 3px;
 }
 .cuadrosSemiGrandes{
   width: 60px;

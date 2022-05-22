@@ -164,6 +164,11 @@
   <p *ngIf="evento?.mapa =='mapa10'"><span class="cuadros cuadros12">#</span> Silla Balcón Derecha</p>
   <p *ngIf="evento?.mapa =='mapa10'"><span class="cuadros rojo">v</span>Vendido</p>
   <p *ngIf="evento?.mapa =='mapa10'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
+  
+  <p *ngIf="evento?.mapa =='mapa12'"><span class="cuadros cuadros10">#</span> Palcos</p>
+  <p *ngIf="evento?.mapa =='mapa12'"><span class="cuadros cuadros4">#</span> Boleta de Palco</p>
+  <p *ngIf="evento?.mapa =='mapa12'"><span class="cuadros rojo">v</span>Vendido</p>
+  <p *ngIf="evento?.mapa =='mapa12'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
 
   <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadrosPalcos cuadros10">#</span> ZONA CHILL</p>
   <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros10 cuadros">#</span> PALCOS BACKSTAGE (Incluye Habitación para 3 personas máximo)</p>
@@ -709,6 +714,1138 @@
   </div>
 </div>
 <div class="botonComprarBoleta" *ngIf="evento?.mapa=='mapa10'">
+  <button class="btn action_button mt-4" *ngIf="boletas.length>0" (click)="agregarAlCarritoTickets()">Agregar al carrito</button>
+</div>
+
+
+<div id="desplazate" *ngIf="evento?.mapa=='mapa12'">
+  <p>
+    <-- Desplázate en el mapa -->
+  </p>
+</div>
+<div class="contenedor-mapa mt-5 pb-5" *ngIf="evento?.mapa=='mapa12'">
+
+  <div class="mapa" style="margin: 0px auto;">
+    <div class="contenedormapa7">
+
+      <div class="tarimamap12">TARIMA</div>
+      <div class="contenedormapa6">
+        <div class="contenedormapa12top">
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista1" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista2" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista3" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista4" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista5" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista6" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista7" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista8" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista9" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista10" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista11" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista12" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista13" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista14" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista15" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista16" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista17" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista18" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista19" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="contenedormapa12top">
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista20" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista21" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista22" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista23" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista24" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista25" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista26" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista27" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista28" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista29" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista30" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista31" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista32" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista33" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista34" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista35" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista36" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista37" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista38" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contenedormapa12mid mt15">
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista39" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista40" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista41" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista42" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista43" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista44" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista45" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista46" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista47" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista48" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista49" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista50" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista51" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista52" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista53" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista54" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista55" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista56" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista57" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista58" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista59" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contenedormapa12mid">
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista60" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista61" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista62" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista63" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista64" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista65" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista66" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista67" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista68" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista69" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista70" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista71" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista72" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista73" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista74" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista75" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista76" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista77" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista78" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista79" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista80" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="contenedormapa12mid mt15">
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista81" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista82" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista83" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista84" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista85" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista86" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista87" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista88" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista89" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista90" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista91" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista92" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista93" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista94" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista95" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista96" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista97" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista98" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista99" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista100" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+          <div class="palcoBoletas">
+            <div *ngFor="let item of lista101" >
+              <div class="cuadrosPequeños"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                (click)="seleccionarTicketExacto(item)" >
+                {{item.valor }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contenedormapa12mid">
+          <div class="mapa12midleft">
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista102" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista103" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista104" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista105" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista106" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista107" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista108" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista109" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista110" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista111" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mapa12midrigth">
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista112" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista113" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista114" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista115" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista116" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista117" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista118" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista119" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista120" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+            <div class="palcoBoletas">
+              <div *ngFor="let item of lista121" >
+                <div class="cuadrosPequeños"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='norm', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'seleccionado':item.seleccionado==true}"
+                  (click)="seleccionarTicketExacto(item)" >
+                  {{item.valor }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="botonComprarBoleta" *ngIf="evento?.mapa=='mapa12'">
   <button class="btn action_button mt-4" *ngIf="boletas.length>0" (click)="agregarAlCarritoTickets()">Agregar al carrito</button>
 </div>
 
