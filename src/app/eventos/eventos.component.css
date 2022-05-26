@@ -77,7 +77,21 @@
 .contenedor2:hover .oscurecer{
     opacity: 0.4;
 }
-
+.metodosPago{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 95%;
+    display: flex;
+    align-items: center;
+}
+.metodosP{
+    width: 50px;
+    height: 25px;
+}
+.metodosPP{
+    margin-bottom: 0;
+    font-weight: bold;
+}
 @media(max-width: 1516px){
     .texto{
         width: 80%;
