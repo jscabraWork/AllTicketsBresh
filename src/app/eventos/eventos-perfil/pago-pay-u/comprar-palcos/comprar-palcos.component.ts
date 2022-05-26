@@ -11070,7 +11070,7 @@ if(!this.usuarioBoolean)
 
         console.log(numero);
         
-        if (this.contadorPalcos < 2 ) {
+ 
           this.cargando = true;
           this.palcoServicio
             .getPalcoParaCompraIndividual(this.evento.nombre, numero)
@@ -11157,15 +11157,13 @@ if(!this.usuarioBoolean)
 
               }
             });
-        } else {
-          alert('Solo puedes comprar 2 Palcos máximo por Evento');
         }
 
       }
       else {
         alert('Cargando por favor espere')
       }
-      } 
+      
     }
 
 
