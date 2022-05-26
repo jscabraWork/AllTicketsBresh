@@ -88,6 +88,10 @@
     width: 50px;
     height: 25px;
 }
+.metodosPSE{
+    width: 55px;
+    height: 35px;
+}
 .metodosPP{
     margin-bottom: 0;
     font-weight: bold;
@@ -101,10 +105,19 @@
     .metodosPago{
         margin-top: 5px;
         margin-bottom: 5px;
+        margin-left: 0;
+        width: 100%;
     }
     .metodosP{
         width: 40px;
-        height: 15px;
+        height: 20px;
+    }
+    .metodosPSE{
+        width: 45px;
+        height: 25px;
+    }
+    .nequi{
+        width: 40px !important;
     }
     .metodosPP{
         font-size: 13px;
@@ -218,28 +231,37 @@
     .botonVer{
         height: 40px;
     }
+    .metodosPago{
+        margin-bottom: 0px;
+    }
 }
 @media(max-width:520px){
-    .metodosPago{
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
     .metodosP{
-        width: 35px;
+        width: 32px;
         height: 15px;
+    }
+    .metodosPSE{
+        width: 38px;
+        height: 25px;
+    }
+    .nequi{
+        width: 38px !important;
     }
     .metodosPP{
         font-size: 10px;
     }
 }
 @media(max-width:415px){
-    .metodosPago{
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
     .metodosP{
-        width: 28px;
+        width: 30px;
         height: 15px;
+    }
+    .metodosPSE{
+        width: 35px;
+        height: 25px;
+    }
+    .nequi{
+        width: 35px !important;
     }
     .metodosPP{
         font-size: 8px;
@@ -255,16 +277,19 @@
     }
 }
 @media(max-width:370px){
-    .metodosPago{
-        margin-top: 5px;
-        margin-bottom: 0px;
-    }
     .metodosP{
-        width: 28px;
+        width: 30px;
         height: 15px;
     }
+    .metodosPSE{
+        width: 35px;
+        height: 25px;
+    }
+    .nequi{
+        width: 35px !important;
+    }
     .metodosPP{
-        font-size: 8px;
+        font-size: 7px;
     }
 }
 @media(max-width:330px){
