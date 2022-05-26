@@ -29,7 +29,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   dineroIva:number
   personas:number
   personasAdentro:number
-  
+  cortesias:number
   reteIcaOrganizador:number
   retefuenteOrganizador:number
 
@@ -44,7 +44,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
   ivaCuenta:number
   servicio:number
   impuestoPayU:number
-  boletas:[]
+  boletas:Boleta[][]
   comisionEpayco:number
   fileName
   localidadesAgrupadas:Localidad[]
@@ -85,7 +85,7 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
     this.ivaCuenta=0
     this.comisionEpayco =0
     this.impuestoPayU=0
-    
+    this.cortesias =0
     this.evento = new Evento();
     this.evento.adicionales =[];
     this.route.paramMap.subscribe( params =>{
@@ -105,8 +105,15 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
                     this.dineroRecaudado = this.dineroRecaudado + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))*this.localidades[j].palcos[k].precio
                     this.dineroIva = this.dineroIva + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))* this.localidades[j].palcos[k].servicioIva;
                     this.dineroServicio = this.dineroServicio + ((this.localidades[j].palcos[k].precioParcialPagado)/(this.localidades[j].palcos[k].servicio+this.localidades[j].palcos[k].servicioIva+this.localidades[j].palcos[k].precio))*this.localidades[j].palcos[k].servicio;
-                    this.personas = this.personas + this.localidades[j].palcos[k].personasMaximas;
-                    this.personasAdentro = this.personasAdentro + this.localidades[j].palcos[k].personasAdentro;
+                    
+                    
+                    if(this.localidades[j].palcos[k].precio>0){
+                      this.personas = this.personas + this.localidades[j].palcos[k].personasMaximas;
+                      }
+                      if(this.localidades[j].palcos[k].precio==0){
+                        
+                        this.cortesias = this.cortesias + this.localidades[j].palcos[k].personasMaximas;
+                      }
                     
                   }
                   
@@ -156,10 +163,17 @@ export class EventoPerfilOrganizadorComponent implements OnInit {
                     this.dineroRecaudado = this.dineroRecaudado + boleta.precio;
                     this.dineroIva = this.dineroIva + boleta.servicioIva;
                     this.dineroServicio = this.dineroServicio + boleta.servicio;
-                    this.personas = this.personas + 1;
-                    if(boleta.utilizada==true){
-                      this.personasAdentro = this.personasAdentro + 1;
+                    
+                  if(boleta.precio>0){
+                    
+                      this.personas = this.personas + 1;
                     }
+                    else if(boleta.precio==0){
+                      this.cortesias = this.cortesias + 1;
+                    }
+                      if(boleta.utilizada==true){
+                        this.personasAdentro = this.personasAdentro + 1;
+                      }
                   
                 }
               }

@@ -37,24 +37,14 @@
                             <th class="border ">Nombre</th>
                             <th class="border " *ngIf="evento.adicionales.length ==0">Precio General (Sin variaciones)</th>
                             <th
-                             class="border ">Tickets vendidas</th>
-                             <th class="border ">Tickets En proceso de compra</th>       
-                             <th class="border ">Tickets reservados</th>               
-                            <th class="border ">Tickets por vender</th>
+                             class="border ">Ticket o palcos vendidas</th>
+                             <th class="border ">Ticket o palcos En proceso de compra</th>       
+                             <th class="border ">Ticket o palcos reservados</th>               
+                            <th class="border ">Ticket o palcos por vender</th>
                             <th class="border"> Personas que han entrado</th>
-                            <th class="border ">Tickets totales</th>
-                            <th class="border">Dinero De Tickets</th>
-                            <th class="border">Numero Tickets Patrocinados</th>
-                            <th class="border">Palcos Totales</th>
-
-                            <th class="border">Palcos Vendidos</th>
-                            <th class="border">Palcos Disponibles</th>
-                            <th class="border">Palcos Reservados</th>
-                            <th class="border">Palcos En Transacción</th>
-
-                            <th class="border">Dinero De Palcos</th>
-                            <th class="border">Dinero a recaudar</th>
-                            <th class="border">Personas en Palcos</th>
+                            <th class="border ">Ticket o palcos totales</th>
+                            <th class="border">Dinero De Ticket o palcos</th>
+                            <th class="border">Dinero a recaudar en palcos</th>
                             <th class="border">Ver Ventas especificas</th>
                            <!-- <th class="border">Tickets Patrocinios</th>   -->
                                  
@@ -69,32 +59,30 @@
                            
                             <td class="border" *ngIf="localidad.vaca==false"><strong>{{localidad?.nombreEtapa}}</strong></td>
                             <td class="border" *ngIf="localidad.vaca==false"> <strong>{{localidad?.nombre }}</strong></td> 
-                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{localidad?.precio| currency:'COP'}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong> ${{localidad?.precio | number: '1.0-0'}}</strong></td> 
 
-                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasVendidas(boletas[i])}}</strong></td> 
-                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasEnProceso(boletas[i])}}</strong></td> 
-                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasReservadas(boletas[i])}}</strong></td> 
-                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasPorVender(boletas[i])}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false &&  boletas[i].length>0"> <strong>{{numeroBoletasVendidas(boletas[i])}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false &&  boletas[i].length>0"> <strong>{{numeroBoletasEnProceso(boletas[i])}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false &&  boletas[i].length>0"> <strong>{{numeroBoletasReservadas(boletas[i])}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false &&  boletas[i].length>0"> <strong>{{numeroBoletasPorVender(boletas[i])}}</strong></td> 
 
-                            <td class="border" *ngIf="localidad.vaca==false"><strong>{{numeroBoletasUtilizadas(boletas[i])}}</strong></td>
+                            <td class="border" *ngIf="localidad.vaca==false &&  boletas[i].length>0"><strong>{{numeroBoletasUtilizadas(boletas[i])}}</strong></td>
 
-                            <td class="border" *ngIf="localidad.vaca==false">{{numeroBoletasTotales(boletas[i])}}</td> 
-                            <td class="border" *ngIf="localidad.vaca==false">{{dineroVendido(boletas[i])|currency:'COP'}}</td>
-                            <td class="border" *ngIf="localidad.vaca==false">{{localidad?.boletasPatrocinio.length}}</td>
-                            <td class="border"*ngIf="localidad.vaca==false">{{localidad?.palcos?.length}}</td>
+                            <td class="border" *ngIf="localidad.vaca==false &&  boletas[i].length>0">{{numeroBoletasTotales(boletas[i])}}</td> 
+                            <td class="border" *ngIf="localidad.vaca==false &&  boletas[i].length>0"> ${{dineroVendido(boletas[i])| number: '1.0-0'}}</td>
+                      
 
-                            <td class="border"*ngIf="localidad.vaca==false">{{palcosVendidos(localidad, true)}}</td>
-                            <td class="border"*ngIf="localidad.vaca==false">{{palcosVendidos(localidad, false)}}</td>
-
-                            <td class="border"*ngIf="localidad.vaca==false">{{palcosCortesias(localidad)}}</td>
-                            <td class="border"*ngIf="localidad.vaca==false">{{palcosEnProceso(localidad)}}</td>
-
-
-                            <td class="border"*ngIf="localidad.vaca==false">{{dineroRecaudadoPalcos(localidad)|currency:'COP'}}</td>
-                            <td class="border"*ngIf="localidad.vaca==false">{{dineroARecaudarPalcos(localidad)|currency:'COP'}}</td>
-                            <td class="border"*ngIf="localidad.vaca==false">{{personasEnPalco(localidad)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false  &&localidad.palcos.length>0">{{palcosVendidos(localidad, true)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false  &&localidad.palcos.length>0">{{palcosEnProceso(localidad)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false  &&localidad.palcos.length>0">{{palcosCortesias(localidad)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false  &&localidad.palcos.length>0">{{palcosVendidos(localidad, false)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false  &&localidad.palcos.length>0">{{personasEnPalco(localidad)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false &&localidad.palcos.length>0">{{localidad?.palcos?.length}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false  &&localidad.palcos.length>0"> ${{dineroRecaudadoPalcos(localidad)| number: '1.0-0'}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false "> ${{dineroARecaudarPalcos(localidad)| number: '1.0-0'}}</td>
+                           
                             <!-- <td class="border"><button class=" action_button" routerLink="patrocinio/{{localidad?.id}}">Tickets patrocinio</button></td>-->
-                            <td class="border"*ngIf="localidad.vaca==false"><button class=" action_button" routerLink="localidad/{{localidad?.id}}">Ver Ventas Especificas</button></td>
+                            <td class="border"*ngIf="localidad.vaca==false "><button class=" action_button" routerLink="localidad/{{localidad?.id}}">Ver Ventas Especificas</button></td>
                            
                         </tr>
                         
@@ -104,7 +92,7 @@
                            
                             <td class="border" *ngIf="localidad.vaca==false"><strong>{{localidad?.nombreEtapa}}</strong></td>
                             <td class="border" *ngIf="localidad.vaca==false"> <strong>{{localidad?.nombre }}</strong></td> 
-                            <td class="border" *ngIf="localidad.vaca==false"> <strong>{{localidad?.precio| currency:'COP'}}</strong></td> 
+                            <td class="border" *ngIf="localidad.vaca==false"> <strong> ${{localidad?.precio| currency:'COP'}}</strong></td> 
 
                             <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasVendidas(localidad.boletas)}}</strong></td> 
                             <td class="border" *ngIf="localidad.vaca==false"> <strong>{{numeroBoletasEnProceso(localidad.boletas)}}</strong></td> 
@@ -114,20 +102,10 @@
                             <td class="border" *ngIf="localidad.vaca==false"><strong>{{numeroBoletasUtilizadas(localidad.boletas)}}</strong></td>
 
                             <td class="border" *ngIf="localidad.vaca==false">{{numeroBoletasTotales(localidad.boletas)}}</td> 
-                            <td class="border" *ngIf="localidad.vaca==false">{{dineroVendido(localidad.boletas)|currency:'COP'}}</td>
-                            <td class="border" *ngIf="localidad.vaca==false">{{localidad?.boletasPatrocinio.length}}</td>
-                            <td class="border"*ngIf="localidad.vaca==false">{{localidad?.palcos?.length}}</td>
+                            <td class="border" *ngIf="localidad.vaca==false"> ${{dineroVendido(localidad.boletas)| number: '1.0-0'}}</td>
 
-                            <td class="border"*ngIf="localidad.vaca==false">{{palcosVendidos(localidad, true)}}</td>
-                            <td class="border"*ngIf="localidad.vaca==false">{{palcosVendidos(localidad, false)}}</td>
-
-                            <td class="border"*ngIf="localidad.vaca==false">{{palcosCortesias(localidad)}}</td>
-                            <td class="border"*ngIf="localidad.vaca==false">{{palcosEnProceso(localidad)}}</td>
-
-
-                            <td class="border"*ngIf="localidad.vaca==false">{{dineroRecaudadoPalcos(localidad)|currency:'COP'}}</td>
-                            <td class="border"*ngIf="localidad.vaca==false">{{dineroARecaudarPalcos(localidad)|currency:'COP'}}</td>
-                            <td class="border"*ngIf="localidad.vaca==false">{{personasEnPalco(localidad)}}</td>
+                            <td class="border"*ngIf="localidad.vaca==false"> ${{dineroARecaudarPalcos(localidad)| number: '1.0-0'}}</td>
+                       
                             <!-- <td class="border"><button class=" action_button" routerLink="patrocinio/{{localidad?.id}}">Tickets patrocinio</button></td>-->
                             <td class="border"*ngIf="localidad.vaca==false"><button class=" action_button" routerLink="localidad/{{localidad?.id}}">Ver Ventas Especificas</button></td>
                            
@@ -141,49 +119,61 @@
         <div class="col-12" >
         <p class="border p-3" style="background-color: white;">
             <br>
-            <strong>Dinero total recaudado: {{dineroRecaudado |currency:'COP'}} </strong>
+            <strong>Dinero total recaudado: ${{dineroRecaudado | number: '1.0-0'}} </strong>
             <br>
-            <strong>Retefuente realizada: {{retefuenteOrganizador |currency:'COP'}} </strong>
+            <strong>Retefuente realizada: ${{retefuenteOrganizador | number: '1.0-0'}} </strong>
             <br>
-            <strong>Reteica realizada: {{reteIcaOrganizador |currency:'COP'}} </strong>
+            <strong>Reteica realizada: ${{reteIcaOrganizador | number: '1.0-0'}} </strong>
             <br>
-            <strong>Dinero total recaudado después de retenciones: {{dineroEntregar |currency:'COP'}} </strong>
+            <strong>Dinero total recaudado después de retenciones: ${{dineroEntregar | number: '1.0-0'}} </strong>
             <br>
-            <strong>Dinero a entregar : {{dineroEntregar -evento?.dineroEntregado|currency:'COP'}} </strong>
+            <strong>Total 4x1000: ${{(dineroEntregar*4)/1000 | number: '1.0-0'}} </strong>
             <br>
-            <strong>Dinero entregado: {{evento?.dineroEntregado |currency:'COP'}} </strong>
+            <strong>Dinero a entregar antes del 4x1000: ${{dineroEntregar -evento?.dineroEntregado| number: '1.0-0'}} </strong>
             <br>
-            <strong>Personas que van a asistir: {{personas}} </strong>
+            <strong>4x1000 de dinero a entregar : ${{(dineroEntregar -evento?.dineroEntregado)*4/1000 | number: '1.0-0'}} </strong>
             <br>
-            <strong>Personas adentro: {{personasAdentro}} </strong>
+            <strong> <span class="verde">Dinero a entregar después del 4x1000: ${{ dineroEntregar -evento?.dineroEntregado- (dineroEntregar -evento?.dineroEntregado)*4/1000 | number: '1.0-0'}}</span>  </strong>
+            <br>
+            <strong>Dinero entregado: ${{evento?.dineroEntregado | number: '1.0-0'}} </strong>
+            <br>
+            <strong>Asistentes que compraron: {{personas}} </strong>
+            <br>
+       
+            <strong>Cortesias: {{cortesias}} </strong>
+            <br>
+            <strong>Total Asistentes: {{personas+cortesias}} </strong>
+            <br>
+     
+            <strong>Asistentes dentro: {{personasAdentro}} </strong>
 
        
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio antes de gastos: {{dineroServicio |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio antes de gastos: ${{dineroServicio | number: '1.0-0'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
       
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Comisión PayU: {{comisionPayU |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Comisión PayU: ${{comisionPayU | number: '1.0-0'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Impuesto de comisión PayU: {{impuestoPayU |currency:'COP'}} </strong>
-            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
-
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Comisión Epayco: {{comisionEpayco |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Impuesto de comisión PayU: ${{impuestoPayU | number: '1.0-0'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
 
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio después de comisiones PayU y Epayco: {{servicio |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Comisión Epayco: ${{comisionEpayco | number: '1.0-0'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de fuente de All Tickets: {{retefuenteAT |currency:'COP'}} </strong>
+
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio después de comisiones PayU y Epayco: ${{servicio | number: '1.0-0'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de ICA de All Tickets: {{reteIcaAT |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de fuente de All Tickets: ${{retefuenteAT | number: '1.0-0'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero servicio después de retenciones (Ganancias All Tickets): {{dineroServicioDespuesDeComisiones |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de ICA de All Tickets: ${{reteIcaAT | number: '1.0-0'}} </strong>
+            <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()"><span class="verde">Dinero servicio después de retenciones (Ganancias All Tickets): ${{dineroServicioDespuesDeComisiones | number: '1.0-0'}}</span> </strong>
     
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero Total IVA: {{dineroIva |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero Total IVA: ${{dineroIva | number: '1.0-0'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de IVA: {{reteIva |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Retencion de IVA: ${{reteIva | number: '1.0-0'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
-            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero total IVA en cuenta: {{ivaCuenta |currency:'COP'}} </strong>
+            <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Dinero total IVA en cuenta: ${{ivaCuenta | number: '1.0-0'}} </strong>
             <br *ngIf="autenticador.getAdmin()||autenticador.getContador()">
             <strong *ngIf="autenticador.getAdmin()||autenticador.getContador()">Cantidad de transacciones: {{cantidadTransacciones}} </strong>
             
