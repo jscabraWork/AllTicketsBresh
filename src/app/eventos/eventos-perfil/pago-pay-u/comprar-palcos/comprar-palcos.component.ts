@@ -1128,7 +1128,7 @@ export class ComprarPalcosComponent implements OnInit {
               for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
 
 
-                if (this.etapas[i].localidades[j].nombre == 'Palcos') {
+                if (this.etapas[i].localidades[j].nombre == 'TICKETS') {
                   this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
                   localidades.push(this.localidadCargadaPreferecial.id)
                 }
@@ -4146,8 +4146,8 @@ export class ComprarPalcosComponent implements OnInit {
       }
 
       if (
-        this.localidadCargadaPreferecial.boletas[i+102].vendida 
-       || this.localidadCargadaPreferecial.boletas[i+102].reserva 
+        this.localidadCargadaPreferecial.boletas[i+112].vendida 
+       || this.localidadCargadaPreferecial.boletas[i+112].reserva 
       ) {
         this.lista15[i] = {
           id:null,
@@ -4155,7 +4155,7 @@ export class ComprarPalcosComponent implements OnInit {
           localidad: 'norm',
           seleccionado:false
         };
-      } else if (this.localidadCargadaPreferecial.boletas[i+102].reservado) {
+      } else if (this.localidadCargadaPreferecial.boletas[i+112].reservado) {
         this.lista15[i] = {
           id:null,
           valor: 'p',
@@ -4164,7 +4164,7 @@ export class ComprarPalcosComponent implements OnInit {
         };
         
       }
-      else if (!this.localidadCargadaPreferecial.boletas[i+102].disponible) {
+      else if (!this.localidadCargadaPreferecial.boletas[i+112].disponible) {
         this.lista15[i] = {
           id:null,
           valor: 'l',
@@ -4173,11 +4173,11 @@ export class ComprarPalcosComponent implements OnInit {
         };
         
       }
-      else if (!this.localidadCargadaPreferecial.boletas[i+102].reservado 
-        && !this.localidadCargadaPreferecial.boletas[i+102].vendida) {
+      else if (!this.localidadCargadaPreferecial.boletas[i+112].reservado 
+        && !this.localidadCargadaPreferecial.boletas[i+112].vendida) {
         this.lista15[i] = {
-          id:this.localidadCargadaPreferecial.boletas[i+102].id,
-          valor: this.localidadCargadaPreferecial.boletas[i+102].seccionSilla,
+          id:this.localidadCargadaPreferecial.boletas[i+112].id,
+          valor: this.localidadCargadaPreferecial.boletas[i+112].seccionSilla,
           localidad: 'norm',
           seleccionado:false
         };
