@@ -15,5 +15,8 @@ export class CuponDataService {
     return this.http.get(`${API_URL}/cupon/codigo/${codigo}/${idBoleta}/${cantidad}`);
   }
 
+  cuponseValidos(idLocalidad:number){
+    return this.http.get(`${API_URL}/cupones/${idLocalidad}`);
+  }
   
 }

@@ -8,7 +8,7 @@
             </mat-icon>
             <h3><strong> Carrito de compras </strong>
               <br>
-              
+              {{referenceCode}}
             </h3>
             
             <h4 class="contador">
@@ -106,7 +106,7 @@
  
                 <fieldset class="form-group"> 
                     <input type="text" class= "form-control"name ="codigo" required="required" placeholder="¿Algún Cupon?"  [(ngModel)]="codigo">
-                    <button class="btn action_button mt-2" type="submit">Aplicar</button>
+                    <button class="btn action_button mt-2" (click)="validarCupon()" type="submit">Aplicar</button>
                 </fieldset>
             </form>
             </div>

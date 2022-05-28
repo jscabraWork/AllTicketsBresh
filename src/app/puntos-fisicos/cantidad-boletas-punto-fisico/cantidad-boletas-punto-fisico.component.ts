@@ -74,7 +74,7 @@ siguiente(){
     }
 
     this.referenceCode = this.referenceCode + "-1"
-    this.referenceCode = this.referenceCode +"," + this.boletas[0].nombreEvento +"," + new Date()
+    this.referenceCode = this.referenceCode +"," + this.evento.id +"," + new Date()
     
     this.AbrirCarrito()
     this.servicioBoletas.rechazarReservaBoleta( this.boletas).subscribe(response=>response);

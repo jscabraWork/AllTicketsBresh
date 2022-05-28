@@ -1115,64 +1115,6 @@ localidadesCompradas:Localidad[]
             });
         }
 
-        else if (this.evento.mapa == 'mapa23') {
-          this.etapaServicio
-            .getAllEtapasVisiblesDeEvento(this.evento.id, true)
-            .subscribe((response) => {
-
-              this.etapas = response;
-
-              for (let i = 0; i < this.etapas.length; i += 1) {
-                for (let j = 0; j < this.etapas[i].localidades.length; j += 1) {
-
-
-                  if (this.etapas[i].localidades[j].nombre == 'PATROCINADOR') {
-                    this.localidadCargadaPreferecial = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'PAL CENTRO Y PA DENTRO') {
-                    this.localidadCargadaGeneral = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == '¡AYAYAY!') {
-                    this.localidadCargadaBoletasVIPPiso1 = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == '¡PAPAAA!') {
-                    this.localidadCargadaBoletasGeneralPiso2 = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'SIRVALO PUES') {
-                    this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'SALUD COMPADRE') {
-                    this.localidadCargada = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'PREFERENCIAL CON SILLA') {
-                    this.localidadCargadaBoletas = this.etapas[i].localidades[j];
-                  }
-
-                  else if (this.etapas[i].localidades[j].nombre == 'NORTE') {
-                    this.localidadCargadaNorte = this.etapas[i].localidades[j];
-                  }
-                  else if (this.etapas[i].localidades[j].nombre == 'ORIENTAL') {
-                    this.localidadCargadaOriente = this.etapas[i].localidades[j];
-                  }
-                  else if (this.etapas[i].localidades[j].nombre == 'OCCIDENTAL PREFERENCIAL') {
-                    this.localidadCargadaOccidente = this.etapas[i].localidades[j];
-                  }
-                
-                }
-              }
-  
-
-              this.cargarLocalidadEnMapa23();
-              this.cargadoTodo = true;
-            });
-        }
-
         else if (this.evento.mapa == 'mapa1') {
 
           this.etapaServicio
@@ -1882,7 +1824,8 @@ localidadesCompradas:Localidad[]
         this.lista5[i] = {
           valor:this.localidadCargadaGeneral.palcos[i].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i].id
+          id:this.localidadCargadaGeneral.palcos[i].id,
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -1913,7 +1856,8 @@ localidadesCompradas:Localidad[]
         this.lista6[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+6].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+6].id
+          id:this.localidadCargadaGeneral.palcos[i+6].id, 
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -1946,7 +1890,8 @@ localidadesCompradas:Localidad[]
         this.lista7[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+12].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+12].id
+          id:this.localidadCargadaGeneral.palcos[i+12].id, 
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -1977,7 +1922,8 @@ localidadesCompradas:Localidad[]
         this.lista8[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+19].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+19].id
+          id:this.localidadCargadaGeneral.palcos[i+19].id, 
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -2008,7 +1954,8 @@ localidadesCompradas:Localidad[]
         this.lista9[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+26].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+26].id
+          id:this.localidadCargadaGeneral.palcos[i+26].id, 
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -2037,9 +1984,10 @@ localidadesCompradas:Localidad[]
         !this.localidadCargadaGeneral.palcos[i+33].proceso
       ){
         this.lista10[i] = {
-          valor:this.localidadCargadaGeneral.palcos[i+33].numeroDentroDeEvento,
+          valor:this.localidadCargadaGeneral.palcos[i+33].numeroDentroDeEvento ,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+33].id
+          id:this.localidadCargadaGeneral.palcos[i+33].id, 
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -2072,7 +2020,8 @@ localidadesCompradas:Localidad[]
         this.lista17[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+42].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+42].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+42].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id
         }
       }
       
@@ -2103,7 +2052,8 @@ localidadesCompradas:Localidad[]
         this.lista18[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+51].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+51].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+51].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id
         }
       }
       
@@ -2134,8 +2084,8 @@ localidadesCompradas:Localidad[]
         this.lista30[i] = {
           valor:this.localidadCargada.palcos[i].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargada.palcos[i].id
-          
+          id:this.localidadCargada.palcos[i].id, 
+          localidadid:this.localidadCargada.id          
         }
       }
       
@@ -2166,7 +2116,8 @@ localidadesCompradas:Localidad[]
         this.lista31[i] = {
           valor:this.localidadCargada.palcos[i+9].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargada.palcos[i+9].id
+          id:this.localidadCargada.palcos[i+9].id, 
+          localidadid:this.localidadCargada.id         
           
         }
       }
@@ -2202,7 +2153,8 @@ localidadesCompradas:Localidad[]
         this.lista11[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+40].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+40].id
+          id:this.localidadCargadaGeneral.palcos[i+40].id, 
+          localidadid:this.localidadCargadaGeneral.id         
         }
       }
       
@@ -2233,7 +2185,8 @@ localidadesCompradas:Localidad[]
         this.lista12[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+50].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+50].id
+          id:this.localidadCargadaGeneral.palcos[i+50].id, 
+          localidadid:this.localidadCargadaGeneral.id    
         }
       }
       
@@ -2266,7 +2219,8 @@ localidadesCompradas:Localidad[]
         this.lista15[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+22].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+22].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+22].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
         }
       }
       
@@ -2297,7 +2251,8 @@ localidadesCompradas:Localidad[]
         this.lista16[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+32].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+32].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+32].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
         }
       }
       
@@ -2328,7 +2283,8 @@ localidadesCompradas:Localidad[]
         this.lista19[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+60].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+60].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+60].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
         }
       }
       
@@ -2359,7 +2315,8 @@ localidadesCompradas:Localidad[]
         this.lista20[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+64].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+64].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+64].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
         }
       }
       
@@ -2390,7 +2347,8 @@ localidadesCompradas:Localidad[]
         this.lista21[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -2422,7 +2380,8 @@ localidadesCompradas:Localidad[]
         this.lista22[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+10].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+10].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+10].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -2454,7 +2413,8 @@ localidadesCompradas:Localidad[]
         this.lista24[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+40].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+40].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+40].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -2486,7 +2446,8 @@ localidadesCompradas:Localidad[]
         this.lista25[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+50].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+50].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+50].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -2521,7 +2482,8 @@ localidadesCompradas:Localidad[]
         this.lista13[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
         }
       }
       
@@ -2552,7 +2514,8 @@ localidadesCompradas:Localidad[]
         this.lista14[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+11].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+11].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+11].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
         }
       }
       
@@ -2588,7 +2551,8 @@ localidadesCompradas:Localidad[]
         this.lista23[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+20].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+20].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+20].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -2620,7 +2584,8 @@ localidadesCompradas:Localidad[]
         this.lista26[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+60].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+60].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+60].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -2652,7 +2617,8 @@ localidadesCompradas:Localidad[]
         this.lista27[i] = {
           valor:this.localidadCargadaBoletasVIP.palcos[i].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasVIP.palcos[i].id
+          id:this.localidadCargadaBoletasVIP.palcos[i].id, 
+          localidadid:this.localidadCargadaBoletasVIP.id    
           
         }
       }
@@ -2684,7 +2650,8 @@ localidadesCompradas:Localidad[]
         this.lista29[i] = {
           valor:this.localidadCargadaBoletasVIP.palcos[i+130].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasVIP.palcos[i+130].id
+          id:this.localidadCargadaBoletasVIP.palcos[i+130].id, 
+          localidadid:this.localidadCargadaBoletasVIP.id    
           
         }
       }
@@ -2716,7 +2683,8 @@ localidadesCompradas:Localidad[]
         this.lista33[i] = {
           valor:this.localidadCargada.palcos[i+40].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargada.palcos[i+40].id
+          id:this.localidadCargada.palcos[i+40].id, 
+          localidadid:this.localidadCargada.id    
           
         }
       }
@@ -2751,7 +2719,8 @@ localidadesCompradas:Localidad[]
         this.lista32[i] = {
           valor:this.localidadCargada.palcos[i+18].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargada.palcos[i+18].id
+          id:this.localidadCargada.palcos[i+18].id, 
+          localidadid:this.localidadCargada.id    
           
         }
       }
@@ -2785,7 +2754,8 @@ localidadesCompradas:Localidad[]
         this.lista28[i] = {
           valor:this.localidadCargadaBoletasVIP.palcos[i+20].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasVIP.palcos[i+20].id
+          id:this.localidadCargadaBoletasVIP.palcos[i+20].id, 
+          localidadid:this.localidadCargadaBoletasVIP.id    
           
         }
       }
@@ -3598,7 +3568,7 @@ AbrirCarritoTicket(): void {
                           this.referenceCode +
                           this.palco.id +
                           ',' +
-                          this.palco.nombreEvento +
+                          this.evento.id+
                           ',' +
                           new Date();
                         this.cargando = false;

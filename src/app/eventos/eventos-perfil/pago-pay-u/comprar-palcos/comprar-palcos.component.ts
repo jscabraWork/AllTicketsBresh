@@ -11195,7 +11195,7 @@ if(!this.usuarioBoolean)
     
             console.log(numero);
             
-            if (this.contadorPalcos < 2 ) {
+            
               this.cargando = true;
               this.palcoServicio
                 .getPalcoParaCompraIndividualID(id)
@@ -11282,9 +11282,7 @@ if(!this.usuarioBoolean)
     
                   }
                 });
-            } else {
-              alert('Solo puedes comprar 2 Palcos máximo por Evento');
-            }
+
     
           }
           else {

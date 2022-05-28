@@ -55,6 +55,14 @@
 
 
               </h5>
+
+
+              <div class="pl-md-4 pb-2 mt-3" *ngIf="cupones.length>0">
+                <h5>Descuentos</h5>
+
+
+                <button *ngFor="let cupon of cupones" class="btn action_button ml-1" (click)="cuadrarCodigoCupon(cupon)">{{cupon.codigoVenta}}</button>
+              </div>
               <div class="pl-md-4 pb-5 mt-3">
             
 

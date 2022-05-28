@@ -251,9 +251,11 @@ if(this.pagar == false){
 
 
   validarCupon(){
+    
     this.servicioCupon.validarCupon(this.codigo,this.boletas[0].id,this.boletas.length).subscribe(
       response=>{
         this.manejarCupon(response)
+        console.log(response)
       },
       error=>{
         alert("No se encuentra para esta localidad un cupon con el codigo "+ this.codigo)

@@ -1,11 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Asistente } from 'src/app/administradores/admin-perfil/admin-eventos/admin-lector/asistente.model';
+import { Cupon } from 'src/app/administradores/admin-perfil/admin-eventos/admin-localidades/agregar-cupon/cupon.model';
 import { Palco } from 'src/app/administradores/admin-perfil/admin-eventos/admin-palcos/palco.model';
 import { IVA } from 'src/app/app.constants';
 import { Boleta } from 'src/app/eventos/boleta.model';
 import { Evento } from 'src/app/eventos/evento.model';
 import { BoletasDataService } from 'src/app/service/data/boletas-data.service';
+import { CuponDataService } from 'src/app/service/data/cupon-data.service';
 import { PalcosDataService } from 'src/app/service/data/palcos-data.service';
 import { PuntosFisicosDataService } from 'src/app/service/data/puntos-fisicos-data.service';
 import { Cliente } from 'src/app/usuario/cliente.model';
@@ -28,8 +30,8 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
   boletas: Boleta[] = [];
   valorTotal: number = 0;
   palco: Palco;
-
-
+  cupones:Cupon[] =[]
+  idLocalidad
   pagar:boolean;
   cargando = true;
   adicional:number
@@ -42,18 +44,20 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
   metodos:string[]=[]
   tax:number
   cargandoPago=false
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private servicioBoletas: BoletasDataService,
     private palcoServicio: PalcosDataService,
     private dialog: MatDialog,
-    private servicioPunto: PuntosFisicosDataService
+    private servicioPunto: PuntosFisicosDataService, 
+    private servicioCupon: CuponDataService
   ) {}
 
   ngOnInit(): void {
     this.tax=0
 
-    
+    this.cupones=[]
     this.adicional =-1
 
     this.evento = new Evento();
@@ -87,11 +91,17 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
       metodo:null
     };
 
- 
     
+    this.idLocalidad = this.data.idLocalidad
 
     if(this.data.boletas){
     this.boletas = this.data.boletas;
+    if(this.boletas[0]!= undefined){
+    this.idLocalidad = this.boletas[0].localidadIdNumero
+    if(this.boletas[0].localidadNombre.includes('SALUD COMPADRE')){
+      this.idLocalidad = 16909
+    }
+    }
   }
     if(this.boletas!=null){
     if(this.boletas.length >0){
@@ -115,6 +125,7 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
 
     if (this.data.palco) {
       this.palco = this.data.palco;
+      this.idLocalidad = this.palco.idLocalidad;
       this.descripcion = "Un palco " +this.palco.nombre +" pare el evento " + this.evento.nombre
 
       this.tax = this.palco.servicioIva
@@ -123,8 +134,11 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
       this.codigoVenta = this.data.codigoVenta;
       this.codigoVentaCuadrar();
       this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.adicional
- 
 
+
+      this.servicioCupon.cuponseValidos(this.idLocalidad).subscribe(response=>{
+        this.manejoCupones(response) 
+      })
 
 
 
@@ -136,7 +150,9 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
         
       // }, 240000);
   }
-
+  manejoCupones(response){
+    this.cupones = response.cupones
+  }
 
   cerrar() {
     this.dialog.closeAll();
@@ -237,7 +253,27 @@ pagarBoletasImprimir(texto:string){
   }
 }
 
+cuadrarCodigoCupon(cupon:Cupon){
+  console.log(this.referenceCode.split(','))
+  let particion = this.referenceCode.split(',');
+  this.referenceCode = particion[0] +','+particion[1] +','+particion[2] +','+particion[3] +','+particion[4]  +','+cupon.codigoVenta
+  
+  this.valorTotal =0
+  for(let i =0; i < this.boletas.length; i++){
+    this.boletas[i].precio = cupon.precio
+    this.boletas[i].servicio = cupon.servicio
+    this.boletas[i].servicioIva = cupon.iva
 
+    this.valorTotal =this.valorTotal+ this.boletas[i].precio  + this.boletas[i].servicio +this.boletas[i].servicioIva
+  }
+  if(this.palco.id!=null){
+    this.palco.precio = cupon.precio
+    this.palco.servicio = cupon.servicio
+    this.palco.servicioIva = cupon.iva
+
+    this.valorTotal =this.valorTotal+ this.palco.precio  + this.palco.servicio +this.palco.servicioIva
+  }
+}
 
 
 pagarPalcosImprimir(texto:string){
