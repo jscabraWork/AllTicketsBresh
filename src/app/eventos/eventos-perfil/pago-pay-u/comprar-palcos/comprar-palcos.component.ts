@@ -926,6 +926,11 @@ export class ComprarPalcosComponent implements OnInit {
                 else if (this.etapas[i].localidades[j].nombre == 'General'||this.etapas[i].localidades[j].nombre == 'Preventa General') {
                   this.localidadCargadaGeneral = this.etapas[i].localidades[j];
                 }
+
+                else if (this.etapas[i].localidades[j].nombre == 'Palcos Ticket Individual') {
+                  this.localidadCargadaBoletasVIP = this.etapas[i].localidades[j];
+                
+              }
               }
             }
 
@@ -1914,32 +1919,131 @@ export class ComprarPalcosComponent implements OnInit {
   }
 
   cargarLocalidadEnMapa6(){
-    for(let i=0;i<38;i++){
+
+
+    for(let i=0;i<5;i++){
       if (
-        !this.localidadCargadaPreferecial.palcos[i].vendido &&
-        !this.localidadCargadaPreferecial.palcos[i].reservado &&
-        this.localidadCargadaPreferecial.palcos[i].disponible &&
-        !this.localidadCargadaPreferecial.palcos[i].proceso
+        !this.localidadCargadaBoletasVIP.palcos[i].vendido &&
+        !this.localidadCargadaBoletasVIP.palcos[i].reservado &&
+        this.localidadCargadaBoletasVIP.palcos[i].disponible &&
+        !this.localidadCargadaBoletasVIP.palcos[i].proceso
       ){
-        this.lista1[i] = {
-          valor:this.localidadCargadaPreferecial.palcos[i].numeroDentroDeEvento,
-          localidad: 'oro',
-          id:this.localidadCargadaPreferecial.palcos[i].id
+        this.lista6[i] = {
+          valor:this.localidadCargadaBoletasVIP.palcos[i].numeroDentroDeEvento,
+          localidad: 'prem',
+          id:this.localidadCargadaBoletasVIP.palcos[i].id
         }
       }
       
       else if (
-        this.localidadCargadaPreferecial.palcos[i].vendido ||
-        this.localidadCargadaPreferecial.palcos[i].reservado ||
-        !this.localidadCargadaPreferecial.palcos[i].disponible
+        this.localidadCargadaBoletasVIP.palcos[i].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i].disponible
+      ) {
+        this.lista6[i] =  {
+          valor:'v',
+          localidad: 'prem',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIP.palcos[i].proceso) {
+        this.lista6[i]= {
+          valor:'p',
+          localidad: 'prem',
+          id:'p'
+        }
+      }
+
+
+      if (
+        !this.localidadCargadaBoletasVIP.palcos[i+5].vendido &&
+        !this.localidadCargadaBoletasVIP.palcos[i+5].reservado &&
+        this.localidadCargadaBoletasVIP.palcos[i+5].disponible &&
+        !this.localidadCargadaBoletasVIP.palcos[i+5].proceso
+      ){
+        this.lista7[i] = {
+          valor:this.localidadCargadaBoletasVIP.palcos[i+5].numeroDentroDeEvento,
+          localidad: 'prem',
+          id:this.localidadCargadaBoletasVIP.palcos[i+5].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIP.palcos[i+5].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+5].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+5].disponible
+      ) {
+        this.lista7[i] =  {
+          valor:'v',
+          localidad: 'prem',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+5].proceso) {
+        this.lista7[i]= {
+          valor:'p',
+          localidad: 'prem',
+          id:'p'
+        }
+      }
+
+    }
+    for(let i=0;i<14;i++){
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+5].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+5].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+5].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+5].proceso
+      ){
+        this.lista1[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+5].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+5].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+5].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+5].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+5].disponible
       ) {
         this.lista1[i] =  {
           valor:'v',
           localidad: 'oro',
           id:'v'
         }
-      } else if (this.localidadCargadaPreferecial.palcos[i].proceso) {
+      } else if (this.localidadCargadaPreferecial.palcos[i+5].proceso) {
         this.lista1[i]= {
+          valor:'p',
+          localidad: 'oro',
+          id:'p'
+        }
+      }
+
+
+      if (
+        !this.localidadCargadaPreferecial.palcos[i+24].vendido &&
+        !this.localidadCargadaPreferecial.palcos[i+24].reservado &&
+        this.localidadCargadaPreferecial.palcos[i+24].disponible &&
+        !this.localidadCargadaPreferecial.palcos[i+24].proceso
+      ){
+        this.lista8[i] = {
+          valor:this.localidadCargadaPreferecial.palcos[i+24].numeroDentroDeEvento,
+          localidad: 'oro',
+          id:this.localidadCargadaPreferecial.palcos[i+24].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaPreferecial.palcos[i+24].vendido ||
+        this.localidadCargadaPreferecial.palcos[i+24].reservado ||
+        !this.localidadCargadaPreferecial.palcos[i+24].disponible
+      ) {
+        this.lista8[i] =  {
+          valor:'v',
+          localidad: 'oro',
+          id:'v'
+        }
+      } else if (this.localidadCargadaPreferecial.palcos[i+24].proceso) {
+        this.lista8[i]= {
           valor:'p',
           localidad: 'oro',
           id:'p'
@@ -11396,13 +11500,10 @@ agregarPalcoIndividualMultiplesDias(numero,id1,id2,id3) {
     if (!this.usuarioBoolean) {
       if(!this.cargando && this.cargadoTodo)
       {
-      if (this.contadorBoletas < 6 ) {
+      
         this.referenceCode = 'TICKET;' + this.usuarioEntidad.numeroDocumento + ',';
         this.cantidadBoletas(localidad);
-      }
-      else {
-        alert('Solo puedes comprar 6 Tickets máximo por este Evento');
-      }
+     
     }
     else{
       alert('Cargando por favor espere')
@@ -11427,7 +11528,7 @@ seleccionarTicketExacto(item){
 
     if(!this.cargando && this.cargadoTodo){
     
-    if (this.contadorBoletas < 6 ) {
+  
       this.cargando=true
       this.servicioBoletas.reservarBoletaExacta(idBoleta).subscribe ((response)=>{
         if(response !=null){
@@ -11456,11 +11557,9 @@ seleccionarTicketExacto(item){
       
       ) 
     
-    }
+    
 
-    else {
-      alert('Solo puedes comprar 6 Tickets máximo por este Evento');
-    }
+ 
   }
   else{
     alert ("Cargando el mapa por favor vuelva a sell")

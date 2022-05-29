@@ -136,6 +136,7 @@
   <p *ngIf="evento?.mapa =='mapa2'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
 
   <p *ngIf="evento?.mapa =='mapa6'"><span class="cuadros cuadros10">#</span> PALCOS</p>
+  <p *ngIf="evento?.mapa =='mapa6'"><span class="cuadros cuadros5">#</span> PALCOS Ticket Individual</p>
   <p *ngIf="evento?.mapa =='mapa6'"><span class="cuadrosPalcos cuadros">#</span> GENERAL</p>
   <p *ngIf="evento?.mapa =='mapa6'"><span class="cuadros rojo">v</span>Vendido</p>
   <p *ngIf="evento?.mapa =='mapa6'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
@@ -201,7 +202,31 @@
     <div class="tarimamap6">TARIMA</div>
     <div class="contenedormapa6">
       <div class="contenedormapa6top">
+
+        <div *ngFor="let item of lista6; let i =index">
+          <div class="cuadros"
+            [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+            (click)="seleccionarLocalidadParaPalcoIndividual(19779 + i)">
+            {{item.valor}}
+          </div>
+        </div>
+
         <div *ngFor="let item of lista1">
+          <div class="cuadros"
+            [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+            (click)="agregarPalcoIndividualID(item.valor,item.id)">
+            {{item.valor}}
+          </div>
+        </div>
+        <div *ngFor="let item of lista7; let i =index">
+          <div class="cuadros"
+            [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+            (click)="seleccionarLocalidadParaPalcoIndividual(1 + i)">
+            {{item.valor}}
+          </div>
+        </div>
+        
+        <div *ngFor="let item of lista8">
           <div class="cuadros"
             [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
             (click)="agregarPalcoIndividualID(item.valor,item.id)">
@@ -210,6 +235,8 @@
         </div>
       </div>
       <div class="contenedormapa6mid">
+
+
         <div *ngFor="let item of lista2">
           <div class="cuadros"
             [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
