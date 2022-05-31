@@ -1986,7 +1986,73 @@ export class ComprarPalcosComponent implements OnInit {
       }
 
     }
-    for(let i=0;i<14;i++){
+
+    for(let i=0; i< 4;i++){
+      if (
+        !this.localidadCargadaBoletasVIP.palcos[i+10].vendido &&
+        !this.localidadCargadaBoletasVIP.palcos[i+10].reservado &&
+        this.localidadCargadaBoletasVIP.palcos[i+10].disponible &&
+        !this.localidadCargadaBoletasVIP.palcos[i+10].proceso
+      ){
+        this.lista9[i] = {
+          valor:this.localidadCargadaBoletasVIP.palcos[i+10].numeroDentroDeEvento,
+          localidad: 'prem',
+          id:this.localidadCargadaBoletasVIP.palcos[i+10].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIP.palcos[i+10].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+10].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+10].disponible
+      ) {
+        this.lista9[i] =  {
+          valor:'v',
+          localidad: 'prem',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+10].proceso) {
+        this.lista9[i]= {
+          valor:'p',
+          localidad: 'prem',
+          id:'p'
+        }
+      }
+
+
+      if (
+        !this.localidadCargadaBoletasVIP.palcos[i+14].vendido &&
+        !this.localidadCargadaBoletasVIP.palcos[i+14].reservado &&
+        this.localidadCargadaBoletasVIP.palcos[i+14].disponible &&
+        !this.localidadCargadaBoletasVIP.palcos[i+14].proceso
+      ){
+        this.lista10[i] = {
+          valor:this.localidadCargadaBoletasVIP.palcos[i+14].numeroDentroDeEvento,
+          localidad: 'prem',
+          id:this.localidadCargadaBoletasVIP.palcos[i+14].id
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIP.palcos[i+14].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+14].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+14].disponible
+      ) {
+        this.lista10[i] =  {
+          valor:'v',
+          localidad: 'prem',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+14].proceso) {
+        this.lista10[i]= {
+          valor:'p',
+          localidad: 'prem',
+          id:'p'
+        }
+      }
+    }
+
+    for(let i=0;i<10;i++){
       if (
         !this.localidadCargadaPreferecial.palcos[i+5].vendido &&
         !this.localidadCargadaPreferecial.palcos[i+5].reservado &&

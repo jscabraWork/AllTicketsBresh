@@ -47,12 +47,10 @@ export class CantidadBoletasComponent implements OnInit {
 
   }
   mas(){
-    if(this.boletasCantidad+this.contadorBoletas <6){
+ 
       this.boletasCantidad++;
-    }
-    else{
-      alert("No puedes comprar más de 6 Tickets por evento")
-    }
+   
+   
   }
   menos(){
   if(this.boletasCantidad>1){

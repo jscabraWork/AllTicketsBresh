@@ -218,6 +218,15 @@
             {{item.valor}}
           </div>
         </div>
+
+        <div *ngFor="let item of lista9; let i =index">
+          <div class="cuadros"
+            [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+            (click)="seleccionarLocalidadParaPalcoIndividual(6 + i)">
+            {{item.valor}}
+          </div>
+        </div>
+
         <div *ngFor="let item of lista7; let i =index">
           <div class="cuadros"
             [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
@@ -233,6 +242,15 @@
             {{item.valor}}
           </div>
         </div>
+
+        <div *ngFor="let item of lista10; let i =index">
+          <div class="cuadros"
+            [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+            (click)="seleccionarLocalidadParaPalcoIndividual(10 + i)">
+            {{item.valor}}
+          </div>
+        </div>
+
       </div>
       <div class="contenedormapa6mid">
 
@@ -2176,3 +2194,4 @@
   </div>
 </div>
 
+<app-redes-sociales></app-redes-sociales>

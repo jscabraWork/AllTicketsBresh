@@ -91,7 +91,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      CalendarioComponent,
      MensajeComponent,
      TerminosYCondicionesComponent,
-     RedesSocialesComponent,
+     
      BannerComponent,
      ComoComprarComponent,
      OlvidoComponent,
