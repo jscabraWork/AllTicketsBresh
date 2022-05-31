@@ -385,13 +385,33 @@ img {
   align-items: center;
 }
 .tarimamap8{
-  width: 392px;
+  width: 367px;
   height: 100px;
   background-color: #333;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.vipMapa5{
+  width: 367px;
+  height: 150px;
+  background-color: rgb(52, 74, 199);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.generalMapa5{
+  width: 367px;
+  height: 150px;
+  background-color: rgb(199, 86, 52);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 .tarimamap9{
   width: 230px;
@@ -1818,3 +1838,11 @@ td {
 .largos{
   width: 72px;
 }
+
+.color1{
+  background-color: rgb(52, 74, 199);
+}
+.color2{
+  background-color: rgb(199, 86, 52);
+}
+

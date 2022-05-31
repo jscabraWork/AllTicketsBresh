@@ -171,11 +171,10 @@
   <p *ngIf="evento?.mapa =='mapa12'"><span class="cuadros rojo">v</span>Vendido</p>
   <p *ngIf="evento?.mapa =='mapa12'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
 
-  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadrosPalcos cuadros10">#</span> ZONA CHILL</p>
-  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros10 cuadros">#</span> PALCOS BACKSTAGE (Incluye Habitación para 3 personas máximo)</p>
-  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros5 cuadros">#</span> SOFAS SINCRODESTINO</p>
-  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros6 cuadros">#</span>MESAS VIP</p>
-  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros13 cuadros">#</span> SINCRODESTINO INDIVIDUAL</p>
+  
+  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros10 cuadros">#</span> PALCOS</p>
+  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros color1"></span> VIP</p>
+  <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros color2"></span>General</p>
   <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros rojo">v</span>Vendido</p>
   <p *ngIf="evento?.mapa =='mapa5'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
 
@@ -2193,5 +2192,40 @@
 
   </div>
 </div>
+
+
+<div id="desplazate" *ngIf="evento?.mapa=='mapa5'">
+  <p>
+    <-- Desplázate en el mapa -->
+  </p>
+</div>
+<div class="contenedor-mapa mt-5 pb-5" *ngIf="evento?.mapa=='mapa5'">
+
+  <div class="mapa" style="margin: 0px auto;">
+
+      <div class="tarimamap8">TARIMA</div>
+      <div *ngFor="let item of lista1">
+        <div class="cuadros"
+          [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+          (click)="agregarPalcoIndividualID(item.valor,item.id)">
+          {{item.valor}}
+        </div>
+      </div>
+      <div class="clearFix"></div>
+      <div *ngFor="let item of lista2">
+        <div class="cuadros"
+          [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l', 'cuadros4':item.localidad=='vip', 'cuadros10':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo'}"
+          (click)="agregarPalcoIndividualID(item.valor,item.id)">
+          {{item.valor}}
+        </div>
+      </div>
+      <div class="clearFix"></div>
+      <div class="vipMapa5" (click)="abrirTickets(localidadCargadaGeneral)">VIP</div>
+      <div class="generalMapa5" (click)="abrirTickets(localidadCargadaBoletasVIP)">GENERAL</div>
+
+  </div>
+</div>
+
+
 
 <app-redes-sociales></app-redes-sociales>
