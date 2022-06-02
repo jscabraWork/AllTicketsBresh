@@ -20,6 +20,8 @@ export class BoletasPuntosFisicosComponent implements OnInit {
   IVA
   dineroTotalBoletas=0
   dineroTotalPalcos=0
+  dineroTotalEfectivoBoletas=0
+  dineroTotalPalcoEfectivo=0
   ngOnInit(): void {
     this.IVA =IVA
     this.punto={
@@ -49,10 +51,16 @@ export class BoletasPuntosFisicosComponent implements OnInit {
       this.dineroTotalPalcos=0
       for(var i =0; i < this.punto.boletasVendidas.length; i=i+1){
         this.dineroTotalBoletas = this.dineroTotalBoletas + (this.punto.boletasVendidas[i].precio + this.punto.boletasVendidas[i].servicio + this.punto.boletasVendidas[i].servicioIva) 
+        if(this.punto.boletasVendidas[i].metodo=='Efectivo'){
+          this.dineroTotalEfectivoBoletas = this.dineroTotalEfectivoBoletas + (this.punto.boletasVendidas[i].precio + this.punto.boletasVendidas[i].servicio + this.punto.boletasVendidas[i].servicioIva) 
+        }
       }
   
       for(var i =0; i < this.punto.palcosVendidos.length; i=i+1){
         this.dineroTotalPalcos = this.dineroTotalPalcos + (this.punto.palcosVendidos[i].precio + this.punto.palcosVendidos[i].servicio + this.punto.palcosVendidos[i].servicioIva) 
+        if(this.punto.palcosVendidos[i].metodo=='Efectivo'){
+          this.dineroTotalPalcoEfectivo = this.dineroTotalPalcoEfectivo + (this.punto.palcosVendidos[i].precio + this.punto.palcosVendidos[i].servicio + this.punto.palcosVendidos[i].servicioIva) 
+        }
       }
 
 

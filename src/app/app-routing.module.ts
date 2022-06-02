@@ -29,6 +29,7 @@ import { ReservasPromotorComponent } from './reservas-promotor/reservas-promotor
 import { RouteGuardCoordinadorService } from './service/route-guard-coordinador.service';
 import { CoordinadorPerfilComponent } from './coordinador-perfil/coordinador-perfil.component';
 import { AdminLectorComponent } from './administradores/admin-perfil/admin-eventos/admin-lector/admin-lector.component';
+import { TerminosAvalComponent } from './terminos-aval/terminos-aval.component';
 
 
 const routes: Routes = [
@@ -157,7 +158,10 @@ const routes: Routes = [
   {
     path:'terminosYCondiciones', component: TerminosYCondicionesComponent
   }
-
+,
+{
+  path:'terminosAval', component: TerminosAvalComponent
+}
   ,
   {
     path:'tratamientoDatos', component: TratamientoDatosComponent

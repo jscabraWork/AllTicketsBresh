@@ -10,9 +10,9 @@ export class CuponDataService {
   constructor(private http:HttpClient) { }
 
 
-  validarCupon(codigo:string,idBoleta:number,cantidad:number)
+  validarCupon(codigo:string,idBoleta:number,cantidad:number,idLocalidad:number)
   {
-    return this.http.get(`${API_URL}/cupon/codigo/${codigo}/${idBoleta}/${cantidad}`);
+    return this.http.get(`${API_URL}/cupon/codigo/${codigo}/${idBoleta}/${cantidad}/${idLocalidad}`);
   }
 
   cuponseValidos(idLocalidad:number){

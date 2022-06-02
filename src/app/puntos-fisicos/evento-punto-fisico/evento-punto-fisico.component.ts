@@ -2141,6 +2141,141 @@ localidadesCompradas:Localidad[]
       }
 
     }
+  
+    for(let i =0;i<5;i++){
+      if (
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].proceso
+      ){
+        this.lista16[i] = {
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+32].numeroDentroDeEvento,
+          localidad: 'promo',
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+32].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].disponible
+      ) {
+        this.lista16[i] =  {
+          valor:'v',
+          localidad: 'promo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+32].proceso) {
+        this.lista16[i]= {
+          valor:'p',
+          localidad: 'promo',
+          id:'p'
+        }
+      }
+    }
+    for(let i=0; i < 4; i++){
+      if (
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+38].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+38].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+38].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+38].proceso
+      ){
+        this.lista61[i] = {
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+38].numeroDentroDeEvento,
+          localidad: 'promo',
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+38].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+38].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+38].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+38].disponible
+      ) {
+        this.lista61[i] =  {
+          valor:'v',
+          localidad: 'promo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+38].proceso) {
+        this.lista61[i]= {
+          valor:'p',
+          localidad: 'promo',
+          id:'p'
+        }
+      }
+
+    }
+    for(let i=0; i < 3; i++){
+      if (
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+29].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+29].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+29].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+29].proceso
+      ){
+        this.lista60[i] = {
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+29].numeroDentroDeEvento,
+          localidad: 'promo',
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+29].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+29].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+29].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+29].disponible
+      ) {
+        this.lista60[i] =  {
+          valor:'v',
+          localidad: 'promo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+29].proceso) {
+        this.lista60[i]= {
+          valor:'p',
+          localidad: 'promo',
+          id:'p'
+        }
+      }
+    }
+    for(let i= 0; i<6;i++){
+
+      if (
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].proceso
+      ){
+        this.lista15[i] = {
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+22].numeroDentroDeEvento,
+          localidad: 'promo',
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+22].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].disponible
+      ) {
+        this.lista15[i] =  {
+          valor:'v',
+          localidad: 'promo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+22].proceso) {
+        this.lista15[i]= {
+          valor:'p',
+          localidad: 'promo',
+          id:'p'
+        }
+      }
+    }
 
     for(let i=0;i<10;i++){
 
@@ -2210,69 +2345,8 @@ localidadesCompradas:Localidad[]
 
       
 
-      if (
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].vendido &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].reservado &&
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].disponible &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].proceso
-      ){
-        this.lista15[i] = {
-          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+22].numeroDentroDeEvento,
-          localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+22].id, 
-          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
-        }
-      }
       
-      else if (
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].vendido ||
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].reservado ||
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].disponible
-      ) {
-        this.lista15[i] =  {
-          valor:'v',
-          localidad: 'promo',
-          id:'v'
-        }
-      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+22].proceso) {
-        this.lista15[i]= {
-          valor:'p',
-          localidad: 'promo',
-          id:'p'
-        }
-      }
       
-      if (
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].vendido &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].reservado &&
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].disponible &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].proceso
-      ){
-        this.lista16[i] = {
-          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+32].numeroDentroDeEvento,
-          localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+32].id, 
-          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
-        }
-      }
-      
-      else if (
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].vendido ||
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].reservado ||
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].disponible
-      ) {
-        this.lista16[i] =  {
-          valor:'v',
-          localidad: 'promo',
-          id:'v'
-        }
-      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+32].proceso) {
-        this.lista16[i]= {
-          valor:'p',
-          localidad: 'promo',
-          id:'p'
-        }
-      }
 
       if (
         !this.localidadCargadaBoletasVIPPiso1.palcos[i+60].vendido &&

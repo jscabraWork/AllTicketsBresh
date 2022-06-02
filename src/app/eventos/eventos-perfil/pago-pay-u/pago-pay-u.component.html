@@ -20,7 +20,14 @@
       <div class="row  rounded shadow-lg" style="background-color: white;">
         <div class="col-12">
           <h4 class="p-3"><strong>Selección de Tickets por cada Localidad</strong></h4>
-
+          <div>
+          <h4 class="pl-3 pb-1" *ngIf="this.evento.id=='PHC195'"><strong>Descuento del 10% con:</strong></h4>
+          <p class="pl-3 pb-1 "*ngIf="this.evento.id=='PHC195'">
+            Descuento exclusivo Bancos Aval 10% dto en boleteria pagando con tus tarjetas de crédito y debito de los Bancos Aval y de Dale!
+          </p>
+          
+          <img src="../../../../assets/images/img/Aval 1.png" class="w50 pl-3 pb-1" alt="" *ngIf="this.evento.id=='PHC195'">	
+        </div>
           <p class="pl-3 pr-3">Por favor, indica el número de Tickets que deseas añadir a tu compra. El numero de
             Tickets se limita a 6 para cada persona en cada evento.</p>
             <p *ngIf="evento?.visibleAP"><strong>Recuerda que desde YA puedes comprar los productos del evento con descuento en: <a class="colorMorado" href="https://allproductscol.com/eventos/evento/{{evento?.id}}">https://allproductscol.com/eventos/evento/{{evento?.id}}</a> </strong></p>

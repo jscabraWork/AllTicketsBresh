@@ -7,6 +7,7 @@ import { CiudadesDataService } from '../service/data/ciudades-data.service';
 
 import{DatePipe,registerLocaleData} from '@angular/common';
 import localeES from '@angular/common/locales/es';
+import { EpaycoService } from '../service/epayco.service';
 
 @Component({
   selector: 'app-eventos',

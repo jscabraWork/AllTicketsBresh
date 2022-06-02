@@ -8822,7 +8822,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista5[i] = {
           valor:this.localidadCargadaGeneral.palcos[i].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i].id
+          id:this.localidadCargadaGeneral.palcos[i].id,
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -8853,7 +8854,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista6[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+6].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+6].id
+          id:this.localidadCargadaGeneral.palcos[i+6].id, 
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -8886,7 +8888,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista7[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+12].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+12].id
+          id:this.localidadCargadaGeneral.palcos[i+12].id, 
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -8917,7 +8920,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista8[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+19].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+19].id
+          id:this.localidadCargadaGeneral.palcos[i+19].id, 
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -8948,7 +8952,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista9[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+26].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+26].id
+          id:this.localidadCargadaGeneral.palcos[i+26].id, 
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -8977,9 +8982,10 @@ export class ComprarPalcosComponent implements OnInit {
         !this.localidadCargadaGeneral.palcos[i+33].proceso
       ){
         this.lista10[i] = {
-          valor:this.localidadCargadaGeneral.palcos[i+33].numeroDentroDeEvento,
+          valor:this.localidadCargadaGeneral.palcos[i+33].numeroDentroDeEvento ,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+33].id
+          id:this.localidadCargadaGeneral.palcos[i+33].id, 
+          localidadid:this.localidadCargadaGeneral.id
         }
       }
       
@@ -9012,7 +9018,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista17[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+42].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+42].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+42].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id
         }
       }
       
@@ -9043,7 +9050,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista18[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+51].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+51].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+51].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id
         }
       }
       
@@ -9074,8 +9082,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista30[i] = {
           valor:this.localidadCargada.palcos[i].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargada.palcos[i].id
-          
+          id:this.localidadCargada.palcos[i].id, 
+          localidadid:this.localidadCargada.id          
         }
       }
       
@@ -9106,7 +9114,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista31[i] = {
           valor:this.localidadCargada.palcos[i+9].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargada.palcos[i+9].id
+          id:this.localidadCargada.palcos[i+9].id, 
+          localidadid:this.localidadCargada.id         
           
         }
       }
@@ -9130,6 +9139,141 @@ export class ComprarPalcosComponent implements OnInit {
       }
 
     }
+  
+    for(let i =0;i<5;i++){
+      if (
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].proceso
+      ){
+        this.lista16[i] = {
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+32].numeroDentroDeEvento,
+          localidad: 'promo',
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+32].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].disponible
+      ) {
+        this.lista16[i] =  {
+          valor:'v',
+          localidad: 'promo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+32].proceso) {
+        this.lista16[i]= {
+          valor:'p',
+          localidad: 'promo',
+          id:'p'
+        }
+      }
+    }
+    for(let i=0; i < 4; i++){
+      if (
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+38].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+38].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+38].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+38].proceso
+      ){
+        this.lista61[i] = {
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+38].numeroDentroDeEvento,
+          localidad: 'promo',
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+38].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+38].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+38].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+38].disponible
+      ) {
+        this.lista61[i] =  {
+          valor:'v',
+          localidad: 'promo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+38].proceso) {
+        this.lista61[i]= {
+          valor:'p',
+          localidad: 'promo',
+          id:'p'
+        }
+      }
+
+    }
+    for(let i=0; i < 3; i++){
+      if (
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+29].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+29].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+29].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+29].proceso
+      ){
+        this.lista60[i] = {
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+29].numeroDentroDeEvento,
+          localidad: 'promo',
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+29].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+29].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+29].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+29].disponible
+      ) {
+        this.lista60[i] =  {
+          valor:'v',
+          localidad: 'promo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+29].proceso) {
+        this.lista60[i]= {
+          valor:'p',
+          localidad: 'promo',
+          id:'p'
+        }
+      }
+    }
+    for(let i= 0; i<6;i++){
+
+      if (
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].proceso
+      ){
+        this.lista15[i] = {
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+22].numeroDentroDeEvento,
+          localidad: 'promo',
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+22].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].disponible
+      ) {
+        this.lista15[i] =  {
+          valor:'v',
+          localidad: 'promo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+22].proceso) {
+        this.lista15[i]= {
+          valor:'p',
+          localidad: 'promo',
+          id:'p'
+        }
+      }
+    }
 
     for(let i=0;i<10;i++){
 
@@ -9142,7 +9286,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista11[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+40].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+40].id
+          id:this.localidadCargadaGeneral.palcos[i+40].id, 
+          localidadid:this.localidadCargadaGeneral.id         
         }
       }
       
@@ -9173,7 +9318,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista12[i] = {
           valor:this.localidadCargadaGeneral.palcos[i+50].numeroDentroDeEvento,
           localidad: 'oro',
-          id:this.localidadCargadaGeneral.palcos[i+50].id
+          id:this.localidadCargadaGeneral.palcos[i+50].id, 
+          localidadid:this.localidadCargadaGeneral.id    
         }
       }
       
@@ -9197,67 +9343,8 @@ export class ComprarPalcosComponent implements OnInit {
 
       
 
-      if (
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].vendido &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].reservado &&
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].disponible &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].proceso
-      ){
-        this.lista15[i] = {
-          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+22].numeroDentroDeEvento,
-          localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+22].id
-        }
-      }
       
-      else if (
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].vendido ||
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+22].reservado ||
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+22].disponible
-      ) {
-        this.lista15[i] =  {
-          valor:'v',
-          localidad: 'promo',
-          id:'v'
-        }
-      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+22].proceso) {
-        this.lista15[i]= {
-          valor:'p',
-          localidad: 'promo',
-          id:'p'
-        }
-      }
       
-      if (
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].vendido &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].reservado &&
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].disponible &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].proceso
-      ){
-        this.lista16[i] = {
-          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+32].numeroDentroDeEvento,
-          localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+32].id
-        }
-      }
-      
-      else if (
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].vendido ||
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+32].reservado ||
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+32].disponible
-      ) {
-        this.lista16[i] =  {
-          valor:'v',
-          localidad: 'promo',
-          id:'v'
-        }
-      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+32].proceso) {
-        this.lista16[i]= {
-          valor:'p',
-          localidad: 'promo',
-          id:'p'
-        }
-      }
 
       if (
         !this.localidadCargadaBoletasVIPPiso1.palcos[i+60].vendido &&
@@ -9268,7 +9355,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista19[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+60].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+60].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+60].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
         }
       }
       
@@ -9291,29 +9379,30 @@ export class ComprarPalcosComponent implements OnInit {
       }
 
       if (
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].vendido &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].reservado &&
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+70].disponible &&
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].proceso
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].vendido &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].reservado &&
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+64].disponible &&
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].proceso
       ){
         this.lista20[i] = {
-          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+70].numeroDentroDeEvento,
+          valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+64].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+70].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+64].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
         }
       }
       
       else if (
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+70].vendido ||
-        this.localidadCargadaBoletasVIPPiso1.palcos[i+70].reservado ||
-        !this.localidadCargadaBoletasVIPPiso1.palcos[i+70].disponible
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+64].vendido ||
+        this.localidadCargadaBoletasVIPPiso1.palcos[i+64].reservado ||
+        !this.localidadCargadaBoletasVIPPiso1.palcos[i+64].disponible
       ) {
         this.lista20[i] =  {
           valor:'v',
           localidad: 'promo',
           id:'v'
         }
-      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+70].proceso) {
+      } else if (this.localidadCargadaBoletasVIPPiso1.palcos[i+64].proceso) {
         this.lista20[i]= {
           valor:'p',
           localidad: 'promo',
@@ -9330,7 +9419,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista21[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -9362,7 +9452,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista22[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+10].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+10].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+10].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -9394,7 +9485,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista24[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+40].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+40].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+40].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -9426,7 +9518,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista25[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+50].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+50].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+50].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -9461,7 +9554,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista13[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
         }
       }
       
@@ -9492,7 +9586,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista14[i] = {
           valor:this.localidadCargadaBoletasVIPPiso1.palcos[i+11].numeroDentroDeEvento,
           localidad: 'promo',
-          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+11].id
+          id:this.localidadCargadaBoletasVIPPiso1.palcos[i+11].id, 
+          localidadid:this.localidadCargadaBoletasVIPPiso1.id    
         }
       }
       
@@ -9528,7 +9623,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista23[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+20].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+20].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+20].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -9560,7 +9656,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista26[i] = {
           valor:this.localidadCargadaBoletasGeneralPiso2.palcos[i+60].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+60].id
+          id:this.localidadCargadaBoletasGeneralPiso2.palcos[i+60].id, 
+          localidadid:this.localidadCargadaBoletasGeneralPiso2.id    
           
         }
       }
@@ -9592,7 +9689,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista27[i] = {
           valor:this.localidadCargadaBoletasVIP.palcos[i].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasVIP.palcos[i].id
+          id:this.localidadCargadaBoletasVIP.palcos[i].id, 
+          localidadid:this.localidadCargadaBoletasVIP.id    
           
         }
       }
@@ -9624,7 +9722,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista29[i] = {
           valor:this.localidadCargadaBoletasVIP.palcos[i+130].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasVIP.palcos[i+130].id
+          id:this.localidadCargadaBoletasVIP.palcos[i+130].id, 
+          localidadid:this.localidadCargadaBoletasVIP.id    
           
         }
       }
@@ -9656,7 +9755,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista33[i] = {
           valor:this.localidadCargada.palcos[i+40].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargada.palcos[i+40].id
+          id:this.localidadCargada.palcos[i+40].id, 
+          localidadid:this.localidadCargada.id    
           
         }
       }
@@ -9691,7 +9791,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista32[i] = {
           valor:this.localidadCargada.palcos[i+18].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargada.palcos[i+18].id
+          id:this.localidadCargada.palcos[i+18].id, 
+          localidadid:this.localidadCargada.id    
           
         }
       }
@@ -9725,7 +9826,8 @@ export class ComprarPalcosComponent implements OnInit {
         this.lista28[i] = {
           valor:this.localidadCargadaBoletasVIP.palcos[i+20].numeroDentroDeEvento,
           localidad: 'fumeteo',
-          id:this.localidadCargadaBoletasVIP.palcos[i+20].id
+          id:this.localidadCargadaBoletasVIP.palcos[i+20].id, 
+          localidadid:this.localidadCargadaBoletasVIP.id    
           
         }
       }
@@ -9749,6 +9851,14 @@ export class ComprarPalcosComponent implements OnInit {
       }
     }
 
+    for(let i=0;i<60;i++){
+
+      
+
+      
+
+    }
+    
 
   }
 

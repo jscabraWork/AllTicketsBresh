@@ -1,0 +1,77 @@
+<div class="container-fluid" *ngIf="cargando">
+    <div class="row">
+        <div class="col-12">
+            
+
+        <div class="preloader"></div>
+
+
+        </div>
+    </div>
+</div>
+<form (ngSubmit)="!todoForm.invalid && manejar()" class="mt-4" #todoForm="ngForm" *ngIf="!cargando">
+
+        
+    <fieldset class="form-group">
+        <label for="">Numero de tarjeta</label>
+        <div class="row">
+        <input  type="text" placeholder="Numero de Tajerta" class= "form-control col-10 m-2"name ="cardNumber" [(ngModel)] ="tarjeta.cardNumber"  required="required" >
+
+    </div>
+    </fieldset>
+      
+    <fieldset class="form-group">
+        <label for="">Fecha de vencimiento</label>
+    <div class="row">
+    
+        <select class= "form-control colorGris col-5 m-2"name ="mes" required="required" [(ngModel)]="tarjeta.cardExpMonth">                        
+            <option value="">Mes</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>   
+
+        <select class= "form-control colorGris col-5 m-2"name ="anio" required="required"  [(ngModel)]="tarjeta.cardExpYear">                        
+            <option value="">Año</option>
+            <option value="2022">22</option>
+            <option value="2023">23</option>
+            <option value="2024">24</option>
+            <option value="2025">25</option>
+            <option value="2026">26</option>
+            <option value="2027">27</option>
+            <option value="2028">28</option>
+            <option value="2029">29</option>
+            <option value="2030">30</option>
+            <option value="2031">31</option>
+            <option value="2032">32</option>
+        </select> 
+
+    </div>
+    </fieldset>
+
+
+    <fieldset class="form-group">
+
+        <div class="row">
+        <input  type="text" class= "form-control col-4 m-2"name ="cvv" placeholder="CVV" [(ngModel)]="tarjeta.cardCvc"  required="required" >
+
+    </div>
+    </fieldset>
+      
+
+    <div style="text-align: center;">
+        <button class="btn action_button mt-2 mb-2"   type="submit">Verificar</button>
+        <p>Para que la promoción sea valida la tarjeta debe pertenecer al grupo aval <a href="https://allticketscol.com/terminosAval" class="colorNaranja" target="_blank" rel="noopener noreferrer">Termino y Condiciones</a>
+        </p>
+    </div>   
+  
+</form>

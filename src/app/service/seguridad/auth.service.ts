@@ -14,6 +14,7 @@ export class AuthService {
   private _usuario: Usuario;
   private _token: string;
 
+
   constructor(private http: HttpClient, private dialog: MatDialog, private router: Router) { }
 
   public get usuario(): Usuario {
@@ -138,6 +139,9 @@ export class AuthService {
     sessionStorage.setItem('token', accessToken);
     
   }
+
+
+
   obtenerDatosDelTocken(accessToken: string): any {
     if (accessToken != null) {
       return JSON.parse(atob(accessToken.split('.')[1]));

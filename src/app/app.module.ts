@@ -49,6 +49,7 @@ import { CoordinadorPerfilComponent } from './coordinador-perfil/coordinador-per
 import { TokenInterceptor } from './service/interceptors/token.interceptor';
 import { AuthInterceptor } from './service/interceptors/auth.interceptor';
 import { MensajeLinkComponent } from './mensaje-link/mensaje-link.component';
+import { TerminosAvalComponent } from './terminos-aval/terminos-aval.component';
 
 //SERVICIOS
 
@@ -98,7 +99,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      TratamientoDatosComponent,
      ReservasPromotorComponent,
      CoordinadorPerfilComponent,
-     MensajeLinkComponent
+     MensajeLinkComponent,
+     TerminosAvalComponent
     
 
   

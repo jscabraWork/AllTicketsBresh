@@ -2,7 +2,15 @@
 .fondoBlanco{
     background-color: white;
 }
-
+.w50{
+    width: 500px;
+    margin-bottom: 20px;
+  }
+  @media(max-width: 700px){
+    .w50{
+      width: 80%;
+    }
+  }
 .divisionLocalidad{
     text-align: right;
     width: 600px;

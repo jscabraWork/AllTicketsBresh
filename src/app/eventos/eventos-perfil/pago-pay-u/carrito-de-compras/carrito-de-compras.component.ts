@@ -10,6 +10,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Asistente } from 'src/app/administradores/admin-perfil/admin-eventos/admin-lector/asistente.model';
 import { CuponDataService } from 'src/app/service/data/cupon-data.service';
 import { Cupon } from 'src/app/administradores/admin-perfil/admin-eventos/admin-localidades/agregar-cupon/cupon.model';
+import { GrupoAvalComponent } from './grupo-aval/grupo-aval.component';
 
 
 @Component({
@@ -107,8 +108,13 @@ export class CarritoDeComprasComponent implements OnInit {
     }
 
       this.codigoVenta = this.data.codigoVenta;
-      
-
+    if(this.evento.id!='PHC195'){
+          setTimeout(()=>{ 
+            
+            this.cerrar()
+            
+          }, 240000);
+        }  
   }
 
 
@@ -143,7 +149,14 @@ export class CarritoDeComprasComponent implements OnInit {
         moneda = 'usd'
         pais='mx'
       }
-    this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.adicional
+      if(this.cupon!=undefined){
+        this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.cupon.codigoVenta
+      }
+      else{
+        this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.adicional
+      }
+
+
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -190,7 +203,13 @@ export class CarritoDeComprasComponent implements OnInit {
 if(this.pagar == false){
   this.pagar = true;
     this.codigoVentaCuadrar()
-    this.referenceCode = this.data.referenceCode +','+this.codigoVenta + ',' + this.adicional
+
+    if(this.cupon!=undefined){
+      this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.cupon.codigoVenta
+    }
+    else{
+      this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.adicional
+    }
     var data = {
       //Parametros compra (obligatorio)
       name: this.evento.nombre,
@@ -252,7 +271,13 @@ if(this.pagar == false){
 
   validarCupon(){
     
-    this.servicioCupon.validarCupon(this.codigo,this.boletas[0].id,this.boletas.length).subscribe(
+   if(this.boletas!=undefined){
+    let  localidadNumero = this.boletas[0].localidadIdNumero
+    if(this.boletas[0].localidadNombre.includes('SALUD COMPADRE')){
+      localidadNumero = 16909
+    }
+
+    this.servicioCupon.validarCupon(this.codigo,this.boletas[0].id,this.boletas.length, localidadNumero).subscribe(
       response=>{
         this.manejarCupon(response)
         console.log(response)
@@ -261,6 +286,65 @@ if(this.pagar == false){
         alert("No se encuentra para esta localidad un cupon con el codigo "+ this.codigo)
       }
     )
+
+    }
+    else if(this.palco!=null){
+      this.servicioCupon.validarCupon(this.codigo,this.palco.id,1, this.palco.idLocalidad).subscribe(
+        response=>{
+          this.manejarCupon(response)
+          console.log(response)
+        },
+        error=>{
+          alert("No se encuentra para esta localidad un cupon con el codigo "+ this.codigo)
+        }
+      )
+    }
+
+  }
+  validarCuponAval(){
+    
+    if(this.boletas!=undefined){
+     let  localidadNumero = this.boletas[0].localidadIdNumero
+
+ 
+     this.servicioCupon.validarCupon("grupoavalxxx",this.boletas[0].id,this.boletas.length, localidadNumero).subscribe(
+       response=>{
+         this.manejarCupon(response)
+         console.log(response)
+       },
+       error=>{
+         alert("No se encuentra para esta localidad un cupon con el codigo "+ this.codigo)
+       }
+     )
+ 
+     }
+     else if(this.palco!=null){
+       this.servicioCupon.validarCupon(this.codigo,this.palco.id,1, this.palco.idLocalidad).subscribe(
+         response=>{
+           this.manejarCupon(response)
+           console.log(response)
+         },
+         error=>{
+           alert("No se encuentra para esta localidad un cupon con el codigo "+ this.codigo)
+         }
+       )
+     }
+ 
+   }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(GrupoAvalComponent, {
+      width: '600px',
+      height: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if(result==true){
+        alert("Descuento por grupo aval aplicado, procede a pagar")
+        this.validarCuponAval()
+      }else{
+        alert("Esta tarjeta no es valida para el descuento")
+      }
+    });
   }
 
   manejarCupon(response){
@@ -268,14 +352,26 @@ if(this.pagar == false){
     if( response.funciona==true){
     this.cupon = response.cupon
     this.valorTotal =0
+
+
+    this.valorTotal =0
+    if(this.boletas!=undefined){
     for(let i =0; i < this.boletas.length; i++){
       this.boletas[i].precio = this.cupon.precio
       this.boletas[i].servicio = this.cupon.servicio
       this.boletas[i].servicioIva = this.cupon.iva
-
+  
       this.valorTotal =this.valorTotal+ this.boletas[i].precio  + this.boletas[i].servicio +this.boletas[i].servicioIva
     }
+  }
 
+    if(this.palco.id!=null){
+      this.palco.precio = this.cupon.precio
+      this.palco.servicio = this.cupon.servicio
+      this.palco.servicioIva = this.cupon.iva
+  
+      this.valorTotal =this.valorTotal+ this.palco.precio  + this.palco.servicio +this.palco.servicioIva
+    }
 
 
     this.referenceCode = this.data.referenceCode +','+this.codigoVenta+',' + this.cupon.codigoVenta
@@ -289,6 +385,8 @@ if(this.pagar == false){
     }
   }
 
+
+  
 }
 
 

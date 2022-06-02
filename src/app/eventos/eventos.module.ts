@@ -28,6 +28,7 @@ import { CantidadBoletasComponent } from './eventos-perfil/pago-pay-u/cantidad-b
 import { LocalidadSeleccionComponent } from './eventos-perfil/pago-pay-u/localidad-seleccion/localidad-seleccion.component';
 import { ManejoDiasComponent } from './eventos-perfil/pago-pay-u/comprar-palcos/manejo-dias/manejo-dias.component';
 import { RedesSocialesComponent } from '../redes-sociales/redes-sociales.component';
+import { GrupoAvalComponent } from './eventos-perfil/pago-pay-u/carrito-de-compras/grupo-aval/grupo-aval.component';
 
 
 
@@ -89,7 +90,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[EventosPerfilComponent,RedesSocialesComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent, AdicionalComponent, CantidadBoletasComponent, LocalidadSeleccionComponent, ManejoDiasComponent ],
+    declarations:[EventosPerfilComponent,RedesSocialesComponent, PagoPayUComponent,  RespuestaComponent , ConfirmacionComponent, ComprarPalcosComponent,HoraPipe, VacaComponent, CarritoDeComprasComponent, ImagenEventosComponent, AdicionalComponent, CantidadBoletasComponent, LocalidadSeleccionComponent, ManejoDiasComponent, GrupoAvalComponent ],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

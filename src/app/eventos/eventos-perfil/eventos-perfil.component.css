@@ -508,3 +508,13 @@ td {
       font-size: 7px;
   }
 }
+
+.w50{
+  width: 500px;
+  margin-bottom: 20px;
+}
+@media(max-width: 700px){
+  .w50{
+    width: 80%;
+  }
+}

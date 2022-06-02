@@ -101,6 +101,7 @@ export class CarritoDeComprasPuntosFisicosComponent implements OnInit {
     if(this.boletas[0].localidadNombre.includes('SALUD COMPADRE')){
       this.idLocalidad = 16909
     }
+
     }
   }
     if(this.boletas!=null){

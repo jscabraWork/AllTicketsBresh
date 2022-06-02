@@ -7,6 +7,7 @@ import { Md5 } from 'ts-md5';
 import { OlvidoComponent } from '../olvido/olvido.component';
 import { AuthService } from '../service/seguridad/auth.service';
 import { Usuario } from '../service/usuario.model';
+import { EpaycoService } from '../service/epayco.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
   constructor( private router: Router,
     public autenticacion: HardcodedAutheticationService,
     public dialog: MatDialog,
-    private auth:AuthService) { 
+    private auth:AuthService,
+    private servicio:EpaycoService) { 
 
   }
 
