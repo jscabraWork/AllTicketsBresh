@@ -156,7 +156,7 @@ pagarPalcosAPromotor(codigoVenta:string){
 
 
 comprarPuntoFiscoPalco(referenceCode,metodo){
-  return this.http.post(`${API_URL}/puntoFisico/palcos/recibir/${metodo}`,referenceCode)
+  return this.http.post(`${API_URL}/puntoFisico/tickets/recibir/imprimir/palco/${metodo}`,referenceCode)
 }
 
 

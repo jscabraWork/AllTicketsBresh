@@ -122,7 +122,7 @@ pagarBoletasAPromotor(codigoVenta:string){
 }
 
 comprarPuntoFiscoTicket(referenceCode,metodo){
-  return this.http.post(`${API_URL}/puntoFisico/tickets/recibir/${metodo}`,referenceCode)
+  return this.http.post(`${API_URL}/puntoFisico/tickets/recibir/imprimir/${metodo}`,referenceCode)
 }
 
 comprarPuntoFiscoTicketImprimir(referenceCode, metodo){
