@@ -22,6 +22,10 @@ export class LocalidadesDataService {
     return this.http.get<Localidad> (`${API_URL}/eventos/${pEvento}/localidades/localidad/${pIdLocalidad}`)
   }
 
+  getLocaliddadPorIdVenta(pIdLocalidad:number, pEvento:string){
+
+    return this.http.get<any> (`${API_URL}/eventos/${pEvento}/localidades/localidad/${pIdLocalidad}/venta`)
+  }
 
 
   addLocalidadAEvento( localidad, pEvento:string, pIdEtapa:number){

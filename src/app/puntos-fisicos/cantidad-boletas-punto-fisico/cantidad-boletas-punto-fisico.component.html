@@ -2,6 +2,8 @@
     <div class="row">
         <section class="col-12 centrar tituloLocalidad">
             <h5 >Selecciona la cantidad de Tickets que deseas comprar (máximo 6 por persona en cada evento)</h5>
+            <h5 *ngIf="this.cantidad">Este palco tiene {{cantidad}} de boletas disponible</h5>
+            <h5 *ngIf="this.cantidad==0">Este palco tiene {{cantidad}} de boletas disponible</h5>
         </section>
        
         <section class="col-12 centrar mt-3">

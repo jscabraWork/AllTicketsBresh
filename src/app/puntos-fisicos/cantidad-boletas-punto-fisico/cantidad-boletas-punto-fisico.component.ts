@@ -25,6 +25,7 @@ export class CantidadBoletasPuntoFisicoComponent implements OnInit {
   usuarioEntidad: Cliente;
   cargando:boolean
   codigoVenta
+  cantidad:number
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private servicioBoletas: BoletasDataService,
@@ -44,11 +45,29 @@ export class CantidadBoletasPuntoFisicoComponent implements OnInit {
     this.evento = this.data.evento
 
     this.codigoVenta = this.data.codigoVenta;
-
+    
+    if(this.data.cantidad){
+      this.cantidad = this.data.cantidad;
+    }
+    if(this.data.cantidad==-1){
+      this.cantidad =0
+    }
+  
   }
   mas(){
-
+ 
+    if(this.data.cantidad){
+      if(this.boletasCantidad<this.cantidad){
+        this.boletasCantidad++;
+      }
+      else{
+        alert("Maximo puedes comprar "+this.cantidad+" Tickets")
+      }
+    }
+    else{
       this.boletasCantidad++;
+    }
+   
    
   }
   menos(){
@@ -67,7 +86,9 @@ siguiente(){
   if(this.cargando ==false){
     this.cargando = true
   this.servicioBoletas.reservarBoletaLocalidad(this.evento.id, this.idLocalidad, this.boletasCantidad).subscribe(response=>{
+
     this.boletas = response
+    if(this.boletas!=null){
     for(var i =0; i < this.boletas.length; i++){
       this.referenceCode  = this.referenceCode+ this.boletas[i].id +"_"
       this.valorTotal = this.valorTotal + this.boletas[i].precio  +this.boletas[i].servicio +this.boletas[i].servicioIva
@@ -78,7 +99,11 @@ siguiente(){
     
     this.AbrirCarrito()
     this.servicioBoletas.rechazarReservaBoleta( this.boletas).subscribe(response=>response);
-    
+  }
+  else{
+    alert("No hay boletas disponibles")
+    this.dialog.closeAll()
+  }
   })
 }
 }

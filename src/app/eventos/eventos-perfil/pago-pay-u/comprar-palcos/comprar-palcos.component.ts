@@ -11117,7 +11117,7 @@ if(!this.usuarioBoolean)
       numero != 'l' ) {
       if (!this.cargando &&this.cargadoTodo) {
 
-        console.log(numero);
+     
         
  
           this.cargando = true;
@@ -11126,7 +11126,7 @@ if(!this.usuarioBoolean)
             .subscribe((response) => {
               this.palco = response;
               
-              console.log(this.palco)
+         
 
 
 
@@ -11242,7 +11242,7 @@ if(!this.usuarioBoolean)
           numero != 'l' ) {
           if (!this.cargando &&this.cargadoTodo) {
     
-            console.log(numero);
+         
             
             
               this.cargando = true;
@@ -11251,7 +11251,7 @@ if(!this.usuarioBoolean)
                 .subscribe((response) => {
                   this.palco = response;
                   
-                  console.log(this.palco)
+            
     
     
     
@@ -11365,7 +11365,7 @@ agregarPalcoIndividualMultiplesDias(numero,id1,id2,id3) {
           numero != 'l' ) {
           if (!this.cargando &&this.cargadoTodo) {
     
-            console.log(numero);
+
             
   
 
@@ -11379,7 +11379,7 @@ agregarPalcoIndividualMultiplesDias(numero,id1,id2,id3) {
                           
     
                           this.multiplesPalcos(response,ids);
-                          console.log(response)
+                 
 
                           for(let i =0;i< response.length;i++) {
                             this.palcoServicio
@@ -11397,7 +11397,7 @@ agregarPalcoIndividualMultiplesDias(numero,id1,id2,id3) {
     
                       (error) => {
                         error;
-                        console.log(error)
+                  
                         alert(
                       
                           'Alguien acaba de seleccionar este palco, intenta seleccionar otro'
@@ -11434,9 +11434,19 @@ agregarPalcoIndividualMultiplesDias(numero,id1,id2,id3) {
 
 
       seleccionarLocalidadParaPalcoIndividual(id:number) {
-        this.servicioLocalidad.getLocaliddadPorId(id, this.evento.nombre).subscribe((response) => {
-
-          this.abrirTickets(response);
+  
+        this.servicioLocalidad.getLocaliddadPorIdVenta(id, this.evento.nombre).subscribe((response) => {
+          let cantidad
+          
+          
+          if(response.boletas==null){
+            cantidad=-1;
+          }
+          else{
+            cantidad =response.boletas.length;
+          }
+          
+          this.abrirTickets2(response.localidad,cantidad);
         })
       }
 
@@ -11448,6 +11458,25 @@ agregarPalcoIndividualMultiplesDias(numero,id1,id2,id3) {
       
         this.referenceCode = 'TICKET;' + this.usuarioEntidad.numeroDocumento + ',';
         this.cantidadBoletas(localidad);
+     
+    }
+    else{
+      alert('Cargando por favor espere')
+    }
+    }
+
+    else {
+      alert("Debes ingresar a tu cuenta AllTickets para realizar la compra, en caso de no tener registraté")
+      this.openDialog();
+    }
+  }
+  abrirTickets2(localidad: Localidad,cantidad:number) {
+    if (!this.usuarioBoolean) {
+      if(!this.cargando && this.cargadoTodo)
+      {
+      
+        this.referenceCode = 'TICKET;' + this.usuarioEntidad.numeroDocumento + ',';
+        this.cantidadBoletasPalco(localidad,cantidad);
      
     }
     else{
@@ -11656,6 +11685,36 @@ AbrirCarritoTicket(): void {
         contadorBoletas: this.contadorBoletas,
         codigoVenta: this.codigoVenta,
         usuarioEntidad: this.usuarioEntidad,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.dialog.closeAll();
+
+      this.ngOnInit();
+
+    });
+  }
+
+
+  cantidadBoletasPalco(localidad: Localidad, cantidad:number) {
+
+
+    let efectivo = localidad.efectivo;
+
+    const dialogRef = this.dialog.open(CantidadBoletasComponent, {
+      width: '600px',
+
+
+      data: {
+        idLocalidad: localidad.id,
+        referenceCode: this.referenceCode,
+        efectivo: efectivo,
+        evento: this.evento,
+        contadorBoletas: this.contadorBoletas,
+        codigoVenta: this.codigoVenta,
+        usuarioEntidad: this.usuarioEntidad,
+        cantidad:cantidad
       },
     });
 

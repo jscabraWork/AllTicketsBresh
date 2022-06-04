@@ -116,35 +116,33 @@ export class ImprimirBoletasComponent implements OnInit {
       html2canvas(data as any , {logging: false, useCORS: true, allowTaint: false, proxy: 'https://allticketscol.com/*'}).then(canvas => {
     
   
-          var imgWidth = 13.97;
-          var pageHeight = 5.08;
-          var imgHeight = canvas.height * imgWidth / canvas.width;
-          var heightLeft = imgHeight;
-          
-          const contentDataURL = canvas.toDataURL('image/webp');
-          
-          let pdfData = new jsPDF('l', 'cm', [13.97,5.08]);
-          
-          
-          var position = 0;
-          pdfData.addImage(contentDataURL, 'WEBP', 0, position, imgWidth, imgHeight,'ticket'+this.boletas[i].id, 'NONE')
-          
-          
+        var imgWidth = 13.97;
+        var pageHeight = 5.08;
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+        
+        const contentDataURL = canvas.toDataURL('image/webp');
+        
+        let pdfData = new jsPDF('l', 'cm', [13.97,5.08]);
+        
+        
+        var position = 0;
+        pdfData.addImage(contentDataURL, 'WEBP', 0, position, imgWidth, imgHeight,'ticket'+this.boletas[i].id, 'NONE')
+        
+   
 
+        var blob = new Blob([pdfData.output('blob')], { type : 'application/pdf'}); //this make the magic
+        
+        var blobURL = window.URL.createObjectURL(blob);
 
-          var blob = new Blob([pdfData.output('blob')], { type : 'application/pdf'}); //this make the magic
-          
-          var blobURL = window.URL.createObjectURL(blob);
- 
         
 
-             var my_file = new PrintFilePDF(blobURL, FileSourceType.URL, 'TICKET'+this.boletas[i].id.toString()+i+'.pdf', 1);
+         var my_file = new PrintFilePDF(blobURL, FileSourceType.URL, 'TICKET'+this.boletas[i].id.toString()+i+'.pdf', 1);
 
 
 		
         cpj.files.push(my_file);   
-        console.log(i)
-        console.log(cpj.files)
+
         // Send print job to printer!
         if(i == this.boletas.length-1){
           cpj.sendToClient();
@@ -344,6 +342,9 @@ export class ImprimirBoletasComponent implements OnInit {
 //           var position = 0;
 //           pdfData.addImage(contentDataURL, 'WEBP', 0, position, imgWidth, imgHeight,'ticket'+this.boletas[i].id, 'NONE')
           
+          
+
+
           
 
 
