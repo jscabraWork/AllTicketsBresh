@@ -7923,7 +7923,7 @@ localidadesCompradas:Localidad[]
       }
     }
     
-    for(let i=0;i<110;i++){
+    for(let i=0;i<22;i++){
       if (
         !this.localidadCargadaBoletasVIP.palcos[i+20].vendido &&
         !this.localidadCargadaBoletasVIP.palcos[i+20].reservado &&
@@ -7956,16 +7956,140 @@ localidadesCompradas:Localidad[]
           id:'p'
         }
       }
-    }
 
-    for(let i=0;i<60;i++){
-
+      if (
+        !this.localidadCargadaBoletasVIP.palcos[i+42].vendido &&
+        !this.localidadCargadaBoletasVIP.palcos[i+42].reservado &&
+        this.localidadCargadaBoletasVIP.palcos[i+42].disponible &&
+        !this.localidadCargadaBoletasVIP.palcos[i+42].proceso
+      ){
+        this.lista50[i] = {
+          valor:this.localidadCargadaBoletasVIP.palcos[i+42].numeroDentroDeEvento,
+          localidad: 'fumeteo',
+          id:this.localidadCargadaBoletasVIP.palcos[i+42].id, 
+          localidadid:this.localidadCargadaBoletasVIP.id    
+          
+        }
+      }
       
+      else if (
+        this.localidadCargadaBoletasVIP.palcos[i+42].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+42].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+42].disponible
+      ) {
+        this.lista50[i] =  {
+          valor:'v',
+          localidad: 'fumeteo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+42].proceso) {
+        this.lista50[i]= {
+          valor:'p',
+          localidad: 'fumeteo',
+          id:'p'
+        }
+      }
 
+      if (
+        !this.localidadCargadaBoletasVIP.palcos[i+64].vendido &&
+        !this.localidadCargadaBoletasVIP.palcos[i+64].reservado &&
+        this.localidadCargadaBoletasVIP.palcos[i+64].disponible &&
+        !this.localidadCargadaBoletasVIP.palcos[i+64].proceso
+      ){
+        this.lista51[i] = {
+          valor:this.localidadCargadaBoletasVIP.palcos[i+64].numeroDentroDeEvento,
+          localidad: 'fumeteo',
+          id:this.localidadCargadaBoletasVIP.palcos[i+64].id, 
+          localidadid:this.localidadCargadaBoletasVIP.id    
+          
+        }
+      }
       
+      else if (
+        this.localidadCargadaBoletasVIP.palcos[i+64].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+64].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+64].disponible
+      ) {
+        this.lista51[i] =  {
+          valor:'v',
+          localidad: 'fumeteo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+64].proceso) {
+        this.lista51[i]= {
+          valor:'p',
+          localidad: 'fumeteo',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaBoletasVIP.palcos[i+86].vendido &&
+        !this.localidadCargadaBoletasVIP.palcos[i+86].reservado &&
+        this.localidadCargadaBoletasVIP.palcos[i+86].disponible &&
+        !this.localidadCargadaBoletasVIP.palcos[i+86].proceso
+      ){
+        this.lista52[i] = {
+          valor:this.localidadCargadaBoletasVIP.palcos[i+86].numeroDentroDeEvento,
+          localidad: 'fumeteo',
+          id:this.localidadCargadaBoletasVIP.palcos[i+86].id, 
+          localidadid:this.localidadCargadaBoletasVIP.id    
+          
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIP.palcos[i+86].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+86].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+86].disponible
+      ) {
+        this.lista52[i] =  {
+          valor:'v',
+          localidad: 'fumeteo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+86].proceso) {
+        this.lista52[i]= {
+          valor:'p',
+          localidad: 'fumeteo',
+          id:'p'
+        }
+      }
+
+      if (
+        !this.localidadCargadaBoletasVIP.palcos[i+108].vendido &&
+        !this.localidadCargadaBoletasVIP.palcos[i+108].reservado &&
+        this.localidadCargadaBoletasVIP.palcos[i+108].disponible &&
+        !this.localidadCargadaBoletasVIP.palcos[i+108].proceso
+      ){
+        this.lista53[i] = {
+          valor:this.localidadCargadaBoletasVIP.palcos[i+108].numeroDentroDeEvento,
+          localidad: 'fumeteo',
+          id:this.localidadCargadaBoletasVIP.palcos[i+108].id, 
+          localidadid:this.localidadCargadaBoletasVIP.id    
+          
+        }
+      }
+      
+      else if (
+        this.localidadCargadaBoletasVIP.palcos[i+108].vendido ||
+        this.localidadCargadaBoletasVIP.palcos[i+108].reservado ||
+        !this.localidadCargadaBoletasVIP.palcos[i+108].disponible
+      ) {
+        this.lista53[i] =  {
+          valor:'v',
+          localidad: 'fumeteo',
+          id:'v'
+        }
+      } else if (this.localidadCargadaBoletasVIP.palcos[i+108].proceso) {
+        this.lista53[i]= {
+          valor:'p',
+          localidad: 'fumeteo',
+          id:'p'
+        }
+      }
 
     }
-    
 
   }
   
