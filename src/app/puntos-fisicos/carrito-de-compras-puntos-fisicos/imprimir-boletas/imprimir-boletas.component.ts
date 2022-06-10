@@ -399,14 +399,15 @@ export class ImprimirBoletasComponent implements OnInit {
         
 //         for(let i=0;i<this.palco.personasMaximas;i++){
 //           var my_file = new PrintFilePDF(blobURL, FileSourceType.URL, 'PALCO'+this.palco.id.toString()+i+'.pdf', 1);
-//           cpj.files.push(my_file);   
+//           pdfData.save()
+//           //cpj.files.push(my_file);   
 //         }
       
 
-//         console.log(cpj.files)
+//       //  console.log(cpj.files)
 //         // Send print job to printer!
      
-//           cpj.sendToClient();
+//          // cpj.sendToClient();
         
 
 
