@@ -121,6 +121,16 @@
   <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros rojo">v</span>Vendido</p>
   <p *ngIf="evento?.mapa =='mapa23'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
 
+
+  <p *ngIf="evento?.mapa =='mapa19'"><span class="cuadros13 cuadros">#</span>Palcos FRAT</p>
+  <p *ngIf="evento?.mapa =='mapa19'"><span class="cuadros12 cuadros">#</span>Palcos A</p>
+  <p *ngIf="evento?.mapa =='mapa19'"><span class="cuadros4 cuadros">#</span>Palcos B</p>
+  <p *ngIf="evento?.mapa =='mapa19'"><span class="cuadros5 cuadros">#</span>Palcos C</p>
+  <p *ngIf="evento?.mapa =='mapa19'"><span class="cuadros3 cuadros">#</span>VIP</p>
+  <p *ngIf="evento?.mapa =='mapa19'"><span class="cuadros9 cuadros">#</span>General</p>
+  <p *ngIf="evento?.mapa =='mapa19'"><span class="cuadros rojo">v</span>Vendido</p>
+  <p *ngIf="evento?.mapa =='mapa19'"><span class="cuadros amarillo">p</span>En Proceso de compra</p>
+
   <p *ngIf="evento?.mapa =='mapa1'"><span class="cuadros cuadros10">#</span> Palcos Adicta al dolor</p>
   <p *ngIf="evento?.mapa =='mapa1'"><span class="cuadros5 cuadros">#</span> Zona Collar de Perlas</p>
   <p *ngIf="evento?.mapa =='mapa1'"><span class="cuadros4 cuadros">#</span>Zona Días Nublados</p>
@@ -2230,6 +2240,813 @@
 </div>
 
 
+
+<div id="desplazate" *ngIf="evento?.mapa=='mapa19'">
+  <p>
+    <-- Desplázate en el mapa -->
+  </p>
+</div>
+<div class="contenedor-mapa mt-5 pb-5" *ngIf="evento?.mapa=='mapa19'">
+  <div class="mapa" style="margin: 0px auto;">
+    
+    <div class="mapa19cont displayF">
+
+
+      <div class="izquierdamapa19 displayF">
+
+        <div class="displayF flexCol">
+          <div *ngFor="let item of lista53">
+            <div class="cuadros"
+              [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+              (click)="agregarPalcoIndividualID(item.valor,item.id)">
+              {{item.valor}}
+            </div>
+          </div>
+        </div>
+        <div class="displayF flexCol">
+          <div *ngFor="let item of lista54">
+            <div class="cuadros"
+              [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros5':item.localidad=='prem', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+              (click)="agregarPalcoIndividualID(item.valor,item.id)">
+              {{item.valor}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="midmapa19 displayF flexCol">
+
+        <div class="general19 displayF" (click)="abrirTickets(localidadCargadaBoletasGeneralPiso2)">GENERAL</div>
+        <div class="VIP19 displayF" (click)="abrirTickets(localidadCargadaBoletasVIPPiso1)">VIP</div>
+        <div class="midmapa19C flexRow displayF">
+          <div *ngFor="let item of lista100">
+            <div class="cuadros"
+              [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+              (click)="agregarPalcoIndividualID(item.valor,item.id)">
+              {{item.valor}}
+            </div>
+          </div>
+        </div>
+        <div class="midmapa19C flexRow displayF">
+          <div class="midmapa19CI displayF">
+            <div *ngFor="let item of lista57">
+            <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+          <div class="midmapa19CD displayF">
+            <div *ngFor="let item of lista58">
+            <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="midmapa19C flexRow displayF mt10">
+          <div class="midmapa19CI2 flexWrap displayF">
+            <div *ngFor="let item of lista59">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+            <div *ngFor="let item of lista61">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+          <div class="tarima19pt2 displayF">TARIMA No 2</div>
+          <div class="midmapa19CD2 flexWrap displayF">
+            <div *ngFor="let item of lista60">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+            <div *ngFor="let item of lista62">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="midmapa19C flexRow displayF mt10">
+          <div class="midmapa19CI3 flexWrap displayF">
+            <div class="displayF">
+              <div *ngFor="let item of lista63">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+            <div class="displayF">
+              <div *ngFor="let item of lista65">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="midmapa19CD3 flexWrap displayF">
+            <div *ngFor="let item of lista64; let i =index">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+            <div *ngFor="let item of lista66; let i =index">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="midmapa19C flexRow displayF mt20">
+          <div class="midmapa19BI flexWrap displayF">
+            <div class="displayF">
+              <div *ngFor="let item of lista41; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+            <div class="displayF">
+              <div *ngFor="let item of lista43; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="foh19 displayF">F.O.H</div>
+          <div class="midmapa19BD flexWrap displayF">
+            <div *ngFor="let item of lista42; let i =index">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+            <div *ngFor="let item of lista44; let i =index">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="midmapa19C flexRow displayF mt10">
+          <div class="midmapa19BI2 flexWrap displayF">
+            <div class="displayF">
+              <div *ngFor="let item of lista45; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+            <div class="displayF">
+              <div *ngFor="let item of lista47; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="midmapa19BD2 flexWrap displayF">
+            <div class="displayF">
+              <div *ngFor="let item of lista46; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+            <div class="displayF">
+              <div *ngFor="let item of lista48; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="midmapa19C flexRow displayF mt10">
+          <div class="midmapa19BI2 flexWrap displayF">
+            <div class="displayF">
+              <div *ngFor="let item of lista49; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+            <div class="displayF">
+              <div *ngFor="let item of lista51; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="midmapa19BD2 flexWrap displayF">
+            <div class="displayF">
+              <div *ngFor="let item of lista50; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+            <div class="displayF">
+              <div *ngFor="let item of lista52; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="displayF flexCol">
+          <div class="displayF flexRow">
+            <div class="displayF flexRow midmapa19AI">
+              <div class="displayF flexRow midmapa19AI">
+                <div>
+                  <div *ngFor="let item of lista29; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div *ngFor="let item of lista30; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexRow midmapa19AI2 ml10">
+                <div>
+                  <div *ngFor="let item of lista31; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div *ngFor="let item of lista32; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexRow midmapa19AI3 ml10 mr30">
+                <div>
+                  <div *ngFor="let item of lista33; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div *ngFor="let item of lista34; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="displayF flexRow">
+              <div class="displayF flexCol midmapa19AI">
+                <div class="flexRow midAmap19t">
+                  <div *ngFor="let item of lista12; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                  <div *ngFor="let item of lista15; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div *ngFor="let item of lista13; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+                <div class="flexRow midAmap19t">
+                  <div *ngFor="let item of lista11; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                  <div *ngFor="let item of lista14; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tarima1mapa19l"></div>
+              <div class="displayF flexCol midmapa19AD">
+                <div class="flexRow midAmap19t">
+                  <div *ngFor="let item of lista16; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div *ngFor="let item of lista17; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+                <div class="flexRow midAmap19t">
+                  <div *ngFor="let item of lista18; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="displayF flexRow midmapa19AI">
+              
+              
+              <div class="displayF flexRow midmapa19AI3 ml30">
+                <div>
+                  <div *ngFor="let item of lista35; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div *ngFor="let item of lista36; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexRow midmapa19AI2 ml10 ">
+                <div>
+                  <div *ngFor="let item of lista37; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div *ngFor="let item of lista38; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexRow midmapa19AI ml10">
+                <div>
+                  <div *ngFor="let item of lista39; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div *ngFor="let item of lista40; let i =index">
+                    <div class="cuadros"
+                      [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros12':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                      (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                      {{item.valor}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="displayF flexRow midmapa19Ab">
+            <div class="displayF flexCol">
+              <div *ngFor="let item of lista1; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+            <div class="displayF flexRow ">
+              <div *ngFor="let item of lista2; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+            <div class="displayF flexCol">
+              <div class="displayF flexCol">
+                <div *ngFor="let item of lista3; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexCol mt10">
+                <div *ngFor="let item of lista4; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="displayF flexCol">
+              <div class="displayF flexCol">
+                <div *ngFor="let item of lista5; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexCol mt10">
+                <div *ngFor="let item of lista6; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="displayF flexCol">
+              <div class="displayF flexCol">
+                <div *ngFor="let item of lista7; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexCol mt10">
+                <div *ngFor="let item of lista8; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="displayF flexCol">
+              <div class="displayF flexCol">
+                <div *ngFor="let item of lista9; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexCol mt10">
+                <div *ngFor="let item of lista10; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tarimaN1map19 displayF">TARIMA No 1</div>
+            
+            <div class="displayF flexCol">
+              <div class="displayF flexCol">
+                <div *ngFor="let item of lista19; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexCol mt10">
+                <div *ngFor="let item of lista20; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="displayF flexCol">
+              <div class="displayF flexCol">
+                <div *ngFor="let item of lista21; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexCol mt10">
+                <div *ngFor="let item of lista22; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="displayF flexCol">
+              <div class="displayF flexCol">
+                <div *ngFor="let item of lista23; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexCol mt10">
+                <div *ngFor="let item of lista24; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="displayF flexCol">
+              <div class="displayF flexCol">
+                <div *ngFor="let item of lista25; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+              <div class="displayF flexCol mt10">
+                <div *ngFor="let item of lista26; let i =index">
+                  <div class="cuadros"
+                    [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                    (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                    {{item.valor}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="displayF flexRow">
+              <div *ngFor="let item of lista27; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+            <div class="displayF flexCol">
+              <div *ngFor="let item of lista28; let i =index">
+                <div class="cuadros"
+                  [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros13':item.localidad=='oro', 'cuadros7':item.localidad=='promo'}"
+                  (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                  {{item.valor}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="displayF flexRow alingbot">
+          <div class="tarima19pilar"></div>
+          <div class="tarima19hor"></div>
+          <div class="tarima19pilar"></div>
+        </div>
+
+      </div>
+
+      
+      <div class="izquierdamapa19 displayF mr30">
+
+        <div class="displayF flexCol">
+          <div *ngFor="let item of lista55">
+            <div class="cuadros"
+              [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+              (click)="agregarPalcoIndividualID(item.valor,item.id)">
+              {{item.valor}}
+            </div>
+          </div>
+        </div>
+        <div class="displayF flexCol">
+          <div *ngFor="let item of lista56">
+            <div class="cuadros"
+              [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros4':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+              (click)="agregarPalcoIndividualID(item.valor,item.id)">
+              {{item.valor}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="izquierdamapa19 displayF mr10">
+
+        <div class="displayF flexCol">
+          <div>
+            <div *ngFor="let item of lista67">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+          <div class="mt20">
+            <div *ngFor="let item of lista68">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="displayF flexCol">
+          <div>
+            <div *ngFor="let item of lista69">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+          <div class="mt20">
+            <div *ngFor="let item of lista70">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="izquierdamapa19 displayF">
+
+        <div class="displayF flexCol">
+          <div>
+            <div *ngFor="let item of lista101">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+          <div class="mt20">
+            <div *ngFor="let item of lista71">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro', 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="displayF flexCol">
+          <div>
+            <div *ngFor="let item of lista72">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro' , 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+          <div class="mt65">
+            <div *ngFor="let item of lista73">
+              <div class="cuadros"
+                [ngClass]="{'rojo':item.valor=='v', 'amarillo':item.valor=='p','opaco':item.valor=='l','cuadros5':item.localidad=='oro' , 'cuadros7':item.localidad=='promo', 'cuadros12':item.localidad=='fumeteo'}"
+                (click)="agregarPalcoIndividualID(item.valor,item.id)">
+                {{item.valor}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--  -->
+    
+</div>
+
+</div>
 
 
 

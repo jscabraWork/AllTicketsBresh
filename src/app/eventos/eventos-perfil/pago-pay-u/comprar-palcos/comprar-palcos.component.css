@@ -299,6 +299,153 @@ img {
   margin-top: 11px;
   padding-bottom: 31px;
 }
+.displayF{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flexCol{
+  flex-flow: column;
+}
+.flexRow{
+  flex-flow: row;
+}
+.flexWrap{
+  flex-flow: wrap;
+}
+.mt10{
+  margin-top: 10px;
+}
+.ml10{
+  margin-left: 10px;
+}
+.mr30{
+  margin-right: 30px;
+}
+.mr10{
+  margin-right: 10px;
+}
+.mt65{
+  margin-top: 65px;
+}
+.ml30{
+  margin-left: 30px;
+}
+.mt20{
+  margin-top: 20px;
+}
+.mapa19cont {
+  width: 1500px;
+}
+.alingbot{
+  align-items: flex-end;
+  margin-top: -122px;
+}
+.tarima19pt2{
+  width: 210px;
+  height: 111px;
+  background-color: #333;
+  color: white;
+  margin-top: -42px;
+}
+.tarima19pilar{
+  width: 61px;
+    height: 137px;
+  background-color: #333;
+}
+.tarima19hor{
+  width: 605px;
+  height: 50px;
+  background-color: #333;
+}
+.foh19{
+  width: 142px;
+  height: 100px;
+  background-color: #333;
+  color: white;
+}
+.izquierdamapa19 {
+  margin-top: 1027px;
+}
+.general19{
+  width: 783px;
+  height: 200px;
+  cursor: pointer;
+  background-color: rgb(148,148,51);
+  color: white;
+  font-size: 30px;
+}
+.VIP19{
+  width: 783px;
+  height: 200px;
+  cursor: pointer;
+  background-color: lightblue;
+  color: white;
+  font-size: 30px;
+}
+.midmapa19C{
+  width: 990px;
+}
+.midmapa19CD{
+  margin-left: 276px;
+}
+.midmapa19CI2{
+  width: 278px;
+}
+.midmapa19CD2{
+  width: 278px;
+  margin-left: 21px;
+}
+.midmapa19CI3{
+  width: 380px;
+  justify-content: flex-end;
+  margin-left: -27px;
+}
+.midmapa19CD3{
+  width: 380px;
+  margin-left: 66px;
+}
+.midmapa19BI,.midmapa19BD{
+  width: 325px;
+}
+.midmapa19BI2,.midmapa19BD2{
+  width: 380px;
+}
+.midmapa19BD2{
+  margin-left: 40px;
+  justify-content: flex-start;
+}
+.midmapa19BI2{
+  justify-content: flex-end;
+}
+.midmapa19AI2,.midmapa19AI{
+  align-items: flex-end;
+}
+.midmapa19AI3{
+  align-items: flex-start;
+}
+.midmapa19AD{
+  align-items: flex-start;
+}
+.midAmap19t{
+  width: 93px;
+}
+.tarima1mapa19l{
+  width: 50px;
+  height: 270px;
+  margin: 0px 10px;
+  background-color: #333;
+  margin-bottom: -56px;
+}
+.midmapa19Ab{
+  align-items: flex-start;
+}
+.tarimaN1map19{
+  width: 200px;
+  height: 190px;
+  background-color: #333;
+  color: white
+}
 .caja2mapa22{
   width: 375px;
   height: 50px;
