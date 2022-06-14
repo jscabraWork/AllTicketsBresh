@@ -11,7 +11,7 @@
 					<nav class="navbar navbar-expand-xl navbar-dark barra" >
 						
 						<a routerLink='/home'>
-							<img class="navbar-brand" src="../assets/images/img/logo2.png" style="width:200px" >
+							<img class="navbar-brand" src="../assets/images/img/logo.png" style="width:100px" >
 						</a>
 
 
@@ -30,37 +30,23 @@
 									<li routerLinkActive="active " class=" m-lg-3">
 										<a routerLink='/eventos' class="nav-link">Eventos</a>
 									</li>
-									<li routerLinkActive="active " class=" m-lg-3">
-										<a routerLink='/ciudades' class="nav-link">Ciudades</a>
-									</li>
-								
+
 									<li routerLinkActive="active" class=" m-lg-3">
 										<a routerLink='/nosotros' class="nav-link">Nosotros</a>
 									</li>
-									
-									<li routerLinkActive="active" class=" m-lg-3">
-										<a routerLink='/como-comprar' class="nav-link">¿Cómo comprar?</a>
-									</li>
-								
-
-									
-									<li routerLinkActive="active" class=" m-lg-3">
-										<a (click)="openDialog3()" class="nav-link " style="cursor: pointer" class="nav-link">Contáctanos</a>
-									</li>
-
 
 
 									<li routerLinkActive="active" class=" m-lg-3">
-										<a *ngIf="!autenticacion.getPromotor()&&!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin() && !autenticacion.puntoFisicoLoggin() && !autenticacion.ministerioLoggin()&& !autenticacion.contadorLoggin()" (click)="openDialog2()" class="nav-link " style="color:#ed701c;cursor: pointer">Login</a>										<a  *ngIf="autenticacion.usuarioLoggin()" routerLink='/usuarios/usuario/{{usuario}}' class="nav-link " (click)="cargarUsuario()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
-										<a  *ngIf="autenticacion.adminLoggin()" routerLink='/administradores/admin/{{usuario}}' class="nav-link " (click)="cargarAdmin()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
-										<a  *ngIf="autenticacion.organizadorLoggin()" routerLink='organizadores/organizador/{{usuario}}' class="nav-link " (click)="cargarOrganizador()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
-										<a  *ngIf="autenticacion.ministerioLoggin()" routerLink='perfilMinisterio/{{usuario}}' class="nav-link " (click)="cargarMinisterio()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
-										<a  *ngIf="autenticacion.puntoFisicoLoggin()" routerLink='puntoFisico/{{usuario}}' class="nav-link " (click)="cargarPuntoFisico()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
-										<a  *ngIf="autenticacion.promotorLoggin()" routerLink='promotor/{{usuario}}' class="nav-link " (click)="cargarPromotor()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
-										<a  *ngIf="autenticacion.contadorLoggin()" routerLink='organizadores/contador' class="nav-link "  style="color:#ed701c;"><mat-icon>person</mat-icon></a>
+										<a *ngIf="!autenticacion.getPromotor()&&!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin() && !autenticacion.puntoFisicoLoggin() && !autenticacion.ministerioLoggin()&& !autenticacion.contadorLoggin()" (click)="openDialog2()" class="nav-link " >Login</a>										<a  *ngIf="autenticacion.usuarioLoggin()" routerLink='/usuarios/usuario/{{usuario}}' class="nav-link " (click)="cargarUsuario()" style="color:#ed701c;"><mat-icon>person</mat-icon></a>
+										<a  *ngIf="autenticacion.adminLoggin()" routerLink='/administradores/admin/{{usuario}}' class="nav-link " (click)="cargarAdmin()"><mat-icon>person</mat-icon></a>
+										<a  *ngIf="autenticacion.organizadorLoggin()" routerLink='organizadores/organizador/{{usuario}}' class="nav-link " (click)="cargarOrganizador()" ><mat-icon>person</mat-icon></a>
+										<a  *ngIf="autenticacion.ministerioLoggin()" routerLink='perfilMinisterio/{{usuario}}' class="nav-link " (click)="cargarMinisterio()"><mat-icon>person</mat-icon></a>
+										<a  *ngIf="autenticacion.puntoFisicoLoggin()" routerLink='puntoFisico/{{usuario}}' class="nav-link " (click)="cargarPuntoFisico()" ><mat-icon>person</mat-icon></a>
+										<a  *ngIf="autenticacion.promotorLoggin()" routerLink='promotor/{{usuario}}' class="nav-link " (click)="cargarPromotor()"><mat-icon>person</mat-icon></a>
+										<a  *ngIf="autenticacion.contadorLoggin()" routerLink='organizadores/contador' class="nav-link " ><mat-icon>person</mat-icon></a>
 									</li>
 									<li routerLinkActive="active" class=" m-lg-3" *ngIf="!autenticacion.getPromotor()&&!autenticacion.usuarioLoggin() && !autenticacion.adminLoggin() && !autenticacion.organizadorLoggin() && !autenticacion.puntoFisicoLoggin() && !autenticacion.ministerioLoggin()&& !autenticacion.contadorLoggin()">
-										<a   (click)="openDialog()" class="nav-link " style="color:#ed701c;cursor: pointer">Regístrate</a>
+										<a   (click)="openDialog()" class="nav-link ">Regístrate</a>
 										
 									</li>
 									
@@ -75,12 +61,6 @@
 										<a *ngIf="autenticacion.contadorLoggin()" routerLink='/logoutCoordinador' class="nav-link" > <mat-icon>exit_to_app</mat-icon></a>
 									</li>
 
-									<li class="mt-4 mt-lg-0 mr-lg-3">
-									<input type="text" placeholder="Buscar" class="form-control rounded-pill  m-lg-1 m-lg-3" >
-								</li>
-								<li class=" mt-4 mt-lg-0">
-									<button class=" botonBarra btn m-lg-3 rounded border-dark shadow-sm" type="submit" >Buscar</button>
-								</li>
 							</ul>			
 						</div>				
 					</nav>			

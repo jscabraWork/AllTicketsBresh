@@ -1,10 +1,23 @@
-<section>
-    <div id="prueba">
-        <h1 class="centrado4 rounded eventosTitulo"><strong>Eventos</strong></h1>
+<div class="contenedorAA display-n">
+    <div class="principal">
+        <div class="principalInfo displayF">
+            <div class="principalInfoTitulo"><h3>{{eventos[0]?.nombre}}</h3></div>
+            <div class=""><h3>{{eventos[0]?.descripcion}}</h3></div>
+            <div class="principalInfoCompra displayF"><a class="displayF" routerLink="/eventos/evento/{{eventos[0].id}}">Compra tus entradas</a></div>
+        </div>
+        <img src="{{eventos[0]?.imagenes[0].url}}" alt="" class="logoPrincipal">
     </div>
-</section>
 
-<section class="container-fluid " style="margin-top: 0%; margin-bottom: 5%; text-align: center;">
+</div>
+
+<section class="container-fluid fondo-rosado" style="margin-top: 0%; margin-bottom: 5%; text-align: center;">
+    <div class="row">
+        <div class="col-12">
+            <div class="proxEventsTiutlo ">
+                <h1>PROXIMOS EVENTOS</h1>
+            </div>
+        </div>
+    </div>
     <div class="row ">
 
         <div class="mt-md-3 col-6 col-sm-6  col-md-6  pl-sm-5 pr-sm-5 pl-md-2 pr-md-2 col-lg-4 col-xl-3 contenedor8"

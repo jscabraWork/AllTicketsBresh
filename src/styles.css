@@ -48,7 +48,7 @@
 }
 
 .barra{
-    background-color: rgba(16,36,56,1);
+    background-color: #d6758d;
     /* background-color:black; */
     
     width: 100%;
@@ -57,14 +57,14 @@
 }
 .botonBarra{
     color: white;
-    background: linear-gradient(#F9B84A, #ed701c); 
+    background: linear-gradient(#ecaebd, #aa5a6e); 
 }
 .textoFooter{
 
     color:white;
    
     text-align: center;
-   background-color: rgba(16,36,56,1);
+   background-color: #ecaebd;
 }
 .login
 {
@@ -73,7 +73,7 @@
 }
 .error
 {
-    color: #ed701c;
+    color: #ecaebd;
     text-align: center;
 }
 
@@ -107,7 +107,7 @@
 	bottom: 0;
 	left: 0;
     right: 0;
-    background: linear-gradient(rgba(236, 158, 40, 0.87), rgba(255, 80, 28, 0.87)); 
+    background: linear-gradient(#ecaebd, #aa5a6e); 
 	
 }
 
@@ -127,7 +127,7 @@
 }
 
 .titulos2{
-    background-color: #ed701c; color: white;text-align: center;
+    background-color: #ecaebd; color: white;text-align: center;
 }
 
 #prueba2
@@ -419,7 +419,7 @@
 
 .fondo{
    
-    color: #ed701c;
+    color: #ecaebd;
     text-align: center;
 }
 
@@ -490,7 +490,7 @@
     
 
 .linea {
-    border-top: 1px solid #ed701c;
+    border-top: 1px solid #ecaebd;
     height: 2px;
     max-width: 200px;
     padding: 0;
@@ -520,14 +520,14 @@
     border-left:5px solid green;
 }
 .contenedor8:hover .action_button {
-    background: linear-gradient(#F9B84A, #ed701c); 
+    background: linear-gradient(#ecaebd, #aa5a6e); 
 
 }
 
 
 
 .action_button:hover {
-    background: linear-gradient(#F9B84A, #ed701c); 
+    background: linear-gradient(#ecaebd, #aa5a6e); 
     color: #fff; 
 }
 
@@ -536,7 +536,7 @@
     
 }
 .colorNaranja{
-    color: #ed701c;
+    color: #ecaebd;
 }
 .colorMorado{
     color:#ff00c9;
@@ -579,7 +579,7 @@
   }
 
   .aaa {
-    border: 2px solid #ed701c;
+    border: 2px solid #ecaebd;
     
     height: 0px;
     width: 100px;
@@ -726,7 +726,7 @@
 
         .outerLink2
         {
-            background-color:#ff5b00; 
+            background-color:#ecaebd; 
             display:block; 
             opacity:1;
             filter:alpha(opacity=100);
@@ -756,7 +756,7 @@
     .prueba6
     {
     text-align: center;
-	background: linear-gradient(rgba(236, 158, 40, 0.9), rgba(255, 80, 28, 0.9)); 
+    background: linear-gradient(#ecaebd, #aa5a6e); 
     }
 
 

@@ -12,4 +12,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  gracias(){
+    alert("Gracias por su inscripción");
+  }
 }

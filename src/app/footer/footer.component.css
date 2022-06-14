@@ -1,5 +1,5 @@
 .terminos{
-    color: #ed701c;
+    color: #155596;
 }
 .clearfix{
     clear: both;
@@ -10,7 +10,7 @@
     
     width: 100%;
     padding: 30px;
-    background: rgba(16,36,56,1);
+    background-color: #ecaebd;
     color: white;
     overflow: hidden;
     font-family: sans-serif;

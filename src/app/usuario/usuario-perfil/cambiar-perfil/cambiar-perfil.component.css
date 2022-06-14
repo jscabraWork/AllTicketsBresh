@@ -5,17 +5,17 @@
    
 }
 .botonesCerrar{
-    color: #ed701c;
+    color: #ecaebd;
 }
 .colorLetras{
-    color:#ed701c;
+    color:#ecaebd;
 }
 .centrarTexto{
     text-align: center;
 }
 
 .botonLogin{
-    background: linear-gradient(#F9B84A, #ed701c); 
+    background: linear-gradient(#ecaebd, #aa5a6e); 
     width: 100%;
     color:white;
 }

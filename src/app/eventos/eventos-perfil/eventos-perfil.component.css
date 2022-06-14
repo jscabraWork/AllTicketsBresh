@@ -1,5 +1,5 @@
 .botonLogin {
-  background: linear-gradient(#f9b84a, #ed701c);
+  background: linear-gradient(#ecaebd, #aa5a6e); 
   width: 50%;
   color: white;
   border: white;
@@ -13,7 +13,7 @@
   border-radius: 0;
 }
 .botonComprar {
-  background: linear-gradient(#f9b84a, #ed701c);
+  background: linear-gradient(#ecaebd, #aa5a6e); 
   width: 150px;
   color: white;
   border: white;
@@ -22,7 +22,7 @@
   
 }
 .orange{
-  background: linear-gradient(#f9b84a, #ed701c);
+  background: linear-gradient(#ecaebd, #aa5a6e); 
   color: white;
   border: white;
   font-weight: bolder;
@@ -100,7 +100,7 @@
     padding: 10px 10px !important;
   }
   .orange{
-    background: linear-gradient(#f9b84a, #ed701c);
+    background: linear-gradient(#ecaebd, #aa5a6e); 
     color: white;
     border: white;
     font-weight: bolder;
@@ -178,7 +178,7 @@
 }
 #contador .contenedor p span {
   font-size: 21px;
-  color: #ff6600;
+  color: #ecaebd;  
 }
 
 @media (max-width: 767px) {
@@ -232,7 +232,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28));
+  background: linear-gradient(#ecaebd, #aa5a6e); 
 }
 
 #prueba9 h1 {
@@ -282,7 +282,7 @@ h3 {
 }
 
 .divisionLocalidad:hover .tituloLocalidad {
-  background: linear-gradient(#ed701c, #f9b84f);
+  background: linear-gradient(#ecaebd, #aa5a6e); 
 }
 
 .divisionLocalidad:hover {
@@ -298,20 +298,20 @@ h3 {
 
 .precioLocalidades {
   font-size: 21px;
-  color: #ed701c;
+  color: #ecaebd;
 }
 p {
   font-size: 16px;
 }
 .aaaa {
-  border: 2px solid #ed701c;
+  border: 2px solid #ecaebd;
 
   height: 0px;
   width: 70px;
 }
 
 .action_button:hover {
-  background: linear-gradient(#ed701c, #f9b84f);
+  background: linear-gradient(#ecaebd, #aa5a6e); 
 }
 
 .action_button {

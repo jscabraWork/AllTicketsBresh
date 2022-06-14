@@ -2,11 +2,11 @@
     text-align: center;
 }
 .colorLetras{
-    color:#ed701c;
+    color:#ecaebd;
 }
 
 .botonLogin{
-    background: linear-gradient(#F9B84A, #ed701c); 
+    background: linear-gradient(#ecaebd, #aa5a6e); 
     width: 100%;
     color:white;
 }
@@ -24,11 +24,11 @@ small{
     color:gray;
 }
 .terminos{
-    color: #ed701c;
+    color: #ecaebd;
     cursor: pointer;
 }
 .terminos:hover{
-    color: #c54f00;
+    color: #ecaebd;
 }
 h4{
     font-weight: bolder;

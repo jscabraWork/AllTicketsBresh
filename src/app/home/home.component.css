@@ -1,7 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 h3 a{
-    color: #ed701c;
+    color: #ecaebd;
     text-decoration: none;
     transition: all 700ms;
     padding: 20px;
@@ -14,5 +14,115 @@ h3 a{
 h3 a:hover{
     color: white;
     
-    background: linear-gradient(#F9B84A, #ed701c); 
+    background: linear-gradient(#ecaebd, #aa5a6e); 
+}
+
+
+.unete{
+    width: 100%;
+    background-color: #94b0e6;
+    margin-top: 3vw;
+    flex-flow: column;
+    text-align: center;
+}
+.uneteTexto{
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+    color: white;
+    width: 50%;
+}
+.uneteTexto h3{
+    font-size: 1.8vw;
+    font-weight: bold;
+}
+.uneteTexto p{
+    font-size: 1.4vw;
+}
+.uneteForm{
+    width: 100%;
+    margin-bottom: 2vw;
+    margin-top: 1vw;
+    flex-flow: column;
+}
+.uneteForm input{
+    border: 3px solid white;
+    background: none;
+    height: 3vw;
+    width: 30%;
+    color: white;
+    text-align: center;
+    font-size: 1.4vw;
+}
+.uneteForm input::placeholder {
+    color: rgba(255, 255, 255, 0.589);
+    font-size: 1.2vw;
+}
+.displayF{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.uneteForm button{
+    margin-top: 2vw;
+    font-size: 1.4vw;
+    font-weight: bold;
+    height: 3vw;
+    width: 13vw;
+    color: white;
+    background-color: #567cc4;
+    border-radius: 1.5vw;
+}
+.uneteForm button:hover{
+    color: white;
+    background-color: #345289;
+}
+@media(max-width:700px){
+    .uneteTexto{
+        margin-top: 2vw;
+        margin-bottom: 1vw;
+        color: white;
+        width: 50%;
+    }
+    .uneteTexto h3{
+        font-size: 4vw;
+        font-weight: bold;
+    }
+    .uneteTexto p{
+        font-size: 3vw;
+    }
+
+    .uneteForm{
+        width: 100%;
+        margin-bottom: 3vw;
+        margin-top: 2vw;
+        flex-flow: column;
+    }
+    .uneteForm input{
+        border: 3px solid white;
+        background: none;
+        height: 6vw;
+        width: 70%;
+        color: white;
+        text-align: center;
+        font-size: 15vw;
+    }
+    .uneteForm input::placeholder {
+        color: rgba(255, 255, 255, 0.589);
+        font-size: 4vw;
+    }
+
+    .uneteForm button{
+        margin-top: 2vw;
+        font-size: 2vw;
+        font-weight: bold;
+        height: 7vw;
+        width: 20vw;
+        color: white;
+        background-color: #567cc4;
+        border-radius: 1.5vw;
+    }
+    .uneteForm button:hover{
+        color: white;
+        background-color: #345289;
+    }
 }

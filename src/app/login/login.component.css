@@ -14,7 +14,7 @@
     width: 100%;
 }
 .contenederoLogin:hover .fondoLogin{ 
-    background: linear-gradient(#F9B84A, #ed701c); 
+    background: linear-gradient(#ecaebd, #aa5a6e); 
 }
 
 p{
@@ -22,10 +22,10 @@ p{
 }
 
 .colorLetras{
-    color:#ed701c;
+    color:#ecaebd;
 }
 .botonLogin{
-    background: linear-gradient(#F9B84A, #ed701c); 
+    background: linear-gradient(#ecaebd, #aa5a6e); 
     width: 100%;
     color:white;
 }
@@ -38,12 +38,12 @@ p{
 .botonCrearCuenta{
     background: white; 
     width: 50%;
-    color: #ed701c;
-    border-color: #ed701c;
+    color: #ecaebd;
+    border-color: #ecaebd;
 }
 .botonesCerrar{
 	background-color:white; 
-	color:#ed701c  ;
+	color:#ecaebd  ;
 
 }
 a{

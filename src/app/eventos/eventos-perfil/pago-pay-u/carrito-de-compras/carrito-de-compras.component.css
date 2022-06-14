@@ -1,5 +1,5 @@
 .tituloLocalidad{
-    background: linear-gradient(rgba(236, 158, 40), rgba(255, 80, 28)); 
+    background: linear-gradient(#ecaebd, #aa5a6e); 
     color:#FFF;
     padding: 2%;
     width: 100%;
@@ -23,7 +23,7 @@ font-size: 18px;
 }
 .frase{
     font-weight: bold;
-    color:#ed701c
+    color:#ecaebd
 }
 .btn-epayco{
     cursor: pointer;

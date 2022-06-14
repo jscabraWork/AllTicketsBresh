@@ -1,10 +1,21 @@
 mat-icon{
     font-size: 30px;
-    color: #ed701c;
+
     transition: all 400ms;
 }
-mat-icon:hover{
-    color: #f06000;
-
-    
+mat-icon,
+li a{
+color:#0b5294 !important;
+font-weight: bold;
 }
+mat-icon:hover,
+li a:hover{
+    color:#02172b; 
+}
+
+li :hover{
+    background-color:#a57984; 
+    color: white;
+    cursor: pointer;
+}
+
