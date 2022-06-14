@@ -272,7 +272,7 @@
 
 				<hr class="hrTicket">
 				
-				<div class="pt-2 "  *ngIf="localidad.id!=16909 &&localidad.id!=19777">
+				<div class="pt-2 "  *ngIf="localidad.id!=16909 &&localidad.id!=25137">
 					<h5 class="ticketTitulo" *ngIf="localidad.palcos.length>0 "><strong>Quedan Disponibles En esta etapa</strong></h5>
 
 					<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos.length>0"> <strong>
@@ -285,7 +285,7 @@
 
 				<div class="pt-2 " *ngIf="evento.adicionales.length == 0">
 
-					<h5 class="ticketTitulo"><strong>Precio Total <br *ngIf="localidad.id==16909 ||localidad.id==19777 ">  <span class="colorNaranja" *ngIf="localidad.id==16909 ||localidad.id==19777"> (Precio por persona)</span></strong></h5>
+					<h5 class="ticketTitulo"><strong>Precio Total <br *ngIf="localidad.id==16909 ||localidad.id==25137 ">  <span class="colorNaranja" *ngIf="localidad.id==16909 ||localidad.id==25137"> (Precio por persona)</span></strong></h5>
 					<p class="ticketNumero precioLocalidades"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje  | number: '1.0-0'}} COP</strong></p>
 					<p class="precios pr-3 pl-3 ">Precio + Servicio + IVA</p>
 					<p class="precios pr-3 pl-3 pb-3 margen-menor">{{localidad.precio| number: '1.0-0'}} COP + {{+localidad.servicio | number: '1.0-0'}} COP + {{localidad.servicioPorcentaje | number: '1.0-0'}} COP</p>

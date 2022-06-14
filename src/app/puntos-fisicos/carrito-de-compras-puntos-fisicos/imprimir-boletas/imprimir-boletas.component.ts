@@ -140,9 +140,9 @@ export class ImprimirBoletasComponent implements OnInit {
          var my_file = new PrintFilePDF(blobURL, FileSourceType.URL, 'TICKET'+this.boletas[i].id.toString()+i+'.pdf', 1);
 
 
-		
+        
         cpj.files.push(my_file);   
-
+        pdfData.save();
         // Send print job to printer!
         if(i == this.boletas.length-1){
           cpj.sendToClient();
@@ -183,7 +183,7 @@ export class ImprimirBoletasComponent implements OnInit {
           var my_file = new PrintFilePDF(blobURL, FileSourceType.URL, 'PALCO'+this.palco.id.toString()+i+'.pdf', 1);
           cpj.files.push(my_file);   
         }
-      
+        pdfData.save();
 
         console.log(cpj.files)
         // Send print job to printer!

@@ -36,5 +36,5 @@ getAllReservasParaOrganizador(pIdEvento){
 getEventoReserva(pIdReserva:number){
   return this.http.get<Evento>(`${API_URL}/reservas/evento/${pIdReserva}`)
 }
-ge
+
 }
