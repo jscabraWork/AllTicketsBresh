@@ -40,16 +40,24 @@ export class GrupoAvalComponent implements OnInit {
 
   manejar(){
 
-    
+    let arreglo=this.tarjeta.cardNumber.split(" ")
+    this.tarjeta.cardNumber=""
+    for(let i=0;i<arreglo.length;i++){
+      if(arreglo[i]!=""){
+        this.tarjeta.cardNumber+=arreglo[i]
+      }
+    }
     if(!this.cargando){
       this.cargando = true
     this.servicio.crearToken(this.token, this.tarjeta).subscribe(response=>{
       
+        if(response.data.card){
       this.tokenT = response.data.id
       this.mask = response.data.card.mask
       this.bin = this.mask.split("*")[0]
+      console.log(this.bin)
 
-      this.binservice.getBin(this.mask).subscribe(response=>{
+      this.binservice.getBin(this.bin).subscribe(response=>{
 
         if(response!=null){
           this.dialogRef.close(true)
@@ -63,8 +71,14 @@ export class GrupoAvalComponent implements OnInit {
         this.dialogRef.close(false)
       }
       )
+    }
+    else{
+      alert(response.data.error.errors)
+      this.cargando=false
+    }
     },
     error=>{
+      
       error
       this.dialogRef.close(false)
     })
