@@ -9,11 +9,13 @@ import { EtapasDataService } from 'src/app/service/data/etapas-data.service';
 import { EventoDataService } from 'src/app/service/data/evento-data.service';
 import { PalcosDataService } from 'src/app/service/data/palcos-data.service';
 import { PromotorDataService } from 'src/app/service/data/promotor-data.service';
+
 import { ReservasDataService } from 'src/app/service/data/reservas-data.service';
 import { HardcodedAutheticationService } from 'src/app/service/hardcoded-authetication.service';
 import { Promotor } from '../../promotor.model';
 import { ReservarComponent } from './reservar/reservar.component';
-
+import { LocalidadesDataService } from 'src/app/service/data/localidades-data.service';
+import { ReservarBoletasComponent } from './reservar/reservar-boletas/reservar-boletas.component';
 @Component({
   selector: 'app-localidad-promotor',
   templateUrl: './localidad-promotor.component.html',
@@ -30,6 +32,8 @@ export class LocalidadPromotorComponent implements OnInit {
   cargando:boolean
   uso:boolean
   vender:boolean 
+  cantidad:number
+  
   constructor(private servicio: PromotorDataService,
     private autenticador: HardcodedAutheticationService
     , private route: ActivatedRoute,
@@ -37,10 +41,14 @@ export class LocalidadPromotorComponent implements OnInit {
     private service: EventoDataService,
     private etapaServicio: EtapasDataService,
     private palcoServicio: PalcosDataService,
-    private reservaServicio: ReservasDataService) { }
+    private reservaServicio: ReservasDataService,
+
+    private servicioLocalidad: LocalidadesDataService
+    ) { }
 
 
   ngOnInit(): void {
+    this.cantidad=0
     this.vender =false
     this.uso=true
     this.cargando=false
@@ -122,8 +130,15 @@ export class LocalidadPromotorComponent implements OnInit {
                   this.localidad = this.etapas[i].localidades[j];
                 }
               }
+  
+            
             }
-         
+            let numeros = [this.localidad.id]
+            this.servicioLocalidad.getBoletasLocalidades(numeros).subscribe(response=>{
+              console.log(response)
+              this.localidad.boletas = response[0]
+            })
+            
               var contador =this.localidad.maximoVender;
               for(var i =0; i < this.localidad.palcos.length; i=i+1){
                 if(this.localidad.palcos[i].vendido==true || this.localidad.palcos[i].proceso==true|| this.localidad.palcos[i].reservado==true){
@@ -274,4 +289,32 @@ export class LocalidadPromotorComponent implements OnInit {
       this.ngOnInit()
     })
   }
+
+  reservarBoletasPorLocalidad() {
+    this.cantidad = this.cantidad+1;
+  }
+  quitaBoletaLocalidad(){
+    if(this.cantidad>0){
+    this.cantidad = this.cantidad-1;
+    }
+  }
+
+  reservarBoleta(){
+  if(this.cantidad>0 && !this.cargando){
+    this.cargando = true
+    const dialogRef = this.dialog.open(ReservarBoletasComponent, {
+      width: '70%',
+      height: '60%',
+
+      data: {
+        cantidad: this.cantidad,
+        localidad:this.localidad.id,
+        promotor: this.promotor.numeroDocumento
+      },
+    });
+    dialogRef.afterClosed().subscribe(result=>{
+      this.ngOnInit()
+    })
+  }
+}
 }

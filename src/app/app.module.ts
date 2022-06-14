@@ -50,6 +50,7 @@ import { TokenInterceptor } from './service/interceptors/token.interceptor';
 import { AuthInterceptor } from './service/interceptors/auth.interceptor';
 import { MensajeLinkComponent } from './mensaje-link/mensaje-link.component';
 import { TerminosAvalComponent } from './terminos-aval/terminos-aval.component';
+import { ReservaBoletaComponent } from './reserva-boleta/reserva-boleta.component';
 
 //SERVICIOS
 
@@ -100,7 +101,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
      ReservasPromotorComponent,
      CoordinadorPerfilComponent,
      MensajeLinkComponent,
-     TerminosAvalComponent
+     TerminosAvalComponent,
+     ReservaBoletaComponent,
+     
     
 
   

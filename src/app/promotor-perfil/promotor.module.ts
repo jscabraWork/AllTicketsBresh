@@ -14,6 +14,7 @@ import { EventoPromotorComponent } from './evento-promotor/evento-promotor.compo
 import { LocalidadPromotorComponent } from './evento-promotor/localidad-promotor/localidad-promotor.component';
 import { ReservarComponent } from './evento-promotor/localidad-promotor/reservar/reservar.component';
 import { LinkComponent } from './evento-promotor/localidad-promotor/reservar/link/link.component';
+import { ReservarBoletasComponent } from './evento-promotor/localidad-promotor/reservar/reservar-boletas/reservar-boletas.component';
 
 
 
@@ -49,7 +50,7 @@ const routes: Routes=[
 
 @NgModule({
 
-    declarations:[PromotorPerfilComponent, EventoPromotorComponent, LocalidadPromotorComponent, ReservarComponent, LinkComponent],
+    declarations:[PromotorPerfilComponent, EventoPromotorComponent, LocalidadPromotorComponent, ReservarComponent, LinkComponent, ReservarBoletasComponent],
     imports:[
         CommonModule,
         RouterModule.forChild(routes), 

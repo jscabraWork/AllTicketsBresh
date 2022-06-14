@@ -30,17 +30,8 @@
             <td>{{localidad.precio +localidad.servicio + localidad.servicioPorcentaje| number: '1.0-0'}} COP</td>
             
             
-            <td *ngIf="localidad.palcos.length>0" class="border"> <button class="btn action_button" routerLink="{{localidad.id}}">Ver Palcos</button></td> 
-            <td *ngIf="evento?.mapa &&localidad.palcos.length==0"  class="border">
-                <a href="https://allticketscol.com/eventos/evento/{{evento.id}}/pago/palco/mapa/{{promotor?.usuario}}">
-                    https://allticketscol.com/eventos/evento/{{evento.id}}/pago/palco/mapa/{{promotor?.usuario}}
-                </a>
-            </td>
-            <td *ngIf="!evento?.mapa &&localidad.palcos.length==0" class="border"> 
-                <a href="https://allticketscol.com/eventos/evento/{{evento?.id}}/pago/{{localidad?.id}}/{{promotor?.usuario}}/promotor">
-                    https://allticketscol.com/eventos/evento/{{evento?.id}}/pago/{{localidad?.id}}/{{promotor?.usuario}}/promotor
-                </a>
-            </td> 
+            <td class="border"> <button class="btn action_button" routerLink="{{localidad.id}}">Vender</button></td> 
+
         </tr>
     </tbody>
 </table>

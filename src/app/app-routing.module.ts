@@ -30,6 +30,7 @@ import { RouteGuardCoordinadorService } from './service/route-guard-coordinador.
 import { CoordinadorPerfilComponent } from './coordinador-perfil/coordinador-perfil.component';
 import { AdminLectorComponent } from './administradores/admin-perfil/admin-eventos/admin-lector/admin-lector.component';
 import { TerminosAvalComponent } from './terminos-aval/terminos-aval.component';
+import { ReservaBoletaComponent } from './reserva-boleta/reserva-boleta.component';
 
 
 const routes: Routes = [
@@ -44,6 +45,13 @@ const routes: Routes = [
   component:ReservasPromotorComponent
 }
   ,
+
+  {
+    path:'comprar/boletas/:id',
+    component:ReservaBoletaComponent
+  }
+    ,
+  
 
   {
     path:'usuarios', 

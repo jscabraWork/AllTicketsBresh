@@ -4,13 +4,13 @@
 			
     <h1><strong>{{evento.nombre}}</strong></h1> 
     <small  style="font-size: 24px;"> <strong> {{localidad.nombre}} </strong></small>
-    <small *ngIf="!vender">Palcos terminados en esta etapa de ventas espera que se libere uno</small>
+    <small *ngIf="!vender  && localidad.palcos.length>0">Palcos terminados en esta etapa de ventas espera que se libere uno</small>
     
     
 </div>
 
 
-<section class="container mt-5">
+<section class="container mt-5" *ngIf="localidad.palcos.length>0">
 
 <div class="container">
 <table class="table mt-3 border rounded tabla" >
@@ -40,4 +40,46 @@
     </tbody>
 </table>
 </div>
+</section>
+
+<section class="container mt-5" *ngIf="localidad.boletas!=undefined&&localidad.boletas.length>0">
+    <div class="row">
+        <div class="col-12 esconder">
+       
+            <table class="table mt-2 tabla border shadow-xs p-3" style="text-align: center;">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Cantidad</th>
+                 
+                  <th>Precio + Servicio + IVA</th>
+  
+  
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>{{localidad?.nombre }}</strong></td>
+                  <td>
+                    <button class="pr-2 pl-2 rounded-circle  " (click)="quitaBoletaLocalidad()">-</button>
+                    {{cantidad}}
+                    <button class=" rounded-circle  " (click)="reservarBoletasPorLocalidad()">+</button>
+                  </td>
+   
+                  <td ><strong>{{localidad.precio | currency: 'COP'}}</strong> + <strong>{{localidad.servicio|
+                      currency:'COP'}} </strong> + <strong>{{localidad.servicioPorcentaje|currency:'COP'}}</strong></td>
+  
+  
+  
+                </tr>
+              </tbody>
+            </table>
+            <h5><strong>
+                Valor Total: {{localidad.precio * cantidad + localidad.servicio * cantidad + localidad.servicioPorcentaje * cantidad | currency: 'COP'}}
+            </strong></h5>
+            <button class="btn action_button" (click)="reservarBoleta()">
+                Crear Link de compra
+            </button>
+          </div>
+    </div>
 </section>

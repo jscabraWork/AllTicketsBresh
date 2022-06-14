@@ -102,7 +102,7 @@
         <h4 class="mt-3"><strong>Mis Links de venta</strong> </h4>
         <div *ngFor="let eventoP of promotor.eventos">
             
-            <h5 class="pl-4">
+            <h5 class="pl-4" *ngIf="eventoP.oculto || eventoP.visible">
                 {{eventoP.nombre}}:
                 <a class="link-large" *ngIf=" eventoP.mapa" href="https://allticketscol.com/eventos/evento/{{eventoP.id}}/pago/palco/mapa/{{promotor?.usuario}}">
                     https://allticketscol.com/eventos/evento/{{eventoP.id}}/pago/palco/mapa/{{promotor?.usuario}}

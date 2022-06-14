@@ -1,0 +1,27 @@
+<div class="container mt-2 mb-5">
+
+    <div class="row">
+        <div class="col-12 shadow-lg rounded p-4 fondoNegro">
+            <mat-icon class="float-right rounded pt-2 pb-2 pl-3 pr-3 botonesCerrar" mat-button mat-dialog-close>
+                cancel_presentation</mat-icon>
+            <div class="centrarTexto">
+                <h3 class="colorLetras"><strong>Ingresa el numero de documento de la persona de la reserva</strong></h3>
+
+            </div>
+            <hr>
+
+
+            <form (ngSubmit)="!todoForm.invalid && reservar()" class="mt-4" #todoForm="ngForm">
+                <fieldset class="form-group">
+                    <input type="number" class="form-control " name="nombre" required="required"
+                        [(ngModel)]="reserva.numeroDocumentoReserva">
+                </fieldset>
+
+                <div style="text-align: center;">
+                    <button class="btn botonLogin mt-2 mb-3" type="submit">Reservar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
