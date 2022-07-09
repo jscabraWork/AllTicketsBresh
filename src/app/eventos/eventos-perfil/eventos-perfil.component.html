@@ -215,9 +215,352 @@
 	</div>
 </div>
 
+<section class="container-fluid  mt-2 tablappctablet" *ngIf="etapas.length > 0 && localidades.length >= 0 && (evento.mapa)">
+	<div class="allw">
+		<table class="allw centrar ffc tablatck">
+				<tr class="allw">
+					<td class="theader">
+						<div class="centrar">
+							Localidad
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p class="smallh">Personas por Palco/Ticket</p>
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p>Precio</p>
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p>Servicio</p>
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p>IVA</p>
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p>Precio Total</p>
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p  class="smallh">Palcos Disponibles en esta Etapa</p>
+						</div>
+					</td>
+				</tr>
+				<tr class="allw" *ngFor="let localidad of localidades" >
+					<td class="tbody">
+						<div *ngIf="localidad.palcos.length==0 &&!evento.mapa">
+							<h3 class="localidadNombre"><strong> {{localidad.nombre}} </strong></h3>
+						</div>
+		
+		
+						<div *ngIf="evento.mapa">
+							<h3 class="localidadNombre"><strong> {{localidad.nombre}}</strong></h3>
+							
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar">
+							<div class="" *ngIf="localidad.palcos.length>0">
+			
+								<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
+								<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
+							</div>
+			
+							<div class="" *ngIf="localidad.palcos.length==0">
+			
+								<p class="ticketNumero precioLocalidades"> <strong> 1</strong></p>
+							</div>
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar">
+							<p class="localidadPrecio smallp"><strong>{{localidad.precio| number: '1.0-0'}} COP</strong></p>
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar">
+							<p class="localidadPrecio smallp"><strong>{{localidad.servicio| number: '1.0-0'}} COP</strong></p>
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar">
+							<p class="localidadPrecio smallp"><strong>{{localidad.servicioPorcentaje| number: '1.0-0'}} COP</strong></p>
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar">
+							<h5 class="ticketTitulo"><strong><br *ngIf="localidad.id==16909 ||localidad.id==25137 ">  <span class="colorNaranja" *ngIf="localidad.id==16909 ||localidad.id==25137"> (Precio por persona)</span></strong></h5>
+							<p class="localidadPrecio"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje  | number: '1.0-0'}} COP</strong></p>
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar">
+							<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos.length>0"> <strong> {{ darCantidadDePalcosDisponiblesEtapas(localidad)}}</strong></p>
+						</div>
+					</td>
+				</tr>
+		</table>
+	</div>
+</section>
 
-<section class="container-fluid  mt-1  "
-	*ngIf="etapas.length > 0 && localidades.length >= 0 && (evento.mapa)">
+<section class="container-fluid  mt-2 tablapmovil" *ngIf="etapas.length > 0 && localidades.length >= 0 && (evento.mapa)">
+	<div class="allw">
+		<table class="allw centrar ffc tablatck">
+				<tr class="allw">
+					<td class="theader2l">
+						<div class="centrar">
+							<p>Localidad</p>
+						</div>
+					</td>
+					<td class="theader2c">
+						<div class="centrar">
+							<p class="smallh">Personas por Palco / Ticket</p>
+						</div>
+					</td>
+					<td class="theader2l">
+						<div class="centrar ffc">
+							<p class="strongTabla">Precio Total</p>
+							<p>precio + servicio + IVA</p>
+						</div>
+					</td>
+					<td class="theader2c">
+						<div class="centrar">
+							<p  class="smallh">Palcos Disponibles en esta Etapa</p>
+						</div>
+					</td>
+				</tr>
+				
+				<tr class="allw" *ngFor="let localidad of localidades" >
+					<td class="tbody2l">
+						<div *ngIf="localidad.palcos.length==0 &&!evento.mapa">
+							<h3 class="localidadNombre"><strong> {{localidad.nombre}} </strong></h3>
+						</div>
+		
+		
+						<div *ngIf="evento.mapa">
+							<h3 class="localidadNombre"><strong> {{localidad.nombre}}</strong></h3>
+							
+						</div>
+					</td>
+					<td class="tbody2c">
+						<div class="centrar">
+							<div class="" *ngIf="localidad.palcos.length>0">
+			
+								<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
+								<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
+							</div>
+			
+							<div class="" *ngIf="localidad.palcos.length==0">
+			
+								<p class="ticketNumero precioLocalidades"> <strong> 1</strong></p>
+							</div>
+						</div>
+					</td>
+					<td class="tbody2l">
+						<div class="centrar ffc" *ngIf="evento.adicionales.length == 0">
+							<h5 class="ticketTitulo"><strong><br *ngIf="localidad.id==16909 ||localidad.id==25137 ">  <span class="colorNaranja" *ngIf="localidad.id==16909 ||localidad.id==25137"> (Precio por persona)</span></strong></h5>
+							<p class="localidadPrecio"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje  | number: '1.0-0'}} COP</strong></p>
+							<p class="precios pr-3 pl-3 pb-3">{{localidad.precio| number: '1.0-0'}} COP + {{+localidad.servicio | number: '1.0-0'}} COP + {{localidad.servicioPorcentaje | number: '1.0-0'}} COP</p>
+						</div>
+					</td>
+					<td class="tbody2c">
+						<div class="centrar">
+							<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos.length>0"> <strong> {{ darCantidadDePalcosDisponiblesEtapas(localidad)}}</strong></p>
+						</div>
+					</td>
+				</tr>
+		</table>
+	</div>
+</section>
+
+<section class="container-fluid  mt-2 tablappctablet" *ngIf="etapas.length > 0 && (!evento.mapa)">
+	<div class="allw">
+		<table class="allw centrar ffc tablatck">
+				<tr class="allw">
+					<td class="theader">
+						<div class="centrar">
+							Localidad
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p class="smallh">Personas por Ticket</p>
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p>Precio</p>
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p>Servicio</p>
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p>IVA</p>
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p>Precio Total</p>
+						</div>
+					</td>
+					<td class="theader">
+						<div class="centrar">
+							<p  class="smallh">Comprar</p>
+						</div>
+					</td>
+				</tr>
+				<tr class="allw" *ngFor="let localidad of localidades" >
+					<td class="tbody">
+						<div *ngIf="localidad.palcos.length==0 &&!evento.mapa">
+							<h3 class="localidadNombre"><strong> {{localidad.nombre}} </strong></h3>
+						</div>
+		
+		
+						<div *ngIf="evento.mapa">
+							<h3 class="localidadNombre"><strong> {{localidad.nombre}}</strong></h3>
+							
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar">
+							<div class="" *ngIf="localidad.palcos.length>0">
+			
+								<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
+								<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
+							</div>
+			
+							<div class="" *ngIf="localidad.palcos.length==0">
+			
+								<p class="ticketNumero precioLocalidades"> <strong> 1</strong></p>
+							</div>
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar">
+							<p class="localidadPrecio smallp"><strong>{{localidad.precio| number: '1.0-0'}} COP</strong></p>
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar">
+							<p class="localidadPrecio smallp"><strong>{{localidad.servicio| number: '1.0-0'}} COP</strong></p>
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar">
+							<p class="localidadPrecio smallp"><strong>{{localidad.servicioPorcentaje| number: '1.0-0'}} COP</strong></p>
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar">
+							<h5 class="ticketTitulo"><strong><br *ngIf="localidad.id==16909 ||localidad.id==25137 ">  <span class="colorNaranja" *ngIf="localidad.id==16909 ||localidad.id==25137"> (Precio por persona)</span></strong></h5>
+							<p class="localidadPrecio"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje  | number: '1.0-0'}} COP</strong></p>
+						</div>
+					</td>
+					<td class="tbody">
+						<div class="centrar allw">
+							<div class="allw" *ngIf="localidad.palcos.length==0 &&!evento.mapa">
+								<button class="botonLogin botonCompra rounded pt-2 pb-2 fontComprar" routerLink="pago/{{localidad.id}}">Comprar</button>
+							</div>
+							<div class="allw" *ngIf="localidad.palcos.length>0" >
+								<button class="botonLogin btnLog botonCompra rounded pt-2 pb-2 fontComprar" routerLink="pago/palco/{{localidad.id}}">Comprar</button>
+							</div>
+						</div>
+					</td>
+				</tr>
+		</table>
+	</div>
+</section>
+
+<section class="container-fluid  mt-2 tablapmovil" *ngIf="etapas.length > 0 && (!evento.mapa)">
+	<div class="allw">
+		<table class="allw centrar ffc tablatck">
+				<tr class="allw">
+					<td class="theader4l">
+						<div class="centrar">
+							<p>Localidad</p>
+						</div>
+					</td>
+					<td class="theader2c">
+						<div class="centrar">
+							<p class="smallh">Personas por Palco / Ticket</p>
+						</div>
+					</td>
+					<td class="theader2l">
+						<div class="centrar ffc">
+							<p class="strongTabla">Precio Total</p>
+							<p>precio + servicio + IVA</p>
+						</div>
+					</td>
+					<td class="theader3c">
+						<div class="centrar">
+							<p  class="smallh">Comprar</p>
+						</div>
+					</td>
+				</tr>
+				
+				<tr class="allw" *ngFor="let localidad of localidades" >
+					<td class="tbody4l">
+						<div *ngIf="localidad.palcos.length==0 &&!evento.mapa">
+							<h3 class="localidadNombre2"><strong> {{localidad.nombre}} </strong></h3>
+						</div>
+		
+		
+						<div *ngIf="evento.mapa">
+							<h3 class="localidadNombre2"><strong> {{localidad.nombre}}</strong></h3>
+							
+						</div>
+					</td>
+					<td class="tbody2c">
+						<div class="centrar">
+							<div class="" *ngIf="localidad.palcos.length>0">
+			
+								<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones>0"> <strong> {{ localidad.palcos[0].maximoAdiciones-localidad.palcos[0].adiciones}}</strong></p>
+								<p class="ticketNumero precioLocalidades" *ngIf="localidad.palcos[0].adiciones==0"> <strong> {{ localidad.palcos[0].personasMaximas}}</strong></p>
+							</div>
+			
+							<div class="" *ngIf="localidad.palcos.length==0">
+			
+								<p class="ticketNumero precioLocalidades"> <strong> 1</strong></p>
+							</div>
+						</div>
+					</td>
+					<td class="tbody2l">
+						<div class="centrar ffc" *ngIf="evento.adicionales.length == 0">
+							<h5 class="ticketTitulo"><strong><br *ngIf="localidad.id==16909 ||localidad.id==25137 ">  <span class="colorNaranja" *ngIf="localidad.id==16909 ||localidad.id==25137"> (Precio por persona)</span></strong></h5>
+							<p class="localidadPrecio"> <strong> {{localidad.precio +localidad.servicio + localidad.servicioPorcentaje  | number: '1.0-0'}} COP</strong></p>
+							<p class="precios pr-3 pl-3 pb-3">{{localidad.precio| number: '1.0-0'}} COP + {{+localidad.servicio | number: '1.0-0'}} COP + {{localidad.servicioPorcentaje | number: '1.0-0'}} COP</p>
+						</div>
+					</td>
+					<td class="tbody3c">
+						<div class="centrar allw">
+							<div class="allw" *ngIf="localidad.palcos.length==0 &&!evento.mapa">
+								<button class="botonLogin botonCompra rounded pt-2 pb-2 fontComprar" routerLink="pago/{{localidad.id}}">Comprar</button>
+							</div>
+							<div class="allw" *ngIf="localidad.palcos.length>0" >
+								<button class="botonLogin btnLog botonCompra rounded pt-2 pb-2 fontComprar" routerLink="pago/palco/{{localidad.id}}">Comprar</button>
+							</div>
+						</div>
+					</td>
+				</tr>
+		</table>
+	</div>
+</section>
+
+
+<!--<section class="container-fluid  mt-1  " *ngIf="etapas.length > 0 && localidades.length >= 0 && (evento.mapa)">
 	<div class="row">
 		<div class="col-6 col-md-6 col-lg-4 col-xl-3 mt-3  divisionLocalidad2 " *ngFor="let localidad of localidades"
 			style="text-align: center;">
@@ -278,10 +621,10 @@
 		</div>
 
 	</div>
-</section>
+</section>-->
 
 
-<section class="container-fluid  mt-1  " *ngIf="etapas.length > 0 && (!evento.mapa)">
+<!--<section class="container-fluid  mt-1  " *ngIf="etapas.length > 0 && (!evento.mapa)">
 	<div class="row">
 
 
@@ -352,7 +695,7 @@
 	</div>
 
 
-</section>
+</section>-->
 
 
 

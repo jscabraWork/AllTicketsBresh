@@ -12,6 +12,86 @@
 .largo{
   border-radius: 0;
 }
+.allw{
+  width: 100%;
+}
+.tablapmovil{
+  display: none;
+}
+.ffc{
+  flex-flow: column !important;
+}
+.theader,.tbody{
+  width: 14vw;
+  min-width: 98px;
+}
+.theader2l,.tbody2l{
+  width: 35vw;
+}
+.theader4l,.tbody4l{
+  width: 25vw;
+}
+.theader3l,.tbody3l{
+  width: 20vw;
+}
+.theader3c,.tbody3c{
+  width: 25vw;
+}
+.theader2c,.tbody2c{
+  width: 15vw;
+}
+.theader,.theader2l,.theader2c,.theader3l,.theader3c,.theader4l{
+  background: linear-gradient(#666, #333);
+  color: white;
+  height: 50px;
+  border: 2px solid black;
+}
+.theader2l p,.theader3l p,.theader4l p{
+  font-size: 11px;
+}
+.strongTabla{
+  font-size: 13px !important;
+  font-weight: bold;
+}
+.fontComprar{
+  font-size: 1.5vw !important;
+  width: 65% !important;
+}
+.tbody,.tbody2l,.tbody2c,.tbody3l,.tbody3c,.tbody4l{
+  background: linear-gradient(rgb(255, 255, 255), rgb(234, 234, 234));
+  color: black;
+  height: 50px;
+  border: 2px solid black;
+  padding: 5px;
+}
+.centrar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.centrar p{
+  margin-bottom: 0 !important;
+}
+.smallh{
+  font-size: 13px !important;
+}
+.smallp{
+  font-size: 13px !important;
+  color:rgb(73, 73, 73) !important;
+}
+.localidadNombre{
+  font-size: 17px;
+  margin-bottom: 0 !important;
+}
+.localidadNombre2{
+  font-size: 15px;
+  margin-bottom: 0 !important;
+}
+.localidadPrecio{
+  font-size: 16px;
+  color: #ecaebd;
+}
 .botonComprar {
   background: linear-gradient(#ecaebd, #aa5a6e); 
   width: 150px;
@@ -97,7 +177,7 @@
   }
   .botonCompra{
     font-size: 12px !important;
-    padding: 10px 10px !important;
+    padding: 10px 5px !important;
   }
   .orange{
     background: linear-gradient(#ecaebd, #aa5a6e); 
@@ -179,6 +259,13 @@
 #contador .contenedor p span {
   font-size: 21px;
   color: #ecaebd;  
+}
+
+@media (min-width: 979px){
+  .fontComprar{
+    font-size: 1vw !important;
+    width: 50% !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -393,7 +480,24 @@ td {
     .esconder{
       overflow-x: scroll;
   }
-  
+  .tablappctablet{
+    display:  none;
+  }
+  .tablapmovil{
+    display: initial;
+  }
+  .smallh{
+    font-size: 9px !important;
+  }
+  .localidadPrecio{
+    font-size: 13px!important;
+  }
+  .precios{
+    font-size: 8px !important;
+  }
+  .fontComprar{
+    width: 90% !important;
+}
 }
 
 .margen-menor{
